@@ -1,0 +1,25 @@
+.el-menu.el-menu--horizontal {
+  border-bottom: none;
+}
+.el-menu,
+.el-menu-item {
+  transition: .5s;
+}
+
+.el-drawer__header {
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: #f89b40;
+    color: #fff;
+}
+
+.el-drawer {
+  width: 220px !important;
+}
+@media screen and (min-width: 769px) {
+  .v-modal,
+  .el-dialog__wrapper,
+  .el-drawer {
+    display: none !important;
+  }
+}

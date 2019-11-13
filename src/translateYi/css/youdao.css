@@ -1,0 +1,107 @@
+.translation{
+	
+}
+.translation .language{
+	position: relative;
+	width: 200px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	padding: 10px 20px;
+	color: #333;
+	cursor: pointer;
+}
+.language .select-text{
+	color: #48b134;
+	width: 200px;
+	height: 100%;
+}
+.language:hover .select-text{
+	color: #48b134;
+}
+.language ul{
+	display: none;
+	width: 280px;
+	padding: 18px 10px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+    border-radius: 4px;
+    position: absolute;
+    z-index: 2;
+    top: 49px;
+    left: 0;
+    font-size: 14px;
+}
+.language ul li{
+	width: 108px;
+	line-height: 30px;
+	padding: 0 10px;
+	margin: 4px;
+    float: left;
+    cursor: pointer;
+    color: #595959;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.language ul li:nth-child(2n){
+	margin-left: 10px;
+}
+.language ul li:hover{
+	background-color: #8accff;
+}
+.language ul .active{
+	background-color: rgba(0,0,0,.1);
+}
+.translation .machine-translation{
+	padding: 10px 20px;
+	background-color: #48b134;
+	border-radius: 6px;
+	color: #fff;
+	margin-left: 15px;
+}
+.translation .man-translation{
+	padding: 10px 20px;
+	border-radius: 6px;
+	color: #48b134;
+	border: 1px solid #48b134;
+	margin-left: 5px;
+}
+.machine-translation:hover{
+	background-color: #2996ea;
+}
+.man-translation:hover{
+	color: #fff;
+	background-color: #2996ea;
+}
+/*#258ad8*/
+.translation-left{
+	margin-top: 20px;
+	width: 500px;
+	height: 300px;
+	border-radius: 10px;
+}
+.translation-left textarea{
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	line-height: 30px;
+	font-size: 24px;
+	color: #333;
+	background-color: #f6f6f6;
+	resize:none;
+	border-radius: 10px;
+	overflow: hidden;
+	border: none;
+}
+.translation-right{
+	width: 500px;
+	height: 300px;
+	margin-top: 20px;
+	background-color: #f6f6f6;
+	border-radius: 10px;
+	padding: 20px;
+	line-height: 30px;
+	font-size: 22px;
+	color: #666;
+	font-weight: 300;
+}

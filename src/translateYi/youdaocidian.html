@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>译起玩--玩出新花样</title>
+	<link href="favicon.ico" rel="SHORTCUT ICON">
+	<link rel="stylesheet" type="text/css" href="css/baicizhan.css">
+	<link rel="stylesheet" type="text/css" href="css/youdao.css">
+</head>
+<body>
+<div class="nav">
+	<div class="container">
+		<a href="" title="" class="logo fl">
+			<span class="icon fl"></span>
+			译起玩
+		</a>
+		<ul class="fr">
+			<li><a href="./baicizhan.html" title="">首页</a></li>
+			<li><a href="./youdaocidian.html" title="">在线翻译</a></li>
+			<li><a href="" title="">背单词</a></li>
+			<li><a href="" title="">课程</a></li>
+			<li><a href="" title="">文化空间</a></li>
+		</ul>
+	</div>
+</div>
+<div class="translation">
+	<div class="container">
+		<div class="language fl"  onclick="select()">
+			<span class="select-text">
+				<span id="languange_">
+					自动检测小语种
+					<span class="fr">&or;</span>
+				</span>
+			</span>
+			<ul class="" id="select_menu">
+				<li value="Auto"  class="active">自动检测小语种</li>
+				<li value="Zh-En">中文 &nbsp;》&nbsp; 缅甸语</li>
+				<li value="Zh-Vie">中文 &nbsp;》&nbsp; 越南语</li>
+				<li value="Zh-Jan">中文 &nbsp;》&nbsp; 泰语</li>
+				<li value="Zh-Jan">中文 &nbsp;》&nbsp; 柬埔寨</li>
+				<li value="En-Zh">缅甸语 &nbsp;》&nbsp; 中文</li>
+				<li value="Vie-Zh">越南语 &nbsp;》&nbsp; 中文</li>
+				<li value="Jan-Zh">泰语 &nbsp;》&nbsp; 中文</li>
+				<li value="Jan-Zh">柬埔寨 &nbsp;》&nbsp; 中文</li>
+			</ul>
+		</div>
+		<a href="#" title="" class="machine-translation fl">机器翻译</a>
+		<a href="#" title="" class="man-translation fl">人工翻译</a>
+		<form action="" method="post" class="fr">
+			<label><input type="checkbox" name="underlineWord">划词</label>
+		</form>
+		<div class="translation-left fl clear">
+			<textarea name="" placeholder="请输入您要翻译的小语种语言文字..."></textarea>
+		</div>
+		<div class="translation-right fr">
+			<span>这里是翻译显示的内容</span>
+		</div>
+	</div>
+</div>	
+<script>
+	var Display=false;
+	function select(){
+		var menu_id=document.getElementById('select_menu');
+		if(Display==false){
+			menu_id.style.display="block";
+			Display=true;
+		}else{
+			menu_id.style.display="none";
+			Display=false;
+		}
+	}
+</script>
+</body>
+</html>
