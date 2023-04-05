@@ -85,6 +85,7 @@ export default {
     },
     routerLink (url) {
       this.$router.push({ path: '/' })
+      // eslint-disable-next-line no-unused-expressions
       window.open(url, '_blank').location
     }
   },

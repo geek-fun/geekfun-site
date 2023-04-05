@@ -5,7 +5,7 @@
         <el-card>
           <el-image :src="url" :preview-src-list="srcList" class="col-image"></el-image>
           <div class="col-title-link">
-            <a href="" target="_blank">译起玩</a>
+            <a href="https://trans.geekfun.club" target="_blank">译起玩</a>
           </div>
           <div class="col-desc">首个专注于东南亚学&译服务平台</div>
           <div class="col-rate">
@@ -16,7 +16,7 @@
             开始时间 - 结束时间
           </div>
           <!-- <div class="col-detail-btn"> -->
-          <router-link to="" class="col-detail-btn">详情</router-link>
+          <a href="https://trans.geekfun.club" class="col-detail-btn">详情</a>
           <!-- </div> -->
         </el-card>
       </el-col>

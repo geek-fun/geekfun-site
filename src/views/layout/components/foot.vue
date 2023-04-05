@@ -14,7 +14,7 @@
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="4" :xl="4" class="footer-community">
         <div class="footer-community-title">外链</div>
-        <div class="list-item"><a href="./translateYi/baicizhan.html" target="_blank">译起玩</a></div>
+        <div class="list-item"><a href="https://trans.geekfun.club" target="_blank">译起玩</a></div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" class="footer-copy-right">版权所有 &copy; GeekFun.club 2016 - {{nowYear}}</el-col>
     </el-row>
