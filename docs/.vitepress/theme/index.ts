@@ -2,7 +2,7 @@ import DefaultTheme from 'vitepress/theme';
 import {inBrowser, useData} from "vitepress";
 import {watchEffect} from "vue";
 import TeamMembers from './components/team-members.vue';
-
+import Product from "./components/product.vue";
 export default {
     ...DefaultTheme,
     setup() {
@@ -16,6 +16,7 @@ export default {
     enhanceApp({app}) {
         // register your custom global components
         app.component('TeamMembers', TeamMembers);
+        app.component('Product', Product);
     }
 }
 
