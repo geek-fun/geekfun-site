@@ -1,4 +1,4 @@
-import {defineConfig} from "vitepress";
+import {defineConfig} from 'vitepress'
 
 const icon = '/favicon.ico';
 const sharedThemeConfig = {
@@ -20,6 +20,8 @@ const descZh = '极客范是一个软件社区，致力于构建可持续的开�
 
 export default defineConfig({
     lastUpdated: true,
+    outDir: '../dist',
+    cacheDir: '../cache',
     locales: {
         root: {
             label: 'English',

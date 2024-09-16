@@ -1,0 +1,54 @@
+name: generate page site
+on:
+  push:
+    branches:  [master]
+  pull_request:
+    branches:  [master]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
+      deployments: write
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run docs:build
+      - name: Generate changelog
+        uses: jaywcjlove/changelog-generator@main
+        if: ${{ github.ref == 'refs/heads/master' }}
+        id: changelog
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Release
+        uses: jaywcjlove/create-tag-action@main
+        if: ${{ github.ref == 'refs/heads/master' }}
+        id: tag_release
+        with:
+          release: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            ${{ steps.changelog.outputs.compareurl }}
+            
+            ${{ steps.changelog.outputs.changelog }}
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        if: steps.tag_release.outputs.successful
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId:  ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: geekfun-site
+          directory: dist
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          environment: production

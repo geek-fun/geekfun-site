@@ -4,3 +4,4 @@ docs/.vitepress/cache
 /dist/
 /.idea/
 .DS_Store
+/cache/
