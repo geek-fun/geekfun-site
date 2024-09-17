@@ -1,8 +1,10 @@
 import DefaultTheme from 'vitepress/theme';
 import {inBrowser, useData} from "vitepress";
+import './style.scss';
 import {watchEffect} from "vue";
 import TeamMembers from './components/team-members.vue';
 import Product from "./components/product.vue";
+
 export default {
     ...DefaultTheme,
     setup() {

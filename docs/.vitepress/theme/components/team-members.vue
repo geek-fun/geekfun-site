@@ -23,6 +23,15 @@ const members = [
       {icon: 'blog', link: 'https://blog.csdn.net/Vision_Pinna/'}
     ]
   },
+  {
+    avatar: '/team/anne.png',
+    name: 'AnnChord',
+    title: 'Contributor',
+    desc: 'Code to Build the Future',
+    links: [
+      {icon: 'github', link: 'https://github.com/AnnChord'},
+    ]
+  },
 ]
 </script>
 <template>

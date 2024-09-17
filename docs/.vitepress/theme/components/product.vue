@@ -27,7 +27,8 @@ const props = defineProps({
   height: 500px;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 0 1px 1px rgba(236, 240, 241, 0.5);
+  background-color: var(--vp-c-bg-soft);
+  //box-shadow: 0 0 1px 1px rgba(236, 240, 241, 0.5);
 
   .product-header {
     display: flex;
@@ -50,7 +51,7 @@ const props = defineProps({
     margin: 0 auto;
     width: 100%;
     height: 300px;
-   overflow: hidden;
+    overflow: hidden;
     border-radius: 8px;
   }
 

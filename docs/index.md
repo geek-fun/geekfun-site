@@ -3,30 +3,29 @@
 layout: home
 
 hero:
-  name: "GEEK FUN"
-  text: open-source community
-  tagline: software community to build sustainable open source projects for the world
+  name: "GEEKFUN"
+  text: open-source club
+  tagline: software club to build sustainable open source software for the world
   image:
     src: geekfun.png
     alt: GEEK FUN logo
   actions:
     - theme: brand
-      text: Download
+      text: Quick Start
       link: /download
     - theme: alt
-      text: docs
-      link: /docs
+      text: GitHub
+      link: https://github.com/geek-fun
 
 features:
-  - title: Full featured editor
-    details: Powered by monaco-editor the backbones of vscode, provide familiar editor environment for developers
-  - title: Keep your connections
-    details: Keep your Elasticsearch server connections in DocKit move the dependencies of dashboard tools
-  - title: File persistence
-    details: Save your ElasticSearch Query in your machine as file, never lost
-  - title: Multi engines support
-    details: Support Elasticsearch, OpenSearch, and more to come
+  - title: Value Driven
+    details: We believe that software and services should deliver tangible value to both individuals and industries. By adhering to a value-oriented approach, we define and uphold key principles that focus on continuously driving meaningful outcomes and delivering long-term benefits.
+  - title: Open Source
+    details: Our commitment to open source is unwavering. We develop, iterate, and improve our software through transparent, collaborative processes that foster innovation and community-driven progress.
+  - title: Software Sustainability
+    details: We are dedicated to creating software that not only provides value but also prioritizes sustainability. Our goal is to develop solutions that contribute positively to the world while ensuring their long-term viability and impact.
 ---
+
 ## Products
 
 <div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
