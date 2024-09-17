@@ -11,8 +11,8 @@ hero:
     alt: GEEK FUN logo
   actions:
     - theme: brand
-      text: Quick Start
-      link: /download
+      text: Products
+      link: /products
     - theme: alt
       text: GitHub
       link: https://github.com/geek-fun
