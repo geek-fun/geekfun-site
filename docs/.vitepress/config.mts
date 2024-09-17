@@ -123,4 +123,7 @@ export default defineConfig({
             }
         },
     },
+    sitemap: {
+        hostname: 'https://www.geekfun.club'
+    }
 });
