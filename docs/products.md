@@ -1,4 +1,9 @@
+---
+layout: home
+---
+
 # Products
+
 <div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
 <Product :product='{name: "DocKit", logo: "/dockit.png",preview: "/dockit-client-ui.png", description: "A better NoSQL GUI client for Mac, Windows and Linux", url: "https://dockit.geekfun.club/"}'></Product>
 <Product :product='{name: "AnyTerm", logo: "/anyterm.png",preview: "/anyterm-client-ui.png", description: "Supper lightweight SSH client and terminal for Mac, Windows and Linux", url: "https://github.com/geek-fun/AnyTerm"}'></Product>

@@ -23,13 +23,11 @@ const props = defineProps({
 .product-container {
   margin: 10px;
   width: 45%;
-  min-width: 500px;
+  min-width: 420px;
   height: 500px;
   padding: 15px;
   border-radius: 8px;
   background-color: var(--vp-c-bg-soft);
-  //box-shadow: 0 0 1px 1px rgba(236, 240, 241, 0.5);
-
   .product-header {
     display: flex;
     align-items: center;
@@ -68,6 +66,16 @@ const props = defineProps({
         text-decoration: underline;
         cursor: pointer;
       }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .product-container {
+    width: 90%;
+    min-width: 90%;
+    height: 450px;
+    .product-preview-img {
+      height: 200px;
     }
   }
 }

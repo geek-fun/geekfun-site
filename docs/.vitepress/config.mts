@@ -15,7 +15,7 @@ const sharedThemeConfig = {
 };
 const titleEn = 'GEEKFUN | Sustainable Software Community';
 const titleZh = '极客范 | 可持续的开源软件社区';
-const descEn = 'GEEKFUN is a dynamic open-source community focused on building sustainable software solutions. We empower developers to collaborate on open-source projects like DocKit and explore serverless technologies, including Serverless Insight, Elasticsearch, OpenSearch, and more. Join us in shaping the future of open-source development!';
+const descEn = 'GEEKFUN is an open-source community focused on building sustainable software solutions. We empower developers to collaborate on open-source projects like DocKit and explore serverless technologies, including Serverless Insight, Elasticsearch, OpenSearch, and more. Join us in shaping the future of open-source development!';
 const descZh = '极客范是一个软件社区，致力于构建可持续的开源软件和服务';
 
 export default defineConfig({
@@ -102,7 +102,6 @@ export default defineConfig({
                 ['meta', {property: 'og:url', content: '/'}],
                 ['meta', {property: 'og:site_name', content: titleZh}],
                 ['meta', {name: 'twitter:card', content: icon}],
-                // ['meta', {name: 'twitter:site', content: '@twitterhandle'}],
                 ['meta', {name: 'twitter:title', content: titleZh}],
                 ['meta', {name: 'twitter:description', content: descZh}],
                 ['meta', {name: 'twitter:image', content: icon}],
