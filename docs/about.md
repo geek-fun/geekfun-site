@@ -1,3 +1,20 @@
 # About Us
-We are a group of developers who love to code and share our knowledge with the world. We are passionate about creating high-quality content that helps others learn and grow as developers. Our goal is to provide you with the best resources and tools to help you succeed in your coding journey. Whether you are a beginner or an experienced developer, we have something for everyone. We hope you enjoy our content and find it helpful in your coding adventures. Happy coding!
+
+GEEKFUN is an Open Source Club committed to developing software that not only delivers value but also prioritizes
+sustainability. Our mission is to create solutions that have a positive impact on the world while ensuring their
+long-term viability and relevance. We deeply appreciate your support and contributions to our projects, as they help us
+continue building a better, sustainable future.
+
+## Follow Us
+
+If you share our passion for open source and are interested in our projects, we invite you to follow our social media accounts to stay updated with the latest news and updates.
+
+### YouTube
+[GeekFun](https://www.youtube.com/channel/UCx7Zig3NiJFeqe7CUkqvLYw)
+
+### X
+[GeekFun](https://x.com/Blankll31075)
+
+### WeChat Official Account
+<img src="/wechat_official.png" alt="wechat official account qr code" width="360" />
 

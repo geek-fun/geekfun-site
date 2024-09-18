@@ -11,6 +11,7 @@ Elasticsearch has become an integral part of modern applications, especially tho
 ## Integration tests
 
 Integration testing involves testing the interaction between different components of an application to ensure they work together as expected. In the context of Elasticsearch, integration testing ensures that your application can properly communicate with the Elasticsearch instance and perform various operations such as indexing documents, searching, and aggregations.
+![Integration Test Screenshot](/jest-search-preview.png)
 
 ## Setting Up Elasticsearch Integration Testing
 

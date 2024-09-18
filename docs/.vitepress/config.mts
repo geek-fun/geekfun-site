@@ -114,6 +114,26 @@ export default defineConfig({
                         text: '首页',
                         link: '/zh/',
                     },
+                    {
+                        text: '产品',
+                        link: '/zh/products/',
+                    },
+                    {
+                        text: '新闻',
+                        link: '/zh/news/',
+                    },
+                    {
+                        text: '博客',
+                        link: '/zh/blog/',
+                    },
+                    {
+                        text: '捐赠',
+                        link: '/zh/donation/',
+                    },
+                    {
+                        text: '关于',
+                        link: '/zh/about/',
+                    }
                 ],
                 footer: {
                     message: '极客范是一个软件社区，致力于构建可持续的开源软件和服务',
