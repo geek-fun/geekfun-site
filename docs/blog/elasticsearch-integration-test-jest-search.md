@@ -1,7 +1,10 @@
 ---
 title: Implementing Elasticsearch Integration Test with jest-search
-keywords: Elasticsearch Integration Test, Elasticsearch Integration Test with jest-search, Elasticsearch Integration Test with jest, Elasticsearch Integration Test with jest-preset
 description: Implementing Elasticsearch Integration Test with jest-search
+head:
+  - - meta
+    - name: keywords
+      content: Elasticsearch Integration Test, Elasticsearch Integration Test with jest-search, Elasticsearch Integration Test with jest, Elasticsearch Integration Test with jest-preset
 ---
 
 # Implementing Elasticsearch Integration Test with jest-search

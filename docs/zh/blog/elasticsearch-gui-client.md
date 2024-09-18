@@ -1,7 +1,10 @@
 ---
 title: DocKit - Elasticsearch桌面客户端介绍
-keywords: Elasticsearch GUI客户端, Elasticsearch桌面客户端, Elasticsearch可视化工具, Elasticsearch桌面工具, Elasticsearch客户端,Elasticsearch工具, Elasticsearch管理工具,Elasticsearch查询工具
 description: 向您介绍 DocKit，一款顶级的 Elasticsearch 桌面客户端，旨在提升您的工作效率并提高生产力。无论您是经验丰富的开发者还是刚入门，找到合适的工具都至关重要。
+head:
+  - - meta
+    - name: keywords
+      content: Elasticsearch GUI客户端, Elasticsearch桌面客户端, Elasticsearch可视化工具, Elasticsearch桌面工具, Elasticsearch客户端,Elasticsearch工具, Elasticsearch管理工具,Elasticsearch查询工具
 ---
 
 # DocKit - Elasticsearch桌面客户端介绍
