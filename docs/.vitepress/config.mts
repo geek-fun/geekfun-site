@@ -44,6 +44,7 @@ export default defineConfig({
                 ['meta', {name: 'twitter:title', content: titleEn}],
                 ['meta', {name: 'twitter:description', content: titleEn}],
                 ['meta', {name: 'twitter:image', content: icon}],
+                ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
             ],
             themeConfig: {
                 ...sharedThemeConfig,
