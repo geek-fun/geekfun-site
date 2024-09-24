@@ -45,6 +45,7 @@ export default defineConfig({
                 ['meta', {name: 'twitter:description', content: titleEn}],
                 ['meta', {name: 'twitter:image', content: icon}],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
+                ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
             ],
             themeConfig: {
                 ...sharedThemeConfig,
@@ -106,6 +107,8 @@ export default defineConfig({
                 ['meta', {name: 'twitter:title', content: titleZh}],
                 ['meta', {name: 'twitter:description', content: descZh}],
                 ['meta', {name: 'twitter:image', content: icon}],
+                ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
+                ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
             ],
             themeConfig: {
                 ...sharedThemeConfig,
