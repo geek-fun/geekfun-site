@@ -47,6 +47,11 @@ export default defineConfig({
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
                 ['meta', {name: 'google-adsense-account', content: 'ca-pub-6086289782076652'}],
+                ['script', {
+                    async: '',
+                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6086289782076652',
+                    crossorigin: 'anonymous'
+                }],
             ],
             themeConfig: {
                 ...sharedThemeConfig,
