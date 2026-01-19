@@ -11,3 +11,7 @@
 ## [使用 jest-search 实现 Elasticsearch 集成测试](/zh/blog/elasticsearch-integration-test-jest-search.md)
 
 实现 Elasticsearch 集成测试有多种方法，您可以启动一个容器来运行 Elasticsearch 服务器，或者配置一个专用于测试的远程 Elasticsearch 服务器。在这篇文章中，我将为您介绍另一种方法，使用 jest 预设 [jest-search](https://github.com/geek-fun/jest-search) 来启动本地服务器，从而实现 Elasticsearch 集成测试。
+
+## [使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询](/zh/blog/elasticsearch-ai-assistant.md)
+
+了解如何利用 AI 和大语言模型自动生成复杂的 Elasticsearch 查询。通过 Elasticsearch AI 助手提升工作效率。

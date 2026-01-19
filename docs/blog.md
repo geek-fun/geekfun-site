@@ -20,3 +20,8 @@ There are several ways to implement integration test for Elasticsearch, you can 
 elasticsearch server or config a remote elasticsearch server that you dedicated for test purpose only. In this post, I
 will give you a another way to implement Elasticsearch Integration Test by using
 jest-preset [jest-search](https://github.com/geek-fun/jest-search) to startup a local server for you.
+
+## [Automate Elasticsearch Query Writing with AI Assistants - DocKit](/blog/elasticsearch-ai-assistant.md)
+
+Discover how to use AI and large language models to generate complex Elasticsearch queries automatically. Boost
+productivity with an AI assistant for Elasticsearch.
