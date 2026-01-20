@@ -85,11 +85,7 @@ export default defineConfig({
                         text: 'About',
                         link: '/about/',
                     },
-                ],
-                footer: {
-                    message: 'GEEKFUN is a software community for opensource projects, our goal is to build sustainable open source projects for the world',
-                    copyright: 'Copyright © 2023-present <a href="https://github.com/geek-fun">geek-fun</a>'
-                }
+                ]
             }
         },
         zh: {
@@ -144,11 +140,7 @@ export default defineConfig({
                         text: '关于',
                         link: '/zh/about/',
                     }
-                ],
-                footer: {
-                    message: '极客范是一个软件社区，致力于构建可持续的开源软件和服务',
-                    copyright: 'Copyright © 2023-present <a href="https://github.com/geek-fun">geek-fun</a>'
-                }
+                ]
             }
         },
     },

@@ -1,12 +1,18 @@
 import DefaultTheme from 'vitepress/theme';
 import {inBrowser, useData} from "vitepress";
 import './style.scss';
-import {watchEffect} from "vue";
+import {watchEffect, h} from "vue";
 import TeamMembers from './components/team-members.vue';
 import Product from "./components/product.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-    ...DefaultTheme,
+    extends: DefaultTheme,
+    Layout: () => {
+        return h(DefaultTheme.Layout, null, {
+            'layout-bottom': () => h(Footer)
+        })
+    },
     setup() {
         const {lang} = useData()
         watchEffect(() => {
