@@ -15,3 +15,8 @@
 ## [使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询](/zh/blog/elasticsearch-ai-assistant.md)
 
 了解如何利用 AI 和大语言模型自动生成复杂的 Elasticsearch 查询。通过 Elasticsearch AI 助手提升工作效率。
+
+## [DocKit - 让 DynamoDB 管理变得轻而易举](/zh/blog/dynamodb-gui-client.md)
+
+DocKit 让 DynamoDB 管理变得轻而易举 - 一款强大的桌面 GUI 客户端，具有直观的数据浏览、PartiQL 查询支持、内联编辑和跨平台兼容性。告别 AWS 控制台的困扰和 CLI 的复杂性。
+

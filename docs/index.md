@@ -26,6 +26,10 @@ features:
     details: We are dedicated to creating software that not only provides value but also prioritizes sustainability. Our goal is to develop solutions that contribute positively to the world while ensuring their long-term viability and impact.
 ---
 
+::: tip 🎉 Latest News
+**DocKit v0.8 Released** - Full DynamoDB support is now available! [Read more →](/news/dockit-v0-8-dynamodb-support.md)
+:::
+
 ## Products
 
 <div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">

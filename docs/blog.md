@@ -25,3 +25,7 @@ jest-preset [jest-search](https://github.com/geek-fun/jest-search) to startup a 
 
 Discover how to use AI and large language models to generate complex Elasticsearch queries automatically. Boost
 productivity with an AI assistant for Elasticsearch.
+
+## [Managing your DynamoDB tables with DocKit make life easier](/blog/dynamodb-gui-client.md)
+
+Managing DynamoDB tables just got easier with DocKit - a powerful desktop GUI client featuring intuitive data browsing, PartiQL query support, inline editing, and cross-platform compatibility. Say goodbye to AWS Console frustrations and CLI complexity.

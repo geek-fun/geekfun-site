@@ -26,6 +26,10 @@ features:
     details: 我们致力于开发具备价值且可持续性的软件。我们的目标是创建为世界带来积极贡献的软件和服务，同时确保其长期的可行性和影响力。
 ---
 
+::: tip 🎉 最新消息
+**DocKit v0.8 发布** - 现已全面支持 DynamoDB！[了解更多 →](/zh/news/dockit-v0-8-dynamodb-support.md)
+:::
+
 ## 产品
 
 <div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
