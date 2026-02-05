@@ -68,7 +68,7 @@ Build DynamoDB queries without writing code. Select your table, choose partition
 - No PartiQL syntax required for basic queries
 - Auto-complete for table names and attributes
 - Visual filter builder with type-aware inputs
-- Support for Scan, Query, and addvanced filters operations
+- Support for Scan, Query, and advanced filters operations
 
 ### ⚡ PartiQL Query Editor
 For advanced users, DocKit includes a full-featured PartiQL editor:
@@ -129,7 +129,7 @@ DocKit runs entirely on your machine:
 | **PartiQL Editor** | ✅ | ✅ | ✅ |
 | **Visual Query Builder** | ✅ | ❌ | ✅ |
 | **Offline Mode** | ✅ | ❌ | ✅ |
-| **Query Persistence** | ✅ (Local files) | ❌ | ❌ |
+| **Query Persistence** | ✅ (Local files) | ❌ | ✅ (Cloud) |
 | **Multi-Table Tabs** | ✅ | ❌ | ✅ |
 | **DynamoDB Local** | ✅ | ❌ | ✅ |
 | **AI Assistant** | ✅ | ❌ | ❌ |

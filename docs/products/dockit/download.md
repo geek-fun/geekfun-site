@@ -25,7 +25,7 @@ sidebar: false
 ---
 
 # Download DocKit
-Thanks for trying out DocKit! :rocket::rocket::rocket: DocKit is a new NoSQL GUI client with supper lightweight and support across Windows, macOS, and Linux. 
+Thanks for trying out DocKit! :rocket::rocket::rocket: DocKit is a new NoSQL GUI client with super lightweight and support across Windows, macOS, and Linux. 
 DocKit supports Elasticsearch, OpenSearch, [DynamoDB](https://aws.amazon.com/dynamodb/), and more to come ([MongoDB](https://www.mongodb.com/), etc), you can download the latest version of DocKit from the following links.
 
 ## 🎉 What's New in v0.8
