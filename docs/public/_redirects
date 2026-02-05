@@ -1,0 +1,45 @@
+# Redirects for DocKit-site migration to geekfun-site
+# Format: [source] [destination] [status]
+# 301 = Permanent redirect (preserves SEO)
+# Based on redirect table from issue #[number]
+
+# Blog post redirects - specific pages first
+/dynamodb-gui /blog/dynamodb-gui 301
+/elasticsearch-gui /blog/elasticsearch-gui 301
+/opensearch-gui /blog/opensearch-gui 301
+/dynobase-alternative /blog/dynobase-alternative 301
+/blog/query-dynamodb-locally /blog/query-dynamodb-locally 301
+/blog/best-dynamodb-gui-client /blog/best-dynamodb-gui-client 301
+
+# Main DocKit pages  
+/ /products/dockit 301
+/download /products/dockit/download 301
+
+# Documentation redirects
+/docs /products/dockit/docs 301
+/docs/installation /products/dockit/docs/installation 301
+/docs/connect-to-server /products/dockit/docs/connect-to-server 301
+/docs/shortcut /products/dockit/docs/shortcut 301
+/docs/manage-elasticsearch-cluster /products/dockit/docs/manage-elasticsearch-cluster 301
+
+# Feature page redirects
+/features/open-source /products/dockit/features/open-source 301
+/features/local-first /products/dockit/features/local-first 301
+/features/dynamodb-partiql /products/dockit/features/dynamodb-partiql 301
+/features/desktop-client /products/dockit/features/desktop-client 301
+
+# Chinese localized redirects - specific pages first
+/zh/dynamodb-gui /zh/blog/dynamodb-gui 301
+/zh/elasticsearch-gui /zh/blog/elasticsearch-gui 301
+/zh/opensearch-gui /zh/blog/opensearch-gui 301
+/zh/dynobase-alternative /zh/blog/dynobase-alternative 301
+
+# Chinese main pages
+/zh/ /zh/products/dockit 301
+/zh/download /zh/products/dockit/download 301
+
+# Wildcard redirects (must come last - more specific rules before general ones)
+/docs/* /products/dockit/docs/:splat 301
+/features/* /products/dockit/features/:splat 301
+/blog/* /blog/:splat 301
+/zh/* /zh/:splat 301
