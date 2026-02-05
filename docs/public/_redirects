@@ -39,7 +39,12 @@
 /zh/download /zh/products/dockit/download 301
 
 # Wildcard redirects (must come last - more specific rules before general ones)
+# These catch any paths not explicitly defined above
 /docs/* /products/dockit/docs/:splat 301
 /features/* /products/dockit/features/:splat 301
-/blog/* /blog/:splat 301
-/zh/* /zh/:splat 301
+/zh/docs/* /zh/products/dockit/docs/:splat 301
+/zh/features/* /zh/products/dockit/features/:splat 301
+
+# Note: The following wildcards from the issue table are omitted as they would be circular:
+# /blog/* /blog/:splat 301 (circular - blog posts already at correct location)
+# /zh/* /zh/:splat 301 (circular - covered by specific rules above)
