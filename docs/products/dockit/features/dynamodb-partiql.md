@@ -154,7 +154,7 @@ DocKit works seamlessly with DynamoDB Local for offline development:
 ## Getting Started with PartiQL in DocKit
 
 ### 1. Install DocKit
-Download from [dockit.geekfun.club/download](/download)
+Download from [dockit.geekfun.club/download](/products/dockit/download)
 
 ### 2. Connect to DynamoDB
 - AWS account (with credentials)
@@ -182,9 +182,9 @@ Press `Cmd + Enter` (Mac) or `Ctrl + Enter` (Windows/Linux)
 
 ## Learn More
 
-- **[DynamoDB GUI Client Overview](/dynamodb-gui)** - Full feature list
-- **[Dynobase Alternative](/dynobase-alternative)** - Feature comparison
-- **[Download DocKit](/download)** - Available for Mac, Windows, Linux
+- **[DynamoDB GUI Client Overview](/products/dockit/dynamodb-gui)** - Full feature list
+- **[Dynobase Alternative](/products/dockit/dynobase-alternative)** - Feature comparison
+- **[Download DocKit](/products/dockit/download)** - Available for Mac, Windows, Linux
 
 ---
 

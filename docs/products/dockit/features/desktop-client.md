@@ -298,7 +298,7 @@ No manual download or reinstall required.
 
 ### 1. Download DocKit
 
-Visit [dockit.geekfun.club/download](/download) and choose your platform:
+Visit [dockit.geekfun.club/download](/products/dockit/download) and choose your platform:
 
 - macOS (Intel & Apple Silicon)
 - Windows (64-bit)
@@ -322,13 +322,13 @@ Use the visual query builder or write PartiQL/JSON queries directly.
 
 ## Learn More
 
-- **[DynamoDB GUI Client](/dynamodb-gui)** - DynamoDB features
-- **[Elasticsearch GUI](/elasticsearch-gui)** - Elasticsearch features
-- **[OpenSearch GUI](/opensearch-gui)** - OpenSearch features
-- **[Local-First Design](/features/local-first)** - Privacy & offline capabilities
-- **[Open Source](/features/open-source)** - Why DocKit is open source
+- **[DynamoDB GUI Client](/products/dockit/dynamodb-gui)** - DynamoDB features
+- **[Elasticsearch GUI](/products/dockit/elasticsearch-gui)** - Elasticsearch features
+- **[OpenSearch GUI](/products/dockit/opensearch-gui)** - OpenSearch features
+- **[Local-First Design](/products/dockit/features/local-first)** - Privacy & offline capabilities
+- **[Open Source](/products/dockit/features/open-source)** - Why DocKit is open source
 
 ---
 
 **Questions about desktop vs. web tools?**
-Check our [FAQ](/docs) or [open an issue](https://github.com/geek-fun/dockit/issues).
+Check our [FAQ](/products/dockit/docs) or [open an issue](https://github.com/geek-fun/dockit/issues).

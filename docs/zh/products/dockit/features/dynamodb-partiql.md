@@ -154,7 +154,7 @@ DocKit 与 DynamoDB Local 无缝配合，用于离线开发：
 ## DocKit 中开始使用 PartiQL
 
 ### 1. 安装 DocKit
-从 [dockit.geekfun.club/download](/zh/download) 下载
+从 [dockit.geekfun.club/download](/zh/products/dockit/download) 下载
 
 ### 2. 连接到 DynamoDB
 - AWS 账户（带凭证）
@@ -182,9 +182,9 @@ SELECT * FROM YourTableName LIMIT 10
 
 ## 了解更多
 
-- **[DynamoDB GUI 客户端概述](/dynamodb-gui)** - 完整功能列表
-- **[Dynobase 替代方案](/dynobase-alternative)** - 功能对比
-- **[下载 DocKit](/zh/download)** - 适用于 Mac、Windows、Linux
+- **[DynamoDB GUI 客户端概述](/zh/products/dockit/dynamodb-gui)** - 完整功能列表
+- **[Dynobase 替代方案](/zh/products/dockit/dynobase-alternative)** - 功能对比
+- **[下载 DocKit](/zh/products/dockit/download)** - 适用于 Mac、Windows、Linux
 
 ---
 

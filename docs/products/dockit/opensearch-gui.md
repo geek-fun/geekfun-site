@@ -197,7 +197,7 @@ Unique AI-powered features:
 ## Quick Start
 
 ### 1. Install DocKit
-[→ Download for Mac, Windows, or Linux](/download)
+[→ Download for Mac, Windows, or Linux](/products/dockit/download)
 
 ### 2. Connect Your Cluster
 
@@ -293,7 +293,7 @@ OpenSearch is an open-source fork of Elasticsearch (diverged in 2021). DocKit su
 | **Plugin Ecosystem** | Growing | Mature |
 | **Community** | AWS-backed | Elastic-backed |
 
-**DocKit works with both** — use the same client regardless of which you choose. See [Elasticsearch GUI page](/elasticsearch-gui) for Elasticsearch-specific features.
+**DocKit works with both** — use the same client regardless of which you choose. See [Elasticsearch GUI page](/products/dockit/elasticsearch-gui) for Elasticsearch-specific features.
 
 ## OpenSearch Version Compatibility
 
@@ -331,16 +331,16 @@ Credentials are encrypted and stored locally on your machine. They never leave y
 
 ## Additional Resources
 
-- **[Installation Guide](/docs/installation)** - Setup instructions
-- **[Connect to OpenSearch](/docs/connect-to-server)** - Configuration details
-- **[Cluster Management](/docs/manage-elasticsearch-cluster)** - Index and cluster operations
-- **[Elasticsearch GUI](/elasticsearch-gui)** - For Elasticsearch users
+- **[Installation Guide](/products/dockit/docs/installation)** - Setup instructions
+- **[Connect to OpenSearch](/products/dockit/docs/connect-to-server)** - Configuration details
+- **[Cluster Management](/products/dockit/docs/manage-elasticsearch-cluster)** - Index and cluster operations
+- **[Elasticsearch GUI](/products/dockit/elasticsearch-gui)** - For Elasticsearch users
 - **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code and issues
 
 ## Try DocKit for OpenSearch Today
 
 Experience a faster, more developer-friendly way to work with OpenSearch. Download DocKit and streamline your search workflow.
 
-[Download DocKit Now](/download) — Free, open-source, and ready to use.
+[Download DocKit Now](/products/dockit/download) — Free, open-source, and ready to use.
 
 No registration. No credit card. Just download and go.

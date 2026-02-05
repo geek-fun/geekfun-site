@@ -5,6 +5,7 @@ import {watchEffect, h} from "vue";
 import TeamMembers from './components/team-members.vue';
 import Product from "./components/product.vue";
 import Footer from "./components/Footer.vue";
+import Download from "./components/download.vue";
 
 export default {
     extends: DefaultTheme,
@@ -25,6 +26,7 @@ export default {
         // register your custom global components
         app.component('TeamMembers', TeamMembers);
         app.component('Product', Product);
+        app.component('Download', Download);
     }
 }
 

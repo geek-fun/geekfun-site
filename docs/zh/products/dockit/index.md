@@ -31,7 +31,7 @@ features:
 ---
 
 ::: tip 🎉 最新消息
-DocKit v0.8 已发布 - 现已全面支持 DynamoDB！[了解更多 →](/zh/download)
+DocKit v0.8 已发布 - 现已全面支持 DynamoDB！[了解更多 →](/zh/products/dockit/download)
 :::
 
 <div align="center" style="padding: 64px;">

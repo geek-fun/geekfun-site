@@ -248,7 +248,7 @@ git pull
 ## Getting Started with Local-First Workflow
 
 ### 1. Install DocKit
-Download from [dockit.geekfun.club/download](/download)
+Download from [dockit.geekfun.club/download](/products/dockit/download)
 
 ### 2. Choose Your Query Directory
 On first launch, select where to store queries:
@@ -270,12 +270,12 @@ git remote add origin <your-repo>
 
 ## Learn More
 
-- **[DynamoDB GUI Client](/dynamodb-gui)** - DynamoDB-specific features
-- **[Open Source Database GUI](/features/open-source)** - Why open source matters
-- **[Desktop Database Client](/features/desktop-client)** - Benefits of native apps
-- **[Download DocKit](/download)** - Get started today
+- **[DynamoDB GUI Client](/products/dockit/dynamodb-gui)** - DynamoDB-specific features
+- **[Open Source Database GUI](/products/dockit/features/open-source)** - Why open source matters
+- **[Desktop Database Client](/products/dockit/features/desktop-client)** - Benefits of native apps
+- **[Download DocKit](/products/dockit/download)** - Get started today
 
 ---
 
 **Questions about local-first architecture?**
-Check our [docs](/docs) or open an issue on [GitHub](https://github.com/geek-fun/dockit).
+Check our [docs](/products/dockit/docs) or open an issue on [GitHub](https://github.com/geek-fun/dockit).

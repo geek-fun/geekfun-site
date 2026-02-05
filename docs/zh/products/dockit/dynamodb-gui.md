@@ -79,7 +79,7 @@ WHERE Category = 'Electronics'
   AND Price < 500
 ```
 
-**了解更多：** [DynamoDB PartiQL GUI - 完整指南](/zh/features/dynamodb-partiql)
+**了解更多：** [DynamoDB PartiQL GUI - 完整指南](/zh/products/dockit/features/dynamodb-partiql)
 
 **编辑器功能：**
 - 语法高亮和自动补全
@@ -103,7 +103,7 @@ WHERE Category = 'Electronics'
 - 通过 Git 与团队共享查询
 - 同时打开多个查询标签
 
-**了解更多：** [本地优先数据库客户端架构](/zh/features/local-first)
+**了解更多：** [本地优先数据库客户端架构](/zh/products/dockit/features/local-first)
 
 ### 🔒 安全且私密
 DocKit 完全在您的机器上运行：
@@ -140,7 +140,7 @@ DocKit 完全在您的机器上运行：
 ## 开始使用
 
 ### 1. 下载 DocKit
-访问 [dockit.geekfun.club/download](/zh/download)
+访问 [dockit.geekfun.club/download](/zh/products/dockit/download)
 
 ### 2. 连接到 DynamoDB
 - AWS 账户（使用 IAM 凭证）
@@ -153,7 +153,7 @@ DocKit 完全在您的机器上运行：
 ## 常见问题
 
 ### DocKit 与 Dynobase 相比如何？
-Dynobase 是一款精良的商业工具，但 DocKit 提供了一个可行的免费替代方案，而不会在基本功能上妥协。查看我们的详细[功能对比](/dynobase-alternative)。
+Dynobase 是一款精良的商业工具，但 DocKit 提供了一个可行的免费替代方案，而不会在基本功能上妥协。查看我们的详细[功能对比](/zh/products/dockit/dynobase-alternative)。
 
 ### DocKit 与 NoSQL Workbench 相比如何？
 NoSQL Workbench 是 AWS 的官方工具，专注于数据建模。DocKit 专注于**查询和数据管理**，具有更快、更开发者友好的 UI。
@@ -167,24 +167,24 @@ NoSQL Workbench 是 AWS 的官方工具，专注于数据建模。DocKit 专注�
 ## 其他资源
 
 ### 产品对比
-- **[Dynobase 替代方案](/dynobase-alternative)** - 详细功能对比
-- **[最佳 DynamoDB GUI 客户端](/zh/blog/best-dynamodb-gui-client)** - 顶级工具对比
+- **[Dynobase 替代方案](/zh/products/dockit/dynobase-alternative)** - 详细功能对比
+- **[最佳 DynamoDB GUI 客户端](/zh/products/dockit/blog/best-dynamodb-gui-client)** - 顶级工具对比
 
 ### 指南与教程
-- **[本地查询 DynamoDB](/zh/blog/query-dynamodb-locally)** - 本地开发指南
-- **[DynamoDB PartiQL 编辑器](/zh/features/dynamodb-partiql)** - PartiQL 语法指南
+- **[本地查询 DynamoDB](/zh/products/dockit/blog/query-dynamodb-locally)** - 本地开发指南
+- **[DynamoDB PartiQL 编辑器](/zh/products/dockit/features/dynamodb-partiql)** - PartiQL 语法指南
 
 ### 技术细节
-- **[桌面数据库客户端优势](/zh/features/desktop-client)** - 为什么原生应用很重要
-- **[开源数据库 GUI](/zh/features/open-source)** - 透明度与安全性
+- **[桌面数据库客户端优势](/zh/products/dockit/features/desktop-client)** - 为什么原生应用很重要
+- **[开源数据库 GUI](/zh/products/dockit/features/open-source)** - 透明度与安全性
 
 ### 入门
-- **[安装指南](/zh/docs/installation)** - 分步设置
-- **[连接到 DynamoDB](/zh/docs/connect-to-server)** - 配置详情
+- **[安装指南](/zh/products/dockit/docs/installation)** - 分步设置
+- **[连接到 DynamoDB](/zh/products/dockit/docs/connect-to-server)** - 配置详情
 - **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
 
 ## 立即试用 DocKit
 
 体验使用 DynamoDB 的更好方式。下载 DocKit，看看为什么开发者从 AWS 控制台和商业替代方案转向 DocKit。
 
-[立即下载 DocKit](/zh/download) — 免费、开源、随时可用。
+[立即下载 DocKit](/zh/products/dockit/download) — 免费、开源、随时可用。

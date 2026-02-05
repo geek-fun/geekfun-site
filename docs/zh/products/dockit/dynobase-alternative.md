@@ -111,7 +111,7 @@ DocKit 是完全免费的，没有试用期、功能限制或付费墙。
 - 更低的内存使用（~100-200 MB vs 500+ MB）
 - 更快的冷启动时间
 
-**了解更多：** [桌面数据库客户端 - 原生性能](/zh/features/desktop-client)
+**了解更多：** [桌面数据库客户端 - 原生性能](/zh/products/dockit/features/desktop-client)
 
 ## Dynobase 擅长的领域
 
@@ -238,18 +238,18 @@ Dynobase 有更精美的 UI 和云同步，但 DocKit 覆盖了大多数开发�
 ## 其他资源
 
 ### 产品页面
-- **[DynamoDB GUI 客户端概述](/zh/dynamodb-gui)** - 完整功能分解
-- **[最佳 DynamoDB GUI 客户端](/zh/blog/best-dynamodb-gui-client)** - 比较所有选项
+- **[DynamoDB GUI 客户端概述](/zh/products/dockit/dynamodb-gui)** - 完整功能分解
+- **[最佳 DynamoDB GUI 客户端](/zh/products/dockit/blog/best-dynamodb-gui-client)** - 比较所有选项
 
 ### 功能
-- **[DynamoDB PartiQL 编辑器](/zh/features/dynamodb-partiql)** - 查询语言指南
-- **[本地优先架构](/zh/features/local-first)** - 隐私和离线优势
-- **[开源数据库 GUI](/zh/features/open-source)** - 为什么开源很重要
+- **[DynamoDB PartiQL 编辑器](/zh/products/dockit/features/dynamodb-partiql)** - 查询语言指南
+- **[本地优先架构](/zh/products/dockit/features/local-first)** - 隐私和离线优势
+- **[开源数据库 GUI](/zh/products/dockit/features/open-source)** - 为什么开源很重要
 
 ### 入门
-- **[安装指南](/zh/docs/installation)** - 详细设置说明
-- **[连接到 DynamoDB](/zh/docs/connect-to-server)** - 身份验证配置
-- **[本地查询 DynamoDB](/zh/blog/query-dynamodb-locally)** - 本地开发教程
+- **[安装指南](/zh/products/dockit/docs/installation)** - 详细设置说明
+- **[连接到 DynamoDB](/zh/products/dockit/docs/connect-to-server)** - 身份验证配置
+- **[本地查询 DynamoDB](/zh/products/dockit/blog/query-dynamodb-locally)** - 本地开发教程
 - **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
 
 ## 结论
@@ -263,6 +263,6 @@ Dynobase 是一款可靠的商业工具，但 **DocKit 提供了一个可行的�
 
 ...DocKit 值得一试。
 
-[立即下载 DocKit](/zh/download) — 免费、开源、随时可用。
+[立即下载 DocKit](/zh/products/dockit/download) — 免费、开源、随时可用。
 
 无需信用卡。无试用期。无附加条件。

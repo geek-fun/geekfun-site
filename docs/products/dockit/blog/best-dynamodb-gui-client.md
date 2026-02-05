@@ -66,7 +66,7 @@ DocKit is a free, open-source desktop client that supports DynamoDB, Elasticsear
 - **Open Source Advocates**: Full transparency and customization
 
 ### Get Started
-👉 [Download DocKit](/download) | [Read DynamoDB GUI Guide](/dynamodb-gui)
+👉 [Download DocKit](/products/dockit/download) | [Read DynamoDB GUI Guide](/products/dockit/dynamodb-gui)
 
 ---
 
@@ -111,7 +111,7 @@ Dynobase is a commercial DynamoDB-focused GUI client with excellent polish and d
 - **DynamoDB-Only Workflows**: Don't need other databases
 
 ### Learn More
-[Dynobase vs DocKit Comparison](/dynobase-alternative)
+[Dynobase vs DocKit Comparison](/products/dockit/dynobase-alternative)
 
 ---
 
@@ -364,12 +364,12 @@ Tested on MacBook Pro M2, querying table with 100K items:
 ### 🥇 Best Overall: DocKit
 - **Winner for**: Teams, multi-database users, cost-conscious developers
 - **Strengths**: Free, fast, multi-engine, open source
-- **Get Started**: [Download DocKit](/download)
+- **Get Started**: [Download DocKit](/products/dockit/download)
 
 ### 🥈 Best Premium: Dynobase
 - **Winner for**: Individuals with budget, DynamoDB-only teams
 - **Strengths**: Polished UI, great support, cloud sync
-- **Alternative**: [Compare with DocKit](/dynobase-alternative)
+- **Alternative**: [Compare with DocKit](/products/dockit/dynobase-alternative)
 
 ### 🥉 Best for Modeling: NoSQL Workbench
 - **Winner for**: Data architects, schema designers
@@ -380,11 +380,11 @@ Tested on MacBook Pro M2, querying table with 100K items:
 
 ## Related Resources
 
-- **[DynamoDB GUI Client Guide](/dynamodb-gui)** - DocKit DynamoDB features
-- **[Dynobase Alternative](/dynobase-alternative)** - Detailed Dynobase vs. DocKit
-- **[DynamoDB PartiQL Editor](/features/dynamodb-partiql)** - PartiQL guide
-- **[Local-First Database Client](/features/local-first)** - Privacy benefits
-- **[Download DocKit](/download)** - Get started free
+- **[DynamoDB GUI Client Guide](/products/dockit/dynamodb-gui)** - DocKit DynamoDB features
+- **[Dynobase Alternative](/products/dockit/dynobase-alternative)** - Detailed Dynobase vs. DocKit
+- **[DynamoDB PartiQL Editor](/products/dockit/features/dynamodb-partiql)** - PartiQL guide
+- **[Local-First Database Client](/products/dockit/features/local-first)** - Privacy benefits
+- **[Download DocKit](/products/dockit/download)** - Get started free
 
 ---
 

@@ -79,7 +79,7 @@ WHERE Category = 'Electronics'
   AND Price < 500
 ```
 
-**Learn more:** [DynamoDB PartiQL GUI - Complete Guide](/features/dynamodb-partiql)
+**Learn more:** [DynamoDB PartiQL GUI - Complete Guide](/products/dockit/features/dynamodb-partiql)
 
 **Editor Features:**
 - Syntax highlighting and auto-completion
@@ -110,7 +110,7 @@ Unlike the AWS Console, DocKit **automatically saves all your queries** to local
 - Share queries with your team via Git
 - Open multiple query tabs simultaneously
 
-**Learn more:** [Local-First Database Client Architecture](/features/local-first)
+**Learn more:** [Local-First Database Client Architecture](/products/dockit/features/local-first)
 
 ### 🔒 Secure & Private
 DocKit runs entirely on your machine:
@@ -159,7 +159,7 @@ DocKit runs entirely on your machine:
 ### 1. Download & Install
 Download DocKit for your platform:
 
-[→ Download DocKit](/download)
+[→ Download DocKit](/products/dockit/download)
 
 Available for **macOS**, **Windows**, and **Linux**.
 
@@ -202,24 +202,24 @@ Queries are saved locally on your machine as plain text files. You control where
 ## Additional Resources
 
 ### Product Comparison
-- **[Dynobase Alternative](/dynobase-alternative)** - Detailed feature comparison
-- **[Best DynamoDB GUI Clients](/blog/best-dynamodb-gui-client)** - Top tools compared
+- **[Dynobase Alternative](/products/dockit/dynobase-alternative)** - Detailed feature comparison
+- **[Best DynamoDB GUI Clients](/products/dockit/blog/best-dynamodb-gui-client)** - Top tools compared
 
 ### Guides & Tutorials
-- **[Query DynamoDB Locally](/blog/query-dynamodb-locally)** - Local development guide
-- **[DynamoDB PartiQL Editor](/features/dynamodb-partiql)** - PartiQL syntax guide
+- **[Query DynamoDB Locally](/products/dockit/blog/query-dynamodb-locally)** - Local development guide
+- **[DynamoDB PartiQL Editor](/products/dockit/features/dynamodb-partiql)** - PartiQL syntax guide
 
 ### Technical Details
-- **[Desktop Database Client Benefits](/features/desktop-client)** - Why native apps matter
-- **[Open Source Database GUI](/features/open-source)** - Transparency & security
+- **[Desktop Database Client Benefits](/products/dockit/features/desktop-client)** - Why native apps matter
+- **[Open Source Database GUI](/products/dockit/features/open-source)** - Transparency & security
 
 ### Getting Started
-- **[Installation Guide](/docs/installation)** - Step-by-step setup
-- **[Connect to DynamoDB](/docs/connect-to-server)** - Configuration details
+- **[Installation Guide](/products/dockit/docs/installation)** - Step-by-step setup
+- **[Connect to DynamoDB](/products/dockit/docs/connect-to-server)** - Configuration details
 - **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code and issues
 
 ## Try DocKit Today
 
 Experience a better way to work with DynamoDB. Download DocKit and see why developers are switching from AWS Console and commercial alternatives.
 
-[Download DocKit Now](/download) — Free, open-source, and ready to use.
+[Download DocKit Now](/products/dockit/download) — Free, open-source, and ready to use.

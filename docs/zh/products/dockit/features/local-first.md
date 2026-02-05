@@ -248,7 +248,7 @@ git pull
 ## 开始使用本地优先工作流程
 
 ### 1. 安装 DocKit
-从 [dockit.geekfun.club/download](/zh/download) 下载
+从 [dockit.geekfun.club/download](/zh/products/dockit/download) 下载
 
 ### 2. 选择您的查询目录
 首次启动时，选择存储查询的位置：
@@ -270,12 +270,12 @@ git remote add origin <your-repo>
 
 ## 了解更多
 
-- **[DynamoDB GUI 客户端](/dynamodb-gui)** - DynamoDB 特定功能
-- **[开源数据库 GUI](/zh/features/open-source)** - 为什么开源很重要
-- **[桌面数据库客户端](/zh/features/desktop-client)** - 原生应用的优势
-- **[下载 DocKit](/zh/download)** - 立即开始
+- **[DynamoDB GUI 客户端](/zh/products/dockit/dynamodb-gui)** - DynamoDB 特定功能
+- **[开源数据库 GUI](/zh/products/dockit/features/open-source)** - 为什么开源很重要
+- **[桌面数据库客户端](/zh/products/dockit/features/desktop-client)** - 原生应用的优势
+- **[下载 DocKit](/zh/products/dockit/download)** - 立即开始
 
 ---
 
 **关于本地优先架构有疑问？**
-查看我们的[文档](/zh/docs)或在 [GitHub](https://github.com/geek-fun/dockit) 上提出问题。
+查看我们的[文档](/zh/products/dockit/docs)或在 [GitHub](https://github.com/geek-fun/dockit) 上提出问题。

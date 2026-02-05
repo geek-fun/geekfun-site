@@ -667,10 +667,10 @@ const getDynamoDBClient = () => {
 
 ## Learn More
 
-- **[DynamoDB GUI Client](/dynamodb-gui)** - DocKit DynamoDB features
-- **[DynamoDB PartiQL Editor](/features/dynamodb-partiql)** - PartiQL syntax guide
-- **[Best DynamoDB GUI Clients](/blog/best-dynamodb-gui-client)** - Tool comparison
-- **[Download DocKit](/download)** - Get started free
+- **[DynamoDB GUI Client](/products/dockit/dynamodb-gui)** - DocKit DynamoDB features
+- **[DynamoDB PartiQL Editor](/products/dockit/features/dynamodb-partiql)** - PartiQL syntax guide
+- **[Best DynamoDB GUI Clients](/products/dockit/blog/best-dynamodb-gui-client)** - Tool comparison
+- **[Download DocKit](/products/dockit/download)** - Get started free
 
 ---
 

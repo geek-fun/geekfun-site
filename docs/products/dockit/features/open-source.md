@@ -399,10 +399,10 @@ Auditors prefer open source:
 ## Learn More
 
 - **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code & issues
-- **[Download DocKit](/download)** - Pre-built binaries
-- **[Local-First Design](/features/local-first)** - Privacy architecture
-- **[Desktop Client Benefits](/features/desktop-client)** - Native app advantages
-- **[DynamoDB GUI](/dynamodb-gui)** - Main product page
+- **[Download DocKit](/products/dockit/download)** - Pre-built binaries
+- **[Local-First Design](/products/dockit/features/local-first)** - Privacy architecture
+- **[Desktop Client Benefits](/products/dockit/features/desktop-client)** - Native app advantages
+- **[DynamoDB GUI](/products/dockit/dynamodb-gui)** - Main product page
 
 ---
 

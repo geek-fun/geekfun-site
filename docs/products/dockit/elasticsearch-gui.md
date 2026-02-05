@@ -225,7 +225,7 @@ Unique AI-powered features:
 ## Getting Started with DocKit
 
 ### 1. Download & Install
-[→ Download DocKit](/download)
+[→ Download DocKit](/products/dockit/download)
 
 Available for **macOS**, **Windows**, and **Linux**.
 
@@ -335,7 +335,7 @@ DocKit is designed to support **Elasticsearch from version 1.x onwards**, using 
 
 If you encounter any compatibility issues with your Elasticsearch version, please [report them on GitHub](https://github.com/geek-fun/dockit/issues) — we're committed to maintaining broad version support.
 
-For OpenSearch (the open-source fork), see [OpenSearch GUI page](/opensearch-gui).
+For OpenSearch (the open-source fork), see [OpenSearch GUI page](/products/dockit/opensearch-gui).
 
 ## Frequently Asked Questions
 
@@ -356,15 +356,15 @@ Credentials are encrypted and stored locally on your machine. They never leave y
 
 ## Additional Resources
 
-- **[Installation Guide](/docs/installation)** - Setup instructions
-- **[Connect to Elasticsearch](/docs/connect-to-server)** - Configuration details
-- **[Cluster Management](/docs/manage-elasticsearch-cluster)** - Index and cluster operations
+- **[Installation Guide](/products/dockit/docs/installation)** - Setup instructions
+- **[Connect to Elasticsearch](/products/dockit/docs/connect-to-server)** - Configuration details
+- **[Cluster Management](/products/dockit/docs/manage-elasticsearch-cluster)** - Index and cluster operations
 - **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code and issues
 
 ## Try DocKit for Elasticsearch Today
 
 Experience a faster, more developer-friendly way to work with Elasticsearch. Download DocKit and streamline your search workflow.
 
-[Download DocKit Now](/download) — Free, open-source, and ready to use.
+[Download DocKit Now](/products/dockit/download) — Free, open-source, and ready to use.
 
 No registration. No credit card. Just download and go.
