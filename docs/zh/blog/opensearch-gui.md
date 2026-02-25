@@ -183,7 +183,7 @@ DocKit 与 AWS OpenSearch Service 完美配合：
 ## 开始使用
 
 ### 1. 安装 DocKit
-从 [dockit.geekfun.club/download](/zh/products/dockit/download) 下载
+从 [dockit.geekfun.club/download](/zh/download) 下载
 
 ### 2. 连接到 OpenSearch
 - 本地 OpenSearch（`http://localhost:9200`）
@@ -233,8 +233,8 @@ DocKit 提供了一个全面的**导入/导出模块**，您可以在其中以�
 
 ## 其他资源
 
-- **[安装指南](/zh/products/dockit/docs/installation)** - 分步设置
-- **[连接到服务器](/zh/products/dockit/docs/connect-to-server)** - 配置详情
+- **[安装指南](/zh/docs/dockit/installation)** - 分步设置
+- **[连接到服务器](/zh/docs/dockit/connect-to-server)** - 配置详情
 - **[桌面客户端优势](/zh/products/dockit/features/desktop-client)** - 原生应用优势
 - **[开源 GUI](/zh/products/dockit/features/open-source)** - 为什么开源很重要
 - **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
@@ -243,4 +243,4 @@ DocKit 提供了一个全面的**导入/导出模块**，您可以在其中以�
 
 体验更快、更灵活的管理 OpenSearch 的方式。下载 DocKit，看看为什么开发者选择原生桌面客户端而不是基于浏览器的工具。
 
-[立即下载 DocKit](/zh/products/dockit/download) — 免费、开源、随时可用。
+[立即下载 DocKit](/zh/download) — 免费、开源、随时可用。

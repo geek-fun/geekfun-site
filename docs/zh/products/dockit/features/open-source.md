@@ -179,10 +179,10 @@ cargo build --release
 ## 了解更多
 
 - **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
-- **[下载 DocKit](/zh/products/dockit/download)** - 预构建二进制文件
+- **[下载 DocKit](/zh/download)** - 预构建二进制文件
 - **[本地优先设计](/zh/products/dockit/features/local-first)** - 隐私架构
 - **[桌面客户端优势](/zh/products/dockit/features/desktop-client)** - 原生应用优势
-- **[DynamoDB GUI](/zh/products/dockit/dynamodb-gui)** - 主要产品页面
+- **[DynamoDB GUI](/zh/blog/dynamodb-gui)** - 主要产品页面
 
 ---
 

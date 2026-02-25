@@ -20,12 +20,12 @@ Elasticsearch in DocKit.
 ## Install and Open DocKit
 
 You can find detailed instructions on how to install and open DocKit in
-the [installation guide](../docs/installation.md).
+the [installation guide](/docs/dockit/installation).
 
 ## Connect to Elasticsearch Server
 
 You can find detailed instructions on how to connect to Elasticsearch
-Server [connection guide](../docs/connect-to-server.md).
+Server [connection guide](/docs/dockit/connect-to-server).
 
 ## Monitor & Manage Elasticsearch Cluster
 

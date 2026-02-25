@@ -178,7 +178,7 @@ Dynobase supports exporting to:
 Switching is straightforward:
 
 ### 1. **Install DocKit**
-Download from [dockit.geekfun.club/download](/products/dockit/download)
+Download from [dockit.geekfun.club/download](/download)
 
 ### 2. **Connect Using Same AWS Credentials**
 DocKit uses standard AWS credential methods:
@@ -226,7 +226,7 @@ Your data stays in DynamoDB — you're just changing the UI tool. Switch back an
 ## Getting Started with DocKit
 
 ### Step 1: Download
-Visit [dockit.geekfun.club/download](/products/dockit/download) and choose your platform:
+Visit [dockit.geekfun.club/download](/download) and choose your platform:
 - macOS (Intel & Apple Silicon)
 - Windows (x64)
 - Linux (AppImage, deb, rpm)
@@ -275,8 +275,8 @@ Open an issue on [GitHub](https://github.com/geek-fun/dockit/issues).
 ## Additional Resources
 
 ### Product Pages
-- **[DynamoDB GUI Client Overview](/products/dockit/dynamodb-gui)** - Full feature breakdown
-- **[Best DynamoDB GUI Clients](/products/dockit/blog/best-dynamodb-gui-client)** - Compare all options
+- **[DynamoDB GUI Client Overview](/blog/dynamodb-gui)** - Full feature breakdown
+- **[Best DynamoDB GUI Clients](/blog/best-dynamodb-gui-client)** - Compare all options
 
 ### Features
 - **[DynamoDB PartiQL Editor](/products/dockit/features/dynamodb-partiql)** - Query language guide
@@ -284,9 +284,9 @@ Open an issue on [GitHub](https://github.com/geek-fun/dockit/issues).
 - **[Open Source Database GUI](/products/dockit/features/open-source)** - Why open source matters
 
 ### Getting Started
-- **[Installation Guide](/products/dockit/docs/installation)** - Detailed setup instructions
-- **[Connect to DynamoDB](/products/dockit/docs/connect-to-server)** - Authentication configuration
-- **[Query DynamoDB Locally](/products/dockit/blog/query-dynamodb-locally)** - Local development tutorial
+- **[Installation Guide](/docs/dockit/installation)** - Detailed setup instructions
+- **[Connect to DynamoDB](/docs/dockit/connect-to-server)** - Authentication configuration
+- **[Query DynamoDB Locally](/blog/query-dynamodb-locally)** - Local development tutorial
 - **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code and issues
 
 ## Conclusion
@@ -300,6 +300,6 @@ Dynobase is a solid commercial tool, but **DocKit offers a viable free alternati
 
 ...DocKit is worth trying.
 
-[Download DocKit Now](/products/dockit/download) — Free, open-source, and ready to use.
+[Download DocKit Now](/download) — Free, open-source, and ready to use.
 
 No credit card. No trial period. No strings attached.

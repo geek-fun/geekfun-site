@@ -13,7 +13,7 @@ DocKit 作为一个 NoSQL GUI 桌面客户端，支持多种数据库，包括 [
 
 ## 安装并打开 DocKit
 
-您可以在[安装指南](../docs/installation.md)中找到有关如何安装和打开 DocKit 的详细说明。
+您可以在[安装指南](/zh/docs/dockit/installation)中找到有关如何安装和打开 DocKit 的详细说明。
 
 ## 连接到 Elasticsearch 服务器
 

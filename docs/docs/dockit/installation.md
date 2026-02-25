@@ -14,7 +14,7 @@ Before use DocKit to connect to your Elasticsearch server, you need to install i
 
 ## Download DocKit
 
-you can download the latest version of DocKit from the [Download](../download.md) page, then select the target platform
+you can download the latest version of DocKit from the [Download](/download) page, then select the target platform
 to download the corresponding installation package.
 DocKit recently supports Windows, macOS, and Linux.
 

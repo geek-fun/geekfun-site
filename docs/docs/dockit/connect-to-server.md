@@ -15,7 +15,7 @@ OpenSearch, [DynamoDB](https://aws.amazon.com/dynamodb/), and more to come. This
 ## Install and Open DocKit
 
 you can find detailed instructions on how to install and open DocKit in
-the [installation guide](../docs/installation.md).
+the [installation guide](/docs/dockit/installation).
 
 ## Connect to Elasticsearch Server
 

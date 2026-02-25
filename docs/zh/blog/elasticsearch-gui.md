@@ -185,7 +185,7 @@ GET /products/_search
 ## 开始使用
 
 ### 1. 安装 DocKit
-从 [dockit.geekfun.club/download](/zh/products/dockit/download) 下载
+从 [dockit.geekfun.club/download](/zh/download) 下载
 
 ### 2. 连接到 Elasticsearch
 - 本地实例（`http://localhost:9200`）
@@ -210,7 +210,7 @@ DocKit 旨在支持 **Elasticsearch 1.x 版本及更高版本**，使用标准�
 
 如果您在使用 Elasticsearch 版本时遇到任何兼容性问题，请[在 GitHub 上报告](https://github.com/geek-fun/dockit/issues) — 我们致力于维护广泛的版本支持。
 
-有关 OpenSearch（开源分支），请参阅 [OpenSearch GUI 页面](/zh/products/dockit/opensearch-gui)。
+有关 OpenSearch（开源分支），请参阅 [OpenSearch GUI 页面](/zh/blog/opensearch-gui)。
 
 ## 常见问题
 
@@ -231,9 +231,9 @@ DocKit 提供了一个全面的**导入/导出模块**，您可以在其中以�
 
 ## 其他资源
 
-- **[安装指南](/zh/products/dockit/docs/installation)** - 分步设置
-- **[连接到服务器](/zh/products/dockit/docs/connect-to-server)** - 配置详情
-- **[管理 Elasticsearch 集群](/zh/products/dockit/docs/manage-elasticsearch-cluster)** - 集群管理指南
+- **[安装指南](/zh/docs/dockit/installation)** - 分步设置
+- **[连接到服务器](/zh/docs/dockit/connect-to-server)** - 配置详情
+- **[管理 Elasticsearch 集群](/zh/docs/dockit/manage-elasticsearch-cluster)** - 集群管理指南
 - **[桌面客户端优势](/zh/products/dockit/features/desktop-client)** - 为什么原生应用很重要
 - **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
 
@@ -241,4 +241,4 @@ DocKit 提供了一个全面的**导入/导出模块**，您可以在其中以�
 
 体验更快、更专注的管理 Elasticsearch 的方式。下载 DocKit，看看为什么开发者从基于浏览器的工具转向原生桌面客户端。
 
-[立即下载 DocKit](/zh/products/dockit/download) — 免费、开源、随时可用。
+[立即下载 DocKit](/zh/download) — 免费、开源、随时可用。

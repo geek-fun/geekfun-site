@@ -13,7 +13,7 @@ head:
 
 ## 下载 DocKit
 
-您可以从[下载](../download.md)页面下载最新版本的 DocKit，然后选择目标平台下载相应的安装包。DocKit 目前支持 Windows、macOS 和 Linux。
+您可以从[下载](/zh/download)页面下载最新版本的 DocKit，然后选择目标平台下载相应的安装包。DocKit 目前支持 Windows、macOS 和 Linux。
 
 ![DocKit 下载页面](/download-page.png)
 

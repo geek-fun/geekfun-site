@@ -169,13 +169,13 @@ sudo dpkg -i dockit.deb
 
 ## 了解更多
 
-- **[DynamoDB GUI 客户端](/zh/products/dockit/dynamodb-gui)** - DynamoDB 功能
-- **[Elasticsearch GUI](/zh/products/dockit/elasticsearch-gui)** - Elasticsearch 功能
-- **[OpenSearch GUI](/zh/products/dockit/opensearch-gui)** - OpenSearch 功能
+- **[DynamoDB GUI 客户端](/zh/blog/dynamodb-gui)** - DynamoDB 功能
+- **[Elasticsearch GUI](/zh/blog/elasticsearch-gui)** - Elasticsearch 功能
+- **[OpenSearch GUI](/zh/blog/opensearch-gui)** - OpenSearch 功能
 - **[本地优先设计](/zh/products/dockit/features/local-first)** - 隐私和离线功能
 - **[开源](/zh/products/dockit/features/open-source)** - 为什么 DocKit 是开源的
 
 ---
 
 **关于桌面 vs. Web 工具有疑问？**
-查看我们的[常见问题](/zh/products/dockit/docs)或[提出问题](https://github.com/geek-fun/dockit/issues)。
+查看我们的[常见问题](/zh/docs/dockit/)或[提出问题](https://github.com/geek-fun/dockit/issues)。

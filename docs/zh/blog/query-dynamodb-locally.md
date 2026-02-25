@@ -635,10 +635,10 @@ const getDynamoDBClient = () => {
 
 ## 了解更多
 
-- **[DynamoDB GUI 客户端](/zh/products/dockit/dynamodb-gui)** - DocKit DynamoDB 功能
+- **[DynamoDB GUI 客户端](/zh/blog/dynamodb-gui)** - DocKit DynamoDB 功能
 - **[DynamoDB PartiQL 编辑器](/zh/products/dockit/features/dynamodb-partiql)** - PartiQL 语法指南
-- **[最佳 DynamoDB GUI 客户端](/zh/products/dockit/blog/best-dynamodb-gui-client)** - 工具对比
-- **[下载 DocKit](/zh/products/dockit/download)** - 免费开始
+- **[最佳 DynamoDB GUI 客户端](/zh/blog/best-dynamodb-gui-client)** - 工具对比
+- **[下载 DocKit](/zh/download)** - 免费开始
 
 ---
 

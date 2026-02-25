@@ -140,7 +140,7 @@ DocKit 完全在您的机器上运行：
 ## 开始使用
 
 ### 1. 下载 DocKit
-访问 [dockit.geekfun.club/download](/zh/products/dockit/download)
+访问 [dockit.geekfun.club/download](/zh/download)
 
 ### 2. 连接到 DynamoDB
 - AWS 账户（使用 IAM 凭证）
@@ -153,7 +153,7 @@ DocKit 完全在您的机器上运行：
 ## 常见问题
 
 ### DocKit 与 Dynobase 相比如何？
-Dynobase 是一款精良的商业工具，但 DocKit 提供了一个可行的免费替代方案，而不会在基本功能上妥协。查看我们的详细[功能对比](/zh/products/dockit/dynobase-alternative)。
+Dynobase 是一款精良的商业工具，但 DocKit 提供了一个可行的免费替代方案，而不会在基本功能上妥协。查看我们的详细[功能对比](/zh/blog/dynobase-alternative)。
 
 ### DocKit 与 NoSQL Workbench 相比如何？
 NoSQL Workbench 是 AWS 的官方工具，专注于数据建模。DocKit 专注于**查询和数据管理**，具有更快、更开发者友好的 UI。
@@ -167,11 +167,11 @@ NoSQL Workbench 是 AWS 的官方工具，专注于数据建模。DocKit 专注�
 ## 其他资源
 
 ### 产品对比
-- **[Dynobase 替代方案](/zh/products/dockit/dynobase-alternative)** - 详细功能对比
-- **[最佳 DynamoDB GUI 客户端](/zh/products/dockit/blog/best-dynamodb-gui-client)** - 顶级工具对比
+- **[Dynobase 替代方案](/zh/blog/dynobase-alternative)** - 详细功能对比
+- **[最佳 DynamoDB GUI 客户端](/zh/blog/best-dynamodb-gui-client)** - 顶级工具对比
 
 ### 指南与教程
-- **[本地查询 DynamoDB](/zh/products/dockit/blog/query-dynamodb-locally)** - 本地开发指南
+- **[本地查询 DynamoDB](/zh/blog/query-dynamodb-locally)** - 本地开发指南
 - **[DynamoDB PartiQL 编辑器](/zh/products/dockit/features/dynamodb-partiql)** - PartiQL 语法指南
 
 ### 技术细节
@@ -179,12 +179,12 @@ NoSQL Workbench 是 AWS 的官方工具，专注于数据建模。DocKit 专注�
 - **[开源数据库 GUI](/zh/products/dockit/features/open-source)** - 透明度与安全性
 
 ### 入门
-- **[安装指南](/zh/products/dockit/docs/installation)** - 分步设置
-- **[连接到 DynamoDB](/zh/products/dockit/docs/connect-to-server)** - 配置详情
+- **[安装指南](/zh/docs/dockit/installation)** - 分步设置
+- **[连接到 DynamoDB](/zh/docs/dockit/connect-to-server)** - 配置详情
 - **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
 
 ## 立即试用 DocKit
 
 体验使用 DynamoDB 的更好方式。下载 DocKit，看看为什么开发者从 AWS 控制台和商业替代方案转向 DocKit。
 
-[立即下载 DocKit](/zh/products/dockit/download) — 免费、开源、随时可用。
+[立即下载 DocKit](/zh/download) — 免费、开源、随时可用。

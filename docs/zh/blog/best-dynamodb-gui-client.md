@@ -64,7 +64,7 @@ DocKit 是一个免费的开源桌面客户端，支持 DynamoDB、Elasticsearch
 - **开源倡导者**：完全透明和定制
 
 ### 开始使用
-👉 [下载 DocKit](/zh/products/dockit/download) | [阅读 DynamoDB GUI 指南](/zh/products/dockit/dynamodb-gui)
+👉 [下载 DocKit](/zh/download) | [阅读 DynamoDB GUI 指南](/zh/blog/dynamodb-gui)
 
 ---
 
@@ -104,7 +104,7 @@ Dynobase 是一个专注于 DynamoDB 的商业 GUI 客户端，具有出色的�
 - **仅 DynamoDB 工作流程**：不需要其他数据库
 
 ### 了解更多
-[Dynobase vs DocKit 对比](/zh/products/dockit/dynobase-alternative)
+[Dynobase vs DocKit 对比](/zh/blog/dynobase-alternative)
 
 ---
 
@@ -282,12 +282,12 @@ AWS 官方的 DynamoDB 数据建模和查询开发工具。
 ### 🥇 最佳整体：DocKit
 - **适合**：团队、多数据库用户、成本敏感的开发者
 - **优势**：免费、快速、多引擎、开源
-- **开始使用**：[下载 DocKit](/zh/products/dockit/download)
+- **开始使用**：[下载 DocKit](/zh/download)
 
 ### 🥈 最佳高级：Dynobase
 - **适合**：有预算的个人、仅 DynamoDB 团队
 - **优势**：精美的 UI、出色的支持、云同步
-- **替代方案**：[与 DocKit 比较](/zh/products/dockit/dynobase-alternative)
+- **替代方案**：[与 DocKit 比较](/zh/blog/dynobase-alternative)
 
 ### 🥉 最适合建模：NoSQL Workbench
 - **适合**：数据架构师、架构设计师
@@ -298,11 +298,11 @@ AWS 官方的 DynamoDB 数据建模和查询开发工具。
 
 ## 相关资源
 
-- **[DynamoDB GUI 客户端指南](/zh/products/dockit/dynamodb-gui)** - DocKit DynamoDB 功能
-- **[Dynobase 替代方案](/zh/products/dockit/dynobase-alternative)** - 详细的 Dynobase vs. DocKit
+- **[DynamoDB GUI 客户端指南](/zh/blog/dynamodb-gui)** - DocKit DynamoDB 功能
+- **[Dynobase 替代方案](/zh/blog/dynobase-alternative)** - 详细的 Dynobase vs. DocKit
 - **[DynamoDB PartiQL 编辑器](/zh/products/dockit/features/dynamodb-partiql)** - PartiQL 指南
 - **[本地优先数据库客户端](/zh/products/dockit/features/local-first)** - 隐私优势
-- **[下载 DocKit](/zh/products/dockit/download)** - 免费开始
+- **[下载 DocKit](/zh/download)** - 免费开始
 
 ---
 
