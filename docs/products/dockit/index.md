@@ -28,7 +28,7 @@ hero:
   text: Open-Source NoSQL GUI Client for Developers
   tagline: Fast, secure desktop client for DynamoDB, Elasticsearch, and OpenSearch. AI-powered database management for Windows, macOS, and Linux
   image:
-    src: dockit.png
+    src: /dockit.png
     alt: DocKit - Open-source NoSQL GUI client for DynamoDB, Elasticsearch, and OpenSearch
   actions:
     - theme: brand
