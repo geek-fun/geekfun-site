@@ -5,7 +5,7 @@
         <div class="footer-section">
           <h3>{{ t.products }}</h3>
           <ul>
-            <li><a href="https://dockit.geekfun.club/" target="_blank">DocKit</a></li>
+            <li><a :href="localePath('/products/dockit/')">DocKit</a></li>
             <li><a href="http://serverlessinsight.com/" target="_blank">ServerlessInsight</a></li>
             <li><a href="https://github.com/geek-fun/jest-search" target="_blank">jest-search</a></li>
             <li><a href="https://github.com/geek-fun/serverless-adapter" target="_blank">serverless-adapter</a></li>
@@ -13,11 +13,31 @@
         </div>
         
         <div class="footer-section">
+          <h3>{{ t.dockit }}</h3>
+          <ul>
+            <li><a :href="localePath('/blog/dynamodb-gui')">{{ t.dynamodbGui }}</a></li>
+            <li><a :href="localePath('/blog/elasticsearch-gui')">{{ t.elasticsearchGui }}</a></li>
+            <li><a :href="localePath('/blog/opensearch-gui')">{{ t.opensearchGui }}</a></li>
+            <li><a :href="localePath('/download')">{{ t.download }}</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
           <h3>{{ t.resources }}</h3>
           <ul>
+            <li><a :href="localePath('/docs/')">{{ t.docs }}</a></li>
             <li><a :href="localePath('/blog/')">{{ t.blog }}</a></li>
             <li><a :href="localePath('/news/')">{{ t.news }}</a></li>
             <li><a href="https://github.com/geek-fun" target="_blank">{{ t.opensource }}</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>{{ t.community }}</h3>
+          <ul>
+            <li><a href="https://x.com/Blankll31075" target="_blank">Twitter/X</a></li>
+            <li><a href="https://www.youtube.com/@geekfun-club" target="_blank">YouTube</a></li>
+            <li><a href="https://github.com/geek-fun/dockit/issues" target="_blank">{{ t.support }}</a></li>
           </ul>
         </div>
       </div>
@@ -39,19 +59,35 @@ const { lang } = useData()
 const translations = {
   en: {
     products: 'Products',
+    dockit: 'DocKit',
     resources: 'Resources',
+    community: 'Community',
+    dynamodbGui: 'DynamoDB GUI',
+    elasticsearchGui: 'Elasticsearch GUI',
+    opensearchGui: 'OpenSearch GUI',
+    download: 'Download',
+    docs: 'Documentation',
     blog: 'Blog',
     news: 'News',
-    opensource: 'Opensource',
+    opensource: 'Open Source',
+    support: 'Support & Issues',
     message: 'GEEKFUN is a software community for opensource projects, our goal is to build sustainable open source projects for the world',
     copyright: 'Copyright © 2023-present <a href="https://github.com/geek-fun">geek-fun</a>'
   },
   zh: {
     products: '产品',
+    dockit: 'DocKit',
     resources: '资源',
+    community: '社区',
+    dynamodbGui: 'DynamoDB GUI',
+    elasticsearchGui: 'Elasticsearch GUI',
+    opensearchGui: 'OpenSearch GUI',
+    download: '下载',
+    docs: '文档',
     blog: '博客',
     news: '新闻',
     opensource: '开源',
+    support: '支持与问题',
     message: '极客范是一个软件社区，致力于构建可持续的开源软件和服务',
     copyright: 'Copyright © 2023-present <a href="https://github.com/geek-fun">geek-fun</a>'
   }
