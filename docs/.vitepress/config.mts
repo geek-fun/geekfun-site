@@ -20,6 +20,7 @@ const descZh = '极客范是一个软件社区，致力于构建可持续的开�
 
 export default defineConfig({
     lastUpdated: true,
+    cleanUrls: true,
     outDir: '../dist',
     cacheDir: '../cache',
     locales: {
