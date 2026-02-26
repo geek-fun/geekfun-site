@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: Elasticsearch AI assistant, automate Elasticsearch queries, AI-powered Elasticsearch queries, Elasticsearch query assistant, AI for data search, Elasticsearch automation tools
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/blog/elasticsearch-ai-assistant
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/elasticsearch-ai-assistant
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/elasticsearch-ai-assistant
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/elasticsearch-ai-assistant
 ---
 
 # Automate Elasticsearch Query Writing with AI Assistants

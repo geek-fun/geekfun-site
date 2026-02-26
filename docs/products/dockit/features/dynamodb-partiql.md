@@ -2,6 +2,22 @@
 title: DynamoDB PartiQL GUI - Visual Query Editor for SQL-Like Queries
 description: Execute PartiQL queries against DynamoDB with DocKit's visual editor. Syntax highlighting, auto-completion, and query formatting for SQL-like DynamoDB queries.
 sidebar: false
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/products/dockit/features/dynamodb-partiql
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/features/dynamodb-partiql
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/features/dynamodb-partiql
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/features/dynamodb-partiql
 ---
 
 # DynamoDB PartiQL GUI - Visual Query Editor

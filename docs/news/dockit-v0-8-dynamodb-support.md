@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: DocKit v0.8, DynamoDB support, DocKit release, NoSQL GUI client, PartiQL, DynamoDB management, open source release
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/news/dockit-v0-8-dynamodb-support
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/news/dockit-v0-8-dynamodb-support
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/news/dockit-v0-8-dynamodb-support
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/news/dockit-v0-8-dynamodb-support
 ---
 
 # 🎉 DocKit v0.8 Released: Full DynamoDB Support

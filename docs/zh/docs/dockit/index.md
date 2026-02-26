@@ -1,3 +1,27 @@
+---
+title: DocKit 文档
+description: DocKit 是一个 NoSQL GUI 客户端，支持 Elasticsearch、OpenSearch、DynamoDB 以及更多数据库。本文档概述了如何使用 DocKit。
+head:
+  - - meta
+    - name: keywords
+      content: DocKit文档, DocKit使用指南, Elasticsearch GUI客户端文档, OpenSearch GUI文档, DynamoDB GUI文档, NoSQL GUI客户端指南
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/docs/dockit/
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs/dockit/
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs/dockit/
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs/dockit/
+---
+
 # 文档
 
 DocKit 作为一个 NoSQL/NewSQL GUI 客户端，支持 Elasticsearch、OpenSearch、DynamoDB 以及更多即将支持的数据库。本文档概述了如何使用 DocKit。

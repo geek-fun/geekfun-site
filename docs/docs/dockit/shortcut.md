@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: DocKit, shortcuts, keyboard shortcuts, productivity, efficiency
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/docs/dockit/shortcut
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs/dockit/shortcut
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs/dockit/shortcut
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs/dockit/shortcut
 ---
 
 # DocKit Shortcuts Introduction

@@ -1,3 +1,26 @@
+---
+title: GEEKFUN News - Latest Releases & Announcements
+description: Stay updated with the latest GEEKFUN news, product releases, and announcements. Follow our open-source projects including DocKit and more.
+head:
+  - - meta
+    - name: keywords
+      content: geekfun news, DocKit releases, open source announcements, software updates, geekfun updates
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/news
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/news
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/news
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/news
+---
 # News
 
 Welcome to **GEEKFUN News!** :rocket::rocket::rocket:

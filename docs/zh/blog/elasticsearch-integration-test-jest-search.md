@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: Elasticsearch集成测试, jest-search集成测试, jest Elasticsearch集成测试, jest-preset Elasticsearch集成测试
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/blog/elasticsearch-integration-test-jest-search
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/elasticsearch-integration-test-jest-search
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/elasticsearch-integration-test-jest-search
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/elasticsearch-integration-test-jest-search
 ---
 
 # 使用 jest-search 实现 Elasticsearch 集成测试

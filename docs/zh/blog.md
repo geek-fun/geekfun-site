@@ -1,3 +1,26 @@
+---
+title: 极客范博客 - 开源开发见解
+description: 探索极客范博客，获取关于开源软件、DynamoDB、Elasticsearch、OpenSearch 和可持续开发实践的深度文章。
+head:
+  - - meta
+    - name: keywords
+      content: 极客范博客, 开源博客, Elasticsearch教程, DynamoDB指南, OpenSearch博客, 软件开发文章
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/blog
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog
+---
 # 博客
 
 欢迎来到 **GEEKFUN 博客！** :rocket::rocket::rocket:

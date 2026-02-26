@@ -2,6 +2,22 @@
 title: 桌面数据库 GUI 客户端 - 适用于 Mac、Windows、Linux 的原生应用
 description: DocKit 是用于 DynamoDB、Elasticsearch 和 OpenSearch 的原生桌面数据库客户端。比浏览器工具更快，支持离线工作，采用现代原生技术构建。
 sidebar: false
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/products/dockit/features/desktop-client
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/features/desktop-client
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/features/desktop-client
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/features/desktop-client
 ---
 
 # 桌面数据库 GUI 客户端

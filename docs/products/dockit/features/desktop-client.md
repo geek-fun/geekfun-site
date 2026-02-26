@@ -2,6 +2,22 @@
 title: Desktop Database GUI Client - Native App for Mac, Windows, Linux
 description: DocKit is a native desktop database client for DynamoDB, Elasticsearch, and OpenSearch. Faster than browser tools, works offline, and built with modern native technologies.
 sidebar: false
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/products/dockit/features/desktop-client
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/features/desktop-client
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/features/desktop-client
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/features/desktop-client
 ---
 
 # Desktop Database GUI Client

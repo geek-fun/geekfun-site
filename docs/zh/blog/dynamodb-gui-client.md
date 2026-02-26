@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: DynamoDB GUI客户端, DynamoDB桌面客户端, DynamoDB可视化工具, DynamoDB管理工具, DynamoDB PartiQL, NoSQL GUI客户端, DynamoDB查询工具, AWS DynamoDB客户端, DynamoDB数据管理, DynamoDB桌面工具, DocKit DynamoDB, DynamoDB本地
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/blog/dynamodb-gui-client
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/dynamodb-gui-client
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/dynamodb-gui-client
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/dynamodb-gui-client
 ---
 
 # 使用 DocKit 管理 DynamoDB 表让生活更轻松

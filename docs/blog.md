@@ -1,3 +1,26 @@
+---
+title: GEEKFUN Blog - Open Source Development Insights
+description: Explore the GEEKFUN blog for in-depth articles on open-source software, DynamoDB, Elasticsearch, OpenSearch, and sustainable development practices.
+head:
+  - - meta
+    - name: keywords
+      content: geekfun blog, open source blog, Elasticsearch tutorials, DynamoDB guides, OpenSearch blog, software development articles
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/blog
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog
+---
 # Blog
 
 Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:

@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: Elasticsearch AI 助手, AI 自动生成 Elasticsearch 查询, AI 驱动的 Elasticsearch 查询, Elasticsearch 查询助手, AI 数据检索, Elasticsearch 自动化工具
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/blog/elasticsearch-ai-assistant
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/elasticsearch-ai-assistant
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/elasticsearch-ai-assistant
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/elasticsearch-ai-assistant
 ---
 
 # 使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询

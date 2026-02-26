@@ -1,3 +1,26 @@
+---
+title: 关于极客范 - 开源软件社区
+description: 了解极客范，一个致力于构建可持续开源软件解决方案的开源社区。我们的使命、价值观和背后的团队。
+head:
+  - - meta
+    - name: keywords
+      content: 关于极客范, 开源社区, 极客范俱乐部, 可持续软件, 开源俱乐部
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/about
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/about
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/about
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/about
+---
 # 关于我们
 
 GEEKFUN 是一个致力于开源的俱乐部，我们专注于开发具有价值且可持续的软件。我们的使命是创造对世界产生积极影响的解决方案，同时确保其长期的可行性和相关性。
