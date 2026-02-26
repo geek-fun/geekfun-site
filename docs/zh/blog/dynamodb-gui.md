@@ -20,8 +20,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://dockit.geekfun.club/dynamodb-gui
-sidebar: false
----
 
 # DynamoDB GUI 客户端 - 开源桌面工具
 

@@ -20,7 +20,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://dockit.geekfun.club/dynamodb-gui
-sidebar: false
 ---
 
 # DynamoDB GUI Client - Open Source Desktop Tool

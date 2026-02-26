@@ -20,8 +20,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://dockit.geekfun.club/elasticsearch-gui
-sidebar: false
----
 
 # Elasticsearch GUI Client - Free Desktop Tool
 

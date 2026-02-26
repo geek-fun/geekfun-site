@@ -1,8 +1,5 @@
----
 title: 如何本地查询 DynamoDB - 完整开发指南
 description: 学习如何使用 DynamoDB Local 和 DocKit GUI 本地查询 DynamoDB。离线开发、测试和 CI/CD 集成的分步设置。
-sidebar: false
----
 
 # 如何本地查询 DynamoDB - 完整开发指南
 

@@ -17,6 +17,30 @@ const titleEn = 'GEEKFUN | Sustainable Software Community';
 const titleZh = '极客范 | 可持续的开源软件社区';
 const descEn = 'GEEKFUN is an open-source community focused on building sustainable software solutions. We empower developers to collaborate on open-source projects like DocKit and explore serverless technologies, including Serverless Insight, Elasticsearch, OpenSearch, and more. Join us in shaping the future of open-source development!';
 const descZh = '极客范是一个软件社区，致力于构建可持续的开源软件和服务';
+const docsSidebarEn = [
+    {
+        text: 'Docs',
+        items: [
+            {text: 'DocKit overview', link: '/docs/dockit/'},
+            {text: 'Installation', link: '/docs/dockit/installation'},
+            {text: 'Connect to server', link: '/docs/dockit/connect-to-server'},
+            {text: 'Shortcuts', link: '/docs/dockit/shortcut'},
+            {text: 'Manage Elasticsearch cluster', link: '/docs/dockit/manage-elasticsearch-cluster'}
+        ]
+    }
+];
+const docsSidebarZh = [
+    {
+        text: '文档',
+        items: [
+            {text: 'DocKit 概览', link: '/zh/docs/dockit/'},
+            {text: '安装指南', link: '/zh/docs/dockit/installation'},
+            {text: '连接服务器', link: '/zh/docs/dockit/connect-to-server'},
+            {text: '快捷键', link: '/zh/docs/dockit/shortcut'},
+            {text: '管理 Elasticsearch 集群', link: '/zh/docs/dockit/manage-elasticsearch-cluster'}
+        ]
+    }
+];
 
 export default defineConfig({
     lastUpdated: true,
@@ -57,6 +81,10 @@ export default defineConfig({
             themeConfig: {
                 ...sharedThemeConfig,
                 siteTitle: 'GEEKFUN',
+                sidebar: {
+                    '/blog/': docsSidebarEn,
+                    '/docs/': docsSidebarEn
+                },
                 nav: [
                     {
                         text: 'Home',
@@ -120,6 +148,10 @@ export default defineConfig({
             themeConfig: {
                 ...sharedThemeConfig,
                 siteTitle: '极客范',
+                sidebar: {
+                    '/zh/blog/': docsSidebarZh,
+                    '/zh/docs/': docsSidebarZh
+                },
                 nav: [
                     {
                         text: '首页',
