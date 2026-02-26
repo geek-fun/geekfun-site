@@ -11,7 +11,7 @@ head:
 
 AWS DynamoDB 作为 Serverless NoSQL 数据库提供了高性能，高伸缩性的新型数据库，在开发面对不可预知的流量的应用程序时有着独到的优势。但在 AWS 控制台上进行增删改查（CURD）可谓是一眼难尽，网页界面很容易容易误操作和丢失输入内容，一个不小心你就回退到之前的页面，你辛辛苦苦写的条件、SQL也就不翼而飞了。现有的桌面客户端如 [dynobase](https://dynobase.dev/) 和 [dynomate](https://www.dynomate.io/) 都是闭源的，并且dynobase已经很久没有更新了。
 
-这也是我们构建 [DocKit](https://dockit.geekfun.club/) 并支持 DynamoDB 的原因，从 **v0.8** 开始，你可以使用针对 DynaomoDB 而设计的 UI 和 PartiQL 在桌面上连接、查询和管理 DynamoDB 数据表，一如你习以为常的传统 SQ L数据库管理方式。
+这也是我们构建 [DocKit](/zh/products/dockit/) 并支持 DynamoDB 的原因，从 **v0.8** 开始，你可以使用针对 DynaomoDB 而设计的 UI 和 PartiQL 在桌面上连接、查询和管理 DynamoDB 数据表，一如你习以为常的传统 SQ L数据库管理方式。
 
 ![DocKit DynamoDB UI](/dockit-dynamodb.png)
 
@@ -88,7 +88,7 @@ DocKit v0.8 为 DynamoDB 的管理与操作带来了与管理关系型数据库�
 
 欢迎试用及反馈，无论是功能请求、错误报告还是改进建议。都可以在 GitHub 找到我们！
 
-**官方网站**：[https://dockit.geekfun.club/](https://dockit.geekfun.club/)
+**官方网站**：[https://www.geekfun.club/products/dockit/](/zh/products/dockit/)
 
 **GitHub**：[https://github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)
 

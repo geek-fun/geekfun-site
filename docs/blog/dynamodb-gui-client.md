@@ -11,7 +11,7 @@ head:
 
 While DynamoDB delivers high performance as a serverless NoSQL database, managing it through the AWS Console can be frustrating, web-based interfaces are prone to misoperations and lost inputs. Existing desktop clients like [dynobase](https://dynobase.dev/) and [dynomate](https://www.dynomate.io/) are closed-source and seems lack active maintenance.
 
- That's why we built [DocKit](https://dockit.geekfun.club/) with DynamoDB support, starting from **v0.8**—an open-source desktop GUI client that lets you connect to, query, and manage DynamoDB tables using both a friendly UI and PartiQL, all from your desktop.
+ That's why we built [DocKit](/products/dockit/) with DynamoDB support, starting from **v0.8**—an open-source desktop GUI client that lets you connect to, query, and manage DynamoDB tables using both a friendly UI and PartiQL, all from your desktop.
 
 ![DocKit DynamoDB UI](/dockit-dynamodb.png)
 ## What is DocKit?
@@ -92,7 +92,7 @@ DocKit v0.8 brings DynamoDB management into a modern, intuitive desktop experien
 
 Feel free to try it out and any feedback is warmly welcome—whether it's feature requests, bug reports, or suggestions for improvement. Don't be stingy with your stars and issues on GitHub!
 
-**Official Site**: [https://dockit.geekfun.club/](https://dockit.geekfun.club/)
+**Official Site**: [https://www.geekfun.club/products/dockit/](/products/dockit/)
 
 **GitHub**: [https://github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)
 

@@ -248,7 +248,7 @@ git pull
 ## 开始使用本地优先工作流程
 
 ### 1. 安装 DocKit
-从 [dockit.geekfun.club/download](/zh/download) 下载
+从 [www.geekfun.club/download](/zh/download) 下载
 
 ### 2. 选择您的查询目录
 首次启动时，选择存储查询的位置：

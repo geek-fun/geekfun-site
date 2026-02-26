@@ -248,7 +248,7 @@ git pull
 ## Getting Started with Local-First Workflow
 
 ### 1. Install DocKit
-Download from [dockit.geekfun.club/download](/download)
+Download from [www.geekfun.club/download](/download)
 
 ### 2. Choose Your Query Directory
 On first launch, select where to store queries:

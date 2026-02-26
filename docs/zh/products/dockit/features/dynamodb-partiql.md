@@ -154,7 +154,7 @@ DocKit 与 DynamoDB Local 无缝配合，用于离线开发：
 ## DocKit 中开始使用 PartiQL
 
 ### 1. 安装 DocKit
-从 [dockit.geekfun.club/download](/zh/download) 下载
+从 [www.geekfun.club/download](/zh/download) 下载
 
 ### 2. 连接到 DynamoDB
 - AWS 账户（带凭证）

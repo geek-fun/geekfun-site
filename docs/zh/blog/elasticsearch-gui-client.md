@@ -43,9 +43,9 @@ DocKit 提供了一系列功能以满足您的特定需求：
 
 开始使用 DocKit 非常简单：
 
-1. **下载和安装**：访问 [DocKit 官方网站](https://dockit.geekfun.club)
-   下载适用于您的操作系统的最新版本。按照 [安装指南](https://dockit.geekfun.club/docs/installation.html) 安装 DocKit。
-2. **连接到您的 Elasticsearch 服务器**：按照 [安装指南](https://dockit.geekfun.club/docs/connect-to-server.html) 将
+1. **下载和安装**：访问 [DocKit 官方网站](/zh/products/dockit/)
+   下载适用于您的操作系统的最新版本。按照 [安装指南](/zh/docs/dockit/installation) 安装 DocKit。
+2. **连接到您的 Elasticsearch 服务器**：按照 [安装指南](/zh/docs/dockit/connect-to-server) 将
    DocKit 连接到您的 Elasticsearch 服务器。
 3. **探索和管理您的数据**：使用 DocKit 的强大功能来管理和分析您的 Elasticsearch 数据。
 
@@ -55,4 +55,4 @@ DocKit 提供了一系列功能以满足您的特定需求：
 作为其中一个选择，提供了用户友好的界面、高级搜索功能和跨平台支持。不要浪费时间使用不合适的工具——使用 DocKit 优化您的工作流程，充分发挥
 Elasticsearch 的潜力。
 
-解更多信息并下载 DocKit，请访问 [官方网站](https://dockit.geekfun.club)。
+解更多信息并下载 DocKit，请访问 [官方网站](/zh/products/dockit/)。

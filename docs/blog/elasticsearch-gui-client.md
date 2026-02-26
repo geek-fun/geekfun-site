@@ -50,11 +50,11 @@ DocKit offers a range of features to suit your specific needs:
 
 Getting started with DocKit is simple:
 
-1. **Download and Install**: Visit the [official DocKit website](https://dockit.geekfun.club) to download the latest
+1. **Download and Install**: Visit the [official DocKit website](/products/dockit/) to download the latest
    version for your operating system. follow
-   the [installation guide](https://dockit.geekfun.club/docs/installation.html) to install DocKit.
+   the [installation guide](/docs/dockit/installation) to install DocKit.
 2. **Connect to Your Elasticsearch Server**: Follow
-   the [installation guide](https://dockit.geekfun.club/docs/connect-to-server.html) to connect
+   the [installation guide](/docs/dockit/connect-to-server) to connect
    DocKit to your Elasticsearch server.
 3. **Explore and Manage Your Data**: Use DocKit's powerful features to manage and analyze your Elasticsearch data.
 
@@ -64,4 +64,4 @@ Choosing the right Elasticsearch GUI client is crucial for efficient data manage
 a top choice, offering a user-friendly interface, advanced search capabilities, and cross-platform support. Don't waste
 time with subpar tools—optimize your workflow with DocKit and unlock the full potential of Elasticsearch.
 
-For more information and to download DocKit, visit the [official website](https://dockit.geekfun.club).
+For more information and to download DocKit, visit the [official website](/products/dockit/).

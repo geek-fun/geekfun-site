@@ -7,19 +7,19 @@ head:
       content: Elasticsearch GUI, Elasticsearch 客户端, Elasticsearch 桌面客户端, Kibana 替代方案, Elasticsearch Dev Tools, Elasticsearch 查询构建器, Elasticsearch 管理工具, 免费 Elasticsearch 客户端, 开源 Elasticsearch, Elasticsearch 数据浏览器, Elasticsearch JSON5, Elasticsearch 集群管理, Elasticsearch Mac 客户端, Elasticsearch Windows 客户端
   - - link
     - rel: canonical
-      href: https://dockit.geekfun.club/zh/elasticsearch-gui
+      href: https://www.geekfun.club/zh/blog/elasticsearch-gui
   - - link
     - rel: alternate
       hreflang: en
-      href: https://dockit.geekfun.club/elasticsearch-gui
+      href: https://www.geekfun.club/blog/elasticsearch-gui
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://dockit.geekfun.club/zh/elasticsearch-gui
+      href: https://www.geekfun.club/zh/blog/elasticsearch-gui
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://dockit.geekfun.club/elasticsearch-gui
+      href: https://www.geekfun.club/blog/elasticsearch-gui
 ---
 
 # Elasticsearch GUI 客户端 - 免费桌面工具
@@ -184,7 +184,7 @@ GET /products/_search
 ## 开始使用
 
 ### 1. 安装 DocKit
-从 [dockit.geekfun.club/download](/zh/download) 下载
+从 [www.geekfun.club/download](/zh/download) 下载
 
 ### 2. 连接到 Elasticsearch
 - 本地实例（`http://localhost:9200`）

@@ -1,6 +1,7 @@
 import {defineConfig} from 'vitepress'
 
 const icon = '/favicon.ico';
+const logo = '/geekfun.png';
 const sharedThemeConfig = {
     search: {
         provider: 'local'
@@ -62,13 +63,14 @@ export default defineConfig({
                 }],
                 ['meta', {property: 'og:title', content: titleEn}],
                 ['meta', {property: 'og:description', content: descEn}],
-                ['meta', {property: 'og:image', content: icon}],
-                ['meta', {property: 'og:url', content: '/'}],
+                ['meta', {property: 'og:image', content: logo}],
+                ['meta', {property: 'og:url', content: 'https://www.geekfun.club/'}],
                 ['meta', {property: 'og:site_name', content: titleEn}],
-                ['meta', {name: 'twitter:card', content: icon}],
+                ['meta', {property: 'og:type', content: 'website'}],
+                ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
                 ['meta', {name: 'twitter:title', content: titleEn}],
-                ['meta', {name: 'twitter:description', content: titleEn}],
-                ['meta', {name: 'twitter:image', content: icon}],
+                ['meta', {name: 'twitter:description', content: descEn}],
+                ['meta', {name: 'twitter:image', content: logo}],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
                 ['meta', {name: 'google-adsense-account', content: 'ca-pub-6086289782076652'}],
@@ -77,6 +79,18 @@ export default defineConfig({
                     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6086289782076652',
                     crossorigin: 'anonymous'
                 }],
+                ['script', {type: 'application/ld+json'}, JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "GEEKFUN",
+                    "url": "https://www.geekfun.club",
+                    "logo": "https://www.geekfun.club/geekfun.png",
+                    "sameAs": [
+                        "https://github.com/geek-fun",
+                        "https://x.com/Blankll31075",
+                        "https://www.youtube.com/@geekfun-club"
+                    ]
+                })],
             ],
             themeConfig: {
                 ...sharedThemeConfig,
@@ -135,13 +149,14 @@ export default defineConfig({
                 }],
                 ['meta', {property: 'og:title', content: titleZh}],
                 ['meta', {property: 'og:description', content: descZh}],
-                ['meta', {property: 'og:image', content: icon}],
-                ['meta', {property: 'og:url', content: '/'}],
+                ['meta', {property: 'og:image', content: logo}],
+                ['meta', {property: 'og:url', content: 'https://www.geekfun.club/zh/'}],
                 ['meta', {property: 'og:site_name', content: titleZh}],
-                ['meta', {name: 'twitter:card', content: icon}],
+                ['meta', {property: 'og:type', content: 'website'}],
+                ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
                 ['meta', {name: 'twitter:title', content: titleZh}],
                 ['meta', {name: 'twitter:description', content: descZh}],
-                ['meta', {name: 'twitter:image', content: icon}],
+                ['meta', {name: 'twitter:image', content: logo}],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
             ],
