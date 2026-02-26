@@ -20,6 +20,7 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://dockit.geekfun.club/dynobase-alternative
+---
 
 # Dynobase 替代方案 - 免费开源 DynamoDB 客户端
 

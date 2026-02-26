@@ -20,6 +20,7 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://dockit.geekfun.club/opensearch-gui
+---
 
 # OpenSearch GUI 客户端 - 免费桌面工具
 

@@ -20,6 +20,7 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://dockit.geekfun.club/dynobase-alternative
+---
 
 # Dynobase Alternative - Free Open-Source DynamoDB Client
 
