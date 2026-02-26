@@ -67,6 +67,10 @@ export default defineConfig({
                         link: '/products/',
                     },
                     {
+                        text: 'Docs',
+                        link: '/docs/',
+                    },
+                    {
                         text: 'News',
                         link: '/news/',
                     },
@@ -124,6 +128,10 @@ export default defineConfig({
                     {
                         text: '产品',
                         link: '/zh/products/',
+                    },
+                    {
+                        text: '文档',
+                        link: '/zh/docs/',
                     },
                     {
                         text: '新闻',
