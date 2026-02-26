@@ -2,6 +2,22 @@
 title: Local-First NoSQL Database Client - Offline Database Management
 description: DocKit is a local-first database client that works offline. All queries, connections, and data stay on your machine. Perfect for air-gapped environments and privacy-conscious teams.
 sidebar: false
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/products/dockit/features/local-first
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/features/local-first
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/features/local-first
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/features/local-first
 ---
 
 # Local-First NoSQL Database Client

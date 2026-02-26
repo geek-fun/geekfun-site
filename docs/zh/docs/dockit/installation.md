@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: DocKit 安装, DocKit 下载, DocKit 安装指南, DocKit 搭建, DocKit 使用, DocKit 桌面客户端, DocKit Elasticsearch 客户端, DocKit OpenSearch 客户端, DocKit 跨平台客户端, DocKit 开源客户端, DocKit Mac 客户端, DocKit Windows 客户端, DocKit Linux 客户端
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/docs/dockit/installation
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs/dockit/installation
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs/dockit/installation
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs/dockit/installation
 ---
 
 # DocKit 安装

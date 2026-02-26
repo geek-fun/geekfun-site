@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: DocKit installation, DocKit download, DocKit install, DocKit setup
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/docs/dockit/installation
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs/dockit/installation
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs/dockit/installation
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs/dockit/installation
 ---
 
 # DocKit Installation

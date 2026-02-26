@@ -1,6 +1,25 @@
 ---
 title: How to Query DynamoDB Locally - Complete Development Guide
 description: Learn how to query DynamoDB locally using DynamoDB Local and DocKit GUI. Step-by-step setup for offline development, testing, and CI/CD integration.
+head:
+  - - meta
+    - name: keywords
+      content: query DynamoDB locally, DynamoDB Local, DynamoDB local development, DynamoDB offline, DynamoDB local setup, DynamoDB Local GUI, test DynamoDB locally
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/blog/query-dynamodb-locally
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/query-dynamodb-locally
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/query-dynamodb-locally
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/query-dynamodb-locally
 ---
 
 # How to Query DynamoDB Locally - Complete Development Guide

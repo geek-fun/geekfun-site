@@ -8,6 +8,21 @@ head:
   - - meta
     - name: robots
       content: noindex, follow
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/docs/dockit/manage-elasticsearch-cluster
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs/dockit/manage-elasticsearch-cluster
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs/dockit/manage-elasticsearch-cluster
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs/dockit/manage-elasticsearch-cluster
 ---
 
 # 使用 DocKit 监控和管理 Elasticsearch 集群

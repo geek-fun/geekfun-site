@@ -2,6 +2,22 @@
 title: Open Source Database GUI - Free & Transparent NoSQL Client
 description: DocKit is an open-source database GUI for DynamoDB, Elasticsearch, and OpenSearch. Apache 2.0 licensed, community-driven, and fully auditable. No vendor lock-in.
 sidebar: false
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/products/dockit/features/open-source
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/features/open-source
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/features/open-source
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/features/open-source
 ---
 
 # Open Source Database GUI

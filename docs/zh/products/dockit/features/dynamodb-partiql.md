@@ -2,6 +2,22 @@
 title: DynamoDB PartiQL GUI - SQL 风格查询的可视化编辑器
 description: 使用 DocKit 的可视化编辑器执行 PartiQL 查询。语法高亮、自动补全和查询格式化，为 DynamoDB 提供类 SQL 查询体验。
 sidebar: false
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/products/dockit/features/dynamodb-partiql
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/features/dynamodb-partiql
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/features/dynamodb-partiql
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/features/dynamodb-partiql
 ---
 
 # DynamoDB PartiQL GUI - 可视化查询编辑器

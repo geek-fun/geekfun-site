@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: Elasticsearch GUI client, Elasticsearch desktop client, Elasticsearch GUI tool, Elasticsearch desktop tool, Elasticsearch GUI, Elasticsearch desktop, Elasticsearch client, Elasticsearch tool, Elasticsearch management tool, Elasticsearch management client, Elasticsearch management, Elasticsearch data management, Elasticsearch data analysis, Elasticsearch data visualization,Elasticsearch data query, Elasticsearch data exploration, Elasticsearch data optimization, Elasticsearch data efficiency, Elasticsearch data workflow
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/blog/elasticsearch-gui-client
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/elasticsearch-gui-client
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/elasticsearch-gui-client
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/elasticsearch-gui-client
 ---
 
 # DocKit - Introduction to Elasticsearch GUI Client

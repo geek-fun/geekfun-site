@@ -1,3 +1,27 @@
+---
+title: DocKit Documentation
+description: DocKit is a NoSQL GUI client that supports Elasticsearch, OpenSearch, DynamoDB, and more. This document outlines how to use DocKit.
+head:
+  - - meta
+    - name: keywords
+      content: DocKit documentation, DocKit guide, Elasticsearch GUI client docs, OpenSearch GUI docs, DynamoDB GUI docs, NoSQL GUI client guide
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/docs/dockit/
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs/dockit/
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs/dockit/
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs/dockit/
+---
+
 # Document
 
 DocKit as a NoSQL/NewSQL GUI client supports Elasticsearch, OpenSearch, DynamoDB, and more to come. This document outlines how to use DocKit.

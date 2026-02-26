@@ -9,6 +9,21 @@ head:
   - - meta
     - name: robots
       content: noindex, follow
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/docs/dockit/manage-elasticsearch-cluster
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs/dockit/manage-elasticsearch-cluster
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs/dockit/manage-elasticsearch-cluster
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs/dockit/manage-elasticsearch-cluster
 ---
 
 # DocKit Monitor and Manage Elasticsearch Cluster

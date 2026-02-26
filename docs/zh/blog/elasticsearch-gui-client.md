@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: Elasticsearch GUI客户端, Elasticsearch桌面客户端, Elasticsearch可视化工具, Elasticsearch桌面工具, Elasticsearch客户端,Elasticsearch工具, Elasticsearch管理工具,Elasticsearch查询工具
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/blog/elasticsearch-gui-client
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/elasticsearch-gui-client
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/elasticsearch-gui-client
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/elasticsearch-gui-client
 ---
 
 # DocKit - Elasticsearch桌面客户端介绍

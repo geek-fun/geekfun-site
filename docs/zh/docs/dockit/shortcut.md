@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: DocKit, 快捷键, 键盘快捷键, 生产力, 效率, Elasticsearch, OpenSearch, 桌面客户端, 数据管理, 数据分析, 数据可视化, 数据查询, 数据探索, 数据优化, 数据效率, 数据工作流
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/docs/dockit/shortcut
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs/dockit/shortcut
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs/dockit/shortcut
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs/dockit/shortcut
 ---
 
 # DocKit 快捷键介绍

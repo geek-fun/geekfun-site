@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: Elasticsearch Integration Test, Elasticsearch Integration Test with jest-search, Elasticsearch Integration Test with jest, Elasticsearch Integration Test with jest-preset
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/blog/elasticsearch-integration-test-jest-search
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/elasticsearch-integration-test-jest-search
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/elasticsearch-integration-test-jest-search
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/elasticsearch-integration-test-jest-search
 ---
 
 # Implementing Elasticsearch Integration Test with jest-search

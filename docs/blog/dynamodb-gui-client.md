@@ -5,6 +5,21 @@ head:
   - - meta
     - name: keywords
       content: DynamoDB GUI client, DynamoDB desktop client, DynamoDB GUI tool, DynamoDB management tool, DynamoDB PartiQL, NoSQL GUI client, DynamoDB query tool, AWS DynamoDB client, DynamoDB data management, DynamoDB desktop, DocKit DynamoDB, DynamoDB local
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/blog/dynamodb-gui-client
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/dynamodb-gui-client
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/dynamodb-gui-client
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/dynamodb-gui-client
 ---
 
 # Managing your DynamoDB tables with DocKit make life easier

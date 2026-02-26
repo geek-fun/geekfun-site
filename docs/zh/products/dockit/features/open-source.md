@@ -2,6 +2,22 @@
 title: 开源数据库 GUI - 免费透明的 NoSQL 客户端
 description: DocKit 是一个用于 DynamoDB、Elasticsearch 和 OpenSearch 的开源数据库 GUI。采用 Apache 2.0 许可，社区驱动，完全可审计。无供应商锁定。
 sidebar: false
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/products/dockit/features/open-source
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/features/open-source
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/features/open-source
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/features/open-source
 ---
 
 # 开源数据库 GUI

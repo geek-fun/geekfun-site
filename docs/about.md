@@ -1,3 +1,26 @@
+---
+title: About GEEKFUN - Open Source Software Community
+description: Learn about GEEKFUN, an open-source software community committed to building sustainable software solutions. Our mission, values, and the team behind it.
+head:
+  - - meta
+    - name: keywords
+      content: about GEEKFUN, open source community, geekfun club, sustainable software, open source club
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/about
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/about
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/about
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/about
+---
 # About Us
 
 GEEKFUN is an Open Source Club committed to developing software that not only delivers value but also prioritizes

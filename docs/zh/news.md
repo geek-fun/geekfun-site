@@ -1,3 +1,26 @@
+---
+title: 极客范新闻 - 最新发布与公告
+description: 关注最新的极客范新闻、产品发布和公告。跟踪我们的开源项目，包括 DocKit 等。
+head:
+  - - meta
+    - name: keywords
+      content: 极客范新闻, DocKit发布, 开源公告, 软件更新, 极客范更新
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/news
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/news
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/news
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/news
+---
 # 新闻
 
 欢迎来到 **GEEKFUN 新闻！** :rocket::rocket::rocket:

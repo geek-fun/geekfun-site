@@ -2,6 +2,22 @@
 title: 本地优先的 NoSQL 数据库客户端 - 离线数据库管理
 description: DocKit 是一个本地优先的数据库客户端，支持离线工作。所有查询、连接和数据都保留在您的设备上。非常适合隔离环境和注重隐私的团队。
 sidebar: false
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/products/dockit/features/local-first
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/features/local-first
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/features/local-first
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/features/local-first
 ---
 
 # 本地优先的 NoSQL 数据库客户端
