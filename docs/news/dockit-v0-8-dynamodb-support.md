@@ -34,7 +34,7 @@ Compared to the AWS Console's web interface prone to misoperations, and existing
 
 ## Get Started Today
 
-📥 **Download**: [https://dockit.geekfun.club/](https://dockit.geekfun.club/)  
+📥 **Download**: [https://www.geekfun.club/products/dockit/](/products/dockit/)  
 📖 **Full Tutorial**: [Managing DynamoDB with DocKit](/blog/dynamodb-gui-client.md)  
 ⭐ **GitHub**: [https://github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)
 
@@ -44,5 +44,5 @@ We look forward to your feedback and suggestions! Feel free to submit issues or 
 
 **Related Links:**
 - [Blog Post: Managing DynamoDB with DocKit](/blog/dynamodb-gui-client.md)
-- [DocKit Official Website](https://dockit.geekfun.club/)
+- [DocKit Official Website](/products/dockit/)
 - [GitHub Repository](https://github.com/geek-fun/dockit)

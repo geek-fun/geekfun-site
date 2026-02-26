@@ -34,7 +34,7 @@ head:
 
 ## 立即体验
 
-📥 **下载地址**: [https://dockit.geekfun.club/](https://dockit.geekfun.club/)  
+📥 **下载地址**: [https://www.geekfun.club/products/dockit/](/zh/products/dockit/)  
 📖 **完整教程**: [使用 DocKit 管理 DynamoDB 表](/zh/blog/dynamodb-gui-client.md)  
 ⭐ **GitHub**: [https://github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)
 
@@ -44,5 +44,5 @@ head:
 
 **相关链接：**
 - [博客文章：使用 DocKit 管理 DynamoDB 表](/zh/blog/dynamodb-gui-client.md)
-- [DocKit 官方网站](https://dockit.geekfun.club/)
+- [DocKit 官方网站](/zh/products/dockit/)
 - [GitHub 仓库](https://github.com/geek-fun/dockit)

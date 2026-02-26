@@ -7,19 +7,19 @@ head:
       content: download DocKit, DocKit download, DynamoDB GUI download, Elasticsearch GUI download, OpenSearch GUI download, free database client, open source database tool, Mac database client download, Windows database client download, Linux database client download
   - - link
     - rel: canonical
-      href: https://dockit.geekfun.club/download
+      href: https://www.geekfun.club/download
   - - link
     - rel: alternate
       hreflang: en
-      href: https://dockit.geekfun.club/download
+      href: https://www.geekfun.club/download
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://dockit.geekfun.club/zh/download
+      href: https://www.geekfun.club/zh/download
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://dockit.geekfun.club/download
+      href: https://www.geekfun.club/download
 outline: deep
 sidebar: false
 ---

@@ -7,19 +7,19 @@ head:
       content: OpenSearch GUI, OpenSearch client, OpenSearch desktop client, OpenSearch Dashboards alternative, AWS OpenSearch client, OpenSearch query builder, OpenSearch management tool, free OpenSearch client, open source OpenSearch, OpenSearch data browser, OpenSearch JSON5, OpenSearch cluster management, OpenSearch Mac client, OpenSearch Windows client
   - - link
     - rel: canonical
-      href: https://dockit.geekfun.club/opensearch-gui
+      href: https://www.geekfun.club/blog/opensearch-gui
   - - link
     - rel: alternate
       hreflang: en
-      href: https://dockit.geekfun.club/opensearch-gui
+      href: https://www.geekfun.club/blog/opensearch-gui
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://dockit.geekfun.club/zh/opensearch-gui
+      href: https://www.geekfun.club/zh/blog/opensearch-gui
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://dockit.geekfun.club/opensearch-gui
+      href: https://www.geekfun.club/blog/opensearch-gui
 ---
 
 # OpenSearch GUI Client - Free Desktop Tool

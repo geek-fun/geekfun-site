@@ -9,19 +9,19 @@ head:
       content: NoSQL GUI client, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, database client, Dynobase alternative, Kibana alternative, open source database tool, PartiQL editor, desktop database client, Mac database client, Windows database client, Linux database client
   - - link
     - rel: canonical
-      href: https://dockit.geekfun.club/
+      href: https://www.geekfun.club/products/dockit/
   - - link
     - rel: alternate
       hreflang: en
-      href: https://dockit.geekfun.club/
+      href: https://www.geekfun.club/products/dockit/
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://dockit.geekfun.club/zh/
+      href: https://www.geekfun.club/zh/products/dockit/
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://dockit.geekfun.club/
+      href: https://www.geekfun.club/products/dockit/
 
 hero:
   name: "DocKit"

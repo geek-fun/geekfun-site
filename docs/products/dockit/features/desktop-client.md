@@ -298,7 +298,7 @@ No manual download or reinstall required.
 
 ### 1. Download DocKit
 
-Visit [dockit.geekfun.club/download](/download) and choose your platform:
+Visit [www.geekfun.club/download](/download) and choose your platform:
 
 - macOS (Intel & Apple Silicon)
 - Windows (64-bit)

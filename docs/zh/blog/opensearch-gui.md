@@ -7,19 +7,19 @@ head:
       content: OpenSearch GUI, OpenSearch 客户端, OpenSearch 桌面客户端, OpenSearch Dashboards 替代方案, AWS OpenSearch 客户端, OpenSearch 查询构建器, OpenSearch 管理工具, 免费 OpenSearch 客户端, 开源 OpenSearch, OpenSearch 数据浏览器, OpenSearch JSON5, OpenSearch 集群管理, OpenSearch Mac 客户端, OpenSearch Windows 客户端
   - - link
     - rel: canonical
-      href: https://dockit.geekfun.club/zh/opensearch-gui
+      href: https://www.geekfun.club/zh/blog/opensearch-gui
   - - link
     - rel: alternate
       hreflang: en
-      href: https://dockit.geekfun.club/opensearch-gui
+      href: https://www.geekfun.club/blog/opensearch-gui
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://dockit.geekfun.club/zh/opensearch-gui
+      href: https://www.geekfun.club/zh/blog/opensearch-gui
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://dockit.geekfun.club/opensearch-gui
+      href: https://www.geekfun.club/blog/opensearch-gui
 ---
 
 # OpenSearch GUI 客户端 - 免费桌面工具
@@ -182,7 +182,7 @@ DocKit 与 AWS OpenSearch Service 完美配合：
 ## 开始使用
 
 ### 1. 安装 DocKit
-从 [dockit.geekfun.club/download](/zh/download) 下载
+从 [www.geekfun.club/download](/zh/download) 下载
 
 ### 2. 连接到 OpenSearch
 - 本地 OpenSearch（`http://localhost:9200`）

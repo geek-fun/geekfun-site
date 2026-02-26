@@ -7,19 +7,19 @@ head:
       content: Dynobase alternative, free Dynobase alternative, DynamoDB GUI, DynamoDB client, DynamoDB desktop tool, PartiQL editor, DynamoDB management, open source DynamoDB client, DynamoDB tool comparison, Dynobase vs DocKit, free DynamoDB tool, NoSQL GUI client, DynamoDB visual editor, DynamoDB query builder
   - - link
     - rel: canonical
-      href: https://dockit.geekfun.club/dynobase-alternative
+      href: https://www.geekfun.club/blog/dynobase-alternative
   - - link
     - rel: alternate
       hreflang: en
-      href: https://dockit.geekfun.club/dynobase-alternative
+      href: https://www.geekfun.club/blog/dynobase-alternative
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://dockit.geekfun.club/zh/dynobase-alternative
+      href: https://www.geekfun.club/zh/blog/dynobase-alternative
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://dockit.geekfun.club/dynobase-alternative
+      href: https://www.geekfun.club/blog/dynobase-alternative
 ---
 
 # Dynobase Alternative - Free Open-Source DynamoDB Client
@@ -177,7 +177,7 @@ Dynobase supports exporting to:
 Switching is straightforward:
 
 ### 1. **Install DocKit**
-Download from [dockit.geekfun.club/download](/download)
+Download from [www.geekfun.club/download](/download)
 
 ### 2. **Connect Using Same AWS Credentials**
 DocKit uses standard AWS credential methods:
@@ -225,7 +225,7 @@ Your data stays in DynamoDB — you're just changing the UI tool. Switch back an
 ## Getting Started with DocKit
 
 ### Step 1: Download
-Visit [dockit.geekfun.club/download](/download) and choose your platform:
+Visit [www.geekfun.club/download](/download) and choose your platform:
 - macOS (Intel & Apple Silicon)
 - Windows (x64)
 - Linux (AppImage, deb, rpm)
