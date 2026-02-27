@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+description: GEEKFUN is an open-source community building sustainable software solutions. Explore DocKit for DynamoDB, Elasticsearch, and OpenSearch GUI management.
 
 hero:
   name: "GEEKFUN"
@@ -8,7 +9,7 @@ hero:
   tagline: software club to build sustainable open source software for the world
   image:
     src: geekfun.png
-    alt: GEEK FUN logo
+    alt: GEEKFUN open-source software community logo
   actions:
     - theme: brand
       text: Products

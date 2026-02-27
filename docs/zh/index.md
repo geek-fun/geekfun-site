@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+description: 极客范是一个开源软件社区，致力于构建可持续的软件解决方案。探索 DocKit 用于管理 DynamoDB、Elasticsearch 和 OpenSearch 数据库。
 
 hero:
   name: "极客范"
@@ -8,7 +9,7 @@ hero:
   tagline: 致力于打造开放可持续的开源软件
   image:
     src: /geekfun.png
-    alt: GEEK FUN logo
+    alt: 极客范开源软件社区 logo
   actions:
     - theme: brand
       text: 产品

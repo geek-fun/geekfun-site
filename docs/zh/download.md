@@ -1,4 +1,6 @@
 ---
+title: 下载 DocKit - 免费 DynamoDB、Elasticsearch 和 OpenSearch GUI 客户端
+description: 下载适用于 Mac、Windows 和 Linux 的 DocKit。免费开源的 DynamoDB、Elasticsearch 和 OpenSearch 数据库可视化管理工具。
 outline: deep
 sidebar: false
 ---

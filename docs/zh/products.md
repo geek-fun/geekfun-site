@@ -1,8 +1,10 @@
 ---
 layout: home
+title: 开源产品 - 极客范
+description: 探索极客范开源产品，包括 DocKit NoSQL 可视化客户端、AnyTerm SSH 终端、ServerlessInsight 和 jest-search 测试工具。
 ---
 
-# 开源产品
+## 开源产品
 
 <div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
 <Product :product='{name: "DocKit", logo: "/dockit.png",preview: "/dockit-client-ui.png", description: "一个更好的NoSQL可视化客户端，支持 Mac, Windows 和 Linux。", url: "/zh/products/dockit/"}'></Product>

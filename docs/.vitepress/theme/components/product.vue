@@ -9,10 +9,10 @@ const props = defineProps({
 <template>
   <div class="product-container">
     <div class="product-header">
-      <img :src="props.product.logo" alt="product-image">
+      <img :src="props.product.logo" :alt="props.product.name + ' logo'">
       <h3 class="card-title">{{ props.product.name }}</h3>
     </div>
-    <img class="product-preview-img" :src="props.product.preview" alt="preview-image">
+    <img class="product-preview-img" :src="props.product.preview" :alt="props.product.name + ' preview screenshot'">
     <p>{{ props.product.description }}</p>
     <div class="refer-container">
       <a :href="props.product.url" target="_blank" rel="noopener noreferrer">Learn More</a>

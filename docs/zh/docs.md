@@ -1,9 +1,10 @@
 ---
 layout: home
-title: 文档
+title: 文档中心 - 极客范
+description: 浏览极客范文档中心，获取 DocKit、DynamoDB、Elasticsearch 和 OpenSearch 管理的指南、教程和参考资料。
 ---
 
-# 文档
+## 文档
 
 欢迎来到 GEEKFUN 文档中心。在这里您可以找到我们所有项目的指南、教程和参考资料。
 

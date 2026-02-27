@@ -1,9 +1,10 @@
 ---
 layout: home
-title: Documentation
+title: Documentation - GEEKFUN
+description: Browse GEEKFUN documentation hub with guides, tutorials, and reference materials for DocKit, DynamoDB, Elasticsearch, and OpenSearch management.
 ---
 
-# Documentation
+## Documentation
 
 Welcome to the GEEKFUN documentation hub. Here you'll find guides, tutorials, and reference materials for all our projects.
 

@@ -1,3 +1,8 @@
+---
+title: DocKit Documentation - NoSQL GUI Client Guide
+description: Complete documentation for DocKit NoSQL GUI client. Learn installation, server connection, keyboard shortcuts, and Elasticsearch cluster management.
+---
+
 # Document
 
 DocKit as a NoSQL/NewSQL GUI client supports Elasticsearch, OpenSearch, DynamoDB, and more to come. This document outlines how to use DocKit.

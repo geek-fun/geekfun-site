@@ -1,8 +1,10 @@
 ---
 layout: home
+title: Products - GEEKFUN Open Source Software
+description: Explore GEEKFUN open-source products including DocKit NoSQL GUI client, AnyTerm SSH terminal, ServerlessInsight, and jest-search testing tools.
 ---
 
-# Products
+## Products
 
 <div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
 <Product :product='{name: "DocKit", logo: "/dockit.png",preview: "/dockit-client-ui.png", description: "A better NoSQL GUI client for Mac, Windows and Linux", url: "/products/dockit/"}'></Product>
