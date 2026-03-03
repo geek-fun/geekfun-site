@@ -4,7 +4,7 @@ description: DocKit is a NoSQL GUI client that supports Elasticsearch, OpenSearc
 head:
   - - meta
     - name: keywords
-      content: DocKit documentation, DocKit guide, Elasticsearch GUI client docs, OpenSearch GUI docs, DynamoDB GUI docs, NoSQL GUI client guide
+      content: DocKit documentation, DocKit guide, Elasticsearch GUI client docs, OpenSearch GUI docs, DynamoDB GUI docs, NoSQL GUI client guide, DocKit import export, DocKit query history, DynamoDB manage metrics
   - - link
     - rel: canonical
       href: https://www.geekfun.club/docs/dockit/
@@ -45,4 +45,16 @@ outlines the available shortcuts and corresponding actions.
 DocKit as a NoSQL GUI client, it supports to monitor and manage Elasticsearch including indices and alias management,
 nodes management, shards management, and templates management. This document outlines how to monitor and manage
 Elasticsearch in DocKit.
+
+## [Import & Export](/docs/dockit/import-export)
+
+DocKit supports importing and exporting data from Elasticsearch, OpenSearch, and DynamoDB in JSON, CSV, and bulk formats. This guide covers the full workflow.
+
+## [Query History](/docs/dockit/query-history)
+
+Never lose a query again. DocKit automatically records every executed query for Elasticsearch and DynamoDB, letting you re-run, copy, and add past queries back to the editor.
+
+## [DynamoDB Manage & Metrics](/docs/dockit/dynamodb-manage-metrics)
+
+DocKit lets you manage DynamoDB tables and monitor key metrics — table size, item count, read/write capacity — all from a clean desktop GUI.
 
