@@ -51,16 +51,8 @@ features:
 ---
 
 ::: tip 🎉 Latest News
-DocKit v0.8 Released - Full DynamoDB support is now available! [Read more →](/download)
+DocKit v0.9 Released - Redesigned UI with Query History & Full DynamoDB support is now available! [Read more →](/news/dockit-v0-9-release)
 :::
-
-## Explore DocKit by Database
-
-DocKit provides specialized GUI clients for each database type:
-
-- **[DynamoDB GUI Client](/blog/dynamodb-gui)** - Visual query builder, PartiQL editor, and the best [Dynobase alternative](/blog/dynobase-alternative) for cost-conscious teams
-- **[Elasticsearch GUI](/blog/elasticsearch-gui)** - Desktop client with Dev Tools, index management, and cluster monitoring
-- **[OpenSearch GUI](/blog/opensearch-gui)** - Open-source OpenSearch desktop tool, perfect for AWS OpenSearch Service
 
 <div align="center" style="padding: 64px;">
 <p style="font-size: 20px;margin: 20px;font-weight: bolder;">Client Screen Short</p>
