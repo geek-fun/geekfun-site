@@ -70,7 +70,7 @@ DocKit 支持以 JSON、CSV 和 Elasticsearch Bulk 格式从 Elasticsearch、Ope
 - 文档总数（估计值）
 - 已用时间
 
-导出是可恢复的 — 如果 DocKit 在导出中途关闭，重新运行相同的导出将覆盖部分文件。
+导出不支持断点续传：如果 DocKit 在导出中途关闭，重新运行相同的导出会从头开始，并覆盖已有的输出文件。
 
 ### 步骤 5：验证导出
 

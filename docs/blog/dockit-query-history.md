@@ -45,7 +45,7 @@ DocKit's query history feature solves this by **automatically recording every qu
 
 The query history panel is a dedicated sidebar in DocKit that shows a chronological list of every query you have executed. For each entry you can see:
 
-![DocKit Query Hisotry panel screenshot](/dockit-query-history.png)
+![DocKit Query History panel screenshot](/dockit-query-history.png)
 
 - **HTTP method badge** (GET, POST, PUT, DELETE) — for Elasticsearch queries
 - **API path** — the Elasticsearch endpoint (e.g., `/my-index/_search`)
@@ -69,7 +69,7 @@ History is **capped at 500 entries** per connection. When the limit is reached, 
 
 **Example of a saved Elasticsearch query:**
 
-```json
+```http
 POST my-index/_search
 {
   "query": {

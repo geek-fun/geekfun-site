@@ -70,7 +70,7 @@ Click **Export**. DocKit streams documents from Elasticsearch using the scroll A
 - Total document count (estimated)
 - Elapsed time
 
-The export is resumable — if DocKit is closed mid-export, re-running the same export will overwrite the partial file.
+Export does not support resumption: if DocKit is closed mid-export, re-running the same export will restart from the beginning and overwrite any partial output file.
 
 ### Step 5: Verify the Export
 

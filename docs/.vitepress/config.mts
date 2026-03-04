@@ -7,7 +7,7 @@ const sharedThemeConfig = {
     search: {
         provider: 'local'
     },
-    logo: { src: icon, alt: 'GeekFun' },
+    logo,
     socialLinks: [
         {icon: 'github', link: 'https://github.com/geek-fun'},
         // add x social links
@@ -61,7 +61,7 @@ export default defineConfig({
             lang: 'en',
             description: descEn,
             head: [
-                ['link', {rel: 'icon', icon}],
+                ['link', {rel: 'icon', href: icon}],
                 ['meta', {
                     name: 'keywords',
                     content: 'geekfun, geek-fun, open source community, open source software, software sustainability, DocKit, serverless, serverless insight, serverless architecture, Elasticsearch, OpenSearch, ZincSearch, developer community, collaborative software development, sustainable software projects'
@@ -146,7 +146,7 @@ export default defineConfig({
             title: titleZh,
             description: descZh,
             head: [
-                ['link', {rel: 'icon', icon}],
+                ['link', {rel: 'icon', href: icon}],
                 ['meta', {
                     name: 'keywords',
                     content: '极客范,极客乐园, geekfun, 开源社区, 开源软件, 软件可持续性, DocKit, serverless, serverless insight, 无服务器, serverless architecture, 无服务器架构, Elasticsearch, OpenSearch, ZincSearch, 开发者社区, 协作软件开发, 可持续软件项目'

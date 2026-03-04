@@ -49,7 +49,7 @@ Exporting an index or table from DocKit is a straightforward process:
 ![DocKit export data panel screenshot](/dockit-dynamodb-export.png)
 
 1. **Open DocKit** and connect to your Elasticsearch, OpenSearch, or DynamoDB instance. See the [connection guide](/docs/dockit/connect-to-server) if you need help.
-2. In the left sidebar click Import/Export Icon to open the Import/Export, select the **Import** to import data or **Export** if you want to export.
+2. In the left sidebar, click the Import/Export icon to open the Import/Export panel, then select the **Export** tab to export data.
 3. select the **SOURCE DATABASE** and **COLLECTION NAME** for the target data you want to export
 4. Choose your **output format**: JSON, CSV or JSONL format
 5. Choose an **output path** on your local filesystem.
