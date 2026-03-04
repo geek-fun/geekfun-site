@@ -41,18 +41,23 @@ The most visible change in v0.9 is a complete UI overhaul. We've migrated from N
 
 DocKit now **automatically records every query you execute** — for Elasticsearch, OpenSearch, and DynamoDB — without any manual saving required.
 
+![DocKit Query History panel screenshot](/dockit-query-history.png)
+
 - View a chronological list of past queries in the new **History panel**
 - Each entry shows the HTTP method, API path, connection name, and timestamp (Elasticsearch) or query type, table, and timestamp (DynamoDB)
 - **Copy** a query to the clipboard, **Add to Editor** to load it back, or **Execute** to re-run it immediately
 - History is capped at **500 entries per connection** and stored entirely on your local machine — never synced to the cloud
 - Covers both **PartiQL statements** and **visual UI form queries** for DynamoDB
 
-Read more: [Query History blog post](/blog/query-history) | [Query History documentation](/docs/dockit/query-history)
+Read more: [Query History blog post](/blog/dockit-query-history) | [Query History documentation](/docs/dockit/query-history)
 
 ### 🏠 DynamoDB Local Support
 
-You can now connect to a **locally running DynamoDB instance** by specifying an optional endpoint URL in the connection configuration. This makes it easier to:
+You can now connect to a **locally running DynamoDB instance** by specifying an optional endpoint URL in the connection configuration. 
 
+![DocKit Connect DynamoDB local screenshot](/dockit-connection-dynamodblocal.png)
+
+This makes it easier to:
 - Develop and test against DynamoDB Local without spinning up AWS resources
 - Run integration tests in CI environments pointing to a local DynamoDB container
 - Work offline without any AWS credentials

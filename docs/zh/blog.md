@@ -27,17 +27,17 @@ head:
 
 探索来自 GEEKFUN 社区的精选高质量内容，旨在启发和赋能开发者与组织。在这里，您将找到关于软件开发、前沿工具、最佳实践、教程以及远见卓识的深入文章——所有内容都专注于构建可持续的开源解决方案。加入我们，通过开放协作推动创新，并促进个人与行业的共同成长。
 
-## [DocKit 查询历史 - 永不丢失查询记录](/zh/blog/query-history.md)
+## [DocKit 查询历史 - 永不丢失查询记录](/zh/blog/dockit-query-history.md)
 *2026年3月3日*
 
 DocKit 现在自动保存您执行的每个查询 — 适用于 Elasticsearch、OpenSearch 和 DynamoDB。从专用历史面板中查看、复制、重新运行并将过去的查询发送回编辑器。
 
-## [DocKit 导入导出 - 跨 NoSQL 数据库无缝迁移数据](/zh/blog/import-export.md)
+## [DocKit 导入导出 - 跨 NoSQL 数据库无缝迁移数据](/zh/blog/dockit-import-export.md)
 *2026年3月3日*
 
 需要迁移数据、为测试环境填充数据，或在升级前备份？DocKit 的新导入/导出功能支持 Elasticsearch、OpenSearch 和 DynamoDB 的 JSON、CSV 和批量格式。
 
-## [DocKit DynamoDB 管理与指标 - 随时掌控您的表](/zh/blog/dynamodb-manage-metrics.md)
+## [DocKit DynamoDB 管理与指标 - 随时掌控您的表](/zh/blog/dockit-dynamodb-manage-metrics.md)
 *2026年3月3日*
 
 管理 DynamoDB 表、查看实时指标、浏览索引和监控容量 — 无需离开 DocKit 简洁的桌面 UI。

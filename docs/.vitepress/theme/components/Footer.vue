@@ -13,9 +13,10 @@
         </div>
         
         <div class="footer-section">
-          <h3>{{ t.dockit }}</h3>
+          <h3>{{ t.dbClients }}</h3>
           <ul>
             <li><a :href="localePath('/blog/dynamodb-gui')">{{ t.dynamodbGui }}</a></li>
+            <li><a :href="localePath('/blog/dynobase-alternative')">{{ t.dynobaseAlt }}</a></li>
             <li><a :href="localePath('/blog/elasticsearch-gui')">{{ t.elasticsearchGui }}</a></li>
             <li><a :href="localePath('/blog/opensearch-gui')">{{ t.opensearchGui }}</a></li>
             <li><a :href="localePath('/download')">{{ t.download }}</a></li>
@@ -62,9 +63,11 @@ const translations = {
     dockit: 'DocKit',
     resources: 'Resources',
     community: 'Community',
-    dynamodbGui: 'DynamoDB GUI',
-    elasticsearchGui: 'Elasticsearch GUI',
-    opensearchGui: 'OpenSearch GUI',
+    dbClients: 'Database Clients',
+    dynamodbGui: 'DocKit - DynamoDB GUI Client',
+    dynobaseAlt: 'DocKit - Dynobase Alternative',
+    elasticsearchGui: 'DocKit - Elasticsearch GUI',
+    opensearchGui: 'DocKit - OpenSearch GUI',
     download: 'Download',
     docs: 'Documentation',
     blog: 'Blog',
@@ -79,9 +82,11 @@ const translations = {
     dockit: 'DocKit',
     resources: '资源',
     community: '社区',
-    dynamodbGui: 'DynamoDB GUI',
-    elasticsearchGui: 'Elasticsearch GUI',
-    opensearchGui: 'OpenSearch GUI',
+    dbClients: '数据库客户端',
+    dynamodbGui: 'DocKit - DynamoDB GUI 客户端',
+    dynobaseAlt: 'DocKit - Dynobase 替代方案',
+    elasticsearchGui: 'DocKit - Elasticsearch GUI',
+    opensearchGui: 'DocKit - OpenSearch GUI',
     download: '下载',
     docs: '文档',
     blog: '博客',

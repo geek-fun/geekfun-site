@@ -47,7 +47,7 @@ DocKit 现在**自动记录您执行的每一个查询** — 适用于 Elasticse
 - 历史记录**每个连接上限为 500 条**，完全存储在您的本地机器上 — 从不同步到云端
 - 同时覆盖 DynamoDB 的 **PartiQL 语句**和**可视化 UI 表单查询**
 
-了解更多：[查询历史博客文章](/zh/blog/query-history) | [查询历史文档](/zh/docs/dockit/query-history)
+了解更多：[查询历史博客文章](/zh/blog/dockit-query-history) | [查询历史文档](/zh/docs/dockit/query-history)
 
 ### 🏠 DynamoDB Local 支持
 

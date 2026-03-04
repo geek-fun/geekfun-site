@@ -7,19 +7,19 @@ head:
       content: DocKit查询历史, Elasticsearch查询历史, DynamoDB查询历史, NoSQL查询管理, 保存Elasticsearch查询, 重新执行查询, 查询日志, 开源查询历史工具, DocKit功能
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/zh/blog/query-history
+      href: https://www.geekfun.club/zh/blog/dockit-query-history
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/blog/query-history
+      href: https://www.geekfun.club/blog/dockit-query-history
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/blog/query-history
+      href: https://www.geekfun.club/zh/blog/dockit-query-history
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://www.geekfun.club/blog/query-history
+      href: https://www.geekfun.club/blog/dockit-query-history
 ---
 
 # DocKit 查询历史 - 永不丢失查询记录

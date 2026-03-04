@@ -7,19 +7,19 @@ head:
       content: DynamoDB管理GUI, DynamoDB指标桌面, DynamoDB表管理工具, DynamoDB监控工具, 免费DynamoDB GUI, DocKit DynamoDB管理, DynamoDB容量监控, DynamoDB索引管理, 开源DynamoDB客户端
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/zh/blog/dynamodb-manage-metrics
+      href: https://www.geekfun.club/zh/blog/dockit-dynamodb-manage-metrics
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/blog/dynamodb-manage-metrics
+      href: https://www.geekfun.club/blog/dockit-dynamodb-manage-metrics
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/blog/dynamodb-manage-metrics
+      href: https://www.geekfun.club/zh/blog/dockit-dynamodb-manage-metrics
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://www.geekfun.club/blog/dynamodb-manage-metrics
+      href: https://www.geekfun.club/blog/dockit-dynamodb-manage-metrics
 ---
 
 # DocKit DynamoDB 管理与指标 - 随时掌控您的表

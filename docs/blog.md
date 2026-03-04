@@ -30,17 +30,17 @@ developers and organizations alike. Here, you’ll find in-depth articles on sof
 best practices, tutorials, and visionary insights—all focused on building sustainable open-source solutions. Join us in
 driving innovation and evolving both personal and industry growth through open collaboration.
 
-## [DocKit Query History - Never Lose a Query Again](/blog/query-history.md)
+## [DocKit Query History - Never Lose a Query Again](/blog/dockit-query-history.md)
 *March 3, 2026*
 
 DocKit now automatically saves every query you execute — for Elasticsearch, OpenSearch, and DynamoDB. View, copy, re-run, and send past queries back to the editor from the dedicated history panel.
 
-## [DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases](/blog/import-export.md)
+## [DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases](/blog/dockit-import-export.md)
 *March 3, 2026*
 
 Need to migrate data, seed a test environment, or back up before an upgrade? DocKit's new import/export feature supports JSON, CSV, and bulk formats for Elasticsearch, OpenSearch, and DynamoDB.
 
-## [DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips](/blog/dynamodb-manage-metrics.md)
+## [DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips](/blog/dockit-dynamodb-manage-metrics.md)
 *March 3, 2026*
 
 Manage DynamoDB tables, view real-time metrics, browse indexes, and monitor capacity — all without leaving DocKit's clean desktop UI.

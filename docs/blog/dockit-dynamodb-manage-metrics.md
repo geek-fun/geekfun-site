@@ -7,19 +7,19 @@ head:
       content: DynamoDB manage GUI, DynamoDB metrics desktop, DynamoDB table management tool, DynamoDB monitoring tool, free DynamoDB GUI, DocKit DynamoDB manage, DynamoDB capacity monitoring, DynamoDB index management, open source DynamoDB client
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/blog/dynamodb-manage-metrics
+      href: https://www.geekfun.club/blog/dockit-dynamodb-manage-metrics
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/blog/dynamodb-manage-metrics
+      href: https://www.geekfun.club/blog/dockit-dynamodb-manage-metrics
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/blog/dynamodb-manage-metrics
+      href: https://www.geekfun.club/zh/blog/dockit-dynamodb-manage-metrics
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://www.geekfun.club/blog/dynamodb-manage-metrics
+      href: https://www.geekfun.club/blog/dockit-dynamodb-manage-metrics
 ---
 
 # DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips
@@ -41,41 +41,14 @@ DocKit addresses all of these by offering a **unified desktop panel** for Dynamo
 
 The management panel in DocKit provides comprehensive coverage of day-to-day DynamoDB operations:
 
+![DocKit DynamoDB Manage & Metrics screenshot](/dockit-dynamodb-manage.png)
+
 - **Table browsing**: See all tables in your account and region at a glance.
-- **Table creation**: Create new tables directly from the GUI with a wizard that guides you through key schema, billing mode, and capacity settings.
-- **Table deletion**: Delete tables safely from the GUI with confirmation prompts.
 - **Table details**: View table status, creation date, billing mode, and key schema.
 - **Index management**: Inspect Global Secondary Indexes (GSIs) and Local Secondary Indexes (LSIs) without digging through the AWS Console.
 - **Capacity monitoring**: Track provisioned read/write capacity units and on-demand usage metrics.
 
 All of this is available in a single application, with connections to multiple AWS accounts and regions managed from DocKit's sidebar.
-
-## Browsing Tables
-
-When you open DocKit and select a DynamoDB connection, the left sidebar shows all tables in the connected account and region. You can:
-
-- **Filter tables** by name using the search box.
-- **Click a table** to open it and start querying immediately.
-- **Right-click a table** to access management actions: view details, create, or delete.
-
-For teams working across many tables, DocKit's sidebar organizes tables alphabetically with real-time filtering, making it easy to navigate even accounts with hundreds of tables.
-
-## Creating and Deleting Tables
-
-### Creating a Table
-
-Click the **New Table** button in the DynamoDB connection panel to open the table creation wizard:
-
-1. Enter the **table name**.
-2. Define the **partition key** — name and type (String, Number, or Binary).
-3. Optionally add a **sort key**.
-4. Choose **billing mode**: Provisioned or On-Demand.
-5. For Provisioned mode, set **read and write capacity units** (RCU/WCU).
-6. Click **Create**. The table is created and immediately available in the sidebar.
-
-### Deleting a Table
-
-Right-click any table in the sidebar and choose **Delete Table**. DocKit displays a confirmation dialog with the table name to prevent accidental deletions. This operation is irreversible, so DocKit requires you to type the table name to confirm.
 
 ## Viewing Table Metrics
 
@@ -131,8 +104,6 @@ Having index information alongside table data in one view eliminates the context
 | **Platform** | Desktop (Mac/Win/Linux) | Web browser |
 | **Multi-account** | ✅ Sidebar switching | ❌ Login/logout |
 | **Table browsing** | ✅ Fast, filterable | ✅ Slower, paginated |
-| **Create table** | ✅ Guided wizard | ✅ Multi-step form |
-| **Delete table** | ✅ With confirmation | ✅ With confirmation |
 | **View item count** | ✅ | ✅ |
 | **View storage size** | ✅ | ✅ |
 | **View GSI/LSI details** | ✅ One-click | ✅ Buried in tabs |
@@ -145,7 +116,6 @@ Having index information alongside table data in one view eliminates the context
 
 DocKit supports managing DynamoDB across multiple AWS accounts and regions simultaneously. From the connection manager, you can configure:
 
-- **AWS Profile**: Use credentials from `~/.aws/credentials` or `~/.aws/config`.
 - **Access Key + Secret**: Enter credentials directly for service accounts.
 - **Region**: Select any AWS region where DynamoDB is available.
 - **DynamoDB Local**: Connect to a locally running DynamoDB instance for development.

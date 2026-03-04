@@ -7,19 +7,19 @@ head:
       content: DocKit query history, Elasticsearch query history, DynamoDB query history, NoSQL query management, save Elasticsearch queries, re-execute queries, query log, open source query history tool, DocKit features
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/blog/query-history
+      href: https://www.geekfun.club/blog/dockit-query-history
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/blog/query-history
+      href: https://www.geekfun.club/blog/dockit-query-history
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/blog/query-history
+      href: https://www.geekfun.club/zh/blog/dockit-query-history
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://www.geekfun.club/blog/query-history
+      href: https://www.geekfun.club/blog/dockit-query-history
 ---
 
 # DocKit Query History - Never Lose a Query Again
@@ -44,6 +44,8 @@ DocKit's query history feature solves this by **automatically recording every qu
 ## What's New: The Query History Panel
 
 The query history panel is a dedicated sidebar in DocKit that shows a chronological list of every query you have executed. For each entry you can see:
+
+![DocKit Query Hisotry panel screenshot](/dockit-query-history.png)
 
 - **HTTP method badge** (GET, POST, PUT, DELETE) — for Elasticsearch queries
 - **API path** — the Elasticsearch endpoint (e.g., `/my-index/_search`)
