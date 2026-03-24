@@ -1,7 +1,7 @@
 ---
 layout: home
 title: 极客范开源产品 - 免费 NoSQL GUI 客户端 DynamoDB Elasticsearch 管理工具
-description: 探索极客范开源产品：DocKit 免费 NoSQL GUI 客户端支持 DynamoDB、Elasticsearch、OpenSearch。AnyTerm SSH 终端、ServerlessInsight、jest-search 开发者测试工具。
+description: "探索极客范开源产品：DocKit 免费 NoSQL GUI 客户端支持 DynamoDB、Elasticsearch、OpenSearch。AnyTerm SSH 终端、ServerlessInsight、jest-search 开发者测试工具。"
 ---
 
 ## 开源产品

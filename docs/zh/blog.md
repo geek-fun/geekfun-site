@@ -1,6 +1,6 @@
 ---
 title: 极客范博客 - DynamoDB GUI 教程 Elasticsearch 客户端指南 开源开发
-description: 探索极客范博客，获取 DynamoDB GUI 教程、Elasticsearch 客户端指南、OpenSearch 技巧。DocKit 功能：查询历史、导入导出、PartiQL、AI 查询生成。开源软件开发实践与见解。
+description: "探索极客范博客，获取 DynamoDB GUI 教程、Elasticsearch 客户端指南、OpenSearch 技巧。DocKit 功能：查询历史、导入导出、PartiQL、AI 查询生成。开源软件开发实践与见解。"
 head:
   - - meta
     - name: keywords

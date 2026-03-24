@@ -1,6 +1,6 @@
 ---
 title: GEEKFUN Blog - DynamoDB Elasticsearch GUI Tutorials & Open Source Guides
-description: Explore GEEKFUN blog for DynamoDB GUI tutorials, Elasticsearch client guides, OpenSearch tips. DocKit features: query history, import/export, PartiQL, AI query generation. Open-source development insights.
+description: "Explore GEEKFUN blog for DynamoDB GUI tutorials, Elasticsearch client guides, OpenSearch tips. DocKit features: query history, import/export, PartiQL, AI query generation. Open-source development insights."
 head:
   - - meta
     - name: keywords
