@@ -1,6 +1,6 @@
 ---
-title: DocKit 文档
-description: DocKit 是一个 NoSQL GUI 客户端，支持 Elasticsearch、OpenSearch、DynamoDB 以及更多数据库。本文档概述了如何使用 DocKit。
+title: DocKit 文档中心 - 免费 DynamoDB Elasticsearch OpenSearch GUI 客户端使用指南
+description: 完整 DocKit 文档，免费 DynamoDB、Elasticsearch、OpenSearch GUI 客户端使用指南。安装教程、连接设置、PartiQL 编辑器、查询历史、导入导出等 NoSQL 数据库管理详细文档。
 head:
   - - meta
     - name: keywords

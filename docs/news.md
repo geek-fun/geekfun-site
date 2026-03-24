@@ -1,6 +1,6 @@
 ---
-title: GEEKFUN News - Latest Releases & Announcements
-description: Stay updated with the latest GEEKFUN news, product releases, and announcements. Follow our open-source projects including DocKit and more.
+title: GEEKFUN News - DocKit Releases DynamoDB Elasticsearch GUI Updates
+description: "Stay updated with latest GEEKFUN news, DocKit releases, product announcements. Follow open-source projects: DynamoDB GUI client, Elasticsearch tools, new features, updates, community milestones."
 head:
   - - meta
     - name: keywords

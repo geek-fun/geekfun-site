@@ -1,7 +1,8 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
-description: GEEKFUN is an open-source community building sustainable software solutions. Explore DocKit for DynamoDB, Elasticsearch, and OpenSearch GUI management.
+title: GEEKFUN - Free Open Source NoSQL GUI Client for DynamoDB & Elasticsearch
+description: GEEKFUN builds sustainable open-source software. Download DocKit - free GUI client for DynamoDB, Elasticsearch, OpenSearch. Cross-platform desktop tool for Mac, Windows, Linux developers.
 
 hero:
   name: "GEEKFUN"

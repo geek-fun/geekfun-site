@@ -1,7 +1,7 @@
 ---
 layout: home
-title: 文档中心 - 极客范
-description: 浏览极客范文档中心，获取 DocKit、DynamoDB、Elasticsearch 和 OpenSearch 管理的指南、教程和参考资料。
+title: 极客范文档中心 - DocKit DynamoDB Elasticsearch OpenSearch 使用指南教程
+description: 浏览极客范文档中心，获取 DocKit 免费 DynamoDB、Elasticsearch、OpenSearch GUI 客户端的指南、教程和参考资料。安装、连接、PartiQL、导入导出等详细文档。
 ---
 
 ## 文档

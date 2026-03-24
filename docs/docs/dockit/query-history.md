@@ -1,6 +1,6 @@
 ---
-title: "DocKit Query History"
-description: "Learn how to use DocKit's query history feature to view, copy, re-execute, and manage past queries for Elasticsearch and DynamoDB."
+title: "DocKit Query History - Save Elasticsearch DynamoDB Queries Automatically"
+description: "DocKit automatically saves every Elasticsearch, DynamoDB query you execute. View query history, copy, re-execute, manage past queries. Never lose queries again with automatic local persistence in desktop GUI client."
 head:
   - - meta
     - name: keywords

@@ -79,6 +79,13 @@ export default defineConfig({
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
                 ['meta', {name: 'google-adsense-account', content: 'ca-pub-6086289782076652'}],
+                // Google Analytics
+                ['script', {async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-ZFVJ89KR9L'}],
+                ['script', {}, `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ZFVJ89KR9L');`],
+                // Google AdSense
                 ['script', {
                     async: '',
                     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6086289782076652',
@@ -163,6 +170,12 @@ export default defineConfig({
                 ['meta', {name: 'twitter:image', content: ogImage}],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
+                // Google Analytics
+                ['script', {async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-ZFVJ89KR9L'}],
+                ['script', {}, `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ZFVJ89KR9L');`],
             ],
             themeConfig: {
                 ...sharedThemeConfig,

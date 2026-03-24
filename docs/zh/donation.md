@@ -1,6 +1,6 @@
 ---
-title: 支持极客范 - 为开源捐赠
-description: 支持极客范的开源开发。您的每一份贡献都有助于我们为全球开发者构建可持续的免费软件。
+title: 支持极客范 - 捐赠开源数据库 GUI 客户端开发 DynamoDB Elasticsearch 工具
+description: 支持极客范开源软件开发。您的捐赠帮助我们构建可持续的免费软件如 DocKit - DynamoDB、Elasticsearch GUI 客户端。资助开发者工具，支持全球开源社区发展。
 head:
   - - meta
     - name: keywords

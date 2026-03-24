@@ -1,6 +1,6 @@
 ---
-title: DocKit 快捷键
-description: DocKit 提供了一组快捷键，帮助用户更高效地使用 DocKit。本文档概述了可用的快捷键及其对应的操作。
+title: DocKit 快捷键大全 - DynamoDB Elasticsearch GUI 客户端生产力提升指南
+description: DocKit 完整快捷键列表，高效管理 DynamoDB、Elasticsearch、OpenSearch。自动补全、查询执行、导航快捷键提升桌面 GUI 客户端生产力，数据管理工作流优化指南。
 head:
   - - meta
     - name: keywords

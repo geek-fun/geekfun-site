@@ -1,6 +1,6 @@
 ---
-title: "DocKit Import & Export Guide"
-description: "Step-by-step guide to import and export data from Elasticsearch, OpenSearch, and DynamoDB using DocKit."
+title: "DocKit Import Export - Migrate Elasticsearch DynamoDB Data JSON CSV"
+description: "Step-by-step guide to import export data from Elasticsearch, OpenSearch, DynamoDB using DocKit. Support JSON, CSV, bulk formats. Migrate NoSQL databases, backup data, seed test environments with desktop GUI client."
 head:
   - - meta
     - name: keywords

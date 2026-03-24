@@ -1,6 +1,6 @@
 ---
-title: DocKit Installation
-description: Thanks for trying out DocKit! This guide will help you get started with DocKit.
+title: Install DocKit - Setup Guide for DynamoDB Elasticsearch GUI Client Mac Windows Linux
+description: Step-by-step DocKit installation guide for Mac, Windows, Linux. Download free DynamoDB, Elasticsearch, OpenSearch GUI client. Quick setup for NoSQL database management with desktop application.
 head:
   - - meta
     - name: keywords

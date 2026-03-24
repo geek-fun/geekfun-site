@@ -1,6 +1,6 @@
 ---
-title: Support GEEKFUN - Donate to Open Source
-description: Support GEEKFUN open-source development. Every contribution helps us build sustainable free software for developers worldwide.
+title: Support GEEKFUN - Donate to Open Source Database GUI Development
+description: Support GEEKFUN open-source development. Your donation helps build sustainable free software like DocKit - DynamoDB, Elasticsearch GUI client. Fund developer tools for community worldwide.
 head:
   - - meta
     - name: keywords

@@ -1,6 +1,6 @@
 ---
-title: Download DocKit - Free DynamoDB, Elasticsearch & OpenSearch GUI Client
-description: Download DocKit for Mac, Windows, and Linux. Free open-source GUI client for DynamoDB, Elasticsearch, and OpenSearch database management.
+title: Download DocKit - Free DynamoDB GUI Client for Mac, Windows, Linux
+description: Download DocKit free open-source GUI client for DynamoDB, Elasticsearch, OpenSearch. Cross-platform desktop database tool for Mac, Windows, Linux. NoSQL management with PartiQL support, visual query builder.
 head:
   - - meta
     - name: keywords
