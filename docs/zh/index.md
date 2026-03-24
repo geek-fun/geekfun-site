@@ -1,7 +1,8 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
-description: 极客范是一个开源软件社区，致力于构建可持续的软件解决方案。探索 DocKit 用于管理 DynamoDB、Elasticsearch 和 OpenSearch 数据库。
+title: 极客范 - 免费开源 NoSQL 数据库 GUI 客户端 DynamoDB Elasticsearch 管理工具
+description: 极客范开源软件社区，提供可持续的开源软件解决方案。下载 DocKit - 免费 DynamoDB、Elasticsearch、OpenSearch GUI 客户端，跨平台桌面工具支持 Mac、Windows、Linux 开发者。
 
 hero:
   name: "极客范"

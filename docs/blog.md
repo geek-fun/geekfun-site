@@ -1,6 +1,6 @@
 ---
-title: GEEKFUN Blog - Open Source Development Insights
-description: Explore the GEEKFUN blog for in-depth articles on open-source software, DynamoDB, Elasticsearch, OpenSearch, and sustainable development practices. Covering DocKit features including query history, import/export, and DynamoDB management.
+title: GEEKFUN Blog - DynamoDB Elasticsearch GUI Tutorials & Open Source Guides
+description: Explore GEEKFUN blog for DynamoDB GUI tutorials, Elasticsearch client guides, OpenSearch tips. DocKit features: query history, import/export, PartiQL, AI query generation. Open-source development insights.
 head:
   - - meta
     - name: keywords

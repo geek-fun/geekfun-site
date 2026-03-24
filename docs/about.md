@@ -1,6 +1,6 @@
 ---
-title: About GEEKFUN - Open Source Software Community
-description: Learn about GEEKFUN, an open-source software community committed to building sustainable software solutions. Our mission, values, and the team behind it.
+title: About GEEKFUN - Open Source NoSQL GUI Client Development Community
+description: Learn about GEEKFUN, open-source community building sustainable software. Creators of DocKit - free DynamoDB, Elasticsearch GUI client. Our mission, values, team, and commitment to developer tools.
 head:
   - - meta
     - name: keywords

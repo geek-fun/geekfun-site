@@ -1,7 +1,7 @@
 ---
 layout: home
-title: 开源产品 - 极客范
-description: 探索极客范开源产品，包括 DocKit NoSQL 可视化客户端、AnyTerm SSH 终端、ServerlessInsight 和 jest-search 测试工具。
+title: 极客范开源产品 - 免费 NoSQL GUI 客户端 DynamoDB Elasticsearch 管理工具
+description: 探索极客范开源产品：DocKit 免费 NoSQL GUI 客户端支持 DynamoDB、Elasticsearch、OpenSearch。AnyTerm SSH 终端、ServerlessInsight、jest-search 开发者测试工具。
 ---
 
 ## 开源产品

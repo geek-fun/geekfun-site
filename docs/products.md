@@ -1,7 +1,7 @@
 ---
 layout: home
-title: Products - GEEKFUN Open Source Software
-description: Explore GEEKFUN open-source products including DocKit NoSQL GUI client, AnyTerm SSH terminal, ServerlessInsight, and jest-search testing tools.
+title: GEEKFUN Products - Free NoSQL GUI Client DynamoDB Elasticsearch Tools
+description: Explore GEEKFUN open-source products: DocKit free NoSQL GUI client for DynamoDB, Elasticsearch, OpenSearch. AnyTerm SSH terminal, ServerlessInsight, jest-search testing tools for developers.
 ---
 
 ## Products

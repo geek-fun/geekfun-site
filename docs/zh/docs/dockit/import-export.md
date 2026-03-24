@@ -1,6 +1,6 @@
 ---
-title: "DocKit 导入导出指南"
-description: "使用 DocKit 从 Elasticsearch、OpenSearch 和 DynamoDB 导入和导出数据的分步指南。"
+title: "DocKit 导入导出 - 迁移 Elasticsearch DynamoDB 数据 JSON CSV 格式"
+description: "使用 DocKit 从 Elasticsearch、OpenSearch、DynamoDB 导入导出数据的分步指南。支持 JSON、CSV、批量格式。迁移 NoSQL 数据库、备份数据、测试环境填充，桌面 GUI 客户端完整工作流程。"
 head:
   - - meta
     - name: keywords

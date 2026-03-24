@@ -1,6 +1,6 @@
 ---
-title: 下载 DocKit - 免费 DynamoDB、Elasticsearch 和 OpenSearch GUI 客户端
-description: 下载适用于 Mac、Windows 和 Linux 的 DocKit。免费开源的 DynamoDB、Elasticsearch 和 OpenSearch 数据库可视化管理工具。
+title: 下载 DocKit - 免费 DynamoDB GUI 客户端支持 Mac Windows Linux 跨平台
+description: 下载 DocKit 免费开源 GUI 客户端，支持 DynamoDB、Elasticsearch、OpenSearch 数据库管理。跨平台桌面工具适用于 Mac、Windows、Linux，提供 PartiQL 编辑器、可视化查询构建器、数据导入导出功能。
 outline: deep
 sidebar: false
 ---

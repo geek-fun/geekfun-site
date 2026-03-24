@@ -1,6 +1,6 @@
 ---
-title: 极客范新闻 - 最新发布与公告
-description: 关注最新的极客范新闻、产品发布和公告。跟踪我们的开源项目，包括 DocKit 等。
+title: 极客范新闻 - DocKit 发布 DynamoDB GUI 客户端 Elasticsearch 工具更新
+description: 关注最新极客范新闻、DocKit 版本发布、产品公告。跟踪开源项目：DynamoDB GUI 客户端、Elasticsearch 工具、新功能特性、版本更新、社区里程碑。
 head:
   - - meta
     - name: keywords

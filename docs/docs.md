@@ -1,7 +1,7 @@
 ---
 layout: home
-title: Documentation - GEEKFUN
-description: Browse GEEKFUN documentation hub with guides, tutorials, and reference materials for DocKit, DynamoDB, Elasticsearch, and OpenSearch management.
+title: GEEKFUN Documentation - DocKit DynamoDB Elasticsearch OpenSearch Guides
+description: Browse GEEKFUN documentation hub with guides, tutorials, reference materials for DocKit - free DynamoDB, Elasticsearch, OpenSearch GUI client. Installation, connection, PartiQL, import/export guides.
 ---
 
 ## Documentation

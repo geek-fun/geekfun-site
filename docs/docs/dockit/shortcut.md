@@ -1,6 +1,6 @@
 ---
-title: DocKit Shortcuts
-description: DocKit provides a set of shortcuts to help users use DocKit more efficiently. This document outlines the available shortcuts and corresponding actions.
+title: DocKit Keyboard Shortcuts - Productivity Guide for DynamoDB Elasticsearch GUI
+description: Complete list of DocKit keyboard shortcuts for efficient DynamoDB, Elasticsearch, OpenSearch management. Boost productivity with auto-complete, query execution, navigation shortcuts in desktop GUI client.
 head:
   - - meta
     - name: keywords
