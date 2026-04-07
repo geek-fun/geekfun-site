@@ -29,17 +29,21 @@ head:
 
 ## 快捷键
 
-| 功能   | 快捷键                     | 描述                            | 状态                 |
-|------|-------------------------|-------------------------------|--------------------|
-| 通用编辑 | `Ctrl/Cmd + I`          | 自动缩进当前请求。                     | :white_check_mark: |
-| 通用编辑 | `Ctrl/Cmd + /`          | 打开当前请求的文档。                    | :white_check_mark: |
-| 通用编辑 | `Ctrl + Space`          | 打开自动完成（即使没有输入）。               | :x:                |
-| 通用编辑 | `Ctrl/Cmd + Enter`      | 提交请求。                         | :white_check_mark: |
-| 通用编辑 | `Ctrl/Cmd + Up/Down`    | 跳到上一个/下一个请求的开始或结��。           | :white_check_mark: |
-| 通用编辑 | `Ctrl/Cmd + Alt + L`    | 折叠/展开当前范围。                    | :white_check_mark: |
-| 通用编辑 | `Ctrl/Cmd + Option + 0` | 折叠除当前范围外的所有范围。按住 Shift 键可以展开。 | :white_check_mark: |
-| 自动完成 | `Down arrow`            | 切换焦点到自动完成菜单。使用箭头进一步选择术语。      | :white_check_mark: |
-| 自动完成 | `Enter/Tab`             | 选择自动完成菜单中当前选中的或最上面的术语。        | :white_check_mark: |
-| 自动完成 | `Esc`                   | 关闭自动完成菜单。                     | :white_check_mark: |
+| 功能          | 快捷键                                                          | 描述                                             | 状态               |
+| ------------- | --------------------------------------------------------------- | ------------------------------------------------ | ------------------ |
+| 通用编辑      | `Ctrl/Cmd + I`                                                  | 自动缩进当前请求。                               | :white_check_mark: |
+| 通用编辑      | `Ctrl/Cmd + /`                                                  | 注释 / 取消注释当前行或代码块。                  | :white_check_mark: |
+| 通用编辑      | `Ctrl + Space`                                                  | 打开自动完成（即使没有输入）。                   | :white_check_mark: |
+| 通用编辑      | `Ctrl/Cmd + Enter`                                              | 提交请求。                                       | :white_check_mark: |
+| 通用编辑      | `Ctrl/Cmd + Up/Down`                                            | 跳到上一个/下一个请求的开始或结尾。              | :white_check_mark: |
+| 通用编辑      | macOS: `Cmd + Alt + L`<br>Win/Linux: `Ctrl + Shift + L`         | 折叠/展开当前范围。                              | :white_check_mark: |
+| 通用编辑      | macOS: `Cmd + Alt + 0`<br>Win/Linux: `Ctrl + Shift + F`         | 折叠除当前范围外的所有范围。                     | :white_check_mark: |
+| 通用编辑      | macOS: `Cmd + Shift + Alt + 0`<br>Win/Linux: `Ctrl + Shift + E` | 展开所有折叠范围。                               | :white_check_mark: |
+| 自动完成      | `Down arrow`                                                    | 切换焦点到自动完成菜单。使用箭头进一步选择术语。 | :white_check_mark: |
+| 自动完成      | `Enter/Tab`                                                     | 选择自动完成菜单中当前选中的或最上面的术语。     | :white_check_mark: |
+| 自动完成      | `Esc`                                                           | 关闭自动完成菜单。                               | :white_check_mark: |
+| Elasticsearch | `Ctrl/Cmd + D`                                                  | 打开当前请求的 API 文档。                        | :white_check_mark: |
+
+> **平台说明：** 在 Windows 和 Linux 上，`Ctrl+Shift+数字` 会被系统拦截用于输入法语言切换。因此使用字母键（F=折叠，E=展开）以确保所有用户都能正常使用。
 
 ![dockit ui](/client-ui.png)

@@ -31,17 +31,21 @@ manage your Elasticsearch/OpenSearch server.
 
 ## Shortcuts
 
-| Feature         | Shortcut                | Description                                                              | State              |
-|-----------------|-------------------------|--------------------------------------------------------------------------|--------------------|
-| General editing | `Ctrl/Cmd + I`          | Auto indent current request.                                             | :white_check_mark: |
-| General editing | `Ctrl/Cmd + /`          | Open documentation for current request                                   | :white_check_mark: |
-| General editing | `Ctrl + Space`          | Open Autocomplete (even if not typing).                                  | :x:                |
-| General editing | `Ctrl/Cmd + Enter`      | Submit request.                                                          | :white_check_mark: |
-| General editing | `Ctrl/Cmd + Up/Down`    | Jump to the previous/next request start or end.                          | :white_check_mark: |
-| General editing | `Ctrl/Cmd + Alt + L`    | Collapse/expand current scope.                                           | :white_check_mark: |
-| General editing | `Ctrl/Cmd + Option + 0` | Collapse all scopes but the current one. Expand by adding a shift.       | :white_check_mark: |
-| Autocomplete    | `Down arrow`            | Switch focus to autocomplete menu. Use arrows to further select a term.  | :white_check_mark: |
-| Autocomplete    | `Enter/Tab`             | Select the currently selected or the top most term in autocomplete menu. | :white_check_mark: |
-| Autocomplete    | `Esc`                   | Close autocomplete menu.                                                 | :white_check_mark: |
+| Feature         | Shortcut                                                        | Description                                                              | State              |
+| --------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------ |
+| General editing | `Ctrl/Cmd + I`                                                  | Auto indent current request.                                             | :white_check_mark: |
+| General editing | `Ctrl/Cmd + /`                                                  | Comment/Uncomment line or block.                                         | :white_check_mark: |
+| General editing | `Ctrl + Space`                                                  | Open Autocomplete (even if not typing).                                  | :white_check_mark: |
+| General editing | `Ctrl/Cmd + Enter`                                              | Submit request.                                                          | :white_check_mark: |
+| General editing | `Ctrl/Cmd + Up/Down`                                            | Jump to the previous/next request start or end.                          | :white_check_mark: |
+| General editing | macOS: `Cmd + Alt + L`<br>Win/Linux: `Ctrl + Shift + L`         | Collapse/expand current scope.                                           | :white_check_mark: |
+| General editing | macOS: `Cmd + Alt + 0`<br>Win/Linux: `Ctrl + Shift + F`         | Collapse all scopes but the current one.                                 | :white_check_mark: |
+| General editing | macOS: `Cmd + Shift + Alt + 0`<br>Win/Linux: `Ctrl + Shift + E` | Expand all scopes.                                                       | :white_check_mark: |
+| Autocomplete    | `Down arrow`                                                    | Switch focus to autocomplete menu. Use arrows to further select a term.  | :white_check_mark: |
+| Autocomplete    | `Enter/Tab`                                                     | Select the currently selected or the top most term in autocomplete menu. | :white_check_mark: |
+| Autocomplete    | `Esc`                                                           | Close autocomplete menu.                                                 | :white_check_mark: |
+| Elasticsearch   | `Ctrl/Cmd + D`                                                  | Open documentation for current request.                                  | :white_check_mark: |
+
+> **Platform note:** On Windows and Linux, `Ctrl+Shift+digit` is intercepted by the OS for input language switching. Letter keys (F=Fold, E=Expand) are used instead to ensure universal compatibility.
 
 ![dockit ui](/client-ui.png)
