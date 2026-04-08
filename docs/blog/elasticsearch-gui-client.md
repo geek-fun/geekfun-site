@@ -26,7 +26,7 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "DocKit - Introduction to Elasticsearch GUI Client",
+        "headline": "Getting Started with Elasticsearch GUI Client - DocKit Introduction",
         "description": "Are you searching for the best Elasticsearch GUI client to streamline your development data management? Look no further! In this comprehensive guide, we will introduce you to DocKit, a top-tier Elasticsearch GUI client designed to enhance your workflow and boost productivity.",
         "image": "https://www.geekfun.club/dockit-client-ui.png",
         "author": {

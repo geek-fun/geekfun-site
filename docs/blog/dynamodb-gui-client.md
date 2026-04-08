@@ -26,7 +26,7 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Managing your DynamoDB tables with DocKit make life easier",
+        "headline": "Getting Started with DynamoDB GUI - Manage Tables with DocKit",
         "description": "Managing DynamoDB tables just got easier with DocKit - a powerful desktop GUI client featuring intuitive data browsing, PartiQL query support, inline editing, and cross-platform compatibility.",
         "image": "https://www.geekfun.club/dockit-dynamodb.png",
         "author": {

@@ -1,12 +1,11 @@
 import {defineConfig} from 'vitepress'
-import vitePluginWebp from 'vite-plugin-webp'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
 const ogImage = 'https://www.geekfun.club/og-image.png';
 const sharedThemeConfig = {
     search: {
-        provider: 'local'
+        provider: 'local' as const
     },
     logo,
     socialLinks: [
@@ -48,7 +47,6 @@ const docsSidebarZh = [
 export default defineConfig({
     lastUpdated: true,
     cleanUrls: true,
-    trailingSlash: false,
     outDir: '../dist',
     cacheDir: '../cache',
     markdown: {
@@ -111,34 +109,30 @@ gtag('config', 'G-ZFVJ89KR9L');`],
                         text: 'Home',
                         link: '/',
                     },
-                    {
-                        text: 'Products',
-                        link: '/products/',
-                    },
-                    {
-                        text: 'Docs',
-                        link: '/docs/',
-                    },
-                    {
-                        text: 'News',
-                        link: '/news/',
-                    },
-                    {
-                        text: 'Blog',
-                        link: '/blog/',
-                    },
+                     {
+                         text: 'Products',
+                         link: '/products',
+                     },
+                     {
+                         text: 'Docs',
+                         link: '/docs',
+                     },
+                     {
+                         text: 'News',
+                         link: '/news',
+                     },
+                     {
+                         text: 'Blog',
+                         link: '/blog',
+                     },
                     // {
                     //     text: 'Members',
                     //     link: '/members/',
                     // },
-                    {
-                        text: 'Donation',
-                        link: '/donation/',
-                    },
-                    {
-                        text: 'About',
-                        link: '/about/',
-                    },
+                     {
+                         text: 'About',
+                         link: '/about',
+                     },
                 ]
             }
         },
@@ -184,30 +178,26 @@ gtag('config', 'G-ZFVJ89KR9L');`],
                         text: '首页',
                         link: '/zh/',
                     },
-                    {
-                        text: '产品',
-                        link: '/zh/products/',
-                    },
-                    {
-                        text: '文档',
-                        link: '/zh/docs/',
-                    },
-                    {
-                        text: '新闻',
-                        link: '/zh/news/',
-                    },
-                    {
-                        text: '博客',
-                        link: '/zh/blog/',
-                    },
-                    {
-                        text: '捐赠',
-                        link: '/zh/donation/',
-                    },
-                    {
-                        text: '关于',
-                        link: '/zh/about/',
-                    }
+                     {
+                         text: '产品',
+                         link: '/zh/products',
+                     },
+                     {
+                         text: '文档',
+                         link: '/zh/docs',
+                     },
+                     {
+                         text: '新闻',
+                         link: '/zh/news',
+                     },
+                     {
+                         text: '博客',
+                         link: '/zh/blog',
+                     },
+                     {
+                         text: '关于',
+                         link: '/zh/about',
+                     }
                 ]
             }
         },
@@ -216,14 +206,7 @@ gtag('config', 'G-ZFVJ89KR9L');`],
         hostname: 'https://www.geekfun.club'
     },
     vite: {
-        plugins: [
-            vitePluginWebp({
-                // Convert PNG and JPG to WebP for better performance
-                limit: 1024 * 500 // Only convert images > 500KB
-            })
-        ],
         build: {
-            // Enable image optimization during build
             chunkSizeWarningLimit: 1500
         }
     }

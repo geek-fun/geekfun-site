@@ -29,6 +29,18 @@ GEEKFUN 是一个致力于开源的俱乐部，我们专注于开发具有价值
 ## 关注我们
 如果您也同我们一样热爱开源，对我们的项目感兴趣，欢迎关注我们的社交媒体账号，获取最新的动态和更新。
 
+## 支持极客范
+
+如果极客范的开源项目对您有所帮助，欢迎支持我们，帮助我们持续构建可持续的开发者工具。
+
+### 赞助我们
+
+* 通过 GitHub 赞助  
+  [![Sponsor](https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub-Sponsors)](https://github.com/sponsors/geek-fun)
+
+* 通过微信赞助
+  <img src="/wechat_ponsor.jpg" alt="wechat sponsor qr code" width="200" />
+
 ### 微信官方公众号
 <img src="/wechat_official.png" alt="wechat official account qr code" width="360" />
 

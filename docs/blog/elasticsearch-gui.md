@@ -26,7 +26,7 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Elasticsearch GUI Client - Free Desktop Tool for Mac, Windows, Linux",
+        "headline": "Elasticsearch GUI Client - Complete Desktop Tool Guide (2026)",
         "description": "DocKit is a free, open-source Elasticsearch GUI client with visual query builder, Dev Tools alternative, and cluster management for Mac, Windows, and Linux.",
         "image": "https://www.geekfun.club/og-image.png",
         "author": {
