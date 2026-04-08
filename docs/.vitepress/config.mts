@@ -48,6 +48,7 @@ const docsSidebarZh = [
 export default defineConfig({
     lastUpdated: true,
     cleanUrls: true,
+    trailingSlash: false,
     outDir: '../dist',
     cacheDir: '../cache',
     markdown: {

@@ -5,9 +5,6 @@ head:
   - - meta
     - name: keywords
       content: DocKit查询历史, Elasticsearch查询历史, DynamoDB查询历史, 查询管理, DocKit文档
-  - - meta
-    - name: robots
-      content: noindex, follow
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/docs/dockit/query-history

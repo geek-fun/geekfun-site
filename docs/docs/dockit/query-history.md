@@ -5,9 +5,6 @@ head:
   - - meta
     - name: keywords
       content: DocKit query history, Elasticsearch query history, DynamoDB query history, query management, DocKit documentation
-  - - meta
-    - name: robots
-      content: noindex, follow
   - - link
     - rel: canonical
       href: https://www.geekfun.club/docs/dockit/query-history

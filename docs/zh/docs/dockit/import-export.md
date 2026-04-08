@@ -5,9 +5,6 @@ head:
   - - meta
     - name: keywords
       content: DocKit导入导出, 导出Elasticsearch数据, 导入DynamoDB数据, NoSQL数据迁移, DocKit数据指南
-  - - meta
-    - name: robots
-      content: noindex, follow
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/docs/dockit/import-export

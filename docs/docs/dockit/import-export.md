@@ -5,9 +5,6 @@ head:
   - - meta
     - name: keywords
       content: DocKit import export, export Elasticsearch data, import DynamoDB data, NoSQL data migration, DocKit data guide
-  - - meta
-    - name: robots
-      content: noindex, follow
   - - link
     - rel: canonical
       href: https://www.geekfun.club/docs/dockit/import-export

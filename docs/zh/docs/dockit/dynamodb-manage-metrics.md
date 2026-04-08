@@ -5,9 +5,6 @@ head:
   - - meta
     - name: keywords
       content: DocKit DynamoDB管理, DynamoDB指标GUI, DynamoDB表管理, DynamoDB监控, DocKit DynamoDB文档
-  - - meta
-    - name: robots
-      content: noindex, follow
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/docs/dockit/dynamodb-manage-metrics
