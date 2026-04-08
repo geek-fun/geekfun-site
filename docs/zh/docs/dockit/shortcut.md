@@ -37,13 +37,13 @@ head:
 | 通用编辑      | `Ctrl/Cmd + Enter`                                      | 提交请求。                                       | :white_check_mark: |
 | 通用编辑      | `Ctrl/Cmd + Up/Down`                                    | 跳到上一个/下一个请求的开始或结尾。              | :white_check_mark: |
 | 通用编辑      | macOS: `Cmd + Alt + L`<br>Win/Linux: `Ctrl + Shift + L` | 折叠/展开当前范围。                              | :white_check_mark: |
-| 通用编辑      | `Ctrl/Cmd + K, Ctrl/Cmd + 0`                            | 折叠除当前范围外的所有范围。                     | :white_check_mark: |
+| 通用编辑      | `Ctrl/Cmd + K, Ctrl/Cmd + -`                            | 折叠除当前范围外的所有范围。                     | :white_check_mark: |
 | 通用编辑      | `Ctrl/Cmd + K, Ctrl/Cmd + J`                            | 展开所有折叠范围。                               | :white_check_mark: |
 | 自动完成      | `Down arrow`                                            | 切换焦点到自动完成菜单。使用箭头进一步选择术语。 | :white_check_mark: |
 | 自动完成      | `Enter/Tab`                                             | 选择自动完成菜单中当前选中的或最上面的术语。     | :white_check_mark: |
 | 自动完成      | `Esc`                                                   | 关闭自动完成菜单。                               | :white_check_mark: |
 | Elasticsearch | `Ctrl/Cmd + D`                                          | 打开当前请求的 API 文档。                        | :white_check_mark: |
 
-> **平台说明：** 折叠全部和展开全部采用 VS Code 的组合键序列（`Ctrl/Cmd+K, Ctrl/Cmd+0/J`），可在所有平台和键盘布局下正常使用，包括拦截单个 `Ctrl+Shift+字母` 组合键的 Windows 中文输入法（搜狗、微软拼音）。
+> **平台说明：** 折叠全部（除当前）和展开全部采用 VS Code 的组合键序列（`Ctrl/Cmd+K, Ctrl/Cmd+-/J`），可在所有平台和键盘布局下正常使用，包括拦截单个 `Ctrl+Shift+字母` 组合键的 Windows 中文输入法（搜狗、微软拼音）。
 
 ![dockit ui](/client-ui.png)

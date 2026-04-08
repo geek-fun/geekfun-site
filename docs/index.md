@@ -35,10 +35,11 @@ features:
 ## Products
 
 <div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
-<Product :product='{name: "DocKit", logo: "/dockit.png",preview: "/dockit-client-ui.png", description: "A better NoSQL GUI client for Mac, Windows and Linux", url: "/products/dockit/"}'></Product>
-<Product :product='{name: "AnyTerm", logo: "/anyterm.png",preview: "/anyterm-client-ui.png", description: "Supper lightweight SSH client and terminal for Mac, Windows and Linux", url: "https://github.com/geek-fun/AnyTerm"}'></Product>
-<Product :product='{name: "ServerlessInsight", logo: "/serverlessinsight.png",preview: "/serverlessinsight-preview.png", description: "Full life cycle cross providers serverless application management for your fast-growing business.", url: "https://github.com/geek-fun/hostsless"}'></Product>
-<Product :product='{name: "jest-search", logo: "/jest-search.png",preview: "/jest-search-preview.png", description: "Jest preset for running tests with local ElasticSearch, OpenSearch and ZincSearch.", url: "https://github.com/geek-fun/jest-search"}'></Product>
+<Product :product='{name: "DocKit", logo: "/dockit.png",preview: "/dockit-client-ui.png", description: "Open-source NoSQL desktop client for Elasticsearch, OpenSearch, DynamoDB, and more, built for the next generation of AI Native database management.", url: "/products/dockit/"}'></Product>
+<Product :product='{name: "SqlKit", logo: "/sqlkit.svg",preview: "/sqlkit-preview.svg", description: "Open-source SQL desktop client for PostgreSQL, MySQL, SQL Server, SQLite, and other mainstream databases, designed for modern developer workflows.", url: "https://github.com/geek-fun/sqlkit"}'></Product>
+<Product :product='{name: "ServerlessInsight", logo: "/serverlessinsight.png",preview: "/serverlessinsight-preview.png", description: "Open-source and vendor-neutral serverless infrastructure platform for Alibaba Cloud, Tencent Cloud, and Volcengine, with end-to-end application delivery capabilities.", url: "https://serverlessinsight.com/"}'></Product>
+<Product :product='{name: "serverless-adapter", logo: "/serverless-adapter.svg",preview: "/serverless-adapter-preview.svg", description: "Serverless adapter for Express and Koa across Alibaba Cloud Function Compute, Tencent SCF, and Volcengine veFaaS with automatic provider detection.", url: "https://github.com/geek-fun/serverless-adapter"}'></Product>
+<Product :product='{name: "jest-search", logo: "/jest-search.png",preview: "/jest-search-preview.png", description: "Jest tool for search integration testing that quickly boots local Elasticsearch, OpenSearch, and ZincSearch environments.", url: "https://github.com/geek-fun/jest-search"}'></Product>
 </div>
 
 ## Team Members

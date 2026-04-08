@@ -1,0 +1,26 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="32" fill="#0F172A"/>
+  <rect x="36" y="36" width="1128" height="648" rx="28" fill="url(#bg)"/>
+  <rect x="96" y="128" width="236" height="468" rx="24" fill="#082F49" opacity="0.9"/>
+  <rect x="384" y="128" width="720" height="468" rx="24" fill="#0B1220" opacity="0.92"/>
+  <circle cx="214" cy="214" r="52" fill="#0EA5E9"/>
+  <path d="M184 214C184 186.386 206.386 164 234 164H264L244 184H234C217.431 184 204 197.431 204 214C204 230.569 217.431 244 234 244H244L264 264H234C206.386 264 184 241.614 184 214Z" fill="#E0F2FE"/>
+  <path d="M268 202L238 232" stroke="#F8FAFC" stroke-width="12" stroke-linecap="round"/>
+  <path d="M238 202L268 232" stroke="#BAE6FD" stroke-width="12" stroke-linecap="round"/>
+  <rect x="432" y="176" width="240" height="26" rx="13" fill="#38BDF8"/>
+  <rect x="432" y="232" width="620" height="156" rx="20" fill="#111827"/>
+  <rect x="468" y="272" width="168" height="16" rx="8" fill="#7DD3FC"/>
+  <rect x="468" y="308" width="388" height="16" rx="8" fill="#334155"/>
+  <rect x="468" y="344" width="320" height="16" rx="8" fill="#334155"/>
+  <rect x="432" y="430" width="180" height="120" rx="18" fill="#111827"/>
+  <rect x="648" y="430" width="180" height="120" rx="18" fill="#111827"/>
+  <rect x="864" y="430" width="188" height="120" rx="18" fill="#111827"/>
+  <text x="432" y="508" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="54" font-weight="700">serverless-adapter</text>
+  <text x="432" y="552" fill="#BAE6FD" font-family="Arial, sans-serif" font-size="28">Express and Koa on multi-cloud serverless platforms</text>
+  <defs>
+    <linearGradient id="bg" x1="36" y1="36" x2="1164" y2="684" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#082F49"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+</svg>
