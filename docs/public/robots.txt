@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Sitemap location
 Sitemap: https://www.geekfun.club/sitemap.xml
+
+# Note: Old subdomains (dockit.geekfun.club, serverlessinsight.geekfun.club, seven.geekfun.club)
+# should be handled via Cloudflare/DNS redirects or Google Search Console URL removal
+# These subdomains are redirecting and causing "Page with redirect" indexing issues

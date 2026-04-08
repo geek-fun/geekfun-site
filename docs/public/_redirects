@@ -1,0 +1,34 @@
+# Redirect old .html URLs to clean URLs (for static hosting)
+# VitePress handles these automatically, but this ensures proper 301s
+
+# Old .html extension URLs - 301 permanent redirect
+/download.html  /download  301
+/about.html     /about     301
+/products.html  /products  301
+/blog.html      /blog      301
+/donation.html  /donation  301
+/news.html      /news      301
+/docs.html      /docs      301
+
+# Chinese pages with .html
+/zh/download.html  /zh/download  301
+/zh/about.html     /zh/about     301
+/zh/products.html  /zh/products  301
+/zh/blog.html      /zh/blog      301
+/zh/donation.html  /zh/donation  301
+/zh/news.html      /zh/news      301
+
+# Handle old /home URL
+/home  /  301
+
+# Handle trailing slash inconsistencies
+/about/      /about      301
+/products/   /products   301
+/blog/       /blog       301
+/donation/   /donation   301
+/news/       /news       301
+/zh/about/   /zh/about   301
+/zh/blog/    /zh/blog    301
+/zh/donation/ /zh/donation 301
+/zh/news/    /zh/news    301
+/zh/products/ /zh/products 301
