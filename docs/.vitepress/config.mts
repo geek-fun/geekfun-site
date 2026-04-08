@@ -1,4 +1,5 @@
 import {defineConfig} from 'vitepress'
+import vitePluginWebp from 'vite-plugin-webp'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
@@ -219,5 +220,17 @@ gtag('config', 'G-ZFVJ89KR9L');`],
     },
     sitemap: {
         hostname: 'https://www.geekfun.club'
+    },
+    vite: {
+        plugins: [
+            vitePluginWebp({
+                // Convert PNG and JPG to WebP for better performance
+                limit: 1024 * 500 // Only convert images > 500KB
+            })
+        ],
+        build: {
+            // Enable image optimization during build
+            chunkSizeWarningLimit: 1500
+        }
     }
 });

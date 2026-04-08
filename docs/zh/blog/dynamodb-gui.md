@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dynamodb-gui
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DynamoDB GUI 客户端 - 开源桌面工具",
+        "description": "DocKit 是适用于 Mac、Windows 和 Linux 的免费开源 DynamoDB GUI 客户端。可视化查询构建器、PartiQL 编辑器和本地数据管理，无需 AWS 控制台。",
+        "image": "https://www.geekfun.club/dockit-dynamodb.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/dynamodb-gui"
+        },
+        "keywords": ["DynamoDB GUI", "DynamoDB 客户端", "PartiQL", "开源"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # DynamoDB GUI 客户端 - 开源桌面工具

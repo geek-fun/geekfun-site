@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/elasticsearch-ai-assistant
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询",
+        "description": "了解如何利用 AI 和大语言模型自动生成复杂的 Elasticsearch 查询。通过 Elasticsearch AI 助手提升工作效率。",
+        "image": "https://www.geekfun.club/dockit-ai-assistant-question.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-02-05",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/elasticsearch-ai-assistant"
+        },
+        "keywords": ["Elasticsearch AI", "大模型", "查询生成", "DeepSeek"],
+        "articleSection": "AI & Database Tools"
+      }
 ---
 
 # 使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询

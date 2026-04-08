@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/opensearch-gui
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OpenSearch GUI Client - Free Desktop Tool for Mac, Windows, Linux",
+        "description": "DocKit is a free, open-source OpenSearch GUI and OpenSearch Dashboards alternative. Visual query builder, Dev Tools, and cluster management for Mac, Windows, and Linux.",
+        "image": "https://www.geekfun.club/og-image.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-24",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/opensearch-gui"
+        },
+        "keywords": ["OpenSearch GUI", "OpenSearch client", "OpenSearch Dashboards alternative", "AWS OpenSearch"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # OpenSearch GUI Client - Free Desktop Tool

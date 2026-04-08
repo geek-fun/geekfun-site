@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dynobase-alternative
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Dynobase 替代方案 - 免费开源 DynamoDB 客户端",
+        "description": "寻找 Dynobase 替代方案？DocKit 是一个免费的开源 DynamoDB GUI 客户端，具有 PartiQL 编辑器、可视化查询构建器，无需订阅。",
+        "image": "https://www.geekfun.club/dockit-dynamodb.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-24",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/dynobase-alternative"
+        },
+        "keywords": ["Dynobase 替代方案", "DynamoDB GUI", "免费工具", "开源"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # Dynobase 替代方案 - 免费开源 DynamoDB 客户端

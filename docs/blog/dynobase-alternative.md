@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dynobase-alternative
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Dynobase Alternative - Free Open-Source DynamoDB Client",
+        "description": "Looking for a Dynobase alternative? DocKit is a free, open-source DynamoDB GUI client with PartiQL editor, visual query builder, and no subscription required.",
+        "image": "https://www.geekfun.club/dockit-dynamodb.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-24",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/dynobase-alternative"
+        },
+        "keywords": ["Dynobase alternative", "DynamoDB GUI", "free database tool", "open source"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # Dynobase Alternative - Free Open-Source DynamoDB Client

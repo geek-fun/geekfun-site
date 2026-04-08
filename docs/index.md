@@ -3,6 +3,22 @@
 layout: home
 title: GEEKFUN - Free Open Source NoSQL GUI Client for DynamoDB & Elasticsearch
 description: GEEKFUN builds sustainable open-source software. Download DocKit - free GUI client for DynamoDB, Elasticsearch, OpenSearch. Cross-platform desktop tool for Mac, Windows, Linux developers.
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/
 
 hero:
   name: "GEEKFUN"

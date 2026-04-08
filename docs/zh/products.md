@@ -2,6 +2,22 @@
 layout: home
 title: 极客范开源产品 - DocKit SqlKit ServerlessInsight 与开发者工具
 description: "探索极客范开源产品与开发者工具：DocKit、SqlKit、ServerlessInsight、serverless-adapter、jest-search，覆盖数据库客户端、Serverless 基础设施与测试工具。"
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/products
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products
 ---
 
 ## 开源产品

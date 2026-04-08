@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/best-dynamodb-gui-client
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "最佳 DynamoDB GUI 客户端 - 2026 年顶级工具对比",
+        "description": "全面比较最佳 DynamoDB GUI 客户端，包括 DocKit、Dynobase、NoSQL Workbench 和 AWS 控制台。功能、定价和推荐。",
+        "image": "https://www.geekfun.club/client-ui.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-24",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/best-dynamodb-gui-client"
+        },
+        "keywords": ["DynamoDB GUI", "Dynobase", "DocKit", "工具对比"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # 最佳 DynamoDB GUI 客户端 - 2026 年顶级工具对比

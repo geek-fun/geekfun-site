@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/elasticsearch-ai-assistant
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Automate Elasticsearch Query Writing with AI Assistants",
+        "description": "Discover how to use AI and large language models to generate complex Elasticsearch queries automatically. Boost productivity with an AI assistant for Elasticsearch.",
+        "image": "https://www.geekfun.club/dockit-ai-assistant-question.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-02-05",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/elasticsearch-ai-assistant"
+        },
+        "keywords": ["Elasticsearch AI", "AI assistant", "query automation", "LLM"],
+        "articleSection": "AI & Database Tools"
+      }
 ---
 
 # Automate Elasticsearch Query Writing with AI Assistants

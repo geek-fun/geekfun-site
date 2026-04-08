@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/elasticsearch-integration-test-jest-search
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "使用 jest-search 实现 Elasticsearch 集成测试",
+        "description": "Elasticsearch已经成为现代应用程序的一个重要组成部分，特别是那些需要处理大量数据并且需要高效搜索能力的应用程序。在开发使用 Elasticsearch 的应用程序时，确保应用程序与 Elasticsearch 的集成正常运作非常重要。",
+        "image": "https://www.geekfun.club/og-image.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/elasticsearch-integration-test-jest-search"
+        },
+        "keywords": ["Elasticsearch", "jest-search", "集成测试", "测试"],
+        "articleSection": "Testing"
+      }
 ---
 
 # 使用 jest-search 实现 Elasticsearch 集成测试

@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/opensearch-gui
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OpenSearch GUI 客户端 - 适用于 Mac、Windows、Linux 的免费桌面工具",
+        "description": "DocKit 是一个免费的开源 OpenSearch GUI 和 OpenSearch Dashboards 替代方案。可视化查询构建器、Dev Tools 和集群管理，适用于 Mac、Windows 和 Linux。",
+        "image": "https://www.geekfun.club/og-image.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-24",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/opensearch-gui"
+        },
+        "keywords": ["OpenSearch GUI", "OpenSearch 客户端", "Dashboards 替代方案", "开源"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # OpenSearch GUI 客户端 - 免费桌面工具

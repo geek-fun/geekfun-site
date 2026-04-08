@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/query-dynamodb-locally
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How to Query DynamoDB Locally - Complete Development Guide",
+        "description": "Learn how to query DynamoDB locally using DynamoDB Local and DocKit GUI. Step-by-step setup for offline development, testing, and CI/CD integration.",
+        "image": "https://www.geekfun.club/dockit-connection-dynamodblocal.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/query-dynamodb-locally"
+        },
+        "keywords": ["DynamoDB Local", "DynamoDB offline", "local development", "DocKit"],
+        "articleSection": "Database Development"
+      }
 ---
 
 # How to Query DynamoDB Locally - Complete Development Guide

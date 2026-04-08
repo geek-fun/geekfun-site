@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dockit-query-history
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DocKit Query History - Never Lose a Query Again",
+        "description": "DocKit now stores your full query history for Elasticsearch and DynamoDB. View, copy, re-execute, and add past queries back to the editor — all locally persisted.",
+        "image": "https://www.geekfun.club/dockit-query-history.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/dockit-query-history"
+        },
+        "keywords": ["DocKit", "query history", "Elasticsearch", "DynamoDB"],
+        "articleSection": "DocKit Features"
+      }
 ---
 
 # DocKit Query History - Never Lose a Query Again

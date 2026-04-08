@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dynamodb-gui-client
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "使用 DocKit 管理操作 DynamoDB 表",
+        "description": "使用 DocKit 管理 DynamoDB 表变得更加简单 - 一款强大的桌面 GUI 客户端，具有直观的数据浏览、PartiQL 查询支持、内联编辑和跨平台兼容性。告别 AWS 控制台的困扰和 CLI 的复杂性。",
+        "image": "https://www.geekfun.club/dockit-dynamodb.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-02-26",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/dynamodb-gui-client"
+        },
+        "keywords": ["DynamoDB GUI", "DocKit", "PartiQL", "数据库管理"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # 使用 DocKit 管理 DynamoDB 表让生活更轻松

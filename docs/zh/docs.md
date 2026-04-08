@@ -2,6 +2,22 @@
 layout: home
 title: 极客范文档中心 - DocKit DynamoDB Elasticsearch OpenSearch 使用指南教程
 description: 浏览极客范文档中心，获取 DocKit 免费 DynamoDB、Elasticsearch、OpenSearch GUI 客户端的指南、教程和参考资料。安装、连接、PartiQL、导入导出等详细文档。
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/docs
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/docs
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/docs
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/docs
 ---
 
 ## 文档

@@ -1,6 +1,6 @@
 ---
-title: Elasticsearch GUI Client - Free Desktop Tool for Mac, Windows, Linux
-description: DocKit is a free, open-source Elasticsearch GUI client with visual query builder, Dev Tools alternative, and cluster management for Mac, Windows, and Linux.
+title: Elasticsearch GUI Client - Complete Desktop Tool Guide (2026)
+description: Comprehensive guide to Elasticsearch GUI clients. Compare desktop vs web tools, learn key features, and discover why DocKit is the best free Elasticsearch GUI for Mac, Windows, and Linux developers.
 head:
   - - meta
     - name: keywords
@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/elasticsearch-gui
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Elasticsearch GUI Client - Free Desktop Tool for Mac, Windows, Linux",
+        "description": "DocKit is a free, open-source Elasticsearch GUI client with visual query builder, Dev Tools alternative, and cluster management for Mac, Windows, and Linux.",
+        "image": "https://www.geekfun.club/og-image.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-24",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/elasticsearch-gui"
+        },
+        "keywords": ["Elasticsearch GUI", "Elasticsearch client", "Kibana alternative", "database tool", "open source"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # Elasticsearch GUI Client - Free Desktop Tool

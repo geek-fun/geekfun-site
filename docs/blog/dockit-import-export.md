@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dockit-import-export
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases",
+        "description": "Learn how to import and export data in DocKit - the free, open-source GUI client for Elasticsearch, OpenSearch, and DynamoDB. Supports JSON, CSV, and JSONL import/export.",
+        "image": "https://www.geekfun.club/dockit-dynamodb-import.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/dockit-import-export"
+        },
+        "keywords": ["DocKit", "import export", "data migration", "NoSQL"],
+        "articleSection": "DocKit Features"
+      }
 ---
 
 # DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases

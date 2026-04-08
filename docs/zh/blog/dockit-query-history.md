@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dockit-query-history
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DocKit 查询历史 - 永不丢失查询记录",
+        "description": "DocKit 现在为 Elasticsearch 和 DynamoDB 存储您的完整查询历史。查看、复制、重新执行和将过去的查询添加回编辑器 — 全部本地持久化。",
+        "image": "https://www.geekfun.club/dockit-query-history.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/dockit-query-history"
+        },
+        "keywords": ["DocKit", "查询历史", "Elasticsearch", "DynamoDB"],
+        "articleSection": "DocKit Features"
+      }
 ---
 
 # DocKit 查询历史 - 永不丢失查询记录

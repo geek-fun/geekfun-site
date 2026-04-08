@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/elasticsearch-gui-client
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DocKit - Elasticsearch桌面客户端介绍",
+        "description": "向您介绍 DocKit，一款顶级的 Elasticsearch 桌面客户端，旨在提升您的工作效率并提高生产力。无论您是经验丰富的开发者还是刚入门，找到合适的工具都至关重要。",
+        "image": "https://www.geekfun.club/dockit-client-ui.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-02-05",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/elasticsearch-gui-client"
+        },
+        "keywords": ["Elasticsearch GUI", "桌面客户端", "DocKit", "开源"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # DocKit - Elasticsearch桌面客户端介绍

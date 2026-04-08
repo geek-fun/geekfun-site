@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dockit-dynamodb-manage-metrics
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips",
+        "description": "DocKit now lets you manage DynamoDB tables and monitor key metrics directly from your desktop. Browse tables, view capacity, track item counts, and manage indexes — all for free.",
+        "image": "https://www.geekfun.club/dockit-dynamodb-manage.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/dockit-dynamodb-manage-metrics"
+        },
+        "keywords": ["DocKit", "DynamoDB management", "DynamoDB metrics", "table control"],
+        "articleSection": "DocKit Features"
+      }
 ---
 
 # DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips

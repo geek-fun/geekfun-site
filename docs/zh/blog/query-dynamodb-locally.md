@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/query-dynamodb-locally
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "如何本地查询 DynamoDB - 完整开发指南",
+        "description": "学习如何使用 DynamoDB Local 和 DocKit GUI 本地查询 DynamoDB。离线开发、测试和 CI/CD 集成的分步设置。",
+        "image": "https://www.geekfun.club/dockit-connection-dynamodblocal.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/query-dynamodb-locally"
+        },
+        "keywords": ["DynamoDB Local", "本地开发", "离线测试", "DocKit"],
+        "articleSection": "Database Development"
+      }
 ---
 
 # 如何本地查询 DynamoDB - 完整开发指南

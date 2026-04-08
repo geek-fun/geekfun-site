@@ -2,6 +2,22 @@
 layout: home
 title: GEEKFUN Products - DocKit SqlKit ServerlessInsight and Developer Tools
 description: "Explore GEEKFUN open-source products and tools including DocKit, SqlKit, ServerlessInsight, serverless-adapter, and jest-search for databases, serverless infrastructure, and testing workflows."
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/products
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products
 ---
 
 ## Products

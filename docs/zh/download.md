@@ -1,6 +1,22 @@
 ---
 title: 下载 DocKit - 免费 DynamoDB GUI 客户端支持 Mac Windows Linux 跨平台
-description: 下载 DocKit 免费开源 GUI 客户端，支持 DynamoDB、Elasticsearch、OpenSearch 数据库管理。跨平台桌面工具适用于 Mac、Windows、Linux，提供 PartiQL 编辑器、可视化查询构建器、数据导入导出功能。
+description: 下载 DocKit 免费开源 GUI 客户端，支持 DynamoDB、Elasticsearch、OpenSearch 数据库管理。跨平台桌面工具适用于 Mac、Windows、Linux，提供 PartiQL 编辑器、可视化查询构建器、数据导入导出功能.
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/download
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/download
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/download
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/download
 outline: deep
 sidebar: false
 ---

@@ -1,6 +1,6 @@
 ---
-title: DocKit - Introduction to Elasticsearch GUI Client
-description: Are you searching for the best Elasticsearch GUI client to streamline your development data management? Look no further! In this comprehensive guide, we will introduce you to DocKit, a top-tier Elasticsearch GUI client designed to enhance your workflow and boost productivity. Whether you're a seasoned developer or just starting out, finding the right tool can make all the difference.
+title: Getting Started with Elasticsearch GUI Client - DocKit Introduction
+description: New to Elasticsearch GUI clients? This beginner-friendly guide introduces DocKit, a free desktop client for Elasticsearch. Learn the basics and get started quickly with visual query building and cluster management.
 head:
   - - meta
     - name: keywords
@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/elasticsearch-gui-client
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DocKit - Introduction to Elasticsearch GUI Client",
+        "description": "Are you searching for the best Elasticsearch GUI client to streamline your development data management? Look no further! In this comprehensive guide, we will introduce you to DocKit, a top-tier Elasticsearch GUI client designed to enhance your workflow and boost productivity.",
+        "image": "https://www.geekfun.club/dockit-client-ui.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-02-05",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/elasticsearch-gui-client"
+        },
+        "keywords": ["Elasticsearch GUI", "Elasticsearch client", "database tool", "DocKit"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # DocKit - Introduction to Elasticsearch GUI Client

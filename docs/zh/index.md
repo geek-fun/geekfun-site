@@ -3,6 +3,22 @@
 layout: home
 title: 极客范 - 免费开源 NoSQL 数据库 GUI 客户端 DynamoDB Elasticsearch 管理工具
 description: 极客范开源软件社区，提供可持续的开源软件解决方案。下载 DocKit - 免费 DynamoDB、Elasticsearch、OpenSearch GUI 客户端，跨平台桌面工具支持 Mac、Windows、Linux 开发者。
+head:
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/
 
 hero:
   name: "极客范"

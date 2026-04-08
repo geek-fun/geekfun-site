@@ -1,6 +1,6 @@
 ---
-title: Managing your DynamoDB tables with DocKit make life easier
-description: Managing DynamoDB tables just got easier with DocKit - a powerful desktop GUI client featuring intuitive data browsing, PartiQL query support, inline editing, and cross-platform compatibility. Say goodbye to AWS Console frustrations and CLI complexity.
+title: Getting Started with DynamoDB GUI - Manage Tables with DocKit
+description: Step-by-step guide to managing DynamoDB tables with DocKit desktop client. Connect to DynamoDB, run PartiQL queries, edit data visually. Perfect for developers new to DynamoDB GUI tools.
 head:
   - - meta
     - name: keywords
@@ -20,6 +20,37 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dynamodb-gui-client
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Managing your DynamoDB tables with DocKit make life easier",
+        "description": "Managing DynamoDB tables just got easier with DocKit - a powerful desktop GUI client featuring intuitive data browsing, PartiQL query support, inline editing, and cross-platform compatibility.",
+        "image": "https://www.geekfun.club/dockit-dynamodb.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-02-26",
+        "dateModified": "2026-04-08",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/blog/dynamodb-gui-client"
+        },
+        "keywords": ["DynamoDB GUI", "DynamoDB client", "PartiQL", "AWS database"],
+        "articleSection": "Database Tools"
+      }
 ---
 
 # Managing your DynamoDB tables with DocKit make life easier

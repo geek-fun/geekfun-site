@@ -3,6 +3,61 @@
 layout: home
 title: DocKit - 开源 NoSQL GUI 客户端
 description: DocKit 是一款开源 NoSQL 图形化客户端，支持 DynamoDB、OpenSearch 和 Elasticsearch。适用于 Mac、Windows 和 Linux 的快速、安全的数据库管理工具。
+head:
+  - - meta
+    - name: keywords
+      content: NoSQL GUI 客户端, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, 数据库客户端, 开源数据库工具, PartiQL 编辑器, 桌面数据库客户端, Mac 数据库客户端, Windows 数据库客户端, Linux 数据库客户端
+  - - link
+    - rel: canonical
+      href: https://www.geekfun.club/zh/products/dockit/
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/products/dockit/
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/products/dockit/
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DocKit",
+        "description": "开源桌面 GUI 客户端，支持 DynamoDB、OpenSearch 和 Elasticsearch。适用于 Mac、Windows 和 Linux 的快速、安全的数据库管理工具。",
+        "applicationCategory": "DatabaseApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "DynamoDB GUI 客户端",
+          "Elasticsearch GUI 客户端",
+          "OpenSearch GUI 客户端",
+          "PartiQL 编辑器",
+          "可视化查询构建器",
+          "查询历史持久化",
+          "多数据库支持",
+          "集群管理",
+          "AI 驱动数据库助手"
+        ],
+        "screenshot": "https://www.geekfun.club/client-ui.png",
+        "downloadUrl": "https://www.geekfun.club/download",
+        "softwareVersion": "0.9.0",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE"
+      }
 
 hero:
   name: "DocKit"

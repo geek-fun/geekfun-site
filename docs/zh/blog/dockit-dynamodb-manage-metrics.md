@@ -20,6 +20,38 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/blog/dockit-dynamodb-manage-metrics
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DocKit DynamoDB 管理与指标 - 随时掌控您的表",
+        "description": "DocKit 现在允许您直接从桌面管理 DynamoDB 表并监控关键指标。浏览表、查看容量、跟踪项目数量和管理索引 — 全部免费。",
+        "image": "https://www.geekfun.club/dockit-dynamodb-manage.png",
+        "author": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "url": "https://www.geekfun.club"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "GEEKFUN",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.geekfun.club/geekfun.png"
+          }
+        },
+        "datePublished": "2025-03-04",
+        "dateModified": "2026-04-08",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.geekfun.club/zh/blog/dockit-dynamodb-manage-metrics"
+        },
+        "keywords": ["DocKit", "DynamoDB管理", "监控指标", "表管理"],
+        "articleSection": "DocKit Features"
+      }
 ---
 
 # DocKit DynamoDB 管理与指标 - 随时掌控您的表
