@@ -30,33 +30,33 @@ developers and organizations alike. Here, you’ll find in-depth articles on sof
 best practices, tutorials, and visionary insights—all focused on building sustainable open-source solutions. Join us in
 driving innovation and evolving both personal and industry growth through open collaboration.
 
-## [DocKit Query History - Never Lose a Query Again](/blog/dockit-query-history.md)
+## [DocKit Query History - Never Lose a Query Again](/blog/dockit-query-history)
 *March 3, 2026*
 
 DocKit now automatically saves every query you execute — for Elasticsearch, OpenSearch, and DynamoDB. View, copy, re-run, and send past queries back to the editor from the dedicated history panel.
 
-## [DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases](/blog/dockit-import-export.md)
+## [DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases](/blog/dockit-import-export)
 *March 3, 2026*
 
 Need to migrate data, seed a test environment, or back up before an upgrade? DocKit's new import/export feature supports JSON, CSV, and bulk formats for Elasticsearch, OpenSearch, and DynamoDB.
 
-## [DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips](/blog/dockit-dynamodb-manage-metrics.md)
+## [DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips](/blog/dockit-dynamodb-manage-metrics)
 *March 3, 2026*
 
 Manage DynamoDB tables, view real-time metrics, browse indexes, and monitor capacity — all without leaving DocKit's clean desktop UI.
 
-## [Managing your DynamoDB tables with DocKit make life easier](/blog/dynamodb-gui-client.md)
+## [Managing your DynamoDB tables with DocKit make life easier](/blog/dynamodb-gui-client)
 *January 20, 2026*
 
 Managing DynamoDB tables just got easier with DocKit - a powerful desktop GUI client featuring intuitive data browsing, PartiQL query support, inline editing, and cross-platform compatibility. Say goodbye to AWS Console frustrations and CLI complexity.
 
-## [Automate Elasticsearch Query Writing with AI Assistants - DocKit](/blog/elasticsearch-ai-assistant.md)
+## [Automate Elasticsearch Query Writing with AI Assistants - DocKit](/blog/elasticsearch-ai-assistant)
 *January 19, 2026*
 
 Discover how to use AI and large language models to generate complex Elasticsearch queries automatically. Boost
 productivity with an AI assistant for Elasticsearch.
 
-## [Implementing Elasticsearch Integration Test with jest-search](/blog/elasticsearch-integration-test-jest-search.md)
+## [Implementing Elasticsearch Integration Test with jest-search](/blog/elasticsearch-integration-test-jest-search)
 *September 18, 2024*
 
 There are several ways to implement integration test for Elasticsearch, you can startup a container to run the
@@ -64,7 +64,7 @@ elasticsearch server or config a remote elasticsearch server that you dedicated 
 will give you a another way to implement Elasticsearch Integration Test by using
 jest-preset [jest-search](https://github.com/geek-fun/jest-search) to startup a local server for you.
 
-## [DocKit - Introduction to Elasticsearch GUI Client](/blog/elasticsearch-gui-client.md)
+## [DocKit - Introduction to Elasticsearch GUI Client](/blog/elasticsearch-gui-client)
 *September 17, 2024*
 
 Are you searching for the best Elasticsearch desktop client to streamline your development data management? Look no

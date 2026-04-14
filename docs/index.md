@@ -45,7 +45,7 @@ features:
 ---
 
 ::: tip 🎉 Latest News
-**DocKit v0.9 Released** - Redesigned UI with Query History & Full DynamoDB support is now available! [Read more →](/news/dockit-v0-9-release.md)
+**DocKit v0.9 Released** - Redesigned UI with Query History & Full DynamoDB support is now available! [Read more →](/news/dockit-v0-9-release)
 :::
 
 ## Products

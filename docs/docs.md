@@ -63,5 +63,5 @@ DocKit is an open-source desktop GUI client for DynamoDB, Elasticsearch, and Ope
 
 - [Download DocKit](/download)
 - [GitHub Repository](https://github.com/geek-fun/dockit)
-- [Blog Posts](/blog.md)
+- [Blog Posts](/blog)
 - [Product Overview](/products/dockit/)

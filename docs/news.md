@@ -27,10 +27,10 @@ Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
 Stay updated with the latest announcements, releases, and updates from the GEEKFUN community. Here you'll find news about our projects, new features, community events, and important milestones.
 
-## [🎉 DocKit v0.9 Released: UI Redesign, Query History & DynamoDB Local Support](/news/dockit-v0-9-release.md)
+## [🎉 DocKit v0.9 Released: UI Redesign, Query History & DynamoDB Local Support](/news/dockit-v0-9-release)
 
 **March 3, 2026** - DocKit v0.9 is here! This release ships a complete UI redesign with shadcn-vue + UnoCSS, automatic query history for Elasticsearch and DynamoDB, DynamoDB Local endpoint support, and PartiQL document formatting. Read about everything new in this landmark release.
 
-## [🎉 DocKit v0.8 Released: Full DynamoDB Support](/news/dockit-v0-8-dynamodb-support.md)
+## [🎉 DocKit v0.8 Released: Full DynamoDB Support](/news/dockit-v0-8-dynamodb-support)
 
 **January 20, 2026** - We're excited to announce DocKit v0.8 with complete Amazon DynamoDB support! This release brings powerful new features including PartiQL query editor, visual query UI, inline data editing, and more. Read more about what's new in this major update.

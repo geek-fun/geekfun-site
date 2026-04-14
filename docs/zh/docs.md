@@ -63,5 +63,5 @@ DocKit 是一个开源的桌面 GUI 客户端，支持 DynamoDB、Elasticsearch 
 
 - [下载 DocKit](/zh/download)
 - [GitHub 仓库](https://github.com/geek-fun/dockit)
-- [博客文章](/zh/blog.md)
+- [博客文章](/zh/blog)
 - [产品概览](/zh/products/dockit/)

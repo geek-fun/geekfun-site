@@ -3,6 +3,19 @@ import {defineConfig} from 'vitepress'
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
 const ogImage = 'https://www.geekfun.club/og-image.png';
+const siteUrl = 'https://www.geekfun.club';
+const siteNameEn = 'GEEKFUN';
+const siteNameZh = '极客范';
+
+function getPageUrl(page: string) {
+    const normalizedPage = page.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '');
+    return new URL(normalizedPage, `${siteUrl}/`).toString();
+}
+
+function getPageType(page: string) {
+    return /^(zh\/)?(blog|news)\//.test(page) ? 'article' : 'website';
+}
+
 const sharedThemeConfig = {
     search: {
         provider: 'local' as const
@@ -66,16 +79,6 @@ export default defineConfig({
                     name: 'keywords',
                     content: 'geekfun, geek-fun, open source community, open source software, software sustainability, DocKit, serverless, serverless insight, serverless architecture, Elasticsearch, OpenSearch, ZincSearch, developer community, collaborative software development, sustainable software projects'
                 }],
-                ['meta', {property: 'og:title', content: titleEn}],
-                ['meta', {property: 'og:description', content: descEn}],
-                ['meta', {property: 'og:image', content: ogImage}],
-                ['meta', {property: 'og:url', content: 'https://www.geekfun.club/'}],
-                ['meta', {property: 'og:site_name', content: titleEn}],
-                ['meta', {property: 'og:type', content: 'website'}],
-                ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
-                ['meta', {name: 'twitter:title', content: titleEn}],
-                ['meta', {name: 'twitter:description', content: descEn}],
-                ['meta', {name: 'twitter:image', content: ogImage}],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
                 // Google Analytics
@@ -147,16 +150,6 @@ gtag('config', 'G-ZFVJ89KR9L');`],
                     name: 'keywords',
                     content: '极客范,极客乐园, geekfun, 开源社区, 开源软件, 软件可持续性, DocKit, serverless, serverless insight, 无服务器, serverless architecture, 无服务器架构, Elasticsearch, OpenSearch, ZincSearch, 开发者社区, 协作软件开发, 可持续软件项目'
                 }],
-                ['meta', {property: 'og:title', content: titleZh}],
-                ['meta', {property: 'og:description', content: descZh}],
-                ['meta', {property: 'og:image', content: ogImage}],
-                ['meta', {property: 'og:url', content: 'https://www.geekfun.club/zh/'}],
-                ['meta', {property: 'og:site_name', content: titleZh}],
-                ['meta', {property: 'og:type', content: 'website'}],
-                ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
-                ['meta', {name: 'twitter:title', content: titleZh}],
-                ['meta', {name: 'twitter:description', content: descZh}],
-                ['meta', {name: 'twitter:image', content: ogImage}],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
                 // Google Analytics
@@ -203,7 +196,29 @@ gtag('config', 'G-ZFVJ89KR9L');`],
         },
     },
     sitemap: {
-        hostname: 'https://www.geekfun.club'
+        hostname: 'https://www.geekfun.club',
+        transformItems(items) {
+            return items.filter((item) => item.url !== '404' && item.url !== '/404');
+        }
+    },
+    transformHead({page, title, description}) {
+        const isZhPage = page.startsWith('zh/');
+        const pageUrl = getPageUrl(page);
+        const siteName = isZhPage ? siteNameZh : siteNameEn;
+
+        return [
+            ['meta', {property: 'og:title', content: title}],
+            ['meta', {property: 'og:description', content: description}],
+            ['meta', {property: 'og:image', content: ogImage}],
+            ['meta', {property: 'og:url', content: pageUrl}],
+            ['meta', {property: 'og:site_name', content: siteName}],
+            ['meta', {property: 'og:type', content: getPageType(page)}],
+            ['meta', {property: 'og:locale', content: isZhPage ? 'zh_CN' : 'en_US'}],
+            ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
+            ['meta', {name: 'twitter:title', content: title}],
+            ['meta', {name: 'twitter:description', content: description}],
+            ['meta', {name: 'twitter:image', content: ogImage}]
+        ];
     },
     vite: {
         build: {
