@@ -83,8 +83,8 @@ head:
 
 hero:
   name: "DocKit"
-  text: Open-Source NoSQL GUI Client for Developers
-  tagline: Fast, secure desktop client for DynamoDB, Elasticsearch, and OpenSearch. AI-powered database management for Windows, macOS, and Linux
+  text: The NoSQL Desktop Client
+  tagline: A premium, AI-powered GUI for DynamoDB, Elasticsearch, and OpenSearch. Manage clusters and persist queries instantly, all for free.
   image:
     src: /dockit.png
     alt: DocKit - Open-source NoSQL GUI client for DynamoDB, Elasticsearch, and OpenSearch
@@ -93,18 +93,18 @@ hero:
       text: Download
       link: /download
     - theme: alt
-      text: docs
+      text: Documentation
       link: /docs
 
 features:
-  - title: Full featured editor
-    details: Powered by monaco-editor (the backbone of vscode), providing a familiar editing environment for developers.
-  - title: Persist connections and queries
-    details: DocKit can connect to multiple Elasticsearch, OpenSearch, and DynamoDB instances simultaneously and persist queries to local files, preventing data loss.
-  - title: Multi-engine support
-    details: Supports Elasticsearch, OpenSearch, DynamoDB, and more engines coming soon.
-  - title: Cluster management and monitoring
-    details: DocKit provides cluster management and monitoring features, helping you easily manage and monitor the health, nodes, shards, and indices of your Elasticsearch clusters.
+  - title: Desktop-Grade Editor
+    details: Built on Monaco Editor to bring the power and familiarity of VS Code right to your database queries.
+  - title: Local Persistence
+    details: Keep multiple connections alive and save queries securely to your local filesystem. Never lose your work.
+  - title: Multi-Engine Support
+    details: Seamlessly manage DynamoDB, Elasticsearch, and OpenSearch from a single, unified interface.
+  - title: Cluster Management
+    details: Monitor node health, manage shards, and track indices with built-in visual cluster tools.
 
 ---
 
@@ -112,7 +112,9 @@ features:
 DocKit v0.9 Released - Redesigned UI with Query History & Full DynamoDB support is now available! [Read more →](/news/dockit-v0-9-release)
 :::
 
-<div align="center" style="padding: 64px;">
-<p style="font-size: 20px;margin: 20px;font-weight: bolder;">Client Screen Short</p>
-<img src="/client-ui.png" alt="Client UI" style="width: 90%"/>
+<div style="padding: 64px 24px; text-align: center; max-width: 1152px; margin: 0 auto;">
+  <h2 style="font-size: 28px; font-weight: 600; margin-bottom: 40px; letter-spacing: -0.025em;">See DocKit in Action</h2>
+  <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider)); box-shadow: var(--vp-shadow-2);">
+    <img src="/client-ui.png" alt="DocKit desktop application interface" style="display: block; width: 100%; height: auto;" />
+  </div>
 </div>

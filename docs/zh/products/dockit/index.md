@@ -61,11 +61,11 @@ head:
 
 hero:
   name: "DocKit"
-  text: 开源 NoSQL GUI 客户端
-  tagline: 快速、安全的桌面客户端，支持 DynamoDB、Elasticsearch 和 OpenSearch。AI 驱动的数据库管理工具，适用于 Windows、macOS 和 Linux
+  text: NoSQL 桌面客户端
+  tagline: 高品质 AI 驱动 GUI，支持 DynamoDB、Elasticsearch 和 OpenSearch。集群管理与查询持久化，完全免费。
   image:
     src: dockit.png
-    alt: DocKit logo
+    alt: DocKit - 开源 NoSQL GUI 客户端
   actions:
     - theme: brand
       text: 下载
@@ -75,21 +75,23 @@ hero:
       link: /zh/docs
 
 features:
-  - title: 全功能编辑器
-    details: DocKit的编辑器由 monaco-editor(vscode的编辑基础模块) 构建而来，提供了与vscode一致的编辑体验，为开发者提供熟悉的编辑环境
-  - title: 连接、查询持久化
-    details: DocKit可以同时连接多个 Elasticsearch、OpenSearch 和 DynamoDB 实例，并且可以将查询持久化到本地文件中，避免数据丢失。
-  - title: 多引擎存储支持
-    details: 支持 Elasticsearch、OpenSearch、DynamoDB，更多引擎即将支持
-  - title: 可视化管理监控
-    details: DocKit 提供集群管理和监控功能，帮助您轻松管理和监控 Elasticsearch 集群的健康状况、节点、分片和索引等信息。
+  - title: 桌面级编辑器
+    details: 基于 Monaco Editor 构建，将 VS Code 的强大编辑能力带入数据库查询体验。
+  - title: 本地持久化
+    details: 同时保持多个连接，查询安全保存到本地文件系统，永不丢失工作内容。
+  - title: 多引擎支持
+    details: 在统一界面中无缝管理 DynamoDB、Elasticsearch 和 OpenSearch。
+  - title: 集群管理
+    details: 内置可视化集群工具，轻松监控节点健康、管理分片和追踪索引。
 ---
 
 ::: tip 🎉 最新消息
-DocKit v0.8 已发布 - 现已全面支持 DynamoDB！[了解更多 →](/zh/download)
+DocKit v0.9 已发布 — 全新 UI 设计、查询历史和完整 DynamoDB 支持！[了解更多 →](/zh/news/dockit-v0-8-dynamodb-support)
 :::
 
-<div align="center" style="padding: 64px;">
-<p style="font-size: 20px;margin: 20px;font-weight: bolder;">客户端截图</p>
-<img src="/client-ui.png" alt="客户端界面" style="width: 90%"/>
+<div style="padding: 64px 24px; text-align: center; max-width: 1152px; margin: 0 auto;">
+  <h2 style="font-size: 28px; font-weight: 600; margin-bottom: 40px; letter-spacing: -0.025em;">客户端展示</h2>
+  <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider)); box-shadow: var(--vp-shadow-2);">
+    <img src="/client-ui.png" alt="DocKit 桌面应用界面" style="display: block; width: 100%; height: auto;" />
+  </div>
 </div>

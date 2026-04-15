@@ -5,7 +5,11 @@ import {watchEffect, h} from "vue";
 import TeamMembers from './components/team-members.vue';
 import Product from "./components/product.vue";
 import Footer from "./components/Footer.vue";
-import Download from "./components/download.vue";
+import DownloadPage from "./components/DownloadPage.vue";
+import HomePage from "./components/HomePage.vue";
+import AboutPage from "./components/AboutPage.vue";
+
+const oneYearFromNow = () => new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
 
 export default {
     extends: DefaultTheme,
@@ -18,7 +22,7 @@ export default {
         const {lang} = useData()
         watchEffect(() => {
             if (inBrowser) {
-                document.cookie = `nf_lang=${lang.value}; expires=Mon, 1 Jan 2024 00:00:00 UTC; path=/`
+                document.cookie = `nf_lang=${lang.value}; expires=${oneYearFromNow()}; path=/`
             }
         })
     },
@@ -26,7 +30,8 @@ export default {
         // register your custom global components
         app.component('TeamMembers', TeamMembers);
         app.component('Product', Product);
-        app.component('Download', Download);
+        app.component('DownloadPage', DownloadPage);
+        app.component('HomePage', HomePage);
+        app.component('AboutPage', AboutPage);
     }
 }
-

@@ -1,4 +1,278 @@
 :root {
-  --vp-home-hero-image-background-image: linear-gradient(15deg, #f89b40 70%, #bd34fe 30%);
-  --vp-home-hero-image-filter: blur(70px);
+  /* Brand Colors */
+  --vp-c-brand-1: #f89b40;
+  --vp-c-brand-2: #e0832a;
+  --vp-c-brand-3: #c97120;
+  --vp-c-brand-soft: rgba(248, 155, 64, 0.16);
+  --vp-c-brand-soft-up: rgba(248, 155, 64, 0.24);
+
+  /* Semantic color tokens */
+  --gf-c-text-on-brand: #ffffff;
+
+  /* Linear/Raycast inspired custom properties - Light Mode */
+  --gf-c-bg-card: #ffffff;
+  --gf-c-border-subtle: rgba(0, 0, 0, 0.06);
+  --gf-c-border-hover: rgba(248, 155, 64, 0.4);
+  --gf-c-glow: rgba(248, 155, 64, 0.08);
+  --gf-btn-radius: 9999px;
+  --gf-btn-shadow-rest: 0 10px 24px rgba(15, 23, 42, 0.08);
+  --gf-btn-shadow-hover: 0 18px 38px rgba(15, 23, 42, 0.12);
+  --gf-btn-shadow-soft: 0 8px 20px rgba(15, 23, 42, 0.06);
+
+  /* Hero Variables - solid color for text, gradient for decorative backgrounds only */
+  --vp-home-hero-image-background-image: var(--gf-gradient-brand-diagonal);
+  --vp-home-hero-image-filter: blur(80px);
+  
+  /* Global Layout and Shadows - Refined soft shadows */
+  --vp-shadow-1: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --vp-shadow-2: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --vp-shadow-3: 0 16px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  /* Spacing scale (4pt base) */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 0.75rem;   /* 12px */
+  --space-lg: 1rem;      /* 16px */
+  --space-xl: 1.5rem;    /* 24px */
+  --space-2xl: 2rem;     /* 32px */
+  --space-3xl: 3rem;     /* 48px */
+
+  /* Gradient tokens - decorative backgrounds only */
+  --gf-gradient-brand-horizontal: linear-gradient(90deg, #f89b40 0%, #bd34fe 100%);
+  --gf-gradient-brand-diagonal: linear-gradient(135deg, rgba(248, 155, 64, 0.8) 0%, rgba(189, 52, 254, 0.6) 100%);
+  --gf-gradient-brand-subtle: linear-gradient(135deg, rgba(248, 155, 64, 0.05) 0%, rgba(189, 52, 254, 0.05) 100%);
+  --gf-gradient-accent-line: linear-gradient(90deg, rgba(248, 155, 64, 0.85), rgba(189, 52, 254, 0.45));
+  --gf-gradient-panel-accent: linear-gradient(90deg, transparent, rgba(248, 155, 64, 0.5), rgba(189, 52, 254, 0.24), transparent);
+}
+
+.dark {
+  --vp-c-bg: #0f0f11;
+  --vp-c-bg-alt: #18181b;
+  --vp-c-bg-elv: #1f1f22;
+
+  --vp-c-brand-1: #fba95a;
+  --vp-c-brand-2: #f89b40;
+  --vp-c-brand-3: #e0832a;
+  --vp-c-brand-soft: rgba(248, 155, 64, 0.16);
+  --vp-c-brand-soft-up: rgba(248, 155, 64, 0.24);
+
+  /* Linear/Raycast inspired custom properties - Dark Mode */
+  --gf-c-bg-card: rgba(24, 24, 27, 0.6);
+  --gf-c-border-subtle: rgba(255, 255, 255, 0.08);
+  --gf-c-border-hover: rgba(255, 255, 255, 0.2);
+  --gf-c-glow: rgba(248, 155, 64, 0.15);
+  --gf-btn-shadow-rest: 0 14px 28px rgba(0, 0, 0, 0.35);
+  --gf-btn-shadow-hover: 0 22px 44px rgba(0, 0, 0, 0.48);
+  --gf-btn-shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.24);
+  
+  /* Near-invisible shadows for dark mode, mostly relying on borders/glow */
+  --vp-shadow-1: 0 4px 12px rgba(0, 0, 0, 0.8);
+  --vp-shadow-2: 0 8px 24px rgba(0, 0, 0, 0.9);
+  --vp-shadow-3: 0 16px 48px rgba(0, 0, 0, 1);
+
+  /* Gradient tokens - Dark Mode (adjusted for visibility on dark surfaces) */
+  --gf-gradient-brand-horizontal: linear-gradient(90deg, #fba95a 0%, #bd34fe 100%);
+  --gf-gradient-brand-diagonal: linear-gradient(135deg, rgba(251, 169, 90, 0.9) 0%, rgba(189, 52, 254, 0.7) 100%);
+  --gf-gradient-brand-subtle: linear-gradient(135deg, rgba(251, 169, 90, 0.08) 0%, rgba(189, 52, 254, 0.08) 100%);
+  --gf-gradient-accent-line: linear-gradient(90deg, rgba(251, 169, 90, 0.9), rgba(189, 52, 254, 0.55));
+  --gf-gradient-panel-accent: linear-gradient(90deg, transparent, rgba(251, 169, 90, 0.6), rgba(189, 52, 254, 0.3), transparent);
+}
+
+/* Global Smoothness */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typography Refinements for Premium Feel */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+}
+
+p, .vp-doc p {
+  line-height: 1.7;
+}
+
+.vp-doc a {
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.VPHero {
+  .name {
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--vp-c-brand-1);
+  }
+  
+  .text {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.05em; /* slightly larger */
+  }
+  
+  .tagline {
+    font-weight: 400;
+    color: var(--vp-c-text-2);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Feature Cards Global Refinements */
+html .VPFeatures .VPFeature {
+  background-color: var(--gf-c-bg-card);
+  border: 1px solid var(--gf-c-border-subtle);
+  box-shadow: var(--vp-shadow-1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--gf-c-glow), var(--vp-shadow-2);
+    border-color: var(--gf-c-border-hover);
+  }
+  
+  .title {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  
+  .details {
+    line-height: 1.6;
+    color: var(--vp-c-text-2);
+  }
+}
+
+.VPFeatures {
+  gap: 24px;
+}
+
+/* Button overrides */
+:is(.gf-btn, .VPButton.brand, .VPButton.alt) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 0.5rem;
+  min-height: 36px;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--gf-btn-radius);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    opacity: 0.92;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--vp-c-brand-1);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+:is(.gf-btn-primary, .VPButton.brand) {
+  background-color: var(--vp-c-brand-1);
+  color: var(--gf-c-text-on-brand);
+
+  &:hover {
+    background-color: var(--vp-c-brand-2);
+  }
+}
+
+.dark :is(.gf-btn-primary, .VPButton.brand) {
+  background-color: var(--vp-c-brand-1);
+}
+
+:is(.gf-btn-secondary, .VPButton.alt) {
+  background-color: var(--vp-c-bg-elv);
+  border: 1px solid var(--gf-c-border-subtle);
+  color: var(--vp-c-text-1);
+
+  &:hover {
+    background-color: var(--vp-c-bg-alt);
+    border-color: var(--vp-c-brand-soft);
+  }
+}
+
+@media (max-width: 480px) {
+  :is(.gf-btn, .VPButton.brand, .VPButton.alt) {
+    width: 100%;
+  }
+}
+
+/* Tip / Callout Box override */
+.vp-doc .custom-block.tip {
+  background-color: var(--gf-c-bg-card);
+  border: 1px solid var(--gf-c-border-subtle);
+  border-radius: 8px;
+  color: var(--vp-c-text-1);
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Homepage: break out of VitePress .vp-doc container for full-width layout */
+.vp-doc:has(.homepage) {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.vp-doc:has(.about-page) {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.vp-doc:has(.download-page) {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* VPDoc overflow constraints - prevent horizontal scroll on custom pages */
+.vp-doc:has(.homepage, .about-page, .download-page) {
+  overflow-x: hidden;
+}
+
+/* Tablet breakpoint adjustments (768px - 1024px) */
+@media (max-width: 1024px) {
+  .VPFeatures {
+    gap: 1.5rem;
+  }
+  
+  html .VPFeatures .VPFeature {
+    border-radius: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .VPFeatures {
+    gap: 1rem;
+  }
+  
+  html .VPFeatures .VPFeature {
+    border-radius: 0.625rem;
+  }
+  
+  :is(.gf-btn, .VPButton.brand, .VPButton.alt) {
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Touch target minimum 44x44px for interactive elements */
+@media (pointer: coarse) {
+  :is(.gf-btn, .VPButton.brand, .VPButton.alt) {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

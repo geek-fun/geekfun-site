@@ -27,6 +27,11 @@ head:
 
 探索来自 GEEKFUN 社区的精选高质量内容，旨在启发和赋能开发者与组织。在这里，您将找到关于软件开发、前沿工具、最佳实践、教程以及远见卓识的深入文章——所有内容都专注于构建可持续的开源解决方案。加入我们，通过开放协作推动创新，并促进个人与行业的共同成长。
 
+## [全栈 Serverless 架构避坑实录：阿里云 API 网关 Body 转换问题](/zh/blog/serverless-api-gateway-body-transform)
+*2026年4月15日*
+
+在实现支付宝回调时，遇到 `application/x-www-form-urlencoded` 格式的请求体被转换为 JSON 对象的问题。深入分析 ServerlessInsight + serverless-adapter 架构中的问题链路、平台行为及解决方案。
+
 ## [DocKit 查询历史 - 永不丢失查询记录](/zh/blog/dockit-query-history)
 *2026年3月3日*
 

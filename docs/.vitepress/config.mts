@@ -1,4 +1,4 @@
-import {defineConfig} from 'vitepress'
+import {defineConfig, type HeadConfig} from 'vitepress'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
@@ -6,6 +6,13 @@ const ogImage = 'https://www.geekfun.club/og-image.png';
 const siteUrl = 'https://www.geekfun.club';
 const siteNameEn = 'GEEKFUN';
 const siteNameZh = '极客范';
+const gaHead: HeadConfig[] = [
+    ['script', {async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-ZFVJ89KR9L'}],
+    ['script', {}, `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ZFVJ89KR9L');`]
+];
 
 function getPageUrl(page: string) {
     const normalizedPage = page.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '');
@@ -62,6 +69,7 @@ export default defineConfig({
     cleanUrls: true,
     outDir: '../dist',
     cacheDir: '../cache',
+    head: [...gaHead],
     markdown: {
         image: {
             lazyLoading: true
@@ -81,12 +89,6 @@ export default defineConfig({
                 }],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
-                // Google Analytics
-                ['script', {async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-ZFVJ89KR9L'}],
-                ['script', {}, `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZFVJ89KR9L');`],
                 ['script', {type: 'application/ld+json'}, JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "Organization",
@@ -121,6 +123,10 @@ gtag('config', 'G-ZFVJ89KR9L');`],
                          link: '/docs',
                      },
                      {
+                         text: 'Download',
+                         link: '/download',
+                     },
+                     {
                          text: 'News',
                          link: '/news',
                      },
@@ -128,10 +134,6 @@ gtag('config', 'G-ZFVJ89KR9L');`],
                          text: 'Blog',
                          link: '/blog',
                      },
-                    // {
-                    //     text: 'Members',
-                    //     link: '/members/',
-                    // },
                      {
                          text: 'About',
                          link: '/about',
@@ -152,12 +154,6 @@ gtag('config', 'G-ZFVJ89KR9L');`],
                 }],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
-                // Google Analytics
-                ['script', {async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-ZFVJ89KR9L'}],
-                ['script', {}, `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZFVJ89KR9L');`],
             ],
             themeConfig: {
                 ...sharedThemeConfig,
@@ -166,32 +162,36 @@ gtag('config', 'G-ZFVJ89KR9L');`],
                     '/zh/blog/': docsSidebarZh,
                     '/zh/docs/': docsSidebarZh
                 },
-                nav: [
-                    {
-                        text: '首页',
-                        link: '/zh/',
-                    },
+nav: [
                      {
-                         text: '产品',
-                         link: '/zh/products',
+                         text: '首页',
+                         link: '/zh/',
                      },
-                     {
-                         text: '文档',
-                         link: '/zh/docs',
-                     },
-                     {
-                         text: '新闻',
-                         link: '/zh/news',
-                     },
-                     {
-                         text: '博客',
-                         link: '/zh/blog',
-                     },
-                     {
-                         text: '关于',
-                         link: '/zh/about',
-                     }
-                ]
+                      {
+                          text: '产品',
+                          link: '/zh/products',
+                      },
+                      {
+                          text: '文档',
+                          link: '/zh/docs',
+                      },
+                      {
+                          text: '下载',
+                          link: '/zh/download',
+                      },
+                      {
+                          text: '新闻',
+                          link: '/zh/news',
+                      },
+                      {
+                          text: '博客',
+                          link: '/zh/blog',
+                      },
+                      {
+                          text: '关于',
+                          link: '/zh/about',
+                      }
+                 ]
             }
         },
     },

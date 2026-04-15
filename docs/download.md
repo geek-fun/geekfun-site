@@ -1,10 +1,10 @@
 ---
-title: Download DocKit - Free DynamoDB GUI Client for Mac, Windows, Linux
-description: Download DocKit free open-source GUI client for DynamoDB, Elasticsearch, OpenSearch. Cross-platform desktop database tool for Mac, Windows, Linux. NoSQL management with PartiQL support, visual query builder.
+title: Download GEEKFUN Products - Database GUI, Serverless Tools, Libraries
+description: Download GEEKFUN open-source products across database GUI tools, serverless infrastructure, and developer libraries. Get DocKit binaries or open related GitHub and product links.
 head:
   - - meta
     - name: keywords
-      content: download DocKit, DocKit download, DynamoDB GUI download, Elasticsearch GUI download, OpenSearch GUI download, free database client, open source database tool, Mac database client download, Windows database client download, Linux database client download
+      content: GEEKFUN downloads, DocKit download, SqlKit download, serverless tools, serverless adapter, jest-search, database GUI download, developer tools download
   - - link
     - rel: canonical
       href: https://www.geekfun.club/download
@@ -22,29 +22,7 @@ head:
       href: https://www.geekfun.club/download
 outline: deep
 sidebar: false
+layout: page
 ---
 
-# Download DocKit
-Thanks for trying out DocKit! :rocket::rocket::rocket: DocKit is a new NoSQL GUI client with super lightweight and support across Windows, macOS, and Linux. 
-DocKit supports Elasticsearch, OpenSearch, [DynamoDB](https://aws.amazon.com/dynamodb/), and more to come ([MongoDB](https://www.mongodb.com/), etc), you can download the latest version of DocKit from the following links.
-
-## 🎉 What's New in v0.8
-
-**Full DynamoDB Support Now Available!**
-
-DocKit v0.8 brings complete Amazon DynamoDB support with:
-- ✅ **Visual Query UI** - Scan and query tables without writing code
-- ✅ **PartiQL Query Editor** - SQL-like syntax with intelligent auto-completion
-- ✅ **Inline Data Editing** - Update and delete items directly from query results
-- ✅ **Simple Item Creation** - Create new items through UI forms
-- ✅ **Script Persistence** - Automatically save PartiQL queries locally
-
-**Why Choose DocKit for DynamoDB?**
-- 🌟 **Fully Open Source** - Community-driven, continuous improvement
-- ⚡ **More Efficient** - Desktop application, no containers or servers needed
-- 🎯 **Multi-Database Support** - Manage DynamoDB, Elasticsearch, and OpenSearch in one interface
-
-⭐ **GitHub**: [https://github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)
-
-## Download DocKit Binary
-<Download></Download>
+<DownloadPage />

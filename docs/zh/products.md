@@ -20,14 +20,29 @@ head:
       href: https://www.geekfun.club/products
 ---
 
-## 开源产品
+## 为现代工程而生。
 
-GEEKFUN 持续构建面向开发者的开源产品与工具，覆盖 NoSQL/SQL 数据库客户端、Serverless 基础设施，以及工程化测试工具。下面是当前重点维护的产品矩阵。
+一站式开源工具生态，助力开发者提升生产力。从高性能数据库客户端到无缝衔接的 Serverless 基础设施，每款产品都以极致的品质打造。
+
+### 数据库客户端
+新一代桌面客户端，追求速度、简洁与现代化工作流。
 
 <div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
 <Product :product='{name: "DocKit", logo: "/dockit.png",preview: "/dockit-client-ui.png", description: "开源 NoSQL 桌面客户端，支持 Elasticsearch、OpenSearch、DynamoDB 等数据库，致力于打造 AI Native 的新一代数据库管理工具。", url: "/zh/products/dockit/"}'></Product>
 <Product :product='{name: "SqlKit", logo: "/sqlkit.png",preview: "/sqlkit-client-ui.png", description: "开源 SQL 桌面客户端，支持 PostgreSQL、MySQL、SQL Server、SQLite 等主流数据库，提供更现代、更高效的数据开发体验。", url: "https://github.com/geek-fun/sqlkit"}'></Product>
+</div>
+
+### 基础设施
+厂商中立的平台与适配器，自信地部署、监控和扩展。
+
+<div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
 <Product :product='{name: "ServerlessInsight", logo: "/serverlessinsight.png",preview: "/serverlessinsight-preview.png", description: "开源、无厂商锁定的 Serverless 基础设施与代码框架，支持阿里云、腾讯云、火山引擎等平台，打造一站式应用开发能力。", url: "https://serverlessinsight.com/"}'></Product>
 <Product :product='{name: "serverless-adapter", logo: "/serverless-adapter.svg",preview: "/serverless-adapter-preview.svg", description: "面向 Serverless 场景的 Web 框架适配器，支持 Express、Koa 运行在阿里云函数计算、腾讯云 SCF 和火山引擎 veFaaS 等平台。", url: "https://github.com/geek-fun/serverless-adapter"}'></Product>
+</div>
+
+### 开发者工具
+精简实用的工具，加速测试与本地开发。
+
+<div style="display: flex;flex-wrap: wrap; justify-content: space-evenly;">
 <Product :product='{name: "jest-search", logo: "/jest-search.png",preview: "/jest-search-preview.png", description: "面向搜索场景测试的 Jest 工具，可在本地快速拉起 Elasticsearch、OpenSearch 和 ZincSearch，提升集成测试效率与稳定性。", url: "https://github.com/geek-fun/jest-search"}'></Product>
 </div>

@@ -109,29 +109,65 @@ const localePath = (path: string) => {
 
 <style scoped lang="scss">
 .geekfun-footer {
-  background-color: var(--vp-c-bg-soft);
-  border-top: 1px solid var(--vp-c-divider);
-  padding: 48px 24px 24px;
-  margin-top: 64px;
+  background-color: var(--vp-c-bg);
+  border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+  padding: 4rem 1.5rem 2rem;
+  margin-top: 4rem;
+
+  @media (min-width: 1440px) {
+    padding: 4.5rem 3rem 2.5rem;
+  }
+
+  @media (min-width: 1920px) {
+    padding: 5rem 4rem 3rem;
+    margin-top: 0;
+  }
+
+  @media (min-width: 2560px) {
+    padding: 6rem 5rem 3.5rem;
+  }
 
   .container {
     max-width: 1152px;
     margin: 0 auto;
+
+    @media (min-width: 1440px) {
+      max-width: 1320px;
+    }
+
+    @media (min-width: 1920px) {
+      max-width: 1536px;
+    }
+
+    @media (min-width: 2560px) {
+      max-width: 1800px;
+    }
   }
 
   .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 48px;
-    margin-bottom: 48px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 4rem;
   }
 
   .footer-section {
     h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin: 0 0 16px 0;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin: 0 0 1rem 0;
       color: var(--vp-c-text-1);
+
+      @media (min-width: 1920px) {
+        font-size: 0.875rem;
+        margin: 0 0 1.25rem 0;
+      }
+
+      @media (min-width: 2560px) {
+        font-size: 0.9375rem;
+      }
     }
 
     ul {
@@ -140,15 +176,24 @@ const localePath = (path: string) => {
       margin: 0;
 
       li {
-        margin-bottom: 12px;
+        margin-bottom: 0.75rem;
 
         a {
           color: var(--vp-c-text-2);
+          font-size: 0.875rem;
           text-decoration: none;
-          transition: color 0.2s;
+          transition: color 0.2s ease;
+
+          @media (min-width: 1920px) {
+            font-size: 0.9375rem;
+          }
+
+          @media (min-width: 2560px) {
+            font-size: 1rem;
+          }
 
           &:hover {
-            color: var(--vp-c-brand-1);
+            color: var(--vp-c-text-1);
           }
         }
       }
@@ -156,29 +201,49 @@ const localePath = (path: string) => {
   }
 
   .footer-bottom {
-    border-top: 1px solid var(--vp-c-divider);
-    padding-top: 24px;
-    text-align: center;
+    border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
 
     .footer-message {
       color: var(--vp-c-text-2);
-      font-size: 14px;
-      margin: 0 0 12px 0;
+      font-size: 0.875rem;
+      margin: 0;
       line-height: 1.6;
+      text-align: center;
+
+      @media (min-width: 1920px) {
+        font-size: 0.9375rem;
+      }
+
+      @media (min-width: 2560px) {
+        font-size: 1rem;
+      }
     }
 
     .footer-copyright {
       color: var(--vp-c-text-3);
-      font-size: 14px;
+      font-size: 0.8125rem;
       margin: 0;
+
+      @media (min-width: 1920px) {
+        font-size: 0.875rem;
+      }
+
+      @media (min-width: 2560px) {
+        font-size: 0.9375rem;
+      }
 
       :deep(a) {
         color: var(--vp-c-text-3);
         text-decoration: none;
-        transition: color 0.2s;
+        transition: color 0.2s ease;
 
         &:hover {
-          color: var(--vp-c-brand-1);
+          color: var(--vp-c-text-2);
         }
       }
     }
@@ -188,8 +253,17 @@ const localePath = (path: string) => {
 @media (max-width: 768px) {
   .geekfun-footer {
     .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .geekfun-footer {
+    .footer-content {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 2rem;
     }
   }
 }

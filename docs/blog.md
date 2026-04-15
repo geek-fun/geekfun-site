@@ -26,9 +26,14 @@ head:
 Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:
 
 Explore a curated collection of high-quality content from the GEEKFUN community, designed to inspire and empower
-developers and organizations alike. Here, you’ll find in-depth articles on software development, cutting-edge tools,
+developers and organizations alike. Here, you'll find in-depth articles on software development, cutting-edge tools,
 best practices, tutorials, and visionary insights—all focused on building sustainable open-source solutions. Join us in
 driving innovation and evolving both personal and industry growth through open collaboration.
+
+## [Serverless Architecture Pitfalls: Alibaba Cloud API Gateway Body Transform Issue](/blog/serverless-api-gateway-body-transform)
+*April 15, 2026*
+
+When implementing Alipay webhook callbacks, we encountered an issue where `application/x-www-form-urlencoded` request bodies were being converted to JSON objects. Deep analysis of ServerlessInsight + serverless-adapter architecture, platform behavior, and solutions.
 
 ## [DocKit Query History - Never Lose a Query Again](/blog/dockit-query-history)
 *March 3, 2026*

@@ -190,13 +190,13 @@ DocKit follows responsible disclosure:
 3. **CVE Assignment**: Public tracking
 4. **Rapid Deployment**: Update within days
 
-**Recent Example (Hypothetical):**
+**Example Disclosure Timeline:**
 ```
-CVE-2024-XXXXX: Credential exposure in connection export
-- Discovered: Jan 15, 2024 (community member)
-- Patched: Jan 16, 2024 (maintainer + contributor)
-- Released: Jan 17, 2024 (v0.9.1)
-- Impact: Low (requires local file access)
+Security advisory: Credential handling issue in exported connection data
+- Reported privately via GitHub Security Advisories
+- Patch reviewed by maintainers and contributors within 24 hours
+- Fixed release published after validation and regression checks
+- Disclosure notes shared publicly with upgrade guidance for users
 ```
 
 Closed-source tools may take weeks/months to disclose.
