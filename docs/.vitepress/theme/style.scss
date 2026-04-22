@@ -238,8 +238,14 @@ html .VPFeatures .VPFeature {
   margin: 0 !important;
 }
 
+.vp-doc:has(.product-layout) {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /* VPDoc overflow constraints - prevent horizontal scroll on custom pages */
-.vp-doc:has(.homepage, .about-page, .download-page) {
+.vp-doc:has(.homepage, .about-page, .download-page, .product-layout) {
   overflow-x: hidden;
 }
 

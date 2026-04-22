@@ -1,6 +1,6 @@
 ---
 title: 下载极客范产品 - 数据库 GUI、Serverless 工具与开发库
-description: 下载极客范开源产品，按数据库 GUI、Serverless 工具与开发库分类浏览。可直接获取 DocKit 二进制文件，或前往相关 GitHub 仓库与产品站点。
+description: 下载极客范开源产品，集中获取 DocKit、SqlKit 及相关开发工具的安装包、版本入口与项目链接，按数据库客户端、Serverless 工具与开发库分类浏览。
 head:
   - - link
     - rel: canonical

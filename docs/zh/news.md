@@ -1,6 +1,6 @@
 ---
 title: 极客范新闻 - DocKit 发布 DynamoDB GUI 客户端 Elasticsearch 工具更新
-description: "关注最新极客范新闻、DocKit 版本发布、产品公告。跟踪开源项目：DynamoDB GUI 客户端、Elasticsearch 工具、新功能特性、版本更新、社区里程碑。"
+description: "关注极客范最新新闻、DocKit 与 SqlKit 版本发布、产品公告和社区里程碑，及时了解数据库工具更新、新功能上线与开源项目进展。"
 head:
   - - meta
     - name: keywords

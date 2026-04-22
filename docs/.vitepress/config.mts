@@ -2,7 +2,8 @@ import {defineConfig, type HeadConfig} from 'vitepress'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
-const ogImage = 'https://www.geekfun.club/og-image.png';
+const ogImageEn = 'https://www.geekfun.club/og/master-en.png';
+const ogImageZh = 'https://www.geekfun.club/og/master-zh.png';
 const siteUrl = 'https://www.geekfun.club';
 const siteNameEn = 'GEEKFUN';
 const siteNameZh = '极客范';
@@ -106,39 +107,34 @@ export default defineConfig({
                 ...sharedThemeConfig,
                 siteTitle: 'GEEKFUN',
                 sidebar: {
-                    '/blog/': docsSidebarEn,
                     '/docs/': docsSidebarEn
                 },
-                nav: [
-                    {
-                        text: 'Home',
-                        link: '/',
-                    },
+nav: [
                      {
-                         text: 'Products',
-                         link: '/products',
-                     },
-                     {
-                         text: 'Docs',
-                         link: '/docs',
+                         text: 'Home',
+                         link: '/',
                      },
                      {
                          text: 'Download',
                          link: '/download',
                      },
                      {
-                         text: 'News',
-                         link: '/news',
+                         text: 'Docs',
+                         link: '/docs',
                      },
                      {
                          text: 'Blog',
                          link: '/blog',
                      },
                      {
+                         text: 'News',
+                         link: '/news',
+                     },
+                     {
                          text: 'About',
                          link: '/about',
                      },
-                ]
+                 ]
             }
         },
         zh: {
@@ -159,33 +155,28 @@ export default defineConfig({
                 ...sharedThemeConfig,
                 siteTitle: '极客范',
                 sidebar: {
-                    '/zh/blog/': docsSidebarZh,
                     '/zh/docs/': docsSidebarZh
                 },
 nav: [
-                     {
-                         text: '首页',
-                         link: '/zh/',
-                     },
                       {
-                          text: '产品',
-                          link: '/zh/products',
-                      },
-                      {
-                          text: '文档',
-                          link: '/zh/docs',
+                          text: '首页',
+                          link: '/zh/',
                       },
                       {
                           text: '下载',
                           link: '/zh/download',
                       },
                       {
-                          text: '新闻',
-                          link: '/zh/news',
+                          text: '文档',
+                          link: '/zh/docs',
                       },
                       {
                           text: '博客',
                           link: '/zh/blog',
+                      },
+                      {
+                          text: '新闻',
+                          link: '/zh/news',
                       },
                       {
                           text: '关于',
@@ -201,15 +192,17 @@ nav: [
             return items.filter((item) => item.url !== '404' && item.url !== '/404');
         }
     },
-    transformHead({page, title, description}) {
+    transformHead({page, title, description, pageData}) {
         const isZhPage = page.startsWith('zh/');
         const pageUrl = getPageUrl(page);
         const siteName = isZhPage ? siteNameZh : siteNameEn;
+        const masterOg = isZhPage ? ogImageZh : ogImageEn;
+        const ogImageUrl = pageData?.frontmatter?.ogImage ?? masterOg;
 
         return [
             ['meta', {property: 'og:title', content: title}],
             ['meta', {property: 'og:description', content: description}],
-            ['meta', {property: 'og:image', content: ogImage}],
+            ['meta', {property: 'og:image', content: ogImageUrl}],
             ['meta', {property: 'og:url', content: pageUrl}],
             ['meta', {property: 'og:site_name', content: siteName}],
             ['meta', {property: 'og:type', content: getPageType(page)}],
@@ -217,7 +210,7 @@ nav: [
             ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
             ['meta', {name: 'twitter:title', content: title}],
             ['meta', {name: 'twitter:description', content: description}],
-            ['meta', {name: 'twitter:image', content: ogImage}]
+            ['meta', {name: 'twitter:image', content: ogImageUrl}]
         ];
     },
     vite: {

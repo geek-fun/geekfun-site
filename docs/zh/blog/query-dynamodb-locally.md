@@ -1,10 +1,10 @@
 ---
-title: 如何本地查询 DynamoDB - 完整开发指南
-description: 学习如何使用 DynamoDB Local 和 DocKit GUI 本地查询 DynamoDB。离线开发、测试和 CI/CD 集成的分步设置。
+title: 使用 DocKit 访问和管理本地 DynamoDB
+description: 学习如何使用 DocKit 访问和管理 DynamoDB Local，完成本地离线开发、表查询、数据调试、初始化配置以及 CI/CD 集成的完整分步实践。
 head:
   - - meta
     - name: keywords
-      content: query DynamoDB locally, DynamoDB Local, DynamoDB local development, DynamoDB offline, DynamoDB local setup, DynamoDB Local GUI, test DynamoDB locally
+      content: access DynamoDB Local, manage DynamoDB Local, DynamoDB Local GUI, DocKit DynamoDB, DynamoDB local setup, DynamoDB Local management, offline DynamoDB development
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/blog/query-dynamodb-locally
@@ -26,8 +26,8 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "如何本地查询 DynamoDB - 完整开发指南",
-        "description": "学习如何使用 DynamoDB Local 和 DocKit GUI 本地查询 DynamoDB。离线开发、测试和 CI/CD 集成的分步设置。",
+        "headline": "使用 DocKit 访问和管理本地 DynamoDB",
+        "description": "学习如何使用 DocKit GUI 访问和管理 DynamoDB Local。离线开发、查询表、管理数据的分步设置，以及 CI/CD 集成。",
         "image": "https://www.geekfun.club/dockit-connection-dynamodblocal.png",
         "author": {
           "@type": "Organization",
@@ -49,14 +49,14 @@ head:
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/zh/blog/query-dynamodb-locally"
         },
-        "keywords": ["DynamoDB Local", "本地开发", "离线测试", "DocKit"],
+        "keywords": ["DynamoDB Local", "管理 DynamoDB", "DocKit", "本地开发"],
         "articleSection": "Database Development"
       }
 ---
 
-# 如何本地查询 DynamoDB - 完整开发指南
+# 使用 DocKit 访问和管理本地 DynamoDB
 
-针对 **DynamoDB Local** 进行开发可以消除 AWS 成本、加快迭代速度并支持离线开发。本指南将向您展示如何在本地设置 DynamoDB 并使用 DocKit 高效查询它。
+**DynamoDB Local** 让您能够离线开发、快速迭代并避免 AWS 成本——但要高效管理它需要合适的工具。本指南将向您展示如何设置 DynamoDB Local，并使用 DocKit 访问、查询和管理本地表。
 
 ## 为什么要本地查询 DynamoDB？
 

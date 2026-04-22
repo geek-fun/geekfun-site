@@ -1,6 +1,6 @@
 ---
 title: DocKit 文档 - NoSQL GUI 客户端使用指南
-description: DocKit NoSQL GUI 客户端完整文档。了解安装方法、服务器连接、快捷键和 Elasticsearch 集群管理指南。
+description: DocKit NoSQL GUI 客户端完整文档入口，涵盖安装指南、连接 Elasticsearch/OpenSearch/DynamoDB、快捷键、AI 助手与集群管理等核心使用说明。
 head:
   - - link
     - rel: canonical

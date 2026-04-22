@@ -1,6 +1,6 @@
 ---
 title: 安装 DocKit - DynamoDB Elasticsearch GUI 客户端设置指南 Mac Windows Linux
-description: DocKit 安装分步指南，支持 Mac、Windows、Linux。下载免费 DynamoDB、Elasticsearch、OpenSearch GUI 客户端。快速设置 NoSQL 数据库管理桌面应用程序，跨平台使用指南。
+description: DocKit 安装分步指南，适用于 Mac、Windows 和 Linux，涵盖下载方式、首次启动、系统权限处理与跨平台配置，帮助你快速开始管理 DynamoDB、Elasticsearch 与 OpenSearch。
 head:
   - - meta
     - name: keywords

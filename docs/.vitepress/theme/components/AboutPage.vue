@@ -43,7 +43,7 @@ const content = computed(() => {
         ? '极客范是一个面向开发者的开源工作室，专注于构建真正有价值、可持续演进、能够长期服务社区的软件产品。'
         : 'GEEKFUN is a developer-first open-source studio building software that delivers real value, evolves sustainably, and serves the community for the long term.',
       primaryAction: isZh ? '查看产品' : 'Explore Products',
-      primaryLink: isZh ? '/zh/products' : '/products',
+      primaryLink: isZh ? '/zh/download' : '/download',
       secondaryAction: isZh ? '支持我们' : 'Support Us',
       secondaryLink: '#support',
       quote: isZh
@@ -161,7 +161,7 @@ const content = computed(() => {
           </div>
           <h1 class="hero-title">
             {{ content.hero.titleLead }}
-            <span class="gradient-text">{{ content.hero.titleAccent }}</span>
+            <span class="hero-title-accent">{{ content.hero.titleAccent }}</span>
             <br />
             {{ content.hero.titleTail }}
           </h1>
@@ -337,11 +337,11 @@ const content = computed(() => {
 }
 
 .hero-section {
-  padding: 100px 0 80px;
+  padding: calc(var(--space-3xl) * 2.5) 0 calc(var(--space-3xl) * 2);
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 64px 0 48px;
+    padding: calc(var(--space-3xl) * 1.5) 0 var(--space-3xl);
   }
 }
 
@@ -363,7 +363,7 @@ const content = computed(() => {
 }
 
 .hero-title {
-  margin: 0 0 1.25rem;
+  margin: 0 0 var(--space-md);
   font-size: 2.5rem;
   line-height: 1.15;
   font-weight: 700;
@@ -379,14 +379,14 @@ const content = computed(() => {
   }
 }
 
-.gradient-text {
+.hero-title-accent {
   color: var(--vp-c-brand-1);
   font-weight: 800;
 }
 
 .hero-tagline {
   max-width: 560px;
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--space-2xl);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--vp-c-text-2);
@@ -398,6 +398,7 @@ const content = computed(() => {
 
   @media (max-width: 768px) {
     font-size: 0.9375rem;
+    margin-bottom: var(--space-xl);
   }
 }
 
@@ -505,26 +506,18 @@ const content = computed(() => {
   border-radius: 20px;
   padding: 32px;
   overflow: hidden;
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0 auto auto 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gf-gradient-brand-horizontal);
-    opacity: 0;
-    transition: opacity 0.28s ease;
-  }
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: translateY(-4px);
     border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  }
 
-    &::before {
-      opacity: 1;
+  @media (prefers-reduced-motion: reduce) {
+    transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+      transform: none;
     }
   }
 }

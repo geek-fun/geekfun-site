@@ -42,14 +42,14 @@ type CategoryContent = {
 }
 
 type DownloadContent = {
-  pageLabel: string
+  pageEyebrow: string
+  pageTitle: string
   pageDescription: string
-  tabsLabel: string
   categories: CategoryContent[]
   products: DownloadProduct[]
   installCommandLabel: string
-  docKitPlatformsTitle: string
-  docKitPlatformsDescription: string
+  platformsTitle: string
+  platformsDescription: string
   openReleaseLabel: string
   downloadsLoading: string
   downloadsError: string
@@ -67,12 +67,16 @@ const availablePlatform: PlatformGroup[] = [
   },
   {
     platform: 'Windows',
-    binaries: [{ name: 'Installer (.exe)', tail: 'x64-setup.exe' }]
+    binaries: [
+      { name: 'Installer (.exe)', tail: 'x64-setup.exe' },
+      { name: 'Installer (.msi)', tail: 'x64_en-US.msi' }
+    ]
   },
   {
     platform: 'Linux',
     binaries: [
       { name: 'Debian/Ubuntu (.deb)', tail: 'amd64.deb' },
+      { name: 'Red Hat/Fedora (.rpm)', tail: 'x86_64.rpm' },
       { name: 'Portable (.AppImage)', tail: 'amd64.AppImage' }
     ]
   }
@@ -89,11 +93,11 @@ const content = computed<DownloadContent>(() => {
   const isZh = lang.value === 'zh'
 
   return {
-    pageLabel: isZh ? '下载中心' : 'Downloads',
+    pageEyebrow: isZh ? '下载中心' : 'Downloads',
+    pageTitle: isZh ? '获取我们的产品' : 'Get our products',
     pageDescription: isZh
-      ? '获取产品安装包、命令行工具与桌面客户端。'
-      : 'Get installers, CLI tools, and desktop apps for our products.',
-    tabsLabel: isZh ? '产品分类' : 'Product Categories',
+      ? '桌面客户端、命令行工具与开发库，按需取用。'
+      : 'Desktop apps, CLI tools, and libraries — pick what you need.',
     categories: [
       {
         id: 'database-clients',
@@ -191,10 +195,8 @@ const content = computed<DownloadContent>(() => {
       }
     ],
     installCommandLabel: isZh ? '安装命令' : 'Install',
-    docKitPlatformsTitle: isZh ? '下载桌面应用' : 'Download Desktop App',
-    docKitPlatformsDescription: isZh
-      ? '选择你的操作系统，或查看所有历史版本。'
-      : 'Choose your operating system, or browse all versions.',
+    platformsTitle: isZh ? '下载桌面应用' : 'Download Desktop App',
+    platformsDescription: isZh ? '选择平台，或查看所有历史版本。' : 'Choose your platform, or browse all versions.',
     openReleaseLabel: isZh ? '查看所有版本' : 'All Versions',
     downloadsLoading: isZh ? '获取最新版本…' : 'Fetching latest release…',
     downloadsError: isZh ? '获取失败，请直接访问 Releases 页面。' : 'Failed to load. Visit the Releases page directly.'
@@ -202,17 +204,13 @@ const content = computed<DownloadContent>(() => {
 })
 
 const categories = computed(() => content.value.categories)
-const activeCategoryContent = computed(() => categories.value.find((item) => item.id === activeCategory.value) ?? categories.value[0])
-const filteredProducts = computed(() => content.value.products.filter((product) => product.category === activeCategory.value))
+const activeCategory_ = computed(() => categories.value.find(c => c.id === activeCategory.value) ?? categories.value[0])
+const filteredProducts = computed(() => content.value.products.filter(p => p.category === activeCategory.value))
 
 const getLatestLinks = async (): Promise<ReleaseAsset[]> => {
   const response = await fetch('https://api.github.com/repos/geek-fun/dockit/releases/latest')
   const data = await response.json()
-
-  if (!response.ok || !Array.isArray(data.assets)) {
-    throw new Error('Unable to fetch releases')
-  }
-
+  if (!response.ok || !Array.isArray(data.assets)) throw new Error('Unable to fetch releases')
   return data.assets.map((item: { name: string; browser_download_url: string }) => ({
     name: item.name,
     url: item.browser_download_url
@@ -222,7 +220,6 @@ const getLatestLinks = async (): Promise<ReleaseAsset[]> => {
 const loadReleaseAssets = async () => {
   releasesLoading.value = true
   releasesError.value = false
-
   try {
     releaseAssets.value = await getLatestLinks()
   } catch {
@@ -233,151 +230,173 @@ const loadReleaseAssets = async () => {
 }
 
 const openExternal = (href: string) => {
-  if (typeof window !== 'undefined') {
-    window.open(href, '_blank', 'noopener,noreferrer')
-  }
+  if (typeof window !== 'undefined') window.open(href, '_blank', 'noopener,noreferrer')
 }
 
 const downloadBinary = (binaryTail: string) => {
-  const matchedAsset = releaseAssets.value.find((item) => item.name.endsWith(binaryTail))
-
-  if (matchedAsset) {
-    openExternal(matchedAsset.url)
-  }
+  const matched = releaseAssets.value.find(item => item.name.endsWith(binaryTail))
+  if (matched) openExternal(matched.url)
 }
 
-onMounted(() => {
-  void loadReleaseAssets()
-})
+onMounted(() => { void loadReleaseAssets() })
 </script>
 
 <template>
   <div class="download-page">
-    <section class="download-browser">
+
+    <!-- Page Header -->
+    <section class="dl-hero">
       <div class="container">
-        <div class="download-browser__intro">
-          <div class="section-header section-header--start">
-            <span class="section-label">{{ content.pageLabel }}</span>
-          </div>
-          <p class="download-browser__intro-copy">{{ content.pageDescription }}</p>
+        <div class="section-header section-header--start">
+          <span class="section-label">{{ content.pageEyebrow }}</span>
         </div>
+        <h1 class="dl-hero__title">{{ content.pageTitle }}</h1>
+        <p class="dl-hero__description">{{ content.pageDescription }}</p>
+      </div>
+    </section>
 
-        <div class="download-tabs-shell">
-          <div class="download-tabs" role="tablist" :aria-label="content.tabsLabel">
-            <button
-              v-for="category in categories"
-              :key="category.id"
-              type="button"
-              class="download-tab"
-              :class="{ 'download-tab--active': activeCategory === category.id }"
-              role="tab"
-              :aria-selected="activeCategory === category.id"
-              @click="activeCategory = category.id"
-            >
-              <span class="download-tab__eyebrow">{{ category.eyebrow }}</span>
-              <span class="download-tab__label">{{ category.label }}</span>
-            </button>
-          </div>
-        </div>
+    <!-- Category Tabs -->
+    <div class="dl-tabs-bar">
+      <div class="container">
+        <nav class="dl-tabs" role="tablist" :aria-label="content.pageEyebrow">
+          <button
+            v-for="cat in categories"
+            :key="cat.id"
+            type="button"
+            class="dl-tab"
+            :class="{ 'dl-tab--active': activeCategory === cat.id }"
+            role="tab"
+            :aria-selected="activeCategory === cat.id"
+            @click="activeCategory = cat.id"
+          >
+            {{ cat.label }}
+          </button>
+        </nav>
+      </div>
+    </div>
 
-        <div class="download-panel">
-          <div class="download-panel__header">
-            <div>
-              <p class="download-panel__eyebrow">{{ activeCategoryContent.eyebrow }}</p>
-              <h2 class="download-panel__title">{{ activeCategoryContent.title }}</h2>
+    <!-- Category Intro -->
+    <section class="dl-category-intro">
+      <div class="container">
+        <p class="dl-category-intro__eyebrow">{{ activeCategory_.eyebrow }}</p>
+        <h2 class="dl-category-intro__title">{{ activeCategory_.title }}</h2>
+        <p class="dl-category-intro__description">{{ activeCategory_.description }}</p>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="dl-products">
+      <div class="container">
+        <div class="dl-products__list">
+          <article
+            v-for="product in filteredProducts"
+            :key="product.name"
+            class="dl-product"
+          >
+            <!-- Product identity -->
+            <div class="dl-product__identity">
+              <div class="dl-product__logo-wrap">
+                <img :src="product.logo" :alt="`${product.name} logo`" class="dl-product__logo" width="28" height="28" />
+              </div>
+              <div>
+                <h3 class="dl-product__name">{{ product.name }}</h3>
+                <p class="dl-product__description">{{ product.description }}</p>
+              </div>
             </div>
-            <p class="download-panel__description">{{ activeCategoryContent.description }}</p>
-          </div>
 
-          <div class="download-grid">
-            <article v-for="product in filteredProducts" :key="product.name" class="download-card">
-              <div class="download-card__header">
-                <div class="download-card__logo-shell">
-                  <img :src="product.logo" :alt="`${product.name} logo`" class="download-card__logo" width="30" height="30" />
+            <!-- Install command -->
+            <div v-if="product.installCommand" class="dl-install">
+              <span class="dl-install__label">{{ product.installLabel ?? content.installCommandLabel }}</span>
+              <code class="dl-install__code">{{ product.installCommand }}</code>
+            </div>
+
+            <!-- Platform downloads (DocKit) -->
+            <div v-if="product.platformGroups" class="dl-platforms">
+              <div class="dl-platforms__header">
+                <div>
+                  <h4 class="dl-platforms__title">{{ content.platformsTitle }}</h4>
+                  <p class="dl-platforms__sub">{{ content.platformsDescription }}</p>
                 </div>
-                <h3 class="download-card__title">{{ product.name }}</h3>
+                <a
+                  :href="product.releaseHref"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="gf-btn gf-btn-secondary"
+                >{{ content.openReleaseLabel }}</a>
               </div>
 
-              <p class="download-card__description">{{ product.description }}</p>
+              <p v-if="releasesLoading" class="dl-platforms__status">{{ content.downloadsLoading }}</p>
+              <p v-else-if="releasesError" class="dl-platforms__status dl-platforms__status--error">{{ content.downloadsError }}</p>
 
-              <div v-if="product.installCommand" class="download-install-block">
-                <span class="download-install-block__label">{{ product.installLabel ?? content.installCommandLabel }}</span>
-                <code class="download-install-block__code">{{ product.installCommand }}</code>
-              </div>
-
-              <div v-if="product.platformGroups" class="download-platforms">
-                <div class="download-platforms__header">
-                  <div class="download-platforms__copy">
-                    <h4>{{ content.docKitPlatformsTitle }}</h4>
-                    <p>{{ content.docKitPlatformsDescription }}</p>
-                  </div>
-
-                  <a
-                    :href="product.releaseHref"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="gf-btn gf-btn-secondary download-platforms__release-button"
+              <div v-else class="dl-platforms__grid">
+                <div class="dl-platforms__col">
+                  <div
+                    v-for="group in product.platformGroups.slice(0, 2)"
+                    :key="group.platform"
+                    class="dl-platform-group"
                   >
-                    {{ content.openReleaseLabel }}
-                  </a>
-                </div>
-
-                <p v-if="releasesLoading" class="download-platforms__meta">{{ content.downloadsLoading }}</p>
-                <div v-else-if="releasesError" class="download-platforms__fallback">
-                  <p class="download-platforms__meta download-platforms__meta--error">{{ content.downloadsError }}</p>
-                </div>
-
-                <div v-else class="download-platforms__grid">
-                  <div v-for="group in product.platformGroups" :key="group.platform" class="download-platforms__group">
-                    <h5>{{ group.platform }}</h5>
-                    <div class="download-platforms__buttons">
+                    <h5 class="dl-platform-group__name">{{ group.platform }}</h5>
+                    <div class="dl-platform-group__buttons">
                       <button
                         v-for="binary in group.binaries"
                         :key="binary.tail"
                         type="button"
-                        class="download-platform-button"
+                        class="gf-btn gf-btn-secondary dl-binary-btn"
                         @click="downloadBinary(binary.tail)"
                       >
                         <span>{{ binary.name }}</span>
-                        <span aria-hidden="true">↓</span>
+                        <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="dl-platforms__col">
+                  <div
+                    v-for="group in product.platformGroups.slice(2)"
+                    :key="group.platform"
+                    class="dl-platform-group"
+                  >
+                    <h5 class="dl-platform-group__name">{{ group.platform }}</h5>
+                    <div class="dl-platform-group__buttons">
+                      <button
+                        v-for="binary in group.binaries"
+                        :key="binary.tail"
+                        type="button"
+                        class="gf-btn gf-btn-secondary dl-binary-btn"
+                        @click="downloadBinary(binary.tail)"
+                      >
+                        <span>{{ binary.name }}</span>
+                        <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class="download-card__actions">
-                <a
-                  v-for="action in product.actions"
-                  :key="`${product.name}-${action.label}`"
-                  :href="action.href"
-                  :target="action.external ? '_blank' : undefined"
-                  :rel="action.external ? 'noopener noreferrer' : undefined"
-                  class="gf-btn"
-                  :class="action.kind === 'primary' ? 'gf-btn-primary' : 'gf-btn-secondary'"
-                >
-                  {{ action.label }}
-                </a>
-
-                <a
-                  v-if="product.releaseHref && !product.platformGroups"
-                  :href="product.releaseHref"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="download-card__link download-card__link--muted"
-                >
-                  {{ content.openReleaseLabel }}
-                </a>
-              </div>
-            </article>
-          </div>
+            <!-- Actions -->
+            <div class="dl-product__actions">
+              <a
+                v-for="action in product.actions"
+                :key="`${product.name}-${action.label}`"
+                :href="action.href"
+                :target="action.external ? '_blank' : undefined"
+                :rel="action.external ? 'noopener noreferrer' : undefined"
+                class="gf-btn"
+                :class="action.kind === 'primary' ? 'gf-btn-primary' : 'gf-btn-secondary'"
+              >{{ action.label }}</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
   </div>
 </template>
 
 <style scoped lang="scss">
+/* ─── Layout ─────────────────────────────────────────────────────────────── */
+
 .download-page {
   width: 100%;
 }
@@ -398,6 +417,8 @@ onMounted(() => {
     padding: 0 64px;
   }
 }
+
+/* ─── Section header (matches HomePage) ─────────────────────────────────── */
 
 .section-header {
   display: flex;
@@ -422,387 +443,360 @@ onMounted(() => {
 }
 
 .section-label {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   color: var(--vp-c-brand-1);
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
 
   &::before,
   &::after {
     content: '';
     display: block;
-    width: 24px;
+    width: 32px;
     height: 1px;
     opacity: 0.35;
     background: var(--vp-c-brand-soft);
   }
 }
 
-.download-browser {
-  padding: 80px 0 120px;
+/* ─── Hero ───────────────────────────────────────────────────────────────── */
 
-  @media (min-width: 1440px) {
-    padding: 100px 0 140px;
+.dl-hero {
+  padding: 80px 0 48px;
+
+  @media (max-width: 768px) {
+    padding: 56px 0 32px;
+  }
+
+  .section-header {
+    margin-bottom: 24px;
   }
 }
 
-.download-browser__intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-  gap: 24px;
-  align-items: end;
-  margin-bottom: 20px;
+.dl-hero__title {
+  margin: 0 0 var(--space-lg);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--vp-c-text-1);
 }
 
-.download-browser__intro-copy {
+.dl-hero__description {
   margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.7;
+  font-size: 1.125rem;
+  line-height: 1.6;
   color: var(--vp-c-text-2);
+  max-width: 560px;
 }
 
-.download-tabs-shell {
-  margin-bottom: 24px;
-  padding: 8px;
-  border-radius: 28px;
-  background: color-mix(in srgb, var(--vp-c-bg-alt) 88%, transparent 12%);
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+/* ─── Category Tabs ──────────────────────────────────────────────────────── */
+
+.dl-tabs-bar {
+  border-bottom: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+  margin-bottom: 0;
 }
 
-.download-tabs {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.download-tab {
+.dl-tabs {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  gap: 0;
+}
+
+.dl-tab {
   position: relative;
-  gap: 4px;
-  padding: 14px 18px;
-  border: 1px solid transparent;
-  border-radius: 20px;
+  padding: 14px 24px;
   background: transparent;
+  border: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
   color: var(--vp-c-text-2);
   cursor: pointer;
-  text-align: left;
-  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 
   &:hover {
     color: var(--vp-c-text-1);
-    border-color: var(--gf-c-border-subtle, var(--vp-c-divider));
-    background: rgba(255, 255, 255, 0.018);
   }
-}
-
-.download-tab--active {
-  color: var(--vp-c-text-1);
-  background: var(--gf-c-bg-card, var(--vp-c-bg));
-  border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
-  box-shadow: var(--vp-shadow-1);
 
   &::after {
     content: '';
     position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 8px;
-    height: 1px;
-    background: var(--gf-gradient-accent-line);
-    opacity: 0.9;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--vp-c-brand-1);
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
-.download-tab__label {
-  font-size: 1rem;
-  font-weight: 700;
-}
+.dl-tab--active {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
 
-.download-tab__eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: inherit;
-  opacity: 0.72;
-}
-
-.download-panel {
-  position: relative;
-  padding: 32px;
-  border-radius: 32px;
-  background: var(--gf-c-bg-card, var(--vp-c-bg));
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  box-shadow: var(--vp-shadow-2);
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto;
-    height: 1px;
-    background: var(--gf-gradient-panel-accent);
-    pointer-events: none;
+  &::after {
+    opacity: 1;
   }
 }
 
-.download-panel__header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-  gap: 32px;
-  align-items: end;
-  margin-bottom: 32px;
+/* ─── Category Intro ─────────────────────────────────────────────────────── */
+
+.dl-category-intro {
+  padding: 40px 0 32px;
+  background-color: var(--vp-c-bg-alt);
+  border-bottom: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
 }
 
-.download-panel__eyebrow {
-  margin: 0 0 0.5rem;
+.dl-category-intro__eyebrow {
+  margin: 0 0 8px;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--vp-c-brand-1);
 }
 
-.download-panel__title {
-  margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.2;
+.dl-category-intro__title {
+  margin: 0 0 12px;
+  font-size: 1.375rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  font-weight: 600;
   color: var(--vp-c-text-1);
 }
 
-.download-panel__description {
+.dl-category-intro__description {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.9375rem;
+  line-height: 1.6;
   color: var(--vp-c-text-2);
+  max-width: 600px;
 }
 
-.download-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
+/* ─── Products list ──────────────────────────────────────────────────────── */
 
-.download-card {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding: 26px;
-  border-radius: 26px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)), var(--vp-c-bg);
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+.dl-products {
+  padding: 48px 0 96px;
 
-  &:hover {
-    transform: translateY(-2px);
-    border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
-    box-shadow: var(--vp-shadow-1);
+  @media (max-width: 768px) {
+    padding: 32px 0 64px;
   }
 }
 
-.download-card__header {
+.dl-products__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── Product card (matches value-card vocabulary from HomePage) ─────────── */
+
+.dl-product {
+  background-color: var(--gf-c-bg-card, var(--vp-c-bg));
+  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+  border-radius: 12px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
+    box-shadow: 0 8px 24px var(--gf-c-glow), var(--vp-shadow-1);
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+}
+
+/* ─── Product identity ───────────────────────────────────────────────────── */
+
+.dl-product__identity {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xl);
+
+  @media (max-width: 640px) {
+    gap: var(--space-lg);
+  }
+}
+
+.dl-product__logo-wrap {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
-  gap: 16px;
-}
-
-.download-card__logo-shell {
-  width: 52px;
-  height: 52px;
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  background: var(--gf-c-bg-card, var(--vp-c-bg));
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  box-shadow: var(--vp-shadow-1);
+  background-color: var(--vp-c-bg);
+  border-radius: 10px;
+  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-border));
 }
 
-.download-card__logo {
-  width: 30px;
-  height: 30px;
+.dl-product__logo {
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 
-.download-card__title {
-  margin: 0;
+.dl-product__name {
+  margin: 0 0 6px;
   font-size: 1.125rem;
-  line-height: 1.3;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--vp-c-text-1);
 }
 
-.download-card__description,
-.download-platforms__copy p,
-.download-platforms__meta {
+.dl-product__description {
   margin: 0;
   font-size: 0.9375rem;
-  line-height: 1.7;
-  color: var(--vp-c-text-2);
-}
-
-.download-install-block,
-.download-platforms {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.download-install-block__label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--vp-c-text-2);
-  opacity: 0.7;
-}
-
-.download-install-block__code {
-  display: block;
-  padding: 0.875rem 1rem;
-  border-radius: 0.875rem;
-  background: var(--vp-c-bg);
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  color: var(--vp-c-text-1);
-  font-size: 0.8125rem;
   line-height: 1.6;
-  overflow-x: auto;
+  color: var(--vp-c-text-2);
 }
 
-.download-platforms__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 20px;
-}
+/* ─── Install block ──────────────────────────────────────────────────────── */
 
-.download-platforms__copy h4 {
-  margin: 0 0 0.25rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-}
-
-.download-platforms__release-button {
-  flex-shrink: 0;
-}
-
-.download-platforms__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-}
-
-.download-platforms__group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  h5 {
-    margin: 0 0 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--vp-c-text-2);
-    opacity: 0.7;
-  }
-}
-
-.download-platforms__buttons {
+.dl-install {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.download-platform-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.625rem;
-  width: 100%;
-  min-height: 44px;
-  padding: 0.75rem 1rem;
+.dl-install__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-2);
+}
+
+.dl-install__code {
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  background: var(--vp-c-bg-alt);
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  border-radius: 1rem;
-  background: var(--gf-c-bg-card, var(--vp-c-bg));
   color: var(--vp-c-text-1);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
-    box-shadow: var(--vp-shadow-1);
-  }
-}
-
-.download-platforms__meta--error {
-  color: var(--vp-c-text-1);
-}
-
-.download-platforms__fallback {
-  padding-top: 4px;
-}
-
-.download-card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-items: center;
-}
-
-.download-card__link {
   font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-  text-decoration: none;
-  transition: color 0.25s ease, opacity 0.25s ease;
-
-  &:hover {
-    color: var(--vp-c-brand-1);
-  }
+  line-height: 1.6;
+  overflow-x: auto;
 }
 
-.download-card__link--muted {
-  opacity: 0.72;
+/* ─── Platform downloads ─────────────────────────────────────────────────── */
+
+.dl-platforms {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
 }
 
-@media (max-width: 1024px) {
-  .download-browser__intro,
-  .download-panel__header,
-  .download-grid {
-    grid-template-columns: 1fr;
-  }
+.dl-platforms__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
 
-  .download-platforms__header {
+  @media (max-width: 640px) {
     flex-direction: column;
     align-items: stretch;
   }
 }
 
-@media (max-width: 768px) {
-  .download-tabs,
-  .download-platforms__grid {
+.dl-platforms__title {
+  margin: 0 0 4px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.dl-platforms__sub {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+}
+
+.dl-platforms__status {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--vp-c-text-2);
+}
+
+.dl-platforms__status--error {
+  color: var(--vp-c-danger-1, var(--vp-c-text-1));
+}
+
+.dl-platforms__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl);
+
+  @media (max-width: 640px) {
     grid-template-columns: 1fr;
   }
+}
 
-  .download-panel,
-  .download-card {
-    padding: 22px;
-    border-radius: 24px;
+.dl-platforms__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.dl-platform-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.dl-platform-group__name {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-2);
+}
+
+.dl-platform-group__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.dl-binary-btn {
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 8px !important;
+  min-height: 40px;
+  padding: 0.625rem 1rem !important;
+  font-size: 0.875rem !important;
+}
+
+.dl-binary-btn__icon {
+  font-size: 0.8125rem;
+  opacity: 0.6;
+}
+
+/* ─── Product actions ────────────────────────────────────────────────────── */
+
+.dl-product__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
 </style>

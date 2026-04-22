@@ -22,30 +22,43 @@ head:
       href: https://www.geekfun.club/docs/dockit/shortcut
 ---
 
-# DocKit Shortcuts Introduction
+# DocKit Keyboard Shortcuts
 
-As a Desktop Application, DocKit provides a set of shortcuts to help users use DocKit more efficiently. This document
-outlines the available shortcuts and corresponding actions.
-These shortcuts are designed to streamline your workflow and enhance your productivity when working with DocKit to
-manage your Elasticsearch/OpenSearch server.
+DocKit provides keyboard shortcuts to help you work efficiently. Press `Cmd+Shift+?` (or `Ctrl+Shift+/`) anytime to view all available shortcuts in the app.
 
-## Shortcuts
+## Common Shortcuts
 
-| Feature         | Shortcut                                                | Description                                                              | State              |
-| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------ |
-| General editing | `Ctrl/Cmd + I`                                          | Auto indent current request.                                             | :white_check_mark: |
-| General editing | `Ctrl/Cmd + /`                                          | Comment/Uncomment line or block.                                         | :white_check_mark: |
-| General editing | `Ctrl + Space`                                          | Open Autocomplete (even if not typing).                                  | :white_check_mark: |
-| General editing | `Ctrl/Cmd + Enter`                                      | Submit request.                                                          | :white_check_mark: |
-| General editing | `Ctrl/Cmd + Up/Down`                                    | Jump to the previous/next request start or end.                          | :white_check_mark: |
-| General editing | macOS: `Cmd + Alt + L`<br>Win/Linux: `Ctrl + Shift + L` | Collapse/expand current scope.                                           | :white_check_mark: |
-| General editing | `Ctrl/Cmd + K, Ctrl/Cmd + -`                            | Collapse all scopes but the current one.                                 | :white_check_mark: |
-| General editing | `Ctrl/Cmd + K, Ctrl/Cmd + J`                            | Expand all scopes.                                                       | :white_check_mark: |
-| Autocomplete    | `Down arrow`                                            | Switch focus to autocomplete menu. Use arrows to further select a term.  | :white_check_mark: |
-| Autocomplete    | `Enter/Tab`                                             | Select the currently selected or the top most term in autocomplete menu. | :white_check_mark: |
-| Autocomplete    | `Esc`                                                   | Close autocomplete menu.                                                 | :white_check_mark: |
-| Elasticsearch   | `Ctrl/Cmd + D`                                          | Open documentation for current request.                                  | :white_check_mark: |
+| Action | Shortcut | Description |
+|--------|----------|-------------|
+| **Show shortcuts** | `Cmd+Shift+?` / `Ctrl+Shift+/` | Open shortcuts help dialog |
+| **Execute query** | `Cmd+Enter` / `Ctrl+Enter` | Run current query or request |
+| **Format** | `Cmd+I` / `Ctrl+I` | Auto-indent current request |
+| **Autocomplete** | `Cmd+Space` / `Ctrl+Space` | Open autocomplete menu |
+| **Comment** | `Cmd+/` / `Ctrl+/` | Comment or uncomment line/block |
+| **Toggle fold** | Mac: `Cmd+Alt+L`<br>Win/Linux: `Ctrl+Shift+L` | Collapse or expand current scope |
+| **Fold all** | `Cmd+K`, then `Cmd+0` | Collapse all scopes (except current) |
+| **Expand all** | `Cmd+K`, then `Cmd+J` | Expand all collapsed scopes |
+| **Save file** | `Cmd+S` / `Ctrl+S` | Save current file |
 
-> **Platform note:** Fold All Except Current and Expand All use VS Code's chorded key sequences (`Ctrl/Cmd+K, Ctrl/Cmd+-/J`) which work universally across all platforms and keyboard layouts, including Windows with Chinese IMEs (Sogou, Microsoft Pinyin) that intercept single `Ctrl+Shift+letter` combos.
+## Autocomplete Navigation
 
-![dockit ui](/client-ui.png)
+| Action | Shortcut | Description |
+|--------|----------|-------------|
+| **Focus menu** | `↓` (Down arrow) | Move focus to autocomplete menu |
+| **Select term** | `Enter` or `Tab` | Select highlighted or top suggestion |
+| **Close menu** | `Esc` | Dismiss autocomplete menu |
+
+## Elasticsearch Editor Shortcuts
+
+| Action | Shortcut | Description |
+|--------|----------|-------------|
+| **Open docs** | `Cmd+D` / `Ctrl+D` | Open Elasticsearch API documentation |
+| **Previous request** | `Cmd+↑` / `Ctrl+↑` | Jump to previous request boundary |
+| **Next request** | `Cmd+↓` / `Ctrl+↓` | Jump to next request boundary |
+
+> **Platform notes:**
+> - `Cmd` = `⌘` on macOS, `Ctrl` on Windows/Linux
+> - Chord shortcuts (`Cmd+K, Cmd+0/J`) use VS Code-style sequences for layout-independent behavior
+> - Fold toggle uses `Alt` on macOS, `Shift` on Windows/Linux to avoid IME conflicts
+
+![DocKit Editor UI](/client-ui.png)

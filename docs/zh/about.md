@@ -1,6 +1,6 @@
 ---
 title: 关于极客范 - 开源 NoSQL GUI 客户端开发社区 DynamoDB Elasticsearch 工具
-description: 了解极客范开源社区，致力于构建可持续软件解决方案。DocKit 免费 DynamoDB、Elasticsearch GUI 客户端开发者团队。我们的使命、价值观、团队介绍及对开发者工具的承诺。
+description: 了解极客范开源社区如何围绕数据库客户端、Serverless 工具与开发者产品构建可持续软件。查看团队背景、价值观、赞助方式与长期维护承诺。
 head:
   - - meta
     - name: keywords

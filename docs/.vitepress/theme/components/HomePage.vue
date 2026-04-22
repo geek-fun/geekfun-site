@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useData } from 'vitepress'
 
 import ValueIcon, { type ValueIconName } from './ValueIcon.vue'
@@ -11,6 +11,12 @@ type ProductData = {
   logo: string
   preview: string
   description: string
+  url: string
+}
+
+type ProductStripItem = {
+  name: string
+  logo: string
   url: string
 }
 
@@ -30,18 +36,46 @@ const content = computed(() => {
     },
     hero: {
       name: isZh ? '极客范' : 'GEEKFUN',
-      subtitle: isZh ? '开源工作室' : 'Open-Source Studio',
-      tagline: isZh ? '为追求效率的开发者，精心打造可持续的开源工具。' : 'Crafting premium, sustainable open-source tools for developers who ship.',
+      subtitle: isZh ? '开源俱乐部' : 'Open-Source Studio',
+      tagline: isZh ? '致力于打造高效可持续的专业软件生态。' : 'Crafted for developers who ship. Sustained for the long term.',
       primaryAction: isZh ? '产品' : 'Products',
-      primaryLink: isZh ? '/zh/products' : '/products',
+      primaryLink: isZh ? '/zh/download' : '/download',
       secondaryAction: 'GitHub',
       secondaryLink: 'https://github.com/geek-fun'
     },
     sections: {
       products: isZh ? '产品' : 'Products',
       values: isZh ? '价值观' : 'Values',
-      team: isZh ? '团队成员' : 'Team Members'
+      team: isZh ? '团队成员' : 'Team Members',
+      whatWeMake: isZh ? '我们的产品' : 'What we make'
     },
+    productStrip: [
+      {
+        name: 'DocKit',
+        logo: '/dockit.png',
+        url: isZh ? '/zh/products/dockit/' : '/products/dockit/'
+      },
+      {
+        name: 'SqlKit',
+        logo: '/sqlkit.png',
+        url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
+      },
+      {
+        name: 'ServerlessInsight',
+        logo: '/serverlessinsight.png',
+        url: 'https://serverlessinsight.com/'
+      },
+      {
+        name: 'serverless-adapter',
+        logo: '/serverless-adapter.svg',
+        url: 'https://github.com/geek-fun/serverless-adapter'
+      },
+      {
+        name: 'jest-search',
+        logo: '/jest-search.png',
+        url: 'https://github.com/geek-fun/jest-search'
+      }
+    ] as ProductStripItem[],
     products: [
       {
         name: 'DocKit',
@@ -59,7 +93,7 @@ const content = computed(() => {
         description: isZh
           ? '开源 SQL 桌面客户端，支持 PostgreSQL、MySQL、SQL Server、SQLite 等主流数据库，提供更现代、更高效的数据开发体验。'
           : 'Open-source SQL desktop client for PostgreSQL, MySQL, SQL Server, SQLite, and other mainstream databases, designed for modern developer workflows.',
-        url: 'https://github.com/geek-fun/sqlkit'
+        url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
       },
       {
         name: 'ServerlessInsight',
@@ -105,7 +139,7 @@ const content = computed(() => {
           : 'Our commitment to open source is absolute. We build, iterate, and refine our tools in public, fostering a collaborative ecosystem where developers thrive together.'
       },
       {
-        title: isZh ? '持久可靠' : 'Built to Last',
+        title: isZh ? '持续可靠' : 'Built to Last',
         icon: 'lasting',
         details: isZh
           ? '我们优先追求可持续的软件工程，确保每款产品具备长期可靠性、卓越性能和持久影响力。'
@@ -113,6 +147,38 @@ const content = computed(() => {
       }
     ] as FeatureData[]
   }
+})
+
+const activeIndex = ref(0)
+let carouselTimer: ReturnType<typeof setInterval> | null = null
+
+const startCarousel = () => {
+  carouselTimer = setInterval(() => {
+    if (content.value.products && content.value.products.length > 0) {
+      activeIndex.value = (activeIndex.value + 1) % content.value.products.length
+    }
+  }, 5000)
+}
+
+const stopCarousel = () => {
+  if (carouselTimer) {
+    clearInterval(carouselTimer)
+    carouselTimer = null
+  }
+}
+
+const goToProduct = (index: number) => {
+  activeIndex.value = index
+  stopCarousel()
+  startCarousel()
+}
+
+onMounted(() => {
+  startCarousel()
+})
+
+onUnmounted(() => {
+  stopCarousel()
 })
 </script>
 
@@ -132,19 +198,43 @@ const content = computed(() => {
       <div class="container hero-container">
         <div class="hero-content">
           <h1 class="hero-headline">
-            <span class="gradient-text">{{ content.hero.name }}</span>
-            <br />
+            <span class="hero-brand-text">{{ content.hero.name }}</span>
             <span class="subtitle">{{ content.hero.subtitle }}</span>
           </h1>
           <p class="hero-tagline">{{ content.hero.tagline }}</p>
-          <div class="hero-actions">
-            <a :href="content.hero.primaryLink" class="gf-btn gf-btn-primary">{{ content.hero.primaryAction }}</a>
-            <a :href="content.hero.secondaryLink" class="gf-btn gf-btn-secondary" target="_blank" rel="noopener noreferrer">{{ content.hero.secondaryAction }}</a>
-          </div>
         </div>
-        <div class="hero-visual">
-          <div class="glow-bg"></div>
-          <img src="/dockit-client-ui.png" alt="DocKit Client UI" class="hero-image" width="1280" height="720" />
+      </div>
+    </section>
+
+    <!-- Product Carousel Section -->
+    <section class="product-carousel-section" :aria-label="content.sections.whatWeMake">
+      <div class="container carousel-container">
+        <div class="carousel-viewport">
+          <transition name="carousel-slide">
+            <a
+              :key="content.products[activeIndex].name"
+              :href="content.products[activeIndex].url"
+              class="carousel-item"
+              :target="content.products[activeIndex].url.startsWith('http') ? '_blank' : undefined"
+              :rel="content.products[activeIndex].url.startsWith('http') ? 'noopener noreferrer' : undefined"
+            >
+              <img :src="content.products[activeIndex].logo" :alt="content.products[activeIndex].name + ' logo'" class="carousel-icon" />
+              <h3 class="carousel-name">{{ content.products[activeIndex].name }}</h3>
+              <p class="carousel-description">{{ content.products[activeIndex].description }}</p>
+            </a>
+          </transition>
+        </div>
+        <div class="carousel-indicators" role="tablist">
+          <button
+            v-for="(_, index) in content.products"
+            :key="index"
+            class="indicator-dot"
+            :class="{ active: index === activeIndex }"
+            :aria-selected="index === activeIndex"
+            :aria-label="`View product ${index + 1}`"
+            role="tab"
+            @click="goToProduct(index)"
+          ></button>
         </div>
       </div>
     </section>
@@ -311,148 +401,236 @@ const content = computed(() => {
 
 /* Hero Section */
 .hero-section {
-  padding: 100px 0 80px;
+  padding: 120px 0 64px;
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 64px 0 48px;
+    padding: 80px 0 48px;
   }
 
   @media (min-width: 1440px) {
-    padding: 120px 0 100px;
+    padding: 140px 0 72px;
   }
 
   @media (min-width: 1920px) {
-    padding: 140px 0 120px;
+    padding: 160px 0 88px;
   }
 
   @media (min-width: 2560px) {
-    padding: 180px 0 140px;
+    padding: 200px 0 104px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    width: 60%;
+    height: 80%;
+    transform: translateY(-50%);
+    background: radial-gradient(ellipse at center, rgba(248, 155, 64, 0.08) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(40px);
   }
 }
 
 .hero-container {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 48px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-
-  @media (min-width: 1920px) {
-    gap: 64px;
-  }
-
-  @media (min-width: 2560px) {
-    gap: 80px;
-  }
+  text-align: center;
+  max-width: 880px;
 }
 
 .hero-content {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  
+  width: 100%;
+
   @media (max-width: 1024px) {
     align-items: center;
   }
 }
 
 .hero-headline {
-  font-size: 2.5rem;
-  line-height: 1.15;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin: 0 0 1.25rem;
-  
+  font-size: 3.5rem;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 0 0 var(--space-lg, 1.5rem);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.75rem;
+
+  @media (max-width: 640px) {
+    flex-wrap: wrap;
+  }
+
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.25rem;
+    margin: 0 0 var(--space-md);
   }
 
   @media (min-width: 1440px) {
-    font-size: 3rem;
+    font-size: 4.25rem;
+  }
+
+  @media (min-width: 1920px) {
+    font-size: 5rem;
   }
 }
 
-.gradient-text {
+.hero-brand-text {
   color: var(--vp-c-brand-1);
   font-weight: 800;
+  letter-spacing: -0.045em;
 }
 
 .subtitle {
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-2);
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0;
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .hero-tagline {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.375rem;
+  line-height: 1.45;
   color: var(--vp-c-text-2);
-  margin: 0 0 1.5rem;
-  max-width: 480px;
-  
-  @media (max-width: 1024px) {
-    max-width: 560px;
-  }
+  margin: 0 0 var(--space-lg, 1.5rem);
+  max-width: 640px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 
   @media (max-width: 768px) {
-    font-size: 0.9375rem;
+    font-size: 1.0625rem;
+    margin: 0 0 var(--space-md, 1rem);
   }
 
   @media (min-width: 1440px) {
-    max-width: 520px;
+    font-size: 1.5rem;
+    max-width: 720px;
   }
 }
 
-.hero-actions {
+
+/* Product Carousel */
+.product-carousel-section {
+  padding: 0 0 80px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 0 0 56px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 0 96px;
+  }
+}
+
+.carousel-container {
   display: flex;
-  gap: 16px;
-  
-  @media (max-width: 480px) {
-    flex-direction: column;
-    width: 100%;
-  }
+  flex-direction: column;
+  align-items: center;
 }
 
-.hero-visual {
+.carousel-viewport {
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 1;
+  max-width: 520px;
+  min-height: 180px;
+  margin: 0 auto 24px;
+  overflow: hidden;
 }
 
-.glow-bg {
+.carousel-item {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 140%;
-  height: 140%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse at center, rgba(248, 155, 64, 0.12) 0%, rgba(189, 52, 254, 0.1) 40%, transparent 70%);
-  z-index: -1;
-  pointer-events: none;
-  filter: blur(40px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
 
-.hero-image {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: var(--vp-shadow-3, 0 24px 48px rgba(0, 0, 0, 0.2));
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+.carousel-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
 
-  @media (min-width: 1920px) {
-    border-radius: 16px;
+.carousel-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--vp-c-text-1);
+}
+
+.carousel-description {
+  font-size: 0.9375rem;
+  color: var(--vp-c-text-2);
+  margin: 0;
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--vp-c-text-3, rgba(128, 128, 128, 0.3));
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &.active {
+    background-color: var(--vp-c-brand-1);
   }
 
-  @media (min-width: 2560px) {
-    border-radius: 20px;
+  &:focus-visible {
+    outline: 2px solid var(--vp-c-brand-1);
+    outline-offset: 4px;
   }
+}
+
+/* Transition classes */
+.carousel-slide-enter-active,
+.carousel-slide-leave-active {
+  transition: opacity 350ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel-slide-enter-from {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.carousel-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-40px);
 }
 
 /* Values Section */
@@ -500,7 +678,7 @@ const content = computed(() => {
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   border-radius: 12px;
   padding: 1.75rem;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 
@@ -509,26 +687,10 @@ const content = computed(() => {
     border-radius: 14px;
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gf-gradient-brand-horizontal);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
   &:hover {
     transform: translateY(-4px);
     border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    
-    &::before {
-      opacity: 1;
-    }
+    box-shadow: 0 12px 24px var(--gf-c-glow), var(--vp-shadow-2);
   }
 }
 
@@ -631,6 +793,15 @@ const content = computed(() => {
 
   @media (min-width: 2560px) {
     padding: 140px 0 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transform: none !important;
+    transition-duration: 0.01ms !important;
   }
 }
 </style>

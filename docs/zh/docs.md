@@ -20,7 +20,7 @@ head:
       href: https://www.geekfun.club/docs
 ---
 
-## 文档
+# 文档
 
 欢迎来到 GEEKFUN 文档中心。在这里您可以找到我们所有项目的指南、教程和参考资料。
 

@@ -35,6 +35,11 @@ driving innovation and evolving both personal and industry growth through open c
 
 When implementing Alipay webhook callbacks, we encountered an issue where `application/x-www-form-urlencoded` request bodies were being converted to JSON objects. Deep analysis of ServerlessInsight + serverless-adapter architecture, platform behavior, and solutions.
 
+## [Access and Manage Local DynamoDB with DocKit](/blog/query-dynamodb-locally)
+*April 8, 2026*
+
+DynamoDB Local lets you develop offline, iterate faster, and avoid AWS costs. Learn how to set up DynamoDB Local and access, query, and manage your local tables with DocKit.
+
 ## [DocKit Query History - Never Lose a Query Again](/blog/dockit-query-history)
 *March 3, 2026*
 

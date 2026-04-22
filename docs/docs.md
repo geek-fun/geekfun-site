@@ -20,7 +20,7 @@ head:
       href: https://www.geekfun.club/docs
 ---
 
-## Documentation
+# Documentation
 
 Welcome to the GEEKFUN documentation hub. Here you'll find guides, tutorials, and reference materials for all our projects.
 

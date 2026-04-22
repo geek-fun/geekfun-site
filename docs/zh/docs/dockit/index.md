@@ -24,7 +24,11 @@ head:
 
 # 文档
 
-DocKit 作为一个 NoSQL/NewSQL GUI 客户端，支持 Elasticsearch、OpenSearch、DynamoDB 以及更多即将支持的数据库。本文档概述了如何使用 DocKit。
+DocKit 是一款 **AI 原生** NoSQL/NewSQL GUI 客户端，支持 Elasticsearch、OpenSearch、DynamoDB 及更多数据库。用自然语言写查询，让 AI 处理语法。
+
+## [AI 助手](/zh/docs/dockit/ai-assistant)
+
+DocKit 的核心功能。描述您的需求 —— "查找上周的用户" 或 "按地区聚合销售额" —— 即刻获得优化查询，自动感知 Schema。支持 OpenAI 和 DeepSeek。
 
 ## [安装指南](/zh/docs/dockit/installation)
 
@@ -32,7 +36,11 @@ DocKit 作为一个 NoSQL/NewSQL GUI 客户端，支持 Elasticsearch、OpenSear
 
 ## [连接到服务器](/zh/docs/dockit/connect-to-server)
 
-DocKit 作为一个 NoSQL GUI 客户端，支持多种数据库，包括 Elasticsearch、OpenSearch、DynamoDB 以及更多即将支持的数据库。本文档概述了如何使用 DocKit 连接到数据库服务器。
+DocKit 支持多种数据库，包括 Elasticsearch、OpenSearch、DynamoDB 及更多。支持基础认证和 API Key 配置连接。
+
+## [设置](/zh/docs/dockit/settings)
+
+配置 DocKit 以匹配您的工作习惯：主题（深色/浅色/自动）、语言（中文/英文）、编辑器选项（字体大小、缩略图、行号）和查询历史容量。
 
 ## [快捷键介绍](/zh/docs/dockit/shortcut)
 
@@ -40,11 +48,11 @@ DocKit 作为一个 NoSQL GUI 客户端，支持多种数据库，包括 Elastic
 
 ## [管理 Elasticsearch 集群](/zh/docs/dockit/manage-elasticsearch-cluster)
 
-DocKit 作为一个 NoSQL GUI 客户端，支持监控和管理 Elasticsearch，包括索引和别名管理、节点管理、分片管理和模板管理。本文档概述了如何在 DocKit 中监控和管理 Elasticsearch。
+DocKit 支持监控和管理 Elasticsearch，包括索引和别名管理、节点管理、分片管理和模板管理。
 
 ## [导入与导出](/zh/docs/dockit/import-export)
 
-DocKit 支持以 JSON、CSV 和批量格式从 Elasticsearch、OpenSearch 和 DynamoDB 导入和导出数据。本指南涵盖完整的工作流程。
+DocKit 支持以 JSON、CSV 和 JSONL 格式从 Elasticsearch、OpenSearch 和 DynamoDB 导入和导出数据。本指南涵盖完整的工作流程。
 
 ## [查询历史](/zh/docs/dockit/query-history)
 

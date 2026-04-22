@@ -1,12 +1,12 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-title: DocKit – Open-Source NoSQL GUI Client
-description: DocKit is an open-source desktop GUI client for DynamoDB, OpenSearch, and Elasticsearch. A fast, secure Dynobase alternative for developers on Mac, Windows, and Linux.
+layout: product
+title: DocKit – AI-Native NoSQL GUI Client
+description: DocKit is an AI-native desktop GUI client for DynamoDB, OpenSearch, and Elasticsearch. Generate queries from natural language, manage clusters, and persist queries — all for free.
+ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
     - name: keywords
-      content: NoSQL GUI client, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, database client, Dynobase alternative, Kibana alternative, open source database tool, PartiQL editor, desktop database client, Mac database client, Windows database client, Linux database client
+      content: AI database client, AI-native NoSQL GUI, DynamoDB AI assistant, Elasticsearch AI, OpenSearch AI, natural language queries, DocKit, NoSQL GUI client, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, database client, Dynobase alternative, Kibana alternative, open source database tool, PartiQL editor, desktop database client, Mac database client, Windows database client, Linux database client
   - - link
     - rel: canonical
       href: https://www.geekfun.club/products/dockit/
@@ -29,7 +29,7 @@ head:
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "DocKit",
-        "description": "Open-source desktop GUI client for DynamoDB, OpenSearch, and Elasticsearch. A fast, secure database management tool for developers on Mac, Windows, and Linux.",
+        "description": "AI-native desktop GUI client for DynamoDB, OpenSearch, and Elasticsearch. Generate database queries from natural language with built-in AI assistant. Fast, secure, and free.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": {
@@ -38,6 +38,9 @@ head:
           "priceCurrency": "USD"
         },
         "featureList": [
+          "AI-powered query generation",
+          "Natural language to SQL/PartiQL",
+          "OpenAI and DeepSeek integration",
           "DynamoDB GUI client",
           "Elasticsearch GUI client",
           "OpenSearch GUI client",
@@ -45,8 +48,9 @@ head:
           "Visual query builder",
           "Query history persistence",
           "Multi-database support",
+          "Import export data",
           "Cluster management",
-          "AI-powered database assistant"
+          "Monaco editor"
         ],
         "screenshot": "https://www.geekfun.club/client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
@@ -65,7 +69,7 @@ head:
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "DocKit",
-        "description": "Open-source NoSQL GUI desktop client for DynamoDB, Elasticsearch, and OpenSearch",
+        "description": "AI-native NoSQL GUI desktop client for DynamoDB, Elasticsearch, and OpenSearch with built-in AI assistant for query generation",
         "brand": {
           "@type": "Brand",
           "name": "GEEKFUN"
@@ -82,39 +86,52 @@ head:
       }
 
 hero:
-  name: "DocKit"
-  text: The NoSQL Desktop Client
-  tagline: A premium, AI-powered GUI for DynamoDB, Elasticsearch, and OpenSearch. Manage clusters and persist queries instantly, all for free.
-  image:
-    src: /dockit.png
-    alt: DocKit - Open-source NoSQL GUI client for DynamoDB, Elasticsearch, and OpenSearch
+  name: DocKit
+  headline: "Write queries in natural language."
+  tagline: "Manage DynamoDB, Elasticsearch, and OpenSearch with an AI assistant that understands your data schema. Free, fast, and local-first."
+  logo: /dockit.png
+  screenshot: /dockit-client-ui.png
   actions:
-    - theme: brand
-      text: Download
+    - text: Download
       link: /download
-    - theme: alt
-      text: Documentation
-      link: /docs
+      theme: brand
+    - text: AI Assistant Guide
+      link: /docs/dockit/ai-assistant
+      theme: alt
+
+databases:
+  title: "Native support for modern NoSQL"
+  items:
+    - { name: DynamoDB, logo: /db-dynamodb.svg }
+    - { name: Elasticsearch, logo: /db-elasticsearch.svg }
+    - { name: OpenSearch, logo: /db-opensearch.png }
+
+showcase:
+  - title: "Query with AI Assistance"
+    body: "Ask questions in plain English, get optimized queries with schema awareness. DocKit puts AI at the center of your workflow with built-in OpenAI and DeepSeek integration."
+    image: /dockit-ai-assistant-question.png
+    align: left
+  - title: "Never lose a query again"
+    body: "Connections and queries are saved to your filesystem automatically. Query history is tracked transparently, so you can easily revert to past experiments."
+    image: /dockit-query-history.png
+    align: right
+  - title: "Full DynamoDB Control"
+    body: "A desktop-grade interface for DynamoDB. Inspect tables, manage indexes, and craft PartiQL queries with syntax highlighting and formatting."
+    image: /dockit-dynamodb-query-ui.png
+    align: left
 
 features:
-  - title: Desktop-Grade Editor
-    details: Built on Monaco Editor to bring the power and familiarity of VS Code right to your database queries.
-  - title: Local Persistence
-    details: Keep multiple connections alive and save queries securely to your local filesystem. Never lose your work.
-  - title: Multi-Engine Support
-    details: Seamlessly manage DynamoDB, Elasticsearch, and OpenSearch from a single, unified interface.
-  - title: Cluster Management
-    details: Monitor node health, manage shards, and track indices with built-in visual cluster tools.
+  - { title: "AI Assistant", body: "Describe what you need in natural language — 'find users who signed up last week' or 'aggregate sales by region' — and get accurate queries instantly.", icon: "sparkles" }
+  - { title: "Desktop-Grade Editor", body: "Monaco Editor brings VS Code power to your queries—syntax highlighting, autocomplete, formatting, and keyboard shortcuts you already know.", icon: "code" }
+  - { title: "Local Persistence", body: "Connections and queries saved to your filesystem. Query history tracked automatically. Never lose your work.", icon: "history" }
+  - { title: "Multi-Engine Support", body: "Manage DynamoDB, Elasticsearch, and OpenSearch from one unified interface. Switch between databases instantly.", icon: "database" }
+  - { title: "Import & Export", body: "Move large datasets in and out with JSON, CSV, and JSONL support. Batch operations handle millions of records reliably.", icon: "import" }
+  - { title: "Cluster Management", body: "Monitor node health, manage shards, track indices, and control aliases—all with built-in visual cluster tools.", icon: "cluster" }
 
+cta:
+  title: "Database management, AI-native"
+  body: "Stop wrestling with complex query syntax. Let DocKit's AI assistant handle the boilerplate while you focus on the data."
+  actions:
+    - { text: "Download", link: "/download", theme: "brand" }
+    - { text: "View on GitHub", link: "https://github.com/geek-fun/dockit", theme: "alt", external: true }
 ---
-
-::: tip 🎉 Latest News
-DocKit v0.9 Released - Redesigned UI with Query History & Full DynamoDB support is now available! [Read more →](/news/dockit-v0-9-release)
-:::
-
-<div style="padding: 64px 24px; text-align: center; max-width: 1152px; margin: 0 auto;">
-  <h2 style="font-size: 28px; font-weight: 600; margin-bottom: 40px; letter-spacing: -0.025em;">See DocKit in Action</h2>
-  <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider)); box-shadow: var(--vp-shadow-2);">
-    <img src="/client-ui.png" alt="DocKit desktop application interface" style="display: block; width: 100%; height: auto;" />
-  </div>
-</div>

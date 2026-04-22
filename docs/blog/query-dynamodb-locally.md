@@ -1,10 +1,10 @@
 ---
-title: How to Query DynamoDB Locally - Complete Development Guide
-description: Learn how to query DynamoDB locally using DynamoDB Local and DocKit GUI. Step-by-step setup for offline development, testing, and CI/CD integration.
+title: Access and Manage Local DynamoDB with DocKit
+description: Learn how to access and manage DynamoDB Local with DocKit GUI. Step-by-step setup for offline development, querying tables, managing data, and CI/CD integration.
 head:
   - - meta
     - name: keywords
-      content: query DynamoDB locally, DynamoDB Local, DynamoDB local development, DynamoDB offline, DynamoDB local setup, DynamoDB Local GUI, test DynamoDB locally
+      content: access DynamoDB Local, manage DynamoDB Local, DynamoDB Local GUI, DocKit DynamoDB, DynamoDB local setup, DynamoDB Local management, offline DynamoDB development
   - - link
     - rel: canonical
       href: https://www.geekfun.club/blog/query-dynamodb-locally
@@ -26,8 +26,8 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "How to Query DynamoDB Locally - Complete Development Guide",
-        "description": "Learn how to query DynamoDB locally using DynamoDB Local and DocKit GUI. Step-by-step setup for offline development, testing, and CI/CD integration.",
+        "headline": "Access and Manage Local DynamoDB with DocKit",
+        "description": "Learn how to access and manage DynamoDB Local with DocKit GUI. Step-by-step setup for offline development, querying tables, managing data, and CI/CD integration.",
         "image": "https://www.geekfun.club/dockit-connection-dynamodblocal.png",
         "author": {
           "@type": "Organization",
@@ -48,14 +48,14 @@ head:
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/query-dynamodb-locally"
         },
-        "keywords": ["DynamoDB Local", "DynamoDB offline", "local development", "DocKit"],
+        "keywords": ["DynamoDB Local", "manage DynamoDB", "DocKit", "local development"],
         "articleSection": "Database Development"
       }
 ---
 
-# How to Query DynamoDB Locally - Complete Development Guide
+# Access and Manage Local DynamoDB with DocKit
 
-Developing against **DynamoDB Local** eliminates AWS costs, speeds up iteration, and enables offline development. This guide shows you how to set up DynamoDB locally and query it efficiently using DocKit.
+**DynamoDB Local** lets you develop offline, iterate faster, and avoid AWS costs—but managing it efficiently requires the right tool. This guide shows how to set up DynamoDB Local and access, query, and manage your local tables with DocKit.
 
 ## Why Query DynamoDB Locally?
 

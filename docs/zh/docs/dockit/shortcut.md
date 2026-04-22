@@ -1,6 +1,6 @@
 ---
 title: DocKit 快捷键大全 - DynamoDB Elasticsearch GUI 客户端生产力提升指南
-description: DocKit 完整快捷键列表，高效管理 DynamoDB、Elasticsearch、OpenSearch。自动补全、查询执行、导航快捷键提升桌面 GUI 客户端生产力，数据管理工作流优化指南。
+description: DocKit 快捷键完整指南，涵盖 DynamoDB、Elasticsearch 与 OpenSearch 的查询执行、导航、自动补全与编辑操作，帮助你更高效完成桌面数据管理工作流。
 head:
   - - meta
     - name: keywords
@@ -22,28 +22,43 @@ head:
       href: https://www.geekfun.club/docs/dockit/shortcut
 ---
 
-# DocKit 快捷键介绍
+# DocKit 键盘快捷键
 
-作为一个桌面应用程序，DocKit 提供了一组快捷键，帮助用户更高效地使用 DocKit。本文档概述了可用的快捷键及其对应的操作。
-这些快捷键旨在简化您的工作流程，并在使用 DocKit 管理 Elasticsearch/OpenSearch 服务器时提高您的生产力。
+DocKit 提供键盘快捷键帮助您高效工作。随时按 `Cmd+Shift+?`（或 `Ctrl+Shift+/`）查看所有可用快捷键。
 
-## 快捷键
+## 通用快捷键
 
-| 功能          | 快捷键                                                  | 描述                                             | 状态               |
-| ------------- | ------------------------------------------------------- | ------------------------------------------------ | ------------------ |
-| 通用编辑      | `Ctrl/Cmd + I`                                          | 自动缩进当前请求。                               | :white_check_mark: |
-| 通用编辑      | `Ctrl/Cmd + /`                                          | 注释 / 取消注释当前行或代码块。                  | :white_check_mark: |
-| 通用编辑      | `Ctrl + Space`                                          | 打开自动完成（即使没有输入）。                   | :white_check_mark: |
-| 通用编辑      | `Ctrl/Cmd + Enter`                                      | 提交请求。                                       | :white_check_mark: |
-| 通用编辑      | `Ctrl/Cmd + Up/Down`                                    | 跳到上一个/下一个请求的开始或结尾。              | :white_check_mark: |
-| 通用编辑      | macOS: `Cmd + Alt + L`<br>Win/Linux: `Ctrl + Shift + L` | 折叠/展开当前范围。                              | :white_check_mark: |
-| 通用编辑      | `Ctrl/Cmd + K, Ctrl/Cmd + -`                            | 折叠除当前范围外的所有范围。                     | :white_check_mark: |
-| 通用编辑      | `Ctrl/Cmd + K, Ctrl/Cmd + J`                            | 展开所有折叠范围。                               | :white_check_mark: |
-| 自动完成      | `Down arrow`                                            | 切换焦点到自动完成菜单。使用箭头进一步选择术语。 | :white_check_mark: |
-| 自动完成      | `Enter/Tab`                                             | 选择自动完成菜单中当前选中的或最上面的术语。     | :white_check_mark: |
-| 自动完成      | `Esc`                                                   | 关闭自动完成菜单。                               | :white_check_mark: |
-| Elasticsearch | `Ctrl/Cmd + D`                                          | 打开当前请求的 API 文档。                        | :white_check_mark: |
+| 操作 | 快捷键 | 说明 |
+|------|--------|------|
+| **显示快捷键** | `Cmd+Shift+?` / `Ctrl+Shift+/` | 打开快捷键帮助对话框 |
+| **执行查询** | `Cmd+Enter` / `Ctrl+Enter` | 运行当前查询或请求 |
+| **格式化** | `Cmd+I` / `Ctrl+I` | 自动缩进当前请求 |
+| **自动补全** | `Cmd+Space` / `Ctrl+Space` | 打开自动补全菜单 |
+| **注释** | `Cmd+/` / `Ctrl+/` | 注释或取消注释行/块 |
+| **切换折叠** | Mac: `Cmd+Alt+L`<br>Win/Linux: `Ctrl+Shift+L` | 折叠或展开当前范围 |
+| **折叠全部** | `Cmd+K`，然后 `Cmd+0` | 折叠所有范围（除当前） |
+| **展开全部** | `Cmd+K`，然后 `Cmd+J` | 展开所有折叠范围 |
+| **保存文件** | `Cmd+S` / `Ctrl+S` | 保存当前文件 |
 
-> **平台说明：** 折叠全部（除当前）和展开全部采用 VS Code 的组合键序列（`Ctrl/Cmd+K, Ctrl/Cmd+-/J`），可在所有平台和键盘布局下正常使用，包括拦截单个 `Ctrl+Shift+字母` 组合键的 Windows 中文输入法（搜狗、微软拼音）。
+## 自动补全导航
 
-![dockit ui](/client-ui.png)
+| 操作 | 快捷键 | 说明 |
+|------|--------|------|
+| **聚焦菜单** | `↓`（下箭头） | 将焦点移至自动补全菜单 |
+| **选择术语** | `Enter` 或 `Tab` | 选择高亮或顶部建议 |
+| **关闭菜单** | `Esc` | 关闭自动补全菜单 |
+
+## Elasticsearch 编辑器快捷键
+
+| 操作 | 快捷键 | 说明 |
+|------|--------|------|
+| **打开文档** | `Cmd+D` / `Ctrl+D` | 打开 Elasticsearch API 文档 |
+| **上一请求** | `Cmd+↑` / `Ctrl+↑` | 跳转到上一请求边界 |
+| **下一请求** | `Cmd+↓` / `Ctrl+↓` | 跳转到下一请求边界 |
+
+> **平台说明：**
+> - `Cmd` = macOS 上的 `⌘`，Windows/Linux 上为 `Ctrl`
+> - 组合快捷键（`Cmd+K, Cmd+0/J`）采用 VS Code 风格序列，确保在不同键盘布局下正常工作
+> - 切换折叠在 macOS 上使用 `Alt`，Windows/Linux 上使用 `Shift`，以避免输入法冲突
+
+![DocKit 编辑器界面](/client-ui.png)

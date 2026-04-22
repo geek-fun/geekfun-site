@@ -6,9 +6,11 @@
           <h3>{{ t.products }}</h3>
           <ul>
             <li><a :href="localePath('/products/dockit/')">DocKit</a></li>
-            <li><a href="http://serverlessinsight.com/" target="_blank">ServerlessInsight</a></li>
-            <li><a href="https://github.com/geek-fun/jest-search" target="_blank">jest-search</a></li>
-            <li><a href="https://github.com/geek-fun/serverless-adapter" target="_blank">serverless-adapter</a></li>
+            <li><a :href="localePath('/products/sqlkit/')">SqlKit</a></li>
+            <li><a href="https://github.com/geek-fun/sqlkit" target="_blank" rel="noopener">SqlKit</a></li>
+            <li><a href="https://serverlessinsight.com/" target="_blank" rel="noopener">ServerlessInsight</a></li>
+            <li><a href="https://github.com/geek-fun/serverless-adapter" target="_blank" rel="noopener">serverless-adapter</a></li>
+            <li><a href="https://github.com/geek-fun/jest-search" target="_blank" rel="noopener">jest-search</a></li>
           </ul>
         </div>
         

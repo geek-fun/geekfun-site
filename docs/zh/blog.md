@@ -32,6 +32,11 @@ head:
 
 在实现支付宝回调时，遇到 `application/x-www-form-urlencoded` 格式的请求体被转换为 JSON 对象的问题。深入分析 ServerlessInsight + serverless-adapter 架构中的问题链路、平台行为及解决方案。
 
+## [使用 DocKit 访问和管理本地 DynamoDB](/zh/blog/query-dynamodb-locally)
+*2026年4月8日*
+
+DynamoDB Local 让您能够离线开发、快速迭代并避免 AWS 成本。学习如何设置 DynamoDB Local，并使用 DocKit 访问、查询和管理本地表。
+
 ## [DocKit 查询历史 - 永不丢失查询记录](/zh/blog/dockit-query-history)
 *2026年3月3日*
 
