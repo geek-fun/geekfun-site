@@ -69,7 +69,17 @@ head:
 
 ## [🎉 DocKit v0.9 发布：UI 重设计、查询历史与 DynamoDB Local 支持](/zh/news/dockit-v0-9-release)
 
-**2026年3月3日** - DocKit v0.9 正式发布！此版本带来全面的 UI 重设计（shadcn-vue + UnoCSS）、Elasticsearch 和 DynamoDB 的自动查询历史、DynamoDB Local 端点支持以及 PartiQL 文档格式化功能。了解这一里程碑版本的全部新内容。
+**2026年3月3日** — DocKit v0.9 是一个里程碑版本，包含 **1,200+ 行 UI 重设计**，覆盖 60+ 个 Vue 组件。
+
+🎨 **全面 UI 重设计 — Naive UI → shadcn-vue + UnoCSS** — 将所有 UI 组件从 Naive UI/SCSS 迁移到 shadcn-vue + UnoCSS，减少 CSS 依赖并建立统一的设计系统。100+ 个组件完成迁移，支持一致的全暗色/全亮色主题。
+
+📜 **查询历史**——再也不用担心丢失查询。Elasticsearch 和 DynamoDB 查询现在自动保存带时间戳，可跨会话搜索和重用。查询本地持久化，让你可以精确恢复到上次工作状态。
+
+🔌 **DynamoDB Local 支持**——新增可选端点 URL 配置，轻松连接 DynamoDB Local、LocalStack 或 Testcontainers——只需将 DocKit 指向 `http://localhost:8000` 即可开始工作。
+
+📝 **PartiQL 文档格式化**——Monaco 编辑器新增 DynamoDB PartiQL 查询代码格式化支持。正确的缩进、关键字大小写和语法结构，让 PartiQL 脚本更易读。
+
+🔄 **官方 Tauri 更新器**——从自定义更新机制迁移到官方 Tauri 更新插件，支持代码签名、版本清单和回滚保护。
 
 ## [🎉 DocKit v0.8 发布：全面支持 DynamoDB](/zh/news/dockit-v0-8-dynamodb-support)
 
