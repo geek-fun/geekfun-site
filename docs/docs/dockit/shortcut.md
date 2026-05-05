@@ -24,13 +24,13 @@ head:
 
 # DocKit Keyboard Shortcuts
 
-DocKit provides keyboard shortcuts to help you work efficiently. Press `Cmd+Shift+?` (or `Ctrl+Shift+/`) anytime to view all available shortcuts in the app.
+DocKit provides keyboard shortcuts to help you work efficiently. Press `Cmd+?` (or `Ctrl+?`) anytime to view all available shortcuts in the app.
 
 ## Common Shortcuts
 
 | Action | Shortcut | Description |
 |--------|----------|-------------|
-| **Show shortcuts** | `Cmd+Shift+?` / `Ctrl+Shift+/` | Open shortcuts help dialog |
+| **Show shortcuts** | `Cmd+?` / `Ctrl+?` | Open shortcuts help dialog |
 | **Execute query** | `Cmd+Enter` / `Ctrl+Enter` | Run current query or request |
 | **Format** | `Cmd+I` / `Ctrl+I` | Auto-indent current request |
 | **Autocomplete** | `Cmd+Space` / `Ctrl+Space` | Open autocomplete menu |

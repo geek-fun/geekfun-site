@@ -26,6 +26,8 @@ head:
 
 **March 3, 2026** - We're excited to announce the release of **DocKit v0.9**! This is a landmark release featuring a full UI redesign, automatic query history for all supported databases, DynamoDB Local endpoint support, and significant quality-of-life improvements for PartiQL users.
 
+> **Release history update:** The v0.9 line has continued shipping patch releases after v0.9.0. The latest public release on GitHub is **v0.9.8** (April 22, 2026). See the patch summary below or browse the [full DocKit releases list](https://github.com/geek-fun/dockit/releases).
+
 ## 🚀 What's New
 
 ### 🎨 Modern UI Redesign
@@ -85,6 +87,17 @@ DocKit v0.9.0 is available for all platforms:
 
 📥 **[Download from the DocKit page](/products/dockit/)**  
 ⭐ **[GitHub Release Notes](https://github.com/geek-fun/dockit/releases/tag/v0.9.0)**
+
+## 🔄 v0.9.x Patch Releases After v0.9.0
+
+- **v0.9.8** — Added keyboard navigation and an empty-state CTA to the History view for better accessibility. [GitHub release](https://github.com/geek-fun/dockit/releases/tag/v0.9.8)
+- **v0.9.7** — Added connection cloning, query parameter autocomplete, and support for creating a new index or table during import. [GitHub release](https://github.com/geek-fun/dockit/releases/tag/v0.9.7)
+- **v0.9.6** — Fixed updater installation failures by re-fetching the update manifest before download. [GitHub release](https://github.com/geek-fun/dockit/releases/tag/v0.9.6)
+- **v0.9.5** — Hardened CI and release publishing to avoid partial releases. [GitHub release](https://github.com/geek-fun/dockit/releases/tag/v0.9.5)
+- **v0.9.4** — Added connection sorting/filtering, update progress UI, and fixed Windows keyboard shortcuts. [GitHub release](https://github.com/geek-fun/dockit/releases/tag/v0.9.4)
+- **v0.9.3** — Maintenance release with refreshed desktop assets. [GitHub release](https://github.com/geek-fun/dockit/releases/tag/v0.9.3)
+- **v0.9.2** — Maintenance release with refreshed desktop assets. [GitHub release](https://github.com/geek-fun/dockit/releases/tag/v0.9.2)
+- **v0.9.1** — Added Elasticsearch API Key authentication and fixed auto-completion issues. [GitHub release](https://github.com/geek-fun/dockit/releases/tag/v0.9.1)
 
 ## Get Involved
 
