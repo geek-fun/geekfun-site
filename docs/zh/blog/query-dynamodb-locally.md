@@ -56,7 +56,7 @@ head:
 
 # 使用 DocKit 访问和管理本地 DynamoDB
 
-**DynamoDB Local** 让你在本地离线开发、快速迭代、避免 AWS 费用。本地实例启动后，**DocKit** 提供比 AWS CLI 和原始 JSON 输出更高效的方式来浏览表、查看数据、运行 PartiQL 并验证开发流程。本文介绍通过 DocKit 管理 DynamoDB Local 的核心功能与使用技巧。
+对于用 DynamoDB 的开发者来说，DynamoDB Local 不会陌生——本地跑一个和云上行为一致的端点，免去 AWS 费用和网络延迟。但把端点跑起来只是第一步，接下来的日常交互才是大头：CLI 当然能用，可每次看着原始 JSON、手动拼查询参数、还老忘加 `--endpoint-url`，搞多了确实闹心。**DocKit** 用一个桌面客户端把这些全替你做了——浏览表、写 PartiQL、内联查数据、导入导出管理测试数据。这篇文章把这些串起来讲一遍。
 
 ## 快速开始：将 DocKit 连接至 DynamoDB Local
 
@@ -108,7 +108,7 @@ DocKit 的 PartiQL 编辑器在本地和云端 DynamoDB 上行为完全一致：
 
 ### 导入与导出数据
 
-DocKit 的导入/导出功能支持跨系统和环境即时备份与恢复数据及 Schema，可替代绝大多数本地开发场景中的 seed 脚本。
+本地开发中，团队经常写一些临时的 seed 脚本来灌数据——脚本躺在某个人的本地目录里，换个环境就挂，别人也不知道怎么跑。DocKit 的导入/导出面板直接从 GUI 搞定表备份、环境迁移和测试数据共享，省去这些麻烦。
 
 ![DocKit DynamoDB 导入导出截图](/dockit-dynamodb-import-export.png)
 
@@ -159,7 +159,7 @@ DocKit 将数据项渲染为带内联 JSON 展开的格式化表格，比原始 
 
 ## 总结
 
-DocKit 将 DynamoDB Local 从一个裸本地端点变成功能完整的开发环境。无论是用可视化查询构建器交互式查询数据、用带智能补全的 PartiQL 编辑器写查询、通过导入/导出管理测试数据，还是不碰 CLI 直接管理表结构——DocKit 在一个桌面应用中覆盖了本地 DynamoDB 的完整工作流。
+DynamoDB Local 本身只是一个端点。DocKit 让它感觉像一个真正的开发环境。可视化构建器或 PartiQL 查询、导入/导出做数据管理、不碰 CLI 直接看表结构——全在一个桌面应用里完成。
 
 如果你还没搭好 DynamoDB Local，先看 **[如何在本地搭建 DynamoDB Local](/zh/blog/setup-dynamodb-local)**。搭好之后，[下载 DocKit](/zh/download)，一分钟内完成连接。
 

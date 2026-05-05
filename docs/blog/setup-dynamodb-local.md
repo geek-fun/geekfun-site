@@ -219,7 +219,7 @@ aws dynamodb describe-table \
 ```
 
 ## Connect DynamoDB Local from DocKit
-Instead of using the AWS CLI with complex commands and flags, DocKit provides a user-friendly interactive UI to access your local DynamoDB. You can browse tables, run PartiQL, and inspect data locally. For the full workflow, see **[Access and Manage Local DynamoDB with DocKit](/blog/query-dynamodb-locally)**.
+The CLI works, but remembering `--endpoint-url` on every command gets tedious fast. DocKit connects directly — point it at `http://localhost:8000` and you can browse tables, run PartiQL, and inspect data without typing a single flag. For everything you can do once connected, see **[Access and Manage Local DynamoDB with DocKit](/blog/query-dynamodb-locally)**.
 
 
 

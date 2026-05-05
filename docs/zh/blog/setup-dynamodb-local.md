@@ -228,7 +228,7 @@ aws dynamodb describe-table \
 
 ## 从 DocKit 连接 DynamoDB Local
 
-DocKit 提供直观的图形界面来访问本地 DynamoDB，无需记忆复杂的 CLI 命令即可浏览表、运行 PartiQL 和查看数据。更多操作流程请参考 **[使用 DocKit 访问和管理本地 DynamoDB](/zh/blog/query-dynamodb-locally)**。
+CLI 当然能用，但每次敲 `--endpoint-url` 总有几次会忘。DocKit 直接连接——指向 `http://localhost:8000` 就能浏览表、运行 PartiQL、查看数据，一个参数都不用记。连接后的完整操作流程请参考 **[使用 DocKit 访问和管理本地 DynamoDB](/zh/blog/query-dynamodb-locally)**。
 
 ---
 

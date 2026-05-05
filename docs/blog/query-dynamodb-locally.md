@@ -55,7 +55,7 @@ head:
 
 # Access and Manage Local DynamoDB with DocKit
 
-**DynamoDB Local** lets you develop offline, iterate faster, and avoid AWS costs. Once your local instance is running, **DocKit** gives you a much better way to inspect tables, browse data, run PartiQL, and validate workflows than switching between raw JSON and AWS CLI output. This post covers DocKit's capabilities and tips for managing DynamoDB Local.
+**DynamoDB Local** gives you a zero-cost local DynamoDB endpoint — no AWS account, no latency, no billing surprises. But managing it through the CLI means staring at raw JSON output, manually constructing queries, and retyping `--endpoint-url` on every command. **DocKit** replaces all of that with a native desktop interface for browsing tables, writing PartiQL, and inspecting data inline. This post covers how it works end to end.
 
 
 ## Quick Start: Connect DocKit to DynamoDB Local
@@ -111,7 +111,7 @@ The Management Panel toolbar lets you view and manage all tables on your local i
 
 ### Import & Export Data
 
-DocKit's import/export workflow lets you back up and restore data and schema instantly across systems and environments, replacing ad-hoc seed scripts for most local development tasks.
+Teams frequently write ad-hoc seed scripts for local DynamoDB — scripts that live in someone's local directory, break when environments change, and nobody else can reproduce. DocKit's import/export panel handles table backup, environment migration, and test fixture sharing directly from the GUI.
 
 ![DocKit DynamoDB Import Export Data screenshot](/dockit-dynamodb-import-export.png)
 
@@ -165,7 +165,7 @@ DocKit renders items as a formatted table with inline JSON expansion — easier 
 
 ## Summary
 
-DocKit turns DynamoDB Local from a bare local endpoint into a fully-featured development environment. Whether you're querying data interactively with the Visual Query Builder, writing PartiQL with intelligent autocomplete, seeding fixtures through import/export, or inspecting table schemas without touching the CLI — DocKit covers the full local DynamoDB workflow in one desktop app.
+DynamoDB Local on its own is just an endpoint. DocKit makes it feel like a real development environment. Query with the visual builder or PartiQL, seed data through import/export, inspect schemas without hunting through CLI output — all in one desktop app.
 
 If you haven't set up DynamoDB Local yet, start with **[How to Set Up DynamoDB Local for Local Development](/blog/setup-dynamodb-local)**. Once it's running, [download DocKit](/download) and connect in under a minute.
 
