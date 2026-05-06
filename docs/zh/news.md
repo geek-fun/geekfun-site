@@ -41,7 +41,7 @@ head:
 
 🔐 **跨应用认证** — 实现 `dockit://` 深度链接协议，无缝对接 Geekfun 登录，包括链接 URL 解析和域名白名单头像验证。
 
-🎨 **完成 Naive UI → shadcn-vue 迁移** — 所有剩余组件迁移完毕。合并 UnoCSS + Tailwind 配置，21 个组件从 @vicons 迁移到 @unocss/preset-icons，移除全部 SCSS 依赖。
+🎨 **完成 Naive UI → shadcn-vue 迁移** — Naive UI 组件全部清完。合并 UnoCSS + Tailwind 配置，21 个组件从 @vicons 切到 @unocss/preset-icons，SCSS 依赖全部移除。
 
 ## [🚀 DocKit v0.9.9 发布：DynamoDB SSO、认证改进与 DSL 补全](https://github.com/geek-fun/dockit/releases/tag/v0.9.9)
 
@@ -59,9 +59,7 @@ head:
 
 ## [🎉 DocKit v0.9.8 发布：键盘导航与历史视图无障碍改进](https://github.com/geek-fun/dockit/releases/tag/v0.9.8)
 
-**2026年4月22日** - DocKit v0.9.8 正式发布。此补丁版本为历史视图加入了键盘导航和更清晰的空状态引导，进一步提升最近查询工作流的可访问性与易用性。
-
-同时改进了 Elasticsearch 集群管理的节点状态显示和索引管理 UX。
+**2026年4月22日** - DocKit v0.9.8 正式发布。此补丁版本为历史视图加入了键盘导航和更清晰的空状态引导，最近查询工作流用起来更顺手。Elasticsearch 集群管理的节点状态显示和索引管理 UX 也做了改进。
 
 ## [🎉 DocKit v0.9.7 发布：连接克隆、查询自动补全与导入增强](https://github.com/geek-fun/dockit/releases/tag/v0.9.7)
 
@@ -75,7 +73,7 @@ head:
 
 ## [🎉 DocKit v0.9.6 发布：修复更新安装问题](https://github.com/geek-fun/dockit/releases/tag/v0.9.6)
 
-**2026年4月14日** - 通过在下载前重新获取新的签名 URL 来修复更新安装失败问题，避免首次点击升级时因 URL 过期导致中断。
+**2026年4月14日** - 修复更新安装失败问题：现在下载前会重新获取签名 URL，不会因为首次点击升级时 URL 过期而中断。
 
 ## [🎉 DocKit v0.9.5 发布：强化 CI 与发布流水线](https://github.com/geek-fun/dockit/releases/tag/v0.9.5)
 
