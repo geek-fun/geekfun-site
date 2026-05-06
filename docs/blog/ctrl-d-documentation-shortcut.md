@@ -1,6 +1,6 @@
 ---
-title: Instant Documentation Access — Press Ctrl+D in DocKit for Any ES, OpenSearch, or DynamoDB API
-description: DocKit now maps every Elasticsearch operation to its official documentation — across versions (0.90 → 9.x), engines (ES, OpenSearch, DynamoDB), and languages (EN/ZH). Just press Ctrl+D in the editor to get the exact API reference.
+title: Instant Documentation Access — Shortcuts in DocKit for Any ES, OpenSearch, or DynamoDB API
+description: DocKit now maps every Elasticsearch operation to its official documentation — across versions (0.90 → 9.x), engines (ES, OpenSearch, DynamoDB), and languages (EN/ZH). Just press the documentation shortcut in the editor to get the exact API reference.
 head:
   - - meta
     - name: keywords
@@ -53,11 +53,11 @@ head:
       }
 ---
 
-# Instant Documentation Access — Press Ctrl+D for Any API Reference
+# Instant Documentation — Press a Shortcut for Any API Reference
 
-When you're writing Elasticsearch queries in Dev Tools, the most frustrating moment isn't typos in your JSON — it's losing context while switching to a browser tab to look up API syntax. The old `GET /my-index/_search` might need a specific query parameter in ES 8.x that didn't exist in 6.x. The `POST /_reindex` response format changed again. You've memorized the common endpoints, but the edge cases always send you reaching for Google.
+When you're writing Elasticsearch queries in Dev Tools, the most frustrating moment isn't typos in your JSON — it's losing context while switching to a browser tab to look up API syntax. The old `GET /my-index/_search` might need a specific query parameter in ES 8.x that didn't exist in 6.x. The `POST /_reindex` response format changed again. You've memorized the common endpoints, but the edge cases always send you to Google.
 
-DocKit just solved this. **Press `Ctrl+D` (or `Cmd+D` on Mac) from anywhere in the editor and get the exact documentation page for the current API** — version-aware, language-aware, and engine-aware.
+DocKit just solved this. **Press `⌘D` on Mac or `Ctrl+D` on Windows and Linux from anywhere in the editor, and get the exact documentation page for the current API** — version-aware, language-aware, and engine-aware.
 
 ![DocKit Ctrl+D Documentation Shortcut](/client-ui.png)
 
@@ -65,7 +65,7 @@ DocKit just solved this. **Press `Ctrl+D` (or `Cmd+D` on Mac) from anywhere in t
 
 ## The Problem We Solved
 
-Before this release, DocKit's `Ctrl+D` shortcut worked via a hardcoded dictionary of ~28 regex patterns matching known API endpoints. It covered the basics: `GET _search`, `PUT _mapping`, `POST _bulk`. But the Elasticsearch REST API has hundreds of endpoints, and maintaining that dictionary manually was a losing battle:
+Before this release, DocKit's `Ctrl+D` shortcut worked via a hardcoded dictionary of ~28 regex patterns matching known API endpoints. It covered the basics: `GET _search`, `PUT _mapping`, `POST _bulk`. But the Elasticsearch REST API has hundreds of endpoints, and maintaining that dictionary manually would never cover everything:
 
 - **Partial coverage** — many `_cat/`, `_ml/`, `_security/`, `_transform/`, and newer v8/v9 endpoints had no documentation link
 - **Version mismatch** — all links pointed to a single version, regardless of your cluster version
@@ -125,11 +125,11 @@ The system now handles three engines with completely different documentation sou
 | **OpenSearch** | OpenSearch official docs (version-specific) |
 | **DynamoDB** | AWS API reference for operations |
 
-A single `Ctrl+D` shortcut works across all three — the system detects which engine you're connected to and pulls the right documentation.
+The same keyboard shortcut works across all three — the system detects which engine you're connected to and pulls the right documentation.
 
 ### 4. Language Support
 
-Press `Ctrl+D` and get documentation in your preferred language. DocKit reads your app's language setting and:
+Press the documentation shortcut and get documentation in your preferred language. DocKit reads your app's language setting and:
 
 - If set to **Chinese** → opens the Chinese documentation page
 - If set to **English** → opens the English documentation page
@@ -153,7 +153,7 @@ We fixed dozens of edge cases during this refactor:
 ### Architecture Overview
 
 ```
-User presses Ctrl+D
+User presses ⌘D / Ctrl+D
         │
         ▼
   Read current line(s) from editor
@@ -221,7 +221,7 @@ const url = buildDocUrl(backendType, version, docPath, language);
 
 1. Open DocKit and connect to any Elasticsearch/OpenSearch/DynamoDB server
 2. Type any operation in the editor: `GET _cluster/health`, `PUT my-index/_mapping`, `POST /_reindex`
-3. Place your cursor on the line and press **Ctrl+D** (Mac: **Cmd+D**)
+3. Place your cursor on the line and press **⌘D** on Mac or **Ctrl+D** on Windows and Linux
 4. The exact documentation page opens in your browser
 
 That's it. No setup, no configuration — it works automatically with any connection.

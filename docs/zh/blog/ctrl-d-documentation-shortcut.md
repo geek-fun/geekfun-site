@@ -1,6 +1,6 @@
 ---
-title: Ctrl+D 即时文档快捷方式——为任意 ES、OpenSearch 或 DynamoDB API 打开官方文档
-description: DocKit 现在将所有 Elasticsearch 操作映射到其官方文档——覆盖所有版本（0.90 → 9.x）、所有引擎（ES、OpenSearch、DynamoDB）和语言（EN/ZH）。只需在编辑器中按 Ctrl+D 即可获取精确的 API 参考。
+title: 即时文档访问 — DocKit 内置文档快捷方式，支持 ES、OpenSearch、DynamoDB
+description: DocKit 现在将所有 Elasticsearch 操作映射到官方文档——覆盖所有版本（0.90 → 9.x）、所有引擎（ES、OpenSearch、DynamoDB）和语言（EN/ZH）。在编辑器中按文档快捷键即可获取精确的 API 参考。
 head:
   - - meta
     - name: keywords
@@ -53,11 +53,11 @@ head:
       }
 ---
 
-# Ctrl+D 快捷文档 — 为任意 API 打开官方文档
+# 即时文档 — 一个快捷键打开任意 API 参考
 
-当你在 Dev Tools 中编写 Elasticsearch 查询时，最令人抓狂的时刻不是 JSON 中的打字错误——而是不得不切换到浏览器标签页去查找 API 语法的瞬间。ES 8.x 中某个 `GET /my-index/_search` 可能需要一个在 6.x 中不存在的新参数。`POST /_reindex` 的响应格式又变了。你记住了常用端点，但边缘情况总是让你转向 Google。
+当你在 Dev Tools 中编写 Elasticsearch 查询时，最令人抓狂的时刻不是 JSON 中的打字错误——而是不得不切换到浏览器标签页去查找 API 语法的瞬间。ES 8.x 中某个 `GET /my-index/_search` 可能需要一个在 6.x 中不存在的参数。`POST /_reindex` 的响应格式又变了。你记住了常用端点，但边缘情况总是让你转向 Google。
 
-DocKit 刚刚解决了这个问题。**在编辑器中的任意位置按下 `Ctrl+D`（Mac 上为 `Cmd+D`），即可获取当前 API 的精确文档页面**——版本感知、语言感知、引擎感知。
+DocKit 刚刚解决了这个问题。**在编辑器中按 `⌘D`（Mac）或 `Ctrl+D`（Windows / Linux），即可获取当前 API 的精确文档页面**——版本感知、语言感知、引擎感知。
 
 ![DocKit Ctrl+D 文档快捷方式](/client-ui.png)
 
@@ -65,7 +65,7 @@ DocKit 刚刚解决了这个问题。**在编辑器中的任意位置按下 `Ctr
 
 ## 我们解决的问题
 
-在这次更新之前，DocKit 的 `Ctrl+D` 快捷键通过约 28 个硬编码的正则表达式来匹配已知 API 端点。它覆盖了基础内容：`GET _search`、`PUT _mapping`、`POST _bulk`。但 Elasticsearch REST API 有数百个端点，手动维护这个字典注定要失败：
+在这次更新之前，DocKit 的 `Ctrl+D` 快捷键通过约 28 个硬编码的正则表达式来匹配已知 API 端点。它覆盖了基础内容：`GET _search`、`PUT _mapping`、`POST _bulk`。但 Elasticsearch REST API 有数百个端点，手动维护这个字典根本跟不上：
 
 - **覆盖率不完整**——大量 `_cat/`、`_ml/`、`_security/`、`_transform/` 以及新的 v8/v9 端点没有文档链接
 - **版本不匹配**——所有链接指向单一版本，不管你的集群版本是多少
@@ -97,7 +97,7 @@ DocKit 刚刚解决了这个问题。**在编辑器中的任意位置按下 `Ctr
 
 ### 2. 跨版本文档策略
 
-Elasticsearch 的文档有两种格式，v9 开始发生了变化：
+从 v9 开始，Elasticsearch 分成了两种文档格式：
 
 - **旧指南格式**（≤ v8.19）：`https://www.elastic.co/guide/en/elasticsearch/reference/{version}/{page}.html`
 - **新 API 文档**（≥ v9）：`https://www.elastic.co/docs/api/doc/elasticsearch/v{major}/operation/{name}`
@@ -125,11 +125,11 @@ DocKit 自动检测你的集群版本并选择正确的格式：
 | **OpenSearch** | OpenSearch 官方文档（版本特定） |
 | **DynamoDB** | AWS 操作 API 参考 |
 
-一个 `Ctrl+D` 覆盖所有三引擎——系统自动检测你连接的引擎并拉取正确的文档。
+同一个快捷键覆盖所有三引擎——系统自动检测你连接的引擎并拉取正确的文档。
 
 ### 4. 语言支持
 
-按 `Ctrl+D` 时用你设置的语言打开文档：
+按文档快捷键时用你设置的语言打开文档：
 
 - **中文**→ 打开中文文档页面
 - **英文**→ 打开英文文档页面
@@ -153,7 +153,7 @@ DocKit 自动检测你的集群版本并选择正确的格式：
 ### 架构概览
 
 ```
-用户按下 Ctrl+D
+用户按下 ⌘D / Ctrl+D
         │
         ▼
   读取编辑器当前行内容
@@ -221,7 +221,7 @@ const url = buildDocUrl(backendType, version, docPath, language);
 
 1. 打开 DocKit 并连接任意 Elasticsearch/OpenSearch/DynamoDB 服务器
 2. 在编辑器中输入任意操作：`GET _cluster/health`、`PUT my-index/_mapping`、`POST /_reindex`
-3. 将光标放在该行并按 **Ctrl+D**（Mac：**Cmd+D**）
+3. 将光标放在该行并按 **⌘D**（Mac）或 **Ctrl+D**（Windows / Linux）
 4. 精确的文档页面将在浏览器中打开
 
 就是这样。无需配置、无需设置——它对任意连接自动生效。
