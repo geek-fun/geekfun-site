@@ -98,10 +98,10 @@ GitHub has no releases since 2022 (v3.2.0-beta). The website still links a beta 
 
 It was $12-30/mo while it was active.
 
-**Features (when active):** beautiful UI, visual query builder, cloud sync, team collaboration, export/import, DynamoDB Streams monitoring.
+**Features (when active):** beautiful UI, visual query builder, cloud sync, team collaboration, export/import, DynamoDB Streams monitoring, DynamoDB Local support.
 
 When it worked: great UI, decent docs, cloud sync.
-Now: probably missing newer DynamoDB features, no updates, closed source, DynamoDB only, no AI.
+Now: probably missing newer DynamoDB features, no updates, closed source, DynamoDB only (with Local support), no AI.
 
 **Was best for:** individuals willing to pay for polish, DynamoDB-only teams.
 
@@ -155,7 +155,7 @@ Lightweight Node.js web UI that runs alongside DynamoDB Local.
 | PartiQL Editor | ✅ Advanced | ✅ Advanced | ❌ | ⚠️ Basic | ✅ Advanced |
 | AI Assistant | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Multi-Database | ✅ ES/OS | ❌ | ❌ | ❌ | ❌ |
-| DynamoDB Local | ✅ | ✅ | ✅ | ❌ | ❌ |
+| DynamoDB Local | ✅ | ✅ | ✅ | ❌ | ✅ |
 | Git-Native Sharing | ❌ | ✅ | ❌ | ❌ | ❌ |
 | Open Source | ✅ | ❌ | ✅ | ❌ | ❌ |
 | Active in 2026 | ✅ | ✅ | ✅ | ✅ | ❌ |
