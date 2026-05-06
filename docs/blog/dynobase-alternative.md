@@ -306,7 +306,7 @@ Open an issue on [GitHub](https://github.com/geek-fun/dockit/issues).
 
 ### Product Pages
 - **[DynamoDB GUI Client Overview](/blog/dynamodb-gui)** - Full feature breakdown
-- **[Best DynamoDB GUI Clients](/blog/best-dynamodb-gui-client)** - Compare all options
+- **[Best DynamoDB GUI Clients](/blog/best-dynamodb-gui-client-2026)** - Compare all options
 
 ### Features
 - **[DynamoDB PartiQL Editor](/products/dockit/features/dynamodb-partiql)** - Query language guide

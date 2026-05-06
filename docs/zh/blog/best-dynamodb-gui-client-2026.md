@@ -7,19 +7,19 @@ head:
       content: best DynamoDB GUI client, DynamoDB GUI comparison, DynamoDB management tools, Dynobase alternative, DynamoDB desktop client, free DynamoDB client, DynamoDB GUI 2026
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/zh/blog/best-dynamodb-gui-client
+      href: https://www.geekfun.club/zh/blog/best-dynamodb-gui-client-2026
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/blog/best-dynamodb-gui-client
+      href: https://www.geekfun.club/blog/best-dynamodb-gui-client-2026
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/blog/best-dynamodb-gui-client
+      href: https://www.geekfun.club/zh/blog/best-dynamodb-gui-client-2026
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://www.geekfun.club/blog/best-dynamodb-gui-client
+      href: https://www.geekfun.club/blog/best-dynamodb-gui-client-2026
   - - script
     - type: application/ld+json
     - |
@@ -47,7 +47,7 @@ head:
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://www.geekfun.club/zh/blog/best-dynamodb-gui-client"
+          "@id": "https://www.geekfun.club/zh/blog/best-dynamodb-gui-client-2026"
         },
         "keywords": ["DynamoDB GUI", "Dynobase", "DocKit", "工具对比"],
         "articleSection": "Database Tools"
