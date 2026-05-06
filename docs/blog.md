@@ -27,8 +27,8 @@ Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:
 
 Product updates, technical deep-dives, and lessons from building open-source database tools. Written by the GEEKFUN team.
 
-## [Instant Documentation Access — Shortcuts in DocKit for Any ES, OpenSearch, or DynamoDB API](/blog/ctrl-d-documentation-shortcut)
-*April 29, 2026*
+## [Instant Documentation Access — Shortcuts in DocKit for Any ES, OpenSearch, or DynamoDB API](/blog/documentation-shortcut)
+*May 6, 2026*
 
 Press a single shortcut in the editor and get the exact official documentation for any Elasticsearch, OpenSearch, or DynamoDB API — version-aware, engine-aware, and language-aware. Rebuilt from the ground up with spec-driven mapping across 1,300+ lines of code and tests.
 

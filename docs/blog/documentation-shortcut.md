@@ -7,19 +7,19 @@ head:
       content: Ctrl+D documentation shortcut, Elasticsearch API docs, OpenSearch documentation, DynamoDB reference, Dev Tools documentation, database IDE, DocKit documentation lookup, Elasticsearch developer experience, API reference shortcut
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/blog/ctrl-d-documentation-shortcut
+      href: https://www.geekfun.club/blog/documentation-shortcut
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/blog/ctrl-d-documentation-shortcut
+      href: https://www.geekfun.club/blog/documentation-shortcut
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/blog/ctrl-d-documentation-shortcut
+      href: https://www.geekfun.club/zh/blog/documentation-shortcut
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://www.geekfun.club/blog/ctrl-d-documentation-shortcut
+      href: https://www.geekfun.club/blog/documentation-shortcut
   - - script
     - type: application/ld+json
     - |
@@ -42,11 +42,11 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2026-04-29",
-        "dateModified": "2026-04-29",
+"datePublished": "2026-05-06",
+"dateModified": "2026-05-06",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://www.geekfun.club/blog/ctrl-d-documentation-shortcut"
+          "@id": "https://www.geekfun.club/blog/documentation-shortcut"
         },
         "keywords": ["Ctrl+D shortcut", "Elasticsearch API docs", "OpenSearch docs", "database IDE", "DocKit"],
         "articleSection": "Database Tools"
@@ -238,4 +238,4 @@ That's it. No setup, no configuration — it works automatically with any connec
 
 ---
 
-*Last updated: April 29, 2026.*
+*Last updated: May 6, 2026.*

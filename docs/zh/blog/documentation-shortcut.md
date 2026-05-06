@@ -7,19 +7,19 @@ head:
       content: Ctrl+D文档快捷方式, Elasticsearch API文档, OpenSearch文档, DynamoDB参考, Dev Tools文档, 数据库IDE, DocKit文档查询, Elasticsearch开发者体验, API参考快捷键
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/zh/blog/ctrl-d-documentation-shortcut
+      href: https://www.geekfun.club/zh/blog/documentation-shortcut
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/blog/ctrl-d-documentation-shortcut
+      href: https://www.geekfun.club/blog/documentation-shortcut
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/blog/ctrl-d-documentation-shortcut
+      href: https://www.geekfun.club/zh/blog/documentation-shortcut
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://www.geekfun.club/blog/ctrl-d-documentation-shortcut
+      href: https://www.geekfun.club/blog/documentation-shortcut
   - - script
     - type: application/ld+json
     - |
@@ -42,11 +42,11 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2026-04-29",
-        "dateModified": "2026-04-29",
+"datePublished": "2026-05-06",
+"dateModified": "2026-05-06",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://www.geekfun.club/zh/blog/ctrl-d-documentation-shortcut"
+          "@id": "https://www.geekfun.club/zh/blog/documentation-shortcut"
         },
         "keywords": ["Ctrl+D快捷键", "Elasticsearch API文档", "OpenSearch文档", "数据库IDE", "DocKit"],
         "articleSection": "数据库工具"
@@ -238,4 +238,4 @@ const url = buildDocUrl(backendType, version, docPath, language);
 
 ---
 
-*更新于：2026 年 4 月 29 日*
+*更新于：2026 年 5 月 6 日*

@@ -27,8 +27,8 @@ head:
 
 产品更新、技术深度解析，以及来自 GEEKFUN 团队构建开源数据库工具的实践记录。
 
-## [即时文档访问 — DocKit 内置文档快捷方式，支持 ES、OpenSearch、DynamoDB](/zh/blog/ctrl-d-documentation-shortcut)
-*2026年4月29日*
+## [即时文档访问 — DocKit 内置文档快捷方式，支持 ES、OpenSearch、DynamoDB](/zh/blog/documentation-shortcut)
+*2026年5月6日*
 
 在编辑器中按下快捷键，即可打开任意 Elasticsearch、OpenSearch 或 DynamoDB API 的精确官方文档——版本感知、引擎感知、语言感知。基于规范驱动映射彻底重建，1,300+ 行新代码和测试。
 
