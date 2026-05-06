@@ -115,7 +115,7 @@ GitHub 上从 2022 年起没有新版本（v3.2.0-beta）。网站还在链着 b
 
 ## 2. Dynomate
 
-开发最活跃的付费选项。$199 一次性买断。2026 年 4 月发布了 v1.15.0——支持 DynamoDB Local、SQL 控制台、过滤自动补全、从 S3 导入导出、Git 原生查询集合。
+开发最活跃的付费选项。$199 一次性买断。2026 年 4 月发布 v1.15.0 — DynamoDB Local 支持、SQL 控制台、过滤自动补全、S3 导入导出、Git 原生查询集合。
 
 **功能：** SSO 支持、多标签查询、DynamoDB SQL 控制台、导入导出（JSON、CSV、S3）、跨账户支持、请求链、Git 原生查询共享、DynamoDB Local 支持。
 
@@ -123,13 +123,13 @@ GitHub 上从 2022 年起没有新版本（v3.2.0-beta）。网站还在链着 b
 
 **活跃度：** 非常活跃。2026 年就发布了 15+ 版本（v1.0 到 v1.15）。最新版本：2026 年 4 月 28 日。
 
-**优点：** 开发极其活跃、SSO 好用、SQL 控制台实用、2026 年 4 月加了 DynamoDB Local 支持、Git 原生查询集合。
+**优点：** 非常活跃、SSO 好用、SQL 控制台实用、2026 年 4 月加了 DynamoDB Local 支持、Git 原生查询集合。
 **缺点：** 仅付费、仅 DynamoDB、不支持多引擎。
 
 **最适合：** 使用 SSO 的团队、想要 Git 原生查询共享的开发者、愿意为精美桌面客户端付费的人。
 
 
-## 4. AWS NoSQL Workbench
+## 3. AWS NoSQL Workbench
 
 AWS 官方工具。免费。擅长一件事：schema 建模。实际查询体验一般。
 
@@ -143,7 +143,7 @@ AWS 官方工具。免费。擅长一件事：schema 建模。实际查询体验
 **最适合：** 数据架构师和 schema 设计者。搭配 DocKit 做日常查询。
 
 
-## 3. DynamoDB Admin
+## 4. DynamoDB Admin
 
 轻量级 Node.js 网页 UI，配合 DynamoDB Local 运行。
 

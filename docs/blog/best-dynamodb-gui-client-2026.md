@@ -109,7 +109,7 @@ Now: probably missing newer DynamoDB features, no updates, closed source, Dynamo
 
 ## 2. Dynomate
 
-The most actively developed paid option. $199 one-time. Released v1.15.0 in April 2026 — DynamoDB Local support, SQL console, filter autocomplete, import/export from S3, request collections with Git-native sharing.
+Most active paid option. $199 one-time. Released v1.15.0 in April 2026 — DynamoDB Local support, SQL console, filter autocomplete, import/export from S3, request collections with Git-native sharing.
 
 **Features:** SSO support, multi-tab queries, SQL console for DynamoDB, import/export (JSON, CSV, S3), cross-account support, request chaining, Git-native query sharing, DynamoDB Local support.
 
@@ -117,12 +117,12 @@ The most actively developed paid option. $199 one-time. Released v1.15.0 in Apri
 
 **Activity:** Very active. 15+ releases in 2026 alone (v1.0 to v1.15). Latest: April 28, 2026.
 
-**Good:** extremely active development, SSO works well, SQL console is genuinely useful, DynamoDB Local support added April 2026, Git-native collections.
+**Good:** very active, SSO works well, SQL console is useful, DynamoDB Local support added April 2026, Git-native collections.
 **Not great:** paid only, DynamoDB only, no multi-engine support.
 
 **Best for:** teams using SSO, developers who want Git-native query sharing, anyone willing to pay for a polished desktop client.
 
-## 4. AWS NoSQL Workbench
+## 3. AWS NoSQL Workbench
 
 Official AWS tool. Free. Good at exactly one thing: schema modeling. For actual querying, not great.
 
@@ -135,7 +135,7 @@ Official AWS tool. Free. Good at exactly one thing: schema modeling. For actual 
 
 **Best for:** data architects and schema designers. Pair it with DocKit for actual querying.
 
-## 3. DynamoDB Admin
+## 4. DynamoDB Admin
 
 Lightweight Node.js web UI that runs alongside DynamoDB Local.
 
