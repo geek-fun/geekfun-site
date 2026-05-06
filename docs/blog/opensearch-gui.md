@@ -55,7 +55,7 @@ head:
 
 # OpenSearch GUI Client - Free Desktop Tool
 
-DocKit is a **free, open-source OpenSearch GUI client** designed for developers and DevOps teams who need a fast, reliable desktop alternative to OpenSearch Dashboards and browser-based tools.
+DocKit is a **free, open-source OpenSearch GUI client** — a desktop alternative to OpenSearch Dashboards for day-to-day query development. Faster startup, lower memory, and your queries live locally as files you can commit to Git.
 
 ## Why Choose DocKit for OpenSearch?
 
@@ -367,10 +367,6 @@ Credentials are encrypted and stored locally on your machine. They never leave y
 - **[Elasticsearch GUI](/blog/elasticsearch-gui)** - For Elasticsearch users
 - **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code and issues
 
-## Try DocKit for OpenSearch Today
+## Try DocKit for OpenSearch
 
-Experience a faster, more developer-friendly way to work with OpenSearch. Download DocKit and streamline your search workflow.
-
-[Download DocKit Now](/download) — Free, open-source, and ready to use.
-
-No registration. No credit card. Just download and go.
+[Download DocKit](/download) — Free, open-source, no registration required.

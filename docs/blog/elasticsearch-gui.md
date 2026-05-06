@@ -357,7 +357,7 @@ POST /_reindex
 
 ## Elasticsearch Version Compatibility
 
-DocKit is designed to support **Elasticsearch from version 1.x onwards**, using standard Elasticsearch REST APIs. The client is not bound to specific versions and should work seamlessly across different Elasticsearch releases.
+DocKit supports **Elasticsearch from version 1.x onwards**, using standard Elasticsearch REST APIs. The client is not bound to specific versions and works across different Elasticsearch releases.
 
 **Tested with:**
 - Elasticsearch 1.x - 9.x
@@ -391,10 +391,6 @@ Credentials are encrypted and stored locally on your machine. They never leave y
 - **[Cluster Management](/docs/dockit/manage-elasticsearch-cluster)** - Index and cluster operations
 - **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code and issues
 
-## Try DocKit for Elasticsearch Today
+## Try DocKit for Elasticsearch
 
-Experience a faster, more developer-friendly way to work with Elasticsearch. Download DocKit and streamline your search workflow.
-
-[Download DocKit Now](/download) — Free, open-source, and ready to use.
-
-No registration. No credit card. Just download and go.
+[Download DocKit](/download) — Free, open-source, no registration required.

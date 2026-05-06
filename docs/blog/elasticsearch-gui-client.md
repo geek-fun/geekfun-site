@@ -27,7 +27,7 @@ head:
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "Getting Started with Elasticsearch GUI Client - DocKit Introduction",
-        "description": "Are you searching for the best Elasticsearch GUI client to streamline your development data management? Look no further! In this comprehensive guide, we will introduce you to DocKit, a top-tier Elasticsearch GUI client designed to enhance your workflow and boost productivity.",
+        "description": "DocKit is a free, open-source desktop GUI client for Elasticsearch and OpenSearch. Query editor with auto-completion, cluster management, and AI-assisted features.",
         "image": "https://www.geekfun.club/dockit-client-ui.png",
         "author": {
           "@type": "Organization",
@@ -55,59 +55,33 @@ head:
 
 # DocKit - Introduction to Elasticsearch GUI Client
 
-Are you searching for the best Elasticsearch GUI client to streamline your development data management? Look no further!
-In this comprehensive guide, we will introduce you to DocKit, a top-tier Elasticsearch GUI client designed to enhance
-your workflow and boost productivity. Whether you're a seasoned developer or just starting out, finding the right tool
-can make all the difference.
+DocKit is a free, open-source desktop client for Elasticsearch and OpenSearch. It's a lighter alternative to Kibana for day-to-day query development — connects to multiple servers, runs queries fast, and doesn't eat half your RAM running a browser tab.
 
-## Why Choose an Elasticsearch GUI Client?
+Compared to Kibana, DocKit launches in under 2 seconds, uses a fraction of the memory, and supports multiple server connections you can switch between instantly. It works with OpenSearch too, so you don't need separate tools for each.
 
-[Elasticsearch](https://www.elastic.co/elasticsearch) is a powerful search and analytics engine, but managing it
-effectively requires the right tools. An Elasticsearch GUI client provides a user-friendly interface, advanced search
-capabilities, and efficient data management features. With DocKit, you can unlock the full potential of Elasticsearch
-and optimize your data management experience.
+## Why DocKit over Kibana for day-to-day queries
 
-DocKit is a GUI client, compared to the web-based [Kibana](https://www.elastic.co/kibana), it provides a more handy and
-efficient way to manage your Elasticsearch server, from your local you don't need to run kibana inside a container to
-occupy massive disk and memory, and meanwhile, DocKit can connect to multiple Elasticsearch servers at the same time so
-you can switch between your application environments instantly, which is more flexible than Kibana.
+Kibana is great for visualizations and dashboards, but for writing and executing queries during development, it's heavy. You need a running container, it takes 10-30 seconds to start, and each browser tab eats memory.
 
-DocKit also support [OpenSearch](https://opensearch.org/), which provide seamless features and user experience for
-OpenSearch users, so developer don't need to switch between Kibana
-and [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/), they can use DocKit to manage both
-Elasticsearch and OpenSearch clusters.
+DocKit is a native desktop app. It connects to multiple Elasticsearch and OpenSearch servers at once — local, staging, production — and you can switch between them without opening new windows. Queries are saved locally as files, so they're Git-friendly and work offline.
+
+It also supports OpenSearch, so if your team runs both, you're not switching between Kibana and OpenSearch Dashboards for the same task.
 
 ![DocKit UI](/public/dockit-client-ui.png)
 
-## Key Features of DocKit
+## Key Features
 
-DocKit offers a range of features to suit your specific needs:
+- Query editor with syntax highlighting, auto-completion, and inline comments (JSON5 support)
+- Connect to multiple Elasticsearch and OpenSearch servers simultaneously
+- Cluster management — index operations, node monitoring, shard allocation
+- AI-assisted query generation — describe what you want in plain English
+- Cross-platform — macOS, Windows, Linux
+- Open source (Apache 2.0)
 
-- **User-Friendly Interface**: Navigate through your Elasticsearch/OpenSearch server with ease using DocKit's intuitive
-  interface.
-- **Advanced Search Capabilities**: Perform complex searches and analyze your data efficiently.
-- **Cross-Platform Support**: Available for Mac, Windows, and Linux, ensuring compatibility with your operating system.
-- **Open-Source**: DocKit is an open-source project, allowing for community contributions and continuous improvement.
-- **Multiple Server Support**: Connect to multiple Elasticsearch/OpenSearch servers simultaneously, streamlining your
-  workflow.
-- **AI-Powered Search**: Utilize AI-powered search capabilities to enhance your data analysis and visualization.
+## Getting Started
 
-## How to Get Started with DocKit
-
-Getting started with DocKit is simple:
-
-1. **Download and Install**: Visit the [official DocKit website](/products/dockit/) to download the latest
-   version for your operating system. follow
-   the [installation guide](/docs/dockit/installation) to install DocKit.
-2. **Connect to Your Elasticsearch Server**: Follow
-   the [installation guide](/docs/dockit/connect-to-server) to connect
-   DocKit to your Elasticsearch server.
-3. **Explore and Manage Your Data**: Use DocKit's powerful features to manage and analyze your Elasticsearch data.
-
-## Conclusion
-
-Choosing the right Elasticsearch GUI client is crucial for efficient data management and analysis. DocKit stands out as
-a top choice, offering a user-friendly interface, advanced search capabilities, and cross-platform support. Don't waste
-time with subpar tools—optimize your workflow with DocKit and unlock the full potential of Elasticsearch.
+1. [Download and install](/products/dockit/) the latest version for your OS
+2. [Connect to your server](/docs/dockit/connect-to-server) — local, remote, or cloud
+3. Start writing queries in the editor and run them with `Cmd/Ctrl + Enter`
 
 For more information and to download DocKit, visit the [official website](/products/dockit/).

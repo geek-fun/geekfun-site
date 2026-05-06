@@ -26,6 +26,8 @@ head:
 
 **2026年3月3日** - 我们很高兴地宣布 **DocKit v0.9** 正式发布！这是一个里程碑式的版本，带来了全面的 UI 重设计、所有支持数据库的自动查询历史、DynamoDB Local 端点支持，以及针对 PartiQL 用户的多项体验改进。
 
+> **版本历史更新：** v0.9.0 之后，DocKit 仍持续发布了多个 v0.9.x 补丁版本。目前 GitHub 上最新的公开版本为 **v0.9.8**（2026年4月22日）。您可以查看下方补丁版本摘要，或直接浏览 [DocKit 全部 Releases](https://github.com/geek-fun/dockit/releases)。
+
 ## 🚀 新增内容
 
 ### 🎨 现代 UI 重设计
@@ -80,6 +82,17 @@ DocKit v0.9.0 已在所有平台提供：
 
 📥 **[从 DocKit 页面下载](/zh/products/dockit/)**  
 ⭐ **[GitHub 发布说明](https://github.com/geek-fun/dockit/releases/tag/v0.9.0)**
+
+## 🔄 v0.9.0 之后的补丁版本
+
+- **v0.9.8** — 为历史视图加入键盘导航和空状态引导，提升无障碍体验。 [GitHub 发布页](https://github.com/geek-fun/dockit/releases/tag/v0.9.8)
+- **v0.9.7** — 新增连接克隆、查询参数自动补全，以及导入时创建新索引/新表。 [GitHub 发布页](https://github.com/geek-fun/dockit/releases/tag/v0.9.7)
+- **v0.9.6** — 通过重新获取更新清单修复安装更新失败问题。 [GitHub 发布页](https://github.com/geek-fun/dockit/releases/tag/v0.9.6)
+- **v0.9.5** — 强化 CI 与发布流程，避免出现不完整发布。 [GitHub 发布页](https://github.com/geek-fun/dockit/releases/tag/v0.9.5)
+- **v0.9.4** — 新增连接排序/筛选、更新进度显示，并修复 Windows 快捷键问题。 [GitHub 发布页](https://github.com/geek-fun/dockit/releases/tag/v0.9.4)
+- **v0.9.3** — 维护版本，提供更新后的桌面安装包。 [GitHub 发布页](https://github.com/geek-fun/dockit/releases/tag/v0.9.3)
+- **v0.9.2** — 维护版本，提供更新后的桌面安装包。 [GitHub 发布页](https://github.com/geek-fun/dockit/releases/tag/v0.9.2)
+- **v0.9.1** — 新增 Elasticsearch API Key 认证，并修复自动补全问题。 [GitHub 发布页](https://github.com/geek-fun/dockit/releases/tag/v0.9.1)
 
 ## 参与贡献
 
