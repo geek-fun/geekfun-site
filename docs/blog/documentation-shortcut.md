@@ -42,8 +42,8 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-"datePublished": "2026-05-06",
-"dateModified": "2026-05-06",
+        "datePublished": "2026-05-06",
+        "dateModified": "2026-05-06",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/documentation-shortcut"
