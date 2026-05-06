@@ -337,10 +337,9 @@ Two options have emerged as the primary replacements:
 ## Related Resources
 
 - **[DocKit — Open Source NoSQL GUI](/products/dockit/)** — AI-Native multi-database client
-- **[Best DynamoDB GUI Client](/blog/best-dynamodb-gui-client)** — Deep dive on GUI tools
+- **[Best DynamoDB GUI Client](/blog/best-dynamodb-gui-client-2026)** — Deep dive on GUI tools
 - **[Dynobase Alternative](/blog/dynobase-alternative)** — Open-source comparison guide
-- **[DynamoDB Local Setup Guide](/blog/setup-dynamodb-local)** — Local development
-- **[Query DynamoDB Locally](/blog/query-dynamodb-locally)** — Local tutorial
+- **[Query DynamoDB Locally](/blog/query-dynamodb-locally)** — Local setup and tutorial
 
 ---
 

@@ -332,10 +332,9 @@ Dynobase 曾是最精致、最受欢迎的 DynamoDB GUI 客户端——拥有漂
 ## 相关资源
 
 - **[DocKit — 开源 NoSQL GUI 客户端](/zh/products/dockit/)** — AI Native 多数据库客户端
-- **[最佳 DynamoDB GUI 客户端对比](/zh/blog/best-dynamodb-gui-client)** — GUI 工具深度对比
+- **[最佳 DynamoDB GUI 客户端对比](/zh/blog/best-dynamodb-gui-client-2026)** — GUI 工具深度对比
 - **[Dynobase 替代方案](/zh/blog/dynobase-alternative)** — 开源替代选择
-- **[DynamoDB 本地开发设置](/zh/blog/setup-dynamodb-local)** — 本地开发入门
-- **[本地查询 DynamoDB](/zh/blog/query-dynamodb-locally)** — 本地教程
+- **[本地查询 DynamoDB](/zh/blog/query-dynamodb-locally)** — 本地开发入门与教程
 
 ---
 
