@@ -57,6 +57,8 @@ Amazon DynamoDB launched in 2012. Since then it's been adopted everywhere — ga
 
 Meanwhile, a new wave of tools has turned up with fresh approaches and features. DocKit is one of the newer options. This guide compares the 5 best GUI clients — DocKit, Dynomate, DynamoDB Admin, NoSQL Workbench, and Dynobase (historical) — plus a quick look at emulators, ORMs, and IaC tools.
 
+![DynamoDB GUI Tools](/dynamodb-gui-tools.png)
+
 ## Quick Comparison Table
 
 | Tool | Price | Platform | Best For | Open Source |
