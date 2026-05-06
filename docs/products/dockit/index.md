@@ -62,29 +62,6 @@ head:
         },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE"
       }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "DocKit",
-        "description": "AI-native NoSQL GUI desktop client for DynamoDB, Elasticsearch, and OpenSearch with built-in AI assistant for query generation",
-        "brand": {
-          "@type": "Brand",
-          "name": "GEEKFUN"
-        },
-        "category": "Database Software",
-        "image": "https://www.geekfun.club/dockit.png",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "priceValidUntil": "2026-12-31"
-        }
-      }
-
 hero:
   name: DocKit
   headline: "Write queries in natural language."

@@ -59,29 +59,6 @@ head:
         },
         "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE"
       }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "SqlKit",
-        "description": "开源 SQL 桌面客户端，支持 PostgreSQL、MySQL、SQL Server 和 SQLite。具备智能查询编辑器、可视化表结构浏览和安全的连接管理功能。",
-        "brand": {
-          "@type": "Brand",
-          "name": "GEEKFUN"
-        },
-        "category": "Database Software",
-        "image": "https://www.geekfun.club/sqlkit.png",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "priceValidUntil": "2026-12-31"
-        }
-      }
-
 hero:
   name: SqlKit
   headline: "为发布而生的 SQL 客户端。"

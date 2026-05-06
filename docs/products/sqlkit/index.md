@@ -59,29 +59,6 @@ head:
         },
         "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE"
       }
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "SqlKit",
-        "description": "Open-source SQL desktop client for PostgreSQL, MySQL, SQL Server, and SQLite. Features a smart query editor, visual table browser, and secure connection management.",
-        "brand": {
-          "@type": "Brand",
-          "name": "GEEKFUN"
-        },
-        "category": "Database Software",
-        "image": "https://www.geekfun.club/sqlkit.png",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "priceValidUntil": "2026-12-31"
-        }
-      }
-
 hero:
   name: SqlKit
   headline: "The SQL client built for shipping"
