@@ -25,7 +25,7 @@ head:
 
 Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
-Stay updated with the latest announcements, releases, and updates from the GEEKFUN community. Here you'll find news about our projects, new features, community events, and important milestones.
+Product releases, feature updates, and community milestones from the GEEKFUN team.
 
 ## [🚀 DocKit v0.9.10 Released: Smarter Auto-completion, Data Studio Agent & Cross-App Auth](https://github.com/geek-fun/dockit/releases/tag/v0.9.10)
 
