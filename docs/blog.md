@@ -30,6 +30,11 @@ developers and organizations alike. Here, you'll find in-depth articles on softw
 best practices, tutorials, and visionary insights—all focused on building sustainable open-source solutions. Join us in
 driving innovation and evolving both personal and industry growth through open collaboration.
 
+## [How to Set Up DynamoDB Local for Local Development](/blog/setup-dynamodb-local)
+*April 23, 2026*
+
+Learn how to run DynamoDB Local with Docker or the downloadable JAR, configure AWS CLI access, create your first local table, and connect the local endpoint from DocKit.
+
 ## [Serverless Architecture Pitfalls: Alibaba Cloud API Gateway Body Transform Issue](/blog/serverless-api-gateway-body-transform)
 *April 15, 2026*
 
