@@ -27,15 +27,10 @@ head:
 
 产品更新、技术深度解析，以及来自 GEEKFUN 团队构建开源数据库工具的实践记录。
 
-## [2026年十大DynamoDB工具](/zh/blog/dynamodb-tools-2026)
-*2026年4月28日*
-
-DynamoDB 生态系统在过去一年发生了重大变化。一些老牌工具已停止维护，而新的竞争者带来了 Rust 高速模拟器、类型安全 ORM、AI 原生功能和真正的活跃开发。验证过的活动数据，涵盖 GUI 客户端、本地模拟器、ORM 和 IaC 框架。
-
-## [最佳 DynamoDB GUI 客户端 - 2026 年顶级工具对比](/zh/blog/best-dynamodb-gui-client-2026)
+## [最佳 DynamoDB GUI 客户端 - 2026 年 Top 5 对比](/zh/blog/best-dynamodb-gui-client-2026)
 *2025年3月24日*
 
-DynamoDB 于 2012 年推出，围绕它成长出了一个完整的工具生态。但现在是 2026 年，AI 时代改变了格局。这篇指南涵盖主要的 GUI 客户端——DocKit、Dynobase、NoSQL Workbench、AWS 控制台——告诉你哪些还在维护。
+DynamoDB 于 2012 年推出，围绕它成长出了一个完整的工具生态。但现在是 2026 年，AI 时代改变了格局。这篇指南涵盖主要的 GUI 客户端——DocKit、Dynobase、NoSQL Workbench、AWS 控制台、Dynomate——告诉你哪些还在维护。以及生态中其他值得了解的工具。
 
 ## [即时文档访问 — DocKit 内置文档快捷方式，支持 ES、OpenSearch、DynamoDB](/zh/blog/documentation-shortcut)
 *2026年5月6日*
