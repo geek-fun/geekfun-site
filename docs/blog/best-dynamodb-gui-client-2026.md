@@ -53,7 +53,7 @@ head:
       }
 ---
 
-Amazon DynamoDB launched in 2012. Since then it's been adopted everywhere — gaming, fintech, IoT, serverless backends. Over the years, a whole ecosystem of tools grew around it: GUI clients, local emulators, ORMs, monitoring dashboards. Dynobase, NoSQL Workbench, DynamoDB Admin, and a dozen others.
+Amazon DynamoDB launched in 2012. Since then it's been adopted everywhere — gaming, fintech, IoT, serverless backends. Over the years, an ecosystem of tools grew around it: GUI clients, local emulators, ORMs, monitoring dashboards. Dynobase, NoSQL Workbench, DynamoDB Admin, and a dozen others.
 
 But we're in 2026 now, and the AI era changes things. A lot of those tools haven't kept up. Some are outright dead (last release in 2022, X account silent since 2021). Others still work but feel like they belong to a previous decade — no AI assistance, no modern query interface, no multi-engine support.
 
@@ -104,7 +104,7 @@ Used to be the best-looking DynamoDB client. Then development stopped.
 
 GitHub has no releases since 2022 (v3.2.0-beta). The website still links a beta download. Their X account went silent in 2021. The founder moved on.
 
-It was $12-30/mo back when it was alive.
+It was $12-30/mo while it was active.
 
 **Features (when active):** beautiful UI, visual query builder, cloud sync, team collaboration, export/import, DynamoDB Streams monitoring.
 
@@ -215,7 +215,7 @@ Anything local-first (DocKit, DynamoDB Admin). Cloud-sync tools like Dynobase me
 
 ## Other DynamoDB Tools Worth Knowing
 
-GUI clients aren't the whole story. Here are the other tools that round out the DynamoDB ecosystem:
+GUI clients aren't the whole story. Here are the tools that round out the DynamoDB toolkit:
 
 - **Dynoxide** — Rust-based local emulator. Starts in ~2ms, 3 MB binary, no Docker or JVM needed. CI/CD pipelines love it. Free, open source.
 - **ElectroDB** — TypeScript-native ORM built for single-table design. 241k weekly npm downloads. Steep learning curve but full type inference.
