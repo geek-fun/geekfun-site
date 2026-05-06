@@ -27,6 +27,11 @@ head:
 
 探索来自 GEEKFUN 社区的精选高质量内容，旨在启发和赋能开发者与组织。在这里，您将找到关于软件开发、前沿工具、最佳实践、教程以及远见卓识的深入文章——所有内容都专注于构建可持续的开源解决方案。加入我们，通过开放协作推动创新，并促进个人与行业的共同成长。
 
+## [如何在本地搭建 DynamoDB Local](/zh/blog/setup-dynamodb-local)
+*2026年4月23日*
+
+学习如何通过 Docker 或可下载 JAR 包运行 DynamoDB Local，配置 AWS CLI，创建第一张本地表，并从 DocKit 连接本地端点。
+
 ## [全栈 Serverless 架构避坑实录：阿里云 API 网关 Body 转换问题](/zh/blog/serverless-api-gateway-body-transform)
 *2026年4月15日*
 
