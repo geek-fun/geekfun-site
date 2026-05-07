@@ -55,7 +55,7 @@ head:
 
 Amazon DynamoDB launched in 2012. Since then it's been adopted everywhere — gaming, fintech, IoT, serverless backends. Over the years, an ecosystem of tools grew around it. But in 2026, a lot of those once-essential tools don't fit anymore — outright dead, no AI capabilities, last release gathering dust from 2022.
 
-Meanwhile, a new wave of tools has turned up with fresh approaches and features. DocKit is one of the newer options. This guide compares the 5 best GUI clients — DocKit, Dynomate, DynamoDB Admin, NoSQL Workbench, and Dynobase (historical) — plus a quick look at emulators, ORMs, and IaC tools.
+Meanwhile, a new wave of tools has turned up with fresh approaches and features. DocKit is one of the newer options. This guide compares the 5 best GUI clients — DocKit, Dynomate, DynamoDB Admin, NoSQL Workbench, and Dynobase — plus a quick look at emulators, ORMs, and IaC tools.
 
 ![DynamoDB GUI Tools](/dynamodb-gui-tools.png)
 
@@ -67,7 +67,7 @@ Meanwhile, a new wave of tools has turned up with fresh approaches and features.
 | Dynomate | $199 one-time | Mac, Win, Linux | SSO teams, Git-native workflows | ❌ |
 | DynamoDB Admin | Free | Browser (local) | Local dev, CI/CD testing | ✅ |
 | NoSQL Workbench | Free | Mac, Win, Linux | Schema modeling, AWS-centric | ❌ |
-| Dynobase | $12-30/mo (inactive) | Mac, Win, Linux | Historical reference only | ❌ |
+| Dynobase | $12-30/mo | Mac, Win, Linux | DynamoDB-only teams | ❌ |
 
 ## 1. DocKit
 
@@ -92,22 +92,16 @@ Free, open source. Does DynamoDB plus Elasticsearch and OpenSearch — handy if 
 
 [Download DocKit](/download) | [Read DynamoDB GUI Guide](/blog/dynamodb-gui)
 
-## 5. Dynobase (Historical)
+## 5. Dynobase
 
-Used to be the best-looking DynamoDB client. Then development stopped.
+Professional DynamoDB client with polished UI. $12-30/mo. Popular among developers who prefer desktop apps over browser-based tools.
 
 GitHub has no releases since 2022 (v3.2.0-beta). The website still links a beta download. Their X account went silent in 2021. The founder moved on.
 
-It was $12-30/mo while it was active.
+**Features:** beautiful UI, visual query builder, cloud sync, team collaboration, export/import, DynamoDB Streams monitoring, DynamoDB Local support.
 
-**Features (when active):** beautiful UI, visual query builder, cloud sync, team collaboration, export/import, DynamoDB Streams monitoring, DynamoDB Local support.
-
-When it worked: great UI, decent docs, cloud sync.
-Now: probably missing newer DynamoDB features, no updates, closed source, DynamoDB only (with Local support), no AI.
-
-**Was best for:** individuals willing to pay for polish, DynamoDB-only teams.
-
-> If you're migrating off Dynobase, DocKit and Dynomate are the actively maintained options in 2026.
+**Good:** polished UI, cloud sync, team collaboration features, DynamoDB Local support.
+**Not great:** paid only, DynamoDB only, no multi-engine support, no AI assistant.
 
 ## 2. Dynomate
 
