@@ -63,15 +63,17 @@ Meanwhile, a new wave of tools has turned up with fresh approaches and features.
 
 | Tool | Price | Platform | Best For | Open Source |
 |------|-------|----------|----------|-------------|
-| DocKit | Free | Mac, Win, Linux | Teams, multi-database workflows | ✅ |
+| DocKit | Free | Mac, Win, Linux | Teams, multi-database workflows | ✅ Apache 2.0 |
 | Dynomate | $199 one-time | Mac, Win, Linux | SSO teams, Git-native workflows | ❌ |
-| DynamoDB Admin | Free | Browser (local) | Local dev, CI/CD testing | ✅ |
+| DynamoDB Admin | Free | Browser (local) | Local dev, CI/CD testing | ✅ MIT |
 | NoSQL Workbench | Free | Mac, Win, Linux | Schema modeling, AWS-centric | ❌ |
 | Dynobase | $12-30/mo | Mac, Win, Linux | DynamoDB-only teams | ❌ |
 
-## 1. DocKit
+## 1. [DocKit](https://www.geekfun.club/products/dockit/)
 
 Free, open source. Does DynamoDB plus Elasticsearch and OpenSearch — handy if your stack isn't just DDB. Built with Tauri/Rust so it's fast and stays light.
+
+![DocKit](/dockit-dynamodb-partiql-scrennshort.png)
 
 **Features:**
 - PartiQL editor with autocomplete and formatting
@@ -83,29 +85,35 @@ Free, open source. Does DynamoDB plus Elasticsearch and OpenSearch — handy if 
 
 **Pricing:** Free (Apache 2.0). No catch.
 
-**Activity:** 1,089 GitHub stars, 30 releases total (14 since Jan 2026). Latest was v0.9.10 a week ago. Roughly 3 releases per month — active.
+**Activity:** 1K+ GitHub stars, dozens of releases (14+ since Jan 2026). Roughly 3 releases per month — active.
 
 **Good:** free, multi-engine, lightweight, local-first, actually open source, AI assistant built in.
+
 **Not great:** newer project, no team sharing, UI is functional not pretty.
 
 **Best for:** teams that need multi-database support, cost-conscious devs, anyone who wants AI-assisted querying without paying.
 
 [Download DocKit](/download) | [Read DynamoDB GUI Guide](/blog/dynamodb-gui)
 
-## 5. Dynobase
+## 5. [Dynobase](https://dynobase.dev/)
 
 Professional DynamoDB client with polished UI. $12-30/mo. Popular among developers who prefer desktop apps over browser-based tools.
+
+![Dynobase](/dynobase-screenshot.png)
 
 GitHub has no releases since 2022 (v3.2.0-beta). The website still links a beta download. Their X account went silent in 2021. The founder moved on.
 
 **Features:** beautiful UI, visual query builder, cloud sync, team collaboration, export/import, DynamoDB Streams monitoring, DynamoDB Local support.
 
 **Good:** polished UI, cloud sync, team collaboration features, DynamoDB Local support.
+
 **Not great:** paid only, DynamoDB only, no multi-engine support, no AI assistant.
 
-## 2. Dynomate
+## 2. [Dynomate](https://www.dynomate.io/)
 
 Most active paid option. $199 one-time. Released v1.15.0 in April 2026 — DynamoDB Local support, SQL console, filter autocomplete, import/export from S3, request collections with Git-native sharing.
+
+![Dynomate](/dynomate-screenshort.png)
 
 **Features:** SSO support, multi-tab queries, SQL console for DynamoDB, import/export (JSON, CSV, S3), cross-account support, request chaining, Git-native query sharing, DynamoDB Local support.
 
@@ -114,32 +122,39 @@ Most active paid option. $199 one-time. Released v1.15.0 in April 2026 — Dynam
 **Activity:** Very active. 15+ releases in 2026 alone (v1.0 to v1.15). Latest: April 28, 2026.
 
 **Good:** very active, SSO works well, SQL console is useful, DynamoDB Local support added April 2026, Git-native collections.
+
 **Not great:** paid only, DynamoDB only, no multi-engine support.
 
 **Best for:** teams using SSO, developers who want Git-native query sharing, anyone willing to pay for a polished desktop client.
 
-## 3. AWS NoSQL Workbench
+## 3. [AWS NoSQL Workbench](https://aws.amazon.com/dynamodb/nosql-workbench/)
 
 Official AWS tool. Free. Good at exactly one thing: schema modeling. For actual querying, not great.
+
+![AWS NoSQL Workbench](/NoSQL-workbench-screenshort.png)
 
 **Features:** visual schema designer, data modeler, sample data generator, query visualizer.
 
 **Activity:** Updated by AWS alongside API changes.
 
 **Good:** best schema designer available, always matches the latest AWS API.
+
 **Not great:** slow (Electron), clunky query editor, DynamoDB only, no multi-table, no AI.
 
 **Best for:** data architects and schema designers. Pair it with DocKit for actual querying.
 
-## 4. DynamoDB Admin
+## 4. [DynamoDB Admin](https://github.com/aaronshaf/dynamodb-admin)
 
 Lightweight Node.js web UI that runs alongside DynamoDB Local.
 
+![DynamoDB Admin](/dynamodb-admin-screenshort.png)
+
 **Features:** basic CRUD operations, simple table browsing, open source (MIT).
 
-**Activity:** v5.2.0 released Apr 9, 2026. 1.5k GitHub stars, 378 commits. Active.
+**Activity:** Recently updated. Active.
 
 **Good:** lightweight, open source, perfect for local dev testing.
+
 **Not great:** local only, very basic feature set, no query builder, no AI.
 
 **Best for:** local development with DynamoDB Local, CI/CD test environments, minimalists who just need CRUD.
