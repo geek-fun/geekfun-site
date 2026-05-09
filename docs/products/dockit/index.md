@@ -62,6 +62,7 @@ head:
         },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE"
       }
+
 hero:
   name: DocKit
   headline: "Write queries in natural language."

@@ -59,6 +59,7 @@ head:
         },
         "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE"
       }
+
 hero:
   name: SqlKit
   headline: "The SQL client built for shipping"

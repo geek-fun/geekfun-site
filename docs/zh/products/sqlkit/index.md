@@ -59,6 +59,7 @@ head:
         },
         "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE"
       }
+
 hero:
   name: SqlKit
   headline: "为发布而生的 SQL 客户端。"

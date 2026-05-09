@@ -1,10 +1,10 @@
 ---
 title: Access and Manage Local DynamoDB with DocKit
-description: Learn how to connect DocKit to DynamoDB Local, query tables with the Visual Query Builder or PartiQL editor, manage tables with the Management Panel, and import/export data for local development.
+description: Learn how to access and manage DynamoDB Local with DocKit GUI. Step-by-step setup for offline development, querying tables, managing data, and CI/CD integration.
 head:
   - - meta
     - name: keywords
-      content: DynamoDB Local GUI, manage DynamoDB Local, DocKit DynamoDB Local, DynamoDB Local import export, DynamoDB Local table management, DynamoDB Local GUI client, access DynamoDB locally, offline DynamoDB development, DocKit DynamoDB, PartiQL DynamoDB Local
+      content: access DynamoDB Local, manage DynamoDB Local, DynamoDB Local GUI, DocKit DynamoDB, DynamoDB local setup, DynamoDB Local management, offline DynamoDB development
   - - link
     - rel: canonical
       href: https://www.geekfun.club/blog/query-dynamodb-locally
@@ -27,7 +27,7 @@ head:
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "Access and Manage Local DynamoDB with DocKit",
-        "description": "Learn how to connect DocKit to DynamoDB Local, query tables with the Visual Query Builder or PartiQL editor, manage tables with the Management Panel, and import/export data for local development.",
+        "description": "Learn how to access and manage DynamoDB Local with DocKit GUI. Step-by-step setup for offline development, querying tables, managing data, and CI/CD integration.",
         "image": "https://www.geekfun.club/dockit-connection-dynamodblocal.png",
         "author": {
           "@type": "Organization",
@@ -43,104 +43,421 @@ head:
           }
         },
         "datePublished": "2025-03-04",
-        "dateModified": "2026-05-05",
+        "dateModified": "2026-04-08",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/query-dynamodb-locally"
         },
-        "keywords": ["DynamoDB Local", "DynamoDB Local GUI", "DocKit", "manage DynamoDB Local", "import export DynamoDB", "DynamoDB Local table management", "local development"],
+        "keywords": ["DynamoDB Local", "manage DynamoDB", "DocKit", "local development"],
         "articleSection": "Database Development"
       }
 ---
 
 # Access and Manage Local DynamoDB with DocKit
 
-**DynamoDB Local** gives you a zero-cost local DynamoDB endpoint — no AWS account, no latency, no billing surprises. But managing it through the CLI means staring at raw JSON output, manually constructing queries, and retyping `--endpoint-url` on every command. **DocKit** replaces all of that with a native desktop interface for browsing tables, writing PartiQL, and inspecting data inline. This post covers how it works end to end.
+**DynamoDB Local** lets you develop offline, iterate faster, and avoid AWS costs—but managing it efficiently requires the right tool. This guide shows how to set up DynamoDB Local and access, query, and manage your local tables with DocKit.
 
+## Why Query DynamoDB Locally?
 
-## Quick Start: Connect DocKit to DynamoDB Local
+### 💰 Zero AWS Costs
 
-Once DynamoDB Local is running, connect to it in DocKit:
+**Cloud DynamoDB Costs:**
+- Read/Write Capacity Units: $0.25-1.25 per million requests
+- Storage: $0.25 per GB-month
+- Data Transfer: $0.09 per GB
 
-![DocKit DynamoDB Local connection screen](/dockit-connection-dynamodblocal.png)
+**Development Team Impact:**
+```
+5 developers × 1,000 queries/day × 30 days = 150,000 requests/month
+Cost: ~$20-50/month (just for development!)
+```
 
+**DynamoDB Local:**
+- **$0** - Completely free
+
+### ⚡ Faster Development Cycle
+
+| Operation | AWS DynamoDB | DynamoDB Local |
+|-----------|--------------|----------------|
+| **Query Latency** | 10-50ms | < 5ms |
+| **Table Creation** | ~30s | < 1s |
+| **Schema Changes** | Slow (production risk) | Instant |
+| **Reset Data** | Manual deletion | Docker restart |
+
+### 🔒 No AWS Credentials Required
+
+- No IAM setup needed for local development
+- No credential rotation
+- No accidental production access
+- Junior developers can test safely
+
+### ✈️ Offline Development
+
+Work anywhere:
+- Flights and travel
+- Remote locations
+- Network outages
+- Restricted environments
+
+---
+
+## Quick Start: DynamoDB Local Setup
+
+### Option 1: Docker (Recommended)
+
+**Step 1: Run DynamoDB Local**
+```bash
+docker run -d \
+  --name dynamodb-local \
+  -p 8000:8000 \
+  amazon/dynamodb-local
+```
+
+**Step 2: Verify it's running**
+```bash
+curl http://localhost:8000
+# Should return: "healthy"
+```
+
+**Step 3: Connect with DocKit**
 1. Open DocKit
-2. Click the bottom-right **+** icon and select DynamoDB to add a connection
-3. Enter your desired connection name (e.g. `my-dynamodb-local`), then click the **Local** tab for a DynamoDB Local connection
-4. Endpoint: `http://localhost:8000` by default — update it depending on your local server setup
-5. DocKit loads all tables on the server, but you can choose whether to work with all tables or only the ones you care about
-6. Click **Confirm** — you're ready to query. ✅
+2. Add Connection → DynamoDB
+3. Select "DynamoDB Local"
+4. Endpoint: `http://localhost:8000`
+5. Region: `us-east-1` (any region works locally)
+6. Access Key: `fakekey` (any value works)
+7. Secret Key: `fakesecret` (any value works)
 
+✅ **You're ready to query!**
 
-See **[How to Set Up DynamoDB Local for Local Development](/blog/setup-dynamodb-local)** for the full environment setup guide.
+---
+
+### Option 2: JAR File (No Docker)
+
+**Step 1: Download DynamoDB Local**
+```bash
+# Create directory
+mkdir ~/dynamodb-local
+cd ~/dynamodb-local
+
+# Download (1.21.0 as of 2026)
+wget https://d1ni2b6xgvw0s0.cloudfront.net/v2.x/dynamodb_local_latest.tar.gz
+
+# Extract
+tar -xvzf dynamodb_local_latest.tar.gz
+```
+
+**Step 2: Run DynamoDB Local**
+```bash
+java -Djava.library.path=./DynamoDBLocal_lib \
+  -jar DynamoDBLocal.jar \
+  -sharedDb
+```
+
+**Step 3: Connect with DocKit** (same as Docker option above)
+
+---
+
+### Option 3: npm (For Node.js Projects)
+
+**Step 1: Install as dev dependency**
+```bash
+npm install --save-dev dynamodb-local
+```
+
+**Step 2: Add to package.json**
+```json
+{
+  "scripts": {
+    "dynamodb": "dynamodb-local",
+    "test": "npm run dynamodb & sleep 2 && jest"
+  }
+}
+```
+
+**Step 3: Start and connect**
+```bash
+npm run dynamodb
+# Then connect DocKit to localhost:8000
+```
+
+---
+
+## Creating Your First Local Table
+
+### Using DocKit GUI
+
+1. **Connect to DynamoDB Local** (see Quick Start above)
+2. **Create Table:**
+   - Click "Create Table" button
+   - Table Name: `Users`
+   - Partition Key: `userId` (String)
+   - (Optional) Sort Key: `email` (String)
+   - Read/Write Capacity: Any values (ignored locally)
+3. **Click "Create"**
+
+Table created in < 1 second!
+
+### Using AWS CLI
+
+```bash
+aws dynamodb create-table \
+  --endpoint-url http://localhost:8000 \
+  --table-name Users \
+  --attribute-definitions \
+    AttributeName=userId,AttributeType=S \
+  --key-schema \
+    AttributeName=userId,KeyType=HASH \
+  --billing-mode PAY_PER_REQUEST
+```
+
+**Note:** Always use `--endpoint-url http://localhost:8000` for local commands.
+
+---
 
 ## Querying DynamoDB Local with DocKit
 
-DocKit provides both a Visual Query Builder and a PartiQL editor. The Visual Query Builder lets you access DynamoDB data interactively — a much better experience for anyone not familiar with CLI or SQL, or who simply doesn't want to touch it (fair enough). For those who are especially comfortable with SQL — DBAs in particular — the PartiQL editor offers intelligent autocomplete and a clean result table with automatic pagination.
-
-There is no right answer for which to pick; it's all about what feels natural.
-
 ### Visual Query Builder
 
-![DocKit DynamoDB Visual Query Builder screenshot](/dockit-dynamodb-visual-query-builder.png)
+**1. Insert Sample Data**
 
+Click "Insert Item" in DocKit:
+```json
+{
+  "userId": "user-001",
+  "email": "alice@example.com",
+  "name": "Alice Smith",
+  "createdAt": "2026-01-28T10:00:00Z"
+}
+```
+
+**2. Query Using Visual Builder**
+
+- Table: `Users`
+- Operation: `Query`
+- Partition Key: `userId = "user-001"`
+- Execute (Cmd/Ctrl + Enter)
+
+**Result:**
+```json
+{
+  "Items": [
+    {
+      "userId": "user-001",
+      "email": "alice@example.com",
+      "name": "Alice Smith",
+      "createdAt": "2026-01-28T10:00:00Z"
+    }
+  ],
+  "Count": 1
+}
+```
 
 ### PartiQL Editor
 
 DocKit's PartiQL editor works identically with local and cloud DynamoDB:
 
-![DocKit DynamoDB PartiQL Editor screenshot](/dockit-dynamodb-sql-editor.png)
+**Select:**
+```sql
+SELECT * FROM Users WHERE userId = 'user-001'
+```
 
-Common editor shortcuts (`Cmd+Enter` to execute, `Cmd+I` to format, `Cmd+Space` for autocomplete) work here too. See the [full shortcuts reference](/docs/dockit/shortcut) for all available keybindings.
+**Insert:**
+```sql
+INSERT INTO Users VALUE {
+  'userId': 'user-002',
+  'email': 'bob@example.com',
+  'name': 'Bob Johnson'
+}
+```
 
+**Update:**
+```sql
+UPDATE Users 
+SET email = 'alice.new@example.com' 
+WHERE userId = 'user-001'
+```
 
-## Managing DynamoDB Local with DocKit
+**Delete:**
+```sql
+DELETE FROM Users WHERE userId = 'user-002'
+```
 
-Once connected, DocKit gives you a full management UI for your local DynamoDB — no CLI required for day-to-day tasks.
+---
 
-### Table Management Panel
+## Advanced Local Development Patterns
 
-The Management Panel toolbar lets you view and manage all tables on your local instance at a glance:
+### 1. Reset Data Between Tests
 
-![DocKit DynamoDB Manage panel for local screenshot](/dockit-dynamodb-manage-local.png)
+**Docker:**
+```bash
+# Stop and remove container (deletes all data)
+docker stop dynamodb-local
+docker rm dynamodb-local
 
-- **Browse tables** — see all tables with their key schema, billing mode, and item count
-- **Create tables** — define partition key, sort key, and GSIs through a guided form; no JSON or CLI flags needed
-- **Delete tables** — right-click any table to drop it instantly
-- **Describe table** — inspect full metadata, attribute definitions, and index configuration inline
+# Start fresh instance
+docker run -d --name dynamodb-local -p 8000:8000 amazon/dynamodb-local
+```
 
-### Import & Export Data
+**JAR with Persistence:**
+```bash
+# Run with data directory
+java -Djava.library.path=./DynamoDBLocal_lib \
+  -jar DynamoDBLocal.jar \
+  -sharedDb \
+  -dbPath ./data
 
-Teams frequently write ad-hoc seed scripts for local DynamoDB — scripts that live in someone's local directory, break when environments change, and nobody else can reproduce. DocKit's import/export panel handles table backup, environment migration, and test fixture sharing directly from the GUI.
+# Reset data
+rm -rf ./data
+```
 
-![DocKit DynamoDB Import Export Data screenshot](/dockit-dynamodb-import-export.png)
+### 2. Seed Data Script
 
-**Export data from local DynamoDB:**
+**Node.js Example:**
+```javascript
+// seed-local-dynamodb.js
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBDocumentClient, PutCommand } = require('@aws-sdk/lib-dynamodb');
 
-1. Open the Import/Export panel by clicking the **Import/Export** icon in the nav bar
-2. Select **Export** — it will redirect you to the export panel
-3. Follow the step-by-step guide to select source connection and table, Schema & Structure, and Target & Output including export file type and location
-4. Click **Start Export** to begin the task — you can view all running import/export tasks and history in Task Manager
+const client = new DynamoDBClient({
+  endpoint: 'http://localhost:8000',
+  region: 'us-east-1',
+  credentials: {
+    accessKeyId: 'fakekey',
+    secretAccessKey: 'fakesecret'
+  }
+});
 
-The exported data can easily be imported into any target DynamoDB table.
+const docClient = DynamoDBDocumentClient.from(client);
 
-**Import data into local DynamoDB:**
+const users = [
+  { userId: 'user-001', name: 'Alice', email: 'alice@example.com' },
+  { userId: 'user-002', name: 'Bob', email: 'bob@example.com' },
+  { userId: 'user-003', name: 'Charlie', email: 'charlie@example.com' }
+];
 
-1. In the same Import/Export panel, click **Import**
-2. Follow the guide to select your Target & Output connection and DynamoDB table
-3. Upload the schema (only required when importing and creating a new table at the same time) and data file
-4. Click **Start Import** to begin the task
+async function seed() {
+  for (const user of users) {
+    await docClient.send(new PutCommand({
+      TableName: 'Users',
+      Item: user
+    }));
+  }
+  console.log('Seeded', users.length, 'users');
+}
 
-### Browsing and Editing Data
+seed();
+```
 
-DocKit renders items as a formatted table with inline JSON expansion — easier to spot data shape issues than raw CLI output:
+**Run:**
+```bash
+node seed-local-dynamodb.js
+# Then query in DocKit
+```
 
-![DocKit DynamoDB Modify Item screenshot](/dockit-dynamodb-edit-item.png)
+### 3. Docker Compose for Team Consistency
 
-- **Inline edit** — double-click any field to update it in place
-- **Delete items** — select one or more rows and delete with a single click
-- **Copy as JSON** — copy any item to clipboard for use in tests or docs
+**docker-compose.yml:**
+```yaml
+version: '3.8'
+services:
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    container_name: dynamodb
+    ports:
+      - "8000:8000"
+    command: "-jar DynamoDBLocal.jar -sharedDb"
+    volumes:
+      - ./dynamodb-data:/home/dynamodblocal/data
+```
 
+**Usage:**
+```bash
+# Start
+docker-compose up -d
+
+# Stop (preserve data)
+docker-compose down
+
+# Reset data
+rm -rf ./dynamodb-data
+docker-compose up -d
+```
+
+---
+
+## CI/CD Integration
+
+### GitHub Actions Example
+
+```yaml
+name: Test with DynamoDB Local
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    services:
+      dynamodb:
+        image: amazon/dynamodb-local
+        ports:
+          - 8000:8000
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Create test tables
+        run: npm run create-tables
+        env:
+          DYNAMODB_ENDPOINT: http://localhost:8000
+      
+      - name: Run tests
+        run: npm test
+```
+
+### Jest Testing
+
+**jest.config.js:**
+```javascript
+module.exports = {
+  setupFilesAfterEnv: ['./test-setup.js'],
+  testEnvironment: 'node'
+};
+```
+
+**test-setup.js:**
+```javascript
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
+const { CreateTableCommand } = require('@aws-sdk/client-dynamodb');
+
+const client = new DynamoDBClient({
+  endpoint: process.env.DYNAMODB_ENDPOINT || 'http://localhost:8000',
+  region: 'us-east-1',
+  credentials: { accessKeyId: 'test', secretAccessKey: 'test' }
+});
+
+beforeAll(async () => {
+  // Create test table
+  await client.send(new CreateTableCommand({
+    TableName: 'Users',
+    KeySchema: [{ AttributeName: 'userId', KeyType: 'HASH' }],
+    AttributeDefinitions: [{ AttributeName: 'userId', AttributeType: 'S' }],
+    BillingMode: 'PAY_PER_REQUEST'
+  }));
+});
+```
+
+---
 
 ## Differences: Local vs. Cloud DynamoDB
 
@@ -161,18 +478,285 @@ DocKit renders items as a formatted table with inline JSON expansion — easier 
 
 **Recommendation:** Use local for 99% of development, test production behavior in staging.
 
+---
 
+## Best Practices
 
-## Summary
+### 1. Use Environment Variables
 
-DynamoDB Local on its own is just an endpoint. DocKit makes it feel like a real development environment. Query with the visual builder or PartiQL, seed data through import/export, inspect schemas without hunting through CLI output — all in one desktop app.
+```javascript
+const DYNAMODB_CONFIG = {
+  endpoint: process.env.DYNAMODB_ENDPOINT,
+  region: process.env.AWS_REGION || 'us-east-1',
+  credentials: process.env.DYNAMODB_ENDPOINT ? {
+    accessKeyId: 'local',
+    secretAccessKey: 'local'
+  } : undefined  // Use default AWS credentials in production
+};
+```
 
-If you haven't set up DynamoDB Local yet, start with **[How to Set Up DynamoDB Local for Local Development](/blog/setup-dynamodb-local)**. Once it's running, [download DocKit](/download) and connect in under a minute.
+**.env.development:**
+```
+DYNAMODB_ENDPOINT=http://localhost:8000
+```
+
+**.env.production:**
+```
+# DYNAMODB_ENDPOINT not set = use AWS
+```
+
+### 2. Shared Database vs. Per-Table Files
+
+**Shared Database** (recommended):
+```bash
+java -jar DynamoDBLocal.jar -sharedDb
+```
+- One file for all tables
+- Faster
+- Simpler
+
+**Per-Table Files:**
+```bash
+java -jar DynamoDBLocal.jar
+```
+- Separate file per table
+- Better isolation
+- Easier to debug
+
+### 3. Version Pin
+
+Specify exact DynamoDB Local version:
+
+**Docker:**
+```yaml
+# Instead of `latest`, use specific version
+image: amazon/dynamodb-local:2.0.0
+```
+
+**npm:**
+```json
+{
+  "devDependencies": {
+    "dynamodb-local": "2.0.0"
+  }
+}
+```
+
+Prevents unexpected behavior changes.
+
+---
+
+## Debugging Local Queries
+
+### Enable Verbose Logging
+
+**JAR:**
+```bash
+java -Djava.library.path=./DynamoDBLocal_lib \
+  -jar DynamoDBLocal.jar \
+  -sharedDb \
+  -inMemory \
+  -port 8000 \
+  -cors "*"
+```
+
+**Docker:**
+```bash
+docker logs dynamodb-local
+```
+
+### Common Issues
+
+**Problem: Connection Refused**
+```
+Error: connect ECONNREFUSED 127.0.0.1:8000
+```
+
+**Solution:**
+```bash
+# Check if running
+docker ps | grep dynamodb
+
+# Start if not running
+docker start dynamodb-local
+```
+
+**Problem: InvalidSignatureException**
+```
+InvalidSignatureException: The request signature we calculated does not match
+```
+
+**Solution:**
+Use any credentials (they're not validated locally):
+```javascript
+credentials: {
+  accessKeyId: 'test',
+  secretAccessKey: 'test'
+}
+```
+
+**Problem: Table Already Exists**
+```
+ResourceInUseException: Table already exists
+```
+
+**Solution:**
+```bash
+# Delete table first
+aws dynamodb delete-table \
+  --endpoint-url http://localhost:8000 \
+  --table-name Users
+
+# Or reset entire database (Docker)
+docker restart dynamodb-local
+```
+
+---
+
+## DocKit Features for Local Development
+
+### 1. Connection Profiles
+
+Save multiple local setups:
+
+- **Local (in-memory)**: `http://localhost:8000`
+- **Local (persistent)**: `http://localhost:8001` (different port)
+- **Docker Compose**: `http://localhost:8002`
+
+Switch instantly with dropdown.
+
+### 2. Query Templates
+
+Save reusable local queries:
+
+**Create Test User:**
+```sql
+INSERT INTO Users VALUE {
+  'userId': 'test-{{timestamp}}',
+  'email': 'test@example.com',
+  'createdAt': '{{now}}'
+}
+```
+
+DocKit replaces placeholders automatically.
+
+### 3. Export/Import Data
+
+**Export from Local:**
+1. Query: `SELECT * FROM Users`
+2. Export → JSON
+3. Save as `users-fixture.json`
+
+**Import to Local:**
+1. Import → Select `users-fixture.json`
+2. Table: `Users`
+3. Batch import
+
+Perfect for test fixtures!
+
+---
+
+## Migration from Local to Production
+
+### 1. Test Data Cleanup
+
+Never deploy test data:
+
+```bash
+# WRONG - test data in production
+aws dynamodb put-item --table-name Users --item '{...}'
+
+# RIGHT - seed only in local
+if [ "$ENV" = "development" ]; then
+  npm run seed-local-data
+fi
+```
+
+### 2. Schema Migration
+
+Use Infrastructure as Code (IaC):
+
+**Terraform:**
+```hcl
+resource "aws_dynamodb_table" "users" {
+  name         = "Users"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "userId"
+
+  attribute {
+    name = "userId"
+    type = "S"
+  }
+}
+```
+
+Deploy same schema locally and in production.
+
+### 3. Endpoint Configuration
+
+```typescript
+const getDynamoDBClient = () => {
+  const config = {
+    region: process.env.AWS_REGION || 'us-east-1'
+  };
+
+  if (process.env.NODE_ENV === 'development') {
+    config.endpoint = 'http://localhost:8000';
+    config.credentials = {
+      accessKeyId: 'local',
+      secretAccessKey: 'local'
+    };
+  }
+
+  return new DynamoDBClient(config);
+};
+```
+
+---
 
 ## Learn More
 
-- **[How to Set Up DynamoDB Local for Local Development](/blog/setup-dynamodb-local)** — Full local environment setup guide
-- **[Managing your DynamoDB tables with DocKit](/blog/dynamodb-gui-client)** — DocKit DynamoDB feature overview
-- **[Download DocKit](/download)** — Get started
+- **[DynamoDB GUI Client](/blog/dynamodb-gui)** - DocKit DynamoDB features
+- **[DynamoDB PartiQL Editor](/products/dockit/features/dynamodb-partiql)** - PartiQL syntax guide
+- **[Best DynamoDB GUI Clients](/blog/best-dynamodb-gui-client-2026)** - Tool comparison
+- **[Download DocKit](/download)** - Get started free
 
-*Last updated: May 2026*
+---
+
+## Quick Reference Commands
+
+**Docker:**
+```bash
+# Start
+docker run -d -p 8000:8000 --name dynamodb-local amazon/dynamodb-local
+
+# Stop
+docker stop dynamodb-local
+
+# Restart (clear data)
+docker rm dynamodb-local && docker run -d -p 8000:8000 --name dynamodb-local amazon/dynamodb-local
+```
+
+**AWS CLI:**
+```bash
+# List tables
+aws dynamodb list-tables --endpoint-url http://localhost:8000
+
+# Describe table
+aws dynamodb describe-table --table-name Users --endpoint-url http://localhost:8000
+
+# Delete table
+aws dynamodb delete-table --table-name Users --endpoint-url http://localhost:8000
+```
+
+**DocKit Connection:**
+```
+Endpoint: http://localhost:8000
+Region: us-east-1
+Access Key: (any value)
+Secret Key: (any value)
+```
+
+---
+
+*Last updated: January 2026*
