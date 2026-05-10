@@ -27,6 +27,11 @@ head:
 
 产品更新、技术深度解析，以及来自 GEEKFUN 团队构建开源数据库工具的实践记录。
 
+## [DocKit v1.0 正式介绍 — 首个稳定版本](/zh/blog/introducing-dockit-v1)
+*2026年5月10日*
+
+历经 2 年 10 个月、970 次提交、244 个合并 PR 和 70 个版本发布，DocKit 首个稳定版正式发布。从头梳理：从 Electron 到 Tauri v2 的演进、三次 UI 重写、DynamoDB 集成、AI 支持，以及平台今天能做的一切。
+
 ## [2026 年最佳 DynamoDB GUI 客户端：5 款工具对比](/zh/blog/best-dynamodb-gui-client-2026)
 *2026年5月9日*
 

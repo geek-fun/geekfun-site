@@ -30,9 +30,9 @@ const content = computed(() => {
   const isZh = lang.value === 'zh'
   return {
     announcement: {
-      text: isZh ? 'DocKit v0.9 已发布 — 全新 UI 设计、查询历史记录和完整 DynamoDB 支持现已上线。' : 'DocKit v0.9 is here — Experience the redesigned UI, advanced Query History, and full DynamoDB support.',
+      text: isZh ? 'DocKit v1.0 正式发布 — 首个稳定版本现已上线，支持 DynamoDB、Elasticsearch 和 OpenSearch。' : 'DocKit v1.0 is here — the first stable release. AI-native NoSQL for DynamoDB, Elasticsearch, and OpenSearch.',
       linkText: isZh ? '查看详情 →' : 'Read the announcement →',
-      link: isZh ? '/zh/news/dockit-v0-8-dynamodb-support' : '/news/dockit-v0-9-release'
+      link: isZh ? '/zh/news/dockit-v1-0-release' : '/news/dockit-v1-0-release'
     },
     hero: {
       name: isZh ? '极客范' : 'GEEKFUN',
