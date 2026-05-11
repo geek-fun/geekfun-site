@@ -27,6 +27,12 @@ head:
 
 及时了解 GEEKFUN 社区的最新公告、发布和更新。在这里您将找到关于我们项目的新闻、新功能、社区活动和重要里程碑。
 
+## [🎉 DocKit v1.0 发布：首个稳定版本](/zh/news/dockit-v1-0-release)
+
+**2026年5月10日** — DocKit 发布首个稳定版本。历经两年开发、一次完整的 UI 重写和 30 多个版本的迭代，这款 AI 原生 NoSQL 桌面客户端正式步入 **v1.0.0**。全面支持 DynamoDB、Elasticsearch 和 OpenSearch。新增 ES|QL 自动补全、统一查询语言注册中心、模板 body 补全以及管理面板列排序。阅读[完整公告](/zh/news/dockit-v1-0-release)或 [1.0 博客文章](/zh/blog/introducing-dockit-v1)。
+
+⭐ **[GitHub 发布](https://github.com/geek-fun/dockit/releases/tag/v1.0.0)** | 📥 **[下载](/zh/products/dockit/)**
+
 ## [🚀 DocKit v0.9.10 发布：智能补全、Data Studio Agent 与跨应用认证](https://github.com/geek-fun/dockit/releases/tag/v0.9.10)
 
 **2026年4月28日** — 60+ 次提交，覆盖 Data Studio AI Agent、完整的 UI 迁移和编辑器改进。

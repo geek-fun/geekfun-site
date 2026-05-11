@@ -27,6 +27,12 @@ Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
 Product releases, feature updates, and community milestones from the GEEKFUN team.
 
+## [🎉 DocKit v1.0 Released: First Stable Release](/news/dockit-v1-0-release)
+
+**May 10, 2026** — DocKit ships its first stable release. After two years of development, a complete UI rewrite, and 30+ releases, the AI-native NoSQL desktop client graduates to **v1.0.0**. Full DynamoDB, Elasticsearch, and OpenSearch support. ES|QL autocomplete, unified query language registry, template body completion, and column sorting in the Manage panel. Read the [full announcement](/news/dockit-v1-0-release) or the [1.0 blog post](/blog/introducing-dockit-v1).
+
+⭐ **[GitHub Release](https://github.com/geek-fun/dockit/releases/tag/v1.0.0)** | 📥 **[Download](/products/dockit/)**
+
 ## [🚀 DocKit v0.9.10 Released: Smarter Auto-completion, Data Studio Agent & Cross-App Auth](https://github.com/geek-fun/dockit/releases/tag/v0.9.10)
 
 **April 28, 2026** — 60+ commits across the Data Studio AI agent, complete UI migration, and editor improvements.

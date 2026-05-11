@@ -54,7 +54,7 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "0.9.0",
+        "softwareVersion": "1.0.0",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

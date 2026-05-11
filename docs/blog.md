@@ -27,6 +27,11 @@ Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:
 
 Product updates, technical deep-dives, and lessons from building open-source database tools. Written by the GEEKFUN team.
 
+## [DocKit 1.0 - The NoSQL desktop client developers deserved](/blog/introducing-dockit-v1)
+*May 10, 2026*
+
+After 2 years and 10 months, 970 commits, 244 merged PRs, and 70 releases, DocKit ships its first stable release. A complete re-introduction from scratch: the journey from Electron to Tauri v2, three UI rewrites, DynamoDB, AI integration, and everything the platform does today.
+
 ## [Best DynamoDB GUI Clients in 2026: 5 Tools Compared](/blog/best-dynamodb-gui-client-2026)
 *May 9, 2026*
 
