@@ -69,7 +69,7 @@ head:
 
 **频繁丢失的语句。** 浏览器工具不像桌面应用那样持有状态。Kibana 新标签页打开 Dashboard，筛选条件直接没了（[#188914](https://github.com/elastic/kibana/issues/188914)，至今未修）。离开几分钟，Session 过期，回到登录页，全丢了（[#106235](https://github.com/elastic/kibana/issues/106235)，还开着）。AWS 控制台同理：Session 刷新还会清掉你正在填的表单。不是你忘了保存，是工具替你忘了。DocKit 一切保存在本地。查询就是文件系统上的文件。历史自动记录：每个连接 500 条，没有 Session 过期。
 
-**强制绑定的客户端。** 每个 Web UI 都被捆在单个后端上。Kibana 一个实例只能连一个 ES 集群——他们关了多集群请求（[#25183](https://github.com/elastic/kibana/issues/25183)），理由是"长期目标是一个 ES 集群对应一个 Kibana"。OpenSearch Dashboards 同理。AWS 控制台把你锁在 DynamoDB 单标签页里，Session 还有倒计时。要同时看 staging 和生产？两个 Kibana 实例，两套登录，两个标签页。换个数据库？换套工具。三个引擎，三个客户端，你的机器全跑着——各自有各自的丢法。DocKit 在一个窗口里连接多个集群。DynamoDB、Elasticsearch、OpenSearch，同一个编辑器，同一套快捷键。MongoDB 也快来了。点一下切换，不用新实例，不用重复登录。
+**强制绑定的客户端。** 每个 Web UI 都被捆在单个后端上。Kibana 和 OpenSearch Dashboards 一个实例只能连一个集群——Kibana 明确关了多集群请求（[#25183](https://github.com/elastic/kibana/issues/25183)），称之为"长期目标"。AWS 控制台把你锁在 DynamoDB 单标签页里，Session 还有倒计时。结果就是：staging 和生产？两个实例，两套登录。换个数据库？换套工具。每个后端都是一个跑在你机器上的新客户端。DocKit 在一个窗口里连接多个集群。DynamoDB、Elasticsearch、OpenSearch，同一个编辑器，同一套快捷键。MongoDB 也快来了。点一下切换，不用新实例，不用重复登录。
 
 它是为每天写查询的开发者而生的——需要查「为什么这条搜索返回空结果」、探索某个 DynamoDB 表结构，并且在几秒内得到答案的人。
 
