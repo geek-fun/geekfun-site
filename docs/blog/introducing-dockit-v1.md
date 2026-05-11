@@ -91,7 +91,7 @@ Monaco — the same engine inside VS Code — handles everything. Syntax highlig
 
 Grammar-driven completion for Elasticsearch, OpenSearch, and DynamoDB. 37 test cases covering API versions from 0.90 to 9.x. ES|QL autocomplete with sources, commands, and function suggestions. A query language registry so SQL, PPL, EQL, DSL, and PartiQL all share the same completion engine. Body completion for field mappings, index settings, and component templates. JSON5 support: inline comments, trailing commas, unquoted keys. Write queries the way you think, not the way the parser insists. And Ctrl+D on any API endpoint opens the exact documentation page for that operation, version-matched to your cluster.
 
-### Never lose a query again
+### Queries, persistently saved
 
 No save button. No config. DocKit records every query you run, across all three engines, automatically. 500 entries per connection, stored locally.
 
@@ -105,15 +105,15 @@ For DynamoDB, you get a visual query builder with primary key filtering and adva
 
 For Elasticsearch and OpenSearch, you get Monaco-backed editing with grammar-driven completion (37 test cases, v0.90 to 9.x), plus full cluster management: node health, shard state, index operations, alias control — all visual, no `_cat` curling. Column sorting, system index filtering.
 
-### Move data in and out
+### Fast streaming import and export
 
 JSON, CSV, JSONL. Batch operations through millions of records. Move data between clusters, back up tables for development, seed test environments. Works across Elasticsearch, OpenSearch, and DynamoDB.
 
-### Your data never leaves your machine
+### Local-first, privacy by design
 
 DocKit is local-first by design. Connections, queries, and history live on your filesystem. Credentials are encrypted by your OS keychain (macOS Keychain, Windows Credential Manager, Linux libsecret). Zero telemetry. No analytics, no cloud sync, no phoning home. No internet connection required. It works fully offline. Apache 2.0 licensed. No feature gating.
 
-### Runs everywhere, weighs nothing
+### Cross-platform — macOS, Windows, Linux
 
 Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses the OS-native webview: WebKit on macOS, WebView2 on Windows, WebKitGTK on Linux. No bundled browser engine.
 
