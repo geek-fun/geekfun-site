@@ -75,9 +75,9 @@ head:
 
 ## DocKit 能做什么
 
-### 读懂你数据结构的 AI
+### 用自然语言写数据库查询
 
-DocKit 的 AI 助手不是通用聊天机器人。生成查询前，它会读取你的表结构、索引映射和字段类型。描述你的需求：
+AI 助手理解你的数据库结构，所以生成的查询是真正能跑的。描述你的需求：
 
 - "查找最近 7 天注册且邮箱未验证的用户"
 - "按产品类别聚合 2026 年第一季度的销售额"
@@ -85,35 +85,35 @@ DocKit 的 AI 助手不是通用聊天机器人。生成查询前，它会读取
 
 你得到的是能实际运行的查询 — DynamoDB PartiQL 或 Elasticsearch DSL — 带有正确的字段名、正确的操作符、正确的语法。内置 OpenAI 和 DeepSeek。自带 API Key，查询数据不离本地。
 
-### 开发者应得的编辑器
+### VS Code 级别的数据库编辑
 
 Monaco Editor — VS Code 同款引擎 — 处理所有编辑工作。语法高亮、智能补全、多光标编辑、括号匹配，以及你早已记熟的每个快捷键。还不止这些：
 
 语法驱动补全引擎，覆盖 Elasticsearch、OpenSearch 和 DynamoDB。37 个测试用例验证从 v0.90 到 v9.x 的 API 版本覆盖。ES|QL 自动补全，支持数据源、命令和函数建议。查询语言注册中心，SQL、PPL、EQL、DSL 和 PartiQL 共享同一套补全架构。Body 补全，输入时自动提示字段映射、索引设置、组件模板。JSON5 支持：行内注释、尾逗号、无引号键名。按你的思考方式写查询，而不是按解析器的要求。Ctrl+D 文档快捷键，在任意 API 端点上按 Ctrl+D，打开该操作的精确文档页面，版本与你的集群匹配。
 
-### 查询历史，无需操心
+### 再也不会丢查询
 
 没有保存按钮。没有配置。DocKit 自动记录你执行的每条查询，跨三个引擎。每个连接 500 条，存储在你的机器上。
 
 每条记录捕获方法、路径、连接名和时间戳（Elasticsearch/OpenSearch），或查询类型、表和时间戳（DynamoDB）。键盘导航浏览历史。复制到剪贴板。载回编辑器。一键重新执行。覆盖 PartiQL 语句、Elasticsearch DSL 查询和可视化表单查询。
 
-### 多引擎支持
+### 一个工具，三种数据库
 
-DocKit 把 DynamoDB、Elasticsearch 和 OpenSearch 平等地放在同一个界面里。引擎之间即时切换——同一个编辑器，同一套快捷键。
+DynamoDB、Elasticsearch、OpenSearch——同一个编辑器，同一套快捷键。引擎之间即时切换。
 
-DynamoDB 方面，你得到可视化查询构建器，带主键过滤和高级条件。PartiQL 编辑器，完整自动补全、语法高亮、文档格式化和 Gutter 执行。行内编辑——在结果中直接更新和删除条目。表管理支持 GSI/LSI 操作和 CloudWatch 指标。DynamoDB Local 离线开发。SSO 和 AssumeRole 跨账户 AWS 认证。
+DynamoDB 方面，可视化查询构建器，带主键过滤和高级条件。PartiQL 编辑器，完整自动补全、语法高亮、文档格式化和 Gutter 执行。行内编辑——在结果中直接更新和删除条目。表管理支持 GSI/LSI 操作和 CloudWatch 指标。DynamoDB Local 离线开发。SSO 和 AssumeRole 跨账户 AWS 认证。
 
-Elasticsearch 和 OpenSearch 方面，你得到 Monaco 支持的编辑和语法驱动补全（37 个测试用例，v0.90 到 9.x），外加完整的集群管理：节点健康、分片状态、索引操作、别名控制——全部可视化，不用手敲 `_cat`。列排序，系统索引过滤。
+Elasticsearch 和 OpenSearch 方面，Monaco 支持的编辑和语法驱动补全（37 个测试用例，v0.90 到 9.x），外加完整的集群管理：节点健康、分片状态、索引操作、别名控制——全部可视化，不用手敲 `_cat`。列排序，系统索引过滤。
 
-### 规模化导入导出
+### 数据自由进出
 
 JSON、CSV、JSONL。批量操作处理百万级记录。在集群间迁移数据、为开发环境备份表、给测试环境播种数据。跨 Elasticsearch、OpenSearch 和 DynamoDB。
 
-### 隐私优先架构
+### 你的数据不离开你的电脑
 
 DocKit 设计上就是本地优先的。连接、查询和历史存储在你的文件系统上。凭证由操作系统钥匙串加密（macOS Keychain、Windows 凭据管理器、Linux libsecret）。零遥测。无分析、无回传、无云同步。无需网络连接。完全离线可用。Apache 2.0 许可。无功能锁。
 
-### 跨平台，真正的轻量
+### 到处能跑，轻若无物
 
 基于 Tauri v2 构建，不是 Electron。macOS 安装包不到 10MB。Tauri 使用操作系统的原生 webview（macOS 上 WebKit、Windows 上 WebView2、Linux 上 WebKitGTK），因此没有捆绑的浏览器引擎。
 
