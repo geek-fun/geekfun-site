@@ -63,7 +63,7 @@ After 2 years and 10 months, DocKit ships its first stable release. A project th
 
 ## The frustration before DocKit
 
-Browser-based NoSQL tools share the same structural problems regardless of which engine you're working with. Kibana, OpenSearch Dashboards, the AWS Console — different logos, same pain points.
+Browser-based NoSQL tools share the same structural problems: bloat, state loss, and client lock-in. Kibana, OpenSearch Dashboards, the AWS Console — different logos, same pain points.
 
 **Bloat by default.** These tools are built as full platforms: dashboards, monitoring, alerting, visualization engines. But most of the time you just need to run queries. Kibana costs you a container, 30 seconds to start, and 500MB of RAM before you've typed a single line. Its autocomplete alone spikes CPU across every warm node in the cluster. OpenSearch Dashboards has the same architecture, same overhead. DocKit is a query editor, not a platform. Native desktop app on Tauri. Under 10MB. Two seconds to launch.
 

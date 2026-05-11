@@ -63,7 +63,7 @@ head:
 
 ## DocKit 之前的烦恼
 
-浏览器端的 NoSQL 工具共享着一套通病，不管你用哪个引擎。Kibana、OpenSearch Dashboards、AWS 控制台——不同 Logo，同一套痛点。
+浏览器端的 NoSQL 工具共享着一套通病：臃肿、丢状态、客户端强绑定。Kibana、OpenSearch Dashboards、AWS 控制台——不同 Logo，同一套痛点。
 
 **不必要的臃肿。** 这些工具被做成完整平台：仪表盘、监控、告警、可视化引擎。但大多数时候你只需要跑查询。Kibana 让你背上容器、30 秒启动、500MB 内存，一行查询还没写。光是自动补全就能打满集群每个 warm 节点的 CPU。OpenSearch Dashboards 架构相同，开销相同。DocKit 是查询编辑器，不是平台。基于 Tauri 的原生桌面应用。不到 10MB，两秒启动。
 
