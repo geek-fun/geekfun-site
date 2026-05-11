@@ -67,9 +67,7 @@ After 2 years and 10 months, DocKit ships its first stable release. A project th
 
 **Disappearing queries.** Open a dashboard in a new tab and your filters vanish (Kibana #188914, still open). Step away for a few minutes and the session expires — back to login, everything gone (#106235, also still open). You didn't forget to save. The tool forgot for you. DocKit saves everything locally. Queries are files on your filesystem. History is automatic: 500 entries per connection, no session to expire.
 
-**Can't switch clusters.** Need staging and production? Kibana's answer: open two instances, two logins, two sets of state to lose. They closed the multi-cluster request (#25183) with "we have a long-standing goal of having a Kibana per Elasticsearch cluster." DocKit connects to multiple clusters in one window. Click to switch. Same editor, same shortcuts.
-
-**Locked per engine.** DynamoDB, Elasticsearch, OpenSearch — each engine has its own tool, its own query language, its own way of losing your work. The AWS Console is single-tab, single-table, and kills your session mid-workflow. DocKit puts all three in one interface. One editor, shared shortcuts, consistent behavior everywhere.
+**One client per cluster.** Kibana gives you one Elasticsearch cluster per instance. OpenSearch Dashboards, same deal. The AWS Console locks you to DynamoDB in a single tab with a ticking session timer. Need staging and production? Two Kibana instances, two logins, two sets of state to lose. They closed the multi-cluster request (#25183) with "we have a long-standing goal of having a Kibana per Elasticsearch cluster." Different database? Different tool entirely. Three engines, three clients, three places to lose your work — and your machine running all of them. DocKit connects to multiple clusters in one window. DynamoDB, Elasticsearch, OpenSearch — same editor, same shortcuts. Click to switch, no new instance, no new login.
 
 It's for the developer who needs to check why a query returns nothing or explore a DynamoDB table, and get an answer in seconds.
 
