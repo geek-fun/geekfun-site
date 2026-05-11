@@ -71,13 +71,11 @@ Browser-based NoSQL tools share the same structural problems: bloat, state loss,
 
 **Locked-in client.** Each web UI is bound to a single backend. Case like Kibana/OpenSearch Dashboards requires one Elasticsearch cluster per instance and decide as long-standing goal(see [#25183](https://github.com/elastic/kibana/issues/25183)). The AWS Console locks you to DynamoDB in a single tab with a ticking session timer. all of this conduct the pain: staging and production means two instances, two logins. Different database? Different tool. Every backend is another client running on your machine.
 
-We wanted NoSQL clients to work the way RDBMS clients do: decoupled from the server, managing multiple engines and clusters in one place, persisting queries and history to the filesystem instead of relying on fragile browser state. So we built DocKit — a native desktop app on Tauri that does exactly that. Under 10MB. Two seconds to launch. DynamoDB, Elasticsearch, OpenSearch in one editor. MongoDB is coming.
+We wanted NoSQL clients to work the way RDBMS clients do: decoupled from the server, managing multiple engines and clusters in one place, persisting queries and history to the filesystem instead of relying on fragile browser state. So we built DocKit — a native desktop app on Tauri that does exactly that.
 
-We hopes the NoSQL clients can performce like RDM clients that decoople with server and can manage multi variant engines and cluster in single place, persiste Queries and History in file system than losly brower state, xxxx
+## How the DocKit change the things works before
 
-## What DocKit does
-
-### AI that reads your schema
+### AI integration boost the data access
 
 The AI assistant isn't generic. Before it generates anything, it reads your table schemas, index mappings, and field types. You describe what you need:
 
@@ -87,7 +85,7 @@ The AI assistant isn't generic. Before it generates anything, it reads your tabl
 
 You get a query that runs. DynamoDB PartiQL or Elasticsearch DSL, with the right field names, correct operators, and proper syntax. OpenAI and DeepSeek are built in. You bring your API key. Your queries stay on your machine.
 
-### The editor
+### Monaco-editor with rich code editor features
 
 Monaco — the same engine inside VS Code — handles everything. Syntax highlighting, intelligent autocomplete, multi-cursor editing, bracket matching, every keyboard shortcut you know. And then some:
 
@@ -99,23 +97,13 @@ No save button. No config. DocKit records every query you run, across all three 
 
 Each entry captures the method, path, connection name, and timestamp (Elasticsearch/OpenSearch) or query type, table, and timestamp (DynamoDB). Keyboard navigation through history. Copy to clipboard. Load back into the editor. Re-execute. Covers PartiQL statements, Elasticsearch DSL queries, and visual form queries.
 
-### DynamoDB
+### Multi-Engine Support
 
-The DynamoDB integration isn't a checkbox feature. It's a full toolchain, built over six months of steady iteration.
+DocKit treats DynamoDB, Elasticsearch, and OpenSearch as equal citizens in one interface. Switch between them instantly — same editor, same shortcuts.
 
-You get a visual query builder that scans and queries tables with primary key filtering and advanced conditions. No code needed. There's a PartiQL editor with autocomplete, syntax highlighting, document formatting, and gutter execution — write SQL-like queries and run them inline. You can update and delete items directly from results without switching views.
+For DynamoDB, you get a visual query builder with primary key filtering and advanced conditions. A PartiQL editor with full autocomplete, syntax highlighting, document formatting, and gutter execution. Inline editing — update and delete items directly from results. Table management with GSI/LSI operations and CloudWatch metrics. DynamoDB Local for offline development. SSO and AssumeRole for cross-account AWS authentication.
 
-Table management covers browsing, inspecting items, managing GSI/LSI, and viewing CloudWatch metrics. Import and export are schema-aware: JSON, CSV, JSONL. DynamoDB Local lets you develop offline. No AWS credentials needed. SSO and AssumeRole handle cross-account authentication.
-
-It's the kind of integration where you stop thinking about the tool and just work with the data. That was the goal.
-
-### Elasticsearch and OpenSearch management
-
-DocKit replaces the `_cat` API calls you'd otherwise type by hand. Not because curl is hard. Because remembering which endpoint gives you what is a waste of time.
-
-Cluster overview: health status, node count, shard allocation, index summary. Per-node monitoring: IP, memory, disk, JVM heap, shard distribution. Shard inspection: type, assignment, doc count, disk usage, segment detail. Index operations: create, delete, close, open, force merge, refresh, flush. Aliases and templates, managed visually. Column sorting on the indices and templates tables. A toggle to filter out system indices.
-
-None of this replaces your monitoring stack. It's for the moment when you need to check something fast and don't want to context-switch into another tool.
+For Elasticsearch and OpenSearch, you get Monaco-backed editing with grammar-driven completion (37 test cases, v0.90 to 9.x), plus full cluster management: node health, shard state, index operations, alias control — all visual, no `_cat` curling. Column sorting, system index filtering.
 
 ### Import and export at scale
 
