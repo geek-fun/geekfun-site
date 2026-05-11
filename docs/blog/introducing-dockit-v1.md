@@ -71,7 +71,9 @@ Browser-based NoSQL tools share the same structural problems: bloat, state loss,
 
 **Locked-in client.** Each web UI is bound to a single backend. Case like Kibana/OpenSearch Dashboards requires one Elasticsearch cluster per instance and decide as long-standing goal(see [#25183](https://github.com/elastic/kibana/issues/25183)). The AWS Console locks you to DynamoDB in a single tab with a ticking session timer. all of this conduct the pain: staging and production means two instances, two logins. Different database? Different tool. Every backend is another client running on your machine.
 
-We built DocKit to fix all of this. Native desktop app on Tauri. Under 10MB, two seconds to launch. Queries are files on your filesystem, not browser state. History is automatic: 500 entries per connection. Multiple clusters in one window, click to switch. DynamoDB, Elasticsearch, OpenSearch — one editor, same shortcuts everywhere.
+We wanted NoSQL clients to work the way RDBMS clients do: decoupled from the server, managing multiple engines and clusters in one place, persisting queries and history to the filesystem instead of relying on fragile browser state. So we built DocKit — a native desktop app on Tauri that does exactly that. Under 10MB. Two seconds to launch. DynamoDB, Elasticsearch, OpenSearch in one editor. MongoDB is coming.
+
+We hopes the NoSQL clients can performce like RDM clients that decoople with server and can manage multi variant engines and cluster in single place, persiste Queries and History in file system than losly brower state, xxxx
 
 ## What DocKit does
 

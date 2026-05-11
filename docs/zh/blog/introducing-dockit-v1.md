@@ -71,7 +71,7 @@ head:
 
 **强制绑定的客户端。** 每个 Web UI 都被捆在单个后端上。Kibana 和 OpenSearch Dashboards 一个实例只能连一个集群——Kibana 明确关了多集群请求（[#25183](https://github.com/elastic/kibana/issues/25183)），称之为"长期目标"。AWS 控制台把你锁在 DynamoDB 单标签页里，Session 还有倒计时。结果就是：staging 和生产？两个实例，两套登录。换个数据库？换套工具。每个后端都是一个跑在你机器上的新客户端。
 
-为了解决这些问题，我们做了 DocKit。基于 Tauri 的原生桌面应用。不到 10MB，两秒启动。查询是文件系统上的文件，不是浏览器状态。历史自动记录：每个连接 500 条。多个集群在一个窗口，点一下切换。DynamoDB、Elasticsearch、OpenSearch——同一个编辑器，同一套快捷键。
+我们希望 NoSQL 客户端能像 RDBMS 客户端那样工作：与服务端解耦，在一个地方管理多种引擎和集群，查询和历史持久化到文件系统，而不是依赖脆弱的浏览器状态。于是我们做了 DocKit——基于 Tauri 的原生桌面应用。不到 10MB，两秒启动。DynamoDB、Elasticsearch、OpenSearch 在同一个编辑器里。MongoDB 也快来了。
 
 ## DocKit 能做什么
 
