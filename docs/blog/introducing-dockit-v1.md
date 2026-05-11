@@ -63,11 +63,11 @@ After 2 years and 10 months, DocKit ships its first stable release. A project th
 
 ## The frustration before DocKit
 
-**Bloat by default.** Kibana is a full visualization platform with dashboards, monitoring, and alerting — but you just need to run queries. That overhead costs you a container, 30 seconds to start, and 500MB of RAM. Its autocomplete alone spikes CPU across every warm node. DocKit is a query editor first. Native desktop app on Tauri. Under 10MB. Two seconds to launch.
+**Bloat by default.** Kibana is a full visualization platform with dashboards, monitoring, and alerting. But you just need to run queries. That overhead costs you a container, 30 seconds to start, and 500MB of RAM. Its autocomplete alone spikes CPU across every warm node. DocKit is a query editor, not a platform. Native desktop app on Tauri. Under 10MB. Two seconds to launch.
 
-**Disappearing queries.** Open a dashboard in a new tab and your filters vanish (Kibana #188914, still open). Step away for a few minutes and the session expires — back to login, everything gone (#106235, also still open). You didn't forget to save. The tool forgot for you. DocKit saves everything locally. Queries are files on your filesystem. History is automatic: 500 entries per connection, no session to expire.
+**Disappearing queries.** Open a dashboard in a new tab and your filters vanish (Kibana #188914, still open). Step away for a few minutes and the session expires. Back to login, everything gone. #106235, also still open. You didn't forget to save. The tool forgot for you. DocKit saves everything locally. Queries are files on your filesystem. History is automatic: 500 entries per connection, no session to expire.
 
-**One client per cluster.** Kibana gives you one Elasticsearch cluster per instance. OpenSearch Dashboards, same deal. The AWS Console locks you to DynamoDB in a single tab with a ticking session timer. Need staging and production? Two Kibana instances, two logins, two sets of state to lose. They closed the multi-cluster request (#25183) with "we have a long-standing goal of having a Kibana per Elasticsearch cluster." Different database? Different tool entirely. Three engines, three clients, three places to lose your work — and your machine running all of them. DocKit connects to multiple clusters in one window. DynamoDB, Elasticsearch, OpenSearch — same editor, same shortcuts. Click to switch, no new instance, no new login.
+**Locked-in client.** Kibana gives you one Elasticsearch cluster per instance. OpenSearch Dashboards, same deal. The AWS Console locks you to DynamoDB in a single tab with a ticking session timer. Need staging and production? Two Kibana instances, two logins, two sets of state to lose. They closed the multi-cluster request (#25183) with "we have a long-standing goal of having a Kibana per Elasticsearch cluster." Different database? Different tool entirely. Three engines, three clients — and your machine running all of them, each with its own way of losing your work. DocKit connects to multiple clusters in one window. DynamoDB, Elasticsearch, OpenSearch: same editor, same shortcuts. Click to switch. No new instance, no new login.
 
 It's for the developer who needs to check why a query returns nothing or explore a DynamoDB table, and get an answer in seconds.
 
@@ -85,7 +85,7 @@ You get a query that runs. DynamoDB PartiQL or Elasticsearch DSL, with the right
 
 ### The editor
 
-Monaco — the same engine inside VS Code — handles everything. Syntax highlighting, intelligent autocomplete, multi-cursor editing, bracket matching, every keyboard shortcut you know. On top of that:
+Monaco — the same engine inside VS Code — handles everything. Syntax highlighting, intelligent autocomplete, multi-cursor editing, bracket matching, every keyboard shortcut you know. And then some:
 
 Grammar-driven completion for Elasticsearch, OpenSearch, and DynamoDB. 37 test cases covering API versions from 0.90 to 9.x. ES|QL autocomplete with sources, commands, and function suggestions. A query language registry so SQL, PPL, EQL, DSL, and PartiQL all share the same completion engine. Body completion for field mappings, index settings, and component templates. JSON5 support: inline comments, trailing commas, unquoted keys. Write queries the way you think, not the way the parser insists. And Ctrl+D on any API endpoint opens the exact documentation page for that operation, version-matched to your cluster.
 
@@ -119,7 +119,7 @@ JSON, CSV, JSONL. Batch operations through millions of records. Move data betwee
 
 ### Privacy-first
 
-DocKit is local-first by design. Connections, queries, and history live on your filesystem. Credentials are encrypted by your OS keychain (macOS Keychain, Windows Credential Manager, Linux libsecret). Zero telemetry. No analytics, no cloud sync, no phoning home. No internet connection required. It works fully offline. Apache 2.0 licensed. No enterprise tier, no feature gating.
+DocKit is local-first by design. Connections, queries, and history live on your filesystem. Credentials are encrypted by your OS keychain (macOS Keychain, Windows Credential Manager, Linux libsecret). Zero telemetry. No analytics, no cloud sync, no phoning home. No internet connection required. It works fully offline. Apache 2.0 licensed. No feature gating.
 
 ### Cross-platform, actually lightweight
 
@@ -191,11 +191,11 @@ Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses t
 
 MongoDB is in active development. Connection management and query execution are merged into main. Azure Cosmos DB is coming.
 
-We shipped 20 releases in the 0.9 line, averaging one every six days. That pace doesn't change just because the version number starts with a 1.
+We shipped 20 releases in the 0.9 line, one every six days on average. That cadence doesn't stop just because the number starts with 1.
 
 ---
 
-DocKit is Apache 2.0. No enterprise tier. No feature gating. No sign-up walls. If it's in the repo, it's in the binary.
+DocKit is Apache 2.0. The open-source release is fully functional — no feature gating, no sign-up walls. If it's in the repo, you get the binary.
 
 [Download DocKit 1.0](/products/dockit/) for macOS, Windows, or Linux.
 
