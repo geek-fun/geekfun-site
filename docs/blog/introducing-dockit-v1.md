@@ -63,9 +63,13 @@ After 2 years and 10 months, DocKit ships its first stable release. A project th
 
 ## The frustration before DocKit
 
-Every developer who works with Elasticsearch knows the Kibana problem. Open it, wait 30 seconds for the container, burn 500MB of RAM, fight a browser tab that forgets your scroll position every time you switch windows. Kibana's visualizations are great. As a daily query editor, it's painful.
+Every developer who works with Elasticsearch knows the Kibana problem. Open it, wait 30 seconds for the container, burn 500MB of RAM, fight a browser tab that forgets your scroll position every time you switch windows. Kibana's visualizations are great. As a daily query editor, it's painful. The autocomplete alone has been known to send 20 serial requests to the cluster, spiking CPU across every warm node — one developer on the Kibana GitHub issues called it "100% CPU across all my warm nodes." The server alone takes five minutes to start after `yarn start`.
 
-And if your stack also includes DynamoDB or OpenSearch, the pain multiplies. Three consoles, three query languages, three places to lose your work. We got tired of it.
+OpenSearch Dashboards isn't much better. In 2024, a user reported on the OpenSearch GitHub that "incredibly slow dashboards" made the UI "completely unresponsive" — autocomplete was hitting `GET */_mapping` on every keystroke, taking 30 seconds per request. "Production environments with large indices become unusable," another wrote. "We've had to disable dev tools as a workaround."
+
+And DynamoDB? The AWS Console works for quick checks. Try debugging a production issue through it. You get a single tab: want to compare two tables? Hope you enjoy the back button. The PartiQL results show nested data as a long JSON string, not something you can actually read. As one developer put it on Reddit: "When your team is having serious conversations about the repercussions of your data values going from 4KB to 8KB, you begin questioning your decision to use DynamoDB."
+
+Three consoles, three query languages, three places to lose your work. We got tired of it.
 
 So we built DocKit: a free, open-source desktop client for NoSQL databases. It replaces browser-based consoles and proprietary tools with a native app on [Tauri](https://tauri.app/). One interface, three engines: DynamoDB, Elasticsearch, OpenSearch. MongoDB is in progress.
 

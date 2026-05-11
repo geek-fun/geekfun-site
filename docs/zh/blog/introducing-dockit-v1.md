@@ -63,9 +63,13 @@ head:
 
 ## DocKit 之前的烦恼
 
-每个和 Elasticsearch 打交道的开发者都懂 Kibana 的问题。打开它，等 30 秒容器启动，烧掉 500MB 内存，然后开始跟一个切个窗口就丢滚动位置的浏览器标签搏斗。Kibana 的可视化确实出色。但作为日常查询编辑器，它很挣扎。
+每个和 Elasticsearch 打交道的开发者都懂 Kibana 的问题。打开它，等 30 秒容器启动，烧掉 500MB 内存，然后开始跟一个切个窗口就丢滚动位置的浏览器标签搏斗。Kibana 的可视化确实出色。但作为日常查询编辑器，它很挣扎。光是自动补全就能连续发出 20 条串行请求，直接把所有 warm 节点的 CPU 打满——Kibana GitHub issue 里有人原话："我的所有 warm 节点 CPU 100%"。服务器端 `yarn start` 后要等五分钟才能响应。
 
-如果你的技术栈还包含 DynamoDB 或 OpenSearch，痛苦会加倍 — 三个不同的控制台，三种不同的查询语言，三个地方可能丢失你的工作。我们受够了。
+OpenSearch Dashboards 也好不到哪去。2024 年有用户在 OpenSearch GitHub 报告"Dashboard 升级后慢到无法使用"——自动补全每次按键都发 `GET */_mapping`，单次就要 30 秒。"生产环境索引多了根本没法用，"另一人写道，"我们只能暂时禁用 Dev Tools 当临时方案。"
+
+DynamoDB 呢？AWS 控制台能应付简单查看。但要在上面排查线上问题？就一个标签页：想同时看两张表？准备好点浏览器的后退按钮吧。PartiQL 查询结果里嵌套数据就是一长串 JSON 字符串，根本没法快速扫一眼。Reddit 上有开发者原话："当你团队在认真讨论数据值从 4KB 变成 8KB 会带来什么后果时，你就开始怀疑当初选 DynamoDB 是不是个错误了。"
+
+三个不同的控制台，三种不同的查询语言，三个地方可能丢失你的工作。我们受够了。
 
 于是我们做了 DocKit：一款免费、开源、AI 原生的 NoSQL 桌面客户端。它基于 [Tauri](https://tauri.app/) 构建，用原生应用取代浏览器控制台和商业工具。一个界面，三种引擎：DynamoDB、Elasticsearch、OpenSearch。MongoDB 正在积极开发中。
 
