@@ -63,17 +63,15 @@ After 2 years and 10 months, DocKit ships its first stable release. A project th
 
 ## The frustration before DocKit
 
-Browser-based database tools share the same set of problems. Kibana, OpenSearch Dashboards, the AWS Console — they all run in a tab, and tabs are terrible places to do real work.
+Browser-based database tools are heavy, they lose your work, and they can't talk to more than one cluster at a time. Kibana, OpenSearch Dashboards, the AWS Console — we've used them all, and they all break the same way.
 
-**They're heavy.** Kibana needs a container, takes 30 seconds to start, and burns 500MB of RAM. Its autocomplete has been known to spike CPU across every warm node in the cluster. DocKit is a native desktop app built on Tauri. Under 10MB. Two seconds to launch. No Docker, no browser, no cloud.
+Kibana needs a container, 30 seconds to start, 500MB of RAM. Its autocomplete spikes CPU across every warm node in the cluster. Open a dashboard in a new tab and your filters vanish (Kibana #188914, still open). Step away for a few minutes and the session expires — back to login, everything gone (#106235, also still open). Need to hit staging and production? Open two Kibana instances, two logins, two sets of state to lose. They closed the multi-cluster request (#25183) with "we have a long-standing goal of having a Kibana per Elasticsearch cluster."
 
-**They lose your work.** Open a dashboard in a new tab — your filters are gone. Switch between Discover tabs — your query draft disappears. Step away for a few minutes — session expires, back to the login page, everything's lost. These are documented Kibana bugs (#188914, #246896) that are still open. DocKit saves everything locally. Queries are files on your filesystem. History is automatic — 500 entries per connection, no save button, no session to expire.
+DynamoDB's console is fine for quick checks. Try debugging a production issue through it. Single tab, no multi-table view, session refreshes mid-workflow and wipes your form.
 
-**They can't handle multiple clusters.** Kibana explicitly closed a multi-cluster feature request (#25183) — one Kibana per Elasticsearch cluster, period. Which means one browser tab per environment, each with its own login. DocKit connects to multiple clusters in one window. Switch between staging, production, and local with a click. Same editor, same shortcuts.
+So we built DocKit. Native desktop app on Tauri. Under 10MB, two seconds to launch, runs locally without Docker or a browser. Queries are files on your filesystem — they don't disappear when you switch tabs. History is automatic: 500 entries per connection, no session to expire. Multiple clusters in one window, click to switch. One interface for DynamoDB, Elasticsearch, and OpenSearch — same editor, same shortcuts.
 
-**They're separate tools for separate databases.** DynamoDB, Elasticsearch, OpenSearch — three consoles, three query languages, three places to lose your work. DocKit puts all three in one interface. Same editor, shared shortcuts, consistent behavior everywhere.
-
-It's for developers who write queries every day. The person who needs to figure out why a search returns nothing, poke around a DynamoDB table, or turn a sentence into a PartiQL statement and get an answer in seconds instead of minutes.
+It's for the developer who needs to check why a query returns nothing or explore a DynamoDB table, and get an answer in seconds.
 
 ## What DocKit does
 
