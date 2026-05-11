@@ -69,10 +69,9 @@ Browser-based NoSQL tools share the same structural problems: bloat, state loss,
 
 **Disappearing queries.** Browser-based tools don't hold state the way a desktop app does. Open a Kibana dashboard in a new tab and your filters vanish ([#188914](https://github.com/elastic/kibana/issues/188914), still open). Step away for a few minutes and the session expires — back to login, everything gone ([#106235](https://github.com/elastic/kibana/issues/106235), also still open). The AWS Console does the same: session refreshes mid-workflow and wipes your form. You didn't forget to save. The tool forgot for you.
 
-**Locked-in client.** Each web UI is bound to a single backend. Kibana and OpenSearch Dashboards give you one cluster per instance — Kibana explicitly closed the multi-cluster request ([#25183](https://github.com/elastic/kibana/issues/25183)), calling it a "long-standing goal." The AWS Console locks you to DynamoDB in a single tab with a ticking session timer. The result: staging and production means two instances, two logins. Different database? Different tool. Every backend is another client running on your machine. DocKit connects to multiple clusters in one window. DynamoDB, Elasticsearch, OpenSearch: same editor, same shortcuts. MongoDB is coming. Click to switch. No new instance, no new login.
+**Locked-in client.** Each web UI is bound to a single backend. Case like Kibana/OpenSearch Dashboards requires one Elasticsearch cluster per instance and decide as long-standing goal(see [#25183](https://github.com/elastic/kibana/issues/25183)). The AWS Console locks you to DynamoDB in a single tab with a ticking session timer. all of this conduct the pain: staging and production means two instances, two logins. Different database? Different tool. Every backend is another client running on your machine.
 
-
-It's for the developer who needs to check why a query returns nothing or explore a DynamoDB table, and get an answer in seconds.
+We built DocKit to fix all of this. Native desktop app on Tauri. Under 10MB, two seconds to launch. Queries are files on your filesystem, not browser state. History is automatic: 500 entries per connection. Multiple clusters in one window, click to switch. DynamoDB, Elasticsearch, OpenSearch — one editor, same shortcuts everywhere.
 
 ## What DocKit does
 
