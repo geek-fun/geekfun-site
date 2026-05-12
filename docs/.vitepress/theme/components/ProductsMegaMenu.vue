@@ -1,13 +1,35 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed, nextTick } from 'vue';
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 import { useData, withBase } from 'vitepress';
 
 const { lang } = useData();
 const isZh = computed(() => lang.value === 'zh');
 
+const wrapperRef = ref<HTMLElement | null>(null);
 const isOpen = ref(false);
 let hideTimeout: number | null = null;
 let showTimeout: number | null = null;
+
+const positionPanel = () => {
+  const wrapper = wrapperRef.value;
+  const panel = wrapper?.querySelector('.mega-menu-panel') as HTMLElement | null;
+  if (!wrapper || !panel) return;
+
+  const triggerRect = wrapper.getBoundingClientRect();
+  const viewportWidth = window.innerWidth;
+  const padding = 16;
+  const desiredWidth = 880;
+  const actualWidth = Math.min(desiredWidth, viewportWidth - padding * 2);
+
+  panel.style.width = `${actualWidth}px`;
+
+  const idealLeft = triggerRect.left;
+  const maxLeft = viewportWidth - actualWidth - padding;
+  const finalLeft = Math.max(padding, Math.min(idealLeft, maxLeft));
+
+  panel.style.left = `${finalLeft}px`;
+  panel.style.right = 'auto';
+};
 
 const openMenu = () => {
   if (hideTimeout) clearTimeout(hideTimeout);
@@ -19,17 +41,11 @@ const openMenu = () => {
 
 const closeMenu = () => {
   if (showTimeout) clearTimeout(showTimeout);
-  hideTimeout = window.setTimeout(() => {
-    isOpen.value = false;
-  }, 200);
+  hideTimeout = window.setTimeout(() => { isOpen.value = false; }, 200);
 };
 
 const toggleMenu = () => {
-  if (isOpen.value) {
-    closeMenuImmediate();
-  } else {
-    openMenuImmediate();
-  }
+  isOpen.value ? closeMenuImmediate() : openMenuImmediate();
 };
 
 const closeMenuImmediate = () => {
@@ -38,75 +54,39 @@ const closeMenuImmediate = () => {
   isOpen.value = false;
 };
 
+const openMenuImmediate = () => {
+  if (hideTimeout) clearTimeout(hideTimeout);
+  if (showTimeout) clearTimeout(showTimeout);
+  isOpen.value = true;
+  nextTick(() => positionPanel());
+};
+
 const clickOutsideHandler = (e: MouseEvent) => {
-  const target = e.target as HTMLElement;
-  const container = document.getElementById('products-mega-menu-container');
-  if (container && !container.contains(target)) {
+  if (wrapperRef.value && !wrapperRef.value.contains(e.target as Node)) {
     closeMenuImmediate();
   }
 };
 
 const keydownHandler = (e: KeyboardEvent) => {
-  if (e.key === 'Escape' && isOpen.value) {
-    closeMenuImmediate();
-  }
+  if (e.key === 'Escape' && isOpen.value) closeMenuImmediate();
 };
 
+// Move the mega-menu wrapper into .VPNavBarMenu after the first nav link (Home),
+// so the visual order becomes: Home | Products | Download | Docs | …
+// This is a one-time DOM placement on mount — no style mutation.
 const reorderNav = () => {
-  const wrapper = document.getElementById('products-mega-menu-container');
+  const wrapper = wrapperRef.value;
   const navBarMenu = document.querySelector('.VPNavBarMenu');
   const firstNavLink = navBarMenu?.querySelector('.VPNavBarMenuLink');
-  
   if (wrapper && navBarMenu && firstNavLink) {
-    // Move mega-menu wrapper into VPNavBarMenu after the first link (Home)
     firstNavLink.after(wrapper);
   }
-};
-
-const positionPanel = () => {
-  const wrapper = document.getElementById('products-mega-menu-container');
-  const panel = wrapper?.querySelector('.mega-menu-panel') as HTMLElement | null;
-  
-  if (!wrapper || !panel) return;
-  
-  const triggerRect = wrapper.getBoundingClientRect();
-  const viewportWidth = window.innerWidth;
-  const padding = 16;
-  
-  // Desired panel width
-  const desiredWidth = 880;
-  const actualWidth = Math.min(desiredWidth, viewportWidth - padding * 2);
-  
-  // Set panel width first
-  panel.style.width = `${actualWidth}px`;
-  
-  // Calculate where to position the panel
-  // Try to align left edge of panel near trigger, but ensure it stays within viewport
-  const idealLeft = triggerRect.left;
-  const maxLeft = viewportWidth - actualWidth - padding;
-  const minLeft = padding;
-  
-  const finalLeft = Math.max(minLeft, Math.min(idealLeft, maxLeft));
-  
-  panel.style.left = `${finalLeft}px`;
-  panel.style.right = 'auto';
-};
-
-const openMenuImmediate = () => {
-  if (hideTimeout) clearTimeout(hideTimeout);
-  if (showTimeout) clearTimeout(showTimeout);
-  isOpen.value = true;
-  // Position panel after it becomes visible
-  nextTick(() => positionPanel());
 };
 
 onMounted(() => {
   document.addEventListener('click', clickOutsideHandler);
   document.addEventListener('keydown', keydownHandler);
-  // Reorder nav after DOM is ready
-  nextTick(() => {
-    reorderNav();
-  });
+  nextTick(() => reorderNav());
 });
 
 onUnmounted(() => {
@@ -179,14 +159,11 @@ const groups = [
     ],
   },
 ];
-
-
-
 </script>
 
 <template>
   <div
-    id="products-mega-menu-container"
+    ref="wrapperRef"
     class="mega-menu-wrapper"
     @mouseenter="openMenu"
     @mouseleave="closeMenu"
@@ -211,6 +188,7 @@ const groups = [
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        aria-hidden="true"
       >
         <polyline points="6 9 12 15 18 9"></polyline>
       </svg>
@@ -240,7 +218,7 @@ const groups = [
                   <div class="mega-menu-item-content">
                     <span class="mega-menu-item-name">
                       {{ item.name }}
-                      <svg v-if="item.external" class="mega-menu-external-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <svg v-if="item.external" class="mega-menu-external-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="7" y1="17" x2="17" y2="7"></line>
                         <polyline points="7 7 17 7 17 17"></polyline>
                       </svg>
@@ -261,7 +239,7 @@ const groups = [
 .mega-menu-wrapper {
   position: relative;
   display: none;
-  
+
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
@@ -305,8 +283,9 @@ const groups = [
   box-shadow: var(--vp-shadow-3);
   padding: 24px 28px;
   z-index: 100;
-  min-width: 600px;
+  min-width: 720px;
   max-width: calc(100vw - 32px);
+  overflow: hidden;
 }
 
 .mega-menu-grid {
@@ -355,7 +334,7 @@ const groups = [
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.15s ease;
-  
+
   &:hover, &:focus-visible {
     background-color: var(--vp-c-bg-soft);
   }
@@ -393,6 +372,7 @@ const groups = [
   font-size: 13px;
   line-height: 1.4;
   color: var(--vp-c-text-2);
+  overflow-wrap: break-word;
 }
 
 .mega-menu-fade-enter-active,
@@ -412,12 +392,12 @@ const groups = [
   .mega-menu-fade-leave-active {
     transition: opacity 180ms ease-out;
   }
-  
+
   .mega-menu-fade-enter-from,
   .mega-menu-fade-leave-to {
     transform: none;
   }
-  
+
   .mega-menu-chevron {
     transition: none;
   }
