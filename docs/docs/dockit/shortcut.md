@@ -61,4 +61,4 @@ DocKit provides keyboard shortcuts to help you work efficiently. Press `Cmd+?` (
 > - Chord shortcuts (`Cmd+K, Cmd+0/J`) use VS Code-style sequences for layout-independent behavior
 > - Fold toggle uses `Alt` on macOS, `Shift` on Windows/Linux to avoid IME conflicts
 
-![DocKit Editor UI](/client-ui.png)
+![DocKit Editor UI](/dockit-client-ui.png)

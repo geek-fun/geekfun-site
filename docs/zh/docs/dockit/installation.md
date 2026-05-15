@@ -47,4 +47,4 @@ head:
 
 完成上述步骤后，我相信您已经打开了 DocKit！现在，您可以使用并享受 DocKit！如果您有任何反馈或建议，请随时告诉我们。
 
-![客户端界UI](/client-ui.png)
+![客户端界UI](/dockit-client-ui.png)

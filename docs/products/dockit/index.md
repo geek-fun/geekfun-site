@@ -52,7 +52,7 @@ head:
           "Cluster management",
           "Monaco editor"
         ],
-        "screenshot": "https://www.geekfun.club/client-ui.png",
+        "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
         "softwareVersion": "1.0.0",
         "author": {

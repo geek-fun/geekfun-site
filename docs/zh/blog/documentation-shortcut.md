@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Ctrl+D 快捷文档——在 DocKit 中为任意 API 打开官方文档",
         "description": "DocKit 现在将所有 Elasticsearch 操作映射到其官方文档——覆盖所有版本、引擎和语言。只需在编辑器中按 Ctrl+D。",
-        "image": "https://www.geekfun.club/client-ui.png",
+        "image": "https://www.geekfun.club/dockit-client-ui.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -59,7 +59,7 @@ head:
 
 DocKit 刚刚解决了这个问题。**在编辑器中按 `⌘D`（Mac）或 `Ctrl+D`（Windows / Linux），即可获取当前 API 的精确文档页面**——版本感知、语言感知、引擎感知。
 
-![DocKit Ctrl+D 文档快捷方式](/client-ui.png)
+![DocKit Ctrl+D 文档快捷方式](/dockit-client-ui.png)
 
 ---
 

@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Best DynamoDB GUI Clients in 2026: 5 Tools Compared",
         "description": "Comparison of the best DynamoDB GUI clients including DocKit, Dynobase, NoSQL Workbench, and AWS Console. Features, pricing, and recommendations.",
-        "image": "https://www.geekfun.club/client-ui.png",
+        "image": "https://www.geekfun.club/dockit-client-ui.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

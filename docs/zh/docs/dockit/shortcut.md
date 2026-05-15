@@ -61,4 +61,4 @@ DocKit 提供键盘快捷键帮助您高效工作。随时按 `Cmd+?`（或 `Ctr
 > - 组合快捷键（`Cmd+K, Cmd+0/J`）采用 VS Code 风格序列，确保在不同键盘布局下正常工作
 > - 切换折叠在 macOS 上使用 `Alt`，Windows/Linux 上使用 `Shift`，以避免输入法冲突
 
-![DocKit 编辑器界面](/client-ui.png)
+![DocKit 编辑器界面](/dockit-client-ui.png)

@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "2026 年最佳 DynamoDB GUI 客户端：5 款工具对比",
         "description": "比较最佳 DynamoDB GUI 客户端，包括 DocKit、Dynobase、NoSQL Workbench 和 AWS 控制台。功能、定价和推荐。",
-        "image": "https://www.geekfun.club/client-ui.png",
+        "image": "https://www.geekfun.club/dockit-client-ui.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
