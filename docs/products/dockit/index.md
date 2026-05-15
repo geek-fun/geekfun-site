@@ -98,7 +98,7 @@ databases:
 showcase:
   - title: "Query with AI Assistance"
     body: "Ask questions in plain English, get optimized queries with schema awareness. DocKit puts AI at the center of your workflow with built-in OpenAI and DeepSeek integration."
-    image: /dockit-ai-assistant-question.png
+    image: /dockit-ai-assistant.png
     align: left
   - title: "Never lose a query again"
     body: "Connections and queries are saved to your filesystem automatically. Query history is tracked transparently, so you can easily revert to past experiments."

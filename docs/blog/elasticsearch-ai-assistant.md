@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Automate Elasticsearch Query Writing with AI Assistants",
         "description": "Discover how to use AI and large language models to generate complex Elasticsearch queries automatically. Boost productivity with an AI assistant for Elasticsearch.",
-        "image": "https://www.geekfun.club/dockit-ai-assistant-question.png",
+        "image": "https://www.geekfun.club/dockit-ai-assistant.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -108,7 +108,7 @@ Before use start ask questions in DocKit AI Assistant, you need to config the pr
 
 Once you configured the API key and related information, you can open a new connection, in the connection code editor, click the right-side logo to open AI Assistant.
 
-![DocKit AI assistant config](/dockit-ai-assistant-question.png)
+![DocKit AI assistant config](/dockit-ai-assistant.png)
 
 Open the AI Assistant, input your requirement in natural language(in this case: Return the first 30 names of all the different stock names), and click the send button, DocKit will ingest the selected index context together with your questions.
 
