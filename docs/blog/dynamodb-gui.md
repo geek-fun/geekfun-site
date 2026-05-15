@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "DynamoDB Query Patterns — PartiQL, Visual Builder, and When to Use Each",
         "description": "Practical DynamoDB query patterns using PartiQL and the visual query builder. Covers filter expressions, index queries, batch operations, and DynamoDB Local.",
-        "image": "https://www.geekfun.club/dockit-dynamodb.png",
+        "image": "https://www.geekfun.club/dockit-dynamodb-query-ui.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
