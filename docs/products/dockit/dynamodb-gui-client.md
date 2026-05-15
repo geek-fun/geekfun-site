@@ -120,6 +120,8 @@ The editor is powered by Monaco and built for DynamoDB.
 - Run multiple queries in one session.
 - Use `Cmd/Ctrl + Enter` to execute and see results in a structured table.
 
+![DocKit DynamoDB PartiQL editor](/dockit-dynamodb-partiql-editor.png)
+
 ### Visual query builder
 
 If you don't want to write PartiQL manually, use the visual builder.
@@ -131,9 +133,13 @@ If you don't want to write PartiQL manually, use the visual builder.
 
 Visual queries are saved to your history automatically.
 
+![DocKit DynamoDB visual query builder](/dockit-dynamodb-query-ui.png)
+
 ### AI query assistant
 
 Type what you need in natural language. For example, "find all orders from this week where the total is over 500." DocKit generates the PartiQL statement using your actual attribute names and types as context. It supports OpenAI and DeepSeek with your own API key. Your table data stays on your machine.
+
+![DocKit AI query assistant](/dockit-ai-assistant.png)
 
 ### Import and export
 
@@ -144,9 +150,13 @@ Move data without losing type information.
 - Uses the `BatchWriteItem` API with built-in rate limiting and retries.
 - Export large tables with cursor-based pagination to avoid memory limits.
 
+![DocKit DynamoDB import and export](/dockit-dynamodb-import-export.png)
+
 ### Query history
 
 DocKit saves every PartiQL statement and visual query. You can search, re-run, or load them back into the editor. This history is stored locally and scoped to your connection.
+
+![DocKit query history](/dockit-query-history.png)
 
 ### Multi-database support
 

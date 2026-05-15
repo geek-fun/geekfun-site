@@ -80,21 +80,31 @@ The query editor uses the same engine as VS Code.
 - Automatic formatting and one click copy as curl commands.
 - Use Cmd/Ctrl + Enter to run queries.
 
+![DocKit Elasticsearch Monaco editor](/dockit-dynamodb-partiql-editor.png)
+
 ### AI query generation
 
 Describe a query in plain English to generate Elasticsearch DSL. DocKit uses your index mapping as context so generated queries match your actual schema. You can use OpenAI or DeepSeek with your own API key. Data stays on your machine.
+
+![DocKit AI query generation](/dockit-ai-assistant.png)
 
 ### Cluster management
 
 View index statistics like document counts, shard health, and storage size. You can manage mappings, settings, aliases, and templates from the UI. The app also monitors node health, shard allocation, and active tasks.
 
+![DocKit Elasticsearch cluster management](/manage-cluster.png)
+
 ### Import and export
 
 Move data using JSON, CSV, or JSONL formats. The export process uses the scroll API to handle large indices reliably.
 
+![DocKit import and export](/dockit-dynamodb-import-export.png)
+
 ### Query history
 
 DocKit saves your query history automatically. You can search, copy, or re-run previous queries. This history is connection scoped and stored locally.
+
+![DocKit query history](/dockit-query-history.png)
 
 ### Multi-cluster support
 
