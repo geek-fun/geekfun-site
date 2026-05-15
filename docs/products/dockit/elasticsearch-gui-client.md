@@ -42,95 +42,108 @@ head:
 
 # Elasticsearch GUI Client
 
-**DocKit** is an open-source desktop **Elasticsearch GUI client** for Mac, Windows, and Linux. It gives you a VS Code-grade query editor, AI-assisted query generation, and visual cluster management — without running Kibana.
+DocKit is an open source Elasticsearch desktop client for Mac, Windows, and Linux. It provides a Monaco based query editor, AI query generation, and cluster management tools without requiring a Kibana installation.
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download — Free</a>
   <a href="https://github.com/geek-fun/dockit" style="padding:10px 20px;border:1px solid var(--vp-c-border);border-radius:6px;font-weight:600;text-decoration:none" target="_blank" rel="noopener">View on GitHub</a>
 </div>
 
-## Why use an Elasticsearch desktop client?
+## Desktop client vs Kibana
 
-Kibana is powerful for dashboards and observability. For day-to-day query work it is heavy — 10–30 s startup, 500 MB+ RAM, requires a running Kibana instance. A dedicated Elasticsearch GUI client starts in under 2 seconds, uses ~150 MB RAM, stores queries as local files, and works offline.
+Kibana works well for dashboards and observability but starts slowly. It often takes 10 to 30 seconds to load, requires over 500 MB of RAM, and needs a server side instance. DocKit starts in under 2 seconds and uses about 150 MB of RAM. It works offline and stores queries as local files.
 
-DocKit sits in this space: a lightweight, open-source Elasticsearch GUI that replaces the Dev Tools tab for everyone who doesn't need Kibana's visualization stack.
+This makes it a faster option for developers who only need the Dev Tools functionality.
 
-## Elasticsearch features in DocKit
+## Product demo
 
-### Monaco-powered Dev Tools editor
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
+  <iframe
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    src="https://www.youtube.com/embed/Y1GpcTnVQTk"
+    title="DocKit Elasticsearch installation and features"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
 
-The query editor is built on Monaco — the same engine that powers VS Code. You get:
+## Key features
 
-- **JSON5 syntax** — write queries without strict double-quote discipline; add `//` and `/* */` comments inline
-- **Syntax highlighting and validation** for Elasticsearch Query DSL
-- **Field and index autocomplete** drawn from your live cluster mapping
-- **Auto-format** on save; one-click copy as `curl` command
-- `Cmd/Ctrl + Enter` to execute
+### Monaco based editor
 
-### AI query assistant
+The query editor uses the same engine as VS Code.
 
-Describe what you need in plain English and DocKit generates the Elasticsearch DSL for you — with your actual index mapping injected automatically as context, so the query matches your real fields and types. Supports OpenAI and DeepSeek with your own API key. Your data never leaves your machine.
+- JSON5 support lets you use comments and trailing commas.
+- Syntax highlighting for Elasticsearch Query DSL.
+- Autocomplete for fields and indices using live cluster mappings.
+- Automatic formatting and one click copy as curl commands.
+- Use Cmd/Ctrl + Enter to run queries.
+
+### AI query generation
+
+Describe a query in plain English to generate Elasticsearch DSL. DocKit uses your index mapping as context so generated queries match your actual schema. You can use OpenAI or DeepSeek with your own API key. Data stays on your machine.
 
 ### Cluster management
 
-Browse all indices with live stats (doc count, shard health, storage size). Manage mappings, settings, aliases, and index templates. Monitor node health, shard allocation, and long-running tasks — all in the same window.
+View index statistics like document counts, shard health, and storage size. You can manage mappings, settings, aliases, and templates from the UI. The app also monitors node health, shard allocation, and active tasks.
 
-### Import & Export
+### Import and export
 
-Move data in and out using JSON, CSV, or JSONL (native Elasticsearch bulk format). Uses the scroll API internally so even multi-million-document indices export reliably.
+Move data using JSON, CSV, or JSONL formats. The export process uses the scroll API to handle large indices reliably.
 
 ### Query history
 
-Every query you execute is saved automatically. Search history, copy, re-execute, or load back into the editor with one click. History is connection-scoped and stored locally — never sent anywhere.
+DocKit saves your query history automatically. You can search, copy, or re-run previous queries. This history is connection scoped and stored locally.
 
 ### Multi-cluster support
 
-Save unlimited connection profiles (dev / staging / prod), switch instantly, and run identical queries across environments. Supports Basic Auth, API Keys, and client certificates.
+Save multiple connection profiles to switch between dev, staging, and production clusters. It supports Basic Auth, API Keys, and client certificates.
 
-## Comparison: DocKit vs other Elasticsearch GUI clients
+## Comparison
 
 | | DocKit | Kibana | Elasticvue | Dejavu |
 |---|---|---|---|---|
 | **Platform** | Desktop (native) | Web (browser) | Web / extension | Web |
 | **Startup** | < 2 s | 10–30 s | < 5 s | < 5 s |
 | **RAM** | ~150 MB | 500 MB+ | ~200 MB | ~150 MB |
-| **Dev Tools editor** | ✅ Monaco + JSON5 | ✅ Basic | ✅ Basic | ❌ |
-| **AI assistant** | ✅ | ❌ | ❌ | ❌ |
-| **Offline mode** | ✅ | ❌ | ❌ | ❌ |
-| **Query persistence** | ✅ Local files | ✅ Saved queries | ❌ | ❌ |
-| **DynamoDB support** | ✅ | ❌ | ❌ | ❌ |
-| **OpenSearch support** | ✅ | ❌ | ❌ | ❌ |
-| **Open source** | ✅ Apache 2.0 | Mixed | ✅ MIT | ✅ |
-| **Price** | Community: free | Free (Basic) | Free | Free |
+| **Dev Tools editor** | Monaco + JSON5 | Basic | Basic | None |
+| **AI assistant** | Yes | No | No | No |
+| **Offline mode** | Yes | No | No | No |
+| **Query persistence** | Local files | Saved queries | No | No |
+| **DynamoDB support** | Yes | No | No | No |
+| **OpenSearch support** | Yes | No | No | No |
+| **Open source** | Apache 2.0 | Mixed | MIT | Yes |
+| **Price** | Free | Free (Basic) | Free | Free |
 
-## Elasticsearch version compatibility
+## Version compatibility
 
-DocKit uses the standard Elasticsearch REST API and supports **Elasticsearch 1.x through 9.x**, including both the Apache 2.0 and Elastic License distributions. If you hit a compatibility issue, [file it on GitHub](https://github.com/geek-fun/dockit/issues) — broad version support is a first-class goal.
+DocKit uses the standard Elasticsearch REST API and works with versions 1.x through 9.x. This includes both Apache 2.0 and Elastic License distributions.
 
-## Getting started
+## Quick start
 
-1. **[Download DocKit](/download)** for macOS (Apple Silicon + Intel), Windows, or Linux
-2. Open DocKit → click **New Connection** → choose Elasticsearch
-3. Enter your host, port, and credentials (Basic Auth, API Key, or no auth for local)
-4. Click **Connect** — indices appear in the sidebar immediately
-5. Open **Dev Tools** and start writing queries
+1. [Download DocKit](/download) for macOS, Windows, or Linux.
+2. Create a new Elasticsearch connection.
+3. Enter your host, port, and credentials.
+4. Connect to see indices in the sidebar.
+5. Use Dev Tools to write queries.
 
-For detailed setup, see the [connection guide](/docs/dockit/connect-to-server).
+See the [connection guide](/docs/dockit/connect-to-server) for more details.
 
-## Frequently asked questions
+## FAQ
 
-**Is DocKit a full Kibana replacement?**
-For query development and index management, yes. For visualizations, dashboards, APM, and alerting, no. Many teams use both — DocKit for daily querying, Kibana for stakeholder dashboards.
+**Is DocKit a Kibana replacement?**
+It replaces Kibana for query development and index management. It does not include visualizations or dashboards.
 
-**Does it work with Elasticsearch 9.x?**
-Yes. DocKit is tested against Elasticsearch 1.x–9.x.
+**Does it support Elasticsearch 9.x?**
+Yes.
 
-**Where are my credentials stored?**
-Encrypted on your local filesystem. They never leave your machine.
+**Where is data stored?**
+Credentials and history are encrypted on your local filesystem.
 
-**Can I use it with OpenSearch?**
-Yes — DocKit supports OpenSearch and DynamoDB in the same app. See the [OpenSearch GUI client page](/products/dockit/opensearch-gui-client).
+**Is OpenSearch supported?**
+Yes. DocKit supports OpenSearch and DynamoDB. See the [OpenSearch page](/products/dockit/opensearch-gui-client).
 
 ---
 
-→ **[DocKit full feature overview](/products/dockit/)** · [Elasticsearch AI assistant guide](/blog/elasticsearch-ai-assistant) · [ES GUI deep-dive](/blog/elasticsearch-gui)
+→ **[DocKit full feature overview](/products/dockit/)** · [Elasticsearch AI assistant guide](/blog/elasticsearch-ai-assistant) · [Elasticsearch query workflows guide](/blog/elasticsearch-gui)

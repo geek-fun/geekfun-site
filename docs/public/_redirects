@@ -16,6 +16,10 @@
 /zh/blog.html      /zh/blog      301
 /zh/news.html      /zh/news      301
 
+# Dynobase comparison moved from blog to product pages
+/blog/dynobase-alternative      /products/dockit/dockit-vs-dynobase      301
+/zh/blog/dynobase-alternative   /zh/products/dockit/dockit-vs-dynobase   301
+
 # Handle old /home URL
 /home  /  301
 

@@ -169,4 +169,10 @@ QA 团队经常需要在预发布环境中使用真实数据。使用 DocKit：
 
 将小型数据集导出为 JSON 或 CSV，并通过电子邮件、Slack 或您首选的渠道共享。接收者可以在几秒钟内将其导入到自己的 DocKit 实例中。
 
+## 相关资源
+
+- **[DocKit 完整功能概览](/products/dockit/)** - 支持 Elasticsearch、OpenSearch、DynamoDB
+- **[Elasticsearch GUI 客户端](/products/dockit/elasticsearch-gui-client)** - 查询编辑器、集群管理详情
+- **[DynamoDB GUI 客户端](/products/dockit/dynamodb-gui-client)** - PartiQL 编辑器、可视化查询构建器详情
+- **[GitHub 仓库](https://github.com/geek-fun/dockit)** - 源代码和问题
 

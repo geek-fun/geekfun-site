@@ -1,10 +1,10 @@
 ---
-title: OpenSearch GUI Client - Free Desktop Tool for Mac, Windows, Linux
-description: DocKit is a free, open-source OpenSearch GUI and OpenSearch Dashboards alternative. Visual query builder, Dev Tools, and cluster management for Mac, Windows, and Linux.
+title: Migrating from OpenSearch Dashboards to a Desktop Client — Practical Guide
+description: When OpenSearch Dashboards is too heavy for daily query work — how to migrate to a desktop client, what you gain and lose, and how to run both side-by-side.
 head:
   - - meta
     - name: keywords
-      content: OpenSearch GUI, OpenSearch client, OpenSearch desktop client, OpenSearch Dashboards alternative, AWS OpenSearch client, OpenSearch query builder, OpenSearch management tool, free OpenSearch client, open source OpenSearch, OpenSearch data browser, OpenSearch JSON5, OpenSearch cluster management, OpenSearch Mac client, OpenSearch Windows client
+      content: opensearch dashboards alternative, opensearch desktop client, migrate opensearch dashboards, opensearch local client, opensearch dev tools desktop, aws opensearch client
   - - link
     - rel: canonical
       href: https://www.geekfun.club/blog/opensearch-gui
@@ -26,8 +26,8 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "OpenSearch GUI Client - Free Desktop Tool for Mac, Windows, Linux",
-        "description": "DocKit is a free, open-source OpenSearch GUI and OpenSearch Dashboards alternative. Visual query builder, Dev Tools, and cluster management for Mac, Windows, and Linux.",
+        "headline": "Migrating from OpenSearch Dashboards to a Desktop Client — Practical Guide",
+        "description": "When OpenSearch Dashboards is too heavy for daily query work — how to migrate to a desktop client, what you gain and lose, and how to run both side-by-side.",
         "image": "https://www.geekfun.club/og-image.png",
         "author": {
           "@type": "Organization",
@@ -43,331 +43,114 @@ head:
           }
         },
         "datePublished": "2025-03-24",
-        "dateModified": "2026-04-08",
+        "dateModified": "2026-05-15",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/opensearch-gui"
         },
-        "keywords": ["OpenSearch GUI", "OpenSearch client", "OpenSearch Dashboards alternative", "AWS OpenSearch"],
+        "keywords": ["OpenSearch Dashboards alternative", "OpenSearch desktop client", "migrate OpenSearch Dashboards"],
         "articleSection": "Database Tools"
       }
 ---
 
-# OpenSearch GUI Client - Free Desktop Tool
+# Migrating from OpenSearch Dashboards to a Desktop Client
 
-DocKit is a **free, open-source OpenSearch GUI client** — a desktop alternative to OpenSearch Dashboards for day-to-day query development. Faster startup, lower memory, and your queries live locally as files you can commit to Git.
+I wrote this for engineers who use OpenSearch Dashboards primarily as a query console rather than as a visualization or observability platform. If your daily work is writing and iterating on search requests, switching to a desktop client changes how you work more than it changes what you can do. For the product details and download path, see the [OpenSearch GUI client page](/products/dockit/opensearch-gui-client).
 
-## Why Choose DocKit for OpenSearch?
+## When Dashboards becomes the bottleneck
 
-DocKit brings desktop-native performance to OpenSearch development:
+OpenSearch Dashboards makes sense when you need dashboards, alerting, observability views, and security administration in one web app. It starts to feel heavy when the actual task is query development. You wait for the Dashboards service to boot—often 10 to 30 seconds in local or containerized setups—before Dev Tools is usable. Many teams keep a separate Dashboards container running alongside the cluster even though the cluster is the only thing they actively query. Then you work in a browser tab that can be interrupted by refreshes, crashes, cookie issues, or session resets, which kills whatever editing context you had open.
 
-### ⚡ Lightning Fast
-- Launches in under 2 seconds (Dashboards takes 10-30s)
-- Uses ~150 MB RAM vs 500 MB+ for browser-based tools
+That friction is small once, but costly when it happens dozens of times per day. Browser-based state is a poor home for work-in-progress query files. If Dashboards is your scratchpad, your important queries live in a mix of browser history, copied snippets, and saved objects that are hard to diff or commit. There is no real offline mode: if the cluster is unavailable, Dashboards is mostly unavailable too. Add the RAM cost of another Node-based web app on top of the cluster, and you can see why many teams treat Dashboards as necessary infrastructure for a workflow that doesn't actually need a browser-first tool.
 
-<!-- ### 🔐 AWS OpenSearch Ready
-- Native AWS Signature V4 authentication
-- Direct integration with AWS OpenSearch Service
-- No VPN or bastion host complexity -->
+## What a desktop client does differently
 
-### 🛠️ Developer Experience
-- JSON5 syntax - write queries without strict JSON formatting
-- Inline comments for query documentation
-- Local file storage for all queries (Git-friendly)
-- Work offline and sync when ready
+The main difference is that query work stops being tied to a browser session. Queries become local files or editor state instead of temporary browser artifacts. That makes it easier to preserve, review, and reuse queries. You can keep inline notes, organize queries in folders, and treat them more like code than snippets buried in Dev Tools history.
 
-## 🎥 See DocKit in Action
+The connection model changes as well. Dashboards assumes a running web application that is always connected to a cluster. A desktop client treats the cluster connection as part of the workflow, not the whole workflow. The editor can start instantly. Local history persists when you are offline. Switching environments becomes a profile change rather than a separate browser login flow. That matters most for engineers who move between local containers, staging clusters, and managed environments in a single day.
 
-Watch a complete walkthrough of DocKit's installation and OpenSearch features:
+## What you give up
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
-  <iframe 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-    src="https://www.youtube.com/embed/Y1GpcTnVQTk" 
-    title="DocKit OpenSearch Installation and Features" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
-</div>
+Moving query work into a desktop client does not replace OpenSearch Dashboards. Dashboards still matters for visualizations and stakeholder-facing dashboards. It's where teams manage alerting rules, inspect observability data such as traces, logs, and metrics, administer the security plugin, and use features like Anomaly Detection. If your team depends on those parts of the stack, a desktop client is not a substitute.
 
-**Video covers:**
-- Quick installation and setup process
-- Connecting to OpenSearch clusters
-- Developer-friendly features in action (JSON5, comments, auto-formatting)
-- Cluster management and advanced features
+Be explicit about this trade-off. A lighter client reduces overhead for query development; it does not make Dashboards unnecessary across the board. For many teams the steady state is running both tools: a desktop client for daily request authoring and cluster-side query checks, and Dashboards for visualization, alerting, and operational workflows that belong in a web UI.
 
-## Key Features of DocKit OpenSearch Client
+## Migration workflow
 
-### Dev Tools Interface
-Professional query editor powered by Monaco (VS Code engine):
+Start by identifying the saved queries and repeated Dev Tools requests you actually use. In Dashboards that usually means opening Dev Tools and collecting the requests your team reruns during development, incident reviews, schema checks, or release validation. Export them out of the browser mindset and into files. If there isn't a formal export for every snippet, copy the saved queries from Dev Tools Console into versioned files so they stop living only inside browser history.
+
+Next, install the desktop client and create a connection profile that points to the same cluster you use in Dashboards. If you have separate local, staging, and production endpoints, create named profiles for each immediately. The point is to make environment switching explicit and repeatable, not to connect once and forget it.
+
+Then recreate the queries you use most often in the new editor. Normalize them into JSON5 so they are easier to maintain and annotate. A strict JSON request copied from Dashboards might look like this:
 
 ```json
-GET /products/_search
+GET /orders/_search
 {
   "query": {
     "bool": {
-      "must": [
-        {"match": {"category": "electronics"}},
-        {"range": {"price": {"gte": 100, "lte": 500}}}
+      "filter": [
+        {
+          "range": {
+            "createdAt": {
+              "gte": "now-7d/d"
+            }
+          }
+        },
+        {
+          "term": {
+            "status": "paid"
+          }
+        }
       ]
     }
   },
-  "aggs": {
-    "avg_price": {"avg": {"field": "price"}}
-  }
+  "size": 100
 }
 ```
 
-**Editor Features:**
-- **JSON5 Syntax Support**: Write queries like JavaScript - no need for strict JSON double quotes
-- **Inline Comments**: Add `//` or `/* */` comments directly in queries for documentation
-- Syntax highlighting and validation
-- Auto-completion for indices, fields, and OpenSearch DSL
-- Execute with `Ctrl/Cmd + Enter`
-- Auto-indent and format/prettify JSON
-- One-click copy of executable curl commands
+The same request in JSON5 can be kept closer to how engineers actually annotate working queries:
 
-**JSON5 Example:**
 ```javascript
-GET /products/_search
+GET /orders/_search
 {
-  query: {
-    // Search for electronics under $500
-    bool: {
-      must: [
-        {match: {category: 'electronics'}},  // No quotes needed!
-        {range: {price: {gte: 100, lte: 500}}}
-      ]
-    }
-  },
-  /* Aggregate results by price */
-  aggs: {
-    avg_price: {avg: {field: 'price'}}
-  }
-}
-```
-
-> 💡 **Why JSON5 matters**: Standard JSON requires double quotes everywhere and doesn't allow comments, making queries harder to read and maintain. DocKit's JSON5 support makes query writing feel natural and allows you to document your queries inline.
-
-### Index Management
-Comprehensive index operations:
-
-- **Browse Indices**: View all indices with stats (docs, size, health)
-- **Mappings & Settings**: View and edit index configurations
-- **Create/Delete Indices**: Manage index lifecycle
-- **Index Templates**: Create and manage templates
-- **Aliases**: Manage index aliases
-- **Reindexing**: Move data between indices
-
-### Cluster Monitoring
-Real-time cluster health and performance:
-
-- **Cluster Health**: Green/Yellow/Red status indicators
-- **Node Information**: CPU, memory, disk usage per node
-- **Shard Allocation**: Visual shard distribution
-- **Task Management**: Monitor long-running operations
-- **Index Statistics**: Document counts, storage size, query performance
-
-### Bulk Operations
-Efficient data management:
-
-- **Import**: Load JSON/CSV files into OpenSearch
-- **Export**: Save query results to files
-- **Bulk Update**: Modify multiple documents
-- **Bulk Delete**: Remove documents by query
-- **Progress Tracking**: Monitor large operations
-
-### Multi-Cluster Support
-Manage multiple OpenSearch clusters:
-
-- Save unlimited connection profiles
-- Quick switch between clusters
-- Run same query across multiple environments
-<!-- - Supports all authentication methods:
-  - Basic Auth (username/password)
-  - AWS Signature V4 (for AWS OpenSearch Service)
-  - API Keys
-  - Client Certificates
-  - No Auth (local development) -->
-
-### AI Query Assistant
-Unique AI-powered features:
-
-- **Natural Language to Query**: "Find all orders from last week over $100"
-- **Query Explanation**: Understand complex queries in plain English
-- **Performance Suggestions**: Get recommendations for slow queries
-- **Error Debugging**: AI helps diagnose and fix query errors
-
-## DocKit vs OpenSearch Dashboards
-
-**DocKit excels at:**
-- Fast query development and testing
-- Managing multiple OpenSearch clusters
-- Working with AWS OpenSearch Service
-- Offline query building
-- Local query persistence (Git-friendly)
-
-**Use Dashboards for:**
-- Creating visualizations and dashboards
-- Advanced monitoring and alerting
-- Observability features (traces, logs, metrics)
-- Security administration
-
-**Use Both:** Many teams use DocKit for development and Dashboards for production monitoring.
-
-## Perfect For
-
-<!-- - **AWS OpenSearch Users**: Native SigV4 auth makes connection seamless -->
-- **DevOps Teams**: Manage dev/staging/prod clusters efficiently
-- **Backend Engineers**: Query OpenSearch without browser overhead
-- **Consultants**: Switch between client environments quickly
-- **Teams valuing open-source**: Free alternative to commercial tools
-
-## Quick Start
-
-### 1. Install DocKit
-[→ Download for Mac, Windows, or Linux](/download)
-
-### 2. Connect Your Cluster
-
-**Local development:**
-```
-http://localhost:9200
-```
-
-**AWS OpenSearch Service:**
-```
-Host: https://search-xxx.us-east-1.es.amazonaws.com
-Region: us-east-1
-Access/Secret Key from AWS IAM
-```
-
-**Self-hosted with auth:**
-```
-Host: https://opensearch.company.com:9200
-Username/Password or API Key
-```
-
-### 3. Start Working
-
-Open Dev Tools → Write query → `Cmd/Ctrl + Enter` → See results
-
-All queries are automatically saved locally.
-
-## Real-World Scenarios
-
-### AWS OpenSearch Development
-Develop locally, deploy to AWS:
-1. Connect to local OpenSearch for development
-2. Test queries with production-like data
-3. Switch to AWS OpenSearch Service for staging tests
-4. Deploy validated queries to production
-
-**DocKit benefit**: Switch environments without changing code or configs.
-
-### Log Analysis Workflow
-Querying application logs from OpenSearch:
-```javascript
-GET /app-logs-*/_search
-{
+  // Paid orders from the last 7 days
   query: {
     bool: {
-      must: [
-        {match: {level: 'ERROR'}},
-        {range: {timestamp: {gte: 'now-1h'}}}
+      filter: [
+        {
+          range: {
+            createdAt: {
+              gte: 'now-7d/d'
+            }
+          }
+        },
+        {
+          term: {
+            status: 'paid'
+          }
+        }
       ]
     }
-  }
-}
-```
-Save as "Recent Errors" → rerun anytime with one click.
-
-### Multi-Cluster Monitoring
-Managing OpenSearch across environments:
-- Dev cluster for feature development
-- Staging for integration tests
-- Production for live traffic
-
-DocKit lets you switch contexts instantly and run identical queries across all environments.
-
-### Use Case 4: Index Migration
-**Reindex with transformation:**
-
-```json
-POST /_reindex
-{
-  "source": {
-    "index": "old-products"
   },
-  "dest": {
-    "index": "new-products"
-  },
-  "script": {
-    "source": "ctx._source.price = ctx._source.price * 1.1"
-  }
+  size: 100
 }
 ```
 
-**DocKit Advantage**: Monitor reindexing progress in real-time.
+After you have queries in the desktop client, run both tools side-by-side for one to two weeks. Keep Dashboards available for the workflows that belong there, especially visualizations and any shared operational views. Use the desktop client for day-to-day request authoring, rerunning saved queries, and switching between environments. That overlap is usually enough to confirm whether the lighter workflow matches how your team works.
 
-## OpenSearch vs Elasticsearch
+## AWS OpenSearch Service specifics
 
-OpenSearch is an open-source fork of Elasticsearch (diverged in 2021). DocKit supports **both**:
+For AWS-managed clusters point the client to the service HTTPS endpoint, typically `https://search-your-domain.region.es.amazonaws.com` or the newer endpoint shape your account uses. Credential options are direct AWS access keys or an IAM profile already configured on your machine. The important thing is to target the same managed cluster endpoint you already use, not a separate compatibility layer.
 
-| Aspect | OpenSearch | Elasticsearch |
-|--------|-----------|---------------|
-| **License** | Apache 2.0 (Open Source) | Elastic License (Proprietary) |
-| **Cloud Provider** | AWS OpenSearch Service | Elastic Cloud |
-| **Compatibility** | OpenSearch 1.x, 2.x, 3.x | Elasticsearch 1.x - 9.x |
-| **Plugin Ecosystem** | Growing | Mature |
-| **Community** | AWS-backed | Elastic-backed |
+## Running both tools
 
-**DocKit works with both** — use the same client regardless of which you choose. See [Elasticsearch GUI page](/blog/elasticsearch-gui) for Elasticsearch-specific features.
+This is not a binary migration where Dashboards disappears. In practice you split responsibilities by job. Use the desktop client for daily query development, saved request libraries, local editing, and quick environment switching. Keep OpenSearch Dashboards for stakeholder dashboards, alerting flows, observability views, and administration that belongs in a web app.
 
-## OpenSearch Version Compatibility
+That separation usually reduces friction. Engineers stop using the full Dashboards stack as a generic text editor while the valuable parts of Dashboards remain in place. If your team treats search requests as assets worth reviewing and reusing, coexisting tools are often the cleanest path.
 
-DocKit is designed to support **OpenSearch from version 1.x onwards**, using standard OpenSearch REST APIs. The client is not bound to specific versions and should work seamlessly across different OpenSearch releases.
+## Resources
 
-**Tested with:**
-- OpenSearch 1.x - 3.x
-- AWS OpenSearch Service (all versions)
-- Self-hosted OpenSearch clusters
-
-If you encounter any compatibility issues with your OpenSearch version, please [report them on GitHub](https://github.com/geek-fun/dockit/issues) — we're committed to maintaining broad version support.
-
-## Frequently Asked Questions
-
-### Does DocKit work with OpenSearch 3.x?
-Yes! DocKit fully supports OpenSearch 3.x, including the latest query DSL.
-<!-- 
-### Can I use DocKit with AWS OpenSearch Service?
-Absolutely! DocKit has native support for **AWS Signature V4 authentication**, making it seamless to connect to AWS OpenSearch Service managed clusters. -->
-
-### Is DocKit an OpenSearch Dashboards replacement?
-For **querying and index management**, yes. For **visualizations and dashboards**, no. Many teams use both.
-
-### Can I export query results?
-DocKit provides a comprehensive **Import/Export module** where you can export data and schemas in multiple formats. This dedicated module offers more control and options than simple result exports — visit the Import/Export section to export data as you need.
-
-### Is DocKit safe for production clusters?
-Yes. DocKit uses official OpenSearch client libraries and respects all cluster security settings. Always use read-only credentials for safety.
-
-### Does DocKit work with Elasticsearch too?
-Yes! DocKit supports **OpenSearch**, **Elasticsearch**, and **DynamoDB** in the same application. You can manage all three database types without switching tools.
-
-### Where are connection credentials stored?
-Credentials are encrypted and stored locally on your machine. They never leave your device.
-
-## Additional Resources
-
-- **[OpenSearch GUI Client — Product Page](/products/dockit/opensearch-gui-client)** - Full feature details, downloads, and comparisons
-- **[Installation Guide](/docs/dockit/installation)** - Setup instructions
-- **[Connect to OpenSearch](/docs/dockit/connect-to-server)** - Configuration details
-- **[Cluster Management](/docs/dockit/manage-elasticsearch-cluster)** - Index and cluster operations
-- **[Elasticsearch GUI](/blog/elasticsearch-gui)** - For Elasticsearch users
-- **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code and issues
-
-## Try DocKit for OpenSearch
-
-[Download DocKit](/download) — Free, open-source, no registration required.
+- [OpenSearch GUI client — features and download](/products/dockit/opensearch-gui-client)
+- [Connect to OpenSearch](/docs/dockit/connect-to-server)
+- [DocKit vs OpenSearch Dashboards comparison](/products/dockit/dockit-vs-opensearch-dashboards)
+- [GitHub](https://github.com/geek-fun/dockit)

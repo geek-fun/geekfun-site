@@ -42,95 +42,138 @@ head:
 
 # OpenSearch GUI Client
 
-**DocKit** is an open-source desktop **OpenSearch GUI client** for Mac, Windows, and Linux. It replaces OpenSearch Dashboards for daily query work — faster startup, lower memory, and your queries stored as local files you can commit to Git.
+DocKit is an open source desktop client for OpenSearch. It works on Mac, Windows, and Linux. Most engineers use it as a faster alternative to OpenSearch Dashboards for daily query work. It starts in seconds, uses very little memory, and saves your queries as local files so you can keep them in Git.
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download — Free</a>
   <a href="https://github.com/geek-fun/dockit" style="padding:10px 20px;border:1px solid var(--vp-c-border);border-radius:6px;font-weight:600;text-decoration:none" target="_blank" rel="noopener">View on GitHub</a>
 </div>
 
-## Why use an OpenSearch desktop client?
+## Why a desktop client?
 
-OpenSearch Dashboards is the standard web interface for OpenSearch clusters. For query development it is expensive to run — 10–30 s startup, 500 MB+ RAM, and it requires a running Dashboards instance alongside your cluster. A dedicated OpenSearch GUI client starts in under 2 seconds, uses ~150 MB RAM, and runs entirely offline.
+OpenSearch Dashboards is fine for visualization, but it is heavy for writing queries. It usually takes 10 to 30 seconds to load and eats up over 500 MB of RAM. Plus, you have to run a Dashboards instance just to use the Dev Tools. DocKit starts in under 2 seconds, stays around 150 MB of RAM, and works entirely offline.
 
-DocKit is built for the engineer who spends most of their OpenSearch time in the query editor, not building dashboards.
+If you spend most of your time in the query editor rather than looking at charts, a dedicated client is a better fit.
 
-## OpenSearch features in DocKit
+## Video demo
 
-### Monaco-powered query editor
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
+  <iframe
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    src="https://www.youtube.com/embed/Y1GpcTnVQTk"
+    title="DocKit OpenSearch installation and features"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
 
-The Dev Tools editor is built on Monaco (VS Code engine):
+## Features
 
-- **JSON5 syntax** — write queries without strict JSON double-quote rules; add `//` inline comments
-- **Field and index autocomplete** pulled from your live cluster mapping
-- **Syntax highlighting and validation** for OpenSearch Query DSL
-- **Auto-format** and one-click copy as `curl` command
-- `Cmd/Ctrl + Enter` to execute
+### Query editor
+
+The editor is built on Monaco, the same engine in VS Code.
+
+- Write queries using JSON5 to skip strict quoting rules and add comments
+- Get index and field autocomplete from your live cluster mapping
+- Syntax highlighting and validation for OpenSearch Query DSL
+- Format queries or copy them as curl commands
+- Execute with Cmd/Ctrl + Enter
 
 ### AI query assistant
 
-Type your requirement in plain English — "find all orders from last week over $100" — and DocKit generates the OpenSearch DSL. The AI has your actual index mapping as context, so it produces queries that match your real field names and types. Supports OpenAI and DeepSeek. Your data stays local.
+You can write what you need in plain English, like "find all orders from last week over $100," and the app generates the DSL for you. It uses your actual index mapping as context, so the field names and types are correct. It works with OpenAI and DeepSeek. Your data stays on your machine.
 
 ### Cluster management
 
-Browse all indices with live health, doc counts, and storage stats. Manage mappings, settings, index templates, and aliases. Monitor node health, shard allocation, and long-running tasks.
+Browse your indices to check health, document counts, and storage stats. You can update mappings, settings, index templates, and aliases directly. It also includes tools to monitor node health, shard allocation, and running tasks.
 
-### Import & Export
+### Import and export
 
-Export entire indices to JSON, CSV, or JSONL (bulk API format). Import data files into any index with automatic type detection. Handles multi-million-record indices reliably using the scroll API.
+Export indices to JSON, CSV, or JSONL for the bulk API. You can also import data files into any index. The app uses the scroll API, so it handles indices with millions of documents without crashing.
 
 ### Query history
 
-Every executed query is saved automatically to a local, searchable history. No manual saving required — copy, re-execute, or load back into the editor with one click.
+DocKit automatically saves every query you run to a local, searchable history. You don't have to save things manually. You can just search for an old query and load it back into the editor.
 
 ### Multi-cluster support
 
-Save unlimited connection profiles and switch between dev, staging, and production clusters instantly. Supports Basic Auth, API Keys, and no-auth for local development.
+Save as many connection profiles as you need. You can jump between local, staging, and production clusters without losing your work. It supports Basic Auth, API Keys, and no-auth for local development.
 
-## Comparison: DocKit vs other OpenSearch GUI clients
+## Comparison
 
 | | DocKit | OpenSearch Dashboards | Elasticvue |
 |---|---|---|---|
 | **Platform** | Desktop (native) | Web (browser) | Web / extension |
 | **Startup** | < 2 s | 10–30 s | < 5 s |
 | **RAM** | ~150 MB | 500 MB+ | ~200 MB |
-| **Dev Tools editor** | ✅ Monaco + JSON5 | ✅ Basic | ✅ Basic |
+| **Editor** | Monaco + JSON5 | Basic | Basic |
 | **AI assistant** | ✅ | ❌ | ❌ |
 | **Offline mode** | ✅ | ❌ | ❌ |
-| **Query persistence** | ✅ Local files | Limited | ❌ |
-| **DynamoDB support** | ✅ | ❌ | ❌ |
-| **Elasticsearch support** | ✅ | ❌ | ✅ |
-| **Open source** | ✅ Apache 2.0 | ✅ Apache 2.0 | ✅ MIT |
-| **Price** | Community: free | Free | Free |
+| **Persistence** | Local files | Limited | ❌ |
+| **DynamoDB** | ✅ | ❌ | ❌ |
+| **Elasticsearch** | ✅ | ❌ | ✅ |
+| **License** | Apache 2.0 | Apache 2.0 | MIT |
+| **Price** | Free | Free | Free |
 
-## OpenSearch version compatibility
+## Usage scenarios
 
-DocKit uses the standard OpenSearch REST API and supports **OpenSearch 1.x through 3.x**, including AWS OpenSearch Service. Both self-hosted clusters and managed cloud deployments work. [Report compatibility issues on GitHub](https://github.com/geek-fun/dockit/issues).
+### AWS OpenSearch workflow
+
+Teams often start by developing queries against a local OpenSearch container then move to an AWS OpenSearch Service staging cluster. Since connection details are in saved profiles rather than browser tabs, you can switch environments without re-entering settings or rewriting queries.
+
+### Log analysis
+
+When you are debugging an incident, you need your queries ready to go. A typical log analysis query might look like this:
+
+```javascript
+GET /app-logs-*/_search
+{
+  query: {
+    bool: {
+      must: [
+        {match: {level: 'ERROR'}},
+        {range: {timestamp: {gte: 'now-1h'}}}
+      ]
+    }
+  }
+}
+```
+
+Save this as a reusable query file. If your team treats operational queries like code, you can keep them under version control.
+
+### Environment management
+
+If you manage separate clusters for dev, staging, and prod, switching between them needs to be fast. Saved profiles let you run the same query across different clusters in sequence without losing your editor state. This makes rollout validation much easier.
+
+## Compatibility
+
+DocKit uses the standard OpenSearch REST API. It supports OpenSearch versions 1.x through 3.x, including AWS OpenSearch Service. It works with both self-hosted and cloud deployments.
 
 ## Getting started
 
-1. **[Download DocKit](/download)** for macOS (Apple Silicon + Intel), Windows, or Linux
-2. Open DocKit → click **New Connection** → choose OpenSearch
-3. Enter your host, port, and credentials
-4. Click **Connect** — indices load in the sidebar
-5. Open **Dev Tools** and start querying
+1. Download DocKit for macOS, Windows, or Linux.
+2. Click New Connection and select OpenSearch.
+3. Put in your host, port, and credentials.
+4. Hit Connect to see your indices.
+5. Open Dev Tools to start querying.
 
-See the [connection guide](/docs/dockit/connect-to-server) for full setup details.
+Check the connection guide for more details.
 
-## Frequently asked questions
+## FAQ
 
-**Is DocKit an OpenSearch Dashboards replacement?**
-For query development and index management, yes. For visualizations, observability, and security administration, Dashboards is still needed. Many teams use both.
+**Can I replace OpenSearch Dashboards with this?**
+For query development and index management, yes. You still need Dashboards for visualizations and security settings.
 
-**Does it work with AWS OpenSearch Service?**
-Yes. Connect via HTTPS with your IAM credentials or API keys.
+**Does it work with AWS OpenSearch?**
+Yes. You can connect over HTTPS using IAM credentials or API keys.
 
-**Does it work with Elasticsearch too?**
-Yes — DocKit supports Elasticsearch, OpenSearch, and DynamoDB in the same app. See the [Elasticsearch GUI client page](/products/dockit/elasticsearch-gui-client).
+**Does it work with Elasticsearch?**
+Yes. DocKit supports Elasticsearch, OpenSearch, and DynamoDB in the same app.
 
-**Where are credentials stored?**
-Encrypted locally on your machine. Never transmitted anywhere.
+**Where are my credentials?**
+They are encrypted and stored on your machine. They are never sent anywhere else.
 
 ---
 
-→ **[DocKit full feature overview](/products/dockit/)** · [OpenSearch GUI deep-dive](/blog/opensearch-gui) · [Elasticsearch AI assistant](/blog/elasticsearch-ai-assistant)
+[DocKit feature overview](/products/dockit/) · [Migrating from OpenSearch Dashboards](/blog/opensearch-gui) · [Elasticsearch AI assistant](/blog/elasticsearch-ai-assistant)

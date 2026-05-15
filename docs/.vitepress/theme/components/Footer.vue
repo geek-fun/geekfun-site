@@ -19,7 +19,7 @@
             <li><a :href="localePath('/products/dockit/elasticsearch-gui-client')">{{ t.elasticsearchGui }}</a></li>
             <li><a :href="localePath('/products/dockit/opensearch-gui-client')">{{ t.opensearchGui }}</a></li>
             <li><a :href="localePath('/products/dockit/dynamodb-gui-client')">{{ t.dynamodbGui }}</a></li>
-            <li><a :href="localePath('/blog/dynobase-alternative')">{{ t.dynobaseAlt }}</a></li>
+            <li><a :href="localePath('/products/dockit/dockit-vs-dynobase')">{{ t.dynobaseAlt }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-kibana')">{{ t.vsKibana }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-opensearch-dashboards')">{{ t.vsOpensearchDashboards }}</a></li>
             <li><a :href="localePath('/download')">{{ t.download }}</a></li>

@@ -1,10 +1,10 @@
 ---
-title: DynamoDB GUI Client - Complete Guide with Features & Comparisons (2026)
-description: The definitive guide to DynamoDB GUI clients. Compare DocKit vs Dynobase vs AWS Console, explore PartiQL editing, visual queries, and discover the best free DynamoDB desktop tool for Mac, Windows, and Linux.
+title: DynamoDB Query Patterns — PartiQL, Visual Builder, and When to Use Each
+description: Practical DynamoDB query patterns using PartiQL and the visual query builder. Covers filter expressions, index queries, batch operations, and local development with DynamoDB Local.
 head:
   - - meta
     - name: keywords
-      content: DynamoDB GUI, DynamoDB client, DynamoDB desktop client, DynamoDB GUI client, PartiQL editor, DynamoDB visual query builder, DynamoDB management tool, AWS DynamoDB client, free DynamoDB client, open source DynamoDB, DynamoDB data browser, DynamoDB query tool, DynamoDB local client, DynamoDB Mac client, DynamoDB Windows client
+      content: dynamodb partiql, dynamodb query patterns, dynamodb filter expression, dynamodb local, dynamodb gsi query, dynamodb visual query builder, dynamodb batch operations, partiql examples
   - - link
     - rel: canonical
       href: https://www.geekfun.club/blog/dynamodb-gui
@@ -26,8 +26,8 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "DynamoDB GUI Client - Open Source Desktop Tool",
-        "description": "DocKit is a free, open-source DynamoDB GUI client for Mac, Windows, and Linux. Visual query builder, PartiQL editor, and local data management without AWS Console.",
+        "headline": "DynamoDB Query Patterns — PartiQL, Visual Builder, and When to Use Each",
+        "description": "Practical DynamoDB query patterns using PartiQL and the visual query builder. Covers filter expressions, index queries, batch operations, and DynamoDB Local.",
         "image": "https://www.geekfun.club/dockit-dynamodb.png",
         "author": {
           "@type": "Organization",
@@ -43,12 +43,12 @@ head:
           }
         },
         "datePublished": "2025-03-04",
-        "dateModified": "2026-04-08",
+        "dateModified": "2026-05-15",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/dynamodb-gui"
         },
-        "keywords": ["DynamoDB GUI", "DynamoDB client", "PartiQL", "AWS database", "open source"],
+        "keywords": ["DynamoDB PartiQL", "DynamoDB query patterns", "DynamoDB filter expression", "DynamoDB Local"],
         "articleSection": "Database Tools"
       }
   - - script
@@ -60,245 +60,233 @@ head:
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Is DocKit really free?",
+            "name": "When should I use PartiQL instead of the visual query builder?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes! DocKit is 100% free and open source (Apache 2.0 license). No trials, no feature limits, no credit card required."
+              "text": "Use PartiQL when you need complex filter expressions, multi-statement queries, or want to save queries to version control. Use the visual builder for quick lookups by partition/sort key where you don't need to write the query syntax."
             }
           },
           {
             "@type": "Question",
-            "name": "Does DocKit work with DynamoDB Local?",
+            "name": "Does PartiQL support all DynamoDB operations?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Absolutely. DocKit is perfect for local development with DynamoDB Local. Just point it to http://localhost:8000."
+              "text": "PartiQL in DynamoDB supports SELECT, INSERT, UPDATE, and DELETE. It does not support all SQL features — JOINs, subqueries, and aggregation functions are not available. Use the DynamoDB SDK for operations PartiQL cannot express."
             }
           },
           {
             "@type": "Question",
-            "name": "Can I use DocKit in production?",
+            "name": "How do I query a GSI with PartiQL?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. DocKit uses standard AWS SDKs and supports all AWS credential methods (profiles, IAM roles, access keys). It's secure for production use."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does DocKit compare to NoSQL Workbench?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "NoSQL Workbench is AWS's official tool, focused on data modeling. DocKit focuses on querying and data management with a faster, more developer-friendly UI."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does DocKit support other databases?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes! DocKit also supports Elasticsearch and OpenSearch in the same application. You can manage all three database types without switching tools."
+              "text": "Use SELECT with the index hint: SELECT * FROM \"TableName\".\"IndexName\" WHERE gsi_partition_key = 'value'"
             }
           }
         ]
       }
 ---
 
-# DynamoDB GUI Client - Open Source Desktop Tool
+# DynamoDB Query Patterns — PartiQL, Visual Builder, and When to Use Each
 
-DocKit is a **free, open-source DynamoDB GUI client** designed for developers who need a fast, secure alternative to the AWS Console and commercial tools like Dynobase.
+When you're working with DynamoDB, the real question isn't which GUI to install. It's which query mode gets you the answer fastest without hiding what the database is actually doing. For the tool overview and download, you can check the [DynamoDB GUI client page](/products/dockit/dynamodb-gui-client). This guide is about query technique.
 
-## Why Use a DynamoDB GUI Client?
+## PartiQL vs visual query builder — the real difference
 
-The AWS DynamoDB Console works, but it has significant limitations for developers:
+I think of PartiQL as the mode for repeatable work. If a query is going into my notes, a runbook, or a pull request comment, I write it as PartiQL. It's a durable statement. You can tweak it precisely and rerun the same logic later against local, staging, or production data.
 
-- **Slow & Browser-Based**: Requires constant internet connectivity and multiple page loads
-- **No Query Persistence**: Queries are lost when you close the browser tab
-- **Limited Editing**: Complex workflows for simple data updates
-- **No Multi-Account Support**: Switching between environments is cumbersome
-- **Cloud-Only**: Must connect to AWS even for local DynamoDB instances
+The visual builder is better when the lookup is disposable. If you already know the partition key and just want to sanity check a row, filling a few fields is quicker than remembering the exact syntax. This is especially true when you're exploring a table you didn't design that has multiple GSIs or dozens of attributes.
 
-A dedicated **DynamoDB desktop client** solves these problems by running locally on your machine, offering faster performance, better data visualization, and persistent query history.
+Use PartiQL when the query logic matters. Use the visual builder when you just need the values.
 
-## 🎥 See DocKit DynamoDB in Action
+## Basic table queries with PartiQL
 
-Watch how DocKit simplifies DynamoDB management with its intuitive UI and powerful PartiQL editor:
+Let's look at an `Orders` table with this shape:
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
-  <iframe 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-    src="https://www.youtube.com/embed/UE1hDLXvxuo" 
-    title="DocKit DynamoDB GUI Client Demo" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
-</div>
+- OrderId (partition key)
+- CreatedAt (sort key)
+- CustomerId
+- Status
+- Total
 
-**Video highlights:**
-- ✨ User-friendly UI editor for effortless CRUD operations
-- 💻 Monaco-powered PartiQL editor with smart auto-completion
-- 🔍 Advanced search, filtering, and pagination
-- 📚 Sample queries to get started instantly
+### Query by partition key
 
-## Key Features of DocKit DynamoDB GUI
-
-### 🎯 Visual Query Builder
-Build DynamoDB queries without writing code. Select your table, choose partition/sort keys, add filters, and execute — all through an intuitive UI.
-
-- No PartiQL syntax required for basic queries
-- Auto-complete for table names and attributes
-- Visual filter builder with type-aware inputs
-- Support for Scan, Query, and advanced filters operations
-
-### ⚡ PartiQL Query Editor
-For advanced users, DocKit includes a full-featured PartiQL editor:
+This is the common case when you know the exact item collection you want.
 
 ```sql
-SELECT * FROM ProductCatalog 
-WHERE Category = 'Electronics' 
-  AND Price < 500
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001';
 ```
 
-**Learn more:** [DynamoDB PartiQL GUI - Complete Guide](/products/dockit/features/dynamodb-partiql)
+If OrderId is the partition key, DynamoDB handles this with a keyed query instead of a scan. That means predictable latency and lower read costs.
 
-**Editor Features:**
-- Syntax highlighting and auto-completion
-- Execute queries with keyboard shortcuts (Cmd/Ctrl + Enter)
-- Format PartiQL statements automatically
-- Query history and favorites
+### Query by partition key and sort key condition
 
-### ✏️ Inline Data Editing
-Update and delete DynamoDB items directly from query results:
+Once you have a composite primary key, PartiQL is a good fit for narrow range reads.
 
-- Click to edit any attribute value
-- Type-aware input (String, Number, Boolean, etc.)
-- Batch delete multiple items
+```sql
+SELECT "OrderId", "CreatedAt", "Status", "Total"
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" BETWEEN '2026-05-01T00:00:00Z' AND '2026-05-31T23:59:59Z';
+```
 
-### 📝 Create Items Through UI
-Add new items to your DynamoDB tables using a form-based interface:
+This works well when the sort key is time based and you've modeled the item collection for event history or versioned records.
 
-- Auto-detect table schema
-- Type selection for each attribute
-- Support for nested objects and arrays
-- Validate before inserting
+### Scan with a filter expression
 
-### 💾 Local Query Persistence
-Unlike the AWS Console, DocKit **automatically saves all your queries** to local files:
+Sometimes you inherit a legacy table where the access pattern was never modeled. PartiQL can still find the data.
 
-- Never lose work when switching tabs
-- Organize queries by project/environment
-- Share queries with your team via Git
-- Open multiple query tabs simultaneously
+```sql
+SELECT *
+FROM "Orders"
+WHERE "Status" = 'PENDING'
+  AND "Total" >= 500;
+```
 
-**Learn more:** [Local-First Database Client Architecture](/products/dockit/features/local-first)
+If Status and Total aren't part of a key, DynamoDB has to scan and then filter. It's fine for small tables or local development, but it's usually the wrong pattern for a hot production path. You're paying to read items that don't match.
 
-### 🔒 Secure & Private
-DocKit runs entirely on your machine:
+## GSI queries
 
-- No data sent to third-party servers
-- Use AWS credentials from local config files
-- Connect to DynamoDB Local for development
-<!-- - Supports IAM roles and temporary credentials -->
+Global Secondary Index queries are where I see teams trip over PartiQL syntax most often. You can't query the GSI by sending a normal SELECT to the base table and hoping DynamoDB will infer the index. You have to name the index explicitly.
 
-## DynamoDB GUI Comparison
+If `Orders` has a GSI named `CustomerId-CreatedAt-index` with `CustomerId` as the partition key and `CreatedAt` as the sort key, query it like this:
 
-| Feature | DocKit | AWS Console | Dynobase |
-|---------|--------|-------------|----------|
-| **Price** | Free (Open Source) | Free | $12-30/month |
-| **Platform** | Mac, Windows, Linux | Web | Mac, Windows, Linux |
-| **PartiQL Editor** | ✅ | ✅ | ✅ |
-| **Visual Query Builder** | ✅ | ❌ | ✅ |
-| **Offline Mode** | ✅ | ❌ | ✅ |
-| **Query Persistence** | ✅ (Local files) | ❌ | ✅ (Cloud) |
-| **Multi-Table Tabs** | ✅ | ❌ | ✅ |
-| **DynamoDB Local** | ✅ | ❌ | ✅ |
-| **AI Assistant** | ✅ | ❌ | ❌ |
-| **Open Source** | ✅ | ❌ | ❌ |
+```sql
+SELECT "OrderId", "CustomerId", "CreatedAt", "Status", "Total"
+FROM "Orders"."CustomerId-CreatedAt-index"
+WHERE "CustomerId" = 'CUST#42'
+  AND "CreatedAt" >= '2026-05-01T00:00:00Z';
+```
 
-## Who Should Use DocKit for DynamoDB?
+DynamoDB needs to know which storage path you intend to use. The index hint makes that explicit. If a query feels natural but performs badly, you probably wanted a GSI backed access pattern.
 
-**Perfect for:**
-- **Backend Developers** working with DynamoDB daily
-- **Data Engineers** analyzing DynamoDB tables
-- **DevOps Teams** managing multi-environment DynamoDB setups
-- **Startups** needing free, reliable DynamoDB tooling
-- **Teams using DynamoDB Local** for development
+## Batch operations
 
-**When to use AWS Console instead:**
-- Quick one-time queries (no installation needed)
-- Managing IAM policies and table settings
-- Viewing CloudWatch metrics and alarms
+PartiQL is great for maintenance: seeding data, fixing broken rows, or cleaning up after a failed integration test.
 
-**When to use Dynobase instead:**
-- You need commercial support and SLAs
-- Team collaboration features are critical
-- Budget allows for per-seat subscriptions
+### Insert items
 
-## Getting Started with DocKit
+```sql
+INSERT INTO "Orders" VALUE {
+  'OrderId': 'ORD#10002',
+  'CreatedAt': '2026-05-15T09:30:00Z',
+  'CustomerId': 'CUST#42',
+  'Status': 'PENDING',
+  'Total': 149.99
+};
+```
 
-### 1. Download & Install
-Download DocKit for your platform:
+### Update attributes
 
-[→ Download DocKit](/download)
+```sql
+UPDATE "Orders"
+SET "Status" = 'PAID', "Total" = 159.99
+WHERE "OrderId" = 'ORD#10002'
+  AND "CreatedAt" = '2026-05-15T09:30:00Z';
+```
 
-Available for **macOS**, **Windows**, and **Linux**.
+### Delete an item
 
-### 2. Connect to DynamoDB
-DocKit supports multiple connection methods:
+```sql
+DELETE FROM "Orders"
+WHERE "OrderId" = 'ORD#10002'
+  AND "CreatedAt" = '2026-05-15T09:30:00Z';
+```
 
-- **AWS Profile**: Use credentials from `~/.aws/credentials`
-- **Access Keys**: Enter AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-- **IAM Role**: Automatic detection for EC2/ECS environments
-- **DynamoDB Local**: Connect to `http://localhost:8000`
+### Run multiple statements in one session
 
-### 3. Start Querying
-Once connected, you can:
+For maintenance, I usually queue related statements together.
 
-- Browse tables and view schema
-- Run queries using the visual builder or PartiQL
-- Edit data inline
-- Export results to JSON/CSV
+```sql
+INSERT INTO "Orders" VALUE {
+  'OrderId': 'ORD#10003',
+  'CreatedAt': '2026-05-15T10:00:00Z',
+  'CustomerId': 'CUST#77',
+  'Status': 'PENDING',
+  'Total': 89.50
+};
 
-## Frequently Asked Questions
+UPDATE "Orders"
+SET "Status" = 'PROCESSING'
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" = '2026-05-15T08:00:00Z';
 
-### Is DocKit really free?
-Yes! DocKit is **100% free and open source** (Apache 2.0 license). No trials, no feature limits, no credit card required.
+DELETE FROM "Orders"
+WHERE "OrderId" = 'ORD#TEST-001'
+  AND "CreatedAt" = '2026-05-14T00:00:00Z';
+```
 
-### Does DocKit work with DynamoDB Local?
-Absolutely. DocKit is perfect for local development with DynamoDB Local. Just point it to `http://localhost:8000`.
+Keep the service limits in mind. `BatchWriteItem` is still capped at 25 items per request. The tool might chunk large imports for you, but that limit exists.
 
-### Can I use DocKit in production?
-Yes. DocKit uses standard AWS SDKs and supports all AWS credential methods (profiles, IAM roles, access keys). It's secure for production use.
+## Visual query builder for ad-hoc lookups
 
-### How does DocKit compare to NoSQL Workbench?
-NoSQL Workbench is AWS's official tool, focused on data modeling. DocKit focuses on **querying and data management** with a faster, more developer-friendly UI.
+The visual builder is fast when you know the key and don't care about saving the statement. I also find it useful when I inherit a table with unfamiliar attribute names. The UI can surface valid fields before I write anything by hand.
 
-### Does DocKit support other databases?
-Yes! DocKit also supports **Elasticsearch** and **OpenSearch** in the same application. You can manage all three database types without switching tools.
+One workflow I use often: set the partition key in the form, add a filter, and then inspect the generated PartiQL before running it.
 
-### Where are my queries stored?
-Queries are saved locally on your machine as plain text files. You control where they're stored and can sync them via Git if needed.
+```sql
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" >= '2026-05-01T00:00:00Z'
+  AND "Status" = 'PENDING';
+```
 
-## Additional Resources
+It turns a quick click path into plain text you can save for later.
 
-### Product Comparison
-- **[Dynobase Alternative](/blog/dynobase-alternative)** - Detailed feature comparison
-- **[Best DynamoDB GUI Clients](/blog/best-dynamodb-gui-client-2026)** - Top tools compared
+## DynamoDB Local development workflow
 
-### Guides & Tutorials
-- **[Query DynamoDB Locally](/blog/query-dynamodb-locally)** - Local development guide
-- **[DynamoDB PartiQL Editor](/products/dockit/features/dynamodb-partiql)** - PartiQL syntax guide
+For local work, I treat DynamoDB Local as a disposable lab. Start it in Docker, point the client at `localhost:8000`, and seed only what you need.
 
-### Technical Details
-- **[Desktop Database Client Benefits](/products/dockit/features/desktop-client)** - Why native apps matter
-- **[Open Source Database GUI](/products/dockit/features/open-source)** - Transparency & security
+Start DynamoDB Local:
 
-### Getting Started
-- **[Installation Guide](/docs/dockit/installation)** - Step-by-step setup
-- **[Connect to DynamoDB](/docs/dockit/connect-to-server)** - Configuration details
-- **[GitHub Repository](https://github.com/geek-fun/dockit)** - Source code and issues
+```bash
+docker run --rm -p 8000:8000 amazon/dynamodb-local
+```
 
-## Try DocKit Today
+Create a local connection:
 
-Experience a better way to work with DynamoDB. Download DocKit and see why developers are switching from AWS Console and commercial alternatives.
+- Endpoint: `http://localhost:8000`
+- Region: `us-east-1`
+- Access Key ID: `local`
+- Secret Access Key: `local`
 
-[Download DocKit Now](/download) — Free, open-source, and ready to use.
+Then create your table using the AWS CLI and use PartiQL to load test data.
+
+```sql
+INSERT INTO "Orders" VALUE {
+  'OrderId': 'ORD#LOCAL-001',
+  'CreatedAt': '2026-05-15T11:00:00Z',
+  'CustomerId': 'CUST#LOCAL',
+  'Status': 'PENDING',
+  'Total': 42.00
+};
+```
+
+Validate your query locally first.
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#LOCAL-001'
+  AND "CreatedAt" BETWEEN '2026-05-15T11:00:00Z' AND '2026-05-15T11:10:00Z';
+```
+
+This keeps schema experiments and seed data local. You can iterate on index names and attribute casing without touching a shared AWS account.
+
+## When the AI assistant earns its keep
+
+The AI assistant is most useful when a query is conceptually simple but syntactically annoying. A nested predicate like "show pending orders over 100 where customer is VIP or the order was created in the last 24 hours" is a good example. The hard part is turning that into valid PartiQL without accidentally widening the scan.
+
+It also helps when you want to translate an SDK expression. Converting a `QueryCommand` with its mess of `ExpressionAttributeNames` and `ExpressionAttributeValues` into readable PartiQL is tedious work that's easy to automate.
+
+Finally, it helps with performance debugging. If a query is doing a full table scan, asking the assistant to explain which predicate isn't backed by a key is much faster than manually inspecting every index definition.
+
+## Resources
+
+- [DynamoDB GUI client — features and download](/products/dockit/dynamodb-gui-client)
+- [DynamoDB PartiQL editor guide](/products/dockit/features/dynamodb-partiql)
+- [DocKit vs Dynobase](/products/dockit/dockit-vs-dynobase)
+- [Connect to DynamoDB](/docs/dockit/connect-to-server)
+- [GitHub](https://github.com/geek-fun/dockit)
