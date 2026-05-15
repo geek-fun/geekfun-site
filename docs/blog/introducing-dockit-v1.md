@@ -112,7 +112,17 @@ JSON, CSV, JSONL. Batch operations through millions of records. Move data betwee
 
 DynamoDB, Elasticsearch, OpenSearch — same editor, same shortcuts. Switch between them instantly.
 
-For DynamoDB, you get a visual query builder with primary key filtering and advanced conditions. A PartiQL editor with full autocomplete, syntax highlighting, document formatting, and gutter execution. Inline editing — update and delete items directly from results. Table management with GSI/LSI operations and CloudWatch metrics. DynamoDB Local for offline development. SSO and AssumeRole for cross-account AWS authentication.
+For DynamoDB, you get a visual query builder with primary key filtering and advanced conditions. A PartiQL editor with full autocomplete, syntax highlighting, document formatting, and gutter execution.
+
+![DocKit DynamoDB visual query builder and PartiQL editor](/dockit-dynamodb-query-ui.png)
+
+Inline editing — update and delete items directly from results. Table management with GSI/LSI operations and CloudWatch metrics.
+
+![DocKit DynamoDB table management with CloudWatch metrics](/dockit-dynamodb-manage.png)
+
+DynamoDB Local for offline development. SSO and AssumeRole for cross-account AWS authentication.
+
+![DocKit DynamoDB Local connection setup](/dockit-dynamodb-connection.png)
 
 For Elasticsearch and OpenSearch, you get Monaco-backed editing with grammar-driven completion (37 test cases, v0.90 to 9.x), plus full cluster management: node health, shard state, index operations, alias control — all visual, no `_cat` curling. Column sorting, system index filtering.
 
