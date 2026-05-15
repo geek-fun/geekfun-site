@@ -115,6 +115,8 @@ DocKit includes an AI assistant that understands your table schema. You can desc
 
 The editor is powered by Monaco and built for DynamoDB.
 
+![DocKit DynamoDB PartiQL editor](/dockit-dynamodb-partiql-editor.png)
+
 - Syntax highlighting and validation for PartiQL statements.
 - Autocomplete suggests table names, attribute names, and types from your live environment.
 - Run multiple queries in one session.
@@ -123,6 +125,8 @@ The editor is powered by Monaco and built for DynamoDB.
 ### Visual query builder
 
 If you don't want to write PartiQL manually, use the visual builder.
+
+![DocKit DynamoDB visual query builder](/dockit-dynamodb-query-ui.png)
 
 - Pick a table from the sidebar.
 - Set partition keys, sort key conditions, and filter expressions through form fields.
@@ -135,9 +139,13 @@ Visual queries are saved to your history automatically.
 
 Type what you need in natural language. For example, "find all orders from this week where the total is over 500." DocKit generates the PartiQL statement using your actual attribute names and types as context. It supports OpenAI and DeepSeek with your own API key. Your table data stays on your machine.
 
+![DocKit AI query assistant](/dockit-ai-assistant.png)
+
 ### Import and export
 
 Move data without losing type information.
+
+![DocKit DynamoDB import and export](/dockit-dynamodb-import-export.png)
 
 - JSON format preserves DynamoDB types like S, N, BOOL, and Maps.
 - CSV support for spreadsheets and analytics.
@@ -148,9 +156,26 @@ Move data without losing type information.
 
 DocKit saves every PartiQL statement and visual query. You can search, re-run, or load them back into the editor. This history is stored locally and scoped to your connection.
 
+![DocKit query history](/dockit-query-history.png)
+
 ### Multi-database support
 
 DocKit also works with **Elasticsearch** and **OpenSearch**. You can switch between DynamoDB tables and search clusters without changing tools.
+
+<div style="display: flex; gap: 32px; align-items: center; margin: 24px 0;">
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-dynamodb.svg" alt="DynamoDB" style="width: 32px; height: 32px;" />
+    <span>DynamoDB</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-elasticsearch.svg" alt="Elasticsearch" style="width: 32px; height: 32px;" />
+    <span>Elasticsearch</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-opensearch.png" alt="OpenSearch" style="width: 32px; height: 32px;" />
+    <span>OpenSearch</span>
+  </div>
+</div>
 
 ## Comparison
 

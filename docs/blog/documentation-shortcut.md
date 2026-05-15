@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Instant Documentation Access — Ctrl+D Documentation Shortcut in DocKit",
         "description": "DocKit now maps every Elasticsearch operation to its official documentation — across versions, engines, and languages. Press Ctrl+D in the editor.",
-        "image": "https://www.geekfun.club/client-ui.png",
+        "image": "https://www.geekfun.club/dockit-client-ui.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -59,7 +59,7 @@ When you're writing Elasticsearch queries in Dev Tools, the most frustrating mom
 
 DocKit just solved this. **Press `⌘D` on Mac or `Ctrl+D` on Windows and Linux from anywhere in the editor, and get the exact documentation page for the current API** — version-aware, language-aware, and engine-aware.
 
-![DocKit Ctrl+D Documentation Shortcut](/client-ui.png)
+![DocKit Ctrl+D Documentation Shortcut](/dockit-client-ui.png)
 
 ---
 

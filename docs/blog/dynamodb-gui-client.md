@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Getting Started with DynamoDB GUI - Manage Tables with DocKit",
         "description": "Managing DynamoDB tables just got easier with DocKit - a powerful desktop GUI client featuring intuitive data browsing, PartiQL query support, inline editing, and cross-platform compatibility.",
-        "image": "https://www.geekfun.club/dockit-dynamodb.png",
+        "image": "https://www.geekfun.club/dockit-dynamodb-query-ui.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -59,7 +59,7 @@ While DynamoDB delivers high performance as a serverless NoSQL database, managin
 
  That's why we built [DocKit](/products/dockit/) with DynamoDB support, starting from **v0.8**—an open-source desktop GUI client that lets you connect to, query, and manage DynamoDB tables using both a friendly UI and PartiQL, all from your desktop.
 
-![DocKit DynamoDB UI](/dockit-dynamodb.png)
+![DocKit DynamoDB UI](/dockit-dynamodb-query-ui.png)
 ## What is DocKit?
 
 DocKit is a **opensource cross-platform GUI client designed for NoSQL databases** including **DynamoDB**, **Elasticsearch**, and **OpenSearch**. Built for developers who prefer a visual, developer-friendly workflow over raw CLI commands.
@@ -107,7 +107,7 @@ After opening a DynamoDB connection, DocKit takes you to the editor page where y
 
 For users who prefer more control, DocKit includes a powerful **PartiQL editor** that brings SQL-like syntax to DynamoDB, making queries more expressive and familiar for developers.
 
-![DocKit DynamoDB PartiQL editor](/dockit-dynamodb-partiql-scrennshort.png)
+![DocKit DynamoDB PartiQL editor](/dockit-dynamodb-partiql-editor.png)
 
 - **Full PartiQL Support**: Execute all PartiQL operations including `SELECT`, `DELETE`, `UPDATE`, and more directly against your DynamoDB tables.
 - **Result Manipulation**: Modify or delete items directly from query results—no need to write separate update queries.

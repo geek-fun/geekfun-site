@@ -52,7 +52,7 @@ head:
           "Cluster management",
           "Monaco editor"
         ],
-        "screenshot": "https://www.geekfun.club/client-ui.png",
+        "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
         "softwareVersion": "1.0.0",
         "author": {
@@ -98,7 +98,7 @@ databases:
 showcase:
   - title: "Query with AI Assistance"
     body: "Ask questions in plain English, get optimized queries with schema awareness. DocKit puts AI at the center of your workflow with built-in OpenAI and DeepSeek integration."
-    image: /dockit-ai-assistant-question.png
+    image: /dockit-ai-assistant.png
     align: left
   - title: "Never lose a query again"
     body: "Connections and queries are saved to your filesystem automatically. Query history is tracked transparently, so you can easily revert to past experiments."
@@ -180,9 +180,3 @@ Yes — Apache 2.0 license. The full source is at [github.com/geek-fun/dockit](h
 **Will there be a paid tier?**
 A paid Ultimate tier with additional features is planned. The Community edition will remain open-source.
 
-## More on DocKit
-
-- [Desktop-native app architecture](/products/dockit/features/desktop-client) — why a native Tauri/Rust app beats Electron for database tooling
-- [DynamoDB PartiQL editor](/products/dockit/features/dynamodb-partiql) — SQL-like queries against DynamoDB with syntax highlighting and autocomplete
-- [Local-first design](/products/dockit/features/local-first) — how DocKit keeps your queries, credentials, and history on your machine
-- [Open-source Apache 2.0](/products/dockit/features/open-source) — full source access, no vendor lock-in

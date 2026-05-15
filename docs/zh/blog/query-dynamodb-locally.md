@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "使用 DocKit 访问和管理本地 DynamoDB",
         "description": "学习如何使用 DocKit GUI 访问和管理 DynamoDB Local。离线开发、查询表、管理数据的分步设置，以及 CI/CD 集成。",
-        "image": "https://www.geekfun.club/dockit-connection-dynamodblocal.png",
+        "image": "https://www.geekfun.club/dockit-dynamodb-connection.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -686,7 +686,7 @@ const getDynamoDBClient = () => {
 ## 了解更多
 
 - **[DynamoDB GUI 客户端](/zh/blog/dynamodb-gui)** - DocKit DynamoDB 功能
-- **[DynamoDB PartiQL 编辑器](/zh/products/dockit/features/dynamodb-partiql)** - PartiQL 语法指南
+- **[DynamoDB GUI 客户端](/zh/products/dockit/dynamodb-gui-client)** - DynamoDB 功能与 PartiQL
 - **[最佳 DynamoDB GUI 客户端](/zh/blog/best-dynamodb-gui-client-2026)** - 工具对比
 - **[下载 DocKit](/zh/download)** - 免费开始
 

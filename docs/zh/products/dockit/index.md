@@ -59,7 +59,7 @@ head:
           "集群管理",
           "Monaco 编辑器"
         ],
-        "screenshot": "https://www.geekfun.club/client-ui.png",
+        "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
         "softwareVersion": "1.0.0",
         "author": {
@@ -94,7 +94,7 @@ databases:
 showcase:
   - title: "借助 AI 的力量"
     body: "DocKit 将 AI 作为核心工作流。用自然语言提问，获得优化查询和 Schema 智能感知。内置 OpenAI 与 DeepSeek 支持。"
-    image: /dockit-ai-assistant-question.png
+    image: /dockit-ai-assistant.png
     align: left
   - title: "自动记录查询历史"
     body: "连接和查询被安全地保存到您的本地系统中。所有执行历史被自动追踪，让您可以毫无压力地回顾并重新执行。"

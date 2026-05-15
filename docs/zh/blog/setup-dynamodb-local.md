@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "如何在本地搭建 DynamoDB Local",
         "description": "学习如何通过 Docker 或可下载的 JAR 包搭建 DynamoDB Local，配置 AWS CLI，创建第一张表，并从 DocKit 连接本地 DynamoDB。",
-        "image": "https://www.geekfun.club/dockit-connection-dynamodblocal.png",
+        "image": "https://www.geekfun.club/dockit-dynamodb-connection.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -60,7 +60,7 @@ head:
 
 本文仅聚焦 **搭建**。如需通过图形界面查询和管理本地表，请参阅 **[使用 DocKit 访问和管理本地 DynamoDB](/zh/blog/query-dynamodb-locally)**。
 
-![DocKit DynamoDB Local 连接界面](/dockit-connection-dynamodblocal.png)
+![DocKit DynamoDB Local 连接界面](/dockit-dynamodb-connection.png)
 
 ## 开始前需要准备
 

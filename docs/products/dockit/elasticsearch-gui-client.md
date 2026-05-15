@@ -74,6 +74,8 @@ This makes it a faster option for developers who only need the Dev Tools functio
 
 The query editor uses the same engine as VS Code.
 
+![DocKit Elasticsearch Monaco editor](/dockit-dynamodb-partiql-editor.png)
+
 - JSON5 support lets you use comments and trailing commas.
 - Syntax highlighting for Elasticsearch Query DSL.
 - Autocomplete for fields and indices using live cluster mappings.
@@ -84,21 +86,44 @@ The query editor uses the same engine as VS Code.
 
 Describe a query in plain English to generate Elasticsearch DSL. DocKit uses your index mapping as context so generated queries match your actual schema. You can use OpenAI or DeepSeek with your own API key. Data stays on your machine.
 
+![DocKit AI query generation](/dockit-ai-assistant.png)
+
 ### Cluster management
 
 View index statistics like document counts, shard health, and storage size. You can manage mappings, settings, aliases, and templates from the UI. The app also monitors node health, shard allocation, and active tasks.
+
+![DocKit Elasticsearch cluster management](/dockit-es-manage.png)
 
 ### Import and export
 
 Move data using JSON, CSV, or JSONL formats. The export process uses the scroll API to handle large indices reliably.
 
+![DocKit import and export](/dockit-dynamodb-import-export.png)
+
 ### Query history
 
 DocKit saves your query history automatically. You can search, copy, or re-run previous queries. This history is connection scoped and stored locally.
 
+![DocKit query history](/dockit-query-history.png)
+
 ### Multi-cluster support
 
 Save multiple connection profiles to switch between dev, staging, and production clusters. It supports Basic Auth, API Keys, and client certificates.
+
+<div style="display: flex; gap: 32px; align-items: center; margin: 24px 0;">
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-elasticsearch.svg" alt="Elasticsearch" style="width: 32px; height: 32px;" />
+    <span>Elasticsearch</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-opensearch.png" alt="OpenSearch" style="width: 32px; height: 32px;" />
+    <span>OpenSearch</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-dynamodb.svg" alt="DynamoDB" style="width: 32px; height: 32px;" />
+    <span>DynamoDB</span>
+  </div>
+</div>
 
 ## Comparison
 

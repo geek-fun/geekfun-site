@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询",
         "description": "了解如何利用 AI 和大语言模型自动生成复杂的 Elasticsearch 查询。通过 Elasticsearch AI 助手提升工作效率。",
-        "image": "https://www.geekfun.club/dockit-ai-assistant-question.png",
+        "image": "https://www.geekfun.club/dockit-ai-assistant.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -111,7 +111,7 @@ DocKit 支持集成 OpenAI 和 DeepSeek，只需配置你的 API Key。整体架
 ### 向 DocKit AI 助手发送提问
 
 配置完毕后，打开一个新的连接，在代码编辑器中点击右侧的 AI 图标打开 AI 助手：
-![DocKit AI助手提问界面](/dockit-ai-assistant-question.png)
+![DocKit AI助手提问界面](/dockit-ai-assistant.png)
 
 在打开的 AI 助手中，输入你的自然语言需求（例如：“返回所有不同股票名称的前 30 个名称”），点击发送按钮，DocKit 会自动将当前索引的上下文与问题一起发送给 AI 助手。
 

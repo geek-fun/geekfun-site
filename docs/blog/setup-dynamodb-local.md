@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "How to Set Up DynamoDB Local for Local Development",
         "description": "Learn how to set up DynamoDB Local with Docker or the downloadable JAR, configure AWS CLI access, create your first table, and connect local DynamoDB to DocKit.",
-        "image": "https://www.geekfun.club/dockit-connection-dynamodblocal.png",
+        "image": "https://www.geekfun.club/dockit-dynamodb-connection.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -59,7 +59,7 @@ It's common to spin up a local development stack that mirrors your cloud environ
 
 This guide focuses only on **setup**. If you want to query and manage local tables with a GUI afterward, see **[Access and Manage Local DynamoDB with DocKit](/blog/query-dynamodb-locally)**.
 
-![DocKit DynamoDB Local connection screen](/dockit-connection-dynamodblocal.png)
+![DocKit DynamoDB Local connection screen](/dockit-dynamodb-connection.png)
 
 ## What You Need Before Starting
 

@@ -67,7 +67,7 @@ DocKit is a native desktop app. It connects to multiple Elasticsearch and OpenSe
 
 It also supports OpenSearch, so if your team runs both, you're not switching between Kibana and OpenSearch Dashboards for the same task.
 
-![DocKit UI](/public/dockit-client-ui.png)
+![DocKit UI](/dockit-client-ui.png)
 
 ## Key Features
 
