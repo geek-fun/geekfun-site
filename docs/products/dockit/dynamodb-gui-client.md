@@ -115,16 +115,18 @@ DocKit includes an AI assistant that understands your table schema. You can desc
 
 The editor is powered by Monaco and built for DynamoDB.
 
+![DocKit DynamoDB PartiQL editor](/dockit-dynamodb-partiql-editor.png)
+
 - Syntax highlighting and validation for PartiQL statements.
 - Autocomplete suggests table names, attribute names, and types from your live environment.
 - Run multiple queries in one session.
 - Use `Cmd/Ctrl + Enter` to execute and see results in a structured table.
 
-![DocKit DynamoDB PartiQL editor](/dockit-dynamodb-partiql-editor.png)
-
 ### Visual query builder
 
 If you don't want to write PartiQL manually, use the visual builder.
+
+![DocKit DynamoDB visual query builder](/dockit-dynamodb-query-ui.png)
 
 - Pick a table from the sidebar.
 - Set partition keys, sort key conditions, and filter expressions through form fields.
@@ -132,8 +134,6 @@ If you don't want to write PartiQL manually, use the visual builder.
 - Switch to the PartiQL view at any time to edit the underlying statement.
 
 Visual queries are saved to your history automatically.
-
-![DocKit DynamoDB visual query builder](/dockit-dynamodb-query-ui.png)
 
 ### AI query assistant
 
@@ -145,12 +145,12 @@ Type what you need in natural language. For example, "find all orders from this 
 
 Move data without losing type information.
 
+![DocKit DynamoDB import and export](/dockit-dynamodb-import-export.png)
+
 - JSON format preserves DynamoDB types like S, N, BOOL, and Maps.
 - CSV support for spreadsheets and analytics.
 - Uses the `BatchWriteItem` API with built-in rate limiting and retries.
 - Export large tables with cursor-based pagination to avoid memory limits.
-
-![DocKit DynamoDB import and export](/dockit-dynamodb-import-export.png)
 
 ### Query history
 

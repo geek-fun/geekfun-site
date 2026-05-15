@@ -74,13 +74,13 @@ This makes it a faster option for developers who only need the Dev Tools functio
 
 The query editor uses the same engine as VS Code.
 
+![DocKit Elasticsearch Monaco editor](/dockit-dynamodb-partiql-editor.png)
+
 - JSON5 support lets you use comments and trailing commas.
 - Syntax highlighting for Elasticsearch Query DSL.
 - Autocomplete for fields and indices using live cluster mappings.
 - Automatic formatting and one click copy as curl commands.
 - Use Cmd/Ctrl + Enter to run queries.
-
-![DocKit Elasticsearch Monaco editor](/dockit-dynamodb-partiql-editor.png)
 
 ### AI query generation
 
