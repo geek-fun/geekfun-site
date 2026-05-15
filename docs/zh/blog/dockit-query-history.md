@@ -221,4 +221,4 @@ DocKit 是**免费且开源的**（Apache 2.0 许可证）。[立即下载](/zh/
 - **[DocKit 完整功能概览](/products/dockit/)** - 支持 Elasticsearch、OpenSearch、DynamoDB
 - **[Elasticsearch GUI 客户端](/products/dockit/elasticsearch-gui-client)** - 查询编辑器与集群管理
 - **[OpenSearch GUI 客户端](/products/dockit/opensearch-gui-client)** - OpenSearch 功能详情
-- **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
+- **[GitHub 仓库](https://github.com/geek-fun/dockit)** - 源代码和问题

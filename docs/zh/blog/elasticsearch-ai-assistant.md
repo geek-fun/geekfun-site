@@ -128,4 +128,4 @@ DocKit 支持集成 OpenAI 和 DeepSeek，只需配置你的 API Key。整体架
 - **[Elasticsearch GUI 客户端 — 产品页面](/products/dockit/elasticsearch-gui-client)** - 完整功能详情与下载
 - **[DocKit vs Kibana — 详细对比](/products/dockit/dockit-vs-kibana)** - 编辑器、启动速度、AI 助手对比
 - **[DocKit 完整功能概览](/products/dockit/)** - 支持 Elasticsearch、OpenSearch、DynamoDB
-- **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
+- **[GitHub 仓库](https://github.com/geek-fun/dockit)** - 源代码和问题

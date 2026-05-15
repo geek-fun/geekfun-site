@@ -174,5 +174,5 @@ QA 团队经常需要在预发布环境中使用真实数据。使用 DocKit：
 - **[DocKit 完整功能概览](/products/dockit/)** - 支持 Elasticsearch、OpenSearch、DynamoDB
 - **[Elasticsearch GUI 客户端](/products/dockit/elasticsearch-gui-client)** - 查询编辑器、集群管理详情
 - **[DynamoDB GUI 客户端](/products/dockit/dynamodb-gui-client)** - PartiQL 编辑器、可视化查询构建器详情
-- **[GitHub 存储库](https://github.com/geek-fun/dockit)** - 源代码和问题
+- **[GitHub 仓库](https://github.com/geek-fun/dockit)** - 源代码和问题
 
