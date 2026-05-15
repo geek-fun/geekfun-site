@@ -95,13 +95,7 @@ DocKit 在同一个应用里支持 Elasticsearch、OpenSearch 和 DynamoDB。如
 
 ## 什么时候 Kibana 更合适
 
-如果你需要以下功能，保留 Kibana：
-
-- **大盘和可视化**：Kibana Lens 和 Canvas 是给干系人做图表的黄金标准。
-- **APM 和链路追踪**：Elastic APM、分布式追踪和 Service Maps 都是 Kibana 原生的。
-- **告警**：内置基于规则的告警，支持 PagerDuty 或 Slack 连接器。
-- **机器学习**：Elastic ML 异常检测就在 Kibana 里。
-- **共享浏览器访问**：如果非技术人员也需要看数据，Web 界面是唯一选择。
+查询开发以外的场景，Kibana 没有替代品。Kibana Lens 和 Canvas 是给干系人做图表的事实标准；Elastic APM、分布式追踪和 Service Maps 全是 Kibana 原生的；基于规则的告警支持 PagerDuty 和 Slack 连接器；Elastic ML 异常检测也在里面。如果非技术人员需要访问数据，Web 界面是唯一合理的选择。
 
 大多数工程师两个都在用。DocKit 负责查询开发和索引管理，Kibana 负责大盘和可观测。
 
