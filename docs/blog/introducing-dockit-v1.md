@@ -59,7 +59,7 @@ head:
 
 After 2 years and 10 months, DocKit ships its first stable release. It started as a simple Elasticsearch query editor. Now it manages DynamoDB, Elasticsearch, and OpenSearch from a single native desktop app. If you never heard of DocKit, now's the time.
 
-![DocKit UI](/public/dockit-client-ui.png)
+![DocKit UI](/dockit-client-ui.png)
 
 ## The frustration before DocKit
 
@@ -79,7 +79,7 @@ We wanted NoSQL clients to work the way RDBMS clients do: decoupled from the ser
 
 The AI assistant understands your database structure, so the queries it generates actually work. Describe what you need:
 
-![DocKit AI assistant screenshort](/public/dockit-ai-assistant.png)
+![DocKit AI assistant screenshort](/dockit-ai-assistant.png)
 
 - "Find users who signed up in the last 7 days with unverified email"
 - "Aggregate sales by product category for Q1 2026"
@@ -91,7 +91,7 @@ You get a query that runs. DynamoDB PartiQL or Elasticsearch DSL, with the right
 
 Monaco — the same engine inside VS Code — powers the editor. Syntax highlighting, intelligent autocomplete, multi-cursor editing, bracket matching, every keyboard shortcut you know. Plus:
 
-![DocKit editor screenshort](/public/dockit-dynamodb-partiql-editor.png)
+![DocKit editor screenshort](/dockit-dynamodb-partiql-editor.png)
 
 Grammar-driven completion covers Elasticsearch, OpenSearch, and DynamoDB — 37 test cases across API versions from 0.90 to 9.x. ES|QL autocomplete with sources, commands, and function suggestions. A query language registry so SQL, PPL, EQL, DSL, and PartiQL all share the same completion engine. Body completion for field mappings, index settings, and component templates. JSON5 support: inline comments, trailing commas, unquoted keys. Write queries the way you think, not the way the parser insists. Ctrl+D on any API endpoint opens the exact documentation page for that operation, version-matched to your cluster.
 
@@ -99,14 +99,14 @@ Grammar-driven completion covers Elasticsearch, OpenSearch, and DynamoDB — 37 
 
 No save button. No config. DocKit keeps your database connections and records every query you run, across every engine, automatically. 500 entries per connection, stored locally.
 
-![DocKit query history screenshort](/public/dockit-query-history.png)
+![DocKit query history screenshort](/dockit-query-history.png)
 
 Each entry captures the method, path, connection name, and timestamp (Elasticsearch/OpenSearch) or query type, table, and timestamp (DynamoDB). Keyboard navigation through history. Copy to clipboard. Load back into the editor. Re-execute. Covers PartiQL statements, Elasticsearch DSL queries, and visual form queries.
 
 ### Fast streaming import and export
 
 JSON, CSV, JSONL. Batch operations through millions of records. Move data between clusters, back up tables for development, seed test environments. Works across Elasticsearch, OpenSearch, and DynamoDB.
-![DocKit data import export panel screenshort](/public/dockit-dynamodb-import-export.png)
+![DocKit data import export panel screenshort](/dockit-dynamodb-import-export.png)
 
 ### One tool, multiple engines
 
@@ -134,7 +134,7 @@ Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses t
 
 ### 2023: Foundation
 
-![Foundation — repo bootstrap and first features](/public/screenshots/milestone-foundation.png)
+![Foundation — repo bootstrap and first features](/screenshots/milestone-foundation.png)
 
 **July 22, 2023.** First commit. A `package.json`, a LICENSE file, a README. Built on Electron.
 
@@ -144,7 +144,7 @@ Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses t
 
 ### 2024: Platform shift
 
-![Platform shift — Electron removed, Tauri v1 in place](/public/screenshots/milestone-platform.png)
+![Platform shift — Electron removed, Tauri v1 in place](/screenshots/milestone-platform.png)
 
 **April 2024.** OpenAI integration shipped. That was when things changed. Instead of just autocomplete, DocKit could take natural language and produce contextually accurate queries — an assistant that actually understood Elasticsearch DSL, not a chatbot bolted to the sidebar.
 
@@ -156,7 +156,7 @@ Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses t
 
 ### 2025: Expansion
 
-![Expansion — Tauri v2, multi-lang, DynamoDB UI](/public/screenshots/milestone-expansion.png)
+![Expansion — Tauri v2, multi-lang, DynamoDB UI](/screenshots/milestone-expansion.png)
 
 **March 30, 2025.** Tauri v1 → Tauri v2 upgrade. Tauri v2 added mobile support, a pluggable permission system, and IPC improvements. Every Tauri plugin was touched. The entire Rust layer adapted.
 
@@ -166,7 +166,7 @@ Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses t
 
 ### 2026: Maturation
 
-![Maturation — query history, ES|QL, v1.0 polish](/public/screenshots/milestone-maturation.png)
+![Maturation — query history, ES|QL, v1.0 polish](/screenshots/milestone-maturation.png)
 
 **January 2026.** The busiest month in the project's history. PartiQL Editor with syntax highlighting and formatting. A grammar-driven completion engine for Elasticsearch and OpenSearch — 37 test cases covering every API version from 0.90 to 9.x. DynamoDB CRUD: create, update, delete items inline. Real-time syntax validation with error highlighting. Connection loading modals. All in 31 days.
 
@@ -180,7 +180,7 @@ Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses t
 
 ### Stable release
 
-![v1.0 Release — keyboard navigation, UX polish, README refresh](/public/screenshots/milestone-v1release.png)
+![v1.0 Release — keyboard navigation, UX polish, README refresh](/screenshots/milestone-v1release.png)
 
 The label flipped from `0.x` to `1.0`. ES|QL query completion landed alongside a unified query language registry — SQL, PPL, EQL, DSL, and PartiQL now share the same completion engine. Body completion handles index settings and component templates. Column sorting hit the Manage panel.
 

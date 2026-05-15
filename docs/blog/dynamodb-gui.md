@@ -286,7 +286,7 @@ Finally, it helps with performance debugging. If a query is doing a full table s
 ## Resources
 
 - [DynamoDB GUI client — features and download](/products/dockit/dynamodb-gui-client)
-- [DynamoDB PartiQL editor guide](/products/dockit/features/dynamodb-partiql)
+- [DynamoDB GUI client — features and PartiQL](/products/dockit/dynamodb-gui-client)
 - [DocKit vs Dynobase](/products/dockit/dockit-vs-dynobase)
 - [Connect to DynamoDB](/docs/dockit/connect-to-server)
 - [GitHub](https://github.com/geek-fun/dockit)

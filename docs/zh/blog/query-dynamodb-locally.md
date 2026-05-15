@@ -686,7 +686,7 @@ const getDynamoDBClient = () => {
 ## 了解更多
 
 - **[DynamoDB GUI 客户端](/zh/blog/dynamodb-gui)** - DocKit DynamoDB 功能
-- **[DynamoDB PartiQL 编辑器](/zh/products/dockit/features/dynamodb-partiql)** - PartiQL 语法指南
+- **[DynamoDB GUI 客户端](/zh/products/dockit/dynamodb-gui-client)** - DynamoDB 功能与 PartiQL
 - **[最佳 DynamoDB GUI 客户端](/zh/blog/best-dynamodb-gui-client-2026)** - 工具对比
 - **[下载 DocKit](/zh/download)** - 免费开始
 

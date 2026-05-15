@@ -174,6 +174,5 @@ DocKit 支持 OpenSearch 1.x 及更高版本，使用标准 REST API。已测试
 - **[DocKit vs OpenSearch Dashboards — 详细对比](/products/dockit/dockit-vs-opensearch-dashboards)** - 编辑器、启动速度、AWS 集成对比
 - **[安装指南](/zh/docs/dockit/installation)** - 分步设置
 - **[连接到服务器](/zh/docs/dockit/connect-to-server)** - 配置详情
-- **[桌面客户端优势](/zh/products/dockit/features/desktop-client)** - 原生应用优势
-- **[开源 GUI](/zh/products/dockit/features/open-source)** - 为什么开源很重要
+- **[DocKit 产品概览](/zh/products/dockit/)** - 功能与下载
 - **[GitHub 仓库](https://github.com/geek-fun/dockit)** - 源代码和问题

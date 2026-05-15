@@ -271,4 +271,4 @@ AI queries consume tokens. Estimate costs:
 
 - **[Settings Guide](/docs/dockit/settings)** — Configure other DocKit options
 - **[Elasticsearch Cluster Management](/docs/dockit/manage-elasticsearch-cluster)** — Work with indices
-- **[DynamoDB PartiQL Editor](/products/dockit/features/dynamodb-partiql)** — Learn PartiQL syntax
+- **[DynamoDB GUI Client](/products/dockit/dynamodb-gui-client)** — DynamoDB features and PartiQL

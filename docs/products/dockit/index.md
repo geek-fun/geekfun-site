@@ -180,9 +180,3 @@ Yes — Apache 2.0 license. The full source is at [github.com/geek-fun/dockit](h
 **Will there be a paid tier?**
 A paid Ultimate tier with additional features is planned. The Community edition will remain open-source.
 
-## More on DocKit
-
-- [Desktop-native app architecture](/products/dockit/features/desktop-client) — why a native Tauri/Rust app beats Electron for database tooling
-- [DynamoDB PartiQL editor](/products/dockit/features/dynamodb-partiql) — SQL-like queries against DynamoDB with syntax highlighting and autocomplete
-- [Local-first design](/products/dockit/features/local-first) — how DocKit keeps your queries, credentials, and history on your machine
-- [Open-source Apache 2.0](/products/dockit/features/open-source) — full source access, no vendor lock-in
