@@ -91,7 +91,7 @@ You get a query that runs. DynamoDB PartiQL or Elasticsearch DSL, with the right
 
 Monaco — the same engine inside VS Code — powers the editor. Syntax highlighting, intelligent autocomplete, multi-cursor editing, bracket matching, every keyboard shortcut you know. Plus:
 
-![DocKit editor screenshort](/public/dockit-dynamodb-manage-local.png)
+![DocKit editor screenshort](/public/dockit-dynamodb-partiql-editor.png)
 
 Grammar-driven completion covers Elasticsearch, OpenSearch, and DynamoDB — 37 test cases across API versions from 0.90 to 9.x. ES|QL autocomplete with sources, commands, and function suggestions. A query language registry so SQL, PPL, EQL, DSL, and PartiQL all share the same completion engine. Body completion for field mappings, index settings, and component templates. JSON5 support: inline comments, trailing commas, unquoted keys. Write queries the way you think, not the way the parser insists. Ctrl+D on any API endpoint opens the exact documentation page for that operation, version-matched to your cluster.
 
