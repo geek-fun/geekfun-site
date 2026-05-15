@@ -83,7 +83,7 @@ const content = computed(() => {
         preview: '/dockit-client-ui.png',
         description: isZh 
           ? '开源 NoSQL 桌面客户端，支持 Elasticsearch、OpenSearch、DynamoDB 等数据库，致力于打造 AI Native 的新一代数据库管理工具。'
-          : 'Open-source NoSQL desktop client for Elasticsearch, OpenSearch, DynamoDB, and more, built for the next generation of AI Native database management.',
+          : 'Open-source desktop GUI client for Elasticsearch, OpenSearch, and DynamoDB — query, manage, and migrate your NoSQL databases from a single native app.',
         url: isZh ? '/zh/products/dockit/' : '/products/dockit/'
       },
       {
