@@ -115,3 +115,9 @@ Open the AI Assistant, input your requirement in natural language(in this case: 
 Then you can get contexture-related queries, which gives you more accurate and smooth experiences compared to copying & pasting a bunch of context information to LLM across different apps, DocKit did it for you.
 
 This is just a very basic example, we encourage you to explore more possibilities by yourself, and we are actively working on enriching the functionalities including MCP support. If you are interested, feel free to raise questions/feature requests or contribute to the project [DocKit](https://github.com/geek-fun/dockit)
+
+## More on DocKit for Elasticsearch
+
+- **[Elasticsearch GUI Client — Product Page](/products/dockit/elasticsearch-gui-client)** — Features, comparisons, and downloads
+- **[OpenSearch GUI Client](/products/dockit/opensearch-gui-client)** — If you use the open-source OpenSearch fork
+- **[DynamoDB GUI Client](/products/dockit/dynamodb-gui-client)** — Manage DynamoDB alongside Elasticsearch in the same app

@@ -386,6 +386,7 @@ Credentials are encrypted and stored locally on your machine. They never leave y
 
 ## Additional Resources
 
+- **[Elasticsearch GUI Client — Product Page](/products/dockit/elasticsearch-gui-client)** - Full feature details, downloads, and comparisons
 - **[Installation Guide](/docs/dockit/installation)** - Setup instructions
 - **[Connect to Elasticsearch](/docs/dockit/connect-to-server)** - Configuration details
 - **[Cluster Management](/docs/dockit/manage-elasticsearch-cluster)** - Index and cluster operations

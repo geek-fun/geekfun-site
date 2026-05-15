@@ -7,7 +7,6 @@
           <ul>
             <li><a :href="localePath('/products/dockit/')">DocKit</a></li>
             <li><a :href="localePath('/products/sqlkit/')">SqlKit</a></li>
-            <li><a href="https://github.com/geek-fun/sqlkit" target="_blank" rel="noopener">SqlKit</a></li>
             <li><a href="https://serverlessinsight.com/" target="_blank" rel="noopener">ServerlessInsight</a></li>
             <li><a href="https://github.com/geek-fun/serverless-adapter" target="_blank" rel="noopener">serverless-adapter</a></li>
             <li><a href="https://github.com/geek-fun/jest-search" target="_blank" rel="noopener">jest-search</a></li>
@@ -17,10 +16,12 @@
         <div class="footer-section">
           <h3>{{ t.dbClients }}</h3>
           <ul>
-            <li><a :href="localePath('/blog/dynamodb-gui')">{{ t.dynamodbGui }}</a></li>
+            <li><a :href="localePath('/products/dockit/elasticsearch-gui-client')">{{ t.elasticsearchGui }}</a></li>
+            <li><a :href="localePath('/products/dockit/opensearch-gui-client')">{{ t.opensearchGui }}</a></li>
+            <li><a :href="localePath('/products/dockit/dynamodb-gui-client')">{{ t.dynamodbGui }}</a></li>
             <li><a :href="localePath('/blog/dynobase-alternative')">{{ t.dynobaseAlt }}</a></li>
-            <li><a :href="localePath('/blog/elasticsearch-gui')">{{ t.elasticsearchGui }}</a></li>
-            <li><a :href="localePath('/blog/opensearch-gui')">{{ t.opensearchGui }}</a></li>
+            <li><a :href="localePath('/products/dockit/dockit-vs-kibana')">{{ t.vsKibana }}</a></li>
+            <li><a :href="localePath('/products/dockit/dockit-vs-opensearch-dashboards')">{{ t.vsOpensearchDashboards }}</a></li>
             <li><a :href="localePath('/download')">{{ t.download }}</a></li>
           </ul>
         </div>
@@ -66,10 +67,12 @@ const translations = {
     resources: 'Resources',
     community: 'Community',
     dbClients: 'Database Clients',
-    dynamodbGui: 'DocKit - DynamoDB GUI Client',
-    dynobaseAlt: 'DocKit - Dynobase Alternative',
-    elasticsearchGui: 'DocKit - Elasticsearch GUI',
-    opensearchGui: 'DocKit - OpenSearch GUI',
+    dynamodbGui: 'DynamoDB GUI Client',
+    dynobaseAlt: 'Dynobase Alternative',
+    vsKibana: 'DocKit vs Kibana',
+    vsOpensearchDashboards: 'DocKit vs OpenSearch Dashboards',
+    elasticsearchGui: 'Elasticsearch GUI Client',
+    opensearchGui: 'OpenSearch GUI Client',
     download: 'Download',
     docs: 'Documentation',
     blog: 'Blog',
@@ -85,10 +88,12 @@ const translations = {
     resources: '资源',
     community: '社区',
     dbClients: '数据库客户端',
-    dynamodbGui: 'DocKit - DynamoDB GUI 客户端',
-    dynobaseAlt: 'DocKit - Dynobase 替代方案',
-    elasticsearchGui: 'DocKit - Elasticsearch GUI',
-    opensearchGui: 'DocKit - OpenSearch GUI',
+    dynamodbGui: 'DynamoDB GUI 客户端',
+    dynobaseAlt: 'Dynobase 替代方案',
+    vsKibana: 'DocKit vs Kibana',
+    vsOpensearchDashboards: 'DocKit vs OpenSearch Dashboards',
+    elasticsearchGui: 'Elasticsearch GUI 客户端',
+    opensearchGui: 'OpenSearch GUI 客户端',
     download: '下载',
     docs: '文档',
     blog: '博客',

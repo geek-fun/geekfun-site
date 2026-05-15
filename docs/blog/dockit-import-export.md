@@ -167,3 +167,9 @@ Ready to start moving data with DocKit?
 3. Check the **[Connect to Server guide](/docs/dockit/connect-to-server)** to set up your database connections.
 
 DocKit is **100% free and open-source** (Apache 2.0). No subscriptions, no feature gates, no data leaving your machine. [Download it today](/download) and take control of your NoSQL data.
+
+## Per-Database Landing Pages
+
+- **[Elasticsearch GUI Client](/products/dockit/elasticsearch-gui-client)** — Full guide to DocKit's Elasticsearch features
+- **[OpenSearch GUI Client](/products/dockit/opensearch-gui-client)** — OpenSearch-specific setup and workflows
+- **[DynamoDB GUI Client](/products/dockit/dynamodb-gui-client)** — DynamoDB table management, PartiQL editor, and more

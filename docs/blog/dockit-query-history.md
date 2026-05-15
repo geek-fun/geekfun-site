@@ -216,3 +216,9 @@ Query history is available in the latest version of DocKit and requires no confi
 For detailed usage instructions, see the **[Query History documentation](/docs/dockit/query-history)**.
 
 DocKit is **free and open-source** (Apache 2.0 license). [Download it today](/download) and never lose a query again.
+
+## Per-Database Landing Pages
+
+- **[Elasticsearch GUI Client](/products/dockit/elasticsearch-gui-client)** — Full guide to DocKit for Elasticsearch
+- **[OpenSearch GUI Client](/products/dockit/opensearch-gui-client)** — OpenSearch-specific setup and comparisons
+- **[DynamoDB GUI Client](/products/dockit/dynamodb-gui-client)** — DynamoDB PartiQL editor, table browser, and more
