@@ -40,6 +40,8 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
+        "datePublished": "2026-04-15",
+        "dateModified": "2026-04-15",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/serverless-api-gateway-body-transform"

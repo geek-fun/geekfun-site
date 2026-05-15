@@ -4,7 +4,7 @@
 # Old .html extension URLs - 301 permanent redirect
 /download.html  /download  301
 /about.html     /about     301
-/products.html  /products  301
+/products.html  /products/  301
 /blog.html      /blog      301
 /news.html      /news      301
 /docs.html      /docs      301
@@ -12,7 +12,7 @@
 # Chinese pages with .html
 /zh/download.html  /zh/download  301
 /zh/about.html     /zh/about     301
-/zh/products.html  /zh/products  301
+/zh/products.html  /zh/products/  301
 /zh/blog.html      /zh/blog      301
 /zh/news.html      /zh/news      301
 
