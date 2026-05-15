@@ -55,7 +55,7 @@ head:
 
 # DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases
 
-**Data portability** is a cornerstone of any serious database workflow. Whether you are migrating between clusters, seeding a test environment, or creating a pre-upgrade backup, you need a reliable way to move data in and out of your NoSQL databases without writing custom scripts or wrestling with cloud consoles. **DocKit's import/export feature** puts that capability directly inside your desktop client — free, open-source, and completely local.
+Moving data in and out of NoSQL databases is a routine but painful task. Cluster migrations, test data seeding, pre-upgrade backups — these all require a reliable way to transfer data without writing custom scripts or fighting with cloud consoles. **DocKit's import/export feature** handles this directly in your desktop client, with no data leaving your machine.
 
 ## What Formats DocKit Supports
 
@@ -160,13 +160,9 @@ Export a small dataset as JSON or CSV and share it via email, Slack, or your pre
 
 ## Getting Started
 
-Ready to start moving data with DocKit?
-
 1. **[Download DocKit](/download)** — Available for macOS, Windows, and Linux.
 2. Follow the **[Import & Export Guide](/docs/dockit/import-export)** for step-by-step instructions.
 3. Check the **[Connect to Server guide](/docs/dockit/connect-to-server)** to set up your database connections.
-
-DocKit is **100% free and open-source** (Apache 2.0). No subscriptions, no feature gates, no data leaving your machine. [Download it today](/download) and take control of your NoSQL data.
 
 ## Per-Database Landing Pages
 
