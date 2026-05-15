@@ -199,7 +199,7 @@ SELECT * FROM YourTableName LIMIT 10
 ## 了解更多
 
 - **[DynamoDB GUI 客户端概述](/zh/blog/dynamodb-gui)** - 完整功能列表
-- **[Dynobase 替代方案](/zh/blog/dynobase-alternative)** - 功能对比
+- **[Dynobase 替代方案](/zh/products/dockit/dockit-vs-dynobase)** - 功能对比
 - **[下载 DocKit](/zh/download)** - 适用于 Mac、Windows、Linux
 
 ---

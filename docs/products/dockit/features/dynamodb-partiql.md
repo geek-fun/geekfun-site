@@ -199,7 +199,7 @@ Press `Cmd + Enter` (Mac) or `Ctrl + Enter` (Windows/Linux)
 ## Learn More
 
 - **[DynamoDB GUI Client Overview](/blog/dynamodb-gui)** - Full feature list
-- **[Dynobase Alternative](/blog/dynobase-alternative)** - Feature comparison
+- **[Dynobase Alternative](/products/dockit/dockit-vs-dynobase)** - Feature comparison
 - **[Download DocKit](/download)** - Available for Mac, Windows, Linux
 
 ---

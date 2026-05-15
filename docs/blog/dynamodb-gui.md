@@ -281,7 +281,7 @@ Queries are saved locally on your machine as plain text files. You control where
 ## Additional Resources
 
 ### Product Comparison
-- **[Dynobase Alternative](/blog/dynobase-alternative)** - Detailed feature comparison
+- **[Dynobase Alternative](/products/dockit/dockit-vs-dynobase)** - Detailed feature comparison
 - **[Best DynamoDB GUI Clients](/blog/best-dynamodb-gui-client-2026)** - Top tools compared
 
 ### Guides & Tutorials
