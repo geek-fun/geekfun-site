@@ -107,7 +107,7 @@ After opening a DynamoDB connection, DocKit takes you to the editor page where y
 
 For users who prefer more control, DocKit includes a powerful **PartiQL editor** that brings SQL-like syntax to DynamoDB, making queries more expressive and familiar for developers.
 
-![DocKit DynamoDB PartiQL editor](/dockit-dynamodb-partiql-scrennshort.png)
+![DocKit DynamoDB PartiQL editor](/dockit-dynamodb-partiql-editor.png)
 
 - **Full PartiQL Support**: Execute all PartiQL operations including `SELECT`, `DELETE`, `UPDATE`, and more directly against your DynamoDB tables.
 - **Result Manipulation**: Modify or delete items directly from query results—no need to write separate update queries.

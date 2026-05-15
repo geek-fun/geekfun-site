@@ -73,7 +73,7 @@ Meanwhile, a new wave of tools has turned up with fresh approaches and features.
 
 Free, open source. Does DynamoDB plus Elasticsearch and OpenSearch — handy if your stack isn't just DDB. Built with Tauri/Rust so it's fast and stays light.
 
-![DocKit](/dockit-dynamodb-partiql-scrennshort.png)
+![DocKit](/dockit-dynamodb-partiql-editor.png)
 
 **Features:**
 - PartiQL editor with autocomplete and formatting
