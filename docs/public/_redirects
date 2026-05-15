@@ -1,34 +1,10 @@
-# Redirect old .html URLs to clean URLs (for static hosting)
-# VitePress handles these automatically, but this ensures proper 301s
-
-# Old .html extension URLs - 301 permanent redirect
-/download.html  /download  301
-/about.html     /about     301
-/products.html  /products/dockit/  301
-/blog.html      /blog      301
-/news.html      /news      301
-/docs.html      /docs      301
-
-# Chinese pages with .html
-/zh/download.html  /zh/download  301
-/zh/about.html     /zh/about     301
-/zh/products.html  /zh/products/dockit/  301
-/zh/blog.html      /zh/blog      301
-/zh/news.html      /zh/news      301
-
 # Dynobase comparison moved from blog to product pages
 /blog/dynobase-alternative      /products/dockit/dockit-vs-dynobase      301
 /zh/blog/dynobase-alternative   /zh/products/dockit/dockit-vs-dynobase   301
 
-# Handle old /home URL
+# /home legacy URL
 /home  /  301
 
-# Handle trailing slash inconsistencies
-/about/      /about      301
-/products/   /products/dockit/   301
-/blog/       /blog       301
-/news/       /news       301
-/zh/about/   /zh/about   301
-/zh/blog/    /zh/blog    301
-/zh/news/    /zh/news    301
+# /products/ has no index page — forward to DocKit hub
+/products/    /products/dockit/    301
 /zh/products/ /zh/products/dockit/ 301
