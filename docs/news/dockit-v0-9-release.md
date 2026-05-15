@@ -57,7 +57,7 @@ Read more: [Query History blog post](/blog/dockit-query-history) | [Query Histor
 
 You can now connect to a **locally running DynamoDB instance** by specifying an optional endpoint URL in the connection configuration. 
 
-![DocKit Connect DynamoDB local screenshot](/dockit-connection-dynamodblocal.png)
+![DocKit Connect DynamoDB local screenshot](/dockit-dynamodb-connection.png)
 
 This makes it easier to:
 - Develop and test against DynamoDB Local without spinning up AWS resources
