@@ -110,6 +110,21 @@ DocKit saves your query history automatically. You can search, copy, or re-run p
 
 Save multiple connection profiles to switch between dev, staging, and production clusters. It supports Basic Auth, API Keys, and client certificates.
 
+<div style="display: flex; gap: 32px; align-items: center; margin: 24px 0;">
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-elasticsearch.svg" alt="Elasticsearch" style="width: 32px; height: 32px;" />
+    <span>Elasticsearch</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-opensearch.png" alt="OpenSearch" style="width: 32px; height: 32px;" />
+    <span>OpenSearch</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="/db-dynamodb.svg" alt="DynamoDB" style="width: 32px; height: 32px;" />
+    <span>DynamoDB</span>
+  </div>
+</div>
+
 ## Comparison
 
 | | DocKit | Kibana | Elasticvue | Dejavu |
