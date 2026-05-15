@@ -6,7 +6,7 @@ ogImage: https://www.geekfun.club/og/dockit-zh.png
 head:
   - - meta
     - name: keywords
-      content: AI 数据库客户端, AI 原生 NoSQL GUI, DynamoDB AI 助手, Elasticsearch AI, OpenSearch AI, 自然语言查询, DocKit, NoSQL GUI 客户端, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, 数据库客户端, 开源数据库工具, PartiQL 编辑器, 桌面数据库客户端, Mac 数据库客户端, Windows 数据库客户端, Linux 数据库客户端
+      content: AI 数据库客户端, AI 原生 NoSQL GUI, NoSQL GUI 客户端, NoSQL 桌面客户端, nosql gui client, nosql desktop gui, DynamoDB AI 助手, Elasticsearch AI, OpenSearch AI, 自然语言查询, DocKit, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, 数据库客户端, 开源数据库工具, PartiQL 编辑器, 桌面数据库客户端, Mac 数据库客户端, Windows 数据库客户端, Linux 数据库客户端
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/products/dockit/
@@ -29,6 +29,7 @@ head:
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "DocKit",
+        "alternateName": ["NoSQL GUI 客户端", "NoSQL 桌面客户端", "NoSQL GUI client", "NoSQL desktop GUI", "Elasticsearch GUI 客户端", "OpenSearch GUI 客户端", "DynamoDB GUI 客户端"],
         "description": "AI 原生桌面 GUI 客户端，支持 DynamoDB、OpenSearch 和 Elasticsearch。内置 AI 助手从自然语言生成数据库查询。快速、安全、免费。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",

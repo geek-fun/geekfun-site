@@ -6,7 +6,7 @@ ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
     - name: keywords
-      content: elasticsearch gui client, opensearch gui client, dynamodb gui client, AI database client, AI-native NoSQL GUI, DynamoDB AI assistant, Elasticsearch AI, OpenSearch AI, natural language queries, DocKit, NoSQL GUI client, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, database client, Dynobase alternative, Kibana alternative, open source database tool, PartiQL editor, desktop database client, Mac database client, Windows database client, Linux database client
+      content: elasticsearch gui client, opensearch gui client, dynamodb gui client, nosql gui client, nosql desktop gui, AI database client, AI-native NoSQL GUI, DynamoDB AI assistant, Elasticsearch AI, OpenSearch AI, natural language queries, DocKit, NoSQL GUI client, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, database client, Dynobase alternative, Kibana alternative, open source database tool, PartiQL editor, desktop database client, Mac database client, Windows database client, Linux database client
   - - link
     - rel: canonical
       href: https://www.geekfun.club/products/dockit/
@@ -29,7 +29,7 @@ head:
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "DocKit",
-        "alternateName": ["Elasticsearch GUI client", "OpenSearch GUI client", "DynamoDB GUI client", "NoSQL GUI client"],
+        "alternateName": ["Elasticsearch GUI client", "OpenSearch GUI client", "DynamoDB GUI client", "NoSQL GUI client", "NoSQL desktop GUI"],
         "description": "Open-source desktop GUI client for Elasticsearch, OpenSearch, and DynamoDB. Generate database queries from natural language with a built-in AI assistant. Fast, local-first, Apache 2.0.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
