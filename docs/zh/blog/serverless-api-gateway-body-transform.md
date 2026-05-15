@@ -8,6 +8,18 @@ head:
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/blog/serverless-api-gateway-body-transform
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/serverless-api-gateway-body-transform
+  - - link
+    - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/blog/serverless-api-gateway-body-transform
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://www.geekfun.club/blog/serverless-api-gateway-body-transform
   - - script
     - type: application/ld+json
     - |
@@ -28,6 +40,8 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
+        "datePublished": "2026-04-15",
+        "dateModified": "2026-04-15",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/zh/blog/serverless-api-gateway-body-transform"
