@@ -214,8 +214,6 @@ DocKit 的一个关键设计原则是**本地优先数据存储**。您的查询
 
 有关详细使用说明，请参阅**[查询历史文档](/zh/docs/dockit/query-history)**。
 
-DocKit 是**免费且开源的**（Apache 2.0 许可证）。[立即下载](/zh/download)，永不丢失查询记录。
-
 ## 相关资源
 
 - **[DocKit 完整功能概览](/products/dockit/)** - 支持 Elasticsearch、OpenSearch、DynamoDB

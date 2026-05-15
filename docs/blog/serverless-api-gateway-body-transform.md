@@ -57,7 +57,7 @@ head:
 
 ![ServerlessInsight Architecture](/serverless/serverlessinsight-architecture.png)
 
-Before diving into the details, let's introduce the project architecture—a classic Serverless API setup designed for zero-ops, auto-scaling, and low-cost operation.
+Before diving into the details, here is the project architecture—a classic Serverless API setup designed for zero-ops, auto-scaling, and low-cost operation.
 
 We use two open-source frameworks to build this Serverless application:
 

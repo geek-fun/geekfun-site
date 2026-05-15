@@ -81,7 +81,7 @@ DocKit 支持集成 OpenAI 和 DeepSeek，只需配置你的 API Key。整体架
 3. 除非你在对话中明确提供，DocKit 不会发送索引中的实际数据，你的数据依旧安全私密。
 4. 除非你启用了 AI 助手并主动与其交互，否则索引名和 mapping 信息也不会在网络中发送。
 
-## 让我们试试看！
+## 试一试！
 
 你可能对这个方案的效果持怀疑态度，那我们用一个示例快速看一下吧！可以使用这份示例数据，也可以直接使用你已有的索引：[sample-stocks](https://github.com/Blankll/elasticsearch-learn)。运行脚本 `./samples/stocks/ingest.sh`，按提示输入你的服务器信息即可快速导入示例数据。
 

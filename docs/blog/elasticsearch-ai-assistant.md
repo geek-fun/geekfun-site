@@ -77,7 +77,7 @@ Here is the flow of how it works:
 3. DocKit won't send any data inside an index unless you explicitly provide it in conversation messages, your data is still kept safe and private.
 4. Unless you configure and enable the AI assistant and send questions to it, even your index name and mapping info won't be exposed to LLM.
 
-## Let's try it out
+## Try it out
 
 You may question the performance of the above solution, let's use an example to have a quick look! Here is a sample data you can use and quickly ingest some sample data(you can also use your existing index as well) [sample-stocks](https://github.com/Blankll/elasticsearch-learn) run the script `./samples/stocks/ingest.sh` and follow the prompt to input related server info to ingest sample data.
 
