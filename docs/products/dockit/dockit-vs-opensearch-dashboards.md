@@ -36,18 +36,18 @@ head:
       }
 ---
 
-# dockit vs opensearch dashboards
+# DocKit vs OpenSearch Dashboards
 
-OpenSearch Dashboards is the standard web interface for OpenSearch. It's built for visualizations and monitoring, but it's often too heavy for daily query development. Running it requires a dedicated service, and the 10-30 second startup time and 500MB+ RAM overhead can get in the way when you just need to run a quick query.
+OpenSearch Dashboards is the default web interface for OpenSearch clusters — powerful for building visualizations and monitoring. For **query development**, it is heavy to run: a separate Dashboards service, 10–30 s startup, and 500 MB+ RAM before you can write a single query.
 
-DocKit is a native desktop app designed specifically for querying OpenSearch. It starts in under 2 seconds, connects directly to your cluster, and keeps your queries stored locally without any server-side dependencies.
+**DocKit** is a native desktop app built for OpenSearch query work. Connect directly to your cluster, start querying in under 2 seconds, and store your queries locally without any server dependency.
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download DocKit</a>
   <a href="https://github.com/geek-fun/dockit" style="padding:10px 20px;border:1px solid var(--vp-c-border);border-radius:6px;font-weight:600;text-decoration:none" target="_blank" rel="noopener">View on GitHub</a>
 </div>
 
-## head-to-head comparison
+## Head-to-head comparison
 
 | | DocKit | OpenSearch Dashboards |
 |---|---|---|
@@ -68,82 +68,82 @@ DocKit is a native desktop app designed specifically for querying OpenSearch. It
 | **Open source** | ✅ Apache 2.0 | ✅ Apache 2.0 |
 | **OS version support** | 1.x – 3.x+ | Version-locked to cluster |
 
-## when dockit is the better choice
+## When DocKit is the better choice
 
-### working with aws opensearch service
+### You work directly with AWS OpenSearch Service
 
-AWS OpenSearch Service gives you a managed Dashboards endpoint that can be frustrating to configure and is always version-locked to your cluster. DocKit skips the Dashboards setup by connecting directly to the OpenSearch REST API using your AWS credentials (access keys, IAM roles, or profiles).
+AWS OpenSearch Service doesn't expose a persistent Dashboards endpoint you control — you get a managed one that's awkward to configure and locked to your cluster version. DocKit connects directly to the OpenSearch REST API using your AWS credentials (access key, IAM role, or profile). No Dashboards setup required.
 
-### faster query loops
+### You want a faster query loop
 
-Browser-based tools have inherent friction. The Dashboards Dev Tools tab has to load inside a Dashboards instance within your browser. DocKit is a native app that's ready to use in about 2 seconds. If you're running dozens of queries every day, that's a lot of waiting you don't have to do.
+The Dashboards Dev Tools tab loads in a browser inside a Dashboards instance. DocKit is a native app that opens in under 2 seconds. For engineers running tens of queries per day, the friction difference compounds quickly.
 
-### ai-assisted query generation
+### You need AI-assisted query generation
 
-DocKit lets you describe a query in plain English and generates the OpenSearch DSL for you. It uses your actual index mapping as context so the results are relevant. It works with OpenAI or DeepSeek using your own API key. OpenSearch Dashboards has no equivalent for this.
+Describe what you want in plain English. DocKit injects your actual index mapping as context and generates the OpenSearch DSL for you. Works with OpenAI or DeepSeek using your own API key. OpenSearch Dashboards has no equivalent.
 
-### queries in version control
+### You want your queries in version control
 
-DocKit stores your history and saved queries as local files. This makes it easy to commit them to Git or share them with teammates as code. Your query records stay with you, independent of whatever Dashboards instance you're currently using.
+DocKit stores query history and saved queries as local files. Commit them to Git, share them with your team as code, and keep a portable record of every query you've written — independent of any Dashboards instance.
 
-### using elasticsearch or dynamodb
+### You also use Elasticsearch or DynamoDB
 
-You can manage OpenSearch, Elasticsearch, and DynamoDB in the same app. You don't have to juggle multiple tools when switching between different cluster types.
+DocKit supports OpenSearch, Elasticsearch, and DynamoDB in a single app. Switch between clusters across all three database types without managing multiple tools.
 
-## when opensearch dashboards is the better choice
+## When OpenSearch Dashboards is the better choice
 
-Stick with OpenSearch Dashboards when you need:
+**Keep OpenSearch Dashboards when you need:**
 
-- **Dashboards and visualizations**: the built-in engines (Lens, TSVB) are better for charts intended for stakeholders.
-- **Alerting and monitors**: rule-based alerting that's integrated directly into the cluster.
-- **Observability pipelines**: features like Trace Analytics, Jaeger/Zipkin integrations, and specific log analytics views.
-- **Security plugin UI**: managing FGAC, roles, and audit logs via the Security plugin.
-- **Shared access**: when you need a browser URL that anyone on the team can access without installing software.
+- **Dashboards and visualizations** — Dashboards' visualization engine (Lens-equivalent, TSVB) for building stakeholder-facing charts.
+- **Alerting and monitors** — rule-based alerting integrated with OpenSearch clusters.
+- **Observability pipelines** — Trace Analytics, the Jaeger/Zipkin integration, and log analytics views.
+- **Security plugin UI** — FGAC, role management, audit logs — all managed through the Security Dashboards plugin.
+- **Shared browser access** — non-developer stakeholders need a browser-accessible URL, not a desktop app.
 
-Most teams find a balance by using both: DocKit for the engineers writing queries, and Dashboards for shared monitoring and stakeholder reporting.
+Many teams run both: DocKit for engineers doing query development, Dashboards for shared monitoring and stakeholder views.
 
-## the query editor difference
+## The query editor difference
 
-The Dev Tools console in OpenSearch Dashboards is functional but limited. It's essentially the same tool inherited from Kibana:
+OpenSearch Dashboards Dev Tools is a functional console, but it has the same limitations as its Kibana ancestor:
 
-- Strict JSON is required, which means no inline comments or trailing commas.
-- Autocomplete for fields can be slow to update after mapping changes.
-- There's no AI support.
-- Saved queries are stored on the server and tied to a specific instance.
-- You can't easily export queries as curl commands.
+- Strict JSON required — no inline comments, no trailing commas
+- Field autocomplete is slow to reflect mapping changes
+- No AI assistance
+- Saved queries are server-side and tied to a specific Dashboards instance
+- No curl export
 
-DocKit uses a Monaco-based editor that's much more flexible:
+DocKit's Monaco-based editor:
 
-- **JSON5 support**: add comments to your queries and use trailing commas without breaking things.
-- **Live autocomplete**: field suggestions are pulled from your mapping as soon as you connect.
-- **DSL validation**: the editor checks your syntax against the OpenSearch Query DSL.
-- **One-click exports**: auto-formats on save and lets you copy any query as a `curl` command.
-- **Multi-tabbing**: keep several queries open and run them simultaneously.
-- **Local history**: your entire execution history is saved locally and is fully searchable.
+- **JSON5 syntax** — write comments inline, trailing commas, human-readable queries
+- **Live field autocomplete** from your OpenSearch mapping on connect
+- **Syntax validation** for OpenSearch Query DSL
+- **Auto-format** on save; one-click copy as `curl`
+- **Multi-tab** — run multiple queries simultaneously
+- **Full query history** — every executed query saved locally and searchable
 
-## connecting dockit to opensearch
+## Connecting DocKit to OpenSearch
 
-### self-hosted opensearch
+### Self-hosted OpenSearch
 
-1. **[Download DocKit](/download)** for your OS.
-2. Go to **New Connection** and select **OpenSearch**.
-3. Enter your host, port, and credentials (Basic Auth, API Key, or none).
-4. Click **Connect**.
+1. **[Download DocKit](/download)** for macOS, Windows, or Linux
+2. Open DocKit → **New Connection** → select **OpenSearch**
+3. Enter host, port, and credentials (Basic Auth, API Key, or none for local)
+4. Click **Connect**
 
-### aws opensearch service
+### AWS OpenSearch Service
 
-1. Go to **New Connection** and select **OpenSearch**.
-2. Enter your domain endpoint (the `https://...` URL).
-3. Select **AWS credentials** authentication. DocKit will use your `~/.aws/credentials` or environment variables.
-4. Click **Connect**.
+1. In DocKit → **New Connection** → select **OpenSearch**
+2. Enter your domain endpoint (e.g. `https://search-xxx.us-east-1.es.amazonaws.com`)
+3. Choose **AWS credentials** authentication — DocKit reads from `~/.aws/credentials` or environment variables
+4. Click **Connect**
 
-For VPC clusters or fine-grained access control, check the [connection guide](/docs/dockit/connect-to-server).
+For fine-grained access control and VPC clusters, see the [connection guide](/docs/dockit/connect-to-server).
 
-## opensearch version support
+## OpenSearch version support
 
-DocKit works with **OpenSearch 1.x, 2.x, and 3.x** because it uses the standard REST API. Unlike OpenSearch Dashboards, it isn't version-locked to the cluster it's talking to.
+DocKit uses the standard OpenSearch REST API and supports **OpenSearch 1.x through 3.x and beyond**. OpenSearch Dashboards is version-locked to the cluster it is deployed alongside.
 
-## frequently asked questions
+## Frequently asked questions
 
 **Is DocKit a full OpenSearch Dashboards replacement?**
 For query development and index management, yes. For dashboards, observability, and alerting, no. Most teams use both.
@@ -152,10 +152,10 @@ For query development and index management, yes. For dashboards, observability, 
 Yes. DocKit connects to the AWS OpenSearch Service REST endpoint using your AWS credentials. Use Basic Auth for HTTP-level credentials or AWS SigV4 signing (roadmap — check [GitHub](https://github.com/geek-fun/dockit/issues) for status).
 
 **Can I use DocKit with OpenSearch behind a VPN?**
-Yes. As long as DocKit can reach the OpenSearch REST port (default 9200), it works. You can point DocKit at `localhost` if you have a VPN or SSH tunnel running.
+Yes — as long as DocKit can reach the OpenSearch REST port (default 9200). Set up any VPN or SSH tunnel externally and point DocKit at `localhost`.
 
 **Does it support OpenSearch Serverless?**
-OpenSearch Serverless requires SigV4 signing for every request. Standard credential auth isn't enough. Check the [GitHub issues](https://github.com/geek-fun/dockit/issues) for the current status.
+OpenSearch Serverless uses SigV4 signing for every request. Standard credential auth is not sufficient. Check the [GitHub issues](https://github.com/geek-fun/dockit/issues) for current serverless support status.
 
 ---
 

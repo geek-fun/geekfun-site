@@ -42,7 +42,7 @@ head:
 
 # DocKit vs Dynobase
 
-Dynobase is a polished commercial DynamoDB client. It’s well designed, actively maintained, and costs between $9 and $79 a month depending on your tier. **DocKit** is the open source alternative. It’s licensed under Apache 2.0, requires no subscription, and covers the same core DynamoDB workflows. It also includes an AI query assistant and multi-database support that Dynobase doesn't have.
+Dynobase is a polished commercial DynamoDB client — well-designed, actively maintained, and priced at $9–79/month depending on tier. **DocKit** is its open-source alternative: Apache 2.0, no subscription, and the same core DynamoDB workflow plus an AI query assistant and multi-database support Dynobase lacks.
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download DocKit</a>
@@ -51,12 +51,12 @@ Dynobase is a polished commercial DynamoDB client. It’s well designed, activel
 
 ## Why developers look for Dynobase alternatives
 
-Dynobase is a solid tool, but there are a few reasons developers look for alternatives:
+Dynobase is an excellent tool, but several factors drive developers to seek alternatives:
 
-- **Cost**: Subscriptions add up. A 5-person team ends up paying between $540 and $4,740 every year.
-- **Data privacy**: Many organizations need tools that stay on-premise without cloud sync or telemetry.
-- **Open source**: Having the source code makes auditing and customization easier while avoiding vendor lock-in.
-- **Multi-database**: Dynobase is DynamoDB-only. If you use Elasticsearch or OpenSearch, you usually need a second tool.
+- **Cost** — $9–79/month per team adds up. A 5-person team pays $540–$4,740/year.
+- **Data privacy** — some organizations require on-premise tools with no cloud sync or telemetry.
+- **Open source** — source access for auditing, customization, and no vendor lock-in.
+- **Multi-database** — Dynobase is DynamoDB-only; teams using Elasticsearch or OpenSearch need a second tool.
 
 ## Feature comparison
 
@@ -85,33 +85,42 @@ Dynobase is a solid tool, but there are a few reasons developers look for altern
 ## What DocKit does better
 
 ### AI query assistant
-You can describe what you need in plain English. DocKit uses your table schema (key names, attribute types, and GSI definitions) to generate the PartiQL query for you. Dynobase has no equivalent. It works with OpenAI or DeepSeek using your own API key, so your data stays on your machine.
+
+Write what you want in plain English. DocKit injects your actual DynamoDB table schema as context — key names, attribute types, GSI definitions — and generates the PartiQL query for you. Dynobase has no equivalent. Works with OpenAI or DeepSeek using your own API key; your data never leaves your machine.
 
 ### Multi-database support
-Dynobase is limited to DynamoDB. DocKit handles DynamoDB, Elasticsearch, and OpenSearch in one app. If your stack uses a mix of these, DocKit can replace several separate tools.
+
+Dynobase is DynamoDB-only. DocKit supports DynamoDB, Elasticsearch, and OpenSearch in a single app. If your stack includes any combination of these databases, DocKit replaces multiple separate tools.
 
 ### No subscription cost
-Dynobase starts at $9 a month per seat. For a 5-person team, that is at least $540 a year. DocKit’s community build is free for any number of users.
+
+Dynobase starts at $9/month per seat. For a 5-person team that's $540/year minimum. DocKit's community build has no per-seat cost.
 
 ### Smaller footprint
-DocKit is built with Tauri (Rust and WebView) instead of Electron. Installers are between 10 and 33 MB, which is much smaller than the 100 MB+ typical for Electron apps. It also uses significantly less RAM, usually around 150 MB.
 
-### Local-first and private
-There is no telemetry. Your queries, credentials, and history stay on your local filesystem and never sync to external servers. This makes it a better fit for air-gapped or strict data residency environments.
+Built with Tauri (Rust + WebView), not Electron. Installers are 10–33 MB vs ~100 MB+ for typical Electron apps. RAM usage at runtime is ~150 MB vs 500 MB+.
+
+### Local-first, no telemetry
+
+Zero telemetry. Queries, credentials, and history are stored on your local filesystem — never synced to external servers. Required for air-gapped or strict data residency environments.
 
 ## What Dynobase does better
 
 ### Built-in team collaboration
-Dynobase includes shared query libraries and team workspaces. DocKit's approach is to use Git. You save queries as files and share them through your repo. This works well for developers but requires more manual effort.
+
+Dynobase offers shared query libraries, team workspaces, and real-time collaboration. DocKit's answer is Git — save queries as files, commit and share. Works well for developer teams but requires Git discipline.
 
 ### Commercial support and SLAs
-Dynobase sells priority support with guaranteed response times. DocKit is community-driven via GitHub and Discord.
 
-### More export options
-Dynobase can export to S3 and various SQL databases. DocKit currently supports JSON and CSV.
+Dynobase sells priority support with defined response times. DocKit is community-driven via GitHub Issues and Discord.
+
+### Advanced export targets
+
+Dynobase supports exporting to S3, SQL databases, and various backup formats. DocKit currently exports to JSON and CSV.
 
 ### Maturity
-Dynobase has been around longer. It has fewer edge cases, more tutorials, and a more polished onboarding experience.
+
+Dynobase has shipped longer — more edge cases handled, more video tutorials, more polished onboarding.
 
 ## When to choose DocKit
 
@@ -134,18 +143,19 @@ Dynobase has been around longer. It has fewer edge cases, more tutorials, and a 
 
 ## Migration from Dynobase to DocKit
 
-1. **[Download DocKit](/download)** for macOS, Windows, or Linux.
-2. Open DocKit, go to **New Connection**, and select **DynamoDB**.
+1. **[Download DocKit](/download)** for macOS, Windows, or Linux
+2. Open DocKit → **New Connection** → select **DynamoDB**
 3. Choose your authentication method:
-   - **AWS Profile**: reads from `~/.aws/credentials` (recommended).
-   - **Access Keys**: use `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
-   - **IAM Role**: for EC2 or ECS environments.
-4. Select your region and click **Connect**.
+   - **AWS Profile** — reads from `~/.aws/credentials` (recommended)
+   - **Access Keys** — `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY`
+   - **IAM Role** — for EC2 / ECS environments
+4. Select your region and click **Connect**
 
 Your data stays in DynamoDB. You're only changing the GUI layer.
 
 ### Migrating saved queries
-Export your Dynobase queries as text, then save them as `.json` or `.partiql` files in DocKit's query folder. It’s plain text, so there is no proprietary format to worry about.
+
+Export Dynobase queries as text, then save as `.json` or `.partiql` files in DocKit's query folder. Plain text — no proprietary format.
 
 ## Pricing breakdown
 
@@ -161,13 +171,13 @@ Export your Dynobase queries as text, then save them as `.json` or `.partiql` fi
 ## Frequently asked questions
 
 **Is DocKit production-ready?**
-Yes. DocKit uses the official AWS SDK and is used by development teams working with production DynamoDB clusters.
+Yes. DocKit uses the official AWS SDK and is used by development teams against production DynamoDB clusters.
 
 **Does it support DynamoDB Local?**
 Yes. Point DocKit at `http://localhost:8000` with any dummy credentials.
 
 **Does DocKit collect any data?**
-No. DocKit has zero telemetry. No queries, credentials, or usage data are sent anywhere.
+No. DocKit has zero telemetry — no queries, credentials, or usage data sent anywhere.
 
 **Can I use DocKit and Dynobase at the same time?**
 Yes. They are independent desktop apps.
