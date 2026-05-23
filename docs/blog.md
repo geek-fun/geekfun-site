@@ -32,6 +32,11 @@ Product updates, technical deep-dives, and lessons from building open-source dat
 
 After 2 years and 10 months, 970 commits, 244 merged PRs, and 70 releases, DocKit ships its first stable release. A complete re-introduction from scratch: the journey from Electron to Tauri v2, three UI rewrites, DynamoDB, AI integration, and everything the platform does today.
 
+## [Best Elasticsearch GUI Clients in 2026: 5 Tools Compared](/blog/best-elasticsearch-gui-client-2026)
+*May 23, 2026*
+
+The Elasticsearch ecosystem has grown vast, but not all GUI tools are worth your time. Cerebro went quiet in 2021, Elasticsearch Head in 2018. This guide covers the 5 best GUI clients — DocKit, Kibana, Elasticvue, Elastron, and Elasticsearch Head — and tells you which are still active in 2026.
+
 ## [Best DynamoDB GUI Clients in 2026: 5 Tools Compared](/blog/best-dynamodb-gui-client-2026)
 *May 9, 2026*
 
