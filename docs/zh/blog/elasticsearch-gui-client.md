@@ -56,50 +56,33 @@ head:
 
 # DocKit - Elasticsearch桌面客户端介绍
 
-您是否在寻找最佳的 Elasticsearch桌面客户端来简化开发数据管理？不用再寻找了！在这篇全面的指南中，我们将向您介绍
-DocKit，这是一款顶级的 Elasticsearch桌面客户端，旨在提升您的工作流程并提高生产力。无论您是经验丰富的开发者还是刚入门，找到合适的工具都至关重要。
+DocKit 是一个免费、开源的 Elasticsearch 和 OpenSearch 桌面客户端。相比 Kibana，它启动快、内存占用低、支持同时连接多个服务器，更适合日常查询开发。
 
-## 为什么选择Elasticsearch桌面客户端？
+Kibana 在可视化和仪表盘方面很强，但日常写查询、切换环境的时候，它太重了——需要跑容器，启动要十几秒，每个浏览器标签页都在吃内存。DocKit 是原生桌面应用，支持同时连多个 Elasticsearch 和 OpenSearch 服务器，本地、预发布、生产环境一键切换。查询保存为本地文件，可以直接提交到 Git，离线也能用。
 
-[Elasticsearch](https://www.elastic.co/elasticsearch) 是一款强大的搜索和分析引擎，但有效管理它需要合适的工具。Elasticsearch
-桌面客户端提供了用户友好的界面、先进的搜索功能和高效的数据管理特性。通过 DocKit，您可以充分发挥 Elasticsearch
-的潜力，优化您的数据管理体验。
+## 为什么用 DocKit 而不是 Kibana 做日常查询？
 
-与基于网页的 [Kibana](https://www.elastic.co/kibana) 相比，DocKit 是一款桌面客户端，它提供了更便捷高效的方式来管理您的
-Elasticsearch 服务器。您无需在本地运行 Kibana 容器，从而节省大量磁盘和内存。同时，DocKit 可以同时连接多个 Elasticsearch
-服务器，让您可以瞬间在应用环境之间切换，这比 Kibana 更加灵活。
+Kibana 适合可视化和仪表盘，但在开发中写查询、调试 DSL 的时候太重了——需要跑容器，启动慢，每个浏览器标签都吃内存。
 
-DocKit 还支持 [OpenSearch](https://opensearch.org/)，为 OpenSearch 用户提供无缝的功能和用户体验。开发者无需在 Kibana
-和 [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/) 之间切换，可以使用 DocKit 来管理 Elasticsearch
-和 OpenSearch 集群。
+DocKit 是原生桌面应用，启动不到 2 秒，内存占用只有 Kibana 的零头。它可以同时连接多个 Elasticsearch 和 OpenSearch 服务器，本地、预发布、生产环境一键切换。查询自动保存为本地文件，Git 友好，离线也能用。
+
+同时支持 OpenSearch，团队里如果两个都在用，DocKit 一个工具就够了，不用在 Kibana 和 OpenSearch Dashboards 之间来回切。
 
 ![DocKit UI](/dockit-client-ui.png)
 
 ## DocKit 的主要特点
 
-DocKit 提供了一系列功能以满足您的特定需求：
+- 查询编辑器支持语法高亮、自动补全和内联注释（JSON5）
+- 同时连接多个 Elasticsearch 和 OpenSearch 服务器
+- 集群管理——索引操作、节点监控、分片分配
+- AI 辅助查询生成——用自然语言描述需求，自动生成 DSL
+- 跨平台——macOS、Windows、Linux
+- 开源（Apache 2.0）
 
-- **用户友好的界面**：使用DocKit的直观界面轻松浏览您的 Elasticsearch/OpenSearch 服务器。
-- **高级搜索功能**：执行复杂搜索并高效分析数据。
-- **跨平台支持**：支持Mac、Windows 和 Linux，确保与您的操作系统兼容。
-- **开源项目**：DocKit是一个开源项目，允许社区贡献和持续改进。
-- **多服务器支持**：同时连接多个Elasticsearch/OpenSearch服务器，简化工作流程。
-- **AI 驱动的搜索**：利用AI驱动的搜索功能增强数据分析和可视化。
+## 开始使用
 
-## 如何开始使用 DocKit
+1. [下载安装](/zh/products/dockit/) 适合您操作系统的最新版本
+2. [连接到服务器](/zh/docs/dockit/connect-to-server)——本地、远程、云端都支持
+3. 在编辑器中写查询，`Cmd/Ctrl + Enter` 执行
 
-开始使用 DocKit 非常简单：
-
-1. **下载和安装**：访问 [DocKit 官方网站](/zh/products/dockit/)
-   下载适用于您的操作系统的最新版本。按照 [安装指南](/zh/docs/dockit/installation) 安装 DocKit。
-2. **连接到您的 Elasticsearch 服务器**：按照 [安装指南](/zh/docs/dockit/connect-to-server) 将
-   DocKit 连接到您的 Elasticsearch 服务器。
-3. **探索和管理您的数据**：使用 DocKit 的强大功能来管理和分析您的 Elasticsearch 数据。
-
-## 结论
-
-选择合适的Elasticsearch桌面客户端对高效的数据管理和分析至关重要。DocKit
-作为其中一个选择，提供了用户友好的界面、高级搜索功能和跨平台支持。不要浪费时间使用不合适的工具——使用 DocKit 优化您的工作流程，充分发挥
-Elasticsearch 的潜力。
-
-解更多信息并下载 DocKit，请访问 [官方网站](/zh/products/dockit/)。
+了解更多信息并下载 DocKit，请访问 [官方网站](/zh/products/dockit/)。

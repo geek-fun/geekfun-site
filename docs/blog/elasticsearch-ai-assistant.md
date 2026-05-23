@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Automate Elasticsearch Query Writing with AI Assistants",
         "description": "Discover how to use AI and large language models to generate complex Elasticsearch queries automatically. Boost productivity with an AI assistant for Elasticsearch.",
-        "image": "https://www.geekfun.club/dockit-ai-assistant-question.png",
+        "image": "https://www.geekfun.club/dockit-ai-assistant.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -77,7 +77,7 @@ Here is the flow of how it works:
 3. DocKit won't send any data inside an index unless you explicitly provide it in conversation messages, your data is still kept safe and private.
 4. Unless you configure and enable the AI assistant and send questions to it, even your index name and mapping info won't be exposed to LLM.
 
-## Let's try it out
+## Try it out
 
 You may question the performance of the above solution, let's use an example to have a quick look! Here is a sample data you can use and quickly ingest some sample data(you can also use your existing index as well) [sample-stocks](https://github.com/Blankll/elasticsearch-learn) run the script `./samples/stocks/ingest.sh` and follow the prompt to input related server info to ingest sample data.
 
@@ -108,10 +108,16 @@ Before use start ask questions in DocKit AI Assistant, you need to config the pr
 
 Once you configured the API key and related information, you can open a new connection, in the connection code editor, click the right-side logo to open AI Assistant.
 
-![DocKit AI assistant config](/dockit-ai-assistant-question.png)
+![DocKit AI assistant config](/dockit-ai-assistant.png)
 
 Open the AI Assistant, input your requirement in natural language(in this case: Return the first 30 names of all the different stock names), and click the send button, DocKit will ingest the selected index context together with your questions.
 
 Then you can get contexture-related queries, which gives you more accurate and smooth experiences compared to copying & pasting a bunch of context information to LLM across different apps, DocKit did it for you.
 
 This is just a very basic example, we encourage you to explore more possibilities by yourself, and we are actively working on enriching the functionalities including MCP support. If you are interested, feel free to raise questions/feature requests or contribute to the project [DocKit](https://github.com/geek-fun/dockit)
+
+## More on DocKit for Elasticsearch
+
+- **[Elasticsearch GUI Client — Product Page](/products/dockit/elasticsearch-gui-client)** — Features, comparisons, and downloads
+- **[OpenSearch GUI Client](/products/dockit/opensearch-gui-client)** — If you use the open-source OpenSearch fork
+- **[DynamoDB GUI Client](/products/dockit/dynamodb-gui-client)** — Manage DynamoDB alongside Elasticsearch in the same app

@@ -45,7 +45,7 @@ Server [connection guide](/docs/dockit/connect-to-server).
 
 Click the `Manage` panel to monitor and manage the Elasticsearch cluster, you can view the cluster health, indices,
 nodes, and shards information as below:
-![DocKit manage panel](/manage-cluster.png)
+![DocKit manage panel](/dockit-es-manage.png)
 In Cluster page, you can view the cluster health, nodes number, indices number, shards number, and other cluster
 overview information.
 

@@ -25,10 +25,27 @@ head:
 
 Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:
 
-Explore a curated collection of high-quality content from the GEEKFUN community, designed to inspire and empower
-developers and organizations alike. Here, you'll find in-depth articles on software development, cutting-edge tools,
-best practices, tutorials, and visionary insights—all focused on building sustainable open-source solutions. Join us in
-driving innovation and evolving both personal and industry growth through open collaboration.
+Product updates, technical deep-dives, and lessons from building open-source database tools. Written by the GEEKFUN team.
+
+## [DocKit 1.0 - The NoSQL desktop client developers deserved](/blog/introducing-dockit-v1)
+*May 10, 2026*
+
+After 2 years and 10 months, 970 commits, 244 merged PRs, and 70 releases, DocKit ships its first stable release. A complete re-introduction from scratch: the journey from Electron to Tauri v2, three UI rewrites, DynamoDB, AI integration, and everything the platform does today.
+
+## [Best DynamoDB GUI Clients in 2026: 5 Tools Compared](/blog/best-dynamodb-gui-client-2026)
+*May 9, 2026*
+
+DynamoDB launched in 2012 and a whole ecosystem grew around it. But we're in 2026 now, and the AI era changes things. This guide covers the main GUI clients — DocKit, Dynobase, NoSQL Workbench, AWS Console, Dynomate — and tells you which are still active. Plus other ecosystem tools worth knowing.
+
+## [Instant Documentation Access — Shortcuts in DocKit for Any ES, OpenSearch, or DynamoDB API](/blog/documentation-shortcut)
+*May 6, 2026*
+
+Press a single shortcut in the editor and get the exact official documentation for any Elasticsearch, OpenSearch, or DynamoDB API — version-aware, engine-aware, and language-aware. Rebuilt from the ground up with spec-driven mapping across 1,300+ lines of code and tests.
+
+## [How to Set Up DynamoDB Local for Local Development](/blog/setup-dynamodb-local)
+*April 23, 2026*
+
+Learn how to run DynamoDB Local with Docker or the downloadable JAR, configure AWS CLI access, create your first local table, and connect the local endpoint from DocKit.
 
 ## [Serverless Architecture Pitfalls: Alibaba Cloud API Gateway Body Transform Issue](/blog/serverless-api-gateway-body-transform)
 *April 15, 2026*
@@ -58,7 +75,7 @@ Manage DynamoDB tables, view real-time metrics, browse indexes, and monitor capa
 ## [Managing your DynamoDB tables with DocKit make life easier](/blog/dynamodb-gui-client)
 *January 20, 2026*
 
-Managing DynamoDB tables just got easier with DocKit - a powerful desktop GUI client featuring intuitive data browsing, PartiQL query support, inline editing, and cross-platform compatibility. Say goodbye to AWS Console frustrations and CLI complexity.
+DocKit is a desktop GUI client for DynamoDB with PartiQL support, inline editing, and visual data browsing. No AWS Console, no CLI — point it at your endpoint and start working.
 
 ## [Automate Elasticsearch Query Writing with AI Assistants - DocKit](/blog/elasticsearch-ai-assistant)
 *January 19, 2026*
@@ -77,7 +94,4 @@ jest-preset [jest-search](https://github.com/geek-fun/jest-search) to startup a 
 ## [DocKit - Introduction to Elasticsearch GUI Client](/blog/elasticsearch-gui-client)
 *September 17, 2024*
 
-Are you searching for the best Elasticsearch desktop client to streamline your development data management? Look no
-further! In this comprehensive guide, we will introduce you to DocKit, a top-tier Elasticsearch desktop client designed
-to enhance your workflow and boost productivity. Whether you're a seasoned developer or just starting out, finding the
-right tool can make all the difference.
+DocKit is an open-source desktop client for Elasticsearch — query editor with auto-completion, cluster management, and AI-assisted query generation. This guide covers getting started and the key features.

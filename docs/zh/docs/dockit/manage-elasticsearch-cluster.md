@@ -39,7 +39,7 @@ DocKit 作为一个 NoSQL GUI 客户端，支持监控和管理 Elasticsearch，
 ### 集群管理和监控
 
 点击 `管理` 面板以监控和管理 Elasticsearch 集群，您可以查看集群健康状况、索引、节点和分片信息，如下所示：
-![DocKit 管理面板](/manage-cluster.png)
+![DocKit 管理面板](/dockit-es-manage.png)
 在集群页面，您可以查看集群健康状况、节点数量、索引数量、分片数量和其他集群概���信息。
 
 ### 节点管理和监控

@@ -40,6 +40,8 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
+        "datePublished": "2026-04-15",
+        "dateModified": "2026-04-15",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/serverless-api-gateway-body-transform"
@@ -55,7 +57,7 @@ head:
 
 ![ServerlessInsight Architecture](/serverless/serverlessinsight-architecture.png)
 
-Before diving into the details, let's introduce the project architecture—a classic Serverless API setup designed for zero-ops, auto-scaling, and low-cost operation.
+Before diving into the details, here is the project architecture—a classic Serverless API setup designed for zero-ops, auto-scaling, and low-cost operation.
 
 We use two open-source frameworks to build this Serverless application:
 

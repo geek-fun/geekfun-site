@@ -271,4 +271,4 @@ AI 查询消耗 tokens。估算成本：
 
 - **[设置指南](/zh/docs/dockit/settings)** — 配置其他 DocKit 选项
 - **[Elasticsearch 集群管理](/zh/docs/dockit/manage-elasticsearch-cluster)** — 管理索引
-- **[DynamoDB PartiQL 编辑器](/zh/products/dockit/features/dynamodb-partiql)** — 学习 PartiQL 语法
+- **[DynamoDB GUI 客户端](/zh/products/dockit/dynamodb-gui-client)** — DynamoDB 功能与 PartiQL

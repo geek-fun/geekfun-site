@@ -28,7 +28,7 @@ head:
         "@type": "BlogPosting",
         "headline": "使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询",
         "description": "了解如何利用 AI 和大语言模型自动生成复杂的 Elasticsearch 查询。通过 Elasticsearch AI 助手提升工作效率。",
-        "image": "https://www.geekfun.club/dockit-ai-assistant-question.png",
+        "image": "https://www.geekfun.club/dockit-ai-assistant.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -81,7 +81,7 @@ DocKit 支持集成 OpenAI 和 DeepSeek，只需配置你的 API Key。整体架
 3. 除非你在对话中明确提供，DocKit 不会发送索引中的实际数据，你的数据依旧安全私密。
 4. 除非你启用了 AI 助手并主动与其交互，否则索引名和 mapping 信息也不会在网络中发送。
 
-## 让我们试试看！
+## 试一试！
 
 你可能对这个方案的效果持怀疑态度，那我们用一个示例快速看一下吧！可以使用这份示例数据，也可以直接使用你已有的索引：[sample-stocks](https://github.com/Blankll/elasticsearch-learn)。运行脚本 `./samples/stocks/ingest.sh`，按提示输入你的服务器信息即可快速导入示例数据。
 
@@ -111,7 +111,7 @@ DocKit 支持集成 OpenAI 和 DeepSeek，只需配置你的 API Key。整体架
 ### 向 DocKit AI 助手发送提问
 
 配置完毕后，打开一个新的连接，在代码编辑器中点击右侧的 AI 图标打开 AI 助手：
-![DocKit AI助手提问界面](/dockit-ai-assistant-question.png)
+![DocKit AI助手提问界面](/dockit-ai-assistant.png)
 
 在打开的 AI 助手中，输入你的自然语言需求（例如：“返回所有不同股票名称的前 30 个名称”），点击发送按钮，DocKit 会自动将当前索引的上下文与问题一起发送给 AI 助手。
 
@@ -122,3 +122,10 @@ DocKit 支持集成 OpenAI 和 DeepSeek，只需配置你的 API Key。整体架
 ---
 
 你是否已经尝试过在项目中引入 AI 工具来简化查询编写？ 欢迎交流！
+
+## 相关资源
+
+- **[Elasticsearch GUI 客户端 — 产品页面](/products/dockit/elasticsearch-gui-client)** - 完整功能详情与下载
+- **[DocKit vs Kibana — 详细对比](/products/dockit/dockit-vs-kibana)** - 编辑器、启动速度、AI 助手对比
+- **[DocKit 完整功能概览](/products/dockit/)** - 支持 Elasticsearch、OpenSearch、DynamoDB
+- **[GitHub 仓库](https://github.com/geek-fun/dockit)** - 源代码和问题
