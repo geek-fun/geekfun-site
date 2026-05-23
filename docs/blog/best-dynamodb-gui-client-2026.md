@@ -15,7 +15,7 @@ head:
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/blog/best-dynamodb-gui-client
+      href: https://www.geekfun.club/zh/blog/best-dynamodb-gui-client-2026
   - - link
     - rel: alternate
       hreflang: x-default
