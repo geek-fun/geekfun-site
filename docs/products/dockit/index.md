@@ -102,8 +102,8 @@ databases:
     - { name: EasySearch, logo: /db-easysearch.svg }
 
 showcase:
-  - title: "Query with AI Assistance"
-    body: "Ask questions in plain English, get optimized queries with schema awareness. DocKit puts AI at the center of your workflow with built-in OpenAI, Anthropic, and DeepSeek integration."
+  - title: "Agentic Data Studio"
+    body: "Talk to your databases in natural language. DocKit's AI agent writes queries, inspects schemas, creates indexes, updates documents, and returns results — with per-source permissions and a safety gate for destructive actions. Ask 'find orders over $500 from last week' and get optimized queries instantly. Supports OpenAI, Anthropic, and DeepSeek."
     image: /dockit-ai-assistant.png
     align: left
   - title: "Never lose a query again"
@@ -114,10 +114,6 @@ showcase:
     body: "A desktop-grade interface for DynamoDB. Inspect tables, manage indexes, and craft PartiQL queries with syntax highlighting and formatting."
     image: /dockit-dynamodb-query-ui.png
     align: left
-  - title: "Agentic Data Studio"
-    body: "Interact with your databases through natural language. The AI agent writes queries, inspects schemas, updates documents, and returns results — with built-in safety gates and per-source permissions."
-    image: /dockit-ai-assistant.png
-    align: right
 
 features:
   - { title: "Agentic Data Studio", body: "Talk to your databases in natural language. The AI agent writes queries, inspects schemas, creates indexes, and updates documents — with per-source permissions and a safety gate for destructive actions.", icon: "sparkles" }

@@ -98,8 +98,8 @@ databases:
    - { name: EasySearch, logo: /db-easysearch.svg }
 
 showcase:
-  - title: "借助 AI 的力量"
-    body: "DocKit 将 AI 作为核心工作流。用自然语言提问，获得优化查询和 Schema 智能感知。内置 OpenAI 与 DeepSeek 支持。"
+  - title: "Agentic Data Studio"
+    body: "用自然语言与数据库对话。DocKit 的 AI 代理编写查询、查看表结构、创建索引、更新文档并返回结果——支持按源权限控制，破坏性操作需安全确认。用自然语言描述需求，即刻获得优化查询。支持 OpenAI、Anthropic 和 DeepSeek。"
     image: /dockit-ai-assistant.png
     align: left
   - title: "自动记录查询历史"
@@ -110,10 +110,6 @@ showcase:
     body: "体验桌面级 DynamoDB 交互环境。洞察表结构，管理索引，并使用具有语法高亮与格式化功能的 PartiQL 编辑器。"
     image: /dockit-dynamodb-query-ui.png
     align: left
-  - title: "Agentic Data Studio"
-    body: "通过自然语言与数据库交互。AI 代理编写查询、查看表结构、更新文档并返回结果——内置安全门和按源权限控制。"
-    image: /dockit-ai-assistant.png
-    align: right
 
 features:
   - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI 代理编写查询、查看表结构、创建索引、更新文档——支持按源权限控制，破坏性操作需安全确认。", icon: "sparkles" }
