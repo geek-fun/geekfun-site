@@ -89,7 +89,7 @@ hero:
       link: /download
       theme: brand
     - text: Agentic Data Studio
-      link: /docs/dockit/ai-assistant
+      link: /docs/dockit/agentic-datastudio
       theme: alt
 
 databases:
@@ -174,7 +174,7 @@ DocKit natively supports **EasySearch** as a dedicated connection type alongside
 
 DocKit's **Agentic Data Studio** lets you interact with your databases through natural language. Describe what you need — the agent writes queries, inspects schemas, updates documents, deletes records, creates indexes, and returns results. Every operation runs through validated tools with built-in safety: fine-grained per-source permissions, a security gate requiring explicit confirmation before destructive actions, and a credential-safe architecture that never exposes connection secrets to the LLM. Supports OpenAI, Anthropic, and DeepSeek.
 
-→ [AI Assistant Guide](/docs/dockit/ai-assistant)
+→ [Agentic Data Studio Guide](/docs/dockit/agentic-datastudio)
 
 ## Why DocKit for multi-database teams
 

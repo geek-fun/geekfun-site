@@ -26,7 +26,7 @@ head:
 
 DocKit is an **AI-native** NoSQL/NewSQL GUI client for Elasticsearch, OpenSearch, DynamoDB, and more. Write queries in natural language and let AI handle the syntax.
 
-## [AI Assistant](/docs/dockit/ai-assistant)
+## [Agentic Data Studio](/docs/dockit/agentic-datastudio)
 
 The centerpiece of DocKit. Describe what you need — "find users from last week" or "aggregate sales by region" — and get optimized queries with automatic schema awareness. Supports OpenAI and DeepSeek.
 

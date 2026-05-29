@@ -26,7 +26,7 @@ head:
 
 DocKit 是一款 **AI 原生** NoSQL/NewSQL GUI 客户端，支持 Elasticsearch、OpenSearch、DynamoDB 及更多数据库。用自然语言写查询，让 AI 处理语法。
 
-## [AI 助手](/zh/docs/dockit/ai-assistant)
+## [Agentic Data Studio](/zh/docs/dockit/agentic-datastudio)
 
 DocKit 的核心功能。描述您的需求 —— "查找上周的用户" 或 "按地区聚合销售额" —— 即刻获得优化查询，自动感知 Schema。支持 OpenAI 和 DeepSeek。
 

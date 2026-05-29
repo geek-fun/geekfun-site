@@ -85,7 +85,7 @@ hero:
       link: /zh/download
       theme: brand
     - text: Agentic Data Studio
-      link: /zh/docs/dockit/ai-assistant
+      link: /zh/docs/dockit/agentic-datastudio
       theme: alt
 
 databases:
@@ -170,7 +170,7 @@ DocKit 原生支持 **EasySearch** 作为独立的连接类型，与 Elasticsear
 
 DocKit 的 **Agentic Data Studio** 让你通过自然语言与数据库交互。描述你的需求——代理会编写查询、检查表结构、更新文档、删除记录、创建索引并返回结果。每个操作都通过经过验证的工具执行，内置细粒度按源权限、破坏性操作需显式确认的安全门，以及不会向 LLM 暴露连接凭据的安全架构。支持 OpenAI、Anthropic 和 DeepSeek。
 
-→ [AI 助手指南](/zh/docs/dockit/ai-assistant)
+→ [Agentic Data Studio 指南](/zh/docs/dockit/agentic-datastudio)
 
 ## 为什么选择 DocKit 管理多数据库
 

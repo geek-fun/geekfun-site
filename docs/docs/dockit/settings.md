@@ -187,6 +187,6 @@ This restores:
 
 ## Next Steps
 
-- **[AI Assistant Configuration](/docs/dockit/ai-assistant)** — Set up AI providers for query generation and Data Studio
+- **[Agentic Data Studio](/docs/dockit/agentic-datastudio)** — Set up AI providers, permissions, and the agent loop
 - **[Keyboard Shortcuts](/docs/dockit/shortcut)** — Learn productivity shortcuts
 - **[Query History](/docs/dockit/query-history)** — Use saved queries effectively
