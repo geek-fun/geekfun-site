@@ -1,7 +1,7 @@
 ---
 layout: product
-title: DocKit - AI原生 NoSQL GUI 客户端 — MongoDB、Elasticsearch、OpenSearch、DynamoDB
-description: DocKit 是一款 AI 原生 NoSQL 图形化客户端，支持 MongoDB、DynamoDB、OpenSearch 和 Elasticsearch。从自然语言生成查询，管理数据库，持久化查询 — 完全免费。
+title: DocKit - AI 代理驱动的 NoSQL 桌面 GUI — MongoDB、Elasticsearch、OpenSearch、DynamoDB
+description: DocKit 是一款开源的 AI 代理型 NoSQL 桌面 GUI，支持 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。AI 代理通过自然语言编写查询、查看表结构、管理数据 — 隐私优先、本地运行、完全免费。
 ogImage: https://www.geekfun.club/og/dockit-zh.png
 head:
   - - meta
@@ -76,15 +76,16 @@ head:
 
 hero:
   name: DocKit
-  headline: "用自然语言管理所有 NoSQL 数据库。"
-  tagline: "AI 助手深入理解您的数据结构，轻松管理 MongoDB、DynamoDB、Elasticsearch 和 OpenSearch。免费、快速、本地优先。"
+  headline: "AI 代理驱动的 NoSQL 桌面 GUI"
+  tagline: "一个管理您数据库的开源 AI 代理。连接 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch — 然后用自然语言描述您的需求。代理会编写查询、查看表结构、更新文档并返回结果。隐私优先、本地运行、Apache 2.0。"
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
     - text: 下载
       link: /zh/download
       theme: brand
-    - text: AI 助手指南
+    - text: Agentic Data Studio
+      link: /zh/docs/dockit/ai-assistant
       link: /zh/docs/dockit/ai-assistant
       theme: alt
 

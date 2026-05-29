@@ -1,7 +1,7 @@
 ---
 layout: product
-title: DocKit — MongoDB, Elasticsearch, OpenSearch & DynamoDB GUI Client
-description: DocKit is an open-source desktop GUI client for MongoDB, Elasticsearch, OpenSearch, and DynamoDB. Generate queries from natural language, manage databases, and persist queries — free, local-first, no registration.
+title: DocKit — Agentic NoSQL Desktop GUI for MongoDB, Elasticsearch, OpenSearch & DynamoDB
+description: DocKit is an open-source agentic NoSQL desktop GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Its AI agent writes queries, inspects schemas, and manages data through natural language — privacy-first, local, free.
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
@@ -80,15 +80,16 @@ head:
 
 hero:
   name: DocKit
-  headline: "MongoDB, Elasticsearch, OpenSearch & DynamoDB GUI Client"
-  tagline: "Open-source desktop client with an AI assistant that understands your schema. Write queries in natural language, manage databases, and never lose your work — local-first, Apache 2.0."
+  headline: "Agentic NoSQL Desktop GUI"
+  tagline: "An open-source AI agent that manages your databases. Connect MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — then describe what you need in natural language. The agent writes queries, inspects schemas, updates documents, and returns results. Privacy-first, local, Apache 2.0."
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
     - text: Download
       link: /download
       theme: brand
-    - text: AI Assistant Guide
+    - text: Agentic Data Studio
+      link: /docs/dockit/ai-assistant
       link: /docs/dockit/ai-assistant
       theme: alt
 
