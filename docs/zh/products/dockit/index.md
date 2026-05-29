@@ -86,7 +86,6 @@ hero:
       theme: brand
     - text: Agentic Data Studio
       link: /zh/docs/dockit/ai-assistant
-      link: /zh/docs/dockit/ai-assistant
       theme: alt
 
 databases:
