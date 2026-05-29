@@ -1,6 +1,6 @@
 ---
 title: "DocKit Query History - Save Elasticsearch DynamoDB Queries Automatically"
-description: "DocKit automatically saves every Elasticsearch, DynamoDB query you execute. View query history, copy, re-execute, manage past queries. Never lose queries again with automatic local persistence in desktop GUI client."
+description: "DocKit automatically saves every MongoDB, Elasticsearch, DynamoDB query you execute. View query history, copy, re-execute, manage past queries. Never lose queries again with automatic local persistence in desktop GUI client."
 head:
   - - meta
     - name: keywords
@@ -24,7 +24,7 @@ head:
 
 # DocKit Query History
 
-DocKit automatically records every query you execute for Elasticsearch, OpenSearch, and DynamoDB. The query history feature lets you view past queries, copy them to the clipboard, re-execute them, or add them back to the editor — all without any manual saving.
+DocKit automatically records every query you execute for MongoDB, Elasticsearch, OpenSearch, and DynamoDB. The query history feature lets you view past queries, copy them to the clipboard, re-execute them, or add them back to the editor — all without any manual saving.
 
 ## Overview
 

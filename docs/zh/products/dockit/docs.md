@@ -1,6 +1,6 @@
 ---
 title: DocKit 文档 - NoSQL GUI 客户端使用指南
-description: DocKit NoSQL GUI 客户端完整文档入口，涵盖安装指南、连接 Elasticsearch/OpenSearch/DynamoDB、快捷键、AI 助手与集群管理等核心使用说明。
+description: DocKit NoSQL GUI 客户端完整文档入口，涵盖安装指南、连接 MongoDB/Elasticsearch/OpenSearch/DynamoDB、快捷键、AI 助手与集群管理等核心使用说明。
 head:
   - - link
     - rel: canonical
@@ -21,7 +21,7 @@ head:
 
 # 文档
 
-DocKit 作为一个 NoSQL/NewSQL GUI 客户端，支持 Elasticsearch、OpenSearch、DynamoDB 以及更多即将支持的数据库。本文档概述了如何使用 DocKit。
+DocKit 作为一个 NoSQL/NewSQL GUI 客户端，支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 等数据库。本文档概述了如何使用 DocKit。
 
 ## [安装指南](/zh/docs/dockit/installation)
 
@@ -29,7 +29,7 @@ DocKit 作为一个 NoSQL/NewSQL GUI 客户端，支持 Elasticsearch、OpenSear
 
 ## [连接到服务器](/zh/docs/dockit/connect-to-server)
 
-DocKit 作为一个 NoSQL GUI 客户端，支持多种数据库，包括 Elasticsearch、OpenSearch、DynamoDB 以及更多即将支持的数据库。本文档概述了如何使用 DocKit 连接到数据库服务器。
+DocKit 作为一个 NoSQL GUI 客户端，支持多种数据库，包括 MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 等。本文档概述了如何使用 DocKit 连接到数据库服务器。
 
 ## [快捷键介绍](/zh/docs/dockit/shortcut)
 

@@ -1,6 +1,6 @@
 ---
 title: "DocKit Import Export - Migrate Elasticsearch DynamoDB Data JSON CSV"
-description: "Step-by-step guide to import export data from Elasticsearch, OpenSearch, DynamoDB using DocKit. Support JSON, CSV, bulk formats. Migrate NoSQL databases, backup data, seed test environments with desktop GUI client."
+description: "Step-by-step guide to import export data from MongoDB, Elasticsearch, OpenSearch, DynamoDB using DocKit. Support JSON, CSV, bulk formats. Migrate NoSQL databases, backup data, seed test environments with desktop GUI client."
 head:
   - - meta
     - name: keywords
@@ -24,7 +24,7 @@ head:
 
 # DocKit Import & Export Guide
 
-DocKit supports importing and exporting data from Elasticsearch, OpenSearch, and DynamoDB in JSON, CSV, and Elasticsearch Bulk formats. This guide covers the full workflow for both operations.
+DocKit supports importing and exporting data from MongoDB, Elasticsearch, OpenSearch, and DynamoDB in JSON, CSV, and Elasticsearch Bulk formats. This guide covers the full workflow for both operations.
 
 ## Prerequisites
 

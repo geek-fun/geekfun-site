@@ -1,10 +1,10 @@
 ---
-title: DocKit AI 助手 - 使用 OpenAI 和 DeepSeek 生成查询
-description: 配置 DocKit AI 助手，从自然语言生成 Elasticsearch、OpenSearch 和 DynamoDB 查询。设置 OpenAI 或 DeepSeek 提供商，自定义提示词，提升工作效率。
+title: DocKit AI 助手 - 使用多种 AI 提供商生成查询
+description: 配置 DocKit AI 助手和 Agentic Data Studio，从自然语言生成 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB 查询。设置 OpenAI、Anthropic 或 DeepSeek 提供商，自定义提示词，提升工作效率。
 head:
   - - meta
     - name: keywords
-      content: DocKit AI 助手, Elasticsearch AI, DynamoDB AI, OpenAI 数据库查询, DeepSeek 数据库助手, AI 查询生成, 自然语言转 SQL, NoSQL AI 助手
+      content: DocKit AI 助手, Elasticsearch AI, DynamoDB AI, OpenAI 数据库查询, Anthropic 数据库助手, DeepSeek 数据库助手, AI 查询生成, 自然语言转 SQL, NoSQL AI 助手, Ollama, LM Studio, Data Studio, 数据工作室
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/docs/dockit/ai-assistant
@@ -36,62 +36,50 @@ DocKit 的 AI 助手帮助您从自然语言描述生成复杂的数据库查询
 
 ## 支持的提供商
 
-DocKit 支持两个 AI 提供商：
+DocKit 支持多种 AI 提供商 —— 包括云端和本地：
 
-| 提供商 | 模型 | 适用场景 |
-|--------|------|----------|
-| **OpenAI** | GPT-4, GPT-4o, GPT-3.5 | 通用场景，质量最佳 |
-| **DeepSeek** | DeepSeek Chat, DeepSeek Coder | 经济实惠，代码专精 |
+| 提供商 | 兼容方式 | 适用场景 |
+|--------|----------|----------|
+| **OpenAI** | OpenAI API | 通用场景，质量最佳 |
+| **Anthropic** | Anthropic API | 高级推理（Claude 模型） |
+| **DeepSeek** | OpenAI 兼容 | 经济实惠，代码专精 |
+| **OpenRouter** | OpenAI 兼容 | 通过一个 API 访问 200+ 模型 |
+| **Google Gemini** | OpenAI 兼容 | 性价比高，超大上下文 |
+| **Grok** | OpenAI 兼容 | 替代提供商 |
+| **Mistral** | OpenAI 兼容 | 高效开源模型 |
+| **Azure OpenAI** | OpenAI 兼容 | 企业级 Azure 部署 |
+| **Ollama** | 本地运行 | 完全离线，本地模型 |
+| **LM Studio** | 本地运行 | 完全离线，本地模型 |
+| **自定义 OpenAI 兼容** | OpenAI 兼容 | 任意 OpenAI 兼容接口 |
+| **自定义 Anthropic 兼容** | Anthropic API | 任意 Anthropic 兼容接口 |
 
-## 配置 OpenAI
+在 **设置 → 提供商** 面板管理所有提供商的凭据、API 密钥、代理设置和模型目录。提供商在 AI 助手和 Data Studio 之间共享 —— 一次添加，处处使用。
 
-1. 打开 **设置** → **AI 助手** 标签页
-2. 选择 **OpenAI** 标签页
-3. 填写：
+## 添加提供商
 
-| 字段 | 说明 | 示例 |
-|------|------|------|
-| **模型** | OpenAI 模型名称 | `gpt-4o`, `gpt-4`, `gpt-3.5-turbo` |
-| **API Key** | 您的 OpenAI API 密钥 | `sk-proj-...` |
-| **提示词** | 自定义系统提示词（可选） | 见下文 |
-| **代理** | HTTP 代理 URL（可选） | `http://127.0.0.1:7890` |
+1. 打开 **设置** → **提供商** 标签页
+2. 点击 **添加提供商** 并选择类型
+3. 配置：
 
-4. 点击 **保存并启用**
+| 字段 | 说明 |
+|------|------|
+| **显示名称** | 此提供商的友好标签 |
+| **基础 URL** | API 端点 URL（标准提供商预填） |
+| **API Key** | 您的 API 密钥或令牌 |
+| **代理** | HTTP 代理 URL（可选） |
 
-### 获取 OpenAI API Key
+4. 点击 **测试连接** 验证
+5. 点击 **保存**
 
-1. 访问 [platform.openai.com](https://platform.openai.com)
-2. 登录或创建账户
-3. 导航到 **API Keys** → **Create new secret key**
-4. 复制密钥（以 `sk-` 开头）
-5. 粘贴到 DocKit
+DocKit 会自动发现提供商支持的模型。您可以将模型路由到特定功能（AI 助手、Data Studio、侧边栏助手）。
 
-**注意**：OpenAI 需要付费。GPT-4 约 $0.03/千 tokens。GPT-3.5-turbo 更便宜（约 $0.002/千 tokens）。
+### 获取 API Key
 
-## 配置 DeepSeek
-
-1. 打开 **设置** → **AI 助手** 标签页
-2. 选择 **DeepSeek** 标签页
-3. 填写：
-
-| 字段 | 说明 | 示例 |
-|------|------|------|
-| **模型** | DeepSeek 模型名称 | `deepseek-chat`, `deepseek-coder` |
-| **API Key** | 您的 DeepSeek API 密钥 | 从 DeepSeek 平台获取 |
-| **提示词** | 自定义系统提示词（可选） | 见下文 |
-| **代理** | HTTP 代理 URL（可选） | `http://127.0.0.1:7890` |
-
-4. 点击 **保存并启用**
-
-### 获取 DeepSeek API Key
-
-1. 访问 [platform.deepseek.com](https://platform.deepseek.com)
-2. 登录或创建账户
-3. 导航到 **API Keys**
-4. 创建并复制您的密钥
-5. 粘贴到 DocKit
-
-**注意**：DeepSeek 比 OpenAI 更经济。`deepseek-coder` 专门优化用于代码生成任务。
+- **OpenAI**：访问 [platform.openai.com](https://platform.openai.com) → API Keys
+- **Anthropic**：访问 [console.anthropic.com](https://console.anthropic.com) → API Keys
+- **DeepSeek**：访问 [platform.deepseek.com](https://platform.deepseek.com) → API Keys
+- **OpenRouter**：访问 [openrouter.ai](https://openrouter.ai) → Keys
+- **Ollama/LM Studio**：本地运行 —— 无需 API Key
 
 ## 自定义提示词
 

@@ -1,10 +1,10 @@
 ---
-title: DocKit AI Assistant - Generate Queries with OpenAI and DeepSeek
-description: Configure DocKit AI assistant to generate Elasticsearch, OpenSearch, and DynamoDB queries from natural language. Set up OpenAI or DeepSeek providers, customize prompts, and boost productivity.
+title: DocKit AI Assistant - Generate Queries with AI Providers
+description: Configure DocKit AI assistant and Agentic Data Studio to generate MongoDB, Elasticsearch, OpenSearch, and DynamoDB queries from natural language. Set up OpenAI, Anthropic, or DeepSeek providers, customize prompts, and boost productivity.
 head:
   - - meta
     - name: keywords
-      content: DocKit AI assistant, Elasticsearch AI, DynamoDB AI, OpenAI database queries, DeepSeek database assistant, AI query generation, natural language to SQL, NoSQL AI helper
+      content: DocKit AI assistant, Elasticsearch AI, DynamoDB AI, OpenAI database queries, Anthropic database assistant, DeepSeek database assistant, AI query generation, natural language to SQL, NoSQL AI helper, Ollama, LM Studio, Data Studio
   - - link
     - rel: canonical
       href: https://www.geekfun.club/docs/dockit/ai-assistant
@@ -36,62 +36,50 @@ DocKit's AI assistant helps you generate complex database queries from natural l
 
 ## Supported Providers
 
-DocKit supports two AI providers:
+DocKit supports a wide range of AI providers — both cloud and local:
 
-| Provider | Models | Best For |
-|----------|--------|----------|
-| **OpenAI** | GPT-4, GPT-4o, GPT-3.5 | General-purpose, best quality |
-| **DeepSeek** | DeepSeek Chat, DeepSeek Coder | Cost-effective, code-specialized |
+| Provider | Compatibility | Best For |
+|----------|--------------|----------|
+| **OpenAI** | OpenAI API | General-purpose, best quality |
+| **Anthropic** | Anthropic API | Advanced reasoning (Claude) |
+| **DeepSeek** | OpenAI-compatible | Cost-effective, code-specialized |
+| **OpenRouter** | OpenAI-compatible | Access to 200+ models via one API |
+| **Google Gemini** | OpenAI-compatible | Cost-effective, large context |
+| **Grok** | OpenAI-compatible | Alternative provider |
+| **Mistral** | OpenAI-compatible | Efficient, open-weight models |
+| **Azure OpenAI** | OpenAI-compatible | Enterprise Azure deployment |
+| **Ollama** | Local | Fully offline, local models |
+| **LM Studio** | Local | Fully offline, local models |
+| **Custom OpenAI-compatible** | OpenAI-compatible | Any OpenAI-compatible endpoint |
+| **Custom Anthropic-compatible** | Anthropic API | Any Anthropic-compatible endpoint |
 
-## Configuring OpenAI
+The **Settings → Providers** panel manages all provider credentials, API keys, proxy settings, and model catalogs. Providers are shared across the AI Assistant and Data Studio — add once, use everywhere.
 
-1. Open **Settings** → **AI Assistant** tab
-2. Select **OpenAI** tab
-3. Fill in:
+## Adding a Provider
 
-| Field | Description | Example |
-|-------|-------------|---------|
-| **Model** | OpenAI model name | `gpt-4o`, `gpt-4`, `gpt-3.5-turbo` |
-| **API Key** | Your OpenAI API key | `sk-proj-...` |
-| **Prompt** | Custom system prompt (optional) | See below |
-| **Proxy** | HTTP proxy URL (optional) | `http://127.0.0.1:7890` |
+1. Open **Settings** → **Providers** tab
+2. Click **Add Provider** and select a type
+3. Configure:
 
-4. Click **Save & Enable**
+| Field | Description |
+|-------|-------------|
+| **Display Name** | Friendly label for this provider |
+| **Base URL** | API endpoint URL (pre-filled for standard providers) |
+| **API Key** | Your API key or token |
+| **Proxy** | HTTP proxy URL (optional) |
 
-### Getting an OpenAI API Key
+4. Click **Test Connection** to verify
+5. Click **Save**
 
-1. Go to [platform.openai.com](https://platform.openai.com)
-2. Sign in or create an account
-3. Navigate to **API Keys** → **Create new secret key**
-4. Copy the key (starts with `sk-`)
-5. Paste into DocKit
+DocKit auto-discovers available models from the provider. You can then route models to specific features (AI Assistant, Data Studio, Sidebar Assistant).
 
-**Note**: OpenAI requires payment. GPT-4 costs ~$0.03 per 1K tokens. GPT-3.5-turbo is cheaper (~$0.002 per 1K tokens).
+### Getting an API Key
 
-## Configuring DeepSeek
-
-1. Open **Settings** → **AI Assistant** tab
-2. Select **DeepSeek** tab
-3. Fill in:
-
-| Field | Description | Example |
-|-------|-------------|---------|
-| **Model** | DeepSeek model name | `deepseek-chat`, `deepseek-coder` |
-| **API Key** | Your DeepSeek API key | From DeepSeek platform |
-| **Prompt** | Custom system prompt (optional) | See below |
-| **Proxy** | HTTP proxy URL (optional) | `http://127.0.0.1:7890` |
-
-4. Click **Save & Enable**
-
-### Getting a DeepSeek API Key
-
-1. Go to [platform.deepseek.com](https://platform.deepseek.com)
-2. Sign in or create an account
-3. Navigate to **API Keys**
-4. Create and copy your key
-5. Paste into DocKit
-
-**Note**: DeepSeek is more cost-effective than OpenAI. `deepseek-coder` is optimized for code generation tasks.
+- **OpenAI**: Visit [platform.openai.com](https://platform.openai.com) → API Keys
+- **Anthropic**: Visit [console.anthropic.com](https://console.anthropic.com) → API Keys
+- **DeepSeek**: Visit [platform.deepseek.com](https://platform.deepseek.com) → API Keys
+- **OpenRouter**: Visit [openrouter.ai](https://openrouter.ai) → Keys
+- **Ollama/LM Studio**: Run locally — no API key needed
 
 ## Custom Prompts
 

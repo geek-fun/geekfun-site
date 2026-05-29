@@ -137,7 +137,7 @@ Visual queries are saved to your history automatically.
 
 ### AI query assistant
 
-Type what you need in natural language. For example, "find all orders from this week where the total is over 500." DocKit generates the PartiQL statement using your actual attribute names and types as context. It supports OpenAI and DeepSeek with your own API key. Your table data stays on your machine.
+Type what you need in natural language. For example, "find all orders from this week where the total is over 500." DocKit generates the PartiQL statement using your actual attribute names and types as context. It supports OpenAI, Anthropic, DeepSeek, and more AI providers with your own API key. Your table data stays on your machine.
 
 ![DocKit AI query assistant](/dockit-ai-assistant.png)
 

@@ -82,7 +82,7 @@ The editor is built on Monaco, the same engine in VS Code.
 
 ### AI query assistant
 
-You can write what you need in plain English, like "find all orders from last week over $100," and the app generates the DSL for you. It uses your actual index mapping as context, so the field names and types are correct. It works with OpenAI and DeepSeek. Your data stays on your machine.
+You can write what you need in plain English, like "find all orders from last week over $100," and the app generates the DSL for you. It uses your actual index mapping as context, so the field names and types are correct. It works with OpenAI, Anthropic, DeepSeek, and more AI providers. Your data stays on your machine.
 
 ### Cluster management
 

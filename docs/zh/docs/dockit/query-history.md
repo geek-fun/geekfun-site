@@ -1,6 +1,6 @@
 ---
 title: "DocKit 查询历史 - 自动保存 Elasticsearch DynamoDB 查询记录"
-description: "DocKit 自动保存每个执行的 Elasticsearch、DynamoDB 查询。查看查询历史、复制、重新执行、管理历史查询。桌面 GUI 客户端自动本地持久化，永不丢失查询记录。"
+description: "DocKit 自动保存每个执行的 MongoDB、Elasticsearch、DynamoDB 查询。查看查询历史、复制、重新执行、管理历史查询。桌面 GUI 客户端自动本地持久化，永不丢失查询记录。"
 head:
   - - meta
     - name: keywords
@@ -24,7 +24,7 @@ head:
 
 # DocKit 查询历史
 
-DocKit 自动记录您为 Elasticsearch、OpenSearch 和 DynamoDB 执行的每个查询。查询历史功能让您可以查看历史查询、将其复制到剪贴板、重新执行，或将其添加回编辑器 — 所有这些都无需手动保存。
+DocKit 自动记录您为 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB 执行的每个查询。查询历史功能让您可以查看历史查询、将其复制到剪贴板、重新执行，或将其添加回编辑器 — 所有这些都无需手动保存。
 
 ## 概述
 

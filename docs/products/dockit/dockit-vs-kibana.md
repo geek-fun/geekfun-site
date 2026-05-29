@@ -57,7 +57,7 @@ DocKit is a native desktop app built for Elasticsearch queries. It starts in und
 | **Requires Kibana server** | ❌ | ✅ |
 | **Offline mode** | ✅ | ❌ |
 | **Query editor** | Monaco + JSON5 + autocomplete | Basic Dev Tools console |
-| **AI query assistant** | ✅ (OpenAI, DeepSeek) | ❌ |
+| **AI query assistant** | ✅ (OpenAI, Anthropic, DeepSeek, and more) | ❌ |
 | **Query persistence** | ✅ Local files (Git-friendly) | ✅ Saved queries (server-side) |
 | **Index & cluster management** | ✅ | ✅ |
 | **Visualizations / dashboards** | ❌ | ✅ |
@@ -79,7 +79,7 @@ DocKit stores connection profiles so you can switch between dev, staging, and pr
 
 ### You want ai-assisted query generation
 
-You can describe what you need in plain English and DocKit uses your actual index mapping as context to generate the DSL. Kibana doesn't have an equivalent for this. It works with OpenAI or DeepSeek using your own API key, so your data stays on your machine.
+You can describe what you need in plain English and DocKit uses your actual index mapping as context to generate the DSL. Kibana doesn't have an equivalent for this. It works with OpenAI, Anthropic, DeepSeek, and more AI providers using your own API key, so your data stays on your machine.
 
 ### You need offline capability
 
@@ -87,7 +87,7 @@ DocKit works without an internet connection once it's installed. Your queries, h
 
 ### Your team uses dynamodb or opensearch too
 
-DocKit supports Elasticsearch, OpenSearch, and DynamoDB in one app. If you're touching more than one type of database, DocKit can replace two or three other tools.
+DocKit supports MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch in one app. If you're touching more than one type of database, DocKit can replace two or three other tools.
 
 ## When kibana is the better choice
 

@@ -1,6 +1,6 @@
 ---
-title: DocKit Documentation - Free DynamoDB Elasticsearch OpenSearch GUI Client Guide
-description: Complete DocKit documentation for free DynamoDB, Elasticsearch, OpenSearch GUI client. Installation guides, connection setup, PartiQL editor, query history, import/export tutorials for NoSQL database management.
+title: DocKit Documentation - Free MongoDB DynamoDB Elasticsearch OpenSearch GUI Client Guide
+description: Complete DocKit documentation for free MongoDB, DynamoDB, Elasticsearch, OpenSearch GUI client. Installation guides, connection setup, query editor, query history, import/export tutorials, and Agentic Data Studio for NoSQL database management.
 head:
   - - meta
     - name: keywords
@@ -52,11 +52,11 @@ DocKit supports monitoring and managing Elasticsearch including indices and alia
 
 ## [Import & Export](/docs/dockit/import-export)
 
-DocKit supports importing and exporting data from Elasticsearch, OpenSearch, and DynamoDB in JSON, CSV, and JSONL formats. This guide covers the full workflow.
+DocKit supports importing and exporting data from MongoDB, Elasticsearch, OpenSearch, and DynamoDB in JSON, CSV, and JSONL formats. This guide covers the full workflow.
 
 ## [Query History](/docs/dockit/query-history)
 
-Never lose a query again. DocKit automatically records every executed query for Elasticsearch and DynamoDB, letting you re-run, copy, and add past queries back to the editor.
+Never lose a query again. DocKit automatically records every executed query for MongoDB, Elasticsearch, and DynamoDB, letting you re-run, copy, and add past queries back to the editor.
 
 ## [DynamoDB Manage & Metrics](/docs/dockit/dynamodb-manage-metrics)
 

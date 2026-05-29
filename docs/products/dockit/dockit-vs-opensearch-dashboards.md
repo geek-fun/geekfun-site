@@ -57,7 +57,7 @@ DocKit is a native desktop app designed specifically for querying OpenSearch. It
 | **Requires Dashboards server** | ❌ | ✅ |
 | **Offline mode** | ✅ | ❌ |
 | **Query editor** | Monaco + JSON5 + autocomplete | Basic Dev Tools console |
-| **AI query assistant** | ✅ (OpenAI, DeepSeek) | ❌ |
+| **AI query assistant** | ✅ (OpenAI, Anthropic, DeepSeek, and more) | ❌ |
 | **Query persistence** | ✅ Local files (Git-friendly) | ✅ Saved queries (server-side) |
 | **Index & cluster management** | ✅ | ✅ |
 | **Visualizations / dashboards** | ❌ | ✅ |
@@ -80,7 +80,7 @@ Browser-based tools have inherent friction. The Dashboards Dev Tools tab has to 
 
 ### ai-assisted query generation
 
-DocKit lets you describe a query in plain English and generates the OpenSearch DSL for you. It uses your actual index mapping as context so the results are relevant. It works with OpenAI or DeepSeek using your own API key. OpenSearch Dashboards has no equivalent for this.
+DocKit lets you describe a query in plain English and generates the OpenSearch DSL for you. It uses your actual index mapping as context so the results are relevant. It works with OpenAI, Anthropic, DeepSeek, and more AI providers using your own API key. OpenSearch Dashboards has no equivalent for this.
 
 ### queries in version control
 

@@ -1,12 +1,12 @@
 ---
 layout: product
-title: DocKit — Elasticsearch, OpenSearch & DynamoDB GUI Client
-description: DocKit is an open-source desktop GUI client for Elasticsearch, OpenSearch, and DynamoDB. Generate queries from natural language, manage clusters, and persist queries — free, local-first, no registration.
+title: DocKit — MongoDB, Elasticsearch, OpenSearch & DynamoDB GUI Client
+description: DocKit is an open-source desktop GUI client for MongoDB, Elasticsearch, OpenSearch, and DynamoDB. Generate queries from natural language, manage databases, and persist queries — free, local-first, no registration.
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
     - name: keywords
-      content: elasticsearch gui client, opensearch gui client, dynamodb gui client, nosql gui client, nosql desktop gui, AI database client, AI-native NoSQL GUI, DynamoDB AI assistant, Elasticsearch AI, OpenSearch AI, natural language queries, DocKit, NoSQL GUI client, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, database client, Dynobase alternative, Kibana alternative, open source database tool, PartiQL editor, desktop database client, Mac database client, Windows database client, Linux database client
+      content: mongodb gui client, mongodb desktop client, elasticsearch gui client, opensearch gui client, dynamodb gui client, nosql gui client, nosql desktop gui, AI database client, AI-native NoSQL GUI, DynamoDB AI assistant, Elasticsearch AI, OpenSearch AI, natural language queries, DocKit, NoSQL GUI client, DynamoDB GUI, Elasticsearch GUI, OpenSearch GUI, MongoDB GUI, database client, Dynobase alternative, Kibana alternative, open source database tool, PartiQL editor, desktop database client, Mac database client, Windows database client, Linux database client, Agentic Data Studio, EasySearch
   - - link
     - rel: canonical
       href: https://www.geekfun.club/products/dockit/
@@ -29,8 +29,8 @@ head:
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "DocKit",
-        "alternateName": ["Elasticsearch GUI client", "OpenSearch GUI client", "DynamoDB GUI client", "NoSQL GUI client", "NoSQL desktop GUI"],
-        "description": "Open-source desktop GUI client for Elasticsearch, OpenSearch, and DynamoDB. Generate database queries from natural language with a built-in AI assistant. Fast, local-first, Apache 2.0.",
+        "alternateName": ["MongoDB GUI client", "Elasticsearch GUI client", "OpenSearch GUI client", "DynamoDB GUI client", "EasySearch GUI client", "NoSQL GUI client", "NoSQL desktop GUI", "Agentic Data Studio"],
+        "description": "Open-source desktop GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Generate database queries from natural language with a built-in AI assistant. Agentic Data Studio for natural language database interaction. Fast, local-first, Apache 2.0.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": {
@@ -39,12 +39,16 @@ head:
         },
         "featureList": [
           "AI-powered query generation",
-          "Natural language to SQL/PartiQL",
-          "OpenAI and DeepSeek integration",
+          "Agentic Data Studio",
+          "Natural language to SQL/PartiQL/MQL",
+          "OpenAI, Anthropic and DeepSeek integration",
+          "MongoDB GUI client",
           "Elasticsearch GUI client",
           "OpenSearch GUI client",
           "DynamoDB GUI client",
+          "EasySearch GUI client",
           "PartiQL editor",
+          "MongoDB query editor",
           "Visual query builder",
           "Query history persistence",
           "Multi-database support",
@@ -54,7 +58,7 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "1.0.0",
+        "softwareVersion": "1.0.1",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -76,8 +80,8 @@ head:
 
 hero:
   name: DocKit
-  headline: "Elasticsearch, OpenSearch & DynamoDB GUI Client"
-  tagline: "Open-source desktop client with an AI assistant that understands your schema. Write queries in natural language, manage clusters, and never lose your work — local-first, Apache 2.0."
+  headline: "MongoDB, Elasticsearch, OpenSearch & DynamoDB GUI Client"
+  tagline: "Open-source desktop client with an AI assistant that understands your schema. Write queries in natural language, manage databases, and never lose your work — local-first, Apache 2.0."
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -91,13 +95,15 @@ hero:
 databases:
   title: "Native support for modern NoSQL"
   items:
+    - { name: MongoDB, logo: /db-mongodb.svg }
     - { name: DynamoDB, logo: /db-dynamodb.svg }
     - { name: Elasticsearch, logo: /db-elasticsearch.svg }
     - { name: OpenSearch, logo: /db-opensearch.png }
+    - { name: EasySearch, logo: /db-easysearch.svg }
 
 showcase:
   - title: "Query with AI Assistance"
-    body: "Ask questions in plain English, get optimized queries with schema awareness. DocKit puts AI at the center of your workflow with built-in OpenAI and DeepSeek integration."
+    body: "Ask questions in plain English, get optimized queries with schema awareness. DocKit puts AI at the center of your workflow with built-in OpenAI, Anthropic, and DeepSeek integration."
     image: /dockit-ai-assistant.png
     align: left
   - title: "Never lose a query again"
@@ -108,18 +114,25 @@ showcase:
     body: "A desktop-grade interface for DynamoDB. Inspect tables, manage indexes, and craft PartiQL queries with syntax highlighting and formatting."
     image: /dockit-dynamodb-query-ui.png
     align: left
+  - title: "Agentic Data Studio"
+    body: "Interact with your databases through natural language. The AI agent writes queries, inspects schemas, updates documents, and returns results — with built-in safety gates and per-source permissions."
+    image: /dockit-ai-assistant.png
+    align: right
 
 features:
-  - { title: "AI Assistant", body: "Describe what you need in natural language — 'find users who signed up last week' or 'aggregate sales by region' — and get accurate queries instantly.", icon: "sparkles" }
-  - { title: "Desktop-Grade Editor", body: "Monaco Editor brings VS Code power to your queries—syntax highlighting, autocomplete, formatting, and keyboard shortcuts you already know.", icon: "code" }
+  - { title: "Agentic Data Studio", body: "Talk to your databases in natural language. The AI agent writes queries, inspects schemas, creates indexes, and updates documents — with per-source permissions and a safety gate for destructive actions.", icon: "sparkles" }
+  - { title: "AI Assistant", body: "Describe what you need in natural language — 'find users who signed up last week' or 'aggregate sales by region' — and get accurate queries instantly. Supports OpenAI, Anthropic, and DeepSeek.", icon: "code" }
+  - { title: "Desktop-Grade Editor", body: "Monaco Editor brings VS Code power to your queries—syntax highlighting, autocomplete, formatting, and keyboard shortcuts you already know.", icon: "edit" }
   - { title: "Local Persistence", body: "Connections and queries saved to your filesystem. Query history tracked automatically. Never lose your work.", icon: "history" }
-  - { title: "Multi-Engine Support", body: "Manage DynamoDB, Elasticsearch, and OpenSearch from one unified interface. Switch between databases instantly.", icon: "database" }
+  - { title: "Multi-Database Support", body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one unified interface. Switch between databases instantly.", icon: "database" }
   - { title: "Import & Export", body: "Move large datasets in and out with JSON, CSV, and JSONL support. Batch operations handle millions of records reliably.", icon: "import" }
   - { title: "Cluster Management", body: "Monitor node health, manage shards, track indices, and control aliases—all with built-in visual cluster tools.", icon: "cluster" }
+  - { title: "MongoDB Document Browser", body: "Browse collections with pagination, inline CRUD, and a full-featured query editor with autocomplete. Bulk write and import/export included.", icon: "database" }
+  - { title: "Query History", body: "Every query recorded automatically. 500 entries per connection with stars/bookmarks. Copy, reload, or re-execute past queries.", icon: "history" }
 
 cta:
   title: "Database management, AI-native"
-  body: "Stop wrestling with complex query syntax. Let DocKit's AI assistant handle the boilerplate while you focus on the data."
+  body: "Stop wrestling with complex query syntax. Let DocKit's AI assistant and Agentic Data Studio handle the boilerplate while you focus on the data."
   actions:
     - { text: "Download", link: "/download", theme: "brand" }
     - { text: "View on GitHub", link: "https://github.com/geek-fun/dockit", theme: "alt", external: true }
@@ -149,16 +162,37 @@ It supports DynamoDB Local for local development and works with any AWS region a
 
 → [DynamoDB GUI client full details](/products/dockit/dynamodb-gui-client)
 
+## MongoDB GUI Client
+
+DocKit is an open-source **MongoDB GUI client** with a full-featured query editor featuring autocomplete and result formatting. Browse documents with pagination and inline CRUD operations. The Manage view provides collection-level infrastructure browsing — indexes, storage stats, and metadata at a glance.
+
+Connect with authentication, TLS, and replica set configurations. Bulk write support for efficient batch operations. Query history with star/bookmark favorites, persisted per connection. Import and export collections in JSON, CSV, and JSONL.
+
+→ [MongoDB GUI client documentation](/docs/dockit/connect-to-server)
+
+## EasySearch Support
+
+DocKit natively supports **EasySearch** as a dedicated connection type alongside Elasticsearch and OpenSearch. EasySearch is split from OpenSearch with independent configuration and iconography, making it straightforward to manage all your search engines from one interface.
+
+## Agentic Data Studio
+
+DocKit's **Agentic Data Studio** lets you interact with your databases through natural language. Describe what you need — the agent writes queries, inspects schemas, updates documents, deletes records, creates indexes, and returns results. Every operation runs through validated tools with built-in safety: fine-grained per-source permissions, a security gate requiring explicit confirmation before destructive actions, and a credential-safe architecture that never exposes connection secrets to the LLM. Supports OpenAI, Anthropic, and DeepSeek.
+
+→ [AI Assistant Guide](/docs/dockit/ai-assistant)
+
 ## Why DocKit for multi-database teams
 
 Most teams don't use just one NoSQL database. A team running Elasticsearch for search plus DynamoDB for key-value workloads typically needs two separate tools — Kibana/Elasticvue for one, Dynobase/NoSQL Workbench for the other. DocKit covers all three in a single desktop app.
 
 | | DocKit | Kibana | Elasticvue | Dynobase | NoSQL Workbench |
-|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
+| **MongoDB** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Elasticsearch** | ✅ | ✅ | ✅ | ❌ | ❌ |
 | **OpenSearch** | ✅ | ❌ | ✅ | ❌ | ❌ |
+| **EasySearch** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **DynamoDB** | ✅ | ❌ | ❌ | ✅ | ✅ |
 | **AI assistant** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Desktop native** | ✅ | ❌ | Partial | ✅ | ✅ |
 | **Open source** | ✅ Apache 2.0 | Mixed | ✅ MIT | ❌ | ❌ |
 | **Price** | Community: free | Free | Free | $12–30/mo | Free |
@@ -166,7 +200,10 @@ Most teams don't use just one NoSQL database. A team running Elasticsearch for s
 ## Frequently asked questions
 
 **Does DocKit work offline?**
-Yes. All connections, queries, and history are stored locally. The AI assistant requires an internet connection only when you send a prompt.
+Yes. All connections, queries, and history are stored locally. The AI assistant and Agentic Data Studio require an internet connection only when you send a prompt.
+
+**Does DocKit support MongoDB?**
+Yes. DocKit fully supports MongoDB with connection management, a query editor with autocomplete, document browser with inline CRUD, Manage view for indexes and collection metadata, bulk write, query history with star/bookmark support, and import/export. EasySearch is also supported as a dedicated connection type.
 
 **Is there a web version?**
 No. DocKit is a desktop application for macOS, Windows, and Linux. This is intentional — local-first storage, no cloud dependency, no login required.

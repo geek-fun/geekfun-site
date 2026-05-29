@@ -187,6 +187,6 @@ This restores:
 
 ## Next Steps
 
-- **[AI Assistant Configuration](/docs/dockit/ai-assistant)** — Set up OpenAI or DeepSeek for query generation
+- **[AI Assistant Configuration](/docs/dockit/ai-assistant)** — Set up AI providers for query generation and Data Studio
 - **[Keyboard Shortcuts](/docs/dockit/shortcut)** — Learn productivity shortcuts
 - **[Query History](/docs/dockit/query-history)** — Use saved queries effectively

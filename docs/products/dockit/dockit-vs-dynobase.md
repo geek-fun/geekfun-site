@@ -72,7 +72,7 @@ Dynobase is a solid tool, but there are a few reasons developers look for altern
 | **Table browsing** | ✅ | ✅ |
 | **DynamoDB Local** | ✅ | ✅ |
 | **Export JSON / CSV** | ✅ | ✅ |
-| **AI query assistant** | ✅ (OpenAI, DeepSeek) | ❌ |
+| **AI query assistant** | ✅ (OpenAI, Anthropic, DeepSeek, and more) | ❌ |
 | **Query persistence** | ✅ Local files (Git-friendly) | ✅ Cloud sync |
 | **Multi-tab queries** | ✅ | ✅ |
 | **Elasticsearch support** | ✅ | ❌ |
@@ -86,10 +86,10 @@ Dynobase is a solid tool, but there are a few reasons developers look for altern
 ## What DocKit does better
 
 ### AI query assistant
-You can describe what you need in plain English. DocKit uses your table schema (key names, attribute types, and GSI definitions) to generate the PartiQL query for you. Dynobase has no equivalent. It works with OpenAI or DeepSeek using your own API key, so your data stays on your machine.
+You can describe what you need in plain English. DocKit uses your table schema (key names, attribute types, and GSI definitions) to generate the PartiQL query for you. Dynobase has no equivalent. It works with OpenAI, Anthropic, DeepSeek, and more AI providers using your own API key, so your data stays on your machine.
 
 ### Multi-database support
-Dynobase is limited to DynamoDB. DocKit handles DynamoDB, Elasticsearch, and OpenSearch in one app. If your stack uses a mix of these, DocKit can replace several separate tools.
+Dynobase is limited to DynamoDB. DocKit handles MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch in one app. If your stack uses a mix of these, DocKit can replace several separate tools.
 
 ### No subscription cost
 Dynobase starts at $9 a month per seat. For a 5-person team, that is at least $540 a year. DocKit’s community build is free for any number of users.

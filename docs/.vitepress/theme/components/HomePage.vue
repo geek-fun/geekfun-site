@@ -30,7 +30,7 @@ const content = computed(() => {
   const isZh = lang.value === 'zh'
   return {
     announcement: {
-      text: isZh ? 'DocKit v1.0 正式发布 — 首个稳定版本现已上线，支持 DynamoDB、Elasticsearch 和 OpenSearch。' : 'DocKit v1.0 is here — the first stable release. AI-native NoSQL for DynamoDB, Elasticsearch, and OpenSearch.',
+      text: isZh ? 'DocKit v1.0 正式发布 — 首个稳定版本现已上线，支持 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。' : 'DocKit v1.0 is here — the first stable release. AI-native NoSQL for MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch.',
       linkText: isZh ? '查看详情 →' : 'Read the announcement →',
       link: isZh ? '/zh/news/dockit-v1-0-release' : '/news/dockit-v1-0-release'
     },
@@ -82,8 +82,8 @@ const content = computed(() => {
         logo: '/dockit.png',
         preview: '/dockit-client-ui.png',
         description: isZh 
-          ? '开源 NoSQL 桌面客户端，支持 Elasticsearch、OpenSearch、DynamoDB 等数据库，致力于打造 AI Native 的新一代数据库管理工具。'
-          : 'Open-source desktop GUI client for Elasticsearch, OpenSearch, and DynamoDB — query, manage, and migrate your NoSQL databases from a single native app.',
+          ? '开源 NoSQL 桌面客户端，支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 等数据库，内置 Agentic Data Studio，致力于打造 AI Native 的新一代数据库管理工具。'
+          : 'Open-source desktop GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — with Agentic Data Studio for natural language database interaction. Query, manage, and migrate your NoSQL databases from a single native app.',
         url: isZh ? '/zh/products/dockit/' : '/products/dockit/'
       },
       {
