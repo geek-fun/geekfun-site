@@ -1,6 +1,7 @@
 ---
 title: Elasticsearch Query Workflows with DocKit — Practical Patterns for 2026
 description: Real Elasticsearch query patterns for log analysis, e-commerce search, multi-environment testing, and index migration — using DocKit's Dev Tools editor with JSON5, inline comments, and AI assistance.
+date: 2025-03-24
 head:
   - - meta
     - name: keywords

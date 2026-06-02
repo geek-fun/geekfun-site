@@ -1,6 +1,7 @@
 ---
 title: 2026 年最佳 DynamoDB GUI 客户端：5 款工具对比
 description: 比较最佳 DynamoDB GUI 客户端，包括 DocKit、Dynobase、NoSQL Workbench 和 AWS 控制台。功能、定价和推荐。
+date: 2026-05-09
 head:
   - - meta
     - name: keywords

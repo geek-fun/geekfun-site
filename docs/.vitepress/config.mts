@@ -200,20 +200,41 @@ nav: [
         const siteName = isZhPage ? siteNameZh : siteNameEn;
         const masterOg = isZhPage ? ogImageZh : ogImageEn;
         const ogImageUrl = pageData?.frontmatter?.ogImage ?? masterOg;
+        const pageType = getPageType(page);
+        const ogImageAlt = isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community';
 
-        return [
+        const head: HeadConfig[] = [
             ['meta', {property: 'og:title', content: title}],
             ['meta', {property: 'og:description', content: description}],
             ['meta', {property: 'og:image', content: ogImageUrl}],
+            ['meta', {property: 'og:image:width', content: '1200'}],
+            ['meta', {property: 'og:image:height', content: '630'}],
+            ['meta', {property: 'og:image:alt', content: ogImageAlt}],
             ['meta', {property: 'og:url', content: pageUrl}],
             ['meta', {property: 'og:site_name', content: siteName}],
-            ['meta', {property: 'og:type', content: getPageType(page)}],
+            ['meta', {property: 'og:type', content: pageType}],
             ['meta', {property: 'og:locale', content: isZhPage ? 'zh_CN' : 'en_US'}],
             ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
             ['meta', {name: 'twitter:title', content: title}],
             ['meta', {name: 'twitter:description', content: description}],
-            ['meta', {name: 'twitter:image', content: ogImageUrl}]
+            ['meta', {name: 'twitter:image', content: ogImageUrl}],
         ];
+
+        if (pageType === 'article') {
+            const pubDate = pageData?.frontmatter?.date;
+            if (pubDate) {
+                head.push(['meta', {property: 'article:published_time', content: pubDate}]);
+                head.push(['meta', {property: 'article:modified_time', content: pubDate}]);
+            }
+            head.push(['meta', {property: 'article:author', content: 'https://www.geekfun.club'}]);
+            if (page.startsWith('blog/') || page.startsWith('zh/blog/')) {
+                head.push(['meta', {property: 'article:tag', content: 'blog'}]);
+            } else if (page.startsWith('news/') || page.startsWith('zh/news/')) {
+                head.push(['meta', {property: 'article:tag', content: 'release'}]);
+            }
+        }
+
+        return head;
     },
     vite: {
         build: {

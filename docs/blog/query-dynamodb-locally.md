@@ -1,6 +1,7 @@
 ---
 title: Access and Manage Local DynamoDB with DocKit
 description: Learn how to access and manage DynamoDB Local with DocKit GUI. Step-by-step setup for offline development, querying tables, managing data, and CI/CD integration.
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

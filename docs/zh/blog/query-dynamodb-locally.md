@@ -1,6 +1,7 @@
 ---
 title: 使用 DocKit 访问和管理本地 DynamoDB
 description: 学习如何使用 DocKit 访问和管理 DynamoDB Local，完成本地离线开发、表查询、数据调试、初始化配置以及 CI/CD 集成的完整分步实践。
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

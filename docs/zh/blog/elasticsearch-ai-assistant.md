@@ -1,6 +1,7 @@
 ---
 title:  使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询
 description: 了解如何借助 AI 助手和大语言模型自动生成复杂 Elasticsearch 查询，减少手写 DSL 成本，加快调试、分析与数据检索流程。
+date: 2025-02-05
 head:
   - - meta
     - name: keywords

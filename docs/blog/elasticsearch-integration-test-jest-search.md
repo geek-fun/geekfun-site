@@ -1,6 +1,7 @@
 ---
 title: Implementing Elasticsearch Integration Test with jest-search
 description: Learn how to write reliable Elasticsearch integration tests using jest-search — a Jest preset that spins up a local Elasticsearch, OpenSearch, or ZincSearch instance automatically for your test suite.
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

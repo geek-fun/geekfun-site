@@ -1,6 +1,7 @@
 ---
 title: DocKit v1.0 发布 — 首个稳定版本
 description: DocKit v1.0 作为首个稳定版本发布，历经两年开发，全面支持 DynamoDB、Elasticsearch 和 OpenSearch。新增 ES|QL 补全、查询语言注册中心和模板 body 自动补全。
+date: 2026-05-10
 head:
   - - meta
     - name: keywords

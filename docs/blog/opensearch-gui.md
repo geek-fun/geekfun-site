@@ -1,6 +1,7 @@
 ---
 title: Migrating from OpenSearch Dashboards to a Desktop Client — Practical Guide
 description: When OpenSearch Dashboards is too heavy for daily query work — how to migrate to a desktop client, what you gain and lose, and how to run both side-by-side.
+date: 2025-03-24
 head:
   - - meta
     - name: keywords

@@ -1,6 +1,7 @@
 ---
 title: DynamoDB GUI 客户端 - 开源桌面工具
 description: DocKit 是适用于 Mac、Windows 和 Linux 的免费开源 DynamoDB GUI 客户端。可视化查询构建器、PartiQL 编辑器和本地数据管理，无需 AWS 控制台。
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

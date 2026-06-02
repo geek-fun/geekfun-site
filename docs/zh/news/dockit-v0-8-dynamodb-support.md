@@ -1,6 +1,7 @@
 ---
 title: DocKit v0.8 发布 - 全面支持 DynamoDB
 description: DocKit v0.8 带来完整的 Amazon DynamoDB 支持，包括 PartiQL 编辑器、可视化查询 UI、内联编辑和跨平台兼容性。
+date: 2026-01-20
 head:
   - - meta
     - name: keywords

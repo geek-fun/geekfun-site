@@ -1,6 +1,7 @@
 ---
 title: "DocKit Query History - Never Lose a Query Again"
 description: "DocKit now stores your full query history for Elasticsearch and DynamoDB. View, copy, re-execute, and add past queries back to the editor — all locally persisted."
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

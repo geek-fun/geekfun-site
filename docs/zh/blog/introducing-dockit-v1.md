@@ -1,6 +1,7 @@
 ---
 title: DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端
 description: DocKit v1.0 发布，历经 970+ 次提交、244 个合并 PR、132 个已解决问题、70 个版本发布和 1,000+ GitHub Star。从头梳理 AI 原生 NoSQL 桌面客户端的每一项功能，从第一行代码到首个稳定版。
+date: 2026-05-10
 head:
   - - meta
     - name: keywords

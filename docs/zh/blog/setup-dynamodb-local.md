@@ -1,6 +1,7 @@
 ---
 title: 如何在本地搭建 DynamoDB Local
 description: 学习如何通过 Docker 或可下载的 JAR 包搭建 DynamoDB Local，配置 AWS CLI，创建第一张表，并从 DocKit 连接本地 DynamoDB。
+date: 2026-04-23
 head:
   - - meta
     - name: keywords

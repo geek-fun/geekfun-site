@@ -1,6 +1,7 @@
 ---
 title: Automate Elasticsearch Query Writing with AI Assistants
 description:  Discover how to use AI and large language models to generate complex Elasticsearch queries automatically. Boost productivity with an AI assistant for Elasticsearch.
+date: 2025-02-05
 head:
   - - meta
     - name: keywords

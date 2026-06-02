@@ -1,6 +1,7 @@
 ---
 title: 全栈 Serverless 架构避坑实录：阿里云 API 网关 Body 转换问题
 description: 在实现支付宝回调时，遇到 application/x-www-form-urlencoded 格式的请求体被转换为 JSON 对象的问题。本文深入分析问题链路、平台行为及解决方案。
+date: 2026-04-15
 head:
   - - meta
     - name: keywords
