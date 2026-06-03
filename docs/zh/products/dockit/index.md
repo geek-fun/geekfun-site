@@ -118,6 +118,8 @@ features:
   - { title: "多数据库支持", body: "统一界面管理 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。数据库之间即时无缝切换。", icon: "database" }
   - { title: "导入与导出", body: "支持 JSON、CSV、JSONL 格式导入导出大数据集。批量操作稳定可靠地处理百万级记录。", icon: "import" }
   - { title: "集群管理", body: "监控节点健康状态、管理分片、追踪索引信息、控制集群别名——统统内置在可视化集群工具中。", icon: "cluster" }
+  - { title: "后台任务", body: "导入、导出等长时间运行的操作以后台任务方式执行，支持实时进度和状态追踪。任务执行期间可继续正常使用 DocKit。", icon: "layers" }
+  - { title: "文件浏览器", body: "直接在应用内浏览、创建和管理本地查询文件（.search、.partiql、.mongo）。支持按名称、日期或大小排序，以编辑器标签页形式打开。", icon: "search" }
   - { title: "查询历史", body: "每次查询自动记录。每个连接 500 条记录，支持星标收藏。可复制、载入或重新执行。", icon: "history" }
 
 cta:

@@ -128,6 +128,8 @@ features:
   - { title: "Multi-Database Support", body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one unified interface. Switch between databases instantly.", icon: "database" }
   - { title: "Import & Export", body: "Move large datasets in and out with JSON, CSV, and JSONL support. Batch operations handle millions of records reliably.", icon: "import" }
   - { title: "Cluster Management", body: "Monitor node health, manage shards, track indices, and control aliases—all with built-in visual cluster tools.", icon: "cluster" }
+  - { title: "Background Tasks", body: "Import, export, and long-running operations run as background tasks with real-time progress and status tracking. Continue using DocKit while tasks execute.", icon: "layers" }
+  - { title: "File Browser", body: "Browse, create, and organize local query files (.search, .partiql, .mongo) directly in the app. Open files as editor tabs with sorting by name, date, or size.", icon: "search" }
   - { title: "Query History", body: "Every query recorded automatically. 500 entries per connection with stars/bookmarks. Copy, reload, or re-execute past queries.", icon: "history" }
 
 cta:
