@@ -131,6 +131,8 @@ DocKit auto-detects OpenSearch vs Elasticsearch from cluster info.
 
 Choose **DynamoDB** as database type and configure:
 
+![DocKit connect to DynamoDB demo](/dockit-dynamodb-connection-demo.gif)
+
 ### AWS DynamoDB (Production)
 
 | Field | Description |
@@ -185,35 +187,15 @@ Supports:
 
 ## Connect to MongoDB
 
-Choose **MongoDB** as database type:
+Choose **MongoDB** as database type. DocKit supports three ways to connect:
 
-### Connection URI
+**No Auth** — for local dev instances. Just enter the host and port. Optionally pick a default database.
 
-| Field | Description |
-|-------|-------------|
-| **URI** | MongoDB connection string (e.g., `mongodb://localhost:27017/mydb`) |
-| **Authentication Database** | Database for auth credentials (default: `admin`) |
+**SCRAM Auth** — standard username/password authentication. Enter host, port, username, and password. The **Auth Source** field specifies which database holds the user credentials (defaults to `admin`). You can also set an **Auth Mechanism** like `SCRAM-SHA-256` — leave it empty and the driver negotiates automatically.
 
-Supports standard MongoDB URI formats:
-- `mongodb://localhost:27017` — local instance
-- `mongodb://user:pass@host:27017/db` — with credentials
-- `mongodb+srv://cluster.mongodb.net/db` — Atlas/SRV format
+**URI Auth** — paste a full MongoDB connection string for advanced setups like Atlas or replica sets. This mode passes the URI straight through without modification.
 
-### Authentication
-
-| Method | Fields |
-|--------|--------|
-| **SCRAM** (default) | Username + Password |
-| **None** | No auth for local dev instances |
-
-### TLS/SSL
-
-Toggle SSL verification on/off. Disable for local dev with self-signed certs.
-
-### Replica Sets
-
-Use comma-separated hosts in the URI:
-`mongodb://host1:27017,host2:27017,host3:27017/db?replicaSet=myReplica`
+All three modes support **TLS** — toggle it on to append `?tls=true` to the connection. Disable for local development with self-signed certs.
 
 ## Test Connection
 
