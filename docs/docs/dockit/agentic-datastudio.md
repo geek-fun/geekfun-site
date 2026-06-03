@@ -53,10 +53,7 @@ Each tool has a **risk level** (Safe for read-only, Elevated for create/update, 
 
 ## Quick Start
 
-1. Open **Settings → LLMs** and add an AI provider (OpenAI, Anthropic, DeepSeek, or any of the 12 supported)
-2. Open **Data Studio** from the Nav bar
-3. Click **Add Source** to attach a database connection
-4. Type your request in plain English and let the agent handle it
+Open **Settings → LLMs** and add an AI provider (OpenAI, Anthropic, DeepSeek, or any of the 12 supported). Then open **Data Studio** from the Nav bar, click **Add Source** to attach a database connection, and type your request in plain English.
 
 ![DocKit Settings LLMs demo](/dockit-settings-llm.gif)
 
@@ -64,92 +61,33 @@ For quick questions without leaving your editor, use the **Sidebar Assistant** �
 
 ## Safety & Permissions
 
-### Permission Modes
+DocKit has two permission modes. **Ask mode** (default) prompts you to Allow or Deny every non-read tool before it runs — safe for production. **Auto mode** executes tools automatically when the session has the right permissions, which is faster for exploration.
 
-| Mode | Behavior |
-|------|----------|
-| **Ask** (default) | Every non-read tool asks for Allow/Deny before running. |
-| **Auto** | Tools run automatically if the session has the right permissions. |
+Each tool is classified by risk: **Safe** tools like read queries and listing indices never need confirmation. **Elevated** tools like creating or updating documents only ask in Ask mode. **Destructive** tools like deleting documents or dropping indices always require confirmation, regardless of mode.
 
-### Risk Levels
-
-| Level | Examples | Requires Confirmation |
-|-------|----------|----------------------|
-| **Safe** | Read queries, list indices, describe tables | Never |
-| **Elevated** | Create/update documents, insert items | Only in Ask mode |
-| **Destructive** | Delete documents, drop indices, delete tables | Always |
-
-### Per-Source Permissions
-
-Each attached database source has its own read/create/update/delete permissions. You can set these per source or inherit from the session.
-
-### Confirmation Rules
-
-You can create rules to auto-allow or auto-deny specific tools in a session, skipping the confirmation prompts:
-
-- **Allow Always**: Skip confirmation for safe or repetitive operations
-- **Deny Always**: Block dangerous tools entirely
+Every attached database source has its own read, create, update, and delete permissions. You can set these per source or inherit from the session level. You can also create confirmation rules to auto-allow safe or repetitive operations, or auto-deny dangerous tools entirely.
 
 ## Agent Loop
 
-The agent runs in a loop: it thinks, calls tools, checks the results, and decides what to do next. You control it with these settings:
+The agent runs in a loop: it thinks, calls tools, checks the results, and decides what to do next. Three settings control how long it runs: **max iterations** (default 200) limits the number of tool-call rounds, **wall-clock budget** (default 30 minutes) caps elapsed time, and **token budget** (default 1,000,000) limits cumulative input tokens. If any budget runs out, the agent stops with an explanation and offers to continue.
 
-| Setting | Default | What It Limits |
-|---------|---------|----------------|
-| **Max iterations** | 200 | How many tool-call rounds per request |
-| **Wall-clock budget** | 30s | Max elapsed time for a single agent run |
-| **Token budget** | 1,000,000 | Max cumulative input tokens across all iterations |
+Long conversations get compacted automatically — old messages are summarized into a compact form that keeps the important bits while cutting token usage. Compaction markers show up in the chat timeline so you can see what got rolled up.
 
-If a budget runs out, the agent stops and explains why, then offers to continue.
-
-### Context Compaction
-
-Long conversations get compacted automatically. Old messages are summarized into a compact form that keeps the important bits while cutting token usage. Compaction markers show up in the chat timeline so you can see what got rolled up.
-
-### Session Progress
-
-The agent shows its current phase:
-
-```
-Preparing → Iterating → Waiting for model → Compacting → Done
-```
-
-Each tool call shows its name, arguments, runtime, and result. Expand it to see the full output.
+The agent shows its current phase as it works: `Preparing → Iterating → Waiting for model → Compacting → Done`. Each tool call displays its name, arguments, runtime, and result. Expand any tool call to see the full output.
 
 ## Source Management
 
-### Database Sources
-
-Attach any configured connection as a Data Studio source. The agent reads schemas, queries data, and writes changes based on the permissions you set.
-
-### File Sources (Read-Only)
-
-You can also attach local files as read-only sources:
-
-- **CSV**, **Excel**, **JSON**, **Parquet**
-
-The agent can inspect and query file contents but can't modify them.
+Attach any configured database connection as a Data Studio source. The agent reads schemas, queries data, and writes changes based on the permissions you set. You can also attach local files as read-only sources — CSV, Excel, JSON, and Parquet. The agent can inspect and query file contents but can't modify them.
 
 ## Session Management
 
-Each Data Studio conversation is a **session** with its own history, attached sources, and settings.
-
-- **Session History**: Browse and switch between past sessions from the history panel
-- **New Session**: Start a clean conversation
-- **Detach Sources**: Remove a source from a session without deleting the connection
-- **Model Selection**: Pick a different model per session
+Each Data Studio conversation is a **session** with its own history, attached sources, and settings. Browse and switch between past sessions from the history panel, start a clean conversation with a new session, detach a source without deleting the underlying connection, or pick a different model per session.
 
 ## Sidebar Assistant
 
 The Sidebar Assistant is a lightweight chat panel accessible from anywhere in the app. It is separate from Data Studio — it works as a single-turn Q&A interface rather than a multi-step agent loop.
 
-**What it's good for:**
-- Ask questions about your database schema or query results
-- Generate queries using your schema as context
-- Get explanations of query behavior and error messages
-- Quick debugging help without leaving your current view
-
-**How it differs from Data Studio:**
+Use it to ask questions about your database schema or query results, generate queries using your schema as context, get explanations of query behavior and error messages, or debug without leaving your current view.
 
 | Feature | Sidebar Assistant | Data Studio |
 |---------|-----------------|-------------|
@@ -159,72 +97,24 @@ The Sidebar Assistant is a lightweight chat panel accessible from anywhere in th
 | **Source attachment** | No | Yes — attach multiple databases per session |
 | **Best for** | Quick questions, explanations | Complex data operations and analysis |
 
-**Opening the Assistant:**
-- Click the chat icon (💬) in the right sidebar
-- Keyboard shortcut: default shortcut for quick access
-
-The Assistant shares the same provider and model configuration as Data Studio. You can configure a separate model for it in **Settings → AI → Models** if you want a lighter model for quick Q&A while reserving a more capable model for Data Studio.
-
-Multi-chat sessions are supported with automatic provider isolation. You can delete individual chat sessions from the history panel.
+Open it by clicking the chat icon (💬) in the right sidebar, or press the keyboard shortcut. The Assistant shares the same provider and model configuration as Data Studio. You can configure a separate model for it in **Settings → AI → Models** if you want a lighter model for quick Q&A while keeping a more capable model for Data Studio. Multi-chat sessions are supported with automatic provider isolation, and you can delete individual chat sessions from the history panel.
 
 ## Providers & Models
 
-### Supported Providers
+DocKit supports 12 AI provider types — cloud and local: OpenAI, Anthropic, DeepSeek, OpenRouter (200+ models), Google Gemini, Grok, Mistral, Azure OpenAI, Ollama (fully offline), LM Studio (fully offline), custom OpenAI-compatible endpoints, and custom Anthropic-compatible endpoints.
 
-DocKit supports 12 AI provider types — cloud and local:
+To add a provider, go to **Settings → Providers** and click **Add Provider**. Pick a type, give it a display name, enter the API endpoint (pre-filled for standard providers), paste your API key or token, and optionally configure an HTTP proxy URL. Click **Test Connection** to verify, then **Save**.
 
-| Provider | Compatibility |
-|----------|--------------|
-| **OpenAI** | OpenAI API |
-| **Anthropic** | Anthropic API |
-| **DeepSeek** | OpenAI-compatible |
-| **OpenRouter** | OpenAI-compatible (200+ models) |
-| **Google Gemini** | OpenAI-compatible |
-| **Grok** | OpenAI-compatible |
-| **Mistral** | OpenAI-compatible |
-| **Azure OpenAI** | OpenAI-compatible |
-| **Ollama** | Local (fully offline) |
-| **LM Studio** | Local (fully offline) |
-| **Custom OpenAI-compatible** | Any OpenAI endpoint |
-| **Custom Anthropic-compatible** | Any Anthropic endpoint |
+DocKit discovers available models automatically. You can route them to specific features — pick one model for the **Sidebar Assistant** (quick Q&A) and another for **Data Studio** (full agent loop). If you don't set a preference, DocKit picks the best available model.
 
-### Adding a Provider
-
-1. Open **Settings → Providers**
-2. Click **Add Provider** and pick a type
-3. Fill in:
-
-| Field | Description |
-|-------|-------------|
-| **Display Name** | Whatever you want to call this provider |
-| **Base URL** | API endpoint (pre-filled for standard providers) |
-| **API Key** | Your API key or token |
-| **Proxy** | HTTP proxy URL (optional) |
-
-4. Click **Test Connection** to check it works
-5. Click **Save**
-
-DocKit finds available models automatically. You can then route them:
-
-- **Sidebar Assistant** — Model for quick Q&A
-- **Data Studio** — Model for the full agent loop
-- If you don't set one, DocKit picks the best available model
-
-### Getting an API Key
-
+Getting an API key:
 - **OpenAI**: [platform.openai.com](https://platform.openai.com) → API Keys
 - **Anthropic**: [console.anthropic.com](https://console.anthropic.com) → API Keys
 - **DeepSeek**: [platform.deepseek.com](https://platform.deepseek.com) → API Keys
 - **OpenRouter**: [openrouter.ai](https://openrouter.ai) → Keys
 - **Ollama / LM Studio**: Run locally, no API key needed
 
-### Proxy Configuration
-
-If you're behind a firewall:
-
-1. Go to Settings → Providers and enter a proxy URL for each provider
-2. Format: `http://host:port`
-3. Or pick **Use system proxy** to inherit OS-level settings
+If you're behind a firewall, enter a proxy URL for each provider in Settings → Providers. Format: `http://host:port`. Or choose **Use system proxy** to inherit OS-level settings.
 
 ## Privacy & Security
 
@@ -246,35 +136,19 @@ If you're behind a firewall:
 
 ### API Key Issues
 
-**Error**: `Invalid API key` or `Unauthorized`
-
-1. Make sure the key has no extra spaces or line breaks
-2. Check it hasn't expired
-3. Verify you have enough credits or quota
-4. Try generating a new key
+If you see `Invalid API key` or `Unauthorized`, make sure the key has no extra spaces or line breaks, check it hasn't expired, verify you have enough credits or quota, and try generating a new key.
 
 ### Connection Failed
 
-**Error**: `Network error` or `Timeout`
-
-1. Check your internet connection
-2. Set up a proxy if you're behind a firewall
-3. Verify the API endpoint is reachable
-4. For local providers (Ollama, LM Studio): make sure the service is running
+For `Network error` or `Timeout`, check your internet connection, set up a proxy if you're behind a firewall, verify the API endpoint is reachable, and for local providers like Ollama or LM Studio, make sure the service is running.
 
 ### Agent Stops Early
 
-**Error**: Agent stops with an iteration cap, wall clock, or token budget message
-
-1. Raise the relevant budget in Settings → AI → Chat settings
-2. Simplify your request so it needs fewer tool calls
-3. Start a new session to reset the context
+If the agent stops with an iteration cap, wall clock, or token budget message, raise the relevant budget in Settings → AI → Chat settings, simplify your request so it needs fewer tool calls, or start a new session to reset the context.
 
 ### Poor Quality Responses
 
-1. Try a different model (Claude for reasoning tasks, GPT-4o for general use)
-2. Be more specific in your request — include field names and index names
-3. Break complex operations into smaller steps
+Try a different model — Claude for reasoning tasks, GPT-4o for general use. Be more specific in your request by including field names and index names. Break complex operations into smaller steps.
 
 ## Next Steps
 
