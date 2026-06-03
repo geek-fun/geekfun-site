@@ -76,6 +76,8 @@ OpenSearch 的连接方式与 Elasticsearch 完全一致——相同的主机和
 
 选择 MongoDB 作为数据库类型。DocKit 支持三种连接方式：
 
+![连接到 MongoDB](/dockit-mongodb-connection-demo.gif)
+
 **无认证** — 适用于本地开发环境。只需输入主机和端口，可选填默认数据库。
 
 **SCRAM 认证** — 标准用户名/密码认证。输入主机、端口、用户名和密码。**Auth Source** 字段指定存放用户凭据的数据库（默认为 `admin`）。你还可以设置 **Auth Mechanism**（如 `SCRAM-SHA-256`）——留空时驱动会自动协商。

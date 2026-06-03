@@ -26,9 +26,13 @@ head:
 
 DocKit connects to [Elasticsearch](https://www.elastic.co), [OpenSearch](https://opensearch.org/), [DynamoDB](https://aws.amazon.com/dynamodb/), and [MongoDB](https://www.mongodb.com). Each database type has its own connection form — everything else works the same way.
 
+## Install and Open DocKit
+you can find detailed instructions on how to install and open DocKit in
+the [installation guide](/docs/dockit/installation).
+
 ## Connect to Elasticsearch
 
-Click `+ New connection` and pick Elasticsearch. You need a connection name, the server host (with `http://` or `https://`), and the port (default 9200). If your user has limited permissions, narrow access by specifying an index name.
+Click `+` and pick Elasticsearch. You need a connection name, the server host (with `http://` or `https://`), and the port (default 9200). If your user has limited permissions, narrow access by specifying an index name.
 
 ![mac connect to Elasticsearch server](/mac-connect-to-server.png)
 
@@ -64,9 +68,9 @@ OpenSearch works exactly like Elasticsearch — same host and port format, same 
 
 Pick DynamoDB as the database type. There are four authentication methods:
 
-**Access Key** — the standard approach. Enter your AWS region, access key ID, and secret access key. Works with IAM user credentials, temporary STS credentials, or environment variables.
-
 ![DocKit connect to DynamoDB demo](/dockit-dynamodb-connection-demo.gif)
+
+**Access Key** — the standard approach. Enter your AWS region, access key ID, and secret access key. Works with IAM user credentials, temporary STS credentials, or environment variables.
 
 **DynamoDB Local** — for offline development. Point DocKit at `http://localhost:8000` with any region and dummy credentials. See the [DynamoDB Local guide](/blog/query-dynamodb-locally) for setup.
 
@@ -77,6 +81,8 @@ Pick DynamoDB as the database type. There are four authentication methods:
 ## Connect to MongoDB
 
 Pick MongoDB as the database type. DocKit supports three ways to connect:
+
+![Connect to MongoDB](/dockit-mongodb-connection-demo.gif)
 
 **No Auth** — for local dev instances. Just enter the host and port. Optionally pick a default database.
 
