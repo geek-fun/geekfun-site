@@ -25,7 +25,7 @@ head:
 # Use DocKit GUI connect to Database Server
 
 DocKit as a NoSQL GUI client, it supports multiple databases, including [Elasticsearch](https://www.elastic.co),
-OpenSearch, [DynamoDB](https://aws.amazon.com/dynamodb/), [MongoDB](https://www.mongodb.com), and more to come. This document outlines how to connect to a database server using DocKit.
+[OpenSearch](https://opensearch.org/), [DynamoDB](https://aws.amazon.com/dynamodb/), [MongoDB](https://www.mongodb.com), and more to come. This document outlines how to connect to a database server using DocKit.
 
 ## Install and Open DocKit
 
