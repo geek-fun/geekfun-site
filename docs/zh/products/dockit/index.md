@@ -1,7 +1,7 @@
 ---
 layout: product
-title: DocKit - AI 代理驱动的 NoSQL 桌面 GUI — MongoDB、Elasticsearch、OpenSearch、DynamoDB
-description: DocKit 是一款开源的 AI 代理型 NoSQL 桌面 GUI，支持 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。AI 代理通过自然语言编写查询、查看表结构、管理数据 — 隐私优先、本地运行、完全免费。
+title: DocKit - AI Agent 驱动的 NoSQL 桌面客户端 — MongoDB、Elasticsearch、OpenSearch、DynamoDB
+description: DocKit 是一款开源的 AI Agent 型 NoSQL 桌面 GUI，支持 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。AI Agent 通过自然语言编写查询、查看表结构、管理数据 — 隐私优先、本地运行、完全免费。
 ogImage: https://www.geekfun.club/og/dockit-zh.png
 head:
   - - meta
@@ -76,8 +76,8 @@ head:
 
 hero:
   name: DocKit
-  headline: "AI 代理驱动的 NoSQL 桌面 GUI"
-  tagline: "一个管理您数据库的开源 AI 代理。连接 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch — 然后用自然语言描述您的需求。代理会编写查询、查看表结构、更新文档并返回结果。隐私优先、本地运行、Apache 2.0。"
+  headline: "AI Agent 驱动的 NoSQL 桌面客户端"
+  tagline: "一个管理您数据库的开源 AI Agent。连接 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch — 然后用自然语言描述您的需求。代理会编写查询、查看表结构、更新文档并返回结果。隐私优先、本地运行、Apache 2.0。"
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -99,7 +99,7 @@ databases:
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "用自然语言与数据库对话。DocKit 的 AI 代理编写查询、查看表结构、创建索引、更新文档并返回结果——支持按源权限控制，破坏性操作需安全确认。用自然语言描述需求，即刻获得优化查询。支持 OpenAI、Anthropic 和 DeepSeek。"
+    body: "用自然语言与数据库对话。DocKit 的 AI Agent 编写查询、查看表结构、创建索引、更新文档并返回结果——支持按源权限控制，破坏性操作需安全确认。用自然语言描述需求，即刻获得优化查询。支持 OpenAI、Anthropic 和 DeepSeek。"
     image: /dockit-ai-assistant.png
     align: left
   - title: "自动记录查询历史"
@@ -112,7 +112,7 @@ showcase:
     align: left
 
 features:
-  - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI 代理编写查询、查看表结构、创建索引、更新文档——支持按源权限控制，破坏性操作需安全确认。", icon: "sparkles" }
+  - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI Agent 编写查询、查看表结构、创建索引、更新文档——支持按源权限控制，破坏性操作需安全确认。", icon: "sparkles" }
   - { title: "AI 助手", body: "用自然语言描述需求 — '查找上周注册的用户' 或 '按地区聚合销售额' — 即刻获得准确查询。支持 OpenAI、Anthropic 和 DeepSeek。", icon: "code" }
   - { title: "桌面级编辑器", body: "Monaco Editor 将 VS Code 的编辑能力带入查询——语法高亮、自动补全、格式化和熟悉的快捷键。", icon: "edit" }
   - { title: "本地持久化", body: "连接和查询保存到本地文件系统。查询历史自动追踪。永不丢失工作内容。", icon: "history" }

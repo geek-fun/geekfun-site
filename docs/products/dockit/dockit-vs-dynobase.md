@@ -87,7 +87,7 @@ Dynobase is a solid tool, but there are a few reasons developers look for altern
 
 ### Agentic Data Studio
 
-Describe what you need in natural language — DocKit's agent writes PartiQL queries, reads table schemas, creates items, updates records, and deletes entries in a single conversation. It understands your table structure (key names, attribute types, GSI definitions) and has 5 DynamoDB tools with risk levels (Safe/Elevated/Destructive). Permission modes (Ask/Auto) let you control what the agent can do. Works with 12 AI providers including OpenAI, Anthropic, DeepSeek, Ollama, and LM Studio. Dynobase has no equivalent.
+Tell the agent what you need and it writes PartiQL queries, reads table schemas, creates items, updates records, and deletes entries — all in one conversation. It knows your table structure (key names, attribute types, GSI definitions) and comes with 5 DynamoDB tools split into Safe, Elevated, and Destructive risk levels. Permission modes (Ask/Auto) let you dial in how much autonomy the agent has. Works with 12 AI providers including OpenAI, Anthropic, DeepSeek, Ollama, and LM Studio. Dynobase doesn't have anything like it.
 
 ### Multi-database support
 Dynobase is limited to DynamoDB. DocKit handles MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch in one app. If your stack uses a mix of these, DocKit can replace several separate tools.
