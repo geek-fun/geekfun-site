@@ -72,11 +72,12 @@ Pick DynamoDB as the database type. There are four authentication methods:
 
 **Access Key** — the standard approach. Enter your AWS region, access key ID, and secret access key. Works with IAM user credentials, temporary STS credentials, or environment variables.
 
-**DynamoDB Local** — for offline development. Point DocKit at `http://localhost:8000` with any region and dummy credentials. See the [DynamoDB Local guide](/blog/query-dynamodb-locally) for setup.
-
 **SSO** — uses AWS IAM Identity Center. Click **Start SSO Login** to open a browser tab for authentication, then pick an account and role from the populated lists. SSO sessions are cached, so you don't need to re-authenticate on every connection.
 
 **Profile** — reads credentials from `~/.aws/credentials` and `~/.aws/config`. Pick a profile from the dropdown, and optionally configure an IAM role to assume. Supports standard profiles, source role chains, SSO-based profiles, and MFA-enabled setups.
+
+**DynamoDB Local** — for offline development. Point DocKit at `http://localhost:8000` with any region and dummy credentials. See the [DynamoDB Local guide](/blog/query-dynamodb-locally) for setup.
+
 
 ## Connect to MongoDB
 
@@ -111,11 +112,11 @@ Click **Confirm** to save. Connections are stored locally and encrypted, show up
 
 Managing multiple connections:
 
-- **Sort** — click column headers to sort by name, type, or date
-- **Filter** — search by name in the connection panel
-- **Quick switch** — click any connection in the sidebar
-- **Edit** — right-click → Edit to modify settings
-- **Delete** — right-click → Delete to remove
+- **Sort** — by name, type, or date created, ascending or descending
+- **Filter** — type to search connections by name
+- **Edit** — right-click → Edit to modify connection settings
+- **Clone** — right-click → Clone to duplicate an existing connection
+- **Remove** — right-click → Remove to delete a connection
 
 ## Security Best Practices
 
