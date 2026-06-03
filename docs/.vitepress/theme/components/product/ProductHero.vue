@@ -14,6 +14,7 @@ type HeroData = {
   logo?: string
   screenshot: string
   actions: Action[]
+  animatedText?: string
 }
 
 defineProps<{ hero: HeroData }>()
@@ -26,7 +27,11 @@ defineProps<{ hero: HeroData }>()
         <div v-if="hero.eyebrow" class="hero-eyebrow">{{ hero.eyebrow }}</div>
         <h1 class="hero-headline">
           <span class="hero-brand-text">{{ hero.name }}</span>
-          <br v-if="hero.name && hero.headline" />
+          <span v-if="hero.name && hero.headline" class="hero-headline-sep">&nbsp;</span>
+          <span v-if="hero.animatedText" class="hero-type-wrapper">
+            <span class="hero-type-text">{{ hero.animatedText }}</span>
+            <span class="hero-type-cursor">|</span>
+          </span>
           <span class="subtitle">{{ hero.headline }}</span>
         </h1>
         <p class="hero-tagline">{{ hero.tagline }}</p>
@@ -132,6 +137,34 @@ defineProps<{ hero: HeroData }>()
 .hero-brand-text {
   color: var(--vp-c-brand-1);
   font-weight: 800;
+}
+
+.hero-headline-sep {
+  /* keeps name and headline on same line */
+}
+
+.hero-type-wrapper {
+  display: inline;
+  position: relative;
+}
+
+.hero-type-text {
+  color: var(--vp-c-brand-1);
+  font-weight: 800;
+  display: inline;
+}
+
+.hero-type-cursor {
+  display: inline-block;
+  color: var(--vp-c-brand-1);
+  font-weight: 300;
+  animation: blink 0.8s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .subtitle {
