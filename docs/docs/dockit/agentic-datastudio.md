@@ -61,11 +61,13 @@ For quick questions without leaving your editor, use the **Sidebar Assistant** �
 
 ## Safety & Permissions
 
-DocKit has two permission modes. **Ask mode** (default) prompts you to Allow or Deny every non-read tool before it runs — safe for production. **Auto mode** executes tools automatically when the session has the right permissions, which is faster for exploration.
+| Mode | How tools run | Risk level | Requires confirmation |
+|------|-------------|------------|----------------------|
+| **Ask** (default) | Prompts Allow/Deny before every non-read tool | **Safe** — read queries, list indices, describe tables | Never |
+| **Auto** | Executes automatically when session has permissions | **Elevated** — create/update documents, insert items | Only in Ask mode |
+| | | **Destructive** — delete documents, drop indices, delete tables | Always |
 
-Each tool is classified by risk: **Safe** tools like read queries and listing indices never need confirmation. **Elevated** tools like creating or updating documents only ask in Ask mode. **Destructive** tools like deleting documents or dropping indices always require confirmation, regardless of mode.
-
-Every attached database source has its own read, create, update, and delete permissions. You can set these per source or inherit from the session level. You can also create confirmation rules to auto-allow safe or repetitive operations, or auto-deny dangerous tools entirely.
+You can also set read/create/update/delete permissions per database source, or inherit from the session level. Confirmation rules let you auto-allow safe or repetitive operations, or auto-deny dangerous tools entirely.
 
 ## Agent Loop
 
@@ -73,7 +75,13 @@ The agent runs in a loop: it thinks, calls tools, checks the results, and decide
 
 Long conversations get compacted automatically — old messages are summarized into a compact form that keeps the important bits while cutting token usage. Compaction markers show up in the chat timeline so you can see what got rolled up.
 
-The agent shows its current phase as it works: `Preparing → Iterating → Waiting for model → Compacting → Done`. Each tool call displays its name, arguments, runtime, and result. Expand any tool call to see the full output.
+The agent shows its current phase as it works:
+
+```
+Preparing → Iterating → Waiting for model → Compacting → Done
+```
+
+Each tool call displays its name, arguments, runtime, and result. Expand any tool call to see the full output.
 
 ## Source Management
 
