@@ -109,7 +109,7 @@ Open it by clicking the chat icon (💬) in the right sidebar, or press the keyb
 
 ## Providers & Models
 
-DocKit supports 12 AI provider types — cloud and local: `OpenAI`, `Anthropic`, `DeepSeek`, `OpenRouter` (200+ models), `Google Gemini`, `Grok`, `Mistral`, `Azure OpenAI`, `Ollama` (fully offline), `LM Studio` (fully offline), custom OpenAI-compatible endpoints, and custom Anthropic-compatible endpoints.
+DocKit supports **12+** AI provider types — cloud and local: `OpenAI`, `Anthropic`, `DeepSeek`, `OpenRouter` (200+ models), `Google Gemini`, `Grok`, `Mistral`, `Azure OpenAI`, `Ollama` (fully offline), `LM Studio` (fully offline), custom OpenAI-compatible endpoints, and custom Anthropic-compatible endpoints.
 
 To add a provider, go to **Settings → Providers** and click **Add Provider**. Pick a type, give it a display name, enter the API endpoint (pre-filled for standard providers), paste your API key or token, and optionally configure an HTTP proxy URL. Click **Test Connection** to verify, then **Save**.
 
