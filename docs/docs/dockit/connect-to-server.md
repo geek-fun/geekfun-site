@@ -24,55 +24,17 @@ head:
 
 # Use DocKit GUI connect to Database Server
 
-DocKit as a NoSQL GUI client, it supports multiple databases, including [Elasticsearch](https://www.elastic.co),
-[OpenSearch](https://opensearch.org/), [DynamoDB](https://aws.amazon.com/dynamodb/), [MongoDB](https://www.mongodb.com), and more to come. This document outlines how to connect to a database server using DocKit.
+DocKit connects to Elasticsearch, OpenSearch, DynamoDB, and MongoDB. Each database type has its own connection form — everything else works the same way.
 
-## Install and Open DocKit
+## Connect to Elasticsearch
 
-you can find detailed instructions on how to install and open DocKit in
-the [installation guide](/docs/dockit/installation).
+Click `+ New connection` and pick Elasticsearch. You need a connection name, the server host (with `http://` or `https://`), and the port (default 9200). If your user has limited permissions, narrow access by specifying an index name.
 
-## Connect to Elasticsearch Server
+DocKit supports two authentication methods:
 
-After opening DocKit, click the `+ New connection` button to add a new connection, then you can input the Elasticsearch
-server information, including the connection name, host, port, and authentication information.
-![mac connect to Elasticsearch server](/mac-connect-to-server.png)
+**Basic Auth** — enter your Elasticsearch username and password. Straightforward, works for self-hosted setups and development environments.
 
-### Basic Connection Fields
-
-| Field | Required | Description |
-|-------|----------|-------------|
-| **Name** | Yes | Connection display name (e.g., "Production ES") |
-| **Host** | Yes | Server URL with protocol (`http://` or `https://`) |
-| **Port** | Yes | Server port (default: 9200) |
-| **Index Name** | No | Specific index if user has limited permissions |
-
-### Authentication Methods
-
-DocKit supports two authentication methods for Elasticsearch:
-
-#### Basic Authentication
-
-Select **Basic** tab and enter:
-- **Username**: Elasticsearch username
-- **Password**: User password
-
-Best for:
-- Self-hosted Elasticsearch
-- Development environments
-- Simple auth setups
-
-#### API Key Authentication
-
-Select **API Key** tab and enter:
-- **API Key**: Elasticsearch API key (paste the full key)
-
-Best for:
-- Elasticsearch Cloud deployments
-- Production environments
-- Rotating credentials without changing passwords
-
-**Creating an API Key in Elasticsearch:**
+**API Key Auth** — paste the full Elasticsearch API key. Better for production and cloud deployments because keys can be rotated independently of user accounts. Generate one through the Elasticsearch API:
 
 ```json
 POST /_security/api_key
@@ -88,110 +50,33 @@ POST /_security/api_key
 }
 ```
 
-Response contains the API key to paste into DocKit.
+SSL verification is on by default for `https://` connections. Click the lock icon next to the host field to toggle it off — useful for self-signed certs in development, but never disable it in production.
 
-### SSL Certificate Verification
+You can also append custom query parameters to every request, like `pretty=true` for formatted JSON output, `timeout=30s` for longer timeouts, or `preference=_local` to route to the local node. Enter them as `key=value` pairs separated by `&`.
 
-DocKit verifies SSL certificates by default for `https://` connections.
+## Connect to OpenSearch
 
-**Toggle SSL verification:**
-- Click the 🔒 (lock) icon next to the host field
-- 🔒 **Locked** = SSL verification enabled (recommended)
-- 🔓 **Unlocked** = SSL verification disabled
-
-**When to disable SSL:**
-- Self-signed certificates in development
-- Internal certificates not in public CA chains
-- Testing environments only
-
-**Warning**: Never disable SSL verification for production connections — it exposes credentials to interception.
-
-### Query Parameters
-
-Add custom query parameters appended to all requests:
-
-| Example | Use Case |
-|---------|----------|
-| `pretty=true` | Format JSON responses |
-| `timeout=30s` | Set request timeout |
-| ` preference=_local` | Route requests to local node |
-
-Format: key=value pairs separated by `&`
-
-## Connect to OpenSearch Server
-
-OpenSearch connections work identically to Elasticsearch. Use:
-- Host: `http://your-opensearch:9200`
-- Port: 9200 (default)
-- Same authentication options (Basic, API Key)
-
-DocKit auto-detects OpenSearch vs Elasticsearch from cluster info.
+OpenSearch works exactly like Elasticsearch — same host and port format, same auth options (Basic and API Key). DocKit detects whether it's talking to Elasticsearch or OpenSearch automatically from the cluster info.
 
 ## Connect to DynamoDB
 
-Choose **DynamoDB** as database type and configure:
+Pick DynamoDB as the database type. There are four authentication methods:
 
-![DocKit connect to DynamoDB demo](/dockit-dynamodb-connection-demo.gif)
+**Access Key** — the standard approach. Enter your AWS region, access key ID, and secret access key. Works with IAM user credentials, temporary STS credentials, or environment variables.
 
-### AWS DynamoDB (Production)
+**DynamoDB Local** — for offline development. Point DocKit at `http://localhost:8000` with any region and dummy credentials. See the [DynamoDB Local guide](/blog/query-dynamodb-locally) for setup.
 
-| Field | Description |
-|-------|-------------|
-| **Region** | AWS region (e.g., `us-east-1`) |
-| **Access Key ID** | AWS access key |
-| **Secret Access Key** | AWS secret key |
+**SSO** — uses AWS IAM Identity Center. Click **Start SSO Login** to open a browser tab for authentication, then pick an account and role from the populated lists. SSO sessions are cached, so you don't need to re-authenticate on every connection.
 
-Credentials can be:
-- **IAM user credentials**: Long-term keys
-- **Temporary credentials**: From STS AssumeRole
-- **Environment credentials**: Use `.env` or AWS config
-
-### DynamoDB Local (Development)
-
-Connect to local DynamoDB for offline development:
-
-| Field | Value |
-|-------|-------|
-| **Endpoint** | `http://localhost:8000` |
-| **Region** | Any value (e.g., `us-east-1`) |
-| **Access Key** | Any value (e.g., `local`) |
-| **Secret Key** | Any value (e.g., `local`) |
-
-See [Query DynamoDB Locally Guide](/blog/query-dynamodb-locally) for setup instructions.
-
-### AWS SSO Authentication
-
-DocKit supports AWS IAM Identity Center (SSO) for DynamoDB access:
-
-1. Select **SSO** as authentication method
-2. Click **Start SSO Login** to begin device authorization
-3. A browser tab opens — log in to your AWS SSO portal
-4. After authentication, select an account and role from the populated lists
-5. Click **Connect**
-
-SSO sessions are cached so you don't need to re-authenticate on every connection.
-
-### AWS Profile Authentication
-
-DocKit reads credentials from your `~/.aws/credentials` and `~/.aws/config` files:
-
-1. Select **Profile** as authentication method
-2. Choose a profile from the dropdown (populated from `aws_list_profiles`)
-3. Optionally configure **Assume Role** if the profile has a source role
-
-Supports:
-- Standard AWS profiles
-- Profiles with source roles
-- SSO-based profiles (cached credentials)
-- MFA-enabled profiles
+**Profile** — reads credentials from `~/.aws/credentials` and `~/.aws/config`. Pick a profile from the dropdown, and optionally configure an IAM role to assume. Supports standard profiles, source role chains, SSO-based profiles, and MFA-enabled setups.
 
 ## Connect to MongoDB
 
-Choose **MongoDB** as database type. DocKit supports three ways to connect:
+Pick MongoDB as the database type. DocKit supports three ways to connect:
 
 **No Auth** — for local dev instances. Just enter the host and port. Optionally pick a default database.
 
-**SCRAM Auth** — standard username/password authentication. Enter host, port, username, and password. The **Auth Source** field specifies which database holds the user credentials (defaults to `admin`). You can also set an **Auth Mechanism** like `SCRAM-SHA-256` — leave it empty and the driver negotiates automatically.
+**SCRAM Auth** — standard username and password authentication. Enter host, port, username, and password. The **Auth Source** field specifies which database holds the user credentials (defaults to `admin`). You can also set an **Auth Mechanism** like `SCRAM-SHA-256` — leave it empty and the driver negotiates automatically.
 
 **URI Auth** — paste a full MongoDB connection string for advanced setups like Atlas or replica sets. This mode passes the URI straight through without modification.
 
@@ -199,45 +84,19 @@ All three modes support **TLS** — toggle it on to append `?tls=true` to the co
 
 ## Test Connection
 
-Click **Test Connection** to verify connectivity before saving.
+Click **Test Connection** before saving. You need at least `view_index_metadata` permission. If your user doesn't have `*` index access, specify an index name.
 
-**Requirements:**
-- `view_index_metadata` permission minimum
-- Specify index name if user lacks `*` index access
+Most connection errors are straightforward: check the host and port for `Connection refused`, verify your credentials for `Unauthorized`, fix your certificate setup for `SSL handshake failed`, or provide a valid index name for `Index not found`.
 
-**Common errors:**
+## Save and Manage Connections
 
-| Error | Solution |
-|-------|----------|
-| `Connection refused` | Check host/port, verify server running |
-| `Unauthorized` | Verify credentials, check API key validity |
-| `SSL handshake failed` | Enable SSL verification or fix certificate |
-| `Index not found` | Specify valid index name |
+Click **Confirm** to save. Connections are stored locally and encrypted, show up in the sidebar for quick access, and persist across app restarts.
 
-## Save Connection
+You can sort connections by name, type, or date, filter them by search, edit or delete them by right-clicking, and switch between them instantly by clicking in the sidebar.
 
-Click **Confirm** to save the connection. Connections are:
-- Encrypted and stored locally
-- Available in sidebar for quick access
-- Persistent across app restarts
+## Security Best Practices
 
-## Managing Multiple Connections
-
-DocKit supports multiple saved connections:
-
-- **Sorting**: Click column headers to sort by name, type, date
-- **Filtering**: Search by name in the connection panel
-- **Quick switch**: Click any connection in sidebar
-- **Edit**: Right-click → Edit to modify settings
-- **Delete**: Right-click → Delete to remove
-
-## Connection Security Best Practices
-
-1. **Use API keys in production** — Rotate easily, audit usage
-2. **Enable SSL** — Never disable in production
-3. **Least privilege** — Grant only required index permissions
-4. **Separate connections** — Different credentials for dev/staging/production
-5. **Rotate credentials** — Regularly update keys and passwords
+Use API keys in production — they're easy to rotate and audit. Keep SSL enabled for anything that isn't local development. Grant only the index permissions your workflow actually needs. Set up separate connections for dev, staging, and production with different credentials. Rotate keys and passwords regularly.
 
 ## Next Steps
 
