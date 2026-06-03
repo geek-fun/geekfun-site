@@ -191,19 +191,21 @@ onUnmounted(() => {
 }
 
 .hero-type-wrapper {
-  display: inline;
+  display: inline-block;
+  min-width: 5.5em;
+  text-align: left;
   position: relative;
 }
 
 .hero-type-text {
-  color: var(--vp-c-brand-1);
+  color: #bd34fe;
   font-weight: 800;
   display: inline;
 }
 
 .hero-type-cursor {
   display: inline;
-  color: var(--vp-c-brand-1);
+  color: #bd34fe;
   font-weight: 300;
   margin-left: 1px;
   transition: opacity 0.1s;
