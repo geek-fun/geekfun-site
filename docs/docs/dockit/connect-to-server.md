@@ -30,6 +30,8 @@ DocKit connects to Elasticsearch, OpenSearch, DynamoDB, and MongoDB. Each databa
 
 Click `+ New connection` and pick Elasticsearch. You need a connection name, the server host (with `http://` or `https://`), and the port (default 9200). If your user has limited permissions, narrow access by specifying an index name.
 
+![mac connect to Elasticsearch server](/mac-connect-to-server.png)
+
 DocKit supports two authentication methods:
 
 **Basic Auth** — enter your Elasticsearch username and password. Straightforward, works for self-hosted setups and development environments.
@@ -64,6 +66,8 @@ Pick DynamoDB as the database type. There are four authentication methods:
 
 **Access Key** — the standard approach. Enter your AWS region, access key ID, and secret access key. Works with IAM user credentials, temporary STS credentials, or environment variables.
 
+![DocKit connect to DynamoDB demo](/dockit-dynamodb-connection-demo.gif)
+
 **DynamoDB Local** — for offline development. Point DocKit at `http://localhost:8000` with any region and dummy credentials. See the [DynamoDB Local guide](/blog/query-dynamodb-locally) for setup.
 
 **SSO** — uses AWS IAM Identity Center. Click **Start SSO Login** to open a browser tab for authentication, then pick an account and role from the populated lists. SSO sessions are cached, so you don't need to re-authenticate on every connection.
@@ -86,21 +90,37 @@ All three modes support **TLS** — toggle it on to append `?tls=true` to the co
 
 Click **Test Connection** before saving. You need at least `view_index_metadata` permission. If your user doesn't have `*` index access, specify an index name.
 
-Most connection errors are straightforward: check the host and port for `Connection refused`, verify your credentials for `Unauthorized`, fix your certificate setup for `SSL handshake failed`, or provide a valid index name for `Index not found`.
+Common connection errors and fixes:
+
+| Error | Fix |
+|-------|-----|
+| `Connection refused` | Check host/port, verify server is running |
+| `Unauthorized` | Verify credentials, check API key validity |
+| `SSL handshake failed` | Enable SSL or fix certificate |
+| `Index not found` | Specify a valid index name |
 
 ## Save and Manage Connections
 
 Click **Confirm** to save. Connections are stored locally and encrypted, show up in the sidebar for quick access, and persist across app restarts.
 
-You can sort connections by name, type, or date, filter them by search, edit or delete them by right-clicking, and switch between them instantly by clicking in the sidebar.
+Managing multiple connections:
+
+- **Sort** — click column headers to sort by name, type, or date
+- **Filter** — search by name in the connection panel
+- **Quick switch** — click any connection in the sidebar
+- **Edit** — right-click → Edit to modify settings
+- **Delete** — right-click → Delete to remove
 
 ## Security Best Practices
 
-Use API keys in production — they're easy to rotate and audit. Keep SSL enabled for anything that isn't local development. Grant only the index permissions your workflow actually needs. Set up separate connections for dev, staging, and production with different credentials. Rotate keys and passwords regularly.
+- **Use API keys in production** — easier to rotate and audit than user passwords
+- **Keep SSL enabled** — never disable in production
+- **Least privilege** — grant only the index permissions your workflow needs
+- **Separate connections** — use different credentials for dev, staging, and production
+- **Rotate credentials** — regularly update keys and passwords
 
 ## Next Steps
 
 - **[Elasticsearch Cluster Management](/docs/dockit/manage-elasticsearch-cluster)** — Monitor indices and nodes
-- **[MongoDB](/docs/dockit/connect-to-server#connect-to-mongodb)** — Connect and query MongoDB
 - **[Import & Export](/docs/dockit/import-export)** — Move data in and out
 - **[Query History](/docs/dockit/query-history)** — Access past queries
