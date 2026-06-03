@@ -28,33 +28,37 @@ DocKit's Agentic Data Studio is an AI agent that talks to your databases in natu
 
 The Sidebar Assistant gives you the same AI in a chat panel, so you can ask questions and generate queries without switching views.
 
+![DocKit Data Studio list indices](/dockit-data-studio-list-indices.gif)
+
 ## What the Agent Can Do
 
-The agent has **28 tools** across supported databases:
+The agent has tools for every supported database:
 
-**Elasticsearch / OpenSearch / EasySearch** (16 tools):
+**Elasticsearch / OpenSearch / EasySearch**:
 - Search, get, index, update, and delete documents
-- List indices, get mappings, create/delete indices
-- Manage aliases (list, get, create, delete, bulk update)
+- List indices, get mappings, create, and delete indices
+- Manage aliases — list, get, create, delete, bulk update
 - Add or update field mappings
 
-**DynamoDB** (5 tools):
-- Execute PartiQL SELECT, INSERT, UPDATE, DELETE
+**DynamoDB**:
+- Execute PartiQL queries (SELECT, INSERT, UPDATE, DELETE)
 - Describe and list tables
 
-**MongoDB** (7 tools):
-- Find documents, run aggregation pipelines
-- Insert, update, delete documents
+**MongoDB**:
+- Find documents and run aggregation pipelines
+- Insert, update, and delete documents
 - List databases and collections
 
 Each tool has a **risk level** (Safe for read-only, Elevated for create/update, or Destructive for delete) and needs the matching permission to run.
 
 ## Quick Start
 
-1. Open **Settings → Providers** and add an AI provider (OpenAI, Anthropic, DeepSeek, or any of the 12 supported)
-2. Open **Data Studio** from the sidebar
+1. Open **Settings → LLMs** and add an AI provider (OpenAI, Anthropic, DeepSeek, or any of the 12 supported)
+2. Open **Data Studio** from the Nav bar
 3. Click **Add Source** to attach a database connection
 4. Type your request in plain English and let the agent handle it
+
+![DocKit Settings LLMs demo](/dockit-settings-llm.gif)
 
 For quick questions without leaving your editor, use the **Sidebar Assistant** — click the chat icon (💬) in the sidebar.
 
@@ -137,14 +141,31 @@ Each Data Studio conversation is a **session** with its own history, attached so
 
 ## Sidebar Assistant
 
-The Sidebar Assistant is a chat panel you can reach from anywhere in the app. It shares the same providers and models as Data Studio, but works as a single-turn Q&A tool:
+The Sidebar Assistant is a lightweight chat panel accessible from anywhere in the app. It is separate from Data Studio — it works as a single-turn Q&A interface rather than a multi-step agent loop.
 
-- Ask questions about your database or code
+**What it's good for:**
+- Ask questions about your database schema or query results
 - Generate queries using your schema as context
-- Get explanations and debugging help
-- No need to switch views
+- Get explanations of query behavior and error messages
+- Quick debugging help without leaving your current view
 
-Open it by clicking the chat icon (💬) in the sidebar, or press the keyboard shortcut.
+**How it differs from Data Studio:**
+
+| Feature | Sidebar Assistant | Data Studio |
+|---------|-----------------|-------------|
+| **Interaction** | Single Q&A turns | Multi-step agent loop |
+| **Tool execution** | No — text responses only | Yes — reads schemas, runs queries, modifies data |
+| **Context** | Current conversation only | Full session with history and compaction |
+| **Source attachment** | No | Yes — attach multiple databases per session |
+| **Best for** | Quick questions, explanations | Complex data operations and analysis |
+
+**Opening the Assistant:**
+- Click the chat icon (💬) in the right sidebar
+- Keyboard shortcut: default shortcut for quick access
+
+The Assistant shares the same provider and model configuration as Data Studio. You can configure a separate model for it in **Settings → AI → Models** if you want a lighter model for quick Q&A while reserving a more capable model for Data Studio.
+
+Multi-chat sessions are supported with automatic provider isolation. You can delete individual chat sessions from the history panel.
 
 ## Providers & Models
 

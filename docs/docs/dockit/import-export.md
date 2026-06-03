@@ -1,6 +1,6 @@
 ---
 title: "DocKit Import Export - Migrate Elasticsearch DynamoDB Data JSON CSV"
-description: "Step-by-step guide to import export data from MongoDB, Elasticsearch, OpenSearch, DynamoDB using DocKit. Support JSON, CSV, bulk formats. Migrate NoSQL databases, backup data, seed test environments with desktop GUI client."
+description: "Step-by-step guide to import export data from MongoDB, Elasticsearch, OpenSearch, DynamoDB using DocKit's multi-step import and export wizard. Support JSON, JSONL, CSV, bulk formats with schema mapping and background tasks. Migrate NoSQL databases, backup data, seed test environments with desktop GUI client."
 head:
   - - meta
     - name: keywords
@@ -31,7 +31,7 @@ DocKit supports importing and exporting data from MongoDB, Elasticsearch, OpenSe
 Before using the import/export feature, ensure you have:
 
 - DocKit installed on your machine. See the [installation guide](/docs/dockit/installation).
-- A configured connection to your Elasticsearch, OpenSearch, or DynamoDB instance. See the [connect to server guide](/docs/dockit/connect-to-server).
+- A configured connection to your MongoDB, Elasticsearch, OpenSearch, or DynamoDB instance. See the [connect to server guide](/docs/dockit/connect-to-server).
 - Sufficient disk space for the export files (estimate: roughly the same as the compressed index/table size).
 - Read permissions on the source index/table, and write permissions on the target index/table.
 
@@ -155,6 +155,95 @@ Click **Import**. DocKit sends `BatchWriteItem` requests in parallel, respecting
 | JSON | ✅ | ✅ | ✅ | ✅ | Full fidelity, supports nested objects |
 | CSV | ✅ | ✅ | ✅ | ✅ | Flat data only; requires column mapping on import |
 | Elasticsearch Bulk | ✅ | ✅ | ✅ | ❌ | Fastest for ES/OS migrations |
+
+## Export Wizard Workflow
+
+DocKit now uses a **multi-step Export Wizard** for a guided experience:
+
+**Step 1 — Source & Scope**
+
+Select the connection, database type, and specific index/collection/table to export. For MongoDB, you can also specify a filter query (JSON format) and sort criteria.
+
+**Step 2 — Schema & Structure** (optional)
+
+Review the schema of your source data. DocKit shows field names, types, and sample values. You can include or exclude specific fields from the export.
+
+**Step 3 — Target & Output**
+
+Choose the export format and destination:
+
+- **Format**: JSON, JSONL (JSON Lines), or CSV
+- **Output file**: Browse to a destination folder and filename
+- **Beautify JSON**: Pretty-print JSON output (JSON only)
+- **Include metadata**: Export a companion `metadata.json` file with schema info, export timestamp, and row count
+
+**Step 4 — Execution**
+
+Review the summary (target index, document count estimate, file size estimate), then click Export. The task runs in the **background** so you can continue working.
+
+## Import Wizard
+
+DocKit's **Import Wizard** is also multi-step:
+
+**Step 1 — Choose Data**
+
+Select the data file (JSON, JSONL, CSV) and optionally a metadata file from a previous export. DocKit auto-detects the format.
+
+**Step 2 — Schema & Structure**
+
+DocKit shows the source schema (field names, types, sample values) alongside the target schema. Fields are classified as:
+
+- **Match** — Field exists in both source and target (auto-mapped)
+- **New** — Field exists in source but not in target (will be added)
+- **Exclude** — Selected fields to skip during import
+
+You can override field types for the target (e.g., change String to Number).
+
+**Step 3 — Target & Output**
+
+Select the target database and collection/table. For new collections, configure:
+
+- MongoDB: Collection name
+- Elasticsearch: Shard count, replica count
+- DynamoDB: Partition key, sort key, billing mode, capacity units
+
+**Step 4 — Execution**
+
+Choose import strategy:
+
+- **Append**: Add data to existing records (skip duplicates)
+- **Replace**: Overwrite existing records using upsert
+
+Click Import. The task runs as a **background task** — track progress in the Task Manager panel.
+
+## Background Tasks
+
+Both import and export run as **background tasks**. You can:
+
+- Monitor progress in the **Task Manager** (right sidebar panel)
+- See real-time status: Pending → Running → Completed/Failed
+- View details: documents processed, errors encountered, elapsed time
+- Continue using DocKit normally while tasks execute
+
+## MongoDB Support
+
+Import and Export work with MongoDB collections:
+
+- **Export**: Export documents with optional filter query, field selection, and sort
+- **Import**: Import JSON/CSV files into MongoDB collections. Supports both append and replace strategies
+- Batch size: 500 documents per batch
+
+## Metadata Export
+
+When you check **Include metadata**, DocKit exports a `metadata.json` file alongside your data. This file contains:
+
+- Source type and version
+- Export timestamp
+- Schema (field names and types)
+- Total row count
+- Filter query used (if any)
+
+Metadata files are automatically detected when importing, so field mappings are pre-configured.
 
 ## Troubleshooting
 

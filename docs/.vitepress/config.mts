@@ -44,11 +44,11 @@ const docsSidebarEn = [
         text: 'Docs',
         items: [
             {text: 'DocKit overview', link: '/docs/dockit/'},
-            {text: 'Agentic Data Studio', link: '/docs/dockit/agentic-datastudio'},
             {text: 'Installation', link: '/docs/dockit/installation'},
             {text: 'Connect to server', link: '/docs/dockit/connect-to-server'},
             {text: 'Shortcuts', link: '/docs/dockit/shortcut'},
-            {text: 'Manage Elasticsearch cluster', link: '/docs/dockit/manage-elasticsearch-cluster'}
+            {text: 'Manage Elasticsearch cluster', link: '/docs/dockit/manage-elasticsearch-cluster'},
+            {text: 'Agentic Data Studio', link: '/docs/dockit/agentic-datastudio'}
         ]
     }
 ];
@@ -57,11 +57,11 @@ const docsSidebarZh = [
         text: '文档',
         items: [
             {text: 'DocKit 概览', link: '/zh/docs/dockit/'},
-            {text: 'Agentic Data Studio', link: '/zh/docs/dockit/agentic-datastudio'},
             {text: '安装指南', link: '/zh/docs/dockit/installation'},
             {text: '连接服务器', link: '/zh/docs/dockit/connect-to-server'},
             {text: '快捷键', link: '/zh/docs/dockit/shortcut'},
-            {text: '管理 Elasticsearch 集群', link: '/zh/docs/dockit/manage-elasticsearch-cluster'}
+            {text: '管理 Elasticsearch 集群', link: '/zh/docs/dockit/manage-elasticsearch-cluster'},
+            {text: 'Agentic Data Studio', link: '/zh/docs/dockit/agentic-datastudio'}
         ]
     }
 ];

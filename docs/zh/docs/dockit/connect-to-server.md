@@ -154,6 +154,64 @@ DocKit 从集群信息自动检测 OpenSearch 与 Elasticsearch。
 
 详见[本地查询 DynamoDB 指南](/zh/blog/query-dynamodb-locally)。
 
+### AWS SSO 认证
+
+DocKit 支持 AWS IAM Identity Center（SSO）用于 DynamoDB 访问：
+
+1. 选择 **SSO** 作为认证方式
+2. 点击 **Start SSO Login** 开始设备授权
+3. 浏览器标签页将打开 —— 登录您的 AWS SSO 门户
+4. 认证完成后，从已填充的列表中选择账户和角色
+5. 点击 **连接**
+
+SSO 会话会被缓存，因此您无需在每次连接时重新认证。
+
+### AWS Profile 认证
+
+DocKit 从您的 `~/.aws/credentials` 和 `~/.aws/config` 文件中读取凭证：
+
+1. 选择 **Profile** 作为认证方式
+2. 从下拉菜单中选择一个配置文件（从 `aws_list_profiles` 填充）
+3. 如果配置文件有源角色，可选择配置 **Assume Role**
+
+支持：
+- 标准 AWS 配置文件
+- 带源角色的配置文件
+- 基于 SSO 的配置文件（缓存凭证）
+- 启用 MFA 的配置文件
+
+## 连接到 MongoDB
+
+选择 **MongoDB** 作为数据库类型：
+
+### 连接 URI
+
+| 字段 | 说明 |
+|------|------|
+| **URI** | MongoDB 连接字符串（如 `mongodb://localhost:27017/mydb`） |
+| **认证数据库** | 用于认证凭据的数据库（默认：`admin`） |
+
+支持标准 MongoDB URI 格式：
+- `mongodb://localhost:27017` —— 本地实例
+- `mongodb://user:pass@host:27017/db` —— 带凭证
+- `mongodb+srv://cluster.mongodb.net/db` —— Atlas/SRV 格式
+
+### 认证方式
+
+| 方法 | 字段 |
+|------|------|
+| **SCRAM**（默认） | 用户名 + 密码 |
+| **无认证** | 本地开发实例无需认证 |
+
+### TLS/SSL
+
+可切换 SSL 验证开关。本地开发使用自签名证书时可禁用。
+
+### 副本集
+
+在 URI 中使用逗号分隔的主机：
+`mongodb://host1:27017,host2:27017,host3:27017/db?replicaSet=myReplica`
+
 ## 测试连接
 
 点击 **测试连接** 在保存前验证连通性。

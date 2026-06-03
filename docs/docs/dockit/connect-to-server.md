@@ -1,6 +1,6 @@
 ---
 title: Use DocKit GUI connect to Database Server
-description: DocKit as a NoSQL GUI client, it supports multiple databases, including Elasticsearch, OpenSearch, DynamoDB, and more to come. This document outlines how to connect to a database server using DocKit.
+description: DocKit as a NoSQL GUI client, it supports multiple databases, including Elasticsearch, OpenSearch, DynamoDB, MongoDB, and more to come. This document outlines how to connect to a database server using DocKit.
 head:
   - - meta
     - name: keywords
@@ -25,7 +25,7 @@ head:
 # Use DocKit GUI connect to Database Server
 
 DocKit as a NoSQL GUI client, it supports multiple databases, including [Elasticsearch](https://www.elastic.co),
-OpenSearch, [DynamoDB](https://aws.amazon.com/dynamodb/), and more to come. This document outlines how to connect to a database server using DocKit.
+OpenSearch, [DynamoDB](https://aws.amazon.com/dynamodb/), [MongoDB](https://www.mongodb.com), and more to come. This document outlines how to connect to a database server using DocKit.
 
 ## Install and Open DocKit
 
@@ -157,6 +157,64 @@ Connect to local DynamoDB for offline development:
 
 See [Query DynamoDB Locally Guide](/blog/query-dynamodb-locally) for setup instructions.
 
+### AWS SSO Authentication
+
+DocKit supports AWS IAM Identity Center (SSO) for DynamoDB access:
+
+1. Select **SSO** as authentication method
+2. Click **Start SSO Login** to begin device authorization
+3. A browser tab opens — log in to your AWS SSO portal
+4. After authentication, select an account and role from the populated lists
+5. Click **Connect**
+
+SSO sessions are cached so you don't need to re-authenticate on every connection.
+
+### AWS Profile Authentication
+
+DocKit reads credentials from your `~/.aws/credentials` and `~/.aws/config` files:
+
+1. Select **Profile** as authentication method
+2. Choose a profile from the dropdown (populated from `aws_list_profiles`)
+3. Optionally configure **Assume Role** if the profile has a source role
+
+Supports:
+- Standard AWS profiles
+- Profiles with source roles
+- SSO-based profiles (cached credentials)
+- MFA-enabled profiles
+
+## Connect to MongoDB
+
+Choose **MongoDB** as database type:
+
+### Connection URI
+
+| Field | Description |
+|-------|-------------|
+| **URI** | MongoDB connection string (e.g., `mongodb://localhost:27017/mydb`) |
+| **Authentication Database** | Database for auth credentials (default: `admin`) |
+
+Supports standard MongoDB URI formats:
+- `mongodb://localhost:27017` — local instance
+- `mongodb://user:pass@host:27017/db` — with credentials
+- `mongodb+srv://cluster.mongodb.net/db` — Atlas/SRV format
+
+### Authentication
+
+| Method | Fields |
+|--------|--------|
+| **SCRAM** (default) | Username + Password |
+| **None** | No auth for local dev instances |
+
+### TLS/SSL
+
+Toggle SSL verification on/off. Disable for local dev with self-signed certs.
+
+### Replica Sets
+
+Use comma-separated hosts in the URI:
+`mongodb://host1:27017,host2:27017,host3:27017/db?replicaSet=myReplica`
+
 ## Test Connection
 
 Click **Test Connection** to verify connectivity before saving.
@@ -202,5 +260,6 @@ DocKit supports multiple saved connections:
 ## Next Steps
 
 - **[Elasticsearch Cluster Management](/docs/dockit/manage-elasticsearch-cluster)** — Monitor indices and nodes
+- **[MongoDB](/docs/dockit/connect-to-server#connect-to-mongodb)** — Connect and query MongoDB
 - **[Import & Export](/docs/dockit/import-export)** — Move data in and out
 - **[Query History](/docs/dockit/query-history)** — Access past queries

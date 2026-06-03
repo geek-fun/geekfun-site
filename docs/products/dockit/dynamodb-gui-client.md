@@ -1,6 +1,6 @@
 ---
 title: DynamoDB GUI Client — DocKit Desktop App for Mac, Windows, Linux
-description: DocKit is an open-source DynamoDB GUI client with PartiQL editor, AI query assistant, visual query builder, import/export, and local-first persistence. Free Dynobase alternative for Mac, Windows, Linux.
+description: DocKit is an open-source DynamoDB GUI client with table lifecycle management, PartiQL editor, AI query assistant, visual query builder, import/export, and local-first persistence. Free Dynobase alternative for Mac, Windows, Linux.
 sidebar: false
 head:
   - - meta
@@ -75,6 +75,14 @@ head:
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Encrypted locally on your machine. They are never transmitted to any third party."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I manage DynamoDB table lifecycle in DocKit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. DocKit provides full table lifecycle management including create (4-step wizard), modify (billing mode, streams, TTL, PITR, encryption, deletion protection, tags), truncate, delete, and monitor tables — all from a single interface."
             }
           }
         ]
@@ -202,6 +210,76 @@ DocKit also works with **Elasticsearch** and **OpenSearch**. You can switch betw
 
 To connect to DynamoDB Local, set the endpoint to `http://localhost:8000`. Use any non-empty credentials. Check the [connection guide](/docs/dockit/connect-to-server) for details.
 
+## Table Management
+
+DocKit provides full DynamoDB table lifecycle management from the **Manage** panel.
+
+### Viewing Tables
+
+Browse all tables with key metadata: item count, size, status, billing mode, partition key, sort key, and index count.
+
+### Creating Tables
+
+A **4-step Create Table Wizard**:
+
+1. **Basic Info** — Table name, partition key (type: string/binary/number), sort key (optional)
+2. **Capacity Settings** — On-demand or Provisioned (RCU/WCU)
+3. **Indexes & Streams** — Configure GSIs (key schema, projection type, throughput), LSIs, and DynamoDB Streams (keys_only/new_image/old_image/new_and_old_images)
+4. **Review** — Summary of all settings before creation
+
+### Modifying Tables
+
+- **Billing mode**: Switch between On-demand and Provisioned
+- **Table class**: Standard or Standard-IA (Infrequent Access)
+- **Auto Scaling**: Configure read/write capacity min/max/target
+- **GSI management**: Create, update throughput, or delete Global Secondary Indexes
+- **TTL**: Enable/disable Time-to-Live with attribute selection
+- **Point-in-Time Recovery**: Enable/disable continuous backups (PITR)
+- **Streams**: Enable/disable/change stream view type
+- **Encryption**: AWS-owned vs KMS vs Customer-managed CMK
+- **Deletion Protection**: Prevent accidental table deletion
+- **Tags**: Manage key-value metadata tags
+
+### Monitoring
+
+View **CloudWatch metrics** directly in the app for the last 24 hours:
+- Read/Write capacity utilization
+- Throttled events
+- Consumed RCU/WCU
+
+### Advanced Operations
+
+- **Truncate table**: Delete all items preserving table schema and settings
+- **Delete table**: Permanently remove table and all data
+
+## GSIs and LSIs
+
+DocKit lets you create, view, and delete indexes. For each index you can see:
+- Index name, type (GSI/LSI), status (active/creating/deleting/updating)
+- Key schema (partition key + optional sort key)
+- Projection type (ALL, KEYS_ONLY, INCLUDE)
+- Throughput settings (provisioned only)
+- Item count and storage size
+
+Create indexes with a dialog that configures key schema, projection, and throughput in one flow.
+
+## PartiQL Editor
+
+DocKit's DynamoDB editor supports both:
+- **Visual query builder** — filter by partition key, sort key conditions (equality, begins_with, between, etc.), and 13+ filter operators. Select which index to query against.
+- **PartiQL SQL editor** — Monaco-powered editor with syntax highlighting for SELECT, INSERT, UPDATE, DELETE statements. Sample queries included for quick starts.
+
+## Pagination
+
+Query results are paginated with configurable page sizes: 10, 25, 50, 100, 200, or 300 items per page. Navigate forward/backward through result sets.
+
+## Inline Item CRUD
+
+Edit items directly in the result table:
+- **Create**: Add new items with attribute editor (type selection: S, N, BOOL, L, M, etc.)
+- **Edit**: Modify attribute values inline
+- **Delete**: Remove items with confirmation dialog
+
 ## FAQ
 
 **Is DocKit an alternative to Dynobase?**
@@ -215,6 +293,9 @@ For queries and data operations, yes. NoSQL Workbench has a better data modeler,
 
 **Where are AWS credentials stored?**
 They are encrypted and stored locally on your machine. They are never sent to third parties or DocKit's developers.
+
+**Can I manage DynamoDB tables in DocKit?**
+Yes. DocKit provides full table lifecycle management — create with a 4-step wizard, modify billing mode, indexes, streams, TTL, PITR, encryption, and more. You can also truncate, delete, and monitor CloudWatch metrics directly in the app.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: DynamoDB GUI 客户端 — DocKit 桌面版 Mac / Windows / Linux
-description: DocKit 是一款开源 DynamoDB GUI 客户端，提供 PartiQL 编辑器、AI 查询助手、可视化查询构建器、导入导出和本地化持久化存储。Dynobase 的开源替代方案。
+description: DocKit 是一款开源 DynamoDB GUI 客户端，提供表生命周期管理、PartiQL 编辑器、AI 查询助手、可视化查询构建器、导入导出和本地化持久化存储。Dynobase 的开源替代方案。
 sidebar: false
 head:
   - - meta
@@ -37,6 +37,55 @@ head:
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]
+      }
+  - - script
+    - type: application/ld+json
+    - |
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "DocKit 是 Dynobase 的替代方案吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "是的。DocKit 覆盖相同的核心工作流——浏览表、运行 PartiQL、导入导出数据——并额外提供 AI 助手和 Elasticsearch/OpenSearch 支持。且完全开源（Apache 2.0）。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "DocKit 支持 DynamoDB Local 吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "支持。创建连接时将自定义端点设置为 http://localhost:8000。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "可以替代 NoSQL Workbench 吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "在查询开发和数据操作方面可以。NoSQL Workbench 有更强大的数据建模器。如果需要进行大量数据建模，可以两者并用。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "AWS 凭据存储在哪里？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "加密存储在您的本地设备上，不会传输给包括 DocKit 维护者在内的任何第三方。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "DocKit 可以管理 DynamoDB 表吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。DocKit 提供完整的表生命周期管理——4 步向导创建表、修改计费模式/索引/流/TTL/PITR/加密等配置、清空和删除表，并可直接在应用内查看 CloudWatch 监控指标。"
+            }
+          }
+        ]
       }
 ---
 
@@ -148,6 +197,80 @@ DocKit 同样支持在同一应用中使用 **Elasticsearch** 和 **OpenSearch**
 
 连接 DynamoDB Local 时，将端点设置为 `http://localhost:8000`，凭据填写任意非空值即可。详见[连接指南](/zh/docs/dockit/connect-to-server)。
 
+## 表管理
+
+DocKit 在**管理**面板中提供完整的 DynamoDB 表生命周期管理功能。
+
+### 查看表
+
+浏览所有表及其关键元数据：项目数、表大小、状态、计费模式、分区键、排序键和索引数量。
+
+### 创建表
+
+通过 **4 步创建表向导**完成：
+
+1. **基本信息** — 表名、分区键（类型可选字符串/二进制/数字）、排序键（可选）
+2. **容量设置** — 按需或预置模式（RCU/WCU）
+3. **索引与流** — 配置 GSI（键结构、投影类型、吞吐量）、LSI 和 DynamoDB Streams（键仅/新镜像/旧镜像/新旧镜像）
+4. **确认** — 创建前概览所有设置
+
+### 修改表
+
+- **计费模式**：按需与预置模式间切换
+- **表类**：Standard 或 Standard-IA（低频访问）
+- **Auto Scaling**：配置读写容量的最小值/最大值/目标值
+- **GSI 管理**：创建、更新吞吐量或删除全局二级索引
+- **TTL**：启用/禁用生存时间，选择属性字段
+- **Point-in-Time Recovery**：启用/禁用持续备份（PITR）
+- **流**：启用/禁用/更改流视图类型
+- **加密**：AWS 自有密钥、KMS 或客户托管 CMK
+- **删除保护**：防止意外删除表
+- **标签**：管理键值元数据标签
+
+### 监控
+
+直接在应用内查看过去 24 小时的 **CloudWatch 指标**：
+
+- 读/写容量使用率
+- 节流事件
+- 已消耗的 RCU/WCU
+
+### 高级操作
+
+- **清空表**：删除所有项目，保留表结构和设置
+- **删除表**：永久移除表和所有数据
+
+## GSI 与 LSI
+
+DocKit 支持创建、查看和删除索引。每个索引可查看：
+
+- 索引名、类型（GSI/LSI）、状态（活跃/创建中/删除中/更新中）
+- 键结构（分区键 + 可选排序键）
+- 投影类型（ALL、KEYS_ONLY、INCLUDE）
+- 吞吐量设置（仅预置模式）
+- 项目数和存储空间
+
+通过对话框在一个流程内完成键结构、投影和吞吐量的配置。
+
+## PartiQL 编辑器
+
+DocKit 的 DynamoDB 编辑器提供两种查询模式：
+
+- **可视化查询构建器** — 按分区键过滤，支持排序键条件（等于、begins_with、between 等）和 13 种以上过滤运算符。可选择针对哪个索引进行查询。
+- **PartiQL SQL 编辑器** — Monaco 驱动，支持 SELECT、INSERT、UPDATE、DELETE 语句的语法高亮。内置示例查询助您快速上手。
+
+## 分页
+
+查询结果支持分页浏览，可配置每页显示 10、25、50、100、200 或 300 条记录。支持在结果集间前后翻页。
+
+## 行内 CRUD
+
+在结果表中直接编辑项目：
+
+- **新增**：通过属性编辑器添加新项目（支持类型选择：S、N、BOOL、L、M 等）
+- **编辑**：直接在行内修改属性值
+- **删除**：通过确认对话框删除项目
+
 ## 常见问题
 
 **DocKit 是 Dynobase 的替代方案吗？**
@@ -161,6 +284,9 @@ DocKit 同样支持在同一应用中使用 **Elasticsearch** 和 **OpenSearch**
 
 **AWS 凭据存储在哪里？**
 加密存储在您的本地设备上，不会传输给包括 DocKit 维护者在内的任何第三方。
+
+**DocKit 可以管理 DynamoDB 表吗？**
+可以。DocKit 提供完整的表生命周期管理——通过 4 步向导创建表、修改计费模式和索引/流/TTL/PITR/加密等配置、清空和删除表，并可直接在应用内查看 CloudWatch 监控指标。
 
 ---
 

@@ -53,8 +53,14 @@ head:
           "Query history persistence",
           "Multi-database support",
           "Import export data",
+          "Import export wizard",
+          "Background task manager",
+          "Local file browser",
+          "AWS SSO authentication",
+          "ES|QL completion",
           "Cluster management",
-          "Monaco editor"
+          "Monaco editor",
+          "Table lifecycle management"
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
@@ -103,27 +109,25 @@ databases:
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "Talk to your databases in natural language. DocKit's AI agent writes queries, inspects schemas, creates indexes, updates documents, and returns results — with per-source permissions and a safety gate for destructive actions. Ask 'find orders over $500 from last week' and get optimized queries instantly. Supports OpenAI, Anthropic, and DeepSeek."
-    image: /dockit-ai-assistant.png
+    body: "Talk to your databases in natural language. DocKit's AI agent writes queries, inspects schemas, creates indexes, updates documents, and returns results — with per-source permissions and a safety gate for destructive actions. Ask 'find orders over $500 from last week' and get optimized queries instantly. Supports OpenAI, Anthropic, DeepSeek, and more."
+    image: /dockit-gui-client-demo.gif
     align: left
-  - title: "Never lose a query again"
-    body: "Connections and queries are saved to your filesystem automatically. Query history is tracked transparently, so you can easily revert to past experiments."
+  - title: "Local Persistence"
+    body: "Credentials, queries, and LLM provider configs stay on your machine — no cloud dependency. All query history is tracked and searchable. Local LLMs (Ollama, LM Studio) supported for fully offline use."
     image: /dockit-query-history.png
     align: right
-  - title: "Full DynamoDB Control"
-    body: "A desktop-grade interface for DynamoDB. Inspect tables, manage indexes, and craft PartiQL queries with syntax highlighting and formatting."
+  - title: "Multi-Database Data Management"
+    body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one interface. Monitor cluster health, manage indices and indexes, track metrics, and move data between databases with built-in import, export, and backup."
     image: /dockit-dynamodb-query-ui.png
     align: left
 
 features:
   - { title: "Agentic Data Studio", body: "Talk to your databases in natural language. The AI agent writes queries, inspects schemas, creates indexes, and updates documents — with per-source permissions and a safety gate for destructive actions.", icon: "sparkles" }
-  - { title: "AI Assistant", body: "Describe what you need in natural language — 'find users who signed up last week' or 'aggregate sales by region' — and get accurate queries instantly. Supports OpenAI, Anthropic, and DeepSeek.", icon: "code" }
   - { title: "Desktop-Grade Editor", body: "Monaco Editor brings VS Code power to your queries—syntax highlighting, autocomplete, formatting, and keyboard shortcuts you already know.", icon: "edit" }
-  - { title: "Local Persistence", body: "Connections and queries saved to your filesystem. Query history tracked automatically. Never lose your work.", icon: "history" }
+  - { title: "Local Persistence", body: "Credentials, queries, and LLM config saved locally. Query history tracked automatically. Fully offline with Ollama and LM Studio.", icon: "history" }
   - { title: "Multi-Database Support", body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one unified interface. Switch between databases instantly.", icon: "database" }
   - { title: "Import & Export", body: "Move large datasets in and out with JSON, CSV, and JSONL support. Batch operations handle millions of records reliably.", icon: "import" }
   - { title: "Cluster Management", body: "Monitor node health, manage shards, track indices, and control aliases—all with built-in visual cluster tools.", icon: "cluster" }
-  - { title: "MongoDB Document Browser", body: "Browse collections with pagination, inline CRUD, and a full-featured query editor with autocomplete. Bulk write and import/export included.", icon: "database" }
   - { title: "Query History", body: "Every query recorded automatically. 500 entries per connection with stars/bookmarks. Copy, reload, or re-execute past queries.", icon: "history" }
 
 cta:
@@ -136,9 +140,9 @@ cta:
 
 ## Elasticsearch GUI Client
 
-DocKit is a full-featured **Elasticsearch GUI client** built for engineers who spend real time in the query editor. It replaces Kibana's Dev Tools tab with a Monaco-powered editor that supports JSON5 syntax, inline comments, field autocomplete from your live mapping, and AI-assisted query generation.
+DocKit is a full-featured **Elasticsearch GUI client** built for engineers who spend real time in the query editor. It replaces Kibana's Dev Tools tab with a Monaco-powered editor that supports JSON5 syntax, inline comments, field autocomplete from your live mapping, and AI-assisted query generation. ES|QL completion is built in for the next-generation Elasticsearch query language.
 
-Connect to any Elasticsearch cluster — local, self-hosted, or cloud — with Basic Auth or API Key. Browse indices, manage mappings and aliases, monitor cluster and shard health, and import/export data in JSON, CSV, or JSONL (bulk format). Queries persist as local files, so nothing is lost when you close the app.
+Connect to any Elasticsearch cluster — local, self-hosted, or cloud — with Basic Auth or API Key. Browse indices, manage mappings and aliases, monitor cluster and shard health with detailed shard-level metrics (docs, store, fielddata, query cache, indexing rates, merge stats, segments), and import/export data in JSON, CSV, or JSONL (bulk format). A grammar catalog of 120+ Elasticsearch and OpenSearch API endpoints is available for reference. Queries persist as local files, so nothing is lost when you close the app.
 
 → [Elasticsearch GUI client full details](/products/dockit/elasticsearch-gui-client)
 
@@ -152,9 +156,9 @@ The same Monaco editor, AI assistant, cluster management, and import/export feat
 
 ## DynamoDB GUI Client
 
-DocKit is an open-source **DynamoDB GUI client** that replaces the AWS Console for day-to-day table work. It includes a PartiQL editor with schema-aware autocomplete, a visual query builder for non-PartiQL workflows, AI-powered query generation with your actual attribute names injected as context, and import/export for JSON and CSV.
+DocKit is an open-source **DynamoDB GUI client** that replaces the AWS Console for day-to-day table work. It includes a PartiQL editor with schema-aware autocomplete, a visual query builder with 13+ filter operators, inline item CRUD, pagination with configurable page sizes, and full table lifecycle management — GSI/LSI creation, TTL, streams, PITR, encryption, CloudWatch metrics, and table truncation. AI-powered query generation with your actual attribute names injected as context, and import/export for JSON and CSV.
 
-It supports DynamoDB Local for local development and works with any AWS region and authentication method.
+It supports DynamoDB Local for local development, AWS profiles, SSO, access keys, and IAM role authentication across any region.
 
 → [DynamoDB GUI client full details](/products/dockit/dynamodb-gui-client)
 

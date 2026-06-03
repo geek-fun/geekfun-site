@@ -148,3 +148,60 @@ To delete all history entries for the current connection:
 2. A confirmation dialog appears — confirm to delete all history entries for this connection.
 
 **Note**: Clearing history cannot be undone. History for other connections is not affected.
+
+## Stars and Bookmarks
+
+Star important queries to quickly find them later:
+
+1. Hover over a history entry to reveal action buttons
+2. Click the **Star** (★) icon to bookmark it
+3. Starred entries appear at the top when sorted by favorites
+4. Click the star again to un-star
+
+Starred queries persist across app restarts and are stored per connection.
+
+## Per-Entry Detail View
+
+Click any history entry to expand the **detail panel**, which shows:
+
+- **Method** (ES/OS): HTTP method used (GET, POST, PUT, DELETE)
+- **Path**: The API path including index name and endpoint
+- **Body**: The complete request body (JSON formatted)
+- **Connection**: The connection name used
+- **Executed at**: ISO 8601 timestamp
+- **Duration**: Query execution time
+
+For DynamoDB queries, the detail view additionally shows:
+- **Query type**: PartiQL or UI form
+- **Table name**: The queried table
+- **Key conditions**: Partition key and sort key values used
+- **Index**: GSI or LSI used (if any)
+
+For MongoDB queries, the detail view shows:
+- **Operation**: find, aggregate, insert, update, delete, etc.
+- **Collection**: The queried collection
+- **Database**: The target database
+- **Filter**: The query filter document
+- **Duration**: Query execution time
+- **Result count**: Number of documents returned
+
+## History Capacity
+
+Configure the history limit in **Settings → History**:
+
+| Setting | Range | Default |
+|---------|-------|---------|
+| **History Capacity** | 0 - 1000 entries | 100 entries |
+
+Set to `0` to disable history recording entirely.
+
+## Search History
+
+The history panel includes a search bar. Filter entries by:
+- Path or method (ES/OS)
+- Index or table name
+- Query body content
+- Connection name
+- MongoDB operation type or collection
+
+Search results update in real-time as you type.
