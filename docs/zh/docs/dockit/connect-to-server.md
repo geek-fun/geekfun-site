@@ -24,7 +24,7 @@ head:
 
 # 使用 DocKit 桌面客户端连接到数据库服务器
 
-DocKit 支持连接 Elasticsearch、OpenSearch、DynamoDB 和 MongoDB。每种数据库类型有自己的连接表单，操作方式一致。
+DocKit 支持连接 [Elasticsearch](https://www.elastic.co)、[OpenSearch](https://opensearch.org/)、[DynamoDB](https://aws.amazon.com/dynamodb/) 和 [MongoDB](https://www.mongodb.com)。每种数据库类型有自己的连接表单，操作方式一致。
 
 ## 连接到 Elasticsearch
 

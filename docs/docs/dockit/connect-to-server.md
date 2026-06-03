@@ -24,7 +24,7 @@ head:
 
 # Use DocKit GUI connect to Database Server
 
-DocKit connects to Elasticsearch, OpenSearch, DynamoDB, and MongoDB. Each database type has its own connection form — everything else works the same way.
+DocKit connects to [Elasticsearch](https://www.elastic.co), [OpenSearch](https://opensearch.org/), [DynamoDB](https://aws.amazon.com/dynamodb/), and [MongoDB](https://www.mongodb.com). Each database type has its own connection form — everything else works the same way.
 
 ## Connect to Elasticsearch
 
