@@ -31,8 +31,7 @@ const sharedThemeConfig = {
     logo,
     socialLinks: [
         {icon: 'github', link: 'https://github.com/geek-fun'},
-        // add x social links
-        {icon: 'twitter', link: 'https://x.com/Blankll31075'},
+        {icon: 'twitter', link: 'https://x.com/geekfun_club'},
         {icon: 'youtube', link: 'https://www.youtube.com/@geekfun-club'}
     ],
 };

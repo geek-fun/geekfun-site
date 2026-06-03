@@ -212,14 +212,17 @@ If behind a firewall:
 
 **What the agent sends to AI providers:**
 - ✅ Your text prompt (natural language request)
-- ✅ Current index/table/collection name
+- ✅ Current index/table/collection names
 - ✅ Schema/mapping (field names and types)
-- ❌ Your actual data (never sends database contents)
-- ❌ Credentials (never sends API keys or passwords)
+- ✅ Query results (truncated to ~1,024 characters so the agent can reason about what it found)
+- ❌ Full query results (stored locally in DocKit's database, visible in UI)
+- ❌ Credentials (never sends API keys, passwords, or connection secrets)
 
-**Credential safety**: Connection secrets are stored in your OS keychain and are never exposed to the LLM. The agent uses a credential-safe architecture — tools execute through the Rust backend, not through the AI provider.
+**How tool results flow to the LLM**: When the agent executes a tool (e.g., `es__search`, `mongo__find`), the full result is stored locally for you to inspect. Only a truncated summary (~1,024 characters) goes back to the LLM as context for the next reasoning step. This lets the agent understand what it found without sending entire datasets.
 
-**No telemetry**: DocKit does not phone home. No query data, credentials, or analytics leave your machine. Air gap compatible.
+**Credential safety**: Connection secrets are stored locally and resolved in the Rust backend. The agent never sees credentials — it only passes a `connection_id` (e.g., `"42"`), and the backend resolves it to the actual connection config before executing the tool. This architecture keeps passwords, API keys, and AWS secrets out of LLM prompts.
+
+**No telemetry**: DocKit does not phone home. No query data, credentials, or analytics leave your machine. Works fully offline with local LLM providers (Ollama, LM Studio).
 
 ## Troubleshooting
 
