@@ -14,9 +14,9 @@ const { frontmatter } = useData()
   <div class="product-layout">
     <ProductHero v-if="frontmatter.hero" :hero="frontmatter.hero" />
     <ProductDatabaseGrid v-if="frontmatter.databases" :databases="frontmatter.databases" />
-    <ProductPlatformGrid v-if="frontmatter.platforms" :platforms="frontmatter.platforms" />
     <ProductShowcase v-if="frontmatter.showcase" :showcase="frontmatter.showcase" />
     <ProductFeatures v-if="frontmatter.features" :features="frontmatter.features" />
+    <ProductPlatformGrid v-if="frontmatter.platforms" :platforms="frontmatter.platforms" />
     <ProductCTA v-if="frontmatter.cta" :cta="frontmatter.cta" />
   </div>
 </template>
