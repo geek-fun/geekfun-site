@@ -110,6 +110,10 @@ showcase:
     body: "从统一界面管理 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。监控集群健康状态、管理索引、跟踪指标，通过内置的导入导出和备份功能在数据库间转移数据。"
     image: /dockit-dynamodb-query-ui.png
     align: left
+  - title: "导入与备份"
+    body: "通过直观的交互界面完成数据导出和恢复。选择数据来源和目标、可视化映射字段、筛选要导出的字段，剩下的交给 DocKit——全部以后台任务方式运行，实时显示进度。支持 JSON、CSV、JSONL 格式。"
+    image: /dockit-query-history.png
+    align: right
 
 features:
   - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI Agent 编写查询、查看表结构、创建索引、更新文档——支持按源权限控制，破坏性操作需安全确认。", icon: "sparkles" }

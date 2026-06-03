@@ -120,6 +120,10 @@ showcase:
     body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one interface. Monitor cluster health, manage indices and indexes, track metrics, and move data between databases with built-in import, export, and backup."
     image: /dockit-dynamodb-query-ui.png
     align: left
+  - title: "Import & Backup"
+    body: "Export and restore your data through an interactive interface. Pick your source and target, map fields visually, choose which fields to include, and let DocKit handle the rest — all running as background tasks with real-time progress. Supports JSON, CSV, and JSONL."
+    image: /dockit-query-history.png
+    align: right
 
 features:
   - { title: "Agentic Data Studio", body: "Talk to your databases in natural language. The AI agent writes queries, inspects schemas, creates indexes, and updates documents — with per-source permissions and a safety gate for destructive actions.", icon: "sparkles" }
