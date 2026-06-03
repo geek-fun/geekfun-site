@@ -129,9 +129,9 @@ features:
 platforms:
   title: "支持所有平台"
   items:
-    - { name: macOS, icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9.5 2 7 4 7 7c0 2.5 2 5 5 5s5-2.5 5-5c0-3-2.5-5-5-5z"/><path d="M7 17c0-2 2-3 5-3s5 1 5 3"/><path d="M5 21h14"/></svg>' }
-    - { name: Windows, icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.45L9.75 2.2v8.2H0V3.45zm10.25-.36L24 0v10.65H10.25V3.09zM0 12.6h9.75v8.2L0 20.55V12.6zm10.25.36H24V24L10.25 20.91V12.96z"/></svg>' }
-    - { name: Linux, icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M10 22V14H7l3-6h4l3 6h-3v8"/></svg>' }
+    - { name: macOS, logo: /platform-macos.svg }
+    - { name: Windows, logo: /platform-windows.svg }
+    - { name: Linux, logo: /platform-linux.svg }
 
 cta:
   title: "数据库管理，步入 AI 时代"

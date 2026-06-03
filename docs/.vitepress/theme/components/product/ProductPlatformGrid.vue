@@ -1,7 +1,7 @@
 <script setup lang="ts">
 type PlatformItem = {
   name: string
-  icon: string
+  logo: string
 }
 
 type PlatformData = {
@@ -20,7 +20,9 @@ defineProps<{ platforms: PlatformData }>()
       </div>
       <div class="platform-grid">
         <div v-for="item in platforms.items" :key="item.name" class="platform-item">
-          <div class="platform-chip" v-html="item.icon"></div>
+          <div class="platform-chip">
+            <img :src="item.logo" :alt="item.name" class="platform-logo" />
+          </div>
           <span class="platform-name">{{ item.name }}</span>
         </div>
       </div>
@@ -97,15 +99,16 @@ defineProps<{ platforms: PlatformData }>()
   box-shadow: var(--vp-shadow-1);
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 
-  :deep(svg) {
-    width: 100%;
-    height: 100%;
-  }
-
   .platform-item:hover & {
     box-shadow: var(--vp-shadow-2);
     border-color: var(--gf-c-border-hover);
   }
+}
+
+.platform-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .platform-name {
