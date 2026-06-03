@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
 type Action = {
   text: string
   link: string
@@ -17,7 +19,54 @@ type HeroData = {
   animatedText?: string
 }
 
-defineProps<{ hero: HeroData }>()
+const props = defineProps<{ hero: HeroData }>()
+
+const displayed = ref('')
+const cursorVisible = ref(true)
+let interval: ReturnType<typeof setInterval> | null = null
+let blinkInterval: ReturnType<typeof setInterval> | null = null
+
+function startTypewriter() {
+  const word = props.hero.animatedText || ''
+  if (!word) return
+
+  let i = 0
+  let deleting = false
+
+  interval = setInterval(() => {
+    if (!deleting) {
+      // typing forward
+      if (i < word.length) {
+        i++
+        displayed.value = word.slice(0, i)
+      } else {
+        deleting = true
+        setTimeout(() => {}, 1500) // pause before deleting
+      }
+    } else {
+      // deleting backward
+      if (i > 0) {
+        i--
+        displayed.value = word.slice(0, i)
+      } else {
+        deleting = false
+        setTimeout(() => {}, 500) // pause before retyping
+      }
+    }
+  }, 120)
+}
+
+onMounted(() => {
+  startTypewriter()
+  blinkInterval = setInterval(() => {
+    cursorVisible.value = !cursorVisible.value
+  }, 500)
+})
+
+onUnmounted(() => {
+  if (interval) clearInterval(interval)
+  if (blinkInterval) clearInterval(blinkInterval)
+})
 </script>
 
 <template>
@@ -27,10 +76,10 @@ defineProps<{ hero: HeroData }>()
         <div v-if="hero.eyebrow" class="hero-eyebrow">{{ hero.eyebrow }}</div>
         <h1 class="hero-headline">
           <span class="hero-brand-text">{{ hero.name }}</span>
-          <span v-if="hero.name && hero.headline" class="hero-headline-sep">&nbsp;</span>
+          <span v-if="hero.name && hero.headline">&nbsp;</span>
           <span v-if="hero.animatedText" class="hero-type-wrapper">
-            <span class="hero-type-text">{{ hero.animatedText }}</span>
-            <span class="hero-type-cursor">|</span>
+            <span class="hero-type-text">{{ displayed }}</span>
+            <span class="hero-type-cursor" :class="{ 'cursor-hidden': !cursorVisible }">|</span>
           </span>
           <span class="subtitle">{{ hero.headline }}</span>
         </h1>
@@ -101,7 +150,7 @@ defineProps<{ hero: HeroData }>()
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 720px;
+  max-width: 780px;
 }
 
 .hero-eyebrow {
@@ -119,28 +168,26 @@ defineProps<{ hero: HeroData }>()
 }
 
 .hero-headline {
-  font-size: 3rem;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  line-height: 1.2;
   font-weight: 700;
   letter-spacing: -0.03em;
   margin: 0 0 var(--space-md, 16px);
+  white-space: nowrap;
 
   @media (max-width: 768px) {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
+    white-space: normal;
   }
 
   @media (min-width: 1440px) {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
 .hero-brand-text {
   color: var(--vp-c-brand-1);
   font-weight: 800;
-}
-
-.hero-headline-sep {
-  /* keeps name and headline on same line */
 }
 
 .hero-type-wrapper {
@@ -155,16 +202,15 @@ defineProps<{ hero: HeroData }>()
 }
 
 .hero-type-cursor {
-  display: inline-block;
+  display: inline;
   color: var(--vp-c-brand-1);
   font-weight: 300;
-  animation: blink 0.8s step-end infinite;
-  margin-left: 2px;
+  margin-left: 1px;
+  transition: opacity 0.1s;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.cursor-hidden {
+  opacity: 0;
 }
 
 .subtitle {
@@ -172,14 +218,14 @@ defineProps<{ hero: HeroData }>()
 }
 
 .hero-tagline {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--vp-c-text-2);
   margin: 0 0 var(--space-2xl, 48px);
-  max-width: 600px;
+  max-width: 560px;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     margin: 0 0 32px;
   }
 }
