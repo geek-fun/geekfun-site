@@ -30,9 +30,9 @@ const content = computed(() => {
   const isZh = lang.value === 'zh'
   return {
     announcement: {
-      text: isZh ? 'DocKit v1.0 正式发布 — 首个稳定版本现已上线，支持 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。' : 'DocKit v1.0 is here — the first stable release. AI-native NoSQL for MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch.',
+      text: isZh ? 'DocKit v1.1 发布 — MongoDB、Agentic Data Studio、EasySearch，12 种 AI 提供商。' : 'DocKit v1.1 is here — MongoDB, Agentic Data Studio, EasySearch, and 12+ AI providers.',
       linkText: isZh ? '查看详情 →' : 'Read the announcement →',
-      link: isZh ? '/zh/news/dockit-v1-0-release' : '/news/dockit-v1-0-release'
+      link: isZh ? '/zh/news/dockit-v1-1-release' : '/news/dockit-v1-1-release'
     },
     hero: {
       name: isZh ? '极客范' : 'GEEKFUN',
