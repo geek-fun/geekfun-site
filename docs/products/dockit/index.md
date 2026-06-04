@@ -121,15 +121,15 @@ showcase:
     body: "Export and restore your data through an interactive interface. Pick your source and target, map fields visually, choose which fields to include, and let DocKit handle the rest — all running as background tasks with real-time progress. Supports JSON, CSV, and JSONL."
     image: /dockit-import-export-demo.gif
     align: left
-  - title: "Local Persistence"
-    body: "Credentials, queries, and LLM provider configs stay on your machine — no cloud dependency. All query history is tracked and searchable. Local LLMs (Ollama, LM Studio) supported for fully offline use."
+  - title: "Local-First Privacy"
+    body: "Tired of browser-based tools that lose your work when a tab refreshes? DocKit runs as a desktop app — credentials, queries, and LLM configs stay on your machine with no cloud dependency. Query history persists across sessions. Fully offline with Ollama and LM Studio."
     image: /dockit-query-history.png
     align: right
 
 features:
   - { title: "Agentic Data Studio", body: "Talk to your databases in natural language. The AI agent writes queries, inspects schemas, creates indexes, and updates documents — with per-source permissions and a safety gate for destructive actions.", icon: "sparkles" }
   - { title: "Desktop-Grade Editor", body: "Monaco Editor brings VS Code power to your queries—syntax highlighting, autocomplete, formatting, and keyboard shortcuts you already know.", icon: "edit" }
-  - { title: "Local Persistence", body: "Credentials, queries, and LLM config saved locally. Query history tracked automatically. Fully offline with Ollama and LM Studio.", icon: "history" }
+  - { title: "Local-First Privacy", body: "Credentials, queries, and LLM config saved locally. Query history tracked automatically. Fully offline with Ollama and LM Studio.", icon: "history" }
   - { title: "Multi-Database Support", body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one unified interface. Switch between databases instantly.", icon: "database" }
   - { title: "Import & Export", body: "Move large datasets in and out with JSON, CSV, and JSONL support. Batch operations handle millions of records reliably.", icon: "import" }
   - { title: "Cluster Management", body: "Monitor node health, manage shards, track indices, and control aliases—all with built-in visual cluster tools.", icon: "cluster" }

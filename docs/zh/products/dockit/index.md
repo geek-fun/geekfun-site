@@ -111,15 +111,15 @@ showcase:
     body: "通过直观的交互界面完成数据导出和恢复。选择数据来源和目标、可视化映射字段、筛选要导出的字段，剩下的交给 DocKit——全部以后台任务方式运行，实时显示进度。支持 JSON、CSV、JSONL 格式。"
     image: /dockit-query-history.png
     align: left
-  - title: "本地持久化"
-    body: "凭证、查询和 LLM 配置均存储在本地——无需云端依赖。所有查询历史自动追踪并可搜索。支持本地 LLM（Ollama、LM Studio）完全离线使用。"
+  - title: "本地优先，隐私安全"
+    body: "厌倦了浏览器工具刷新一下就把工作成果弄丢？DocKit 是桌面端应用——凭证、查询和 LLM 配置都存本地，无云端依赖。查询历史跨会话持久保存。支持 Ollama 和 LM Studio 完全离线运行。"
     image: /dockit-query-history.png
     align: right
 
 features:
   - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI Agent 编写查询、查看表结构、创建索引、更新文档——支持按源权限控制，破坏性操作需安全确认。", icon: "sparkles" }
   - { title: "桌面级编辑器", body: "Monaco Editor 将 VS Code 的编辑能力带入查询——语法高亮、自动补全、格式化和熟悉的快捷键。", icon: "edit" }
-  - { title: "本地持久化", body: "凭证、查询和 LLM 配置保存在本地。查询历史自动追踪。支持 Ollama 和 LM Studio 完全离线运行。", icon: "history" }
+  - { title: "本地优先，隐私安全", body: "凭证、查询和 LLM 配置保存在本地。查询历史自动追踪。支持 Ollama 和 LM Studio 完全离线运行。", icon: "history" }
   - { title: "多数据库支持", body: "统一界面管理 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。数据库之间即时无缝切换。", icon: "database" }
   - { title: "导入与导出", body: "支持 JSON、CSV、JSONL 格式导入导出大数据集。批量操作稳定可靠地处理百万级记录。", icon: "import" }
   - { title: "集群管理", body: "监控节点健康状态、管理分片、追踪索引信息、控制集群别名——统统内置在可视化集群工具中。", icon: "cluster" }
