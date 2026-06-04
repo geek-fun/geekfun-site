@@ -32,7 +32,7 @@ DocKit 是一款 AI 原生的开源桌面 GUI 客户端，支持 MongoDB、Dynam
 
 <div style="padding: 20px; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
 
-### 🚀 快速开始
+### 快速开始
 - [安装指南](/zh/docs/dockit/installation)
 - [连接数据库](/zh/docs/dockit/connect-to-server)
 - [快捷键](/zh/docs/dockit/shortcut)
@@ -42,7 +42,7 @@ DocKit 是一款 AI 原生的开源桌面 GUI 客户端，支持 MongoDB、Dynam
 
 <div style="padding: 20px; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
 
-### 🤖 AI 与数据工作室
+### AI 与数据工作室
 - [Agentic Data Studio](/zh/docs/dockit/agentic-datastudio)
 - [导入与导出](/zh/docs/dockit/import-export)
 - [查询历史](/zh/docs/dockit/query-history)
@@ -51,7 +51,7 @@ DocKit 是一款 AI 原生的开源桌面 GUI 客户端，支持 MongoDB、Dynam
 
 <div style="padding: 20px; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
 
-### 🗄️ 数据库管理
+### 数据库管理
 - [管理 Elasticsearch 集群](/zh/docs/dockit/manage-elasticsearch-cluster)
 - [DynamoDB 管理与指标](/zh/docs/dockit/dynamodb-manage-metrics)
 - [查看所有文档](/zh/docs/dockit/)

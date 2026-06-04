@@ -32,7 +32,7 @@ DocKit is an open-source AI-native desktop GUI client for MongoDB, DynamoDB, Ela
 
 <div style="padding: 20px; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
 
-### 🚀 Getting Started
+### Getting Started
 - [Installation Guide](/docs/dockit/installation)
 - [Connect to Database](/docs/dockit/connect-to-server)
 - [Keyboard Shortcuts](/docs/dockit/shortcut)
@@ -42,7 +42,7 @@ DocKit is an open-source AI-native desktop GUI client for MongoDB, DynamoDB, Ela
 
 <div style="padding: 20px; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
 
-### 🤖 AI & Data Studio
+### AI & Data Studio
 - [Agentic Data Studio](/docs/dockit/agentic-datastudio)
 - [Import & Export](/docs/dockit/import-export)
 - [Query History](/docs/dockit/query-history)
@@ -51,7 +51,7 @@ DocKit is an open-source AI-native desktop GUI client for MongoDB, DynamoDB, Ela
 
 <div style="padding: 20px; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
 
-### 🗄️ Database Management
+### Database Management
 - [Manage Elasticsearch Cluster](/docs/dockit/manage-elasticsearch-cluster)
 - [DynamoDB Manage & Metrics](/docs/dockit/dynamodb-manage-metrics)
 - [View All Docs](/docs/dockit/)
