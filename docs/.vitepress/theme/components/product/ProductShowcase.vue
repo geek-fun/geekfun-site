@@ -43,7 +43,6 @@ defineProps<{ showcase: ShowcaseItem[] }>()
     padding: 32px 0;
   }
 }
-}
 
 .bg-default {
   background-color: var(--vp-c-bg);
@@ -150,4 +149,5 @@ defineProps<{ showcase: ShowcaseItem[] }>()
     font-size: 1rem;
   }
 }
+
 </style>

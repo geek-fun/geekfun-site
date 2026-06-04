@@ -9,11 +9,11 @@ const members = [
   {
     avatar: '/team/seven.jpg',
     name: 'SEVEN',
-    title: 'Creator',
+    title: 'Founder',
     desc: '好好学习，天天向上',
     links: [
       { icon: 'github', link: 'https://github.com/Blankll' },
-      { icon: 'x', link: 'https://x.com/geekfun_club' },
+      { icon: 'x', link: 'https://x.com/lisheng_z' },
       { icon: 'youtube', link: 'https://www.youtube.com/@geekfun-club' }
     ]
   },
@@ -33,7 +33,8 @@ const members = [
     title: 'Contributor',
     desc: 'Code to Build the Future',
     links: [
-      { icon: 'github', link: 'https://github.com/AnnChord' }
+      { icon: 'github', link: 'https://github.com/AnnChord' },
+      { icon: 'x', link: 'https://x.com/@shuu19069667' }
     ]
   }
 ]
