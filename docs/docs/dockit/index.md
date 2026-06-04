@@ -24,11 +24,11 @@ head:
 
 # Document
 
-DocKit is an **AI-native** NoSQL GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Write queries in natural language and let AI handle the syntax. Agentic Data Studio provides multi-step database operations with per-source permissions and safety controls.
+DocKit is an **AI-native** NoSQL GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Describe what you need in plain language and the agent writes the queries. Agentic Data Studio handles multi-step database operations with per-source permissions and safety controls.
 
 ## [Agentic Data Studio](/docs/dockit/agentic-datastudio)
 
-The centerpiece of DocKit. Describe what you need — "find users from last week" or "aggregate sales by region" — and the AI agent writes queries, inspects schemas, updates documents, and returns results. Includes permission modes (Ask/Auto), risk levels (Safe/Elevated/Destructive), confirmation rules, and context compaction. 20+ tool integrations across all supported databases. Supports 12+ AI providers including OpenAI, Anthropic, DeepSeek, Ollama, and LM Studio.
+The main AI feature. Tell it what you need — it writes queries, inspects schemas, updates documents, and returns results. Permission modes (Ask/Auto), risk levels, and context compaction are built in. Works with OpenAI, Anthropic, DeepSeek, Ollama, LM Studio, and more.
 
 ## [Installation Guide](/docs/dockit/installation)
 
@@ -36,29 +36,28 @@ Thanks for trying out DocKit! :rocket::rocket::rocket: This guide will help you 
 
 ## [Connect to Server](/docs/dockit/connect-to-server)
 
-DocKit supports connecting to MongoDB, Elasticsearch, OpenSearch, and DynamoDB. Configure connections with Basic auth, API Key, SCRAM, AWS SSO, AWS Profile, or full URI. SSL/TLS supported for all connection types.
+Connect to MongoDB, Elasticsearch, OpenSearch, and DynamoDB. Supports Basic auth, API Key, SCRAM, AWS SSO, AWS Profile, and full URI. All connection types work with SSL/TLS.
 
 ## [Settings](/docs/dockit/settings)
 
-Configure DocKit to match your workflow: theme (dark/light/auto), language (English/Chinese), editor options (font size, minimap, line numbers, tab size, insert spaces), and query history capacity. Proxy configuration available for AI providers.
+Configure theme (dark/light/auto), language (English/Chinese), editor options (font size, minimap, line numbers, tab size, insert spaces), and query history capacity. Proxy configuration available for AI providers.
 
 ## [Shortcuts Introduction](/docs/dockit/shortcut)
 
-As a Desktop Application, DocKit provides a set of shortcuts to help users use DocKit more efficiently. This document outlines the available shortcuts and corresponding actions. Press `Cmd+?` anytime to view all shortcuts in the app.
+DocKit comes with keyboard shortcuts to speed up your workflow. Press `Cmd+?` anytime to see them all in the app.
 
 ## [Manage Elasticsearch Cluster](/docs/dockit/manage-elasticsearch-cluster)
 
-DocKit supports monitoring and managing Elasticsearch including indices and alias management, nodes management, shards management (with detailed per-shard metrics), and templates management (composable, component, and legacy templates).
+Monitor and manage Elasticsearch: indices, aliases, nodes, and shards. The shards view shows per-shard detail metrics. Templates support composable, component, and legacy formats.
 
 ## [Import & Export](/docs/dockit/import-export)
 
-DocKit supports importing and exporting data from MongoDB, Elasticsearch, OpenSearch, and DynamoDB in JSON, CSV, JSONL, and Elasticsearch Bulk formats. The multi-step wizard includes schema mapping, field selection, metadata export, and background task execution with real-time progress.
+Import and export data from MongoDB, Elasticsearch, OpenSearch, and DynamoDB. Supports JSON, CSV, JSONL, and Elasticsearch Bulk. The interactive wizard handles schema mapping, field selection, metadata export — all running as a background task with real-time progress.
 
 ## [Query History](/docs/dockit/query-history)
 
-Never lose a query again. DocKit automatically records every executed query for MongoDB, Elasticsearch, OpenSearch, and DynamoDB. Star/bookmark favorites, search history by path or content, view per-entry detail, and re-run or copy past queries.
+Every query you run is automatically recorded. Star your favorites, search by path or content, inspect the full detail, and re-run or copy past queries.
 
 ## [DynamoDB Manage & Metrics](/docs/dockit/dynamodb-manage-metrics)
 
-DocKit lets you manage DynamoDB tables and monitor key metrics — table size, item count, read/write capacity — all from a clean desktop GUI. Full table lifecycle including GSI/LSI management, TTL, streams, PITR, encryption, and CloudWatch metrics.
-
+View and manage DynamoDB tables from a clean desktop GUI — table size, item count, read/write capacity. Full table lifecycle including GSI/LSI management, TTL, streams, PITR, encryption, and CloudWatch metrics.

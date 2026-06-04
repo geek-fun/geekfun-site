@@ -28,7 +28,7 @@ DocKit 是一款 **AI 原生** NoSQL GUI 客户端，支持 MongoDB、Elasticsea
 
 ## [Agentic Data Studio](/zh/docs/dockit/agentic-datastudio)
 
-DocKit 的核心功能。用自然语言描述需求——AI Agent 编写查询、检查表结构、更新文档并返回结果。包含权限模式（询问/自动）、风险等级（安全/升高/破坏性）、确认规则和上下文压缩。支持所有支持的数据库 20+ 工具集成。支持 12+ 种 AI 提供商，包括 OpenAI、Anthropic、DeepSeek、Ollama 和 LM Studio。
+DocKit 的核心功能。用自然语言描述需求——AI Agent 编写查询、检查表结构、更新文档并返回结果。包含权限模式、风险等级、确认规则和上下文压缩。支持 OpenAI、Anthropic、DeepSeek、Ollama、LM Studio 等多种 AI 提供商。
 
 ## [安装指南](/zh/docs/dockit/installation)
 
