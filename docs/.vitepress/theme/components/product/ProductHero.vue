@@ -192,7 +192,7 @@ onUnmounted(() => {
 
 .hero-type-wrapper {
   display: inline-block;
-  min-width: 5.5em;
+  min-width: 4.5em;
   text-align: left;
   position: relative;
 }
