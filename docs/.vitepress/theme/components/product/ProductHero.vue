@@ -186,7 +186,7 @@ onUnmounted(() => {
 }
 
 .hero-brand-text {
-  color: var(--vp-c-brand-1);
+  color: var(--vp-c-text-1);
   font-weight: 800;
 }
 
@@ -198,14 +198,14 @@ onUnmounted(() => {
 }
 
 .hero-type-text {
-  color: #bd34fe;
+  color: var(--vp-c-brand-1);
   font-weight: 800;
   display: inline;
 }
 
 .hero-type-cursor {
   display: inline;
-  color: #bd34fe;
+  color: var(--vp-c-brand-1);
   font-weight: 300;
   margin-left: 1px;
   transition: opacity 0.1s;
