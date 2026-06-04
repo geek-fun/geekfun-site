@@ -27,6 +27,11 @@ Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:
 
 Product updates, technical deep-dives, and lessons from building open-source database tools. Written by the GEEKFUN team.
 
+## [Engineering Production AI Agents: Architecture (Part 1 of 5)](/blog/building-ai-agent-architecture)
+*May 22, 2026*
+
+How DocKit builds a production AI agent across a Rust backend and Vue 3 frontend — streaming events over Tauri IPC, a composable orchestration layer, and clean separation between agent logic and UI state. Part 1 of a 5-part series grounded in real source code.
+
 ## [DocKit 1.0 - The NoSQL desktop client developers deserved](/blog/introducing-dockit-v1)
 *May 10, 2026*
 
