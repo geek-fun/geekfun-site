@@ -1,11 +1,11 @@
 ---
-title: DocKit 1.1 — Agentic Data Studio、MongoDB 与 EasySearch
-description: DocKit v1.1 发布，新增 MongoDB 和 EasySearch 支持、Agentic Data Studio 含 28+ 代理工具、12 种 AI 提供商、AWS SSO、完整 DynamoDB 表生命周期管理、导入导出向导等。v1.0 以来最大更新。
-date: 2026-06-04
+title: DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端
+description: DocKit v1.0 发布，历经 970+ 次提交、244 个合并 PR、132 个已解决问题、70 个版本发布和 1,000+ GitHub Star。从头梳理 AI 原生 NoSQL 桌面客户端的每一项功能，从第一行代码到首个稳定版。
+date: 2026-05-10
 head:
   - - meta
     - name: keywords
-      content: DocKit 1.1, DocKit MongoDB, Agentic Data Studio, AI 数据库代理, NoSQL GUI, EasySearch, DynamoDB 表生命周期, 导入导出向导, AWS SSO, MongoDB GUI 客户端
+      content: DocKit 1.0, DocKit 介绍, AI原生 NoSQL GUI, DynamoDB 桌面客户端, Elasticsearch GUI, OpenSearch GUI, NoSQL 数据库工具, Kibana 替代品, 开源数据库客户端, PartiQL 编辑器, AI 数据库助手, Tauri 桌面应用
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/blog/introducing-dockit-v1
@@ -27,132 +27,188 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "DocKit 1.1 — Agentic Data Studio、MongoDB 与 EasySearch",
-        "description": "DocKit v1.1 发布，新增 MongoDB 和 EasySearch 支持、Agentic Data Studio 含 28+ 代理工具、12 种 AI 提供商、AWS SSO、完整 DynamoDB 表生命周期管理、导入导出向导等。",
+        "headline": "DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端",
+        "description": "DocKit v1.0 发布，历经 970+ 次提交、244 个合并 PR、132 个已解决问题、70 个版本发布和 1,000+ GitHub Star。从头梳理 AI 原生 NoSQL 桌面客户端的每一项功能。",
         "image": "https://www.geekfun.club/dockit-client-ui.png",
         "author": {
           "@type": "Organization",
-          "name": "极客范",
+          "name": "GEEKFUN",
           "url": "https://www.geekfun.club"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "极客范",
+          "name": "GEEKFUN",
           "logo": {
             "@type": "ImageObject",
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2026-06-04",
-        "dateModified": "2026-06-04",
+        "datePublished": "2026-05-10",
+        "dateModified": "2026-05-10",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/zh/blog/introducing-dockit-v1"
         },
-        "keywords": ["DocKit", "MongoDB GUI", "Agentic Data Studio", "NoSQL", "Elasticsearch 客户端", "DynamoDB 工具", "AI 代理", "开源"],
+        "keywords": ["DocKit", "NoSQL GUI", "Elasticsearch 客户端", "DynamoDB 工具", "AI 数据库助手", "开源", "Tauri"],
         "articleSection": "产品发布"
       }
 ---
 
-# DocKit 1.1 — Agentic Data Studio、MongoDB 与 EasySearch
+# DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端
 
-> MongoDB 支持。EasySearch 支持。Agentic Data Studio 含 28+ 代理工具。12 种 AI 提供商。完整 DynamoDB 表生命周期。AWS SSO。导入导出向导。后台任务。文件浏览器。
+> 970 次提交。244 个合并 PR。132 个已解决问题。70 个版本发布。1,091 个 GitHub Star。
 
-v1.0 打下了稳定的基础。v1.1 让它成为你离不开的数据库客户端——因为这里的每一个功能都来自对人们实际工作方式的观察。
+历经 2 年 10 个月的开发，DocKit 发布了首个稳定版本。从一个简单的 Elasticsearch 查询编辑器起步，现在能在同一个原生桌面应用里管理 DynamoDB、Elasticsearch 和 OpenSearch。如果你从未听说过 DocKit，现在正是时候。
 
-## MongoDB 来了
+![DocKit UI](/dockit-client-ui.png)
 
-呼声最高的功能。MongoDB 已完全接入：支持 SCRAM 认证、URI 直通和无认证三种连接方式。TLS 开关、副本集 URI、认证来源配置一应俱全。
+## DocKit 之前的烦恼
 
-查询编辑器支持 find、aggregate、insert、update 和 delete 操作，结果格式化显示。管理视图提供集合统计、索引管理、服务器状态、副本集健康和分片集群信息。
+浏览器端的 NoSQL 工具有很多通病：臃肿、丢状态、客户端强绑定。Kibana、OpenSearch Dashboards、AWS 控制台——不同 Logo，同一套痛点。
 
-MongoDB 不是后加的插件。它与所有其他数据库共享相同的查询历史、导入导出和 Agentic Data Studio 基础设施。
+**不必要的臃肿。** 这些工具被做成完整平台：仪表盘、监控、告警、可视化引擎。但大多数时候开发者只是想跑几个查询。Kibana/OpenSearch Dashboards 让你一行查询还没写就需要启动实例/容器、30S+的启动时间、500MB+ 内存占用。光是自动补全就能打满集群每个 warm 节点的 CPU。
 
-## Agentic Data Studio
+**频繁丢失的语句。** 浏览器工具不像桌面应用那样持有状态。Kibana 新标签页打开 Dashboard，筛选条件直接没了（[#188914](https://github.com/elastic/kibana/issues/188914)，至今未修）。离开几分钟，Session 过期，回到登录页，全丢了（[#106235](https://github.com/elastic/kibana/issues/106235)，还开着）。AWS 控制台同理：Session 刷新还会清掉你正在填的表单。不是你忘了保存，是工具替你忘了。
 
-v1.1 最大的变化。v1.0 的 AI 助手只是一个查询生成器。Data Studio 是一个自主代理，用自然语言与数据库对话——它能写查询、检查表结构、更新文档、删除记录、创建索引，覆盖 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。
+**强制绑定的客户端。** 每个 Web UI 都被捆在单个后端上。Kibana 和 OpenSearch Dashboards 一个实例只能连一个集群，且明确驳回了支持多集群的请求（[#25183](https://github.com/elastic/kibana/issues/25183)），并明确 "长期内都不会考虑"。AWS 控制台把你锁在 DynamoDB 单标签页里，Session 还有倒计时。结果就是：staging 和prod？两个实例，两套登录。换个数据库？换套工具。每个后端都是一个跑在你机器上的新客户端。
 
-**28+ 工具**按数据库类型组织，每个工具有内置风险等级：安全（只读）、升高（创建/更新）、破坏性（删除）。每个工具需要匹配的权限才能运行。
+我们希望 NoSQL 客户端能像 RDBMS 客户端那样工作：与服务端解耦，在一个地方管理多种引擎和集群，查询和历史持久化到文件系统，而不是依赖脆弱的浏览器状态。于是我们做了 DocKit——基于 Tauri 的原生桌面应用，做的正是这件事。
 
-权限模式让你决定代理的自主程度：
-- **询问模式**：每个非只读工具执行前提示允许或拒绝
-- **自动模式**：会话有足够权限时自动执行
+## DocKit 能做什么
 
-按源权限——每个附加数据库有独立的读取/创建/更新/删除控制。确认规则可自动允许安全操作或完全阻止危险操作。
+### 用自然语言写数据库查询
 
-**12+ AI 提供商**——OpenAI、Anthropic、DeepSeek、OpenRouter、Google Gemini、Grok、Mistral、Azure OpenAI、Ollama、LM Studio，以及自定义端点。可为 Data Studio 和侧边栏助手分别路由不同的模型。
+AI 助手理解你的数据库结构，所以生成的查询是真正能跑的。描述你的需求：
 
-代理在迭代循环中运行，配有可配置的预算（最大迭代次数、运行时间、Token）。长对话自动压缩以管理 Token 用量。完整结果保存在本地——只有截断的摘要发送给 LLM。
+![DocKit AI 助手截图](/dockit-ai-assistant.png)
 
-## 12 种 AI 提供商
+- "查找最近 7 天注册且邮箱未验证的用户"
+- "按产品类别聚合 2026 年第一季度的销售额"
+- "显示最近一小时内最慢的 10 条查询"
 
-v1.0 只有 OpenAI 和 DeepSeek。v1.1 新增 Anthropic、OpenRouter、Google Gemini、Grok、Mistral、Azure OpenAI、Ollama 和 LM Studio。每个提供商可配置自己的 API Key、基础 URL 和代理。DocKit 自动发现可用模型并允许路由到特定功能。
+你得到的是能实际运行的查询 — DynamoDB PartiQL 或 Elasticsearch DSL — 带有正确的字段名、正确的操作符、正确的语法。内置 OpenAI 和 DeepSeek 支持，只需添加你的 API Key，查询数据不离本地。
 
-侧边栏助手是一个轻量级聊天面板，可从应用任意位置调用。它与 Data Studio 共享提供商，但以单轮问答方式运行。
+### VS Code 级别的数据库编辑
 
-## DynamoDB 完整生命周期
+Monaco Editor — VS Code 同款引擎 — 驱动编辑器内核。语法高亮、智能补全、多光标编辑、括号匹配，以及你早已记熟的每个快捷键。
 
-表管理现在覆盖完整生命周期：4 步创建向导（基本信息、容量、索引与流、确认），修改计费模式、表类、Auto Scaling、GSI/LSI、TTL、Point-in-Time Recovery、流、加密（AWS 自有密钥/KMS/CMK）、删除保护和标签。CloudWatch 指标——读写容量使用率、节流事件、已消耗 RCU/WCU——直接在应用内查看。清空和删除操作配有安全保护。
+![DocKit 编辑器截图](/dockit-dynamodb-partiql-editor.png)
 
-可视化查询构建器支持 13+ 种过滤运算符，覆盖分区键、排序键和 GSI 查询。PartiQL 编辑器配 Monaco 语法高亮。支持行内 CRUD 操作。
+语法驱动补全覆盖 Elasticsearch、OpenSearch 和 DynamoDB——100+测试用例验证从 v0.90 到 v9.x 的 API 版本。ES|QL 自动补全，支持数据源、命令和函数建议。查询语言注册中心，SQL、PPL、EQL、DSL 和 PartiQL 共享同一套补全架构。Body 补全，输入时自动提示字段映射、索引设置、组件模板。JSON5 支持：行内注释、尾逗号、无引号键名。按你的思考方式写查询，而不是按解析器的要求。在任意 API 端点上按 Ctrl+D 即可打开该操作的精确文档页面，版本与你的集群匹配。
 
-## AWS SSO 和 Profile 认证
+### 查询和连接持久保存
 
-DynamoDB 连接现在支持 AWS IAM Identity Center（SSO）设备授权流程和缓存会话。AWS Profile 认证从 `~/.aws/credentials` 和 `~/.aws/config` 读取凭证，支持源角色链、SSO 配置文件和 MFA 设置。
+得益于桌面应用的天然优势。DocKit 会保存你的数据库连接，并自动记录你执行的每条查询到本地文件中，跨所有引擎。每个连接 500 条，存储在你的机器上。
 
-## 导入导出向导
+![DocKit 查询历史截图](/dockit-query-history.png)
 
-旧版单对话框导入导出已升级为多步向导。选择数据源和范围，查看带字段映射（匹配/新增/排除）的 schema，选择输出格式和目标，然后作为后台任务执行，实时显示进度。元数据导出会生成 `metadata.json` 文件，方便无缝重新导入。支持 JSON、CSV、JSONL 和 Elasticsearch Bulk 格式。
+每条记录捕获方法、路径、连接名和时间戳（Elasticsearch/OpenSearch），或查询类型、表和时间戳（DynamoDB）。键盘导航浏览历史。复制到剪贴板。重新加载回编辑器。一键重新执行。覆盖 PartiQL 语句、Elasticsearch DSL 查询和可视化表单查询。
 
-后台任务在任务管理器面板中运行——启动导入，切换到查询，检查进度。无需等待。
+### 流式数据快速导入导出
 
-## EasySearch 支持
+JSON、CSV、JSONL。批量操作处理百万级记录。在集群间迁移数据、为开发环境备份表、给测试环境播种数据。跨 Elasticsearch、OpenSearch 和 DynamoDB。
+![DocKit 数据导入导出面板截图](/dockit-dynamodb-import-export.png)
 
-EasySearch 加入 Elasticsearch 和 OpenSearch 成为受支持的搜索引擎。同样的代理工具、同样的导入导出、同样的查询编辑器。三者共享 16 个代理工具，涵盖搜索、文档 CRUD、索引管理、别名操作和字段映射。
+### 一个工具，多种引擎
 
-## Elasticsearch 集群管理，更加深入
+DynamoDB、Elasticsearch、OpenSearch——同一个编辑器，同一套快捷键。引擎之间即时切换。
 
-分片视图现在暴露分片级详细指标：文档数、存储大小、完成情况、字段数据、查询缓存、查询速率、索引统计、合并状态、刷新/冲洗指标、段信息和建议操作。模板管理覆盖可组合索引模板、组件模板和传统模板。别名管理支持创建、原子切换和删除操作。
+DynamoDB 方面，可视化查询构建器，带主键过滤和高级条件。PartiQL 编辑器，完整自动补全、语法高亮、文档格式化和 Gutter 执行。
 
-ES|QL 补全已内置，与现有的语法驱动补全引擎并存。
+![DocKit DynamoDB 可视化查询构建器与 PartiQL 编辑器](/dockit-dynamodb-query-ui.png)
 
-## 带收藏的查询历史
+行内编辑——在结果中直接更新和删除条目。表管理支持 GSI/LSI 操作和 CloudWatch 指标。
 
-MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch 的每个查询都自动记录。星标收藏重要查询。按路径、方法、内容或连接搜索。展开任意条目查看完整详情。可配置历史容量（最多 1000 条）。
+![DocKit DynamoDB 表管理与 CloudWatch 指标](/dockit-dynamodb-manage.png)
 
-## 文件浏览器
+DynamoDB Local 离线开发。SSO 和 AssumeRole 跨账户 AWS 认证。
 
-直接在应用内浏览、创建和组织本地查询文件（`.search`、`.partiql`、`.mongo`）。以编辑器标签页形式打开文件。按名称、日期或大小排序。
+![DocKit DynamoDB Local 连接配置](/dockit-dynamodb-connection.png)
 
-## 其他变化
+Elasticsearch 和 OpenSearch 方面，Monaco 支持的编辑和语法驱动补全（37 个测试用例，v0.90 到 9.x），外加完整的集群管理：节点健康、分片状态、索引操作、别名控制——全部可视化，不用手敲 `_cat`。列排序，系统索引过滤。
 
-- **MongoDB 连接**支持 SCRAM、URI 和无认证模式。认证来源和认证机制可配置。TLS 开关。
-- **MongoDB 集合操作**——创建、删除、重命名、克隆、清空。索引管理支持升序、降序、文本、哈希、2dsphere 类型。唯一、稀疏和 TTL 约束。
-- **MongoDB 副本集监控**——成员、主/从/仲裁节点、复制延迟。
-- **MongoDB 分片集群状态**。
-- **MongoDB 服务器状态和数据库/集合统计**。
-- **MongoDB 行内文档 CRUD**，支持 JSON、表格和树状视图。
-- **连接克隆**——一键复制任意连接。
-- **Elasticsearch 和 OpenSearch 的可组合模板支持**。
+### 本地优先，注重隐私
 
-## 数据对比
+DocKit 本地优先。连接、查询和历史存储在你的文件系统上。凭证由操作系统钥匙串加密（macOS Keychain、Windows 凭据管理器、Linux libsecret）。零遥测。无云同步、无回传。无需网络连接——完全离线可用。Apache 2.0 许可。无功能锁。
 
-| 指标 | v1.0 | v1.1 |
-|------|------|------|
-| 支持的数据库 | 3 | 5 |
-| AI 提供商 | 2 | 12+ |
-| 代理工具 | — | 28+ |
-| 连接认证方式 | 4 | 9 |
-| 查询历史条目 | 500 | 1000 |
-| 导入格式 | 3 | 4 |
-| 语言 | 2 | 2 |
+### 跨平台支持 — macOS、Windows、Linux
+
+基于 Tauri v2 构建，不是 Electron。macOS 安装包不到 10MB。Tauri 使用操作系统的原生 webview（macOS 上 WebKit、Windows 上 WebView2、Linux 上 WebKitGTK）。没有捆绑的浏览器引擎。
+
+| 平台 | 安装包 |
+|------|--------|
+| macOS（通用版 — Apple Silicon + Intel） | `.dmg`，约 8MB |
+| Windows（x64） | `.exe` 安装器 |
+| Linux | `.AppImage`、`.deb` |
+
+## 通往 1.0 之路
+
+### 2023：奠基
+
+![奠基 — 仓库初始化与首批功能](/screenshots/milestone-foundation.png)
+
+**2023 年 7 月 22 日。** 首次提交。一个 `package.json`、一个 LICENSE 文件、一个 README。基于 Electron 构建。
+
+**2023 年 8 月。** Monaco Editor 作为查询编辑器核心集成。基础连接管理：添加、测试、删除 Elasticsearch 连接。编辑器获得了搜索 DSL 的语法高亮和代码补全。
+
+**2024 年 1 月。** 查询执行上线。支持对 Elasticsearch 端点的 GET、POST、PUT、DELETE 操作。同月加入 OpenSearch 认证支持。实现了自动更新机制。2 月首次公开发布。
+
+### 2024：平台转变
+
+![平台转变 — 移除 Electron，Tauri v1 就位](/screenshots/milestone-platform.png)
+
+**2024 年 4 月。** OpenAI 集成发布。这是转折点。DocKit 不再只是代码补全，它可以解释自然语言并生成上下文准确的查询——一个真正理解 Elasticsearch DSL 的助手，而不是侧边栏里贴的聊天框。
+
+**2024 年 6 月 29 日。** Electron → Tauri v1 迁移。这是一次重写。Electron 的 Chromium 依赖意味着 150MB+ 的安装包。Tauri 使用操作系统的原生 webview，安装包缩减到 20MB 以下。这次迁移触及了每一层：Rust 后端替代 Node.js 主进程，新的 IPC 架构，新的构建流水线。
+
+**2024 年夏季。** 集群管理上线。节点健康监控、分片状态可视化、索引管理、别名控制。全部通过可视化界面完成，比 curl `_cat` 端点快得多。9 月加入 Query DSL 自动补全。11 月加入导入导出（JSON、CSV）。
+
+**2024 年 12 月 26 日。** DynamoDB 支持启动。DocKit 不再只是 Elasticsearch 工具。DynamoDB 集成将在接下来的六个月中成长为一个完整的子系统。
+
+### 2025：扩展
+
+![扩展 — Tauri v2、多语言、DynamoDB UI](/screenshots/milestone-expansion.png)
+
+**2025 年 3 月 30 日。** Tauri v1 → Tauri v2 升级。Tauri v2 带来了移动端支持、可插拔权限系统和改进的 IPC 性能。升级涉及所有 Tauri 插件，需要将整个 Rust 层适配到新 API。
+
+**2025 年 4 月。** DeepSeek 集成加入，与 OpenAI 并行。开发者现在可以选择 AI 提供商。同月，DynamoDB 可视化查询构建器发布 — 无需写代码即可扫描和查询表。
+
+**2025 年 7 月。** v0.7.0：多语言支持（英文 + 中文），DynamoDB 分页，以及一轮依赖升级将技术栈更新到最新版本。
+
+### 2026：成熟
+
+![成熟 — 查询历史、ES|QL、v1.0 打磨](/screenshots/milestone-maturation.png)
+
+**2026 年 1 月。** 这是开发最密集的月份。一个月内：PartiQL 编辑器（完整语法高亮和格式化），语法驱动补全引擎（37 个测试用例覆盖从 0.90 到 9.x 的每个 API 版本），DynamoDB CRUD 操作（行内创建、更新、删除条目），实时语法校验和错误高亮，以及连接加载模态框。
+
+**2026 年 1 月 13 日。** v0.8.0。DynamoDB 子系统现在已经足够完整，可以被称为一个独立的产品。可视化查询构建器、带 Gutter 执行图标的 PartiQL 编辑器、统一工具栏、结构感知导出、元数据验证导入、带 GSI 操作和 CloudWatch 指标的 DynamoDB 管理面板。
+
+**2026 年 2 月 28 日。** Naive UI → shadcn-vue + UnoCSS 迁移。60+ 个 Vue 组件中 1,200+ 行变更。Naive UI 被替换为 shadcn-vue（Radix Vue 基础组件）和 UnoCSS 样式。更干净的设计，更好的无障碍性，更轻的包体积。
+
+**2026 年 3 月 3 日。** v0.9.0。查询历史（每个连接 500 条，自动记录，纯本地），DynamoDB Local 端点支持（离线开发），PartiQL 文档格式化，以及官方 Tauri 更新器插件。v0.9.x 快速发布周期从此开始。
+
+**2026 年 3–4 月。** v0.9.x 冲刺。8 周内 10 个补丁版本：Elasticsearch API Key 认证、连接克隆、查询参数自动补全、连接排序筛选、历史视图键盘导航、DynamoDB SSO 和 AssumeRole、完全重建的 Data Studio AI Agent（流式 LLM 响应），以及 Naive UI → shadcn-vue 迁移的完成。0.9 系列共 20 个版本。
+
+### 正式版发布
+
+![v1.0 发布 — 键盘导航、UX 打磨、README 更新](/screenshots/milestone-v1release.png)
+
+标签从 `0.x` 变为 `1.0`。ES|QL 查询补全落地，统一查询语言注册中心随之发布 — SQL、PPL、EQL、DSL、PartiQL 现在共享同一套补全引擎。Body 补全覆盖索引设置和组件模板。列排序上线管理面板。
+
+经过两年和 130 多个已解决问题，DocKit 正式对外说：能用，拿去用。不再有测试版声明。
+
+## 接下来的计划
+
+MongoDB 支持正在积极开发中。连接管理和查询执行已合并到主分支。Azure Cosmos DB 已列入路线图。
+
+版本号变成 1 了，节奏照旧。
 
 ---
 
-DocKit 采用 Apache 2.0 许可。免费开源版本功能完整——无功能限制、无注册门槛、无遥测。
+DocKit 使用 Apache 2.0 许可。社区版功能完整——无功能锁、无注册墙。仓库里有的，二进制包里就有。
 
-[下载 DocKit 1.1](/zh/products/dockit/) 支持 macOS、Windows 和 Linux。
+[下载 DocKit 1.0](/zh/download)，支持 macOS、Windows 和 Linux。
 
-[查看 GitHub 仓库](https://github.com/geek-fun/dockit)。
+[查看 GitHub](https://github.com/geek-fun/dockit)。
 
 [阅读完整更新日志](https://github.com/geek-fun/dockit/blob/main/CHANGELOG.md)。

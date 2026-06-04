@@ -43,4 +43,4 @@ DocKit v1.1 is the biggest update since v1.0, adding support for **MongoDB** and
 - **Elasticsearch cluster management** — Per-shard detail metrics, template types, alias management
 - **Connection cloning** — Duplicate any connection with one click
 
-Read the full announcement: [DocKit 1.1 — Agentic Data Studio, MongoDB & EasySearch](/blog/introducing-dockit-v1)
+Read the full announcement: [DocKit 1.1 — Agentic Data Studio, MongoDB & EasySearch](/blog/introducing-dockit-v1-1)

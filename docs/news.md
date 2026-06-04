@@ -119,7 +119,7 @@ Also includes Elasticsearch cluster management refinements with improved node st
 
 ## [🎉 DocKit v1.1 Released: MongoDB, Agentic Data Studio, EasySearch](/news/dockit-v1-1-release)
 
-DocKit v1.1 adds MongoDB and EasySearch support, Agentic Data Studio with 28+ agent tools, 12 AI providers, AWS SSO, full DynamoDB table lifecycle, and more. Read the [full announcement](/blog/introducing-dockit-v1).
+DocKit v1.1 adds MongoDB and EasySearch support, Agentic Data Studio with 28+ agent tools, 12 AI providers, AWS SSO, full DynamoDB table lifecycle, and more. Read the [full announcement](/blog/introducing-dockit-v1-1).
 
 **June 4, 2026**
 

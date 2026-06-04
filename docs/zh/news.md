@@ -117,7 +117,7 @@ head:
 
 ## [🎉 DocKit v1.1 发布：MongoDB、Agentic Data Studio、EasySearch](/zh/news/dockit-v1-1-release)
 
-DocKit v1.1 新增 MongoDB 和 EasySearch 支持、Agentic Data Studio 含 28+ 代理工具、12 种 AI 提供商、AWS SSO、完整 DynamoDB 表生命周期等。阅读[完整公告](/zh/blog/introducing-dockit-v1)。
+DocKit v1.1 新增 MongoDB 和 EasySearch 支持、Agentic Data Studio 含 28+ 代理工具、12 种 AI 提供商、AWS SSO、完整 DynamoDB 表生命周期等。阅读[完整公告](/zh/blog/introducing-dockit-v1-1)。
 
 **2026年6月4日**
 

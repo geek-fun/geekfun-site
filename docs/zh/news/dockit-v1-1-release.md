@@ -43,4 +43,4 @@ DocKit v1.1 是自 v1.0 以来最大的更新，新增 **MongoDB** 和 **EasySea
 - **Elasticsearch 集群管理** — 分片级详细指标、模板类型、别名管理
 - **连接克隆** — 一键复制任意连接
 
-阅读完整公告：[DocKit 1.1 — Agentic Data Studio、MongoDB 与 EasySearch](/zh/blog/introducing-dockit-v1)
+阅读完整公告：[DocKit 1.1 — Agentic Data Studio、MongoDB 与 EasySearch](/zh/blog/introducing-dockit-v1-1)
