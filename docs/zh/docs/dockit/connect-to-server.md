@@ -26,6 +26,10 @@ head:
 
 DocKit 支持连接 [Elasticsearch](https://www.elastic.co)、[OpenSearch](https://opensearch.org/)、[DynamoDB](https://aws.amazon.com/dynamodb/) 和 [MongoDB](https://www.mongodb.com)。每种数据库类型有自己的连接表单，操作方式一致。
 
+## 安装并打开 DocKit
+
+详细的安装和打开说明请参考[安装指南](/zh/docs/dockit/installation)。
+
 ## 连接到 Elasticsearch
 
 点击 `+ 新建连接`，选择 Elasticsearch。填写连接名称、服务器主机（带 `http://` 或 `https://` 协议）和端口（默认 9200）。如果用户权限有限，可通过指定索引名称缩小访问范围。
