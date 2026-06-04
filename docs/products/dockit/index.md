@@ -113,16 +113,16 @@ showcase:
     body: "Talk to your databases in natural language. DocKit's AI agent writes queries, inspects schemas, creates indexes, updates documents, and returns results — with per-source permissions and a safety gate for destructive actions. Ask 'find orders over $500 from last week' and get optimized queries instantly. Supports OpenAI, Anthropic, DeepSeek, and more."
     image: /dockit-gui-client-demo.gif
     align: left
-  - title: "Local Persistence"
-    body: "Credentials, queries, and LLM provider configs stay on your machine — no cloud dependency. All query history is tracked and searchable. Local LLMs (Ollama, LM Studio) supported for fully offline use."
-    image: /dockit-query-history.png
-    align: right
   - title: "Multi-Database Data Management"
     body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one interface. Monitor cluster health, manage indices and indexes, track metrics, and move data between databases with built-in import, export, and backup."
-    image: /dockit-dynamodb-query-ui.png
-    align: left
+    image: /dockit-multi-database-manage-demo.gif
+    align: right
   - title: "Import & Backup"
     body: "Export and restore your data through an interactive interface. Pick your source and target, map fields visually, choose which fields to include, and let DocKit handle the rest — all running as background tasks with real-time progress. Supports JSON, CSV, and JSONL."
+    image: /dockit-import-export-demo.gif
+    align: left
+  - title: "Local Persistence"
+    body: "Credentials, queries, and LLM provider configs stay on your machine — no cloud dependency. All query history is tracked and searchable. Local LLMs (Ollama, LM Studio) supported for fully offline use."
     image: /dockit-query-history.png
     align: right
 
