@@ -64,7 +64,7 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "1.0.1",
+        "softwareVersion": "1.1.0",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

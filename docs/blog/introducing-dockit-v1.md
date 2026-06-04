@@ -1,11 +1,11 @@
 ---
-title: DocKit 1.0 - The NoSQL desktop client developers deserved
-description: DocKit v1.0 ships after 970+ commits, 244 merged PRs, 132 resolved issues, 70 releases, and 1,000+ GitHub stars. A complete re-introduction of the AI-native NoSQL desktop client covering every feature built from scratch to the first stable release.
-date: 2026-05-10
+title: DocKit 1.1 — Agentic Data Studio, MongoDB & EasySearch
+description: DocKit v1.1 ships with MongoDB and EasySearch support, Agentic Data Studio with 28+ agent tools, 12 AI providers, AWS SSO, full DynamoDB table lifecycle, import/export wizards, and more. The biggest update since v1.0.
+date: 2026-06-04
 head:
   - - meta
     - name: keywords
-      content: DocKit 1.0, DocKit introduction, AI-native NoSQL GUI, DynamoDB desktop client, Elasticsearch GUI, OpenSearch GUI, NoSQL database tool, Kibana alternative, open source database client, PartiQL editor, AI database assistant, Tauri desktop app
+      content: DocKit 1.1, DocKit MongoDB, Agentic Data Studio, AI database agent, NoSQL GUI, EasySearch, DynamoDB table lifecycle, import export wizard, AWS SSO, MongoDB GUI client
   - - link
     - rel: canonical
       href: https://www.geekfun.club/blog/introducing-dockit-v1
@@ -27,8 +27,8 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "DocKit 1.0 - The NoSQL desktop client developers deserved",
-        "description": "DocKit v1.0 ships after 970+ commits, 244 merged PRs, 132 resolved issues, 70 releases, and 1,000+ GitHub stars. A complete introduction to every feature built from scratch.",
+        "headline": "DocKit 1.1 — Agentic Data Studio, MongoDB & EasySearch",
+        "description": "DocKit v1.1 ships with MongoDB and EasySearch support, Agentic Data Studio with 28+ agent tools, 12 AI providers, AWS SSO, full DynamoDB table lifecycle, import/export wizards, and more.",
         "image": "https://www.geekfun.club/dockit-client-ui.png",
         "author": {
           "@type": "Organization",
@@ -43,171 +43,119 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2026-05-10",
-        "dateModified": "2026-05-10",
+        "datePublished": "2026-06-04",
+        "dateModified": "2026-06-04",
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/introducing-dockit-v1"
         },
-        "keywords": ["DocKit", "NoSQL GUI", "Elasticsearch client", "DynamoDB tool", "AI database assistant", "open source", "Tauri"],
+        "keywords": ["DocKit", "MongoDB GUI", "Agentic Data Studio", "NoSQL", "Elasticsearch client", "DynamoDB tool", "AI agent", "open source"],
         "articleSection": "Product Releases"
       }
 ---
 
-# DocKit 1.0 - The NoSQL desktop client developers deserved
+# DocKit 1.1 — Agentic Data Studio, MongoDB & EasySearch
 
-> 970 commits. 244 merged pull requests. 132 resolved issues. 70 releases. 1,091 GitHub stars.
+> MongoDB support. EasySearch. Agentic Data Studio with 28+ agent tools. 12 AI providers. Full DynamoDB table lifecycle. AWS SSO. Import/export wizards. Background tasks. File browser.
 
-After 2 years and 10 months, DocKit ships its first stable release. It started as a simple Elasticsearch query editor. Now it manages DynamoDB, Elasticsearch, and OpenSearch from a single native desktop app. If you never heard of DocKit, now's the time.
+v1.0 shipped a stable foundation. v1.1 is where it becomes the database client you never knew you needed — because every feature here came from watching how people actually work with their data.
 
-![DocKit UI](/dockit-client-ui.png)
+## MongoDB is here
 
-## The frustration before DocKit
+![MongoDB connection](/dockit-mongodb-connection-demo.gif)
 
-Browser-based NoSQL tools share the same structural problems: bloat, state loss, and client lock-in. Kibana, OpenSearch Dashboards, the AWS Console — different logos, same pain points.
+The most requested feature since day one. MongoDB is fully wired in: connect with SCRAM auth, URI passthrough, or no auth for local dev. TLS toggle, replica set URIs, auth source configuration.
 
-**Bloat by default.** These tools are built as full platforms: dashboards, monitoring, alerting, visualization engines. But most of the time you just need to run queries. Kibana/OpenSearch Dashboards costs you a container, 30+ seconds and 500MB of RAM before you've typed a single line. Its autocomplete alone spikes CPU across every warm node in the cluster.
+The query editor supports find, aggregate, insert, update, and delete operations with result formatting. The Manage view shows collection stats, index management, server status, replica set health, and sharded cluster info.
 
-**Disappearing queries.** Browser-based tools don't hold state the way a desktop app does. Open a Kibana dashboard in a new tab and your filters vanish ([#188914](https://github.com/elastic/kibana/issues/188914), still open). Step away for a few minutes and the session expires — back to login, everything gone ([#106235](https://github.com/elastic/kibana/issues/106235), also still open). The AWS Console does the same: session refreshes mid-workflow and wipes your form. You didn't forget to save. The tool forgot for you.
+MongoDB wasn't tacked on. It shares the same query history, import/export, and Agentic Data Studio infrastructure as every other database.
 
-**Locked-in client.** Each web UI is bound to a single backend. Case like Kibana/OpenSearch Dashboards requires one Elasticsearch cluster per instance and decide as long-standing goal(see [#25183](https://github.com/elastic/kibana/issues/25183)). The AWS Console locks you to DynamoDB in a single tab with a ticking session timer. all of this creates the same pain: staging and production means two instances, two logins. Different database? Different tool. Every backend is another client running on your machine.
+## Agentic Data Studio
 
-We wanted NoSQL clients to work the way RDBMS clients do: decoupled from the server, managing multiple engines and clusters in one place, persisting queries and history to the filesystem instead of relying on fragile browser state. So we built DocKit — a native desktop app on Tauri that does exactly that.
+The biggest change in v1.1. The AI assistant from v1.0 was a query generator. Data Studio is an autonomous agent that talks to your databases in natural language — it writes queries, inspects schemas, updates documents, deletes records, and creates indexes across MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch.
 
-## What DocKit changes
+**28+ tools** organized by database type with built-in risk levels: Safe (read-only), Elevated (create/update), Destructive (delete). Each tool requires the matching permission to run.
 
-### Natural language to database queries
+Permission modes let you decide how much autonomy the agent has:
+- **Ask mode**: every non-read tool prompts for Allow/Deny before executing
+- **Auto mode**: tools run automatically when the session has permissions
 
-The AI assistant understands your database structure, so the queries it generates actually work. Describe what you need:
+Per-source permissions — each attached database has independent read/create/update/delete controls. Confirmation rules let you auto-allow safe operations or auto-deny dangerous ones entirely.
 
-![DocKit AI assistant screenshort](/dockit-ai-assistant.png)
+**12+ AI providers** — OpenAI, Anthropic, DeepSeek, OpenRouter, Google Gemini, Grok, Mistral, Azure OpenAI, Ollama, LM Studio, plus custom endpoints. Route different models to Data Studio vs the Sidebar Assistant.
 
-- "Find users who signed up in the last 7 days with unverified email"
-- "Aggregate sales by product category for Q1 2026"
-- "Show me the top 10 slowest queries from the last hour"
+![Data Studio in action](/dockit-data-studio-list-indices.gif)
 
-You get a query that runs. DynamoDB PartiQL or Elasticsearch DSL, with the right field names, correct operators, and proper syntax. OpenAI and DeepSeek are built in. You bring your API key. Your queries stay on your machine.
+The agent runs in an iterative loop with configurable budgets (max iterations, wall clock, token). Long conversations auto-compact to manage token usage. The full result stays local — only a truncated summary goes to the LLM.
 
-### VS Code-grade editing for databases
+## 12 AI providers, not just two
 
-Monaco — the same engine inside VS Code — powers the editor. Syntax highlighting, intelligent autocomplete, multi-cursor editing, bracket matching, every keyboard shortcut you know. Plus:
+v1.0 shipped with OpenAI and DeepSeek. v1.1 adds Anthropic, OpenRouter, Google Gemini, Grok, Mistral, Azure OpenAI, Ollama, and LM Studio. Each provider can be added with its own API key, base URL, and proxy configuration. DocKit discovers available models automatically and lets you route them to specific features.
 
-![DocKit editor screenshort](/dockit-dynamodb-partiql-editor.png)
+The Sidebar Assistant is a lightweight chat panel for quick Q&A without leaving your current view. It shares providers with Data Studio but operates as a single-turn interface.
 
-Grammar-driven completion covers Elasticsearch, OpenSearch, and DynamoDB — 37 test cases across API versions from 0.90 to 9.x. ES|QL autocomplete with sources, commands, and function suggestions. A query language registry so SQL, PPL, EQL, DSL, and PartiQL all share the same completion engine. Body completion for field mappings, index settings, and component templates. JSON5 support: inline comments, trailing commas, unquoted keys. Write queries the way you think, not the way the parser insists. Ctrl+D on any API endpoint opens the exact documentation page for that operation, version-matched to your cluster.
+## DynamoDB gets the full lifecycle
 
-### Queries and connections, persistently saved
+Table management now covers the complete lifecycle: create with a 4-step wizard (basic info, capacity, indexes & streams, review), modify billing mode, table class, auto scaling, GSI/LSI, TTL, Point-in-Time Recovery, streams, encryption (AWS-owned/KMS/CMK), deletion protection, and tags. CloudWatch metrics — read/write capacity utilization, throttled events, consumed RCU/WCU — visible directly in the app. Truncate and delete operations with proper safeguards.
 
-No save button. No config. DocKit keeps your database connections and records every query you run, across every engine, automatically. 500 entries per connection, stored locally.
+The visual query builder supports 13+ filter operators across partition key, sort key, and GSI queries. PartiQL editor with Monaco syntax highlighting. Inline item CRUD with attribute type selection.
 
-![DocKit query history screenshort](/dockit-query-history.png)
+## AWS SSO and Profile authentication
 
-Each entry captures the method, path, connection name, and timestamp (Elasticsearch/OpenSearch) or query type, table, and timestamp (DynamoDB). Keyboard navigation through history. Copy to clipboard. Load back into the editor. Re-execute. Covers PartiQL statements, Elasticsearch DSL queries, and visual form queries.
+DynamoDB connections now support AWS IAM Identity Center (SSO) with device authorization flow and cached sessions. AWS Profile authentication reads from `~/.aws/credentials` and `~/.aws/config`, supporting source role chains, SSO-based profiles, and MFA-enabled setups. Alongside the existing access key and DynamoDB Local options.
 
-### Fast streaming import and export
+## Import/export wizards
 
-JSON, CSV, JSONL. Batch operations through millions of records. Move data between clusters, back up tables for development, seed test environments. Works across Elasticsearch, OpenSearch, and DynamoDB.
-![DocKit data import export panel screenshort](/dockit-dynamodb-import-export.png)
+The old single-dialog import/export is replaced with multi-step wizards. Select source and scope, review schema with field mapping (match/new/exclude), choose output format and target, then execute as a background task with real-time progress. Metadata export creates a companion `metadata.json` for seamless re-import. Supports JSON, CSV, JSONL, and Elasticsearch Bulk formats.
 
-### One tool, multiple engines
+Background tasks run in the Task Manager panel — start an import, switch to querying, check progress. No blocking.
 
-DynamoDB, Elasticsearch, OpenSearch — same editor, same shortcuts. Switch between them instantly.
+## EasySearch support
 
-For DynamoDB, you get a visual query builder with primary key filtering and advanced conditions. A PartiQL editor with full autocomplete, syntax highlighting, document formatting, and gutter execution.
+EasySearch joins Elasticsearch and OpenSearch as a supported search engine. Same agent tools, same import/export, same query editor. All three share the same 16 agent tools for search, document CRUD, index management, alias operations, and field mappings.
 
-![DocKit DynamoDB visual query builder and PartiQL editor](/dockit-dynamodb-query-ui.png)
+## Elasticsearch cluster management, deeper
 
-Inline editing — update and delete items directly from results. Table management with GSI/LSI operations and CloudWatch metrics.
+The shard view now exposes per-shard detail metrics: docs count, store size, completion, fielddata, query cache, get/search rates, indexing stats, merge status, refresh/flush metrics, segments, and suggest operations. Template management covers composable index templates, component templates, and legacy templates. Alias management with create, atomic switch, and remove operations.
 
-![DocKit DynamoDB table management with CloudWatch metrics](/dockit-dynamodb-manage.png)
+ES|QL completion is built in alongside the existing grammar-driven completion engine.
 
-DynamoDB Local for offline development. SSO and AssumeRole for cross-account AWS authentication.
+## Query history with bookmarks
 
-![DocKit DynamoDB Local connection setup](/dockit-dynamodb-connection.png)
+Every query across MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch is recorded automatically. Star important queries to bookmark them. Search by path, method, content, or connection. Expand any entry to see the full detail view. Configurable history capacity (up to 1000 entries).
 
-For Elasticsearch and OpenSearch, you get Monaco-backed editing with grammar-driven completion (37 test cases, v0.90 to 9.x), plus full cluster management: node health, shard state, index operations, alias control — all visual, no `_cat` curling. Column sorting, system index filtering.
+## File browser
 
-### Local-first, privacy by design
+Browse, create, and organize local query files (`.search`, `.partiql`, `.mongo`) directly in the app. Open files as editor tabs. Sort by name, date, or size.
 
-DocKit is local-first. Connections, queries, and history live on your filesystem. Credentials are encrypted by your OS keychain (macOS Keychain, Windows Credential Manager, Linux libsecret). Zero telemetry. No cloud sync, no phoning home. No internet connection required — it works fully offline. Apache 2.0 licensed. No feature gating.
+## What else changed
 
-### Cross-platform — macOS, Windows, Linux
+- **MongoDB connection** with SCRAM, URI, and no-auth modes. Auth source and auth mechanism configuration. TLS toggle.
+- **MongoDB collection operations** — create, drop, rename, clone, truncate. Index management with types: ascending, descending, text, hashed, 2dsphere. Unique, sparse, and TTL constraints.
+- **MongoDB replica set monitoring** — members, primary/secondary/arbiter, replication lag.
+- **MongoDB sharded cluster status**.
+- **Server status and database/collection stats** for MongoDB.
+- **Inline MongoDB document CRUD** with JSON, table, and tree views.
+- **Connection cloning** — duplicate any connection with a single click.
+- **Compact and composable template support** for Elasticsearch and OpenSearch.
 
-Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses the OS-native webview: WebKit on macOS, WebView2 on Windows, WebKitGTK on Linux. No bundled browser engine.
+## The numbers
 
-| Platform | Installer |
-|----------|-----------|
-| macOS (Universal: Apple Silicon + Intel) | `.dmg`, ~8MB |
-| Windows (x64) | `.exe` installer |
-| Linux | `.AppImage`, `.deb` |
-
-## How we got here
-
-### 2023: Foundation
-
-![Foundation — repo bootstrap and first features](/screenshots/milestone-foundation.png)
-
-**July 22, 2023.** First commit. A `package.json`, a LICENSE file, a README. Built on Electron.
-
-**August 2023.** Monaco Editor integrated as the query editor core. Basic connection management for Elasticsearch: add, test, delete. Syntax highlighting and code completion for the search DSL arrived.
-
-**January 2024.** Query execution went live: GET, POST, PUT, DELETE against Elasticsearch endpoints. OpenSearch auth support shipped the same month. Auto-update mechanism landed. First public release in February.
-
-### 2024: Platform shift
-
-![Platform shift — Electron removed, Tauri v1 in place](/screenshots/milestone-platform.png)
-
-**April 2024.** OpenAI integration shipped. That was when things changed. Instead of just autocomplete, DocKit could take natural language and produce contextually accurate queries — an assistant that actually understood Elasticsearch DSL, not a chatbot bolted to the sidebar.
-
-**June 29, 2024.** Electron → Tauri v1 migration. A full rewrite. Electron's Chromium dependency meant 150MB+ installers. Tauri uses the OS-native webview, so the installer drops under 20MB. The migration touched everything: Rust backend replacing the Node.js main process, new IPC architecture, new build pipeline.
-
-**Summer 2024.** Cluster management shipped. Node health, shard state, index management, alias control — all visual, faster than curling `_cat` endpoints. Query DSL auto-completion in September. Import/export (JSON, CSV) in November.
-
-**December 26, 2024.** DynamoDB support began. DocKit stopped being just an Elasticsearch tool. The DynamoDB integration grew into a full subsystem over the next six months.
-
-### 2025: Expansion
-
-![Expansion — Tauri v2, multi-lang, DynamoDB UI](/screenshots/milestone-expansion.png)
-
-**March 30, 2025.** Tauri v1 → Tauri v2 upgrade. Tauri v2 added mobile support, a pluggable permission system, and IPC improvements. Every Tauri plugin was touched. The entire Rust layer adapted.
-
-**April 2025.** DeepSeek joined OpenAI. Developers could pick their AI provider. DynamoDB visual query builder shipped the same month — scan and query tables without writing a line of code.
-
-**July 2025.** v0.7.0: Multi-language support (English + Chinese), DynamoDB pagination, dependencies updated across the board.
-
-### 2026: Maturation
-
-![Maturation — query history, ES|QL, v1.0 polish](/screenshots/milestone-maturation.png)
-
-**January 2026.** The busiest month in the project's history. PartiQL Editor with syntax highlighting and formatting. A grammar-driven completion engine for Elasticsearch and OpenSearch — 37 test cases covering every API version from 0.90 to 9.x. DynamoDB CRUD: create, update, delete items inline. Real-time syntax validation with error highlighting. Connection loading modals. All in 31 days.
-
-**January 13, 2026.** v0.8.0. The DynamoDB subsystem is now a product in its own right: visual query builder, PartiQL editor with gutter execution, unified toolbar, schema-aware export, metadata-validated import, DynamoDB Manage panel with GSI operations and CloudWatch metrics.
-
-**February 28, 2026.** Naive UI → shadcn-vue + UnoCSS migration. 1,200+ lines changed across 60+ Vue components. Naive UI out, shadcn-vue (Radix Vue primitives) and UnoCSS in. Cleaner design, better accessibility, lighter bundle.
-
-**March 3, 2026.** v0.9.0. Query history: 500 entries per connection, automatic, local-only. DynamoDB Local endpoint support for offline development. PartiQL document formatting. Official Tauri updater plugin. The 0.9.x rapid release cycle starts here.
-
-**March–April 2026.** Ten patch releases in eight weeks: Elasticsearch API Key auth, connection cloning, query parameter autocomplete, connection sorting and filtering, keyboard navigation for history view, DynamoDB SSO and AssumeRole, a rebuilt Data Studio AI agent with streaming LLM responses, and the final pieces of the shadcn-vue migration. Twenty releases in the 0.9 line.
-
-### Stable release
-
-![v1.0 Release — keyboard navigation, UX polish, README refresh](/screenshots/milestone-v1release.png)
-
-The label flipped from `0.x` to `1.0`. ES|QL query completion landed alongside a unified query language registry — SQL, PPL, EQL, DSL, and PartiQL now share the same completion engine. Body completion handles index settings and component templates. Column sorting hit the Manage panel.
-
-After two years and 130-odd resolved issues, this is the point where DocKit says: this works, use it. No beta disclaimers.
-
-## What's next
-
-MongoDB is in active development. Connection management and query execution are merged into main. Azure Cosmos DB is coming.
-
-That cadence doesn't stop just because the number starts with 1.
+| Metric | v1.0 | v1.1 |
+|--------|------|------|
+| Supported databases | 3 | 5 |
+| AI providers | 2 | 12+ |
+| Agent tools | — | 28+ |
+| Connection auth methods | 4 | 9 |
+| Query history entries | 500 | 1000 |
+| Import formats | 3 | 4 |
+| Languages | 2 | 2 |
 
 ---
 
-DocKit is Apache 2.0. The open-source release is fully functional — no feature gating, no sign-up walls. If it's in the repo, you get the binary.
+DocKit is Apache 2.0. No feature gating, no sign-up walls, no telemetry. All current features are in the free, open-source build.
 
-[Download DocKit 1.0](/products/dockit/) for macOS, Windows, or Linux.
+[Download DocKit 1.1](/products/dockit/) for macOS, Windows, or Linux.
 
 [View on GitHub](https://github.com/geek-fun/dockit).
 
