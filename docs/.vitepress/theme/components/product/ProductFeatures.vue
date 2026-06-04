@@ -50,7 +50,6 @@ const getIcon = (name?: string) => {
     padding: 32px 0 48px;
   }
 }
-}
 
 .container {
   max-width: 1152px;
