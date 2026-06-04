@@ -161,7 +161,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 860px;
+  max-width: 900px;
 }
 
 .hero-eyebrow {
@@ -245,7 +245,7 @@ onUnmounted(() => {
   line-height: 1.5;
   color: var(--vp-c-text-2);
   margin: 0 0 var(--space-2xl, 48px);
-  max-width: 700px;
+  max-width: 820px;
 
   @media (max-width: 768px) {
     font-size: 0.9375rem;
