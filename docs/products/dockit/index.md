@@ -88,7 +88,7 @@ hero:
   name: DocKit
   headline: "NoSQL Database GUI Client"
   animatedText: "Agentic"
-  tagline: "An open-source AI agent that manages your databases. Connect MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — then describe what you need in natural language. The agent writes queries, inspects schemas, updates documents, and returns results. Privacy-first, local, Apache 2.0."
+  tagline: "Open-source AI agent that manages your databases. Connect MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — then describe what you need in natural language. The agent writes queries, inspects schemas, updates documents, and returns results. Privacy-first, local, Apache 2.0."
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
