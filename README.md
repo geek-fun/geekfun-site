@@ -10,7 +10,7 @@ This repository is the official website — a VitePress-powered marketing, docum
 
 | Product | Description |
 |---------|-------------|
-| **[DocKit](https://www.geekfun.club/products/dockit/)** | AI-native NoSQL GUI — write queries in natural language, manage Elasticsearch, OpenSearch, and DynamoDB |
+| **[DocKit](https://www.geekfun.club/products/dockit/)** | AI-native NoSQL GUI — write queries in natural language, manage MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Agentic Data Studio for natural language database interaction. |
 | **[SqlKit](https://www.geekfun.club/products/sqlkit/)** | Open-source SQL client built for shipping — PostgreSQL, MySQL, SQL Server, SQLite |
 | **[ServerlessInsight](https://serverlessinsight.com/)** | Vendor-neutral serverless infrastructure platform for Alibaba Cloud, Tencent Cloud, and Volcengine |
 | **[serverless-adapter](https://github.com/geek-fun/serverless-adapter)** | Serverless adapter for Express and Koa with automatic provider detection |

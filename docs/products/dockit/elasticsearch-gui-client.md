@@ -84,7 +84,7 @@ The query editor uses the same engine as VS Code.
 
 ### AI query generation
 
-Describe a query in plain English to generate Elasticsearch DSL. DocKit uses your index mapping as context so generated queries match your actual schema. You can use OpenAI or DeepSeek with your own API key. Data stays on your machine.
+Describe a query in plain English to generate Elasticsearch DSL. DocKit uses your index mapping as context so generated queries match your actual schema. You can use OpenAI, Anthropic, DeepSeek, and more AI providers with your own API key. Data stays on your machine.
 
 ![DocKit AI query generation](/dockit-ai-assistant.png)
 

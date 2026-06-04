@@ -1,6 +1,7 @@
 ---
 title: DocKit 1.0 - The NoSQL desktop client developers deserved
 description: DocKit v1.0 ships after 970+ commits, 244 merged PRs, 132 resolved issues, 70 releases, and 1,000+ GitHub stars. A complete re-introduction of the AI-native NoSQL desktop client covering every feature built from scratch to the first stable release.
+date: 2026-05-10
 head:
   - - meta
     - name: keywords

@@ -31,14 +31,13 @@ const sharedThemeConfig = {
     logo,
     socialLinks: [
         {icon: 'github', link: 'https://github.com/geek-fun'},
-        // add x social links
-        {icon: 'twitter', link: 'https://x.com/Blankll31075'},
+        {icon: 'twitter', link: 'https://x.com/geekfun_club'},
         {icon: 'youtube', link: 'https://www.youtube.com/@geekfun-club'}
     ],
 };
 const titleEn = 'GEEKFUN | Sustainable Software Community';
 const titleZh = '极客范 | 可持续的开源软件社区';
-const descEn = 'GEEKFUN is an open-source community focused on building sustainable software solutions. We empower developers to collaborate on open-source projects like DocKit and explore serverless technologies, including Serverless Insight, Elasticsearch, OpenSearch, and more. Join us in shaping the future of open-source development!';
+const descEn = 'GEEKFUN is an open-source community focused on building sustainable software solutions. We empower developers to collaborate on open-source projects like DocKit (MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch GUI) and explore serverless technologies, including Serverless Insight, Elasticsearch, OpenSearch, and more. Join us in shaping the future of open-source development!';
 const descZh = '极客范是一个软件社区，致力于构建可持续的开源软件和服务';
 const docsSidebarEn = [
     {
@@ -48,7 +47,8 @@ const docsSidebarEn = [
             {text: 'Installation', link: '/docs/dockit/installation'},
             {text: 'Connect to server', link: '/docs/dockit/connect-to-server'},
             {text: 'Shortcuts', link: '/docs/dockit/shortcut'},
-            {text: 'Manage Elasticsearch cluster', link: '/docs/dockit/manage-elasticsearch-cluster'}
+            {text: 'Manage Elasticsearch cluster', link: '/docs/dockit/manage-elasticsearch-cluster'},
+            {text: 'Agentic Data Studio', link: '/docs/dockit/agentic-datastudio'}
         ]
     }
 ];
@@ -60,7 +60,8 @@ const docsSidebarZh = [
             {text: '安装指南', link: '/zh/docs/dockit/installation'},
             {text: '连接服务器', link: '/zh/docs/dockit/connect-to-server'},
             {text: '快捷键', link: '/zh/docs/dockit/shortcut'},
-            {text: '管理 Elasticsearch 集群', link: '/zh/docs/dockit/manage-elasticsearch-cluster'}
+            {text: '管理 Elasticsearch 集群', link: '/zh/docs/dockit/manage-elasticsearch-cluster'},
+            {text: 'Agentic Data Studio', link: '/zh/docs/dockit/agentic-datastudio'}
         ]
     }
 ];
@@ -86,7 +87,7 @@ export default defineConfig({
                 ['link', {rel: 'icon', href: icon}],
                 ['meta', {
                     name: 'keywords',
-                    content: 'geekfun, geek-fun, open source community, open source software, software sustainability, DocKit, serverless, serverless insight, serverless architecture, Elasticsearch, OpenSearch, ZincSearch, developer community, collaborative software development, sustainable software projects'
+                    content: 'geekfun, geek-fun, open source community, open source software, software sustainability, DocKit, MongoDB, serverless, serverless insight, serverless architecture, Elasticsearch, OpenSearch, EasySearch, ZincSearch, developer community, collaborative software development, sustainable software projects'
                 }],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
@@ -98,7 +99,7 @@ export default defineConfig({
                     "logo": "https://www.geekfun.club/geekfun.png",
                     "sameAs": [
                         "https://github.com/geek-fun",
-                        "https://x.com/Blankll31075",
+                        "https://x.com/geekfun_club",
                         "https://www.youtube.com/@geekfun-club"
                     ]
                 })],
@@ -146,7 +147,7 @@ nav: [
                 ['link', {rel: 'icon', href: icon}],
                 ['meta', {
                     name: 'keywords',
-                    content: '极客范,极客乐园, geekfun, 开源社区, 开源软件, 软件可持续性, DocKit, serverless, serverless insight, 无服务器, serverless architecture, 无服务器架构, Elasticsearch, OpenSearch, ZincSearch, 开发者社区, 协作软件开发, 可持续软件项目'
+                    content: '极客范,极客乐园, geekfun, 开源社区, 开源软件, 软件可持续性, DocKit, MongoDB, serverless, serverless insight, 无服务器, serverless architecture, 无服务器架构, Elasticsearch, OpenSearch, EasySearch, ZincSearch, 开发者社区, 协作软件开发, 可持续软件项目'
                 }],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
@@ -198,20 +199,41 @@ nav: [
         const siteName = isZhPage ? siteNameZh : siteNameEn;
         const masterOg = isZhPage ? ogImageZh : ogImageEn;
         const ogImageUrl = pageData?.frontmatter?.ogImage ?? masterOg;
+        const pageType = getPageType(page);
+        const ogImageAlt = isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community';
 
-        return [
+        const head: HeadConfig[] = [
             ['meta', {property: 'og:title', content: title}],
             ['meta', {property: 'og:description', content: description}],
             ['meta', {property: 'og:image', content: ogImageUrl}],
+            ['meta', {property: 'og:image:width', content: '1200'}],
+            ['meta', {property: 'og:image:height', content: '630'}],
+            ['meta', {property: 'og:image:alt', content: ogImageAlt}],
             ['meta', {property: 'og:url', content: pageUrl}],
             ['meta', {property: 'og:site_name', content: siteName}],
-            ['meta', {property: 'og:type', content: getPageType(page)}],
+            ['meta', {property: 'og:type', content: pageType}],
             ['meta', {property: 'og:locale', content: isZhPage ? 'zh_CN' : 'en_US'}],
             ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
             ['meta', {name: 'twitter:title', content: title}],
             ['meta', {name: 'twitter:description', content: description}],
-            ['meta', {name: 'twitter:image', content: ogImageUrl}]
+            ['meta', {name: 'twitter:image', content: ogImageUrl}],
         ];
+
+        if (pageType === 'article') {
+            const pubDate = pageData?.frontmatter?.date;
+            if (pubDate) {
+                head.push(['meta', {property: 'article:published_time', content: pubDate}]);
+                head.push(['meta', {property: 'article:modified_time', content: pubDate}]);
+            }
+            head.push(['meta', {property: 'article:author', content: 'https://www.geekfun.club'}]);
+            if (page.startsWith('blog/') || page.startsWith('zh/blog/')) {
+                head.push(['meta', {property: 'article:tag', content: 'blog'}]);
+            } else if (page.startsWith('news/') || page.startsWith('zh/news/')) {
+                head.push(['meta', {property: 'article:tag', content: 'release'}]);
+            }
+        }
+
+        return head;
     },
     vite: {
         build: {

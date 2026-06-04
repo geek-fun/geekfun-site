@@ -1,6 +1,7 @@
 ---
 title: Getting Started with Elasticsearch GUI Client - DocKit Introduction
 description: New to Elasticsearch GUI clients? This beginner-friendly guide introduces DocKit, a free desktop client for Elasticsearch. Learn the basics and get started quickly with visual query building and cluster management.
+date: 2025-02-05
 head:
   - - meta
     - name: keywords

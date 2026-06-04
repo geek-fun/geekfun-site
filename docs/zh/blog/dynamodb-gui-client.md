@@ -1,6 +1,7 @@
 ---
 title: 使用 DocKit 管理操作 DynamoDB 表
 description: 使用 DocKit 管理 DynamoDB 表变得更加简单 - 一款强大的桌面 GUI 客户端，具有直观的数据浏览、PartiQL 查询支持、内联编辑和跨平台兼容性。告别 AWS 控制台的困扰和 CLI 的复杂性。
+date: 2025-02-26
 head:
   - - meta
     - name: keywords

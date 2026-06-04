@@ -113,7 +113,7 @@ const content = computed(() => {
             title: 'X / Twitter',
             details: '关注我们的实时动态、版本发布和开发者更新。',
             action: 'Follow on X',
-            link: 'https://x.com/Blankll31075'
+            link: 'https://x.com/geekfun_club'
           },
           {
             title: '微信公众号',
@@ -134,7 +134,7 @@ const content = computed(() => {
             title: 'X / Twitter',
             details: 'Follow real-time release notes, product updates, and community signals.',
             action: 'Follow on X',
-            link: 'https://x.com/Blankll31075'
+            link: 'https://x.com/geekfun_club'
           },
           {
             title: 'WeChat Official Account',

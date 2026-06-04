@@ -1,6 +1,7 @@
 ---
 title: Instant Documentation Access — Shortcuts in DocKit for Any ES, OpenSearch, or DynamoDB API
 description: DocKit now maps every Elasticsearch operation to its official documentation — across versions (0.90 → 9.x), engines (ES, OpenSearch, DynamoDB), and languages (EN/ZH). Just press the documentation shortcut in the editor to get the exact API reference.
+date: 2026-05-06
 head:
   - - meta
     - name: keywords

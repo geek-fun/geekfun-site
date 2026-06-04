@@ -115,6 +115,18 @@ head:
 
 🔄 **官方 Tauri 更新器**——从自定义更新机制迁移到官方 Tauri 更新插件，支持代码签名、版本清单和回滚保护。
 
-## [🎉 DocKit v0.8 发布：全面支持 DynamoDB](/zh/news/dockit-v0-8-dynamodb-support)
+## [🎉 DocKit v1.1 发布：MongoDB、Agentic Data Studio、EasySearch](/zh/news/dockit-v1-1-release)
+
+DocKit v1.1 新增 MongoDB 和 EasySearch 支持、Agentic Data Studio 含 28+ 代理工具、12 种 AI 提供商、AWS SSO、完整 DynamoDB 表生命周期等。
+
+**2026年6月4日**
+
+## [🎉 DocKit v1.0 发布：首个稳定版本](/zh/news/dockit-v1-0-release)
+
+**2026年5月10日** — DocKit 发布首个稳定版本。历经两年开发、一次完整的 UI 重写和 30 多个版本的迭代，这款 AI 原生 NoSQL 桌面客户端正式步入 **v1.0.0**。全面支持 DynamoDB、Elasticsearch 和 OpenSearch。新增 ES|QL 自动补全、统一查询语言注册中心、模板 body 补全以及管理面板列排序。阅读[完整公告](/zh/news/dockit-v1-0-release)或 [1.0 博客文章](/zh/blog/introducing-dockit-v1)。
+
+⭐ **[GitHub 发布](https://github.com/geek-fun/dockit/releases/tag/v1.0.0)** | 📥 **[下载](/zh/products/dockit/)**
+
+## [🚀 DocKit v0.9.10 发布：智能补全、Data Studio Agent 与跨应用认证](https://github.com/geek-fun/dockit/releases/tag/v0.9.10)
 
 **2026年1月20日** - 我们很高兴地宣布 DocKit v0.8 正式发布，完整支持 Amazon DynamoDB！此版本带来了强大的新功能，包括 PartiQL 查询编辑器、可视化查询 UI、内联数据编辑等。了解这次重大更新的更多新特性。

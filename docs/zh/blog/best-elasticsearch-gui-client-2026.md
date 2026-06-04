@@ -1,6 +1,7 @@
 ---
 title: "2026年最佳Elasticsearch GUI客户端：5款工具对比"
 description: 对比最佳Elasticsearch GUI客户端，包括DocKit、Kibana、Elasticvue、Elastron和Elasticsearch Head。功能特性、活跃度及推荐选择。
+date: 2026-05-23
 head:
   - - meta
     - name: keywords

@@ -1,6 +1,6 @@
 ---
 title: About GEEKFUN - Open Source NoSQL GUI Client Development Community
-description: Learn about GEEKFUN, open-source community building sustainable software. Creators of DocKit - free DynamoDB, Elasticsearch GUI client. Our mission, values, team, and commitment to developer tools.
+description: Learn about GEEKFUN, open-source community building sustainable software. Creators of DocKit - free MongoDB, DynamoDB, Elasticsearch, OpenSearch GUI client with AI Agentic Data Studio. Our mission, values, team, and commitment to developer tools.
 head:
   - - meta
     - name: keywords

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
 type Action = {
   text: string
   link: string
@@ -14,9 +16,65 @@ type HeroData = {
   logo?: string
   screenshot: string
   actions: Action[]
+  animatedText?: string
 }
 
-defineProps<{ hero: HeroData }>()
+const props = defineProps<{ hero: HeroData }>()
+
+const displayed = ref('')
+const cursorVisible = ref(true)
+let interval: ReturnType<typeof setInterval> | null = null
+let blinkInterval: ReturnType<typeof setInterval> | null = null
+
+function startTypewriter() {
+  const word = props.hero.animatedText || ''
+  if (!word) return
+
+  let i = 0
+  let deleting = false
+
+  function tick() {
+    if (!deleting) {
+      if (i < word.length) {
+        i++
+        displayed.value = word.slice(0, i)
+      } else {
+        clearInterval(interval!)
+        setTimeout(() => {
+          deleting = true
+          interval = setInterval(tick, 180)
+        }, 1000)
+        return
+      }
+    } else {
+      if (i > 0) {
+        i--
+        displayed.value = word.slice(0, i)
+      } else {
+        clearInterval(interval!)
+        setTimeout(() => {
+          deleting = false
+          interval = setInterval(tick, 180)
+        }, 800)
+        return
+      }
+    }
+  }
+
+  interval = setInterval(tick, 180)
+}
+
+onMounted(() => {
+  startTypewriter()
+  blinkInterval = setInterval(() => {
+    cursorVisible.value = !cursorVisible.value
+  }, 500)
+})
+
+onUnmounted(() => {
+  if (interval) clearInterval(interval)
+  if (blinkInterval) clearInterval(blinkInterval)
+})
 </script>
 
 <template>
@@ -26,7 +84,14 @@ defineProps<{ hero: HeroData }>()
         <div v-if="hero.eyebrow" class="hero-eyebrow">{{ hero.eyebrow }}</div>
         <h1 class="hero-headline">
           <span class="hero-brand-text">{{ hero.name }}</span>
-          <br v-if="hero.name && hero.headline" />
+          <span v-if="hero.name && hero.headline">&nbsp;</span>
+          <span v-if="hero.animatedText" class="hero-type-wrapper">
+            <span class="hero-type-mirror" aria-hidden="true">{{ hero.animatedText }}|</span>
+            <span class="hero-type-content">
+              <span class="hero-type-text">{{ displayed }}</span>
+              <span class="hero-type-cursor" :class="{ 'cursor-hidden': !cursorVisible }">|</span>
+            </span>
+          </span>
           <span class="subtitle">{{ hero.headline }}</span>
         </h1>
         <p class="hero-tagline">{{ hero.tagline }}</p>
@@ -70,16 +135,16 @@ defineProps<{ hero: HeroData }>()
 }
 
 .hero-section {
-  padding: 96px 0;
+  padding: 48px 0 32px;
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 64px 0;
+    padding: 32px 0 24px;
   }
 
   @media (min-width: 1440px) {
-    padding: 120px 0;
+    padding: 64px 0 40px;
   }
 }
 
@@ -88,7 +153,7 @@ defineProps<{ hero: HeroData }>()
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 56px;
+  gap: 32px;
 }
 
 .hero-content {
@@ -96,7 +161,7 @@ defineProps<{ hero: HeroData }>()
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 720px;
+  max-width: 900px;
 }
 
 .hero-eyebrow {
@@ -106,7 +171,7 @@ defineProps<{ hero: HeroData }>()
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 4px 12px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   border-radius: 999px;
   background-color: var(--vp-c-brand-soft);
   color: var(--vp-c-brand-1);
@@ -114,24 +179,61 @@ defineProps<{ hero: HeroData }>()
 }
 
 .hero-headline {
-  font-size: 3rem;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  line-height: 1.2;
   font-weight: 700;
   letter-spacing: -0.03em;
   margin: 0 0 var(--space-md, 16px);
+  white-space: nowrap;
 
   @media (max-width: 768px) {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
+    white-space: normal;
   }
 
   @media (min-width: 1440px) {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
 .hero-brand-text {
+  color: var(--vp-c-text-1);
+  font-weight: 800;
+}
+
+.hero-type-wrapper {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+}
+
+.hero-type-mirror {
+  visibility: hidden;
+  font-weight: 800;
+  color: var(--vp-c-brand-1);
+}
+
+.hero-type-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+}
+
+.hero-type-text {
   color: var(--vp-c-brand-1);
   font-weight: 800;
+}
+
+.hero-type-cursor {
+  color: var(--vp-c-brand-1);
+  font-weight: 300;
+  margin-left: 1px;
+  transition: opacity 0.1s;
+}
+
+.cursor-hidden {
+  opacity: 0;
 }
 
 .subtitle {
@@ -139,15 +241,15 @@ defineProps<{ hero: HeroData }>()
 }
 
 .hero-tagline {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--vp-c-text-2);
-  margin: 0 0 var(--space-2xl, 48px);
-  max-width: 600px;
+  margin: 0 0 var(--space-xl, 32px);
+  max-width: 820px;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
-    margin: 0 0 32px;
+    font-size: 0.9375rem;
+    margin: 0 0 24px;
   }
 }
 

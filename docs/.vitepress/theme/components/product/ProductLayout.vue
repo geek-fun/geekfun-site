@@ -2,6 +2,7 @@
 import { useData } from 'vitepress'
 import ProductHero from './ProductHero.vue'
 import ProductDatabaseGrid from './ProductDatabaseGrid.vue'
+import ProductPlatformGrid from './ProductPlatformGrid.vue'
 import ProductShowcase from './ProductShowcase.vue'
 import ProductFeatures from './ProductFeatures.vue'
 import ProductCTA from './ProductCTA.vue'
@@ -15,6 +16,7 @@ const { frontmatter } = useData()
     <ProductDatabaseGrid v-if="frontmatter.databases" :databases="frontmatter.databases" />
     <ProductShowcase v-if="frontmatter.showcase" :showcase="frontmatter.showcase" />
     <ProductFeatures v-if="frontmatter.features" :features="frontmatter.features" />
+    <ProductPlatformGrid v-if="frontmatter.platforms" :platforms="frontmatter.platforms" />
     <ProductCTA v-if="frontmatter.cta" :cta="frontmatter.cta" />
   </div>
 </template>

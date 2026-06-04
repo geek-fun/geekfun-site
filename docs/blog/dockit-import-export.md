@@ -1,6 +1,7 @@
 ---
 title: "DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases"
 description: "Learn how to import and export data in DocKit - the free, open-source GUI client for Elasticsearch, OpenSearch, and DynamoDB. Supports JSON, CSV, and JSONL import/export."
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

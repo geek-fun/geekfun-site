@@ -1,6 +1,7 @@
 ---
 title: DocKit v0.9 Released - UI Redesign, Query History & DynamoDB Local Support
 description: DocKit v0.9 brings a modern UI redesign with shadcn-vue + UnoCSS, automatic query history for Elasticsearch and DynamoDB, DynamoDB Local endpoint support, and PartiQL formatting.
+date: 2026-03-03
 head:
   - - meta
     - name: keywords

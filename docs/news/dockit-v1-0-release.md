@@ -1,6 +1,7 @@
 ---
 title: DocKit v1.0 Released — First Stable Release
 description: DocKit v1.0 ships as the first stable release after two years of active development. Full DynamoDB, Elasticsearch, and OpenSearch support. ES|QL completion, query language registry, and template body autocomplete.
+date: 2026-05-10
 head:
   - - meta
     - name: keywords

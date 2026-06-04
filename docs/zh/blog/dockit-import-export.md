@@ -1,6 +1,7 @@
 ---
 title: "DocKit 导入导出 - 跨 NoSQL 数据库无缝迁移数据"
 description: "了解如何在 DocKit 中导入和导出数据 - 这是适用于 Elasticsearch、OpenSearch 和 DynamoDB 的免费开源 GUI 客户端。支持 JSON、CSV 和 JSONL 导入/导出。"
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

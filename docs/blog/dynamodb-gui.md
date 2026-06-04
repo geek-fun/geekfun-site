@@ -1,6 +1,7 @@
 ---
 title: DynamoDB Query Patterns — PartiQL, Visual Builder, and When to Use Each
 description: Practical DynamoDB query patterns using PartiQL and the visual query builder. Covers filter expressions, index queries, batch operations, and local development with DynamoDB Local.
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

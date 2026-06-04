@@ -1,6 +1,7 @@
 ---
 title: "Best Elasticsearch GUI Clients in 2026: 5 Tools Compared"
 description: Comparison of the best Elasticsearch GUI clients including DocKit, Kibana, Elasticvue, Elastron, and Elasticsearch Head. Features, activity, and recommendations.
+date: 2026-05-23
 head:
   - - meta
     - name: keywords

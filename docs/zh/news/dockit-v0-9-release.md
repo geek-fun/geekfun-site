@@ -1,6 +1,7 @@
 ---
 title: DocKit v0.9 发布 - UI 重设计、查询历史与 DynamoDB Local 支持
 description: DocKit v0.9 带来了基于 shadcn-vue + UnoCSS 的现代 UI 重设计、Elasticsearch 和 DynamoDB 的自动查询历史、DynamoDB Local 端点支持以及 PartiQL 格式化功能。
+date: 2026-03-03
 head:
   - - meta
     - name: keywords

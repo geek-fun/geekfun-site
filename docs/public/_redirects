@@ -8,3 +8,7 @@
 # /products/ has no index page — forward to DocKit hub
 /products/    /products/dockit/    301
 /zh/products/ /zh/products/dockit/ 301
+
+# AI Assistant renamed to Agentic Data Studio
+/docs/dockit/ai-assistant      /docs/dockit/agentic-datastudio      301
+/zh/docs/dockit/ai-assistant   /zh/docs/dockit/agentic-datastudio   301

@@ -1,6 +1,7 @@
 ---
 title: Getting Started with DynamoDB GUI - Manage Tables with DocKit
 description: Step-by-step guide to managing DynamoDB tables with DocKit desktop client. Connect to DynamoDB, run PartiQL queries, edit data visually. Perfect for developers new to DynamoDB GUI tools.
+date: 2025-02-26
 head:
   - - meta
     - name: keywords

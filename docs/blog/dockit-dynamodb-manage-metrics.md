@@ -1,6 +1,7 @@
 ---
 title: "DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips"
 description: "DocKit now lets you manage DynamoDB tables and monitor key metrics directly from your desktop. Browse tables, view capacity, track item counts, and manage indexes — all for free."
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

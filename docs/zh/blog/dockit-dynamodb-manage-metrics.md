@@ -1,6 +1,7 @@
 ---
 title: "DocKit DynamoDB 管理与指标 - 随时掌控您的表"
 description: "DocKit 现在允许您直接从桌面管理 DynamoDB 表并监控关键指标。浏览表、查看容量、跟踪项目数量和管理索引 — 全部免费。"
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

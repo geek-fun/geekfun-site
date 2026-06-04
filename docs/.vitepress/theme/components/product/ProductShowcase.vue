@@ -37,11 +37,10 @@ defineProps<{ showcase: ShowcaseItem[] }>()
 }
 
 .showcase-section {
-  padding: 96px 0;
-  width: 100%;
+  padding: 48px 0;
 
   @media (max-width: 768px) {
-    padding: 64px 0;
+    padding: 32px 0;
   }
 }
 
@@ -68,7 +67,7 @@ defineProps<{ showcase: ShowcaseItem[] }>()
 .showcase-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  gap: 40px;
   align-items: center;
 
   @media (max-width: 1024px) {
@@ -150,4 +149,5 @@ defineProps<{ showcase: ShowcaseItem[] }>()
     font-size: 1rem;
   }
 }
+
 </style>

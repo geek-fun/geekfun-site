@@ -1,6 +1,7 @@
 ---
 title: How to Set Up DynamoDB Local for Local Development
 description: Learn how to set up DynamoDB Local with Docker or the downloadable JAR, configure AWS CLI access, create your first table, and connect local DynamoDB to DocKit.
+date: 2026-04-23
 head:
   - - meta
     - name: keywords

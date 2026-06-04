@@ -65,12 +65,12 @@ DynamoDB Local 让您能够离线开发、快速迭代并避免 AWS 成本。学
 ## [DocKit 查询历史 - 永不丢失查询记录](/zh/blog/dockit-query-history)
 *2026年3月3日*
 
-DocKit 现在自动保存您执行的每个查询 — 适用于 Elasticsearch、OpenSearch 和 DynamoDB。从专用历史面板中查看、复制、重新运行并将过去的查询发送回编辑器。
+DocKit 现在自动保存您执行的每个查询 — 适用于 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB。从专用历史面板中查看、复制、重新运行并将过去的查询发送回编辑器。
 
 ## [DocKit 导入导出 - 跨 NoSQL 数据库无缝迁移数据](/zh/blog/dockit-import-export)
 *2026年3月3日*
 
-需要迁移数据、为测试环境填充数据，或在升级前备份？DocKit 的新导入/导出功能支持 Elasticsearch、OpenSearch 和 DynamoDB 的 JSON、CSV 和批量格式。
+需要迁移数据、为测试环境填充数据，或在升级前备份？DocKit 的新导入/导出功能支持 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB 的 JSON、CSV 和批量格式。
 
 ## [DocKit DynamoDB 管理与指标 - 随时掌控您的表](/zh/blog/dockit-dynamodb-manage-metrics)
 *2026年3月3日*

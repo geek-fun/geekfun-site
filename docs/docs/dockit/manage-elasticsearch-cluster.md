@@ -58,10 +58,35 @@ IP, disk information, memory usage and other useful node information.
 ### Shards Management & Monitor
 
 Click the `Shards` tab to view the shards list, you can view the shard name, index name, state, and other shards related
-information. click the shard item, DocKit will show the selected shard detail information like docs count, size, memory
-and etc.
+information. Click any shard to open the **Shard Detail Panel**, which shows:
+
+| Metric | Description |
+|--------|-------------|
+| **Docs Count** | Number of documents in the shard |
+| **Store Size** | Storage size in bytes |
+| **Completion** | Suggestion/index completion size |
+| **Fielddata** | Field data memory usage |
+| **Query Cache** | Query cache hit rate and size |
+| **Get/Search** | Get and search operation metrics |
+| **Indexing** | Indexing rate and latency (index, delete, update) |
+| **Merge** | Segment merge statistics |
+| **Refresh/Flush** | Refresh and flush operation metrics |
+| **Segments** | Segment count, memory, and version map |
+| **Suggest** | Suggestion operation metrics |
+
+This detail panel helps diagnose performance bottlenecks at the shard level.
 
 ![DocKit Shards manage UI](/manage-shards.png)
+
+### Alias Management
+
+From the Indices view, manage aliases per index:
+
+- **Create Alias**: Add an alias pointing to the current index, with optional filter and routing
+- **Switch Alias**: Atomically move an alias from one index to another (zero-downtime reindexing)
+- **Remove Alias**: Delete an alias without affecting the underlying index or data
+
+Aliases allow you to query abstract names that can be remapped without application changes.
 
 ### Indices Management & Monitor
 
@@ -84,3 +109,13 @@ Click the `Templates` tab to view the templates list, you can view the template 
 related information. You can also click `Create Template` button on the right top to create a new template.
 
 ![DocKit Templates manage UI](/manage-template.png)
+
+### Template Types
+
+DocKit supports both template formats:
+
+- **Index Templates** (composable) — The modern format with priority, multiple index patterns, and component template references
+- **Component Templates** — Reusable building blocks (mappings, settings, aliases) that can be composed into index templates
+- **Legacy Templates** — Older format, mapped to equivalent composable templates when possible
+
+When creating templates, DocKit auto-detects the format based on the Elasticsearch/OpenSearch version.

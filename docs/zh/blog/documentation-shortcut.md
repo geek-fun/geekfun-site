@@ -1,6 +1,7 @@
 ---
 title: 即时文档访问 — DocKit 内置文档快捷方式，支持 ES、OpenSearch、DynamoDB
 description: DocKit 现在将所有 Elasticsearch 操作映射到官方文档——覆盖所有版本（0.90 → 9.x）、所有引擎（ES、OpenSearch、DynamoDB）和语言（EN/ZH）。在编辑器中按文档快捷键即可获取精确的 API 参考。
+date: 2026-05-06
 head:
   - - meta
     - name: keywords

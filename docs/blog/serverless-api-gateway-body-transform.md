@@ -1,6 +1,7 @@
 ---
 title: "Serverless Architecture Pitfalls: Alibaba Cloud API Gateway Body Transform Issue"
 description: "When implementing Alipay webhook callbacks, we encountered an issue where application/x-www-form-urlencoded request bodies were being converted to JSON objects. This article analyzes the problem chain, platform behavior, and solutions."
+date: 2026-04-15
 head:
   - - meta
     - name: keywords

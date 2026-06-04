@@ -1,6 +1,7 @@
 ---
 title: "DocKit 查询历史 - 永不丢失查询记录"
 description: "DocKit 现在为 Elasticsearch 和 DynamoDB 存储您的完整查询历史。查看、复制、重新执行和将过去的查询添加回编辑器 — 全部本地持久化。"
+date: 2025-03-04
 head:
   - - meta
     - name: keywords

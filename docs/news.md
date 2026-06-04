@@ -117,6 +117,12 @@ Also includes Elasticsearch cluster management refinements with improved node st
 
 🔄 **Official Tauri Updater** — Migrated from custom update mechanism to the official Tauri updater plugin with code signing, version manifests, and rollback protection.
 
+## [🎉 DocKit v1.1 Released: MongoDB, Agentic Data Studio, EasySearch](/news/dockit-v1-1-release)
+
+DocKit v1.1 adds MongoDB and EasySearch support, Agentic Data Studio with 28+ agent tools, 12 AI providers, AWS SSO, full DynamoDB table lifecycle, and more.
+
+**June 4, 2026**
+
 ## [🎉 DocKit v0.8 Released: Full DynamoDB Support](/news/dockit-v0-8-dynamodb-support)
 
 **January 20, 2026** - We're excited to announce DocKit v0.8 with complete Amazon DynamoDB support! This release brings powerful new features including PartiQL query editor, visual query UI, inline data editing, and more. Read more about what's new in this major update.
