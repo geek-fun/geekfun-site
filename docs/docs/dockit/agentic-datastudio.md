@@ -34,20 +34,11 @@ The Sidebar Assistant gives you the same AI in a chat panel, so you can ask ques
 
 The agent has tools for every supported database:
 
-**Elasticsearch / OpenSearch / EasySearch**:
-- Search, get, index, update, and delete documents
-- List indices, get mappings, create, and delete indices
-- Manage aliases — list, get, create, delete, bulk update
-- Add or update field mappings
-
-**DynamoDB**:
-- Execute PartiQL queries (SELECT, INSERT, UPDATE, DELETE)
-- Describe and list tables
-
-**MongoDB**:
-- Find documents and run aggregation pipelines
-- Insert, update, and delete documents
-- List databases and collections
+| Database | Capabilities |
+|----------|-------------|
+| **Elasticsearch / OpenSearch / EasySearch** | Search, get, index, update, delete documents · List indices, get mappings, create/delete indices · Manage aliases (list, get, create, delete, bulk update) · Add or update field mappings |
+| **DynamoDB** | Execute PartiQL queries (SELECT, INSERT, UPDATE, DELETE) · Describe and list tables |
+| **MongoDB** | Find documents, run aggregation pipelines · Insert, update, delete documents · List databases and collections |
 
 Each tool has a **risk level** (Safe for read-only, Elevated for create/update, or Destructive for delete) and needs the matching permission to run.
 
