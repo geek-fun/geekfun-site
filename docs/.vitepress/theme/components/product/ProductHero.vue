@@ -78,8 +78,11 @@ onUnmounted(() => {
           <span class="hero-brand-text">{{ hero.name }}</span>
           <span v-if="hero.name && hero.headline">&nbsp;</span>
           <span v-if="hero.animatedText" class="hero-type-wrapper">
-            <span class="hero-type-text">{{ displayed }}</span>
-            <span class="hero-type-cursor" :class="{ 'cursor-hidden': !cursorVisible }">|</span>
+            <span class="hero-type-mirror" aria-hidden="true">{{ hero.animatedText }}</span>
+            <span class="hero-type-content">
+              <span class="hero-type-text">{{ displayed }}</span>
+              <span class="hero-type-cursor" :class="{ 'cursor-hidden': !cursorVisible }">|</span>
+            </span>
           </span>
           <span class="subtitle">{{ hero.headline }}</span>
         </h1>
@@ -191,8 +194,22 @@ onUnmounted(() => {
 }
 
 .hero-type-wrapper {
-  display: inline;
+  display: inline-block;
   position: relative;
+  white-space: nowrap;
+}
+
+.hero-type-mirror {
+  visibility: hidden;
+  font-weight: 800;
+  color: var(--vp-c-brand-1);
+}
+
+.hero-type-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
 }
 
 .hero-type-text {
@@ -201,7 +218,6 @@ onUnmounted(() => {
 }
 
 .hero-type-cursor {
-  display: inline;
   color: var(--vp-c-brand-1);
   font-weight: 300;
   margin-left: 1px;
