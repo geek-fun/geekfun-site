@@ -135,16 +135,16 @@ onUnmounted(() => {
 }
 
 .hero-section {
-  padding: 96px 0;
+  padding: 48px 0 32px;
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 64px 0;
+    padding: 32px 0 24px;
   }
 
   @media (min-width: 1440px) {
-    padding: 120px 0;
+    padding: 64px 0 40px;
   }
 }
 
@@ -153,7 +153,7 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 56px;
+  gap: 32px;
 }
 
 .hero-content {
@@ -171,7 +171,7 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 4px 12px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   border-radius: 999px;
   background-color: var(--vp-c-brand-soft);
   color: var(--vp-c-brand-1);
@@ -244,12 +244,12 @@ onUnmounted(() => {
   font-size: 1rem;
   line-height: 1.5;
   color: var(--vp-c-text-2);
-  margin: 0 0 var(--space-2xl, 48px);
+  margin: 0 0 var(--space-xl, 32px);
   max-width: 820px;
 
   @media (max-width: 768px) {
     font-size: 0.9375rem;
-    margin: 0 0 32px;
+    margin: 0 0 24px;
   }
 }
 

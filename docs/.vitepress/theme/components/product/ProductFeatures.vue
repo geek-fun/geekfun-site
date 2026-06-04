@@ -44,12 +44,12 @@ const getIcon = (name?: string) => {
 
 <style scoped lang="scss">
 .features-section {
-  padding: 80px 0 120px;
-  background-color: var(--vp-c-bg);
+  padding: 48px 0 64px;
 
   @media (max-width: 768px) {
-    padding: 64px 0 80px;
+    padding: 32px 0 48px;
   }
+}
 }
 
 .container {

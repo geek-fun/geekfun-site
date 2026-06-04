@@ -44,16 +44,16 @@ defineProps<{ databases: DatabaseData }>()
 }
 
 .database-section {
-  padding: 48px 0 96px;
+  padding: 24px 0 48px;
 
   @media (max-width: 768px) {
-    padding: 32px 0 64px;
+    padding: 16px 0 32px;
   }
 }
 
 .database-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .database-title {
@@ -67,10 +67,10 @@ defineProps<{ databases: DatabaseData }>()
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
 
   @media (max-width: 768px) {
-    gap: 20px;
+    gap: 16px;
   }
 }
 
@@ -78,7 +78,7 @@ defineProps<{ databases: DatabaseData }>()
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   transition: transform 0.2s ease;
 
   &:hover {
@@ -87,8 +87,8 @@ defineProps<{ databases: DatabaseData }>()
 }
 
 .database-chip {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 14px;
   display: flex;
   align-items: center;
