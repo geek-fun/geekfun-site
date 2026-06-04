@@ -43,7 +43,7 @@ function startTypewriter() {
         setTimeout(() => {
           deleting = true
           interval = setInterval(tick, 180)
-        }, 2000)
+        }, 1000)
         return
       }
     } else {
