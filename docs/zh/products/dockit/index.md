@@ -76,7 +76,7 @@ head:
 
 hero:
   name: DocKit
-  headline: "NoSQL 桌面客户端"
+  headline: "NoSQL 数据库 GUI 客户端"
   animatedText: "AI Agent"
   tagline: "一个管理您数据库的开源 AI Agent。连接 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch — 然后用自然语言描述您的需求。代理会编写查询、查看表结构、更新文档并返回结果。隐私优先、本地运行、Apache 2.0。"
   logo: /dockit.png
