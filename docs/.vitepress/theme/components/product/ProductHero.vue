@@ -78,7 +78,7 @@ onUnmounted(() => {
           <span class="hero-brand-text">{{ hero.name }}</span>
           <span v-if="hero.name && hero.headline">&nbsp;</span>
           <span v-if="hero.animatedText" class="hero-type-wrapper">
-            <span class="hero-type-mirror" aria-hidden="true">{{ hero.animatedText }}</span>
+            <span class="hero-type-mirror" aria-hidden="true">{{ hero.animatedText }}|</span>
             <span class="hero-type-content">
               <span class="hero-type-text">{{ displayed }}</span>
               <span class="hero-type-cursor" :class="{ 'cursor-hidden': !cursorVisible }">|</span>
