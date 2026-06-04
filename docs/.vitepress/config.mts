@@ -99,7 +99,7 @@ export default defineConfig({
                     "logo": "https://www.geekfun.club/geekfun.png",
                     "sameAs": [
                         "https://github.com/geek-fun",
-                        "https://x.com/Blankll31075",
+                        "https://x.com/geekfun_club",
                         "https://www.youtube.com/@geekfun-club"
                     ]
                 })],
