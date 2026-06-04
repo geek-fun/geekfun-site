@@ -112,14 +112,6 @@ showcase:
     image: /dockit-import-export-demo.gif
     align: left
   - title: "本地优先，隐私安全"
-    body: "凭证、查询和 LLM 配置均存储在本地——无需云端依赖。所有查询历史自动追踪并可搜索。支持本地 LLM（Ollama、LM Studio）完全离线使用。"
-    image: /dockit-query-history.png
-    align: right
-  - title: "导入与备份"
-    body: "通过直观的交互界面完成数据导出和恢复。选择数据来源和目标、可视化映射字段、筛选要导出的字段，剩下的交给 DocKit——全部以后台任务方式运行，实时显示进度。支持 JSON、CSV、JSONL 格式。"
-    image: /dockit-query-history.png
-    align: left
-  - title: "本地优先，隐私安全"
     body: "厌倦了浏览器工具刷新一下就把工作成果弄丢？DocKit 是桌面端应用——凭证、查询和 LLM 配置都存本地，无云端依赖。查询历史跨会话持久保存。支持 Ollama 和 LM Studio 完全离线运行。"
     image: /dockit-query-history.png
     align: right
