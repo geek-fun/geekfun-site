@@ -53,7 +53,7 @@ function startTypewriter() {
         setTimeout(() => {}, 500) // pause before retyping
       }
     }
-  }, 120)
+  }, 180)
 }
 
 onMounted(() => {
