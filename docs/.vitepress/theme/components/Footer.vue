@@ -39,7 +39,7 @@
         <div class="footer-section">
           <h3>{{ t.community }}</h3>
           <ul>
-            <li><a href="https://x.com/Blankll31075" target="_blank">Twitter/X</a></li>
+            <li><a href="https://x.com/geekfun_club" target="_blank">Twitter/X</a></li>
             <li><a href="https://www.youtube.com/@geekfun-club" target="_blank">YouTube</a></li>
             <li><a href="https://github.com/geek-fun/dockit/issues" target="_blank">{{ t.support }}</a></li>
           </ul>

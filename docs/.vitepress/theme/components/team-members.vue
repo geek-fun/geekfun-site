@@ -13,7 +13,7 @@ const members = [
     desc: '好好学习，天天向上',
     links: [
       { icon: 'github', link: 'https://github.com/Blankll' },
-      { icon: 'x', link: 'https://x.com/Blankll31075' },
+      { icon: 'x', link: 'https://x.com/geekfun_club' },
       { icon: 'youtube', link: 'https://www.youtube.com/@geekfun-club' }
     ]
   },
