@@ -33,27 +33,35 @@ function startTypewriter() {
   let i = 0
   let deleting = false
 
-  interval = setInterval(() => {
+  function tick() {
     if (!deleting) {
-      // typing forward
       if (i < word.length) {
         i++
         displayed.value = word.slice(0, i)
       } else {
-        deleting = true
-        setTimeout(() => {}, 1500) // pause before deleting
+        clearInterval(interval!)
+        setTimeout(() => {
+          deleting = true
+          interval = setInterval(tick, 180)
+        }, 2000)
+        return
       }
     } else {
-      // deleting backward
       if (i > 0) {
         i--
         displayed.value = word.slice(0, i)
       } else {
-        deleting = false
-        setTimeout(() => {}, 500) // pause before retyping
+        clearInterval(interval!)
+        setTimeout(() => {
+          deleting = false
+          interval = setInterval(tick, 180)
+        }, 800)
+        return
       }
     }
-  }, 180)
+  }
+
+  interval = setInterval(tick, 180)
 }
 
 onMounted(() => {
