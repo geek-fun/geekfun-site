@@ -26,7 +26,7 @@ Welcome to the GEEKFUN documentation hub. Here you'll find guides, tutorials, an
 
 ## DocKit Documentation
 
-DocKit is an open-source desktop GUI client for DynamoDB, Elasticsearch, and OpenSearch.
+DocKit is an open-source AI-native desktop GUI client for MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch.
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
 
@@ -36,13 +36,24 @@ DocKit is an open-source desktop GUI client for DynamoDB, Elasticsearch, and Ope
 - [Installation Guide](/docs/dockit/installation)
 - [Connect to Database](/docs/dockit/connect-to-server)
 - [Keyboard Shortcuts](/docs/dockit/shortcut)
+- [Settings](/docs/dockit/settings)
 
 </div>
 
 <div style="padding: 20px; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
 
-### 📚 Documentation
+### 🤖 AI & Data Studio
+- [Agentic Data Studio](/docs/dockit/agentic-datastudio)
+- [Import & Export](/docs/dockit/import-export)
+- [Query History](/docs/dockit/query-history)
+
+</div>
+
+<div style="padding: 20px; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
+
+### 🗄️ Database Management
 - [Manage Elasticsearch Cluster](/docs/dockit/manage-elasticsearch-cluster)
+- [DynamoDB Manage & Metrics](/docs/dockit/dynamodb-manage-metrics)
 - [View All Docs](/docs/dockit/)
 
 </div>
