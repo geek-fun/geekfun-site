@@ -108,7 +108,7 @@ Common connection errors and fixes:
 
 ## Save and Manage Connections
 
-Click **Confirm** to save. Connections are stored locally and encrypted, show up in the sidebar for quick access, and persist across app restarts.
+Click **Confirm** to save. Connections are stored locally, show up in the sidebar for quick access, and persist across app restarts.
 
 Managing multiple connections:
 

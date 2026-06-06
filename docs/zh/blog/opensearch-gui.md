@@ -167,7 +167,7 @@ DocKit 支持 OpenSearch 1.x 及更高版本，使用标准 REST API。已测试
 是的，DocKit 在同一应用中支持 OpenSearch、Elasticsearch 和 DynamoDB，无需切换工具。
 
 **连接凭证存储在哪里？**
-凭证经过加密，存储在您的本地机器上，不会离开您的设备。
+凭证存储在您的本地机器上，不会离开您的设备。
 
 ## 其他资源
 
