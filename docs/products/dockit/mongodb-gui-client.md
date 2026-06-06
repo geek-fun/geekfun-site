@@ -83,7 +83,7 @@ head:
 
 # MongoDB GUI Client
 
-**DocKit** is an open source NoSQL desktop client that supports **MongoDB**, **Elasticsearch**, **OpenSearch**, **DynamoDB**, and **EasySearch** on Mac, Windows, and Linux. Each database gets its own tailored editor — MongoDB's document browser, Elasticsearch's DSL editor, DynamoDB's PartiQL — with optimizations for how that engine actually works. It also has an AI agent that translates natural language into queries for whatever engine you're connected to.
+**DocKit** is an open source NoSQL desktop client for Mac, Windows, and Linux. It supports **MongoDB**, **Elasticsearch**, **OpenSearch**, **DynamoDB**, and **EasySearch** — each with its own editor tuned to how that database works: document browser for MongoDB, DSL editor for Elasticsearch, PartiQL for DynamoDB. There is also an AI agent that turns natural language into queries for whatever engine you are connected to.
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download — Free</a>
@@ -123,11 +123,11 @@ Browse, inspect, and manage collections from one place.
 
 ### AI agent — Agentic Data Studio
 
-This is not a chat box bolted onto an LLM. The sidebar AI assistant and Agentic Data Studio are built on an agentic architecture — they know your connection, your schema, your index mappings, and your query history. When you ask for something, they don't guess — they pull live context from your cluster, generate the query, and can execute it against your database using verified tools.
+The sidebar AI assistant and Agentic Data Studio are not a chat box pointed at an LLM. They have access to your connection, schema, index mappings, and query history. When you ask for something, they read live context from your cluster, build the query, and can run it against your database through verified tools.
 
-Ask "find users who signed up last month but haven't verified their email" — the agent reads the collection schema, constructs the query, runs it, and shows you results. Ask "create an index on the `created_at` field" — it generates the command and, with your confirmation, executes it.
+Ask "find users who signed up last month but haven't verified their email" — the agent reads the collection schema, constructs the query, runs it, and shows you results. Ask "create an index on the `created_at` field" — it generates the command and waits for your confirmation before executing.
 
-The agent uses a tool system with safety gates: read operations run automatically, destructive actions (update, delete, create index) require explicit confirmation. Your credentials are never exposed to the LLM.
+Read operations run automatically. Destructive actions (update, delete, create index) require explicit confirmation. Your credentials are never sent to the LLM.
 
 ![DocKit AI query assistant](/dockit-ai-assistant.png)
 

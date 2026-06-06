@@ -84,11 +84,11 @@ The query editor uses the same engine as VS Code.
 
 ### AI agent — Agentic Data Studio
 
-This is not a chat box bolted onto an LLM. The sidebar AI assistant and Agentic Data Studio are built on an agentic architecture — they know your connection, your index mappings, your cluster state, and your query history. When you ask for something, they don't guess — they pull live context from your cluster, generate the DSL, and can execute it against Elasticsearch using verified tools.
+The sidebar AI assistant and Agentic Data Studio have access to your connection, index mappings, cluster state, and query history. When you ask for something, they read live context from your cluster, build the DSL, and can run it against Elasticsearch through verified tools.
 
-Ask "find the slowest queries from the last hour" — the agent reads your cluster metadata, constructs the query, runs it, and shows you results. Ask "check shard allocation" — it generates `_cat/shards` and returns structured data.
+Ask "find the slowest queries from the last hour" — the agent reads your cluster metadata, constructs the query, runs it, and shows you results. Ask "check shard allocation" — it hits `_cat/shards` and returns structured data.
 
-The agent uses a tool system with safety gates: read operations run automatically, destructive operations require explicit confirmation. Your credentials are never exposed to the LLM.
+Read operations run automatically. Destructive operations require explicit confirmation. Your credentials are never sent to the LLM.
 
 ![DocKit AI query generation](/dockit-ai-assistant.png)
 

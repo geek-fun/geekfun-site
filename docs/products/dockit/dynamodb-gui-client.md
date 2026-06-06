@@ -102,7 +102,7 @@ head:
 
 The AWS Console is fine for quick lookups, but it wasn't built for development. It lacks query history and offline support. Writing filter expressions in a tiny text box is slow and prone to errors. Dedicated clients exist to fix these specific problems.
 
-DocKit includes an AI agent that understands your table schema. You can describe what you need in plain English — the agent reads your schema, generates PartiQL, and executes it against your table using verified tools with safety gates.
+DocKit includes an AI agent that understands your table schema. You describe what you need in plain English — the agent reads your schema, generates PartiQL, and runs it against your table through tools it has verified it can use.
 
 ## See DocKit in action
 
@@ -145,11 +145,11 @@ Visual queries are saved to your history automatically.
 
 ### AI agent — Agentic Data Studio
 
-This is not a chat box bolted onto an LLM. The sidebar AI assistant and Agentic Data Studio are built on an agentic architecture — they know your connection, your table schema, your indexes, and your query history. When you ask for something, they don't guess — they pull live context from your DynamoDB connection, generate the PartiQL, and can execute it against your table using verified tools.
+The sidebar AI assistant and Agentic Data Studio have access to your connection, table schema, indexes, and query history. When you ask for something, they read live context from your DynamoDB connection, build the PartiQL, and can run it against your table through verified tools.
 
 Ask "find orders over $500 from last week" — the agent reads your table schema, constructs the query, runs it, and shows you results. Ask "describe the table capacity" — it calls `DescribeTable` and returns structured metrics.
 
-The agent uses a tool system with safety gates: read operations run automatically, write operations (update, delete) require explicit confirmation. Your credentials are never exposed to the LLM.
+Read operations run automatically. Write operations (update, delete) require explicit confirmation. Your credentials are never sent to the LLM.
 
 ![DocKit AI query assistant](/dockit-ai-assistant.png)
 

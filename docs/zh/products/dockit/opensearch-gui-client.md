@@ -69,9 +69,9 @@ Dev Tools 编辑器基于 Monaco（VS Code 引擎）构建：
 
 ### AI Agent — Agentic Data Studio
 
-这不是一个挂了个聊天框的 LLM。侧边栏 AI 助手和 Agentic Data Studio 都基于 Agentic 架构构建——它们知道你的连接、索引映射、集群状态和查询历史。当你提出需求时，它们不靠猜——而是从你的集群拉取实时上下文，生成 DSL，并通过验证过的工具直接在你的 OpenSearch 上执行。
+侧边栏 AI 助手和 Agentic Data Studio 能读到你的连接、索引映射、集群状态和查询历史。你提出需求时，它们从集群拉实时上下文，生成 DSL，然后通过验证过的工具直接在 OpenSearch 上执行。
 
-Agent 使用带安全门的工具系统：读操作自动执行，写操作需要你明确确认。你的凭据永远不会暴露给 LLM。
+读操作自动执行，写操作需要你确认。凭据不会发给 LLM。
 
 ### 集群管理
 
