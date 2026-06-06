@@ -92,15 +92,13 @@ head:
 
 ## Why a dedicated MongoDB GUI?
 
-`mongosh` gets the job done for scripting, but you are staring at a terminal with no visual feedback and no query history. Compass has AI features but they feel like a prototype — barely functional, and MongoDB does not seem interested in making them genuinely useful. The app itself is bloated and only works with MongoDB.
+`mongosh` gets the job done for scripting, but you are staring at a terminal with no visual feedback and no query history. Compass has AI features that feel like a prototype — barely functional, and MongoDB does not seem interested in making them genuinely useful. The app itself is bloated and only works with MongoDB.
 
-DocKit sits somewhere in between. You get VS Code-level editing via Monaco, an AI agent that actually reads your collection schema, and the same app works with Elasticsearch, OpenSearch, and DynamoDB when you need to switch contexts.
+DocKit gives you VS Code-level editing via Monaco, plus the **Agentic Data Studio**. It is not a chat box pointed at an LLM — it reads your collection schema, index mappings, and connection context live, generates queries that actually match your data, runs them through verified tools, and asks for confirmation before doing anything destructive. Works with OpenAI, Anthropic, DeepSeek, whatever provider you bring. Your data does not leave your machine.
+
+The same app connects to Elasticsearch, OpenSearch, and DynamoDB when you need to switch contexts.
 
 ![DocKit MongoDB connection demo](/dockit-mongodb-connection-demo.gif)
-
-### AI agent for MongoDB
-
-The **Agentic Data Studio** has MongoDB-specific tools built in. You type something like "find users who signed up last month" or "average order value by region" and the agent writes the query, checks the schema, and shows you results. It works with `OpenAI`, `Anthropic`, `DeepSeek`, whatever provider you bring. Your data does not leave your machine.
 
 ## Features
 
@@ -124,7 +122,7 @@ See what your server is doing and manage collections from the same place.
 
 ### AI agent — Agentic Data Studio
 
-The sidebar AI assistant and Agentic Data Studio are not a chat box pointed at an LLM. They have access to your connection, schema, index mappings, and query history. When you ask for something, they read live context from your cluster, build the query, and can run it against your database through verified tools.
+The sidebar AI assistant and Agentic Data Studio have access to your connection, schema, index mappings, and query history. When you ask for something, they read live context from your cluster, build the query, and run it against your database through tools they have verified they can use.
 
 Ask "find users who signed up last month but haven't verified their email" — the agent reads the collection schema, constructs the query, runs it, and shows you results. Ask "create an index on the `created_at` field" — it generates the command and waits for your confirmation before executing.
 
@@ -172,7 +170,9 @@ DocKit also connects to **Elasticsearch**, **OpenSearch**, **DynamoDB**, and **E
 
 ### File browser
 
-Browse, create, and organize `.mongo` query files from inside the app. Files open as editor tabs, sortable by name, date, size. Plain text — shareable, checkable into git.
+Browser-based tools lose your queries the moment a tab refreshes or a session expires. Good luck finding a central place to keep scripts or share them with the team.
+
+DocKit saves everything as local `.mongo` files. Browse, create, and organize them from inside the app. Files open as editor tabs, sortable by name, date, or size. Plain text — share with teammates, check into git, treat them like code.
 
 ## Comparison
 

@@ -94,11 +94,9 @@ head:
 
 MongoDB Shell（`mongosh`）适合脚本操作，但缺乏可视化反馈和查询历史记录。MongoDB Compass 覆盖了基本功能，但 AI 助手功能羸弱，也无法连接到其他数据库。
 
-DocKit 把 Monaco 编辑器、能读集合结构的 AI Agent，以及 MongoDB、Elasticsearch、OpenSearch、DynamoDB 统一管理放在一个应用里。
+DocKit 提供 Monaco 编辑器，以及 mongosh 和 Compass 都没有的东西：**Agentic Data Studio**。它不是聊天框——它能实时读到你的集合 Schema、索引映射和连接上下文，生成准确的查询，直接在数据库上执行，破坏性操作需要你确认。支持 OpenAI、Anthropic、DeepSeek，用自己的 API Key，数据不离开本地。
 
-### MongoDB AI Agent
-
-DocKit 内置 **Agentic Data Studio**，有 MongoDB 专属工具。说"查找上个月注册的所有用户"或"按地区显示平均订单金额"——Agent 写查询、读 Schema、返回结果。支持 `OpenAI`、`Anthropic`、`DeepSeek`。数据留在本地。
+同一个应用还能连接 Elasticsearch、OpenSearch、DynamoDB，在需要切换上下文时不用换工具。
 
 ## 功能特性
 
@@ -170,7 +168,9 @@ DocKit 同时支持 **Elasticsearch**、**OpenSearch**、**DynamoDB** 和 **Easy
 
 ### 文件浏览器
 
-直接在应用内浏览、创建和管理本地 `.mongo` 查询文件。支持按名称、日期或大小排序，文件以编辑器标签页形式打开。您的查询就是普通文件——易于分享和版本控制。
+基于浏览器的工具里，查询和内容说没就没——标签页刷新、会话过期，一切归零。想找个集中的地方存脚本、跟团队分享？没门。
+
+DocKit 把所有查询保存为本地 `.mongo` 文件。在应用内直接浏览、创建和管理。文件以编辑器标签页打开，支持按名称、日期或大小排序。纯文本——分享给同事、丢进版本控制，跟代码一样处理。
 
 ## 对比
 
