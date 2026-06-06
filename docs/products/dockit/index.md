@@ -102,10 +102,10 @@ hero:
 databases:
   title: "Native support for modern NoSQL"
   items:
-    - { name: MongoDB, logo: /db-mongodb.svg }
-    - { name: DynamoDB, logo: /db-dynamodb.svg }
-    - { name: Elasticsearch, logo: /db-elasticsearch.svg }
-    - { name: OpenSearch, logo: /db-opensearch.png }
+    - { name: MongoDB, logo: /db-mongodb.svg, link: /products/dockit/mongodb-gui-client }
+    - { name: DynamoDB, logo: /db-dynamodb.svg, link: /products/dockit/dynamodb-gui-client }
+    - { name: Elasticsearch, logo: /db-elasticsearch.svg, link: /products/dockit/elasticsearch-gui-client }
+    - { name: OpenSearch, logo: /db-opensearch.png, link: /products/dockit/opensearch-gui-client }
     - { name: EasySearch, logo: /db-easysearch.svg }
 
 showcase:

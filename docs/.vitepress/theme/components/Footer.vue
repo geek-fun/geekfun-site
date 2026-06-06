@@ -18,6 +18,7 @@
           <ul>
             <li><a :href="localePath('/products/dockit/elasticsearch-gui-client')">{{ t.elasticsearchGui }}</a></li>
             <li><a :href="localePath('/products/dockit/opensearch-gui-client')">{{ t.opensearchGui }}</a></li>
+            <li><a :href="localePath('/products/dockit/mongodb-gui-client')">{{ t.mongodbGui }}</a></li>
             <li><a :href="localePath('/products/dockit/dynamodb-gui-client')">{{ t.dynamodbGui }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-dynobase')">{{ t.dynobaseAlt }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-kibana')">{{ t.vsKibana }}</a></li>
@@ -67,6 +68,7 @@ const translations = {
     resources: 'Resources',
     community: 'Community',
     dbClients: 'Database Clients',
+    mongodbGui: 'MongoDB GUI Client',
     dynamodbGui: 'DynamoDB GUI Client',
     dynobaseAlt: 'DocKit vs Dynobase',
     vsKibana: 'DocKit vs Kibana',
@@ -88,6 +90,7 @@ const translations = {
     resources: '资源',
     community: '社区',
     dbClients: '数据库客户端',
+    mongodbGui: 'MongoDB GUI 客户端',
     dynamodbGui: 'DynamoDB GUI 客户端',
     dynobaseAlt: 'DocKit vs Dynobase',
     vsKibana: 'DocKit vs Kibana',
