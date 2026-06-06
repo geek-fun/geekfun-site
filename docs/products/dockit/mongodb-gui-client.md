@@ -104,7 +104,7 @@ The **Agentic Data Studio** has MongoDB-specific tools built in. You type someth
 
 ## Features
 
-### Query editor
+### Query editor & document browser
 
 Monaco, same engine VS Code runs on.
 
@@ -112,14 +112,15 @@ Monaco, same engine VS Code runs on.
 - Autocomplete pulls field names from your actual collection schema
 - One-click format for documents and queries
 - Cmd/Ctrl + Enter runs it, results show in a structured view
+- Paginated document browsing with inline CRUD — create, edit, delete documents directly in the result table. Syntax-highlighted JSON view.
 
 ### Manage panel
 
-Browse, inspect, and manage collections from one place.
+See what your server is doing and manage collections from the same place.
 
-**Document browsing** — paginated with inline CRUD. Configurable page sizes. Create, edit, delete documents directly in the result table. Syntax-highlighted JSON view.
+**Cluster state** — server host, version, uptime. Connection pool usage, network I/O, memory. If you are running a replica set, you get member roles (primary, secondary, arbiter), health status, replication lag, and ping times. Also works with sharded clusters.
 
-**Collection management** — view and manage indexes (type, status, key info), document counts, data size, and collection metadata. Create, modify, truncate, or delete collections without dropping into `mongosh`.
+**Collection management** — create and drop databases. Create, rename, clone, empty (truncate), and delete collections. Each collection shows document count, storage size, index count, and average document size. Search, sort, and favorite collections to keep the ones you use often handy.
 
 ### AI agent — Agentic Data Studio
 
