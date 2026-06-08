@@ -92,11 +92,11 @@ head:
 
 ## Why a dedicated MongoDB GUI?
 
-`mongosh` gets the job done for scripting, but you are staring at a terminal with no visual feedback and no query history. Compass has AI features that feel like a prototype — barely functional, and MongoDB does not seem interested in making them genuinely useful. The app itself is bloated and only works with MongoDB.
+`mongosh` gets the job done for scripting, but you are staring at a terminal with no visual feedback and no query history. `MongoDB Compass` has AI features that feel like a prototype — barely functional, and MongoDB does not seem interested in making them genuinely useful. The app itself is bloated and only works with MongoDB.
 
-DocKit gives you VS Code-level editing via Monaco, plus the **Agentic Data Studio**. It is not a chat box pointed at an LLM — it reads your collection schema, index mappings, and connection context live, generates queries that actually match your data, runs them through verified tools, and asks for confirmation before doing anything destructive. Works with OpenAI, Anthropic, DeepSeek, whatever provider you bring. Your data does not leave your machine.
+<span style="color:var(--vp-c-brand-1);font-weight:700">DocKit</span> gives you VS Code-level editing via Monaco, plus the <span style="color:var(--vp-c-brand-1);font-weight:700">Agentic Data Studio</span>. It knows your collection schema, your index mappings, and your connection — so when you ask "find users who signed up last month" it does not make up field names. It generates the query, runs it, shows you results, and checks with you before doing anything destructive. Works with `OpenAI`, `Anthropic`, `DeepSeek` and more — whatever provider you bring. Your data stays on your machine.
 
-The same app connects to Elasticsearch, OpenSearch, and DynamoDB when you need to switch contexts.
+The same app connects to `Elasticsearch`, `OpenSearch`, and `DynamoDB` when you need to switch contexts.
 
 ![DocKit MongoDB connection demo](/dockit-mongodb-connection-demo.gif)
 
@@ -122,11 +122,9 @@ See what your server is doing and manage collections from the same place.
 
 ### AI agent — Agentic Data Studio
 
-The sidebar AI assistant and Agentic Data Studio have access to your connection, schema, index mappings, and query history. When you ask for something, they read live context from your cluster, build the query, and run it against your database through tools they have verified they can use.
+The sidebar AI assistant and Agentic Data Studio know your connection, your schema, your index mappings, and what you have done before. You ask something like "find users who signed up last month but haven't verified their email" — it knows the collection structure, writes the query, runs it, and shows you what it found.
 
-Ask "find users who signed up last month but haven't verified their email" — the agent reads the collection schema, constructs the query, runs it, and shows you results. Ask "create an index on the `created_at` field" — it generates the command and waits for your confirmation before executing.
-
-Read operations run automatically. Destructive actions (update, delete, create index) require explicit confirmation. Your credentials are never sent to the LLM.
+Ask "create an index on the `created_at` field" — it prepares the command and asks for your OK before executing. Read operations run on their own. Destructive actions always wait for your say-so. Your credentials never leave your machine.
 
 ![DocKit AI query assistant](/dockit-ai-assistant.png)
 
@@ -206,21 +204,27 @@ See the [connection guide](/docs/dockit/connect-to-server) for detailed setup.
 ## FAQ
 
 **Is DocKit an alternative to MongoDB Compass?**
+
 Yes. It covers the same workflows — browse collections, run queries, manage indexes — and adds an AI agent, multi-database support, and an Agentic Data Studio. Apache 2.0 open source.
 
 **Does it support MongoDB Atlas?**
+
 Yes. Use URI Auth mode to paste your Atlas connection string. TLS and replica set configurations work.
 
 **Can I replace Robo 3T or Studio 3T with DocKit?**
+
 For querying, browsing, and data operations, yes. DocKit adds an AI agent and multi-database support. If you depend on Studio 3T's aggregation pipeline builder or data modeler, you might want to keep it around for those.
 
 **Can I import and export collections?**
+
 Yes. JSON, CSV, and JSONL. Bulk write support handles large collections.
 
 **Where is my data stored?**
+
 Locally stored. Credentials and query history do not get sent anywhere else.
 
 **Does DocKit work offline?**
+
 Connections, queries, and history are all local. The AI agent needs internet only when it sends a prompt to the LLM provider.
 
 ---
