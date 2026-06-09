@@ -187,7 +187,7 @@ Built on Tauri v2. Not Electron. The macOS installer is under 10MB. Tauri uses t
 
 **March 3, 2026.** v0.9.0. Query history: 500 entries per connection, automatic, local-only. DynamoDB Local endpoint support for offline development. PartiQL document formatting. Official Tauri updater plugin. The 0.9.x rapid release cycle starts here.
 
-**March–April 2026.** Ten patch releases in eight weeks: Elasticsearch API Key auth, connection cloning, query parameter autocomplete, connection sorting and filtering, keyboard navigation for history view, DynamoDB SSO and AssumeRole, a rebuilt Data Studio AI agent with streaming LLM responses, and the final pieces of the shadcn-vue migration. Twenty releases in the 0.9 line.
+**March–April 2026.** Ten patch releases in eight weeks: Elasticsearch API Key auth, connection cloning, query parameter autocomplete, connection sorting and filtering, keyboard navigation for history view, DynamoDB SSO and AssumeRole, a rebuilt Data Studio data AI agent with streaming LLM responses, and the final pieces of the shadcn-vue migration. Twenty releases in the 0.9 line.
 
 ### Stable release
 

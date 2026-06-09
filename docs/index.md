@@ -1,7 +1,7 @@
 ---
 layout: page
-title: GEEKFUN | Sustainable Open-Source Software Studio
-description: GEEKFUN is a sustainable open-source software studio building premium, high-performance database clients and infrastructure tools for modern developers.
+title: GEEKFUN | Open-Source Studio — DocKit NoSQL Desktop GUI for MongoDB, Elasticsearch, DynamoDB & Developer Tools
+description: GEEKFUN is a sustainable open-source software community building DocKit (open-source NoSQL desktop GUI supporting MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch with a built-in data AI agent and Agentic Data Studio), SqlKit, and ServerlessInsight. Free, privacy-first, and community-driven.
 head:
   - - link
     - rel: canonical

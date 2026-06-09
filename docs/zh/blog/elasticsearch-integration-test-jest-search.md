@@ -29,7 +29,7 @@ head:
         "@type": "BlogPosting",
         "headline": "使用 jest-search 实现 Elasticsearch 集成测试",
         "description": "Elasticsearch已经成为现代应用程序的一个重要组成部分，特别是那些需要处理大量数据并且需要高效搜索能力的应用程序。在开发使用 Elasticsearch 的应用程序时，确保应用程序与 Elasticsearch 的集成正常运作非常重要。",
-        "image": "https://www.geekfun.club/og-image.png",
+        "image": "https://www.geekfun.club/og/master-zh.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

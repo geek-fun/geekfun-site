@@ -80,7 +80,7 @@ The editor is built on Monaco, the same engine in VS Code.
 - Format queries or copy them as curl commands
 - Execute with Cmd/Ctrl + Enter
 
-### AI agent — Agentic Data Studio
+### Data AI agent — Agentic Data Studio
 
 The sidebar AI assistant and Agentic Data Studio have access to your connection, index mappings, cluster state, and query history. When you ask for something, they read live context from your cluster, build the DSL, and can run it against OpenSearch through verified tools.
 

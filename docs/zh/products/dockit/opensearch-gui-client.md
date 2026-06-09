@@ -67,7 +67,7 @@ Dev Tools 编辑器基于 Monaco（VS Code 引擎）构建：
 - **自动格式化**，一键复制为 `curl` 命令
 - `Cmd/Ctrl + Enter` 执行查询
 
-### AI Agent — Agentic Data Studio
+ ### Data AI Agent — Agentic Data Studio
 
 侧边栏 AI 助手和 Agentic Data Studio 能读到你的连接、索引映射、集群状态和查询历史。你提出需求时，它们从集群拉实时上下文，生成 DSL，然后通过验证过的工具直接在 OpenSearch 上执行。
 

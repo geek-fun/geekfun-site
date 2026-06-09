@@ -1,10 +1,10 @@
 ---
-title: DocKit Agentic Data Studio — AI Agent for Your Databases
+title: DocKit Agentic Data Studio — Data AI Agent for Your Databases
 description: Configure DocKit Agentic Data Studio and Sidebar Assistant to interact with MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch through natural language. Set up AI providers, manage permissions, and control the agent loop.
 head:
   - - meta
     - name: keywords
-      content: DocKit Agentic Data Studio, AI database agent, natural language database query, AI assistant, agent loop, tool execution, database AI agent, OpenAI, Anthropic, DeepSeek, Ollama, DocKit AI
+      content: DocKit Agentic Data Studio, AI database agent, natural language database query, AI assistant, agent loop, tool execution, database data AI agent, OpenAI, Anthropic, DeepSeek, Ollama, DocKit AI
   - - link
     - rel: canonical
       href: https://www.geekfun.club/docs/dockit/agentic-datastudio
@@ -24,7 +24,7 @@ head:
 
 # DocKit Agentic Data Studio
 
-DocKit's Agentic Data Studio is an AI agent that talks to your databases in natural language. Tell it what you need and it writes queries, inspects schemas, updates documents, deletes records, or creates indexes — all in one conversation.
+DocKit's Agentic Data Studio is a data AI agent that talks to your databases in natural language. Tell it what you need and it writes queries, inspects schemas, updates documents, deletes records, or creates indexes — all in one conversation.
 
 The Sidebar Assistant gives you the same AI in a chat panel, so you can ask questions and generate queries without switching views.
 

@@ -31,7 +31,7 @@ DocKit v1.1 is the biggest update since v1.0, adding support for **MongoDB** and
 
 - **MongoDB** — Full support for connection, query, management, import/export, and Agentic Data Studio integration
 - **EasySearch** — Now supported alongside Elasticsearch and OpenSearch
-- **Agentic Data Studio** — AI agent with 28+ tools across 5 databases. Permission modes (Ask/Auto), risk levels (Safe/Elevated/Destructive), per-source permissions, and confirmation rules
+- **Agentic Data Studio** — a data AI agent with 28+ tools across 5 databases. Permission modes (Ask/Auto), risk levels (Safe/Elevated/Destructive), per-source permissions, and confirmation rules
 - **12+ AI providers** — OpenAI, Anthropic, DeepSeek, OpenRouter, Gemini, Grok, Mistral, Azure, Ollama, LM Studio, and custom endpoints
 - **AWS SSO & Profile auth** — IAM Identity Center device auth and AWS profile support for DynamoDB
 - **DynamoDB table lifecycle** — 4-step create wizard, GSI/LSI management, TTL, PITR, streams, encryption, CloudWatch metrics, truncate

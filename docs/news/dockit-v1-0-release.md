@@ -53,7 +53,7 @@ DocKit started as an Elasticsearch query editor in mid-2023. Key milestones:
 - **v0.8** — DynamoDB support: visual query builder, PartiQL editor, table management
 - **v0.9** — Complete UI redesign (Naive UI → shadcn-vue + UnoCSS), query history, DynamoDB Local, PartiQL formatting
 
-Each 0.9.x patch release through v0.9.10 added connection sorting, keyboard navigation, SSO authentication, ES|QL groundwork, a Data Studio AI agent, and completed the UI migration.
+Each 0.9.x patch release through v0.9.10 added connection sorting, keyboard navigation, SSO authentication, ES|QL groundwork, a Data Studio data AI agent, and completed the UI migration.
 
 v1.0 doesn't add a single headline feature. Every system is now mature enough to call stable.
 

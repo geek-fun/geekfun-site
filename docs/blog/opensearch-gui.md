@@ -29,7 +29,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Migrating from OpenSearch Dashboards to a Desktop Client — Practical Guide",
         "description": "When OpenSearch Dashboards is too heavy for daily query work — how to migrate to a desktop client, what you gain and lose, and how to run both side-by-side.",
-        "image": "https://www.geekfun.club/og-image.png",
+        "image": "https://www.geekfun.club/og/master-en.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

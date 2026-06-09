@@ -29,7 +29,7 @@ head:
         "@type": "BlogPosting",
         "headline": "OpenSearch GUI 客户端 - 适用于 Mac、Windows、Linux 的免费桌面工具",
         "description": "DocKit 是一个免费的开源 OpenSearch GUI 和 OpenSearch Dashboards 替代方案。可视化查询构建器、Dev Tools 和集群管理，适用于 Mac、Windows 和 Linux。",
-        "image": "https://www.geekfun.club/og-image.png",
+        "image": "https://www.geekfun.club/og/master-zh.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

@@ -1,6 +1,6 @@
 ---
 title: MongoDB GUI Client — DocKit Desktop App for Mac, Windows, Linux
-description: DocKit is an open-source MongoDB GUI client with an AI agent, Monaco-based query editor, collection management, import/export, and local-first persistence. Free MongoDB desktop client for Mac, Windows, and Linux.
+description: DocKit is an open-source MongoDB GUI client with a data AI agent, Monaco-based query editor, collection management, import/export, and local-first persistence. Free MongoDB desktop client for Mac, Windows, and Linux.
 sidebar: false
 head:
   - - meta
@@ -50,7 +50,7 @@ head:
             "name": "Is DocKit a MongoDB Compass alternative?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. DocKit covers the same core workflows — browse collections, run queries, manage indexes — and adds an AI agent that understands your schema, multi-database support (Elasticsearch, OpenSearch, DynamoDB), and an Agentic Data Studio for natural language database interaction. It is open-source under Apache 2.0."
+              "text": "Yes. DocKit covers the same core workflows — browse collections, run queries, manage indexes — and adds a data AI agent that understands your schema, multi-database support (Elasticsearch, OpenSearch, DynamoDB), and an Agentic Data Studio for natural language database interaction. It is open-source under Apache 2.0."
             }
           },
           {
@@ -74,7 +74,7 @@ head:
             "name": "Is it a Robo 3T or Studio 3T replacement?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For query development, collection browsing, and data operations, yes. DocKit adds an AI agent and multi-database support that neither Robo 3T nor Studio 3T offer. If you need advanced data modeling or aggregation pipeline builders, you may want to keep Studio 3T around."
+              "text": "For query development, collection browsing, and data operations, yes. DocKit adds a data AI agent and multi-database support that neither Robo 3T nor Studio 3T offer. If you need advanced data modeling or aggregation pipeline builders, you may want to keep Studio 3T around."
             }
           }
         ]
@@ -83,12 +83,14 @@ head:
 
 # MongoDB GUI Client
 
-**DocKit** is an open source NoSQL desktop client for Mac, Windows, and Linux. It supports **MongoDB**, **Elasticsearch**, **OpenSearch**, **DynamoDB**, and **EasySearch** — each with its own editor tuned to how that database works: document browser for MongoDB, DSL editor for Elasticsearch, PartiQL for DynamoDB. There is also an AI agent that turns natural language into queries for whatever engine you are connected to.
+**DocKit** is an open source NoSQL desktop client for Mac, Windows, and Linux. It supports **MongoDB**, **Elasticsearch**, **OpenSearch**, **DynamoDB**, and **EasySearch** — each with its own editor tuned to how that database works: document browser for MongoDB, DSL editor for Elasticsearch, PartiQL for DynamoDB. There is also a data AI agent that turns natural language into queries for whatever engine you are connected to.
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download — Free</a>
   <a href="https://github.com/geek-fun/dockit" style="padding:10px 20px;border:1px solid var(--vp-c-border);border-radius:6px;font-weight:600;text-decoration:none" target="_blank" rel="noopener">View on GitHub</a>
 </div>
+
+![DocKit MongoDB connection demo](/dockit-mongodb-connection-demo.gif)
 
 ## Why a dedicated MongoDB GUI?
 
@@ -98,13 +100,25 @@ head:
 
 The same app connects to `Elasticsearch`, `OpenSearch`, and `DynamoDB` when you need to switch contexts.
 
-![DocKit MongoDB connection demo](/dockit-mongodb-connection-demo.gif)
+## See DocKit in action
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
+  <iframe
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    src="https://www.youtube.com/embed/FkKRNhFB0fk"
+    title="DocKit MongoDB GUI client demo"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
 
 ## Features
 
 ### Query editor & document browser
 
 Monaco, same engine VS Code runs on.
+![DocKit MongoDB editor with AI assistant](/dockit-mongodb-editor.png)
 
 - Syntax highlighting for MongoDB queries and aggregation pipelines
 - Autocomplete pulls field names from your actual collection schema
@@ -116,22 +130,23 @@ Monaco, same engine VS Code runs on.
 
 See what your server is doing and manage collections from the same place.
 
+![DocKit MongoDB visual manage panel screenshort](/dockit-mongodb-manage.png)
+
 **Cluster state** — server host, version, uptime. Connection pool usage, network I/O, memory. If you are running a replica set, you get member roles (primary, secondary, arbiter), health status, replication lag, and ping times. Also works with sharded clusters.
 
 **Collection management** — create and drop databases. Create, rename, clone, empty (truncate), and delete collections. Each collection shows document count, storage size, index count, and average document size. Search, sort, and favorite collections to keep the ones you use often handy.
 
-### AI agent — Agentic Data Studio
+### Data AI agent — Agentic Data Studio
 
 The sidebar AI assistant and Agentic Data Studio know your connection, your schema, your index mappings, and what you have done before. You ask something like "find users who signed up last month but haven't verified their email" — it knows the collection structure, writes the query, runs it, and shows you what it found.
 
 Ask "create an index on the `created_at` field" — it prepares the command and asks for your OK before executing. Read operations run on their own. Destructive actions always wait for your say-so. Your credentials never leave your machine.
 
-![DocKit AI query assistant](/dockit-ai-assistant.png)
-
+![DocKit Agentic data studio demo](/dockit-data-studio-list-indices.gif)
 ### Import and export
 
 Move data between MongoDB instances or other databases.
-
+![DocKit MongoDB data import export panel screenshort](/dockit-mongodb-import-export.png)
 - **JSON** for interop
 - **CSV** for spreadsheets
 - **JSONL** for bulk and streaming
@@ -178,7 +193,7 @@ DocKit saves everything as local `.mongo` files. Browse, create, and organize th
 |---|---|---|---|---|
 | **Platform** | Desktop (native) | Desktop | Desktop | Desktop |
 | **Editor** | Monaco (JSON + syntax highlighting) | Basic | Advanced | Basic |
-| **AI agent** | ✅ | ❌ | ❌ | ❌ |
+| **data AI agent** | ✅ | ❌ | ❌ | ❌ |
 | **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ |
 | **Natural language queries** | ✅ | ❌ | ❌ | ❌ |
 | **Import / Export** | JSON, CSV, JSONL | JSON, CSV | JSON, CSV, SQL | JSON, CSV |
@@ -205,7 +220,7 @@ See the [connection guide](/docs/dockit/connect-to-server) for detailed setup.
 
 **Is DocKit an alternative to MongoDB Compass?**
 
-Yes. It covers the same workflows — browse collections, run queries, manage indexes — and adds an AI agent, multi-database support, and an Agentic Data Studio. Apache 2.0 open source.
+Yes. It covers the same workflows — browse collections, run queries, manage indexes — and adds a data AI agent, multi-database support, and an Agentic Data Studio. Apache 2.0 open source.
 
 **Does it support MongoDB Atlas?**
 
@@ -213,7 +228,7 @@ Yes. Use URI Auth mode to paste your Atlas connection string. TLS and replica se
 
 **Can I replace Robo 3T or Studio 3T with DocKit?**
 
-For querying, browsing, and data operations, yes. DocKit adds an AI agent and multi-database support. If you depend on Studio 3T's aggregation pipeline builder or data modeler, you might want to keep it around for those.
+For querying, browsing, and data operations, yes. DocKit adds a data AI agent and multi-database support. If you depend on Studio 3T's aggregation pipeline builder or data modeler, you might want to keep it around for those.
 
 **Can I import and export collections?**
 
@@ -225,7 +240,7 @@ Locally stored. Credentials and query history do not get sent anywhere else.
 
 **Does DocKit work offline?**
 
-Connections, queries, and history are all local. The AI agent needs internet only when it sends a prompt to the LLM provider.
+Connections, queries, and history are all local. The data AI agent needs internet only when it sends a prompt to the LLM provider.
 
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: "DocKit Query History - Never Lose a Query Again"
-description: "DocKit now stores your full query history for Elasticsearch and DynamoDB. View, copy, re-execute, and add past queries back to the editor — all locally persisted."
+description: "DocKit automatically saves every query across MongoDB, Elasticsearch, OpenSearch, and DynamoDB. View, copy, re-execute, and restore past queries — all locally persisted on your machine."
 date: 2025-03-04
 head:
   - - meta
     - name: keywords
-      content: DocKit query history, Elasticsearch query history, DynamoDB query history, NoSQL query management, save Elasticsearch queries, re-execute queries, query log, open source query history tool, DocKit features
+      content: DocKit query history, MongoDB query history, Elasticsearch query history, OpenSearch query history, DynamoDB query history, NoSQL query management, save database queries, re-execute queries, query log, open source query history tool, DocKit features
   - - link
     - rel: canonical
       href: https://www.geekfun.club/blog/dockit-query-history
@@ -28,7 +28,7 @@ head:
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "DocKit Query History - Never Lose a Query Again",
-        "description": "DocKit now stores your full query history for Elasticsearch and DynamoDB. View, copy, re-execute, and add past queries back to the editor — all locally persisted.",
+        "description": "DocKit automatically saves every query across MongoDB, Elasticsearch, OpenSearch, and DynamoDB. View, copy, re-execute, and restore past queries — all locally persisted on your machine.",
         "image": "https://www.geekfun.club/dockit-query-history.png",
         "author": {
           "@type": "Organization",
@@ -49,7 +49,7 @@ head:
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/blog/dockit-query-history"
         },
-        "keywords": ["DocKit", "query history", "Elasticsearch", "DynamoDB"],
+        "keywords": ["DocKit", "query history", "MongoDB", "Elasticsearch", "OpenSearch", "DynamoDB"],
         "articleSection": "DocKit Features"
       }
 ---

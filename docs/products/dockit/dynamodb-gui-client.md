@@ -102,7 +102,7 @@ head:
 
 The AWS Console is fine for quick lookups, but it wasn't built for development. It lacks query history and offline support. Writing filter expressions in a tiny text box is slow and prone to errors. Dedicated clients exist to fix these specific problems.
 
-DocKit includes an AI agent that understands your table schema. You describe what you need in plain English — the agent reads your schema, generates PartiQL, and runs it against your table through tools it has verified it can use.
+DocKit includes a data AI agent that understands your table schema. You describe what you need in plain English — the agent reads your schema, generates PartiQL, and runs it against your table through tools it has verified it can use.
 
 ## See DocKit in action
 
@@ -143,7 +143,7 @@ If you don't want to write PartiQL manually, use the visual builder.
 
 Visual queries are saved to your history automatically.
 
-### AI agent — Agentic Data Studio
+### Data AI agent — Agentic Data Studio
 
 The sidebar AI assistant and Agentic Data Studio have access to your connection, table schema, indexes, and query history. When you ask for something, they read live context from your DynamoDB connection, build the PartiQL, and can run it against your table through verified tools.
 

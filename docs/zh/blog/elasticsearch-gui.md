@@ -29,7 +29,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Elasticsearch GUI 客户端 - 适用于 Mac、Windows、Linux 的免费桌面工具",
         "description": "DocKit 是一个免费的开源 Elasticsearch GUI 客户端，具有可视化查询构建器、Dev Tools 替代方案以及用于 Mac、Windows 和 Linux 的集群管理功能。",
-        "image": "https://www.geekfun.club/og-image.png",
+        "image": "https://www.geekfun.club/og/master-zh.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

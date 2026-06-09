@@ -1,6 +1,6 @@
 ---
 title: 极客范新闻 - DocKit 发布 DynamoDB GUI 客户端 Elasticsearch 工具更新
-description: "关注极客范最新新闻、DocKit 与 SqlKit 版本发布、产品公告和社区里程碑，及时了解数据库工具更新、新功能上线与开源项目进展。"
+description: "关注极客范最新新闻与版本发布，了解 DocKit（MongoDB / Elasticsearch / OpenSearch / DynamoDB NoSQL 桌面客户端）和 SqlKit 的最新功能、Agentic Data Studio 更新、产品公告与社区里程碑。"
 head:
   - - meta
     - name: keywords
@@ -35,7 +35,7 @@ head:
 
 ## [🚀 DocKit v0.9.10 发布：智能补全、Data Studio Agent 与跨应用认证](https://github.com/geek-fun/dockit/releases/tag/v0.9.10)
 
-**2026年4月28日** — 60+ 次提交，覆盖 Data Studio AI Agent、完整的 UI 迁移和编辑器改进。
+**2026年4月28日** — 60+ 次提交，覆盖 Data Studio Data AI Agent、完整的 UI 迁移和编辑器改进。
 
 🔍 **更智能的 Elasticsearch 补全** — Monaco 编辑器曾在 JSON 内部错误地提示字段类型（`text`、`keyword` 等）。修复要求 tokenizer 区分"键位"（输入字段名）和"值位"（输入字段类型）。改动小，体验提升大。
 
@@ -43,7 +43,7 @@ head:
 
 🖱️ **macOS Monterey 滚动修复** — WebKit 的固定高度容器 bug 会导致连接列表卡死。解决方案？一行 CSS：`-webkit-transform: translateZ(0)` 强制 GPU 合成。「花 3 小时调一个 CSS 属性」系列。
 
-🤖 **Data Studio AI Agent** — 用 LLM 流式响应、工具调用可视化活动时间线、思考内容展示、以及带并发保护的 Rust 后端 Agent 循环彻底重建。新增 LM Studio 提供商，系统提示中注入 DynamoDB + ES Query DSL 知识。
+🤖 **Data Studio Data AI Agent** — 用 LLM 流式响应、工具调用可视化活动时间线、思考内容展示、以及带并发保护的 Rust 后端 Agent 循环彻底重建。新增 LM Studio 提供商，系统提示中注入 DynamoDB + ES Query DSL 知识。
 
 🔐 **跨应用认证** — 实现 `dockit://` 深度链接协议，无缝对接 Geekfun 登录，包括链接 URL 解析和域名白名单头像验证。
 
