@@ -1,7 +1,7 @@
 ---
 layout: product
 title: DocKit — Agentic NoSQL Desktop GUI for MongoDB, Elasticsearch, OpenSearch & DynamoDB
-description: DocKit is an open-source agentic NoSQL desktop GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Its AI agent writes queries, inspects schemas, and manages data through natural language — privacy-first, local, free.
+description: DocKit is an open-source agentic NoSQL desktop GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Its data AI agent writes queries, inspects schemas, and manages data through natural language — privacy-first, local, free.
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
@@ -88,7 +88,7 @@ hero:
   name: DocKit
   headline: "NoSQL Database GUI Client"
   animatedText: "Agentic"
-  tagline: "Open-source AI agent that manages your databases. Connect MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — then describe what you need in natural language. The agent writes queries, inspects schemas, updates documents, and returns results. Privacy-first, local, Apache 2.0."
+  tagline: "Open-source data AI agent that manages your databases. Connect MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — then describe what you need in natural language. The agent writes queries, inspects schemas, updates documents, and returns results. Privacy-first, local, Apache 2.0."
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -102,15 +102,15 @@ hero:
 databases:
   title: "Native support for modern NoSQL"
   items:
-    - { name: MongoDB, logo: /db-mongodb.svg }
-    - { name: DynamoDB, logo: /db-dynamodb.svg }
-    - { name: Elasticsearch, logo: /db-elasticsearch.svg }
-    - { name: OpenSearch, logo: /db-opensearch.png }
+    - { name: MongoDB, logo: /db-mongodb.svg, link: /products/dockit/mongodb-gui-client }
+    - { name: DynamoDB, logo: /db-dynamodb.svg, link: /products/dockit/dynamodb-gui-client }
+    - { name: Elasticsearch, logo: /db-elasticsearch.svg, link: /products/dockit/elasticsearch-gui-client }
+    - { name: OpenSearch, logo: /db-opensearch.png, link: /products/dockit/opensearch-gui-client }
     - { name: EasySearch, logo: /db-easysearch.svg }
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "Talk to your databases in natural language. DocKit's AI agent writes queries, inspects schemas, creates indexes, updates documents, and returns results — with per-source permissions and a safety gate for destructive actions. Ask 'find orders over $500 from last week' and get optimized queries instantly. Supports OpenAI, Anthropic, DeepSeek, and more."
+    body: "Talk to your databases in natural language. DocKit's data AI agent writes queries, inspects schemas, creates indexes, updates documents, and returns results — with per-source permissions and a safety gate for destructive actions. Ask 'find orders over $500 from last week' and get optimized queries instantly. Supports OpenAI, Anthropic, DeepSeek, plus Ollama and LM Studio for fully offline use."
     image: /dockit-gui-client-demo.gif
     align: left
   - title: "Multi-Database Data Management"
@@ -127,7 +127,7 @@ showcase:
     align: right
 
 features:
-  - { title: "Agentic Data Studio", body: "Talk to your databases in natural language. The AI agent writes queries, inspects schemas, creates indexes, and updates documents — with per-source permissions and a safety gate for destructive actions.", icon: "sparkles" }
+  - { title: "Agentic Data Studio", body: "Talk to your databases in natural language. The data AI agent writes queries, inspects schemas, creates indexes, and updates documents — with per-source permissions and a safety gate for destructive actions.", icon: "sparkles" }
   - { title: "Desktop-Grade Editor", body: "Monaco Editor brings VS Code power to your queries—syntax highlighting, autocomplete, formatting, and keyboard shortcuts you already know.", icon: "edit" }
   - { title: "Local-First Privacy", body: "Credentials, queries, and LLM config saved locally. Query history tracked automatically. Fully offline with Ollama and LM Studio.", icon: "history" }
   - { title: "Multi-Database Support", body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one unified interface. Switch between databases instantly.", icon: "database" }
@@ -190,7 +190,7 @@ DocKit natively supports **EasySearch** as a dedicated connection type alongside
 
 ## Agentic Data Studio
 
-DocKit's **Agentic Data Studio** lets you interact with your databases through natural language. Describe what you need — the agent writes queries, inspects schemas, updates documents, deletes records, creates indexes, and returns results. Every operation runs through validated tools with built-in safety: fine-grained per-source permissions, a security gate requiring explicit confirmation before destructive actions, and a credential-safe architecture that never exposes connection secrets to the LLM. Supports OpenAI, Anthropic, and DeepSeek.
+DocKit's **Agentic Data Studio** lets you interact with your databases through natural language. Describe what you need — the agent writes queries, inspects schemas, updates documents, deletes records, creates indexes, and returns results. Every operation runs through validated tools with built-in safety: fine-grained per-source permissions, a security gate requiring explicit confirmation before destructive actions, and a credential-safe architecture that never exposes connection secrets to the LLM. Supports OpenAI, Anthropic, DeepSeek, plus Ollama and LM Studio for fully offline use.
 
 → [Agentic Data Studio Guide](/docs/dockit/agentic-datastudio)
 

@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useData } from 'vitepress'
+
 type DatabaseItem = {
   name: string
   logo: string
+  link?: string
 }
 
 type DatabaseData = {
@@ -9,7 +12,12 @@ type DatabaseData = {
   items: DatabaseItem[]
 }
 
-defineProps<{ databases: DatabaseData }>()
+const props = defineProps<{ databases: DatabaseData }>()
+const { lang } = useData()
+
+const resolveLink = (link: string) => {
+  return lang.value === 'zh' ? `/zh${link}` : link
+}
 </script>
 
 <template>
@@ -19,12 +27,18 @@ defineProps<{ databases: DatabaseData }>()
         <span class="database-title">{{ databases.title }}</span>
       </div>
       <div class="database-grid">
-        <div v-for="item in databases.items" :key="item.name" class="database-item">
+        <a
+          v-for="item in databases.items"
+          :key="item.name"
+          :href="item.link ? resolveLink(item.link) : undefined"
+          class="database-item"
+          :class="{ clickable: !!item.link }"
+        >
           <div class="database-chip">
             <img :src="item.logo" :alt="item.name" class="database-logo" />
           </div>
           <span class="database-name">{{ item.name }}</span>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -81,8 +95,17 @@ defineProps<{ databases: DatabaseData }>()
   gap: 8px;
   transition: transform 0.2s ease;
 
-  &:hover {
-    transform: translateY(-2px);
+  &.clickable {
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &:not(.clickable) {
+    cursor: default;
   }
 }
 

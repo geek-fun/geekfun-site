@@ -102,7 +102,7 @@ head:
 
 The AWS Console is fine for quick lookups, but it wasn't built for development. It lacks query history and offline support. Writing filter expressions in a tiny text box is slow and prone to errors. Dedicated clients exist to fix these specific problems.
 
-DocKit includes an AI assistant that understands your table schema. You can describe what you need in plain English to get working PartiQL back.
+DocKit includes a data AI agent that understands your table schema. You describe what you need in plain English — the agent reads your schema, generates PartiQL, and runs it against your table through tools it has verified it can use.
 
 ## See DocKit in action
 
@@ -143,9 +143,13 @@ If you don't want to write PartiQL manually, use the visual builder.
 
 Visual queries are saved to your history automatically.
 
-### AI query assistant
+### Data AI agent — Agentic Data Studio
 
-Type what you need in natural language. For example, "find all orders from this week where the total is over 500." DocKit generates the PartiQL statement using your actual attribute names and types as context. It supports OpenAI, Anthropic, DeepSeek, and more AI providers with your own API key. Your table data stays on your machine.
+The sidebar AI assistant and Agentic Data Studio have access to your connection, table schema, indexes, and query history. When you ask for something, they read live context from your DynamoDB connection, build the PartiQL, and can run it against your table through verified tools.
+
+Ask "find orders over $500 from last week" — the agent reads your table schema, constructs the query, runs it, and shows you results. Ask "describe the table capacity" — it calls `DescribeTable` and returns structured metrics.
+
+Read operations run automatically. Write operations (update, delete) require explicit confirmation. Your credentials are never sent to the LLM.
 
 ![DocKit AI query assistant](/dockit-ai-assistant.png)
 
@@ -292,7 +296,7 @@ Yes. Set the custom endpoint to `http://localhost:8000` when creating the connec
 For queries and data operations, yes. NoSQL Workbench has a better data modeler, so you might want to use both if you do heavy modeling.
 
 **Where are AWS credentials stored?**
-They are encrypted and stored locally on your machine. They are never sent to third parties or DocKit's developers.
+They are stored locally on your machine. They are never sent to third parties or DocKit's developers.
 
 **Can I manage DynamoDB tables in DocKit?**
 Yes. DocKit provides full table lifecycle management — create with a 4-step wizard, modify billing mode, indexes, streams, TTL, PITR, encryption, and more. You can also truncate, delete, and monitor CloudWatch metrics directly in the app.

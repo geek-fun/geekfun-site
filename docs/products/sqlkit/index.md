@@ -103,7 +103,7 @@ features:
   - { title: "Smart Query Editor", body: "Monaco-powered editor delivers VS Code-level productivity with syntax highlighting, context-aware autocomplete, and automatic query formatting.", icon: "code" }
   - { title: "Visual Table Browser", body: "Browse tables, inspect columns, and navigate relationships with an intuitive visual interface. Edit records directly in the data grid.", icon: "table" }
   - { title: "Data Import & Export", body: "Move data in and out seamlessly. Support for CSV, JSON, and raw SQL dumps, engineered to handle large datasets efficiently without crashing.", icon: "import" }
-  - { title: "Connection Management", body: "Save and organize multiple database connections. Keep your credentials secure with encrypted local storage and quick-connect profiles.", icon: "lock" }
+  - { title: "Connection Management", body: "Save and organize multiple database connections. Keep your credentials stored securely on your local machine with quick-connect profiles.", icon: "lock" }
   - { title: "Query History", body: "Never lose a complex query again. Automatic tracking of executed statements lets you search, modify, and re-run past queries instantly.", icon: "history" }
 
 cta:

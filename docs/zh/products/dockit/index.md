@@ -1,7 +1,7 @@
 ---
 layout: product
 title: DocKit - Agentic NoSQL 数据库 GUI 客户端 — MongoDB、Elasticsearch、OpenSearch、DynamoDB
-description: DocKit 是一款开源的 Agentic NoSQL 桌面 GUI，支持 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。AI Agent 通过自然语言编写查询、查看表结构、管理数据 — 隐私优先、本地运行、完全免费。
+description: DocKit 是一款开源的 Agentic NoSQL 桌面 GUI，支持 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。Data AI Agent 通过自然语言编写查询、查看表结构、管理数据 — 隐私优先、本地运行、完全免费。
 ogImage: https://www.geekfun.club/og/dockit-zh.png
 head:
   - - meta
@@ -78,7 +78,7 @@ hero:
   name: DocKit
   headline: "NoSQL 数据库 GUI 客户端"
   animatedText: "Agentic"
-  tagline: "管理您数据库的开源 AI Agent。连接 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch — 用自然语言描述您的需求。Agent 会编写查询、查看表结构、更新文档并返回结果。隐私优先、本地运行、Apache 2.0。"
+  tagline: "管理您数据库的开源 Data AI Agent。连接 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch — 用自然语言描述您的需求。Agent 会编写查询、查看表结构、更新文档并返回结果。隐私优先、本地运行、Apache 2.0。"
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -92,15 +92,15 @@ hero:
 databases:
   title: "原生支持现代 NoSQL"
   items:
-   - { name: MongoDB, logo: /db-mongodb.svg }
-   - { name: DynamoDB, logo: /db-dynamodb.svg }
-   - { name: Elasticsearch, logo: /db-elasticsearch.svg }
-   - { name: OpenSearch, logo: /db-opensearch.png }
+   - { name: MongoDB, logo: /db-mongodb.svg, link: /products/dockit/mongodb-gui-client }
+   - { name: DynamoDB, logo: /db-dynamodb.svg, link: /products/dockit/dynamodb-gui-client }
+   - { name: Elasticsearch, logo: /db-elasticsearch.svg, link: /products/dockit/elasticsearch-gui-client }
+   - { name: OpenSearch, logo: /db-opensearch.png, link: /products/dockit/opensearch-gui-client }
    - { name: EasySearch, logo: /db-easysearch.svg }
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "用自然语言与数据库对话。DocKit 的 AI Agent 编写查询、查看表结构、创建索引、更新文档并返回结果——支持按源权限控制，破坏性操作需安全确认。支持 OpenAI、Anthropic、DeepSeek 等。"
+    body: "用自然语言与数据库对话。DocKit 的 Data AI Agent 编写查询、查看表结构、创建索引、更新文档并返回结果——支持按源权限控制，破坏性操作需安全确认。支持 OpenAI、Anthropic、DeepSeek，以及 Ollama 和 LM Studio 完全离线运行。"
     image: /dockit-gui-client-demo.gif
     align: left
   - title: "多数据库数据管理"
@@ -117,7 +117,7 @@ showcase:
     align: right
 
 features:
-  - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI Agent 编写查询、查看表结构、创建索引、更新文档——支持按源权限控制，破坏性操作需安全确认。", icon: "sparkles" }
+  - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。Data AI Agent 编写查询、查看表结构、创建索引、更新文档——支持按源权限控制，破坏性操作需安全确认。支持 Ollama 和 LM Studio 完全离线运行。", icon: "sparkles" }
   - { title: "桌面级编辑器", body: "Monaco Editor 将 VS Code 的编辑能力带入查询——语法高亮、自动补全、格式化和熟悉的快捷键。", icon: "edit" }
   - { title: "本地优先，隐私安全", body: "凭证、查询和 LLM 配置保存在本地。查询历史自动追踪。支持 Ollama 和 LM Studio 完全离线运行。", icon: "history" }
   - { title: "多数据库支持", body: "统一界面管理 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。数据库之间即时无缝切换。", icon: "database" }

@@ -1,6 +1,6 @@
 ---
 title: "DocKit 查询历史 - 永不丢失查询记录"
-description: "DocKit 现在为 Elasticsearch 和 DynamoDB 存储您的完整查询历史。查看、复制、重新执行和将过去的查询添加回编辑器 — 全部本地持久化。"
+description: "DocKit 自动保存你在 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB 中执行的每一个查询。查看、复制、重新执行，或将历史查询恢复到编辑器中继续编辑——全部本地持久化，数据不离开你的设备。"
 date: 2025-03-04
 head:
   - - meta
@@ -28,7 +28,7 @@ head:
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "DocKit 查询历史 - 永不丢失查询记录",
-        "description": "DocKit 现在为 Elasticsearch 和 DynamoDB 存储您的完整查询历史。查看、复制、重新执行和将过去的查询添加回编辑器 — 全部本地持久化。",
+        "description": "DocKit 自动保存你在 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB 中执行的每一个查询。查看、复制、重新执行，或将历史查询恢复到编辑器中继续编辑——全部本地持久化，数据不离开你的设备。",
         "image": "https://www.geekfun.club/dockit-query-history.png",
         "author": {
           "@type": "Organization",
@@ -50,7 +50,7 @@ head:
           "@type": "WebPage",
           "@id": "https://www.geekfun.club/zh/blog/dockit-query-history"
         },
-        "keywords": ["DocKit", "查询历史", "Elasticsearch", "DynamoDB"],
+        "keywords": ["DocKit", "查询历史", "MongoDB", "Elasticsearch", "OpenSearch", "DynamoDB"],
         "articleSection": "DocKit Features"
       }
 ---

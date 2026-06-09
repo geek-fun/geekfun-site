@@ -80,9 +80,11 @@ The editor is built on Monaco, the same engine in VS Code.
 - Format queries or copy them as curl commands
 - Execute with Cmd/Ctrl + Enter
 
-### AI query assistant
+### Data AI agent — Agentic Data Studio
 
-You can write what you need in plain English, like "find all orders from last week over $100," and the app generates the DSL for you. It uses your actual index mapping as context, so the field names and types are correct. It works with OpenAI, Anthropic, DeepSeek, and more AI providers. Your data stays on your machine.
+The sidebar AI assistant and Agentic Data Studio have access to your connection, index mappings, cluster state, and query history. When you ask for something, they read live context from your cluster, build the DSL, and can run it against OpenSearch through verified tools.
+
+Ask "find the slowest queries from the last hour" — the agent reads your cluster metadata, constructs the query, runs it, and shows you results. Read operations run automatically. Destructive operations require explicit confirmation. Your credentials are never sent to the LLM.
 
 ### Cluster management
 
@@ -172,7 +174,7 @@ Yes. You can connect over HTTPS using IAM credentials or API keys.
 Yes. DocKit supports Elasticsearch, OpenSearch, and DynamoDB in the same app.
 
 **Where are my credentials?**
-They are encrypted and stored on your machine. They are never sent anywhere else.
+They are stored on your machine. They are never sent anywhere else.
 
 ---
 

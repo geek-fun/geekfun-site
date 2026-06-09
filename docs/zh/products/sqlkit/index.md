@@ -1,7 +1,7 @@
 ---
 layout: product
 title: SqlKit – 开源 SQL 桌面客户端
-description: SqlKit 是一款开源的 SQL 桌面 GUI 客户端，支持 PostgreSQL、MySQL、SQL Server 和 SQLite。极速、安全，专为开发者打造。
+description: SqlKit 是一款免费开源的 SQL 桌面 GUI 客户端，支持 PostgreSQL、MySQL、SQL Server 和 SQLite。内置 Monaco 编辑器、智能自动补全、查询历史、数据导入导出和连接管理，极速安全，专为开发者打造，支持 Mac、Windows 和 Linux。
 ogImage: https://www.geekfun.club/og/sqlkit-zh.png
 head:
   - - meta
@@ -103,7 +103,7 @@ features:
   - { title: "智能查询编辑器", body: "基于 Monaco 构建的编辑器，提供 VS Code 级别的生产力：语法高亮、上下文感知的自动补全以及自动格式化 SQL 语句。", icon: "code" }
   - { title: "可视化表结构浏览", body: "通过直观的可视化界面浏览数据表、查看列信息和外键关系。支持在网格中直接编辑和更新数据记录。", icon: "table" }
   - { title: "数据导入与导出", body: "无缝迁入和迁出数据。支持 CSV、JSON 以及原生 SQL 导出，经过深度优化，能高效处理超大数据集而不崩溃。", icon: "import" }
-  - { title: "连接管理", body: "保存并对多个数据库连接进行分组管理。使用加密的本地存储保护您的凭据安全，实现一键快速连接。", icon: "lock" }
+  - { title: "连接管理", body: "保存并对多个数据库连接进行分组管理。在本地安全存储您的凭据，实现一键快速连接。", icon: "lock" }
   - { title: "历史查询记录", body: "再也不会丢失复杂的查询语句。自动记录所有执行过的 SQL，让您可以随时搜索、修改并瞬间重新运行历史查询。", icon: "history" }
 
 cta:

@@ -29,7 +29,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Implementing Elasticsearch Integration Test with jest-search",
         "description": "Learn how to write reliable Elasticsearch integration tests using jest-search — a Jest preset that spins up a local Elasticsearch, OpenSearch, or ZincSearch instance automatically for your test suite.",
-        "image": "https://www.geekfun.club/og-image.png",
+        "image": "https://www.geekfun.club/og/master-en.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

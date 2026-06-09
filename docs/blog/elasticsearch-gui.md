@@ -29,7 +29,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Elasticsearch Query Workflows with DocKit — Practical Patterns for 2026",
         "description": "Real Elasticsearch query patterns for log analysis, e-commerce search, multi-environment testing, and index migration — using DocKit's Dev Tools editor.",
-        "image": "https://www.geekfun.club/og-image.png",
+        "image": "https://www.geekfun.club/og/master-en.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

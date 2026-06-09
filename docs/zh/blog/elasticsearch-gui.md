@@ -29,7 +29,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Elasticsearch GUI 客户端 - 适用于 Mac、Windows、Linux 的免费桌面工具",
         "description": "DocKit 是一个免费的开源 Elasticsearch GUI 客户端，具有可视化查询构建器、Dev Tools 替代方案以及用于 Mac、Windows 和 Linux 的集群管理功能。",
-        "image": "https://www.geekfun.club/og-image.png",
+        "image": "https://www.geekfun.club/og/master-zh.png",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -202,7 +202,7 @@ DocKit 支持 Elasticsearch 1.x 及更高版本，使用标准 REST API，不绑
 DocKit 提供导入/导出模块，支持多种格式导出数据和 schema，比简单的结果导出有更多控制选项。
 
 **连接凭证存储在哪里？**
-凭证经过加密，存储在您的本地机器上，不会离开您的设备。
+凭证存储在您的本地机器上，不会离开您的设备。
 
 ## 其他资源
 

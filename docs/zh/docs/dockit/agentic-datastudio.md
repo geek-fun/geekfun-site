@@ -1,10 +1,10 @@
 ---
-title: DocKit Agentic Data Studio — AI Agent 数据库工作台
+title: DocKit Agentic Data Studio — Data AI Agent 数据库工作台
 description: 配置 DocKit Agentic Data Studio 和侧边栏助手，通过自然语言与 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch 交互。设置 AI 提供商、管理权限、控制代理循环。
 head:
   - - meta
     - name: keywords
-      content: DocKit Agentic Data Studio, AI 数据库代理, 自然语言数据库查询, AI 助手, 代理循环, 工具执行, 数据库 AI Agent, OpenAI, Anthropic, DeepSeek, Ollama, DocKit AI
+      content: DocKit Agentic Data Studio, Data AI 数据库代理, 自然语言数据库查询, AI 助手, 代理循环, 工具执行, 数据库 Data AI Agent, OpenAI, Anthropic, DeepSeek, Ollama, DocKit AI
   - - link
     - rel: canonical
       href: https://www.geekfun.club/zh/docs/dockit/agentic-datastudio
@@ -24,7 +24,7 @@ head:
 
 # DocKit Agentic Data Studio
 
-DocKit 的 Agentic Data Studio 是一个与您的数据库通过自然语言交互的 AI Agent。描述您的需求——代理会编写查询、检查表结构、更新文档、删除记录、创建索引并返回结果——全部在单个对话中完成。
+DocKit 的 Agentic Data Studio 是一个与您的数据库通过自然语言交互的 Data AI Agent。描述您的需求——代理会编写查询、检查表结构、更新文档、删除记录、创建索引并返回结果——全部在单个对话中完成。
 
 侧边栏助手提供同样的 AI 能力，以轻量级聊天面板的形式，方便您在编辑器中快速提问和生成查询，无需切换视图。
 

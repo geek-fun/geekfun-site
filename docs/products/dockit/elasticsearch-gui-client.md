@@ -82,9 +82,13 @@ The query editor uses the same engine as VS Code.
 - Automatic formatting and one click copy as curl commands.
 - Use Cmd/Ctrl + Enter to run queries.
 
-### AI query generation
+### Data AI agent — Agentic Data Studio
 
-Describe a query in plain English to generate Elasticsearch DSL. DocKit uses your index mapping as context so generated queries match your actual schema. You can use OpenAI, Anthropic, DeepSeek, and more AI providers with your own API key. Data stays on your machine.
+The sidebar AI assistant and Agentic Data Studio have access to your connection, index mappings, cluster state, and query history. When you ask for something, they read live context from your cluster, build the DSL, and can run it against Elasticsearch through verified tools.
+
+Ask "find the slowest queries from the last hour" — the agent reads your cluster metadata, constructs the query, runs it, and shows you results. Ask "check shard allocation" — it hits `_cat/shards` and returns structured data.
+
+Read operations run automatically. Destructive operations require explicit confirmation. Your credentials are never sent to the LLM.
 
 ![DocKit AI query generation](/dockit-ai-assistant.png)
 
@@ -164,7 +168,7 @@ It replaces Kibana for query development and index management. It does not inclu
 Yes.
 
 **Where is data stored?**
-Credentials and history are encrypted on your local filesystem.
+Credentials and history are stored on your local filesystem.
 
 **Is OpenSearch supported?**
 Yes. DocKit supports OpenSearch and DynamoDB. See the [OpenSearch page](/products/dockit/opensearch-gui-client).
