@@ -111,5 +111,6 @@ cta:
   body: "Download SqlKit today and experience a modern, lightning-fast SQL client built for developers."
   actions:
     - { text: "Download", link: "/download", theme: "brand" }
+    - { text: "Try DocKit →", link: "/products/dockit/", theme: "alt" }
     - { text: "View on GitHub", link: "https://github.com/geek-fun/sqlkit", theme: "alt", external: true }
 ---

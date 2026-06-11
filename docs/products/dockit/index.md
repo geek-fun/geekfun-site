@@ -149,8 +149,26 @@ cta:
   body: "Stop wrestling with complex query syntax. Let DocKit's AI assistant and Agentic Data Studio handle the boilerplate while you focus on the data."
   actions:
     - { text: "Download", link: "/download", theme: "brand" }
+    - { text: "Try SqlKit →", link: "/products/sqlkit/", theme: "alt" }
     - { text: "View on GitHub", link: "https://github.com/geek-fun/dockit", theme: "alt", external: true }
 ---
+
+## Why DocKit for multi-database teams
+
+Most teams don't use just one NoSQL database. A team running Elasticsearch for search plus DynamoDB for key-value workloads typically needs two separate tools — Kibana/Elasticvue for one, Dynobase/NoSQL Workbench for the other. DocKit covers all three in a single desktop app.
+
+| | DocKit | Kibana | Elasticvue | Dynobase | NoSQL Workbench |
+|---|---|---|---|---|---|---|
+| **MongoDB** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Elasticsearch** | ✅ | ✅ | ✅ | ❌ | ❌ |
+| **OpenSearch** | ✅ | ❌ | ✅ | ❌ | ❌ |
+| **EasySearch** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **DynamoDB** | ✅ | ❌ | ❌ | ✅ | ✅ |
+| **AI assistant** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Desktop native** | ✅ | ❌ | Partial | ✅ | ✅ |
+| **Open source** | ✅ Apache 2.0 | Mixed | ✅ MIT | ❌ | ❌ |
+| **Price** | Community: free | Free | Free | $12–30/mo | Free |
 
 ## Elasticsearch GUI Client
 
@@ -194,23 +212,6 @@ DocKit's **Agentic Data Studio** lets you interact with your databases through n
 
 → [Agentic Data Studio Guide](/docs/dockit/agentic-datastudio)
 
-## Why DocKit for multi-database teams
-
-Most teams don't use just one NoSQL database. A team running Elasticsearch for search plus DynamoDB for key-value workloads typically needs two separate tools — Kibana/Elasticvue for one, Dynobase/NoSQL Workbench for the other. DocKit covers all three in a single desktop app.
-
-| | DocKit | Kibana | Elasticvue | Dynobase | NoSQL Workbench |
-|---|---|---|---|---|---|---|
-| **MongoDB** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Elasticsearch** | ✅ | ✅ | ✅ | ❌ | ❌ |
-| **OpenSearch** | ✅ | ❌ | ✅ | ❌ | ❌ |
-| **EasySearch** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **DynamoDB** | ✅ | ❌ | ❌ | ✅ | ✅ |
-| **AI assistant** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Desktop native** | ✅ | ❌ | Partial | ✅ | ✅ |
-| **Open source** | ✅ Apache 2.0 | Mixed | ✅ MIT | ❌ | ❌ |
-| **Price** | Community: free | Free | Free | $12–30/mo | Free |
-
 ## Frequently asked questions
 
 **Does DocKit work offline?**
@@ -230,4 +231,7 @@ Yes — Apache 2.0 license. The full source is at [github.com/geek-fun/dockit](h
 
 **Will there be a paid tier?**
 A paid Ultimate tier with additional features is planned. The Community edition will remain open-source.
+
+**Do you also support SQL databases?**
+DocKit is purpose-built for NoSQL databases. If you need PostgreSQL, MySQL, SQL Server, or SQLite support, check out [**SqlKit**](/products/sqlkit/) — our companion open-source SQL desktop client from the same team.
 

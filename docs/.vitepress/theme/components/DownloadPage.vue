@@ -1,18 +1,20 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
+
+import { DOCKIT_VERSION } from '../version'
+
+const GH = 'https://github.com/geek-fun/dockit/releases'
+
+const platformLinks: Record<string, { url: string; label: string }> = {
+  macos:  { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_universal.dmg`, label: 'Download .dmg' },
+  windows:{ url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_x64-setup.exe`, label: 'Download .exe' },
+  linux:  { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_amd64.deb`, label: 'Download .deb' },
+}
 
 type DownloadCategoryId = 'database-clients' | 'serverless-infrastructure' | 'developer-tools'
 
-type BinaryAsset = {
-  name: string
-  tail: string
-}
-
-type PlatformGroup = {
-  platform: string
-  binaries: BinaryAsset[]
-}
+type PlatformGroup = { platform: string }
 
 type ProductAction = {
   label: string
@@ -51,43 +53,17 @@ type DownloadContent = {
   platformsTitle: string
   platformsDescription: string
   openReleaseLabel: string
-  downloadsLoading: string
-  downloadsError: string
-}
-
-type ReleaseAsset = {
-  name: string
-  url: string
 }
 
 const availablePlatform: PlatformGroup[] = [
-  {
-    platform: 'macOS',
-    binaries: [{ name: 'Universal (Intel + M1/M2)', tail: 'universal.dmg' }]
-  },
-  {
-    platform: 'Windows',
-    binaries: [
-      { name: 'Installer (.exe)', tail: 'x64-setup.exe' },
-      { name: 'Installer (.msi)', tail: 'x64_en-US.msi' }
-    ]
-  },
-  {
-    platform: 'Linux',
-    binaries: [
-      { name: 'Debian/Ubuntu (.deb)', tail: 'amd64.deb' },
-      { name: 'Red Hat/Fedora (.rpm)', tail: 'x86_64.rpm' },
-      { name: 'Portable (.AppImage)', tail: 'amd64.AppImage' }
-    ]
-  }
+  { platform: 'macOS' },
+  { platform: 'Windows' },
+  { platform: 'Linux' },
 ]
 
 const { lang } = useData()
 
 const activeCategory = ref<DownloadCategoryId>('database-clients')
-const releaseAssets = ref<ReleaseAsset[]>([])
-const releasesLoading = ref(false)
-const releasesError = ref(false)
 
 const content = computed<DownloadContent>(() => {
   const isZh = lang.value === 'zh'
@@ -197,9 +173,7 @@ const content = computed<DownloadContent>(() => {
     installCommandLabel: isZh ? '安装命令' : 'Install',
     platformsTitle: isZh ? '下载桌面应用' : 'Download Desktop App',
     platformsDescription: isZh ? '选择平台，或查看所有历史版本。' : 'Choose your platform, or browse all versions.',
-    openReleaseLabel: isZh ? '查看所有版本' : 'All Versions',
-    downloadsLoading: isZh ? '获取最新版本…' : 'Fetching latest release…',
-    downloadsError: isZh ? '获取失败，请直接访问 Releases 页面。' : 'Failed to load. Visit the Releases page directly.'
+    openReleaseLabel: isZh ? '查看所有版本' : 'All Versions'
   }
 })
 
@@ -207,38 +181,6 @@ const categories = computed(() => content.value.categories)
 const activeCategory_ = computed(() => categories.value.find(c => c.id === activeCategory.value) ?? categories.value[0])
 const filteredProducts = computed(() => content.value.products.filter(p => p.category === activeCategory.value))
 
-const getLatestLinks = async (): Promise<ReleaseAsset[]> => {
-  const response = await fetch('https://api.github.com/repos/geek-fun/dockit/releases/latest')
-  const data = await response.json()
-  if (!response.ok || !Array.isArray(data.assets)) throw new Error('Unable to fetch releases')
-  return data.assets.map((item: { name: string; browser_download_url: string }) => ({
-    name: item.name,
-    url: item.browser_download_url
-  }))
-}
-
-const loadReleaseAssets = async () => {
-  releasesLoading.value = true
-  releasesError.value = false
-  try {
-    releaseAssets.value = await getLatestLinks()
-  } catch {
-    releasesError.value = true
-  } finally {
-    releasesLoading.value = false
-  }
-}
-
-const openExternal = (href: string) => {
-  if (typeof window !== 'undefined') window.open(href, '_blank', 'noopener,noreferrer')
-}
-
-const downloadBinary = (binaryTail: string) => {
-  const matched = releaseAssets.value.find(item => item.name.endsWith(binaryTail))
-  if (matched) openExternal(matched.url)
-}
-
-onMounted(() => { void loadReleaseAssets() })
 </script>
 
 <template>
@@ -325,10 +267,7 @@ onMounted(() => { void loadReleaseAssets() })
                 >{{ content.openReleaseLabel }}</a>
               </div>
 
-              <p v-if="releasesLoading" class="dl-platforms__status">{{ content.downloadsLoading }}</p>
-              <p v-else-if="releasesError" class="dl-platforms__status dl-platforms__status--error">{{ content.downloadsError }}</p>
-
-              <div v-else class="dl-platforms__grid">
+              <div class="dl-platforms__grid">
                 <div class="dl-platforms__col">
                   <div
                     v-for="group in product.platformGroups.slice(0, 2)"
@@ -336,18 +275,15 @@ onMounted(() => { void loadReleaseAssets() })
                     class="dl-platform-group"
                   >
                     <h5 class="dl-platform-group__name">{{ group.platform }}</h5>
-                    <div class="dl-platform-group__buttons">
-                      <button
-                        v-for="binary in group.binaries"
-                        :key="binary.tail"
-                        type="button"
-                        class="gf-btn gf-btn-secondary dl-binary-btn"
-                        @click="downloadBinary(binary.tail)"
-                      >
-                        <span>{{ binary.name }}</span>
-                        <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
-                      </button>
-                    </div>
+                    <a
+                      :href="platformLinks[group.platform.toLowerCase()].url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="gf-btn gf-btn-secondary dl-binary-btn"
+                    >
+                      <span>{{ platformLinks[group.platform.toLowerCase()].label }}</span>
+                      <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
+                    </a>
                   </div>
                 </div>
                 <div class="dl-platforms__col">
@@ -357,18 +293,15 @@ onMounted(() => { void loadReleaseAssets() })
                     class="dl-platform-group"
                   >
                     <h5 class="dl-platform-group__name">{{ group.platform }}</h5>
-                    <div class="dl-platform-group__buttons">
-                      <button
-                        v-for="binary in group.binaries"
-                        :key="binary.tail"
-                        type="button"
-                        class="gf-btn gf-btn-secondary dl-binary-btn"
-                        @click="downloadBinary(binary.tail)"
-                      >
-                        <span>{{ binary.name }}</span>
-                        <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
-                      </button>
-                    </div>
+                    <a
+                      :href="platformLinks[group.platform.toLowerCase()].url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="gf-btn gf-btn-secondary dl-binary-btn"
+                    >
+                      <span>{{ platformLinks[group.platform.toLowerCase()].label }}</span>
+                      <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
+                    </a>
                   </div>
                 </div>
               </div>
