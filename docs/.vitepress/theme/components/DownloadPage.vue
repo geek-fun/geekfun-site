@@ -7,9 +7,10 @@ import { DOCKIT_VERSION } from '../version'
 const GH = 'https://github.com/geek-fun/dockit/releases'
 
 const platformLinks: Record<string, { url: string; label: string }> = {
-  macos:  { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_universal.dmg`, label: 'Download .dmg' },
-  windows:{ url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_x64-setup.exe`, label: 'Download .exe' },
-  linux:  { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_amd64.deb`, label: 'Download .deb' },
+  macos:       { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_universal.dmg`, label: 'Download .dmg' },
+  windows:     { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_x64-setup.exe`, label: 'Download .exe' },
+  'linux deb': { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_amd64.deb`, label: 'Download .deb' },
+  'linux rpm': { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit-${DOCKIT_VERSION}-1.x86_64.rpm`, label: 'Download .rpm' },
 }
 
 type DownloadCategoryId = 'database-clients' | 'serverless-infrastructure' | 'developer-tools'
@@ -58,7 +59,8 @@ type DownloadContent = {
 const availablePlatform: PlatformGroup[] = [
   { platform: 'macOS' },
   { platform: 'Windows' },
-  { platform: 'Linux' },
+  { platform: 'Linux deb' },
+  { platform: 'Linux rpm' },
 ]
 
 const { lang } = useData()
