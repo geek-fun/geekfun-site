@@ -1,10 +1,10 @@
 ---
-title: Download GEEKFUN Products - Database GUI, Serverless Tools, Libraries
-description: Download GEEKFUN open-source products across database GUI tools, serverless infrastructure, and developer libraries. Get DocKit binaries or open related GitHub and product links.
+title: Download GEEKFUN - DocKit NoSQL GUI & SqlKit SQL Client for Mac, Windows, Linux
+description: 'Download open-source database GUIs: DocKit for MongoDB, Elasticsearch, OpenSearch, DynamoDB — SqlKit for PostgreSQL, MySQL, SQL Server, and 50+ databases. Native desktop apps for Mac, Windows, and Linux. AI-powered, privacy-first.'
 head:
   - - meta
     - name: keywords
-      content: GEEKFUN downloads, DocKit download, SqlKit download, serverless tools, serverless adapter, jest-search, database GUI download, developer tools download
+      content: GEEKFUN downloads, DocKit download, SqlKit download, MongoDB GUI, PostgreSQL GUI, Elasticsearch GUI, DynamoDB GUI, database client download, open source database tool, SQL client download, Mac database client, Windows database client, Linux database client, AI database client, serverless tools, serverless adapter, jest-search
   - - link
     - rel: canonical
       href: https://www.geekfun.club/download
