@@ -2,15 +2,27 @@
 import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
 
-import { DOCKIT_VERSION } from '../version'
+import { DOCKIT_VERSION, SQLKIT_VERSION } from '../version'
 
-const GH = 'https://github.com/geek-fun/dockit/releases'
+const DOCKIT_GH = 'https://github.com/geek-fun/dockit/releases'
+const SQLKIT_GH = 'https://github.com/geek-fun/sqlkit/releases'
 
-const platformLinks: Record<string, { url: string; label: string }> = {
-  macos:       { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_universal.dmg`, label: 'Download .dmg' },
-  windows:     { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_x64-setup.exe`, label: 'Download .exe' },
-  'linux deb': { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_amd64.deb`, label: 'Download .deb' },
-  'linux rpm': { url: `${GH}/download/v${DOCKIT_VERSION}/DocKit-${DOCKIT_VERSION}-1.x86_64.rpm`, label: 'Download .rpm' },
+const dockitPlatformLinks: Record<string, { url: string; label: string }> = {
+  macos:       { url: `${DOCKIT_GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_universal.dmg`, label: 'Download .dmg' },
+  windows:     { url: `${DOCKIT_GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_x64-setup.exe`, label: 'Download .exe' },
+  'linux deb': { url: `${DOCKIT_GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_amd64.deb`, label: 'Download .deb' },
+  'linux rpm': { url: `${DOCKIT_GH}/download/v${DOCKIT_VERSION}/DocKit-${DOCKIT_VERSION}-1.x86_64.rpm`, label: 'Download .rpm' },
+}
+
+const sqlkitPlatformLinks: Record<string, { url: string; label: string }> = {
+  macos:       { url: `${SQLKIT_GH}/download/v${SQLKIT_VERSION}/SqlKit_${SQLKIT_VERSION}_universal.dmg`, label: 'Download .dmg' },
+  windows:     { url: `${SQLKIT_GH}/download/v${SQLKIT_VERSION}/SqlKit_${SQLKIT_VERSION}_x64-setup.exe`, label: 'Download .exe' },
+  'linux deb': { url: `${SQLKIT_GH}/download/v${SQLKIT_VERSION}/SqlKit_${SQLKIT_VERSION}_amd64.deb`, label: 'Download .deb' },
+  'linux rpm': { url: `${SQLKIT_GH}/download/v${SQLKIT_VERSION}/SqlKit-${SQLKIT_VERSION}-1.x86_64.rpm`, label: 'Download .rpm' },
+}
+
+function getPlatformLinks(product: 'dockit' | 'sqlkit'): Record<string, { url: string; label: string }> {
+  return product === 'dockit' ? dockitPlatformLinks : sqlkitPlatformLinks
 }
 
 type DownloadCategoryId = 'database-clients' | 'serverless-infrastructure' | 'developer-tools'
@@ -34,6 +46,7 @@ type DownloadProduct = {
   installLabel?: string
   releaseHref?: string
   platformGroups?: PlatformGroup[]
+  features?: string[]
 }
 
 type CategoryContent = {
@@ -81,10 +94,10 @@ const content = computed<DownloadContent>(() => {
         id: 'database-clients',
         label: isZh ? '数据库客户端' : 'Database Clients',
         eyebrow: isZh ? '桌面应用' : 'Desktop Apps',
-        title: isZh ? '可视化管理与查询数据库' : 'Manage and query databases visually',
+        title: isZh ? '从 NoSQL 到 SQL，一个生态全覆盖' : 'From NoSQL to SQL — we\'ve got you covered',
         description: isZh
-          ? '支持 Elasticsearch、DynamoDB、PostgreSQL 等多种数据库。'
-          : 'Works with Elasticsearch, DynamoDB, PostgreSQL, and more.'
+          ? 'DocKit：5 种 NoSQL 引擎。SqlKit：50+ 种 SQL 数据库。共同点：开源、原生、隐私优先。'
+          : 'DocKit: 5 NoSQL engines. SqlKit: 50+ SQL databases. Both: open-source, native, privacy-first.'
       },
       {
         id: 'serverless-infrastructure',
@@ -110,8 +123,11 @@ const content = computed<DownloadContent>(() => {
         name: 'DocKit',
         logo: '/dockit.png',
         description: isZh
-          ? 'NoSQL 数据库桌面客户端，支持 Elasticsearch、OpenSearch、DynamoDB。'
-          : 'Desktop client for NoSQL databases: Elasticsearch, OpenSearch, DynamoDB.',
+          ? '5 种 NoSQL 引擎 — MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch。AI 驱动，原生性能。'
+          : '5 NoSQL engines — MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch. AI-powered, native performance.',
+        features: isZh
+          ? ['AI 智能体', '自然语言查询', 'Monaco 编辑器', '集群管理', '导入导出', '本地优先']
+          : ['AI Agent', 'Natural Language Query', 'Monaco Editor', 'Cluster Management', 'Import/Export', 'Local-First'],
         category: 'database-clients',
         actions: [
           { label: isZh ? '了解更多' : 'Learn More', href: isZh ? '/zh/products/dockit/' : '/products/dockit/', kind: 'primary' },
@@ -124,10 +140,18 @@ const content = computed<DownloadContent>(() => {
         name: 'SqlKit',
         logo: '/sqlkit.png',
         description: isZh
-          ? 'SQL 数据库桌面客户端，支持 PostgreSQL、MySQL、SQL Server、SQLite。'
-          : 'Desktop client for SQL databases: PostgreSQL, MySQL, SQL Server, SQLite.',
+          ? '50+ 种数据库，一个原生应用 — 从 Oracle 到 DuckDB，AI 智能体内置，开源免费。'
+          : '50+ databases, one native app — from Oracle to DuckDB. AI agent built-in, open-source and free.',
+        features: isZh
+          ? ['AI 智能体', 'SSH 隧道', 'JDBC 桥接', '数据迁移', 'ER 图', '执行计划']
+          : ['AI Agent', 'SSH Tunnel', 'JDBC Bridge', 'Data Transfer', 'ER Diagrams', 'Execution Plans'],
         category: 'database-clients',
-        actions: [{ label: 'GitHub', href: 'https://github.com/geek-fun/sqlkit', external: true, kind: 'primary' }]
+        actions: [
+          { label: isZh ? '了解更多' : 'Learn More', href: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/', kind: 'primary' },
+          { label: 'GitHub', href: 'https://github.com/geek-fun/sqlkit', external: true, kind: 'secondary' }
+        ],
+        releaseHref: 'https://github.com/geek-fun/sqlkit/releases',
+        platformGroups: availablePlatform
       },
       {
         name: 'ServerlessInsight',
@@ -245,6 +269,9 @@ const filteredProducts = computed(() => content.value.products.filter(p => p.cat
               <div>
                 <h3 class="dl-product__name">{{ product.name }}</h3>
                 <p class="dl-product__description">{{ product.description }}</p>
+                <div v-if="product.features" class="dl-product__tags">
+                  <span v-for="tag in product.features" :key="tag" class="dl-product__tag">{{ tag }}</span>
+                </div>
               </div>
             </div>
 
@@ -278,12 +305,12 @@ const filteredProducts = computed(() => content.value.products.filter(p => p.cat
                   >
                     <h5 class="dl-platform-group__name">{{ group.platform }}</h5>
                     <a
-                      :href="platformLinks[group.platform.toLowerCase()].url"
+                      :href="getPlatformLinks(product.name === 'SqlKit' ? 'sqlkit' : 'dockit')[group.platform.toLowerCase()].url"
                       target="_blank"
                       rel="noopener noreferrer"
                       class="gf-btn gf-btn-secondary dl-binary-btn"
                     >
-                      <span>{{ platformLinks[group.platform.toLowerCase()].label }}</span>
+                      <span>{{ getPlatformLinks(product.name === 'SqlKit' ? 'sqlkit' : 'dockit')[group.platform.toLowerCase()].label }}</span>
                       <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
                     </a>
                   </div>
@@ -296,12 +323,12 @@ const filteredProducts = computed(() => content.value.products.filter(p => p.cat
                   >
                     <h5 class="dl-platform-group__name">{{ group.platform }}</h5>
                     <a
-                      :href="platformLinks[group.platform.toLowerCase()].url"
+                      :href="getPlatformLinks(product.name === 'SqlKit' ? 'sqlkit' : 'dockit')[group.platform.toLowerCase()].url"
                       target="_blank"
                       rel="noopener noreferrer"
                       class="gf-btn gf-btn-secondary dl-binary-btn"
                     >
-                      <span>{{ platformLinks[group.platform.toLowerCase()].label }}</span>
+                      <span>{{ getPlatformLinks(product.name === 'SqlKit' ? 'sqlkit' : 'dockit')[group.platform.toLowerCase()].label }}</span>
                       <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
                     </a>
                   </div>
@@ -523,9 +550,13 @@ const filteredProducts = computed(() => content.value.products.filter(p => p.cat
 }
 
 .dl-products__list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── Product card (matches value-card vocabulary from HomePage) ─────────── */
@@ -589,10 +620,28 @@ const filteredProducts = computed(() => content.value.products.filter(p => p.cat
 }
 
 .dl-product__description {
-  margin: 0;
+  margin: 0 0 12px;
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--vp-c-text-2);
+}
+
+.dl-product__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dl-product__tag {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 /* ─── Install block ──────────────────────────────────────────────────────── */
