@@ -176,7 +176,7 @@ databases:
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "Describe what you need in natural language — the agent reads your schema, writes optimized queries, explains execution plans visually, and fixes errors on the spot. Supports OpenAI, Anthropic, DeepSeek, and Ollama. Bring your own key. Credentials are never exposed to the LLM."
+    body: "Describe what you need in plain English. The agent reads your schema, writes queries, explains execution plans, and fixes errors. Works with OpenAI, Anthropic, DeepSeek, and Ollama. Bring your own key, credentials stay on your machine."
     image: /sqlkit-client-ui.png
     align: left
   - title: "All Your Databases, One App"
@@ -188,7 +188,7 @@ showcase:
     image: /sqlkit-client-ui.png
     align: left
   - title: "Enterprise Connectivity"
-    body: "SSH tunnel support with key and password authentication. SSL/TLS encrypted connections. Encrypted credential storage via OS keychain (macOS Keychain, Windows Credential Manager, Linux Secret Service). Auto-reconnect for resilient connections."
+    body: "SSH tunnels with key or password auth. SSL/TLS for encrypted connections. Credentials stored in your OS keychain. Auto-reconnect keeps things running when connections drop."
     image: /sqlkit-client-ui.png
     align: right
 
@@ -214,8 +214,8 @@ platforms:
     - { name: Linux, logo: /platform/platform-linux.svg }
 
 cta:
-  title: "Your databases deserve a better client"
-  body: "Stop juggling between heavyweight IDEs and limited free tools. Download SqlKit today — a modern, agentic SQL client built for developers who ship."
+  title: "Stop fighting your database client"
+  body: "Download SqlKit. It covers 50+ databases, has an AI agent built in, and runs natively on Mac, Windows, and Linux."
   actions:
     - { text: "Download", link: "/download", theme: "brand" }
     - { text: "Try DocKit →", link: "/products/dockit/", theme: "alt" }
@@ -224,7 +224,7 @@ cta:
 
 ## Agentic Data Studio
 
-SqlKit's **Agentic Data Studio** transforms how you work with databases. Instead of writing SQL from scratch, describe what you need in natural language — the agent reads your schema, writes queries, optimizes slow SQL, explains execution plans visually, and fixes errors on the spot.
+SqlKit's **Agentic Data Studio** lets you work with databases without writing SQL from scratch. Describe what you need, the agent reads your schema, writes queries, optimizes slow ones, explains execution plans, and fixes errors.
 
 - **Natural language to SQL** — schema-aware context generation with your actual table and column names
 - **SQL optimization** — rewrite slow queries and visualize execution plans as structured trees with cost highlights
@@ -234,7 +234,7 @@ SqlKit's **Agentic Data Studio** transforms how you work with databases. Instead
 
 ## Multi-Database Architecture
 
-SqlKit supports **50+ databases** across five adapter strategies, from native Rust drivers to a flexible JDBC bridge. No other open-source SQL client covers this breadth.
+SqlKit supports **50+ databases** across five adapter strategies, from native Rust drivers to a JDBC bridge.
 
 | Strategy | Databases |
 |----------|-----------|
@@ -267,7 +267,7 @@ Move data between any supported engines without intermediate files:
 | **Price** | Free | Free | $199/yr | $199+ |
 | **macOS / Windows / Linux** | ✅ | ✅ | ✅ | Partial |
 
-## Built for the way you work
+## Everyday features
 
 - **Multi-tab editing** — work on multiple queries simultaneously with familiar tab management
 - **Schema browser** — tree view of databases, schemas, tables, columns, indexes, views, procedures, and functions
@@ -294,16 +294,16 @@ Move data between any supported engines without intermediate files:
 SqlKit supports 40+ databases including PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Firebird, MariaDB, CockroachDB, Redshift, Snowflake, DB2, Trino, BigQuery, Databricks, Hive, Teradata, and more. See the database compatibility table above for the full breakdown.
 
 **Is SqlKit really free?**
-Yes. SqlKit is open source under the Apache 2.0 license. All features — including the AI agent — are free. You only pay for your own LLM API usage if you use cloud-based models.
+Apache 2.0 license, all features included. The AI agent doesn't cost extra either — you only pay for LLM API usage if you use cloud models.
 
 **Does SqlKit work offline?**
-Yes. The desktop app works fully offline for all database operations. AI features require network access to the model endpoint (or a local model via Ollama/LM Studio).
+Database operations work fine offline. AI features need network access to your model endpoint, or you can run a local model via Ollama or LM Studio.
 
 **Does SqlKit collect telemetry?**
-No. SqlKit does not collect telemetry. The auto-update feature checks GitHub Releases for new versions — disable it in settings. Your credentials and queries stay on your machine.
+It does not. The auto-update feature checks GitHub Releases for new versions, but you can turn that off in settings. Your credentials and queries never leave your machine.
 
 **How is SqlKit different from DBeaver or DataGrip?**
-SqlKit is built with Rust + Tauri — no Java runtime, no Electron overhead. It includes AI natively (not as a plugin), supports 40+ databases, and runs on macOS, Windows, and Linux from a single small binary. Privacy-first with encrypted local credential storage.
+Rust + Tauri instead of Java or Electron, so it starts fast and uses less memory. AI is built in rather than bolted on as a plugin. Covers 40+ databases from a single small binary. Credentials are encrypted and stored in your OS keychain.
 
 **Can I use my own AI provider?**
 Yes. SqlKit supports OpenAI, Anthropic, DeepSeek, and any Ollama-compatible endpoint. Configure your provider and key in Settings. The agent never exposes your database credentials to the LLM.
