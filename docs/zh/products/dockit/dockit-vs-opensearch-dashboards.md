@@ -106,6 +106,60 @@ DocKit 把历史和保存的查询存成本地文件，可以直接提交到 Git
 
 大多数团队会两个都用：DocKit 给写查询的工程师，Dashboards 给共享监控和干系人报告。
 
+## 迁移工作流
+
+如果你正在从 OpenSearch Dashboards 迁移到桌面客户端，过渡过程很简单——你不需要完全抛弃 Dashboards。
+
+### 1. 收集保存的查询
+
+打开 Dashboards 中的 Dev Tools，收集团队在开发、故障排查或发布验证中反复使用的请求。将 Dev Tools 控制台中的保存查询复制到版本化文件中，让它们不再只存在于浏览器历史中。
+
+### 2. 配置连接
+
+安装 DocKit 并为每个环境——本地、预发布、生产——创建连接配置。使用命名配置，让环境切换变得明确且可重复：
+
+- **自建 OpenSearch**：主机、端口和认证信息（Basic Auth、API Key 或无）
+- **AWS OpenSearch Service**：域端点 + AWS 凭据（访问密钥或 IAM 配置）
+
+### 3. 用 JSON5 重建查询
+
+将 Dashboards 中的严格 JSON 转换为 JSON5——它支持内联注释和尾随逗号，让查询更易于维护：
+
+```json
+GET /orders/_search
+{
+  "query": {
+    "bool": {
+      "filter": [
+        { "range": { "createdAt": { "gte": "now-7d/d" } } },
+        { "term": { "status": "paid" } }
+      ]
+    }
+  },
+  "size": 100
+}
+```
+
+```javascript
+GET /orders/_search
+{
+  // 最近 7 天的已付款订单
+  query: {
+    bool: {
+      filter: [
+        { range: { createdAt: { gte: 'now-7d/d' } } },
+        { term: { status: 'paid' } }
+      ]
+    }
+  },
+  size: 100
+}
+```
+
+### 4. 两个工具并行使用
+
+保留 Dashboards 用于可视化、告警和共享视图。使用 DocKit 进行日常查询编写和环境切换。并行运行一到两周——这段时间足以确认轻量级工作流是否适合你的团队。
+
 ## 编辑器的区别
 
 OpenSearch Dashboards 里的 Dev Tools 控制台功能够用，但有局限——其实跟从 Kibana 继承来的那套差不多：
