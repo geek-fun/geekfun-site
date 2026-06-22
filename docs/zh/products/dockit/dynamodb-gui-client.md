@@ -267,12 +267,93 @@ DocKit 支持创建、查看和删除索引。每个索引可查看：
 
 通过对话框在一个流程内完成键结构、投影和吞吐量的配置。
 
-## PartiQL 编辑器
+## PartiQL 查询模式
 
-DocKit 的 DynamoDB 编辑器提供两种查询模式：
+DocKit 的 DynamoDB 编辑器同时支持可视化查询构建器和 PartiQL SQL 编辑器。下面的实用模式展示了何时使用哪种方式。
 
-- **可视化查询构建器** — 按分区键过滤，支持排序键条件（等于、begins_with、between 等）和 13 种以上过滤运算符。可选择针对哪个索引进行查询。
-- **PartiQL SQL 编辑器** — Monaco 驱动，支持 SELECT、INSERT、UPDATE、DELETE 语句的语法高亮。内置示例查询助您快速上手。
+### 基本表查询
+
+以一个 `Orders` 表为例，`OrderId` 为分区键，`CreatedAt` 为排序键：
+
+**按分区键查询** — 最高效的访问模式：
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001';
+```
+
+**按分区键和排序键条件查询** — 窄范围读取：
+
+```sql
+SELECT "OrderId", "CreatedAt", "Status", "Total"
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" BETWEEN '2026-05-01T00:00:00Z' AND '2026-05-31T23:59:59Z';
+```
+
+**带过滤表达式的扫描** — 当访问模式未被建模为键时使用：
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "Status" = 'PENDING'
+  AND "Total" >= 500;
+```
+
+如果 `Status` 和 `Total` 不是任何键的一部分，DynamoDB 必须扫描然后过滤。适用于小表或本地开发，但应避免在生产热路径中使用。
+
+### GSI 查询
+
+全局二级索引查询需要显式的索引提示。如果 `Orders` 有一个名为 `CustomerId-CreatedAt-index` 的 GSI：
+
+```sql
+SELECT "OrderId", "CustomerId", "CreatedAt", "Status", "Total"
+FROM "Orders"."CustomerId-CreatedAt-index"
+WHERE "CustomerId" = 'CUST#42'
+  AND "CreatedAt" >= '2026-05-01T00:00:00Z';
+```
+
+DynamoDB 需要知道使用哪个存储路径。索引提示让它明确。
+
+### 批量操作
+
+PartiQL 非常适合维护任务——填充数据、修复记录或清理测试数据：
+
+```sql
+INSERT INTO "Orders" VALUE {
+  'OrderId': 'ORD#10002',
+  'CreatedAt': '2026-05-15T09:30:00Z',
+  'CustomerId': 'CUST#42',
+  'Status': 'PENDING',
+  'Total': 149.99
+};
+
+UPDATE "Orders"
+SET "Status" = 'PAID', "Total" = 159.99
+WHERE "OrderId" = 'ORD#10002'
+  AND "CreatedAt" = '2026-05-15T09:30:00Z';
+
+DELETE FROM "Orders"
+WHERE "OrderId" = 'ORD#10002'
+  AND "CreatedAt" = '2026-05-15T09:30:00Z';
+```
+
+可以在一个会话中运行多条语句来完成维护任务。
+
+### 可视化构建器转 PartiQL 工作流
+
+当你已经知道键值、想要快速获取结果时，使用可视化构建器。界面会在你输入之前显示有效字段。一个常用的工作流：在表单中设置分区键，添加过滤条件，然后在执行前检查生成的 PartiQL：
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" >= '2026-05-01T00:00:00Z'
+  AND "Status" = 'PENDING';
+```
+
+这可以将快速的点击路径转化为可保存的纯文本。当查询逻辑重要时使用 PartiQL——它是可重复、可审查且 Git 友好的。当你只需要数据值时使用可视化构建器。
 
 ## 分页
 

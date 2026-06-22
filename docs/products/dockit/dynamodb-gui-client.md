@@ -267,11 +267,93 @@ DocKit lets you create, view, and delete indexes. For each index you can see:
 
 Create indexes with a dialog that configures key schema, projection, and throughput in one flow.
 
-## PartiQL Editor
+## PartiQL Query Patterns
 
-DocKit's DynamoDB editor supports both:
-- **Visual query builder** — filter by partition key, sort key conditions (equality, begins_with, between, etc.), and 13+ filter operators. Select which index to query against.
-- **PartiQL SQL editor** — Monaco-powered editor with syntax highlighting for SELECT, INSERT, UPDATE, DELETE statements. Sample queries included for quick starts.
+DocKit's DynamoDB editor has both a visual query builder and a PartiQL SQL editor. Here's when each one makes sense.
+
+### Basic table queries with PartiQL
+
+Say you have an `Orders` table with `OrderId` (partition key) and `CreatedAt` (sort key):
+
+**Query by partition key** — the fastest way to get data:
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001';
+```
+
+**Query by partition key and sort key condition** — narrower reads within a known range:
+
+```sql
+SELECT "OrderId", "CreatedAt", "Status", "Total"
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" BETWEEN '2026-05-01T00:00:00Z' AND '2026-05-31T23:59:59Z';
+```
+
+**Scan with a filter expression** — for when the access pattern wasn't modeled as a key:
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "Status" = 'PENDING'
+  AND "Total" >= 500;
+```
+
+If `Status` and `Total` aren't part of any key, DynamoDB has to scan everything first and filter after. Works for small tables or local dev, but don't rely on it in production.
+
+### GSI queries
+
+Global Secondary Index queries need an explicit index hint. If `Orders` has a GSI called `CustomerId-CreatedAt-index`:
+
+```sql
+SELECT "OrderId", "CustomerId", "CreatedAt", "Status", "Total"
+FROM "Orders"."CustomerId-CreatedAt-index"
+WHERE "CustomerId" = 'CUST#42'
+  AND "CreatedAt" >= '2026-05-01T00:00:00Z';
+```
+
+DynamoDB needs to know which storage path to use. The index hint makes that explicit.
+
+### Batch operations
+
+PartiQL handles maintenance work well — seeding data, fixing rows, cleaning up after tests:
+
+```sql
+INSERT INTO "Orders" VALUE {
+  'OrderId': 'ORD#10002',
+  'CreatedAt': '2026-05-15T09:30:00Z',
+  'CustomerId': 'CUST#42',
+  'Status': 'PENDING',
+  'Total': 149.99
+};
+
+UPDATE "Orders"
+SET "Status" = 'PAID', "Total" = 159.99
+WHERE "OrderId" = 'ORD#10002'
+  AND "CreatedAt" = '2026-05-15T09:30:00Z';
+
+DELETE FROM "Orders"
+WHERE "OrderId" = 'ORD#10002'
+  AND "CreatedAt" = '2026-05-15T09:30:00Z';
+```
+
+You can run multiple statements in one session for maintenance tasks.
+
+### Visual builder to PartiQL workflow
+
+The visual builder is faster when you already know the key and just want results. It shows valid fields before you type anything. A pattern I use: set the partition key in the form, add filters, then inspect the generated PartiQL before running it:
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" >= '2026-05-01T00:00:00Z'
+  AND "Status" = 'PENDING';
+```
+
+That turns a click path into text you can save. Use PartiQL when the query logic matters — it's repeatable and reviewable, and works with Git. Use the visual builder when you just want the values.
 
 ## Pagination
 

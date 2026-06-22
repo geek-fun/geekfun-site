@@ -115,6 +115,14 @@ Getting an API key:
 
 If you're behind a firewall, enter a proxy URL for each provider in Settings → Providers. Format: `http://host:port`. Or choose **Use system proxy** to inherit OS-level settings.
 
+## How Context Works
+
+When you attach a database connection as a Data Studio source, DocKit fetches the schema and keeps it cached — index mappings for Elasticsearch/OpenSearch, table schemas and attribute types for DynamoDB, collection info for MongoDB.
+
+When you ask a question, the agent pulls the relevant schema context into the conversation automatically. Say you ask "find all users who signed up last week" — the agent already knows your index and field names from the cached mapping. It doesn't guess your schema. It reads it.
+
+DocKit only sends what it needs: index/table/collection names, field names and types, and a truncated result summary (~1,024 characters) from tool executions. **Your document data stays on your machine** unless you explicitly reference it in your prompt.
+
 ## Privacy & Security
 
 **What the agent sends to AI providers:**
