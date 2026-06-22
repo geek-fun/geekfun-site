@@ -269,13 +269,13 @@ Create indexes with a dialog that configures key schema, projection, and through
 
 ## PartiQL Query Patterns
 
-DocKit's DynamoDB editor supports both a visual query builder and a PartiQL SQL editor. The practical patterns below show when to use each.
+DocKit's DynamoDB editor has both a visual query builder and a PartiQL SQL editor. Here's when each one makes sense.
 
 ### Basic table queries with PartiQL
 
-Using an `Orders` table with `OrderId` (partition key) and `CreatedAt` (sort key):
+Say you have an `Orders` table with `OrderId` (partition key) and `CreatedAt` (sort key):
 
-**Query by partition key** — the most efficient access pattern:
+**Query by partition key** — the fastest way to get data:
 
 ```sql
 SELECT *
@@ -283,7 +283,7 @@ FROM "Orders"
 WHERE "OrderId" = 'ORD#10001';
 ```
 
-**Query by partition key and sort key condition** — narrow range reads:
+**Query by partition key and sort key condition** — narrower reads within a known range:
 
 ```sql
 SELECT "OrderId", "CreatedAt", "Status", "Total"
@@ -292,7 +292,7 @@ WHERE "OrderId" = 'ORD#10001'
   AND "CreatedAt" BETWEEN '2026-05-01T00:00:00Z' AND '2026-05-31T23:59:59Z';
 ```
 
-**Scan with a filter expression** — use when the access pattern isn't modeled as a key:
+**Scan with a filter expression** — for when the access pattern wasn't modeled as a key:
 
 ```sql
 SELECT *
@@ -301,11 +301,11 @@ WHERE "Status" = 'PENDING'
   AND "Total" >= 500;
 ```
 
-If `Status` and `Total` aren't part of any key, DynamoDB has to scan and then filter. Fine for small tables or local dev, but avoid in hot production paths.
+If `Status` and `Total` aren't part of any key, DynamoDB has to scan everything first and filter after. Works for small tables or local dev, but don't rely on it in production.
 
 ### GSI queries
 
-Global Secondary Index queries require an explicit index hint. If `Orders` has a GSI named `CustomerId-CreatedAt-index`:
+Global Secondary Index queries need an explicit index hint. If `Orders` has a GSI called `CustomerId-CreatedAt-index`:
 
 ```sql
 SELECT "OrderId", "CustomerId", "CreatedAt", "Status", "Total"
@@ -318,7 +318,7 @@ DynamoDB needs to know which storage path to use. The index hint makes that expl
 
 ### Batch operations
 
-PartiQL is practical for maintenance — seeding data, fixing rows, or cleaning up after tests:
+PartiQL handles maintenance work well — seeding data, fixing rows, cleaning up after tests:
 
 ```sql
 INSERT INTO "Orders" VALUE {
@@ -339,11 +339,11 @@ WHERE "OrderId" = 'ORD#10002'
   AND "CreatedAt" = '2026-05-15T09:30:00Z';
 ```
 
-Run multiple statements in one session for maintenance tasks.
+You can run multiple statements in one session for maintenance tasks.
 
 ### Visual builder to PartiQL workflow
 
-Use the visual builder when you know the key and want a fast result. The UI surfaces valid fields before you type anything. One useful workflow: set the partition key in the form, add filters, then inspect the generated PartiQL before running it:
+The visual builder is faster when you already know the key and just want results. It shows valid fields before you type anything. A pattern I use: set the partition key in the form, add filters, then inspect the generated PartiQL before running it:
 
 ```sql
 SELECT *
@@ -353,7 +353,7 @@ WHERE "OrderId" = 'ORD#10001'
   AND "Status" = 'PENDING';
 ```
 
-This turns a quick click path into plain text you can save for later. Use PartiQL when the query logic matters — it's repeatable, reviewable, and Git-friendly. Use the visual builder when you just need the values.
+That turns a click path into text you can save. Use PartiQL when the query logic matters — it's repeatable and reviewable, and works with Git. Use the visual builder when you just want the values.
 
 ## Pagination
 
