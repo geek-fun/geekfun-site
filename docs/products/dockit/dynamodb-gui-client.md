@@ -303,4 +303,4 @@ Yes. DocKit provides full table lifecycle management — create with a 4-step wi
 
 ---
 
-→ **[DocKit full feature overview](/products/dockit/)** · [DynamoDB query patterns guide](/blog/dynamodb-gui) · [Best DynamoDB GUI clients 2026](/blog/best-dynamodb-gui-client-2026) · [Import & Export guide](/blog/dockit-import-export)
+→ **[DocKit full feature overview](/products/dockit/)** · [DynamoDB query patterns guide](/products/dockit/dynamodb-gui-client) · [Best DynamoDB GUI clients 2026](/blog/best-dynamodb-gui-client-2026) · [Import & Export guide](/blog/dockit-import-export)
