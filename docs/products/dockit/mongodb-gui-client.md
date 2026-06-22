@@ -162,7 +162,7 @@ DocKit saves every query automatically. Search, star, re-run. Local, per connect
 
 DocKit also connects to **Elasticsearch**, **OpenSearch**, **DynamoDB**, and **EasySearch**. Query a MongoDB collection, switch to an Elasticsearch index or a DynamoDB table. No second app needed.
 
-<div style="display: flex; gap: 32px; align-items: center; margin: 24px 0;">
+<div style="display: flex; gap: 32px; align-items: center; justify-content: center; margin: 24px 0;">
   <div style="display: flex; align-items: center; gap: 10px;">
     <img src="/db-mongodb.svg" alt="MongoDB" style="width: 32px; height: 32px;" />
     <span>MongoDB</span>

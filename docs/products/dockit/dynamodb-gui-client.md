@@ -174,7 +174,7 @@ DocKit saves every PartiQL statement and visual query. You can search, re-run, o
 
 DocKit also works with **Elasticsearch** and **OpenSearch**. You can switch between DynamoDB tables and search clusters without changing tools.
 
-<div style="display: flex; gap: 32px; align-items: center; margin: 24px 0;">
+<div style="display: flex; gap: 32px; align-items: center; justify-content: center; margin: 24px 0;">
   <div style="display: flex; align-items: center; gap: 10px;">
     <img src="/db-dynamodb.svg" alt="DynamoDB" style="width: 32px; height: 32px;" />
     <span>DynamoDB</span>
