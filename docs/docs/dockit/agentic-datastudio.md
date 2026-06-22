@@ -117,11 +117,120 @@ If you're behind a firewall, enter a proxy URL for each provider in Settings →
 
 ## How Context Works
 
-When you attach a database connection as a Data Studio source, DocKit fetches the schema and keeps it cached — index mappings for Elasticsearch/OpenSearch, table schemas and attribute types for DynamoDB, collection info for MongoDB.
+```
 
-When you ask a question, the agent pulls the relevant schema context into the conversation automatically. Say you ask "find all users who signed up last week" — the agent already knows your index and field names from the cached mapping. It doesn't guess your schema. It reads it.
+┌──────────────────────────────────────────────────────────────────┐
+│  Frontend (Vue / TypeScript)                                     │
+│                                                                  │
+│  ┌────────────────────┐  ┌──────────────────────────────────┐    │
+│  │ Attach Source       │  │ useChatAgent.ts                  │    │
+│  │ - fetch schema via  │  │ - buildSystemPrompt(schema,      │    │
+│  │   capability tool   │  │   sources, databaseType, mode)   │    │
+│  │   (es__get_mapping, │  │ - buildSourceSummary(sources)    │    │
+│  │    dynamo__describe │  │ - append database-specific rules │    │
+│  │    _table, etc.)    │  │   (DynamoDB PartiQL, ES DSL)    │    │
+│  └────────┬───────────┘  └────────────────┬─────────────────┘    │
+│           │                               │                      │
+│           ▼                               ▼                      │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  Prompt sent to Rust backend via Tauri IPC:               │   │
+│  │  ┌─ system_prompt ──────────────────────────────────────┐ │   │
+│  │  │ CRITICAL: Always respond in markdown format…          │ │   │
+│  │  │ Attached data sources:                                │ │   │
+│  │  │ - my-cluster: ELASTICSEARCH (permissions: read,create)│ │   │
+│  │  │ - orders-db: DYNAMODB (permissions: read)             │ │   │
+│  │  │ Database Schema:                                      │ │   │
+│  │  │ { "indexes": { "orders": { "mappings": { … } } } }   │ │   │
+│  │  │ DynamoDB knowledge: [PartiQL rules, SDK rules]        │ │   │
+│  │  │ Tool definitions: [es__search, es__get_mapping, …]   │ │   │
+│  │  └───────────────────────────────────────────────────────┘ │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└────────────────────────────────┬─────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  Tauri Adapter (agent_adapters.rs)                               │
+│  - Build TauriEmitter(AppHandle)                                 │
+│  - Resolve connections: resolve_connections(resolved_id →        │
+│    decrypted credentials from OS keychain)                       │
+│  - Delegate to data-studio-agent-lib                             │
+└────────────────────────────────┬─────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  data-studio-agent (Rust crate)                                  │
+│                                                                  │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  loop_runner (ReAct loop)                                 │   │
+│  │                                                           │   │
+│  │  1. Take user_message + system_prompt + history            │   │
+│  │  2. Send to LLM provider (OpenAI/Anthropic/DeepSeek/…)    │   │
+│  │  3. Parse tool_calls from LLM response                     │   │
+│  │  4. Check permissions / confirmation rules                 │   │
+│  │  5. Execute tool via ToolExecutor trait                    │   │
+│  │  6. Feed tool result (summary + full_result) back to LLM  │   │
+│  │  7. Repeat until stop or budget exceeded                   │   │
+│  │  8. Compact context when approaching token limit           │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│                                                                  │
+│  ┌────────────────────────┐  ┌─────────────────────────────┐    │
+│  │ ChatFormatter           │  │ Token counter               │    │
+│  │ (OpenAI / Anthropic)    │  │ (tiktoken-based projection)  │    │
+│  └────────────────────────┘  └─────────────────────────────┘    │
+│                                                                  │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ Compaction                                                │   │
+│  │ - Auto-summarizes old turns when context window fills     │   │
+│  │ - Safe split: never orphan tool messages                  │   │
+│  │ - Locked per session (one compaction at a time)           │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└────────────────────────────────┬─────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  Tool Execution                                                  │
+│                                                                  │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ DocKitToolExecutor → capabilities/registry.rs              │   │
+│  │                                                           │   │
+│  │  get_matching_sources(db_types) → filters capabilities    │   │
+│  │  by source kind (ELASTICSEARCH, DYNAMODB, MONGODB,       │   │
+│  │  DocKit for local state)                                  │   │
+│  │                                                           │   │
+│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────────┐  │   │
+│  │  │ ES tools │  │ DynamoDB │  │ MongoDB  │  │ DocKit  │  │   │
+│  │  │ (20+)    │  │ tools    │  │ tools    │  │ tools   │  │   │
+│  │  │ search,  │  │ (10+)    │  │ (10+)    │  │ (5+)    │  │   │
+│  │  │ get_mapping│ PartiQL, │  │ find,    │  │ version,│  │   │
+│  │  │ aliases,  │  │ describe,│  │ aggregate,│  │ info,   │  │   │
+│  │  │ manage    │  │ manage   │  │ CRUD     │  │ config  │  │   │
+│  │  └──────────┘  └──────────┘  └──────────┘  └─────────┘  │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│                                                                  │
+│  Each tool result → ToolEnvelope { summary, full_result,         │
+│  metadata { duration_ms, truncated } }                           │
+│  - summary (≤4K chars): sent back to LLM as context              │
+│  - full_result (≤32K chars): stored in SQLite, viewable in UI    │
+│  - Credentials resolved in Rust backend — agent never sees them  │
+└──────────────────────────────────────────────────────────────────┘
+```
 
-DocKit only sends what it needs: index/table/collection names, field names and types, and a truncated result summary (~1,024 characters) from tool executions. **Your document data stays on your machine** unless you explicitly reference it in your prompt.
+### What gets sent to the LLM
+
+When you attach a database connection, the frontend fetches schema info through capability tools (ES `GetMapping`, DynamoDB `DescribeTable`, MongoDB `listCollections`) and stores it on the session. This schema is injected into the system prompt:
+
+- **Source summary** — which databases are attached and what permissions they grant
+- **Database schema** — index mappings, table schemas, field names and types (no actual records)
+- **Database-specific rules** — PartiQL syntax for DynamoDB, Query DSL patterns for ES
+- **Tool definitions** — which operations the agent is allowed to call, with input schemas
+
+When the agent calls a tool, **only a summary (≤4K chars) of the result goes back to the LLM** — enough to decide the next action. The full result (≤32K chars) stays in local SQLite. **Your document data is never sent to the LLM** unless you explicitly reference it in your prompt.
+
+### What stays on your machine
+
+- **Credentials** — resolved from the OS keychain in the Rust backend. The agent never sees passwords, API keys, or AWS secrets. It passes a `connection_id`, and the backend maps that to the real config before running the tool.
+- **Full query results** — stored in the local SQLite database. Only a truncated summary reaches the LLM.
+- **Conversation history** — persisted in local SQLite, never sent to any server outside your chosen LLM provider.
 
 ## Privacy & Security
 
