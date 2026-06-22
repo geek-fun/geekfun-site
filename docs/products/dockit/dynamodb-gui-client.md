@@ -267,11 +267,93 @@ DocKit lets you create, view, and delete indexes. For each index you can see:
 
 Create indexes with a dialog that configures key schema, projection, and throughput in one flow.
 
-## PartiQL Editor
+## PartiQL Query Patterns
 
-DocKit's DynamoDB editor supports both:
-- **Visual query builder** — filter by partition key, sort key conditions (equality, begins_with, between, etc.), and 13+ filter operators. Select which index to query against.
-- **PartiQL SQL editor** — Monaco-powered editor with syntax highlighting for SELECT, INSERT, UPDATE, DELETE statements. Sample queries included for quick starts.
+DocKit's DynamoDB editor supports both a visual query builder and a PartiQL SQL editor. The practical patterns below show when to use each.
+
+### Basic table queries with PartiQL
+
+Using an `Orders` table with `OrderId` (partition key) and `CreatedAt` (sort key):
+
+**Query by partition key** — the most efficient access pattern:
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001';
+```
+
+**Query by partition key and sort key condition** — narrow range reads:
+
+```sql
+SELECT "OrderId", "CreatedAt", "Status", "Total"
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" BETWEEN '2026-05-01T00:00:00Z' AND '2026-05-31T23:59:59Z';
+```
+
+**Scan with a filter expression** — use when the access pattern isn't modeled as a key:
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "Status" = 'PENDING'
+  AND "Total" >= 500;
+```
+
+If `Status` and `Total` aren't part of any key, DynamoDB has to scan and then filter. Fine for small tables or local dev, but avoid in hot production paths.
+
+### GSI queries
+
+Global Secondary Index queries require an explicit index hint. If `Orders` has a GSI named `CustomerId-CreatedAt-index`:
+
+```sql
+SELECT "OrderId", "CustomerId", "CreatedAt", "Status", "Total"
+FROM "Orders"."CustomerId-CreatedAt-index"
+WHERE "CustomerId" = 'CUST#42'
+  AND "CreatedAt" >= '2026-05-01T00:00:00Z';
+```
+
+DynamoDB needs to know which storage path to use. The index hint makes that explicit.
+
+### Batch operations
+
+PartiQL is practical for maintenance — seeding data, fixing rows, or cleaning up after tests:
+
+```sql
+INSERT INTO "Orders" VALUE {
+  'OrderId': 'ORD#10002',
+  'CreatedAt': '2026-05-15T09:30:00Z',
+  'CustomerId': 'CUST#42',
+  'Status': 'PENDING',
+  'Total': 149.99
+};
+
+UPDATE "Orders"
+SET "Status" = 'PAID', "Total" = 159.99
+WHERE "OrderId" = 'ORD#10002'
+  AND "CreatedAt" = '2026-05-15T09:30:00Z';
+
+DELETE FROM "Orders"
+WHERE "OrderId" = 'ORD#10002'
+  AND "CreatedAt" = '2026-05-15T09:30:00Z';
+```
+
+Run multiple statements in one session for maintenance tasks.
+
+### Visual builder to PartiQL workflow
+
+Use the visual builder when you know the key and want a fast result. The UI surfaces valid fields before you type anything. One useful workflow: set the partition key in the form, add filters, then inspect the generated PartiQL before running it:
+
+```sql
+SELECT *
+FROM "Orders"
+WHERE "OrderId" = 'ORD#10001'
+  AND "CreatedAt" >= '2026-05-01T00:00:00Z'
+  AND "Status" = 'PENDING';
+```
+
+This turns a quick click path into plain text you can save for later. Use PartiQL when the query logic matters — it's repeatable, reviewable, and Git-friendly. Use the visual builder when you just need the values.
 
 ## Pagination
 
@@ -303,4 +385,4 @@ Yes. DocKit provides full table lifecycle management — create with a 4-step wi
 
 ---
 
-→ **[DocKit full feature overview](/products/dockit/)** · [DynamoDB query patterns guide](/blog/dynamodb-gui) · [Best DynamoDB GUI clients 2026](/blog/best-dynamodb-gui-client-2026) · [Import & Export guide](/blog/dockit-import-export)
+→ **[DocKit full feature overview](/products/dockit/)** · [DynamoDB query patterns guide](/products/dockit/dynamodb-gui-client) · [Best DynamoDB GUI clients 2026](/blog/best-dynamodb-gui-client-2026) · [Import & Export guide](/blog/dockit-import-export)
