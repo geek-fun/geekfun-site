@@ -179,4 +179,4 @@ Open an issue on [GitHub](https://github.com/geek-fun/dockit/issues).
 
 ---
 
-→ **[DocKit full feature overview](/products/dockit/)** · [DynamoDB GUI client page](/products/dockit/dynamodb-gui-client) · [DynamoDB GUI deep-dive](/blog/dynamodb-gui)
+→ **[DocKit full feature overview](/products/dockit/)** · [DynamoDB GUI client page](/products/dockit/dynamodb-gui-client) · [DynamoDB GUI deep-dive](/products/dockit/dynamodb-gui-client)

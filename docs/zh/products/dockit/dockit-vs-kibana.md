@@ -135,4 +135,4 @@ DocKit 使用标准 REST API，支持 **Elasticsearch 1.x 到 9.x**，Apache 2.0
 
 ---
 
-→ **[DocKit 完整功能概览](/products/dockit/)** · [Elasticsearch GUI 客户端页面](/products/dockit/elasticsearch-gui-client) · [Elasticsearch GUI 深度解析](/zh/blog/elasticsearch-gui)
+→ **[DocKit 完整功能概览](/products/dockit/)** · [Elasticsearch GUI 客户端页面](/products/dockit/elasticsearch-gui-client) · [Elasticsearch GUI 深度解析](/zh/products/dockit/elasticsearch-gui-client)

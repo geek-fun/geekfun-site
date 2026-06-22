@@ -94,7 +94,7 @@ Free, open source. Does DynamoDB plus Elasticsearch and OpenSearch — handy if 
 
 **Best for:** teams that need multi-database support, cost-conscious devs, anyone who wants AI-assisted querying without paying.
 
-[Download DocKit](/download) | [Read DynamoDB GUI Guide](/blog/dynamodb-gui)
+[Download DocKit](/download) | [Read DynamoDB GUI Guide](/products/dockit/dynamodb-gui-client)
 
 ## 5. [Dynobase](https://dynobase.dev/)
 
