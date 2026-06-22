@@ -178,4 +178,4 @@ They are stored on your machine. They are never sent anywhere else.
 
 ---
 
-[DocKit feature overview](/products/dockit/) · [Migrating from OpenSearch Dashboards](/blog/opensearch-gui) · [Elasticsearch AI assistant](/blog/elasticsearch-ai-assistant)
+[DocKit feature overview](/products/dockit/) · [Migrating from OpenSearch Dashboards](/products/dockit/opensearch-gui-client) · [Elasticsearch AI assistant](/products/dockit/elasticsearch-gui-client)

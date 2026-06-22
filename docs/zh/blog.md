@@ -77,22 +77,7 @@ DocKit 现在自动保存您执行的每个查询 — 适用于 MongoDB、Elasti
 
 管理 DynamoDB 表、查看实时指标、浏览索引和监控容量 — 无需离开 DocKit 简洁的桌面 UI。
 
-## [DocKit - 让 DynamoDB 管理变得轻而易举](/zh/blog/dynamodb-gui-client)
-*2026年1月20日*
-
-DocKit 是一个 DynamoDB 桌面 GUI 客户端，支持 PartiQL、内联编辑和可视化数据浏览。不用开 AWS 控制台，不用敲 CLI——指向端点就能开始工作。
-
-## [使用 DeepSeek 和 OpenAI 等大模型来生成 Elasticsearch 查询](/zh/blog/elasticsearch-ai-assistant)
-*2026年1月19日*
-
-了解如何利用 AI 和大语言模型自动生成复杂的 Elasticsearch 查询。通过 Elasticsearch AI 助手提升工作效率。
-
 ## [使用 jest-search 实现 Elasticsearch 集成测试](/zh/blog/elasticsearch-integration-test-jest-search)
 *2024年9月18日*
 
 实现 Elasticsearch 集成测试有多种方法，您可以启动一个容器来运行 Elasticsearch 服务器，或者配置一个专用于测试的远程 Elasticsearch 服务器。在这篇文章中，我将为您介绍另一种方法，使用 jest 预设 [jest-search](https://github.com/geek-fun/jest-search) 来启动本地服务器，从而实现 Elasticsearch 集成测试。
-
-## [DocKit - Elasticsearch桌面客户端介绍](/zh/blog/elasticsearch-gui-client)
-*2024年9月17日*
-
-DocKit 是一个开源的 Elasticsearch 桌面客户端——带自动补全的查询编辑器、集群管理、AI 辅助查询生成。这篇指南介绍如何上手和主要功能。

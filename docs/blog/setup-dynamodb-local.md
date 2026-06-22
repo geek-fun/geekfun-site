@@ -246,7 +246,7 @@ docker run -d --name dynamodb-local -p 8001:8000 amazon/dynamodb-local:latest
 ## Learn More
 
 - **[Access and Manage Local DynamoDB with DocKit](/blog/query-dynamodb-locally)**
-- **[Managing your DynamoDB tables with DocKit make life easier](/blog/dynamodb-gui-client)**
+- **[Managing your DynamoDB tables with DocKit make life easier](/products/dockit/dynamodb-gui-client)**
 - **[Download DocKit](/download)**
 
 *Last updated: April 2026*

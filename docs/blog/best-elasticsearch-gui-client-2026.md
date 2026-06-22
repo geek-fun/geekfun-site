@@ -93,7 +93,7 @@ Free, open source. Handles Elasticsearch, OpenSearch, and DynamoDB in one app â€
 
 **Best for:** developers managing more than one database type, anyone who wants AI-assisted querying for free.
 
-[Download DocKit](/download) | [Read the Elasticsearch GUI guide](/blog/elasticsearch-gui-client)
+[Download DocKit](/download) | [Read the Elasticsearch GUI guide](/products/dockit/elasticsearch-gui-client)
 
 ## 2. [Kibana](https://www.elastic.co/kibana)
 

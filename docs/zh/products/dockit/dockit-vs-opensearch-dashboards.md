@@ -163,4 +163,4 @@ OpenSearch Serverless 要求每个请求都做 SigV4 签名，普通凭证认证
 
 ---
 
-→ **[DocKit 完整功能概览](/products/dockit/)** · [OpenSearch GUI 客户端页面](/products/dockit/opensearch-gui-client) · [OpenSearch GUI 深度解析](/zh/blog/opensearch-gui)
+→ **[DocKit 完整功能概览](/products/dockit/)** · [OpenSearch GUI 客户端页面](/products/dockit/opensearch-gui-client) · [OpenSearch GUI 深度解析](/zh/products/dockit/opensearch-gui-client)

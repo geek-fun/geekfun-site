@@ -77,17 +77,6 @@ Need to migrate data, seed a test environment, or back up before an upgrade? Doc
 
 Manage DynamoDB tables, view real-time metrics, browse indexes, and monitor capacity — all without leaving DocKit's clean desktop UI.
 
-## [Managing your DynamoDB tables with DocKit make life easier](/blog/dynamodb-gui-client)
-*January 20, 2026*
-
-DocKit is a desktop GUI client for DynamoDB with PartiQL support, inline editing, and visual data browsing. No AWS Console, no CLI — point it at your endpoint and start working.
-
-## [Automate Elasticsearch Query Writing with AI Assistants - DocKit](/blog/elasticsearch-ai-assistant)
-*January 19, 2026*
-
-Discover how to use AI and large language models to generate complex Elasticsearch queries automatically. Boost
-productivity with an AI assistant for Elasticsearch.
-
 ## [Implementing Elasticsearch Integration Test with jest-search](/blog/elasticsearch-integration-test-jest-search)
 *September 18, 2024*
 
@@ -95,8 +84,3 @@ There are several ways to implement integration test for Elasticsearch, you can 
 elasticsearch server or config a remote elasticsearch server that you dedicated for test purpose only. In this post, I
 will give you a another way to implement Elasticsearch Integration Test by using
 jest-preset [jest-search](https://github.com/geek-fun/jest-search) to startup a local server for you.
-
-## [DocKit - Introduction to Elasticsearch GUI Client](/blog/elasticsearch-gui-client)
-*September 17, 2024*
-
-DocKit is an open-source desktop client for Elasticsearch — query editor with auto-completion, cluster management, and AI-assisted query generation. This guide covers getting started and the key features.
