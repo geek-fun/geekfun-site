@@ -137,4 +137,4 @@ Yes, as long as DocKit can reach the Elasticsearch REST port (default 9200). For
 
 ---
 
-→ **[DocKit full feature overview](/products/dockit/)** · [Elasticsearch GUI client page](/products/dockit/elasticsearch-gui-client) · [ES GUI deep-dive](/blog/elasticsearch-gui)
+→ **[DocKit full feature overview](/products/dockit/)** · [Elasticsearch GUI client page](/products/dockit/elasticsearch-gui-client) · [ES GUI deep-dive](/products/dockit/elasticsearch-gui-client)

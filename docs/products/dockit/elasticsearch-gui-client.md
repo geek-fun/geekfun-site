@@ -175,4 +175,4 @@ Yes. DocKit supports OpenSearch and DynamoDB. See the [OpenSearch page](/product
 
 ---
 
-→ **[DocKit full feature overview](/products/dockit/)** · [Elasticsearch AI assistant guide](/blog/elasticsearch-ai-assistant) · [Elasticsearch query workflows guide](/blog/elasticsearch-gui)
+→ **[DocKit full feature overview](/products/dockit/)** · [Elasticsearch AI assistant guide](/products/dockit/elasticsearch-gui-client) · [Elasticsearch query workflows guide](/products/dockit/elasticsearch-gui-client)

@@ -102,6 +102,60 @@ Stick with OpenSearch Dashboards when you need:
 
 Most teams find a balance by using both: DocKit for the engineers writing queries, and Dashboards for shared monitoring and stakeholder reporting.
 
+## migration workflow
+
+If you're moving from OpenSearch Dashboards to a desktop client, the transition is straightforward — you don't have to drop Dashboards entirely.
+
+### 1. Collect your saved queries
+
+Open Dev Tools in Dashboards and gather the requests your team reruns during development, incident reviews, or release validation. Copy saved queries from the Dev Tools console into versioned files so they stop living only inside browser history.
+
+### 2. Set up connection profiles
+
+Install DocKit and create connection profiles for each environment — local, staging, production. Use named profiles so switching environments is explicit and repeatable:
+
+- **Self-hosted**: host, port, and credentials (Basic Auth, API Key, or none)
+- **AWS OpenSearch Service**: domain endpoint + AWS credentials (access keys or IAM profile)
+
+### 3. Recreate queries in JSON5
+
+Convert strict JSON from Dashboards into JSON5 — it supports inline comments and trailing commas, making queries easier to maintain:
+
+```json
+GET /orders/_search
+{
+  "query": {
+    "bool": {
+      "filter": [
+        { "range": { "createdAt": { "gte": "now-7d/d" } } },
+        { "term": { "status": "paid" } }
+      ]
+    }
+  },
+  "size": 100
+}
+```
+
+```javascript
+GET /orders/_search
+{
+  // Paid orders from the last 7 days
+  query: {
+    bool: {
+      filter: [
+        { range: { createdAt: { gte: 'now-7d/d' } } },
+        { term: { status: 'paid' } }
+      ]
+    }
+  },
+  size: 100
+}
+```
+
+### 4. Run both tools side-by-side
+
+Keep Dashboards available for visualizations, alerting, and shared views. Use DocKit for daily query authoring and environment switching. Run both for one to two weeks — that overlap is enough to confirm whether the lighter workflow fits your team.
+
 ## the query editor difference
 
 The Dev Tools console in OpenSearch Dashboards is functional but limited. It's essentially the same tool inherited from Kibana:
@@ -159,4 +213,4 @@ OpenSearch Serverless requires SigV4 signing for every request. Standard credent
 
 ---
 
-→ **[DocKit full feature overview](/products/dockit/)** · [OpenSearch GUI client page](/products/dockit/opensearch-gui-client) · [OpenSearch GUI deep-dive](/blog/opensearch-gui)
+→ **[DocKit full feature overview](/products/dockit/)** · [OpenSearch GUI client page](/products/dockit/opensearch-gui-client) · [OpenSearch GUI deep-dive](/products/dockit/opensearch-gui-client)

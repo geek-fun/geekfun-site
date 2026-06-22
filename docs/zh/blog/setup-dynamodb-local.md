@@ -255,7 +255,7 @@ docker run -d --name dynamodb-local -p 8001:8000 amazon/dynamodb-local:latest
 ## Learn More
 
 - **[使用 DocKit 访问和管理本地 DynamoDB](/zh/blog/query-dynamodb-locally)**
-- **[DocKit - 让 DynamoDB 管理变得轻而易举](/zh/blog/dynamodb-gui-client)**
+- **[DocKit - 让 DynamoDB 管理变得轻而易举](/zh/products/dockit/dynamodb-gui-client)**
 - **[下载 DocKit](/zh/download)**
 
 *最后更新：2026 年 4 月*
