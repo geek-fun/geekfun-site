@@ -341,19 +341,11 @@ WHERE "OrderId" = 'ORD#10002'
 
 可以在一个会话中运行多条语句来完成维护任务。
 
-### 可视化构建器转 PartiQL 工作流
+### 可视化查询构建器操作示例
 
-当你已经知道键值、想要快速获取结果时，使用可视化构建器。界面会在你输入之前显示有效字段。一个常用的工作流：在表单中设置分区键，添加过滤条件，然后在执行前检查生成的 PartiQL：
+通过直观的 UI 表单构建 DynamoDB 查询——设置分区键、排序键条件和过滤条件，无需手写代码。
 
-```sql
-SELECT *
-FROM "Orders"
-WHERE "OrderId" = 'ORD#10001'
-  AND "CreatedAt" >= '2026-05-01T00:00:00Z'
-  AND "Status" = 'PENDING';
-```
-
-这可以将快速的点击路径转化为可保存的纯文本。当查询逻辑重要时使用 PartiQL——它是可重复、可审查且 Git 友好的。当你只需要数据值时使用可视化构建器。
+![DocKit DynamoDB 可视化查询构建器](/dockit-dynamodb-query-ui.png)
 
 ## 分页
 
