@@ -341,9 +341,11 @@ WHERE "OrderId" = 'ORD#10002'
 
 You can run multiple statements in one session for maintenance tasks.
 
-### Visual builder to PartiQL workflow
+### Visual builder to PartiQL
 
-The visual builder is faster when you already know the key and just want results. It shows valid fields before you type anything. A pattern I use: set the partition key in the form, add filters, then inspect the generated PartiQL before running it:
+Build your query through the UI form — set partition key, sort key conditions, and filters — then inspect the generated PartiQL before running it:
+
+![DocKit DynamoDB visual query builder](/dockit-dynamodb-query-ui.png)
 
 ```sql
 SELECT *
@@ -352,8 +354,6 @@ WHERE "OrderId" = 'ORD#10001'
   AND "CreatedAt" >= '2026-05-01T00:00:00Z'
   AND "Status" = 'PENDING';
 ```
-
-That turns a click path into text you can save. Use PartiQL when the query logic matters — it's repeatable and reviewable, and works with Git. Use the visual builder when you just want the values.
 
 ## Pagination
 
