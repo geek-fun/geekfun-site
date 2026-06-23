@@ -343,6 +343,8 @@ You can run multiple statements in one session for maintenance tasks.
 
 ### Visual Query Builder
 
+Build DynamoDB queries through an intuitive UI form — set partition keys, sort key conditions, and filters without writing code. The generated PartiQL is displayed below the form for review and reuse.
+
 ![DocKit DynamoDB visual query builder](/dockit-dynamodb-query-ui.png)
 
 ## Pagination
