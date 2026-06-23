@@ -345,14 +345,6 @@ You can run multiple statements in one session for maintenance tasks.
 
 ![DocKit DynamoDB visual query builder](/dockit-dynamodb-query-ui.png)
 
-```sql
-SELECT *
-FROM "Orders"
-WHERE "OrderId" = 'ORD#10001'
-  AND "CreatedAt" >= '2026-05-01T00:00:00Z'
-  AND "Status" = 'PENDING';
-```
-
 ## Pagination
 
 Query results are paginated with configurable page sizes: 10, 25, 50, 100, 200, or 300 items per page. Navigate forward/backward through result sets.
