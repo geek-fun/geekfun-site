@@ -353,8 +353,6 @@ WHERE "OrderId" = 'ORD#10001'
   AND "Status" = 'PENDING';
 ```
 
-Build your query through the UI form — set partition key, sort key conditions, and filters. The generated PartiQL appears below the form and can be copied for reuse.
-
 ## Pagination
 
 Query results are paginated with configurable page sizes: 10, 25, 50, 100, 200, or 300 items per page. Navigate forward/backward through result sets.
