@@ -341,9 +341,7 @@ WHERE "OrderId" = 'ORD#10002'
 
 You can run multiple statements in one session for maintenance tasks.
 
-### Visual builder to PartiQL
-
-Build your query through the UI form — set partition key, sort key conditions, and filters — then inspect the generated PartiQL before running it:
+### Visual Query Builder
 
 ![DocKit DynamoDB visual query builder](/dockit-dynamodb-query-ui.png)
 
@@ -354,6 +352,8 @@ WHERE "OrderId" = 'ORD#10001'
   AND "CreatedAt" >= '2026-05-01T00:00:00Z'
   AND "Status" = 'PENDING';
 ```
+
+Build your query through the UI form — set partition key, sort key conditions, and filters. The generated PartiQL appears below the form and can be copied for reuse.
 
 ## Pagination
 
