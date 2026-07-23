@@ -97,10 +97,6 @@ const content = computed(() => {
         imageAlt: isZh ? '微信赞助二维码' : 'WeChat sponsor QR code'
       }
     ] as SupportCard[],
-    communityLabel: isZh ? '关注我们' : 'Connect With Us',
-    communityIntro: isZh
-      ? '关注我们的社区账号，获取产品更新、内容发布以及开源项目的最新进展。'
-      : 'Follow our channels for product releases, engineering updates, and the latest progress across our open-source projects.',
     communityCards: isZh
       ? [
           {
@@ -121,6 +117,13 @@ const content = computed(() => {
             action: '扫码关注',
             image: '/wechat_official.png',
             imageAlt: '微信官方公众号二维码'
+          },
+          {
+            title: '微信交流群',
+            details: '扫码加入极客范微信群，与开发者交流开源技术与产品经验。',
+            action: '扫码加入',
+            image: '/wechat-group.jpg',
+            imageAlt: '微信交流群二维码'
           }
         ]
       : [
@@ -142,6 +145,13 @@ const content = computed(() => {
             action: 'Scan to Follow',
             image: '/wechat_official.png',
             imageAlt: 'WeChat official account QR code'
+          },
+          {
+            title: 'WeChat Group',
+            details: 'Scan to join the GEEKFUN WeChat group and connect with fellow developers.',
+            action: 'Scan to Join',
+            image: '/wechat-group.jpg',
+            imageAlt: 'WeChat group QR code'
           }
         ] as CommunityCard[],
     closing: isZh
@@ -175,8 +185,36 @@ const content = computed(() => {
         <div class="hero-panel">
           <div class="glow-bg"></div>
           <div class="hero-card">
-            <img src="/geekfun.png" alt="GEEKFUN logo" class="hero-logo" width="112" height="112" />
-            <p class="hero-quote">{{ content.hero.quote }}</p>
+            <img src="/geekfun.png" alt="GEEKFUN logo" class="hero-logo" width="72" height="72" />
+            <div class="hero-community-row">
+                <a
+                  v-for="card in content.communityCards.filter(c => c.link)"
+                  :key="card.title"
+                  :href="card.link"
+                  class="hero-social-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  :title="card.title"
+                >
+                  <svg v-if="card.title === 'YouTube'" class="si-icon" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  <svg v-else-if="card.title.startsWith('X')" class="si-icon" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  <svg v-else-if="card.title === 'BiliBili'" class="si-icon" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                    <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L7.76 4.387l.027.027c.071.071.138.153.2.24h7.893c.062-.087.129-.169.2-.24l.027-.027 1.707-1.707c.267-.249.573-.373.92-.373.347 0 .662.124.946.373.267.249.391.551.391.907 0 .355-.124.657-.391.906l-1.067 1.12v.04zm-3.213 7.52c0 .373.133.693.4.96.267.267.587.4.96.4s.693-.133.96-.4.4-.587.4-.96-.133-.693-.4-.96-.587-.4-.96-.4-.693.133-.96.4-.4.587-.4.96zm-8 0c0 .373.133.693.4.96s.587.4.96.4.693-.133.96-.4.4-.587.4-.96-.133-.693-.4-.96-.587-.4-.96-.4-.693.133-.96.4-.4.587-.4.96zM5.333 16.44c0 .391.129.724.386.996.258.272.582.409.974.409h8.614c.392 0 .716-.137.974-.409.257-.272.386-.605.386-.996V11.7c0-.391-.129-.724-.386-.996-.258-.272-.582-.409-.974-.409H6.693c-.392 0-.716.137-.974.409-.257.272-.386.605-.386.996v4.74z"/>
+                  </svg>
+                  <span class="si-label">{{ card.title }}</span>
+                </a>
+                <img
+                  v-for="card in content.communityCards.filter(c => c.image)"
+                  :key="card.title"
+                  :src="card.image"
+                  :alt="card.imageAlt"
+                  class="hero-qr-img"
+                />
+            </div>
           </div>
         </div>
       </div>
@@ -227,33 +265,7 @@ const content = computed(() => {
       </div>
     </section>
 
-    <section class="community-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">{{ content.communityLabel }}</span>
-        </div>
-        <p class="section-intro">{{ content.communityIntro }}</p>
-        <div class="community-grid">
-          <article v-for="card in content.communityCards" :key="card.title" class="community-card">
-            <h2 class="card-title">{{ card.title }}</h2>
-            <p class="card-details">{{ card.details }}</p>
-<div v-if="card.image" class="qr-card qr-card--community">
-               <img :src="card.image" :alt="card.imageAlt" class="qr-image qr-image--large" width="360" height="360" loading="lazy" />
-             </div>
-            <a
-              v-else
-              :href="card.link"
-              class="gf-btn gf-btn-secondary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {{ card.action }}
-            </a>
-          </article>
-        </div>
-        <p class="closing-copy">{{ content.closing }}</p>
-      </div>
-    </section>
+    <p class="closing-copy">{{ content.closing }}</p>
   </div>
 </template>
 
@@ -337,11 +349,11 @@ const content = computed(() => {
 }
 
 .hero-section {
-  padding: calc(var(--space-3xl) * 2.5) 0 calc(var(--space-3xl) * 2);
+  padding: calc(var(--space-3xl) * 2) 0 calc(var(--space-3xl) * 1.5);
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: calc(var(--space-3xl) * 1.5) 0 var(--space-3xl);
+    padding: calc(var(--space-3xl)) 0 var(--space-2xl);
   }
 }
 
@@ -432,28 +444,72 @@ const content = computed(() => {
   background: var(--gf-c-bg-card, var(--vp-c-bg));
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   border-radius: 24px;
-  padding: 40px;
+  padding: 14px 20px;
   box-shadow: var(--vp-shadow-3);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 16px;
 }
 
 .hero-logo {
-  width: 112px;
-  height: 112px;
+  width: 48px;
+  height: 48px;
   object-fit: cover;
-  border-radius: 24px;
-  margin-bottom: 24px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  align-self: center;
 }
 
-.hero-quote {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--vp-c-text-1);
-  letter-spacing: -0.01em;
+.hero-community-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
 }
 
-.values-section,
-.community-section {
+.hero-social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  background: var(--vp-c-bg-alt);
+  color: var(--vp-c-text-2);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: color-mix(in srgb, var(--vp-c-brand-soft) 12%, var(--vp-c-bg-alt));
+    color: var(--vp-c-text-1);
+  }
+}
+
+.si-icon {
+  display: block;
+}
+
+.si-label {
+  font-size: 0.5rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero-qr-img {
+  height: 140px;
+  width: auto;
+  max-width: 50%;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 1;
+}
+
+.values-section {
   background: var(--vp-c-bg-alt);
 }
 
@@ -473,17 +529,8 @@ const content = computed(() => {
   }
 }
 
-.community-section {
-  padding: 80px 0 120px;
-
-  @media (min-width: 1440px) {
-    padding: 100px 0 140px;
-  }
-}
-
 .values-grid,
-.support-grid,
-.community-grid {
+.support-grid {
   display: grid;
   gap: 24px;
 }
@@ -492,14 +539,12 @@ const content = computed(() => {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.support-grid,
-.community-grid {
+.support-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .value-card,
-.support-card,
-.community-card {
+.support-card {
   position: relative;
   background: var(--gf-c-bg-card, var(--vp-c-bg));
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
@@ -522,8 +567,7 @@ const content = computed(() => {
   }
 }
 
-.support-card,
-.community-card {
+.support-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -567,22 +611,11 @@ const content = computed(() => {
   border-radius: 18px;
 }
 
-.qr-card--community {
-  width: 100%;
-  max-width: 360px;
-}
-
 .qr-image {
   width: 180px;
   height: 180px;
   object-fit: cover;
   border-radius: 12px;
-}
-
-.qr-image--large {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
 }
 
 .closing-copy {
@@ -593,14 +626,36 @@ const content = computed(() => {
 
 @media (max-width: 1024px) {
   .values-grid,
-  .support-grid,
-  .community-grid {
+  .support-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-card {
-    max-width: 640px;
+    max-width: 560px;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero-logo {
+    width: 40px;
+    height: 40px;
+    align-self: center;
+  }
+
+  .hero-community-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-qr-img {
+    height: 120px;
   }
 }
 
@@ -615,29 +670,24 @@ const content = computed(() => {
 
   .hero-card,
   .value-card,
-  .support-card,
-  .community-card {
-    padding: 1.5rem;
+  .support-card {
+    padding: 1.25rem;
     border-radius: 1.125rem;
   }
 
   .hero-logo {
-    width: 88px;
-    height: 88px;
-    border-radius: 1.125rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
   }
 
-  .hero-quote {
-    font-size: 1.375rem;
+  .hero-qr-img {
+    height: 110px;
   }
 
   .qr-image {
     width: 160px;
     height: 160px;
-  }
-
-  .qr-card--community {
-    max-width: 100%;
   }
 }
 </style>

@@ -6,3 +6,6 @@ docs/.vitepress/cache
 .DS_Store
 /cache/
 .omo/
+.codegraph/
+.playwright-mcp/
+.sisyphus/
