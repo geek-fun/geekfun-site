@@ -42,7 +42,7 @@ head:
 
 # Agentic SQL GUI Client
 
-SqlKit is an open-source agentic SQL desktop client for Mac, Windows, and Linux. It combines an AI-powered Agentic Data Studio with native database connectivity for **50+ databases** — PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more.
+SqlKit is an open-source SQL desktop client for Mac, Windows, and Linux. It wraps an AI agent that understands databases around native drivers for **50+ engines** — PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery. Pick your poison.
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download — Free</a>
@@ -51,9 +51,9 @@ SqlKit is an open-source agentic SQL desktop client for Mac, Windows, and Linux.
 
 ## AI-powered client vs traditional SQL tools
 
-Traditional SQL clients like DBeaver or DataGrip require you to write all SQL from scratch, manually optimize slow queries, and debug errors by reading through stack traces. SqlKit's Agentic Data Studio changes this: describe what you need in plain English, and the agent reads your schema, writes the query, explains the execution plan, and fixes errors automatically.
+DBeaver and DataGrip make you write every JOIN yourself, stare at slow queries until something clicks, and read stack traces when things break. SqlKit's Agentic Data Studio flips that: tell it what you need, it reads your schema, writes the query, explains the plan, and fixes errors when they happen.
 
-It starts in under 2 seconds, uses about 150 MB of RAM, and works fully offline for database operations. The AI agent supports bring-your-own-key for OpenAI, Anthropic, DeepSeek, Ollama, and LM Studio.
+Starts in under 2 seconds, sits at about 150 MB of RAM, works offline for everything except AI. Bring your own key — OpenAI, Anthropic, DeepSeek, Ollama, LM Studio. Whatever you prefer.
 
 ![SqlKit Agentic Data Studio](/sqlkit-client-ui.png)
 
@@ -61,36 +61,35 @@ It starts in under 2 seconds, uses about 150 MB of RAM, and works fully offline 
 
 ### Agentic Data Studio
 
-The Agentic Data Studio is an AI agent with access to your database schema, table structures, indexes, and query history. When you ask for something, it reads live context from your database, generates the appropriate SQL, and can execute it through verified tools.
+The Agentic Data Studio is an AI agent plugged into your database schema, indexes, and query history. Ask for something and it reads live context from your database, builds the SQL, and runs it through verified tools.
 
-Ask "find the top 10 customers by revenue this quarter" — the agent reads your schema, identifies the relevant tables and columns, constructs the query, runs it, and shows you results. Ask "optimize this slow query" — it rewrites the SQL and visualizes the execution plan with cost highlights.
+"Find the top 10 customers by revenue this quarter" — it finds the right tables and columns, constructs the query, executes it. "Optimize this slow query" — it rewrites the SQL and shows you the execution plan with cost highlights.
 
-Read operations run automatically. Destructive operations (DELETE, DROP, UPDATE without WHERE) require explicit confirmation. Your database credentials are never sent to the LLM.
+Reads run automatically. Destructive operations (DELETE, DROP, mass UPDATE) ask for confirmation first. Your credentials never reach the LLM.
 
 ![SqlKit Agentic Data Studio](/sqlkit-data-studio-ui.png)
 
 ### Natural language to SQL
 
-Schema-aware context generation uses your actual table and column names. No more "table X doesn't exist" errors from generic AI tools. The agent understands your database structure and generates correct, dialect-specific SQL.
+Generic AI tools hallucinate table names. SqlKit reads your actual schema — real table definitions, column types, indexes, relationships — and generates SQL that actually runs. Against PostgreSQL, MySQL, SQL Server, or whatever dialect you're on.
 
-- Schema-aware — reads live table definitions, column types, indexes, and relationships
-- Dialect-specific — generates PostgreSQL, MySQL, SQL Server, or any target dialect
-- Multi-turn refinement — ask follow-ups to adjust sorting, filtering, or grouping
-- Explain mode — shows you the generated SQL before running it
+- Ask follow-ups to tweak sorting, filters, or grouping
+- Explain mode previews the SQL before executing
+- Dialect-aware output for your specific database
 
 ### SQL optimization and execution plan visualization
 
-Slow queries get rewritten with optimized JOINs, proper index usage, and efficient WHERE clause ordering. The execution plan viewer renders query plans as structured trees with cost highlighting, so you can identify bottlenecks at a glance.
+Got a slow query? SqlKit rewrites it — better JOINs, smarter index use, cleaner WHERE clauses. The execution plan viewer shows structured trees with cost highlighting. You see the bottleneck, not a wall of EXPLAIN output.
 
 ![SqlKit data view table](/sqlkit-data-view-table-ui.png)
 
 ### Automatic error fixing
 
-SQL errors are diagnosed and fixed automatically. The agent reads the error message, your schema context, and the failing query, then suggests the corrected version. This works for syntax errors, missing columns, type mismatches, and permission issues.
+SqlKit reads the error, your schema, and the failing query, then suggests the fix. Syntax errors, missing columns, type mismatches, permission issues — it handles most of what you'd normally Google.
 
 ### Bring your own AI provider
 
-SqlKit doesn't lock you into any AI vendor. Configure your preferred provider in Settings:
+Not locked into any AI vendor. Pick one in Settings:
 
 | Provider | Type |
 |---|---|
@@ -104,19 +103,15 @@ SqlKit doesn't lock you into any AI vendor. Configure your preferred provider in
 
 ### Monaco-powered SQL editor
 
-The query editor uses the same engine as VS Code — Monaco Editor.
+The editor is Monaco — same engine VS Code uses. Syntax highlighting for every dialect, autocomplete from live schema metadata, multiple tabs, configurable formatting with `Shift+Alt+F`.
 
 ![SqlKit SQL editor](/sqlkit-sql-editor-ui.png)
 
-- Full SQL syntax highlighting for all supported dialects
-- Context-aware autocomplete using live schema metadata
-- Multi-tab support for working on multiple queries simultaneously
-- Configurable SQL formatting with `Shift+Alt+F`
-- Cmd/Ctrl + Enter to run, Cmd/Ctrl + Shift + Enter to run with explain
+Run with Cmd/Ctrl + Enter. Add Shift to include the execution plan.
 
 ### Multi-database support
 
-SqlKit supports **50+ databases** across five adapter strategies:
+**50+ databases**, five adapter strategies to get you connected:
 
 | Strategy | Databases |
 |---|---|
@@ -128,11 +123,11 @@ SqlKit supports **50+ databases** across five adapter strategies:
 
 ### Cross-engine data transfer
 
-Transfer data between any supported databases without intermediate files — PostgreSQL to ClickHouse, Oracle to SQL Server, MySQL to BigQuery. Automatic type mapping, batch processing for millions of records, and DDL generation for target-engine compatibility.
+Move data between databases without intermediate files. PostgreSQL to ClickHouse. Oracle to SQL Server. MySQL to BigQuery. Automatic type mapping, batch processing for millions of records, DDL tuned for the target engine.
 
 ### ER diagram visualization
 
-Interactive entity-relationship diagrams rendered on a canvas — explore table relationships, foreign keys, and indexes visually. Powered by Dagre for smart graph layout, with zoom, pan, and node selection.
+Entity-relationship diagrams drawn on a canvas. See table relationships, foreign keys, and indexes visually. Zoom, pan, click around. Powered by Dagre for the graph layout.
 
 ![SqlKit ER diagram](/sqlkit-er-diagram-ui.png)
 
@@ -153,40 +148,40 @@ Interactive entity-relationship diagrams rendered on a canvas — explore table 
 
 ## Version compatibility
 
-SqlKit connects to any server that exposes a standard SQL interface. PostgreSQL 9.x through 17.x, MySQL 5.7 through 9.x, SQL Server 2012 through 2025, SQLite 3.x, DuckDB 0.x through 1.x, and all recent versions of ClickHouse, Snowflake, BigQuery, and Oracle. The JDBC bridge supports any database with a JDBC 4.0 driver.
+If it speaks SQL, SqlKit probably connects. PostgreSQL 9.x–17.x, MySQL 5.7–9.x, SQL Server 2012–2025, SQLite 3.x, DuckDB 0.x–1.x, latest ClickHouse, Snowflake, BigQuery, Oracle. The JDBC bridge picks up anything with a JDBC 4.0 driver.
 
 ## Quick start
 
-1. [Download SqlKit](/download) for macOS, Windows, or Linux.
-2. Open the app and create a new connection (PostgreSQL, MySQL, SQL Server, SQLite, or any of 50+ databases).
-3. Enter your host, port, and credentials.
+1. [Download SqlKit](/download).
+2. Create a connection — PostgreSQL, MySQL, SQL Server, SQLite, whatever you use.
+3. Enter host, port, credentials.
 4. Open the Agentic Data Studio panel.
-5. Describe what you need in plain English — or start writing SQL directly in the Monaco editor.
+5. Tell it what you need. Or just start writing SQL.
 
-See the [connection guide](/docs/dockit/connect-to-server) for detailed setup instructions.
+See the [connection guide](/docs/dockit/connect-to-server) if you get stuck.
 
 ## FAQ
 
 **Is SqlKit's AI agent free?**
-The AI agent is included with SqlKit at no extra cost. You only pay for LLM API usage if you use cloud providers (OpenAI, Anthropic, etc.). Local models via Ollama or LM Studio are fully free.
+It's included. You only pay if you use cloud LLMs (OpenAI, Anthropic, etc.). Run local models via Ollama or LM Studio and it costs nothing.
 
 **Does SqlKit work offline?**
-Database operations work completely offline. AI features need network access to your model endpoint, or you can run a local model via Ollama or LM Studio.
+Everything except AI works offline. For AI you need network access to your model, or run one locally.
 
 **What AI providers are supported?**
-OpenAI, Anthropic, DeepSeek, OpenRouter, Ollama, LM Studio, and any OpenAI-compatible custom endpoint. Configure your key in Settings — credentials stay on your machine.
+OpenAI, Anthropic, DeepSeek, OpenRouter, Ollama, LM Studio, or any OpenAI-compatible endpoint. Configure your key in Settings — it stays on your machine.
 
 **Is my data sent to the AI provider?**
-Only the schema context (table names, column names, types) and your query are sent to the LLM. Your database credentials and actual row data are never exposed to the AI provider.
+Schema context (table names, column names, types) and your query go to the LLM. Database credentials and row data do not.
 
 **How is this different from GitHub Copilot for SQL?**
-Copilot autocompletes what you're typing. SqlKit's agent reads your schema, generates queries from natural language descriptions, optimizes slow SQL, explains execution plans, and fixes errors — it's a full agent, not an autocomplete tool.
+Copilot autocompletes. SqlKit reads your schema, generates queries from descriptions, optimizes slow SQL, explains plans, and fixes errors. Agent, not autocomplete.
 
 **Does SqlKit support PostgreSQL?**
-Yes, with a native Rust driver. PostgreSQL is fully supported with schema browsing, query execution, EXPLAIN plans, DDL viewer, and the Agentic Data Studio.
+Yes — native Rust driver. Schema browsing, EXPLAIN, DDL viewer, Agentic Data Studio. The whole stack.
 
 **Can I use my own Ollama model?**
-Yes. Point SqlKit to any Ollama endpoint. Works with Llama, CodeLlama, Mistral, DeepSeek Coder, and any model available through Ollama.
+Point SqlKit at any Ollama endpoint. Llama, CodeLlama, Mistral, DeepSeek Coder — anything Ollama runs.
 
 ---
 
