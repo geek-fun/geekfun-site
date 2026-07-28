@@ -20,6 +20,7 @@
             <li><a :href="localePath('/products/dockit/opensearch-gui-client')">{{ t.opensearchGui }}</a></li>
             <li><a :href="localePath('/products/dockit/mongodb-gui-client')">{{ t.mongodbGui }}</a></li>
             <li><a :href="localePath('/products/dockit/dynamodb-gui-client')">{{ t.dynamodbGui }}</a></li>
+            <li><a :href="localePath('/products/sqlkit/agentic-sql-client')">{{ t.agenticSqlClient }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-dynobase')">{{ t.dynobaseAlt }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-kibana')">{{ t.vsKibana }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-opensearch-dashboards')">{{ t.vsOpensearchDashboards }}</a></li>
@@ -74,8 +75,9 @@ const translations = {
     vsKibana: 'DocKit vs Kibana',
     vsOpensearchDashboards: 'DocKit vs OpenSearch Dashboards',
     elasticsearchGui: 'Elasticsearch GUI Client',
-    opensearchGui: 'OpenSearch GUI Client',
-    download: 'Download',
+	    opensearchGui: 'OpenSearch GUI Client',
+	    agenticSqlClient: 'Agentic SQL GUI Client',
+	    download: 'Download',
     docs: 'Documentation',
     blog: 'Blog',
     news: 'News',
@@ -96,8 +98,9 @@ const translations = {
     vsKibana: 'DocKit vs Kibana',
     vsOpensearchDashboards: 'DocKit vs OpenSearch Dashboards',
     elasticsearchGui: 'Elasticsearch GUI 客户端',
-    opensearchGui: 'OpenSearch GUI 客户端',
-    download: '下载',
+	    opensearchGui: 'OpenSearch GUI 客户端',
+	    agenticSqlClient: 'Agentic SQL GUI 客户端',
+	    download: '下载',
     docs: '文档',
     blog: '博客',
     news: '新闻',
