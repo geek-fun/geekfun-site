@@ -1,3 +1,3 @@
 // Update these when cutting a new release
-export const DOCKIT_VERSION = '1.1.1'
-export const SQLKIT_VERSION = '0.6.1'
+export const DOCKIT_VERSION = '1.3.0'
+export const SQLKIT_VERSION = '0.8.1'
