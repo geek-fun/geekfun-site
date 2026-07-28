@@ -65,7 +65,7 @@ Agentic Data Studio 是一个 AI agent，可以访问你的数据库 schema、�
 
 读取操作自动执行。破坏性操作（DELETE、DROP、无 WHERE 条件的 UPDATE）需要显式确认。你的数据库凭据永远不会发送给 LLM。
 
-![SqlKit AI agent 界面](/sqlkit-client-ui.png)
+![SqlKit Agentic Data Studio](/sqlkit-data-studio-ui.png)
 
 ### 自然语言转 SQL
 
@@ -80,7 +80,7 @@ Schema 感知的上下文生成使用你真实的表名和列名。告别 AI 工
 
 慢查询会被自动重写——优化 JOIN、合理利用索引、调整 WHERE 条件顺序。执行计划查看器将查询计划渲染为带成本高亮的结构树，瓶颈一目了然。
 
-![SqlKit 执行计划可视化](/sqlkit-client-ui.png)
+![SqlKit 数据视图表格](/sqlkit-data-view-table-ui.png)
 
 ### 自动错误修复
 
@@ -104,7 +104,7 @@ SqlKit 不绑定任何 AI 厂商。在设置中配置你偏好的提供商：
 
 查询编辑器使用与 VS Code 同款的 Monaco Editor。
 
-![SqlKit Monaco 编辑器](/sqlkit-client-ui.png)
+![SqlKit SQL 编辑器](/sqlkit-sql-editor-ui.png)
 
 - 完整的 SQL 语法高亮，支持所有 SQL 方言
 - 基于实时 schema 元数据的上下文自动补全
@@ -128,7 +128,11 @@ SqlKit 通过五层适配器架构支持 **50+ 种数据库**：
 
 在任意数据库之间迁移数据，无需中间文件——PostgreSQL 到 ClickHouse、Oracle 到 SQL Server、MySQL 到 BigQuery。自动类型映射、百万级数据批量处理、为目标引擎生成 DDL。
 
-![SqlKit 数据迁移](/sqlkit-client-ui.png)
+### ER 图可视化
+
+交互式实体关系图渲染——直观探索表关系、外键和索引。基于 Dagre 智能图谱布局，支持缩放、平移和节点选择。
+
+![SqlKit ER 图](/sqlkit-er-diagram-ui.png)
 
 ## 对比
 

@@ -65,7 +65,7 @@ Ask "find the top 10 customers by revenue this quarter" — the agent reads your
 
 Read operations run automatically. Destructive operations (DELETE, DROP, UPDATE without WHERE) require explicit confirmation. Your database credentials are never sent to the LLM.
 
-![SqlKit AI agent interface](/sqlkit-client-ui.png)
+![SqlKit Agentic Data Studio](/sqlkit-data-studio-ui.png)
 
 ### Natural language to SQL
 
@@ -80,7 +80,7 @@ Schema-aware context generation uses your actual table and column names. No more
 
 Slow queries get rewritten with optimized JOINs, proper index usage, and efficient WHERE clause ordering. The execution plan viewer renders query plans as structured trees with cost highlighting, so you can identify bottlenecks at a glance.
 
-![SqlKit execution plan visualization](/sqlkit-client-ui.png)
+![SqlKit data view table](/sqlkit-data-view-table-ui.png)
 
 ### Automatic error fixing
 
@@ -104,7 +104,7 @@ SqlKit doesn't lock you into any AI vendor. Configure your preferred provider in
 
 The query editor uses the same engine as VS Code — Monaco Editor.
 
-![SqlKit Monaco editor](/sqlkit-client-ui.png)
+![SqlKit SQL editor](/sqlkit-sql-editor-ui.png)
 
 - Full SQL syntax highlighting for all supported dialects
 - Context-aware autocomplete using live schema metadata
@@ -128,7 +128,11 @@ SqlKit supports **50+ databases** across five adapter strategies:
 
 Transfer data between any supported databases without intermediate files — PostgreSQL to ClickHouse, Oracle to SQL Server, MySQL to BigQuery. Automatic type mapping, batch processing for millions of records, and DDL generation for target-engine compatibility.
 
-![SqlKit data transfer](/sqlkit-client-ui.png)
+### ER diagram visualization
+
+Interactive entity-relationship diagrams rendered on a canvas — explore table relationships, foreign keys, and indexes visually. Powered by Dagre for smart graph layout, with zoom, pan, and node selection.
+
+![SqlKit ER diagram](/sqlkit-er-diagram-ui.png)
 
 ## Comparison
 
