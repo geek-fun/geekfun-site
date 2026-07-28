@@ -55,6 +55,8 @@ Traditional SQL clients like DBeaver or DataGrip require you to write all SQL fr
 
 It starts in under 2 seconds, uses about 150 MB of RAM, and works fully offline for database operations. The AI agent supports bring-your-own-key for OpenAI, Anthropic, DeepSeek, Ollama, and LM Studio.
 
+![SqlKit Agentic Data Studio](/sqlkit-client-ui.png)
+
 ## Key features
 
 ### Agentic Data Studio
