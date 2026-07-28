@@ -177,19 +177,19 @@ databases:
 showcase:
   - title: "Agentic Data Studio"
     body: "Describe what you need in plain English. The agent reads your schema, writes queries, explains execution plans, and fixes errors. Works with OpenAI, Anthropic, DeepSeek, and Ollama. Bring your own key, credentials stay on your machine."
-    image: /sqlkit-client-ui.png
+    image: /sqlkit-data-studio-ui.png
     align: left
   - title: "All Your Databases, One App"
     body: "Connect to 50+ databases across five adapter strategies: native Rust drivers for PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Oracle, Firebird; PG-wire and MySQL-wire compatible engines; a JDBC bridge for Snowflake, DB2, BigQuery, and 20+ more; and HTTP bridge for Trino and Presto."
-    image: /sqlkit-client-ui.png
+    image: /sqlkit-sql-editor-ui.png
     align: right
   - title: "Move Data Between Engines"
     body: "Transfer data between any supported databases — PostgreSQL to ClickHouse, Oracle to SQL Server, MySQL to BigQuery. No intermediate files required. Automatic type mapping, batch processing for millions of records, and DDL generation for target-engine compatibility."
-    image: /sqlkit-client-ui.png
+    image: /sqlkit-data-view-table-ui.png
     align: left
   - title: "Enterprise Connectivity"
     body: "SSH tunnels with key or password auth. SSL/TLS for encrypted connections. Credentials stored in your OS keychain. Auto-reconnect keeps things running when connections drop."
-    image: /sqlkit-client-ui.png
+    image: /sqlkit-er-diagram-ui.png
     align: right
 
 features:
