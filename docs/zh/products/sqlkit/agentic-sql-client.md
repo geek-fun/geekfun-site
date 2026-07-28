@@ -42,7 +42,7 @@ head:
 
 # Agentic SQL GUI 客户端
 
-SqlKit 是一款开源的 AI 原生 SQL 桌面客户端，支持 Mac、Windows 和 Linux。覆盖 **50+ 种数据库**——国际主流数据库之外，还全面支持国产信创数据库：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase 等。
+SqlKit 是一个开源的 SQL 桌面客户端，Mac、Windows、Linux 都能跑。连得上 **50+ 种数据库**——国际主流不用说，国产信创也都在列表里：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase。
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">免费下载</a>
@@ -51,9 +51,9 @@ SqlKit 是一款开源的 AI 原生 SQL 桌面客户端，支持 Mac、Windows �
 
 ## AI 原生 vs 传统 SQL 工具
 
-传统的 SQL 客户端如 DBeaver 或 DataGrip 需要你手动编写所有 SQL、自行优化慢查询、通过堆栈跟踪来排查错误。SqlKit 的 Agentic Data Studio 改变了这一切：用自然语言描述你的需求，AI agent 读取你的 schema、编写查询、解释执行计划、并自动修复错误。
+DBeaver 和 DataGrip 要你自己写每条 SQL、盯着慢查询发呆、对着堆栈跟踪猜问题。SqlKit 的 Agentic Data Studio 换了个路子：告诉它你要什么，它读 schema、写查询、解释执行计划、出错了帮你修。
 
-应用启动不到 2 秒，内存占用约 150 MB，数据库操作完全支持离线。AI agent 支持自备 key，兼容 OpenAI、Anthropic、DeepSeek、Ollama 和 LM Studio。
+启动不到 2 秒，内存 150 MB 上下，数据库操作离线也能用。AI 部分自备 key——OpenAI、Anthropic、DeepSeek、Ollama、LM Studio，你挑。
 
 ## 核心功能
 
@@ -63,32 +63,31 @@ Agentic Data Studio 是一个 AI agent，连接你的数据库 schema、索引�
 
 "查一下这个季度营收前 10 的客户"——它找到对应的表和字段，构造查询，跑出结果。"优化这条慢查询"——重写 SQL，展示带成本高亮的执行计划树。
 
-读取自动执行。DELETE、DROP、无 WHERE 条件的 UPDATE 需要你确认。凭据不会发给 LLM。
+读数据不用问。DELETE、DROP、不带 WHERE 的 UPDATE 会先问你。凭据不发给 LLM。
 
 ![SqlKit Agentic Data Studio](/sqlkit-data-studio-ui.png)
 
 ### 自然语言转 SQL
 
-Schema 感知的上下文生成使用你真实的表名和列名。告别 AI 工具常见的"表 X 不存在"错误。agent 理解你的数据库结构，生成正确且符合方言的 SQL。
+那些通用 AI 工具动不动就编个不存在的表名。SqlKit 读的是你真实的 schema——表定义、字段类型、索引、关系——生成的 SQL 能直接跑。PostgreSQL、MySQL、SQL Server，什么方言都行。
 
-- Schema 感知——读取实时表定义、字段类型、索引和关系
-- 方言适配——生成 PostgreSQL、MySQL、SQL Server 或任何目标方言的 SQL
-- 多轮优化——通过追问调整排序、过滤或分组
-- 解释模式——执行前展示将运行的 SQL
+- 追问可以调排序、加条件、改分组
+- 解释模式先给你看 SQL 再执行
+- 方言自动适配
 
 ### SQL 优化与执行计划可视化
 
-慢查询会被自动重写——优化 JOIN、合理利用索引、调整 WHERE 条件顺序。执行计划查看器将查询计划渲染为带成本高亮的结构树，瓶颈一目了然。
+查询太慢？SqlKit 帮你重写——换 JOIN、调索引、改 WHERE。执行计划以结构树展示，成本高低一眼看得出来。
 
 ![SqlKit 数据视图表格](/sqlkit-data-view-table-ui.png)
 
 ### 自动错误修复
 
-SQL 错误会被自动诊断和修复。agent 读取错误信息、schema 上下文和失败的查询，然后给出修正版本。支持语法错误、缺少字段、类型不匹配和权限问题。
+出错了？agent 读错误信息、看你的 schema、再瞅一眼失败的查询，然后告诉你改哪里。语法错误、缺字段、类型对不上、权限不够——基本上你平时要 Google 的那些它都管。
 
 ### 自备 AI 提供商
 
-SqlKit 不绑定任何 AI 厂商。在设置中配置你偏好的提供商：
+不绑定任何 AI 厂商。设置里选一个：
 
 | 提供商 | 类型 |
 |---|---|
@@ -102,19 +101,15 @@ SqlKit 不绑定任何 AI 厂商。在设置中配置你偏好的提供商：
 
 ### Monaco SQL 编辑器
 
-查询编辑器使用与 VS Code 同款的 Monaco Editor。
+编辑器就是 Monaco——VS Code 用的那个引擎。语法高亮、schema 自动补全、多标签、可配置格式化（`Shift+Alt+F`）。
 
 ![SqlKit SQL 编辑器](/sqlkit-sql-editor-ui.png)
 
-- 完整的 SQL 语法高亮，支持所有 SQL 方言
-- 基于实时 schema 元数据的上下文自动补全
-- 多标签页支持，同时处理多个查询
-- 可配置的 SQL 格式化（`Shift+Alt+F`）
-- Cmd/Ctrl + Enter 执行，Cmd/Ctrl + Shift + Enter 附带执行计划
+Cmd/Ctrl + Enter 跑查询，加个 Shift 带上执行计划。
 
 ### 多数据库支持
 
-**50+ 种数据库**，全面覆盖国产信创生态：
+**50+ 种数据库**，国产信创也在内：
 
 | 类型 | 数据库 |
 |---|---|
@@ -126,11 +121,11 @@ SqlKit 不绑定任何 AI 厂商。在设置中配置你偏好的提供商：
 
 ### 跨引擎数据迁移
 
-在任意数据库之间迁移数据，无需中间文件——PostgreSQL 到 ClickHouse、Oracle 到 SQL Server、MySQL 到 BigQuery。自动类型映射、百万级数据批量处理、为目标引擎生成 DDL。
+数据库之间直接搬数据。PostgreSQL 到 ClickHouse。Oracle 到 SQL Server。MySQL 到 BigQuery。类型自动映射、百万级批量处理、DDL 按目标引擎生成。
 
 ### ER 图可视化
 
-交互式实体关系图渲染——直观探索表关系、外键和索引。基于 Dagre 智能图谱布局，支持缩放、平移和节点选择。
+实体关系图画在画布上——表关系、外键、索引，直观展示。Dagre 负责布局，能缩放、平移、点选节点。
 
 ![SqlKit ER 图](/sqlkit-er-diagram-ui.png)
 
@@ -151,40 +146,40 @@ SqlKit 不绑定任何 AI 厂商。在设置中配置你偏好的提供商：
 
 ## 版本兼容性
 
-SqlKit 可连接任何暴露标准 SQL 接口的服务器。PostgreSQL 9.x 至 17.x、MySQL 5.7 至 9.x、SQL Server 2012 至 2025、SQLite 3.x、DuckDB 0.x 至 1.x，以及所有最新版本的 ClickHouse、Snowflake、BigQuery 和 Oracle。JDBC 桥接支持任何提供 JDBC 4.0 驱动的数据库。
+能连上就行。PostgreSQL 9.x–17.x、MySQL 5.7–9.x、SQL Server 2012–2025、SQLite 3.x、DuckDB 0.x–1.x，最新的 ClickHouse、Snowflake、BigQuery、Oracle 都没问题。JDBC 桥接覆盖有 JDBC 4.0 驱动的数据库。
 
 ## 快速开始
 
-1. [下载 SqlKit](/download) 适用于 macOS、Windows 或 Linux。
-2. 打开应用，创建新连接（PostgreSQL、MySQL、SQL Server、SQLite 或 50+ 种数据库之一）。
-3. 输入主机、端口和凭据。
-4. 打开 Agentic Data Studio 面板。
-5. 用自然语言描述你的需求——或者直接在 Monaco 编辑器中编写 SQL。
+1. [下载 SqlKit](/download)。
+2. 建个连接——PostgreSQL、MySQL、SQL Server、SQLite，你用什么就连什么。
+3. 输入主机、端口、密码。
+4. 打开 Agentic Data Studio。
+5. 告诉它你要什么。或者直接写 SQL。
 
-详细设置请参阅[连接指南](/zh/docs/dockit/connect-to-server)。
+搞不定的话看看[连接指南](/zh/docs/dockit/connect-to-server)。
 
 ## 常见问题
 
 **SqlKit 的 AI agent 收费吗？**
-AI agent 包含在 SqlKit 中，不额外收费。使用云端提供商（OpenAI、Anthropic 等）时只需支付 LLM API 费用。通过 Ollama 或 LM Studio 使用本地模型完全免费。
+包含在应用里，不收钱。用云端模型（OpenAI、Anthropic 等）你要付 LLM 的调用费。本地模型走 Ollama 或 LM Studio，完全免费。
 
 **SqlKit 支持离线使用吗？**
-数据库操作完全支持离线。AI 功能需要网络访问你的模型端点，或者通过 Ollama / LM Studio 运行本地模型。
+数据库操作全离线。AI 功能要联网，或者本地跑模型。
 
 **支持哪些 AI 提供商？**
-OpenAI、Anthropic、DeepSeek、OpenRouter、Ollama、LM Studio 以及任何兼容 OpenAI 的自定义端点。在设置中配置 key——凭据保留在你的机器上。
+OpenAI、Anthropic、DeepSeek、OpenRouter、Ollama、LM Studio，或者任何兼容 OpenAI 的接口。设置里配 key，存在自己机器上。
 
-**我的数据会发送给 AI 提供商吗？**
-仅发送 schema 上下文（表名、列名、类型）和你的查询。数据库凭据和实际行数据永远不会暴露给 AI 提供商。
+**我的数据会发给 AI 吗？**
+只发 schema 信息（表名、字段名、类型）和你的查询。数据库密码和实际数据不会出去。
 
 **这和 GitHub Copilot for SQL 有什么不同？**
-Copilot 补全你正在输入的内容。SqlKit 的 agent 读取你的 schema、从自然语言生成查询、优化慢 SQL、解释执行计划并修复错误——它是一个完整的 AI agent，不是自动补全工具。
+Copilot 自动补全。SqlKit 读你的 schema、从描述生成查询、优化慢 SQL、解释执行计划、修错误——是个 agent，不是补全工具。
 
 **SqlKit 支持 PostgreSQL 吗？**
-支持，使用原生 Rust 驱动。PostgreSQL 的 schema 浏览、查询执行、EXPLAIN 计划、DDL 查看器和 Agentic Data Studio 都完全支持。
+支持，原生 Rust 驱动。schema 浏览、EXPLAIN、DDL 查看器、Agentic Data Studio，全套。
 
-**可以使用自己的 Ollama 模型吗？**
-可以。将 SqlKit 指向任何 Ollama 端点即可。支持 Llama、CodeLlama、Mistral、DeepSeek Coder 及所有 Ollama 可用模型。
+**可以用自己的 Ollama 模型吗？**
+指向 Ollama 地址就行。Llama、CodeLlama、Mistral、DeepSeek Coder——Ollama 能跑的都能用。
 
 ---
 
