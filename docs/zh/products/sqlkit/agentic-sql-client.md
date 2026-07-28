@@ -42,7 +42,7 @@ head:
 
 # Agentic SQL GUI 客户端
 
-SqlKit 是一款开源的 AI 原生 SQL 桌面客户端，支持 Mac、Windows 和 Linux。它将 AI 驱动的 Agentic Data Studio 与原生数据库连接能力相结合，覆盖 **50+ 种数据库**——PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等。
+SqlKit 是一款开源的 AI 原生 SQL 桌面客户端，支持 Mac、Windows 和 Linux。覆盖 **50+ 种数据库**——国际主流数据库之外，还全面支持国产信创数据库：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase 等。
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">免费下载</a>
@@ -59,11 +59,11 @@ SqlKit 是一款开源的 AI 原生 SQL 桌面客户端，支持 Mac、Windows �
 
 ### Agentic Data Studio
 
-Agentic Data Studio 是一个 AI agent，可以访问你的数据库 schema、表结构、索引和查询历史。当你提出需求时，它会从数据库读取实时上下文，生成相应的 SQL，并通过经过验证的工具执行。
+Agentic Data Studio 是一个 AI agent，连接你的数据库 schema、索引和查询历史。说你要什么，它读取实时上下文，生成 SQL，通过验证工具执行。
 
-问"查询本季度营收前 10 的客户"——agent 读取你的 schema，定位相关表和字段，构造查询语句，执行并展示结果。问"优化这条慢查询"——它会重写 SQL 并以带有成本高亮的结构树可视化执行计划。
+"查一下这个季度营收前 10 的客户"——它找到对应的表和字段，构造查询，跑出结果。"优化这条慢查询"——重写 SQL，展示带成本高亮的执行计划树。
 
-读取操作自动执行。破坏性操作（DELETE、DROP、无 WHERE 条件的 UPDATE）需要显式确认。你的数据库凭据永远不会发送给 LLM。
+读取自动执行。DELETE、DROP、无 WHERE 条件的 UPDATE 需要你确认。凭据不会发给 LLM。
 
 ![SqlKit Agentic Data Studio](/sqlkit-data-studio-ui.png)
 
@@ -114,15 +114,15 @@ SqlKit 不绑定任何 AI 厂商。在设置中配置你偏好的提供商：
 
 ### 多数据库支持
 
-SqlKit 通过五层适配器架构支持 **50+ 种数据库**：
+**50+ 种数据库**，全面覆盖国产信创生态：
 
 | 类型 | 数据库 |
 |---|---|
 | **原生** (Rust) | PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse、Firebird、Oracle |
-| **PG-wire 兼容** | CockroachDB、Redshift、YugabyteDB、TimescaleDB、QuestDB |
-| **MySQL-wire 兼容** | MariaDB、TiDB、OceanBase、StarRocks、Databend |
-| **JDBC 桥接** | Snowflake、DB2、H2、BigQuery、Databricks、Hive、Teradata、Vertica、Exasol |
-| **HTTP 桥接** | Trino、Presto |
+| **PG-wire 兼容** | CockroachDB、Redshift、YugabyteDB、TimescaleDB、QuestDB、**Vastbase**、**HighGo**、**UXDB** |
+| **MySQL-wire 兼容** | MariaDB、**TiDB**、**OceanBase**、**StarRocks**、Databend、**PolarDB**、**TDSQL**、**GBase** |
+| **JDBC 桥接** | Snowflake、DB2、BigQuery、Databricks、Hive、Teradata、Exasol、**达梦 DM8**、**KingbaseES**、**GaussDB**、**YashanDB**、**Xugudb**、**SelectDB**、**Doris**、**Kylin** |
+| **HTTP 桥接** | Trino、Presto、**OpenGauss** |
 
 ### 跨引擎数据迁移
 

@@ -176,20 +176,20 @@ databases:
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "用自然语言描述你的需求 — AI 智能体自动读取 Schema、编写优化查询、可视化解释执行计划、并实时修复 SQL 错误。支持 OpenAI、Anthropic、DeepSeek、Ollama。自带密钥，凭据永不暴露给 LLM。"
-    image: /sqlkit-client-ui.png
+    body: "说需求，AI 读 schema、写查询、解释执行计划、修 SQL 错误。支持 OpenAI、Anthropic、DeepSeek、Ollama。自备 key，凭据不上云。"
+    image: /sqlkit-data-studio-ui.png
     align: left
   - title: "50+ 种数据库统一管理"
-    body: "通过五种适配策略连接 50+ 种数据库：原生 Rust 驱动（PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse 等）、PG 协议兼容、MySQL 协议兼容、JDBC 桥接（Snowflake、DB2、BigQuery 等 20+ 种）、HTTP 桥接（Trino、Presto）。"
-    image: /sqlkit-client-ui.png
+    body: "原生支持国产信创数据库：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase 等。国际主流同样全覆盖。"
+    image: /sqlkit-sql-editor-ui.png
     align: right
   - title: "跨引擎数据迁移"
-    body: "在任意支持的数据库之间传输数据 — PostgreSQL 到 ClickHouse、Oracle 到 SQL Server、MySQL 到 BigQuery。无需中间文件。自动类型映射、百万级记录的批处理、DDL 自动生成，适配目标引擎 SQL 方言。"
-    image: /sqlkit-client-ui.png
+    body: "PostgreSQL 到 ClickHouse。Oracle 到 SQL Server。MySQL 到 BigQuery。数据库之间直接迁移，无需中间文件。自动类型映射、百万级批处理。"
+    image: /sqlkit-data-view-table-ui.png
     align: left
   - title: "企业级安全连接"
-    body: "SSH 隧道支持密钥和密码认证。SSL/TLS 加密连接。凭据通过操作系统密钥链加密存储（macOS Keychain、Windows Credential Manager、Linux Secret Service）。自动重连保障连接可靠性。"
-    image: /sqlkit-client-ui.png
+    body: "SSH 隧道（密钥/密码认证）、SSL/TLS 加密、OS 密钥链凭据存储、自动重连。"
+    image: /sqlkit-er-diagram-ui.png
     align: right
 
 features:
