@@ -30,10 +30,10 @@ const content = computed(() => {
   const isZh = lang.value === 'zh'
   return {
     announcement: {
-	      text: isZh ? 'SqlKit — AI 原生 SQL 桌面客户端，支持 50+ 数据库，开源免费。' : 'SqlKit — the agentic SQL GUI client for 50+ databases, open-source and free.',
-	      linkText: isZh ? '了解更多 →' : 'Learn more →',
-	      link: isZh ? '/zh/products/sqlkit/agentic-sql-client' : '/products/sqlkit/agentic-sql-client'
-	    },
+      text: isZh ? 'DocKit v1.1 发布 — MongoDB、Agentic Data Studio、EasySearch，12 种 AI 提供商。' : 'DocKit v1.1 is here — MongoDB, Agentic Data Studio, EasySearch, and 12+ AI providers.',
+      linkText: isZh ? '查看详情 →' : 'Read the announcement →',
+      link: isZh ? '/zh/news/dockit-v1-1-release' : '/news/dockit-v1-1-release'
+    },
     hero: {
       name: isZh ? '极客范' : 'GEEKFUN',
       subtitle: isZh ? '开源俱乐部' : 'Open-Source Studio',
