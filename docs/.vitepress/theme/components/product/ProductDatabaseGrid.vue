@@ -92,7 +92,7 @@ const { lang } = useData()
 .database-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
 
   @media (max-width: 768px) {
