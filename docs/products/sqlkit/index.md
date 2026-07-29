@@ -30,7 +30,7 @@ head:
         "@type": "SoftwareApplication",
         "name": "SqlKit",
         "alternateName": ["agentic SQL client", "database GUI", "SQL database manager", "AI SQL agent", "database desktop client", "open source SQL client"],
-        "description": "Open-source agentic SQL desktop client for 50+ databases — PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more. AI-powered natural language to SQL, cross-engine data transfer, SSH tunnels, and JDBC bridge. Built with Rust + Tauri for native performance.",
+        "description": "Open-source agentic SQL desktop client for 50+ databases — PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more. AI-powered natural language to SQL, visual schema browser, SSH tunnels, and JDBC bridge. Built with Rust + Tauri for native performance.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": {
@@ -57,8 +57,6 @@ head:
           "BigQuery GUI client",
           "JDBC bridge for 20+ databases",
           "SSH tunnel support",
-          "Cross-engine data transfer",
-          "Migration wizard",
           "ER diagram visualization",
           "Smart Query Editor with Monaco",
           "Visual schema browser",
@@ -80,7 +78,7 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/sqlkit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "0.6.1",
+        "softwareVersion": "0.8.1",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -176,26 +174,25 @@ databases:
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "Describe what you need in plain English. The agent reads your schema, writes queries, explains execution plans, and fixes errors. Works with OpenAI, Anthropic, DeepSeek, and Ollama. Bring your own key, credentials stay on your machine."
-    image: /sqlkit-client-ui.png
+    body: "Tell it what you need. It reads your schema, writes queries, explains execution plans, and fixes errors. Works with OpenAI, Anthropic, DeepSeek, and Ollama. Bring your own key — credentials stay on your machine."
+    image: /sqlkit-data-studio-ui.png
     align: left
   - title: "All Your Databases, One App"
-    body: "Connect to 50+ databases across five adapter strategies: native Rust drivers for PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Oracle, Firebird; PG-wire and MySQL-wire compatible engines; a JDBC bridge for Snowflake, DB2, BigQuery, and 20+ more; and HTTP bridge for Trino and Presto."
-    image: /sqlkit-client-ui.png
+    body: "50+ databases through five adapter strategies: native Rust drivers for PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Oracle, Firebird; PG-wire and MySQL-wire compatible engines; a JDBC bridge for Snowflake, DB2, BigQuery, and 20+ more; HTTP bridge for Trino and Presto."
+    image: /sqlkit-sql-editor-ui.png
     align: right
-  - title: "Move Data Between Engines"
-    body: "Transfer data between any supported databases — PostgreSQL to ClickHouse, Oracle to SQL Server, MySQL to BigQuery. No intermediate files required. Automatic type mapping, batch processing for millions of records, and DDL generation for target-engine compatibility."
-    image: /sqlkit-client-ui.png
+  - title: "Browse & Visualize Your Data"
+    body: "Tree view of databases, schemas, tables, and columns. Virtual-scrolled data grid with sort, filter, and inline editing. ER diagrams for schema relationships. DDL viewer, object search — everything you need to explore your data."
+    image: /sqlkit-data-view-table-ui.png
     align: left
   - title: "Enterprise Connectivity"
-    body: "SSH tunnels with key or password auth. SSL/TLS for encrypted connections. Credentials stored in your OS keychain. Auto-reconnect keeps things running when connections drop."
-    image: /sqlkit-client-ui.png
+    body: "SSH tunnels with key or password auth. SSL/TLS. Credentials in your OS keychain. Auto-reconnect keeps things running when connections drop."
+    image: /sqlkit-er-diagram-ui.png
     align: right
 
 features:
   - { title: "Agentic Data Studio", body: "Talk to your databases. The AI agent reads your schema, writes queries, optimizes slow SQL, visualizes execution plans, and fixes errors. Per-source permissions and safety gates for destructive operations. Bring your own LLM key — credentials stay local.", icon: "sparkles" }
   - { title: "50+ Database Support", body: "Native (Rust) drivers for PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Oracle, Firebird. PG-wire and MySQL-wire for CockroachDB, MariaDB, TiDB, OceanBase, Redshift. JDBC bridge for Snowflake, DB2, BigQuery, Databricks, Teradata, Hive, and 20+ more. HTTP bridge for Trino, Presto.", icon: "database" }
-  - { title: "Cross-Engine Data Transfer", body: "Migrate data between any supported engines with automatic column mapping and type conversion. Bulk operations handle millions of records. DDL generation for target-engine SQL dialects.", icon: "import" }
   - { title: "Product-Grade Editor", body: "Monaco Editor (VS Code engine) with full SQL syntax highlighting, context-aware autocomplete, multi-tab support, and configurable SQL formatting with dialect-specific rules.", icon: "code" }
   - { title: "Visual Schema Browser", body: "Tree view of databases, schemas, tables, columns, indexes, views, procedures, and functions. Inspect DDL, search objects across schemas, and navigate relationships visually.", icon: "search" }
   - { title: "Smart Data Grid", body: "Virtual-scrolled data grid with sort, filter, inline editing, and copy. Row-level data search across all columns. Paginated results with CSV, JSON, and Markdown export.", icon: "table" }
@@ -243,16 +240,6 @@ SqlKit supports **50+ databases** across five adapter strategies, from native Ru
 | **MySQL-wire compat** | MariaDB, TiDB, OceanBase, StarRocks, Databend, ManticoreSearch, and more |
 | **JDBC bridge** | Snowflake, DB2, H2, BigQuery, Databricks, Hive, Hana, Teradata, Vertica, Exasol, Informix, Cassandra, TDengine, and more |
 | **HTTP bridge** | Trino, Presto |
-
-## Cross-Engine Data Transfer
-
-Move data between any supported engines without intermediate files:
-
-- **Cross-engine migration** — PostgreSQL to ClickHouse, Oracle to SQL Server, MySQL to BigQuery — with automatic type mapping
-- **Migration wizard** — interactive interface with column auto-mapping
-- **DDL generation** — generate CREATE statements for selected tables, adapted for target-engine compatibility
-- **SQL file execution** — execute SQL files against target databases with configurable error handling
-- **Import / Export** — CSV, JSON, JSONL with batch processing for millions of records
 
 ## Designed for Developers
 

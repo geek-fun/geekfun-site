@@ -30,7 +30,7 @@ head:
         "@type": "SoftwareApplication",
         "name": "SqlKit",
         "alternateName": ["智能 SQL 客户端", "数据库 GUI", "SQL 数据库管理器", "AI SQL 智能体", "数据库桌面客户端", "开源 SQL 客户端"],
-        "description": "开源的智能 SQL 桌面客户端，支持 50+ 种数据库 — PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等。内置 AI 自然语言转 SQL、跨引擎数据传输、SSH 隧道和 JDBC 桥接。基于 Rust + Tauri 构建，原生性能。",
+        "description": "开源的智能 SQL 桌面客户端，支持 50+ 种数据库 — PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等。内置 AI 自然语言转 SQL、可视化 Schema 浏览器、SSH 隧道和 JDBC 桥接。基于 Rust + Tauri 构建，原生性能。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": {
@@ -57,8 +57,6 @@ head:
           "BigQuery GUI 客户端",
           "20+ 种数据库 JDBC 桥接",
           "SSH 隧道支持",
-          "跨引擎数据传输",
-          "迁移向导",
           "ER 图可视化",
           "基于 Monaco 的智能查询编辑器",
           "可视化 Schema 浏览器",
@@ -80,7 +78,7 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/sqlkit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/zh/download",
-        "softwareVersion": "0.6.1",
+        "softwareVersion": "0.8.1",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -176,26 +174,25 @@ databases:
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "用自然语言描述你的需求 — AI 智能体自动读取 Schema、编写优化查询、可视化解释执行计划、并实时修复 SQL 错误。支持 OpenAI、Anthropic、DeepSeek、Ollama。自带密钥，凭据永不暴露给 LLM。"
-    image: /sqlkit-client-ui.png
+    body: "说需求，AI 读 schema、写查询、解释执行计划、修 SQL 错误。支持 OpenAI、Anthropic、DeepSeek、Ollama。自备 key，凭据不上云。"
+    image: /sqlkit-data-studio-ui.png
     align: left
   - title: "50+ 种数据库统一管理"
-    body: "通过五种适配策略连接 50+ 种数据库：原生 Rust 驱动（PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse 等）、PG 协议兼容、MySQL 协议兼容、JDBC 桥接（Snowflake、DB2、BigQuery 等 20+ 种）、HTTP 桥接（Trino、Presto）。"
-    image: /sqlkit-client-ui.png
+    body: "原生支持国产信创数据库：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase 等。国际主流同样全覆盖。"
+    image: /sqlkit-sql-editor-ui.png
     align: right
-  - title: "跨引擎数据迁移"
-    body: "在任意支持的数据库之间传输数据 — PostgreSQL 到 ClickHouse、Oracle 到 SQL Server、MySQL 到 BigQuery。无需中间文件。自动类型映射、百万级记录的批处理、DDL 自动生成，适配目标引擎 SQL 方言。"
-    image: /sqlkit-client-ui.png
+  - title: "数据浏览与可视化"
+    body: "树形浏览数据库、Schema、表、列。虚拟滚动数据网格，支持排序、筛选、行内编辑。ER 图查看表关系。DDL 查看器、对象搜索——探索数据所需的一切。"
+    image: /sqlkit-data-view-table-ui.png
     align: left
   - title: "企业级安全连接"
-    body: "SSH 隧道支持密钥和密码认证。SSL/TLS 加密连接。凭据通过操作系统密钥链加密存储（macOS Keychain、Windows Credential Manager、Linux Secret Service）。自动重连保障连接可靠性。"
-    image: /sqlkit-client-ui.png
+    body: "SSH 隧道（密钥/密码认证）、SSL/TLS 加密、OS 密钥链凭据存储、自动重连。"
+    image: /sqlkit-er-diagram-ui.png
     align: right
 
 features:
   - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI 智能体自动读取 Schema、编写查询、优化慢 SQL、可视化执行计划、自动修复错误。细粒度权限控制，危险操作需二次确认。自带 LLM 密钥，凭据本地保存。", icon: "sparkles" }
   - { title: "50+ 种数据库支持", body: "原生 Rust 驱动：PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse、Oracle、Firebird。PG/MySQL 协议兼容：CockroachDB、MariaDB、TiDB、OceanBase、Redshift。JDBC 桥接：Snowflake、DB2、BigQuery、Databricks、Teradata、Hive 等 20+ 种。HTTP 桥接：Trino、Presto。", icon: "database" }
-  - { title: "跨引擎数据迁移", body: "任意引擎间的数据迁移，自动列映射和类型转换。百万级记录批量处理。DDL 自动生成，适配目标引擎 SQL 方言。", icon: "import" }
   - { title: "产品级查询编辑器", body: "基于 Monaco Editor（VS Code 引擎），支持完整 SQL 语法高亮、上下文感知的自动补全、多标签编辑、可配置的 SQL 格式化（支持多种方言）。", icon: "code" }
   - { title: "可视化 Schema 浏览器", body: "数据库、Schema、表、列、索引、视图、存储过程、函数的树形浏览。一键查看 DDL，跨 Schema 对象搜索，直观查看表关系。", icon: "search" }
   - { title: "智能数据网格", body: "虚拟滚动数据网格，支持排序、筛选、内联编辑和复制。跨列行级数据搜索。分页结果集，支持 CSV、JSON 和 Markdown 导出。", icon: "table" }
@@ -243,16 +240,6 @@ SqlKit 通过五种适配策略支持 **50+ 种数据库**，覆盖从原生 Rus
 | **MySQL 协议兼容** | MariaDB、TiDB、OceanBase、StarRocks、Databend、ManticoreSearch 等 |
 | **JDBC 桥接** | Snowflake、DB2、H2、BigQuery、Databricks、Hive、Hana、Teradata、Vertica、Exasol、Informix、Cassandra、TDengine 等 |
 | **HTTP 桥接** | Trino、Presto |
-
-## 跨引擎数据迁移
-
-在任意支持的数据库之间传输数据，无需中间文件：
-
-- **跨引擎迁移** — PostgreSQL 到 ClickHouse、Oracle 到 SQL Server、MySQL 到 BigQuery，自动类型映射
-- **迁移向导** — 交互式界面，支持列自动映射
-- **DDL 生成** — 为所选表生成 CREATE 语句，适配目标引擎 SQL 方言
-- **SQL 文件执行** — 在目标数据库中执行 SQL 文件，支持可配置的错误处理策略
-- **导入 / 导出** — CSV、JSON、JSONL 格式，支持百万级批量处理
 
 ## 为开发者而生
 
