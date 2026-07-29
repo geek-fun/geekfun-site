@@ -55,6 +55,15 @@ const { lang } = useData()
 
 .database-section {
   padding: 48px 0 64px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--vp-c-brand-1) 6%, transparent) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
   @media (max-width: 768px) {
     padding: 32px 0 48px;
@@ -108,7 +117,9 @@ const { lang } = useData()
   width: 100px;
   padding: 18px 8px 10px;
   border-radius: 12px;
-  background: var(--vp-c-bg-soft);
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 70%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 
