@@ -40,7 +40,7 @@ head:
       }
 ---
 
-# Agentic SQL GUI Client
+# SqlKit — Agentic SQL GUI Client for All Your SQL Databases
 
 SqlKit is an open-source SQL desktop client for Mac, Windows, and Linux. It wraps an AI agent that understands databases around native drivers for **50+ engines** — PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery. Pick your poison.
 
