@@ -119,9 +119,9 @@ Cmd/Ctrl + Enter 跑查询，加个 Shift 带上执行计划。
 | **JDBC 桥接** | Snowflake、DB2、BigQuery、Databricks、Hive、Teradata、Exasol、**达梦 DM8**、**KingbaseES**、**GaussDB**、**YashanDB**、**Xugudb**、**SelectDB**、**Doris**、**Kylin** |
 | **HTTP 桥接** | Trino、Presto、**OpenGauss** |
 
-### 跨引擎数据迁移
+### 数据浏览与可视化工具
 
-数据库之间直接搬数据。PostgreSQL 到 ClickHouse。Oracle 到 SQL Server。MySQL 到 BigQuery。类型自动映射、百万级批量处理、DDL 按目标引擎生成。
+数据库、Schema、表、列的树形浏览。虚拟滚动数据网格支持排序、筛选、行内编辑、跨列搜索。DDL 查看器、对象搜索、ER 图——不写 SQL 也能看清数据库全貌。
 
 ### ER 图可视化
 

@@ -121,9 +121,9 @@ Run with Cmd/Ctrl + Enter. Add Shift to include the execution plan.
 | **JDBC bridge** | Snowflake, DB2, H2, BigQuery, Databricks, Hive, Teradata, Vertica, Exasol |
 | **HTTP bridge** | Trino, Presto |
 
-### Cross-engine data transfer
+### Data browsing & visual tools
 
-Move data between databases without intermediate files. PostgreSQL to ClickHouse. Oracle to SQL Server. MySQL to BigQuery. Automatic type mapping, batch processing for millions of records, DDL tuned for the target engine.
+Tree view of databases, schemas, tables, and columns. Virtual-scrolled data grid with sort, filter, inline editing, and row-level search. DDL viewer, object search, and ER diagrams — everything to explore your database structure without writing queries.
 
 ### ER diagram visualization
 
