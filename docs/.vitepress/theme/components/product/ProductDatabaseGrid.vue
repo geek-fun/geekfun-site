@@ -93,10 +93,10 @@ const { lang } = useData()
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 
   @media (max-width: 768px) {
-    gap: 8px;
+    gap: 10px;
   }
 }
 
@@ -104,9 +104,9 @@ const { lang } = useData()
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  width: 84px;
-  padding: 14px 6px 8px;
+  gap: 8px;
+  width: 100px;
+  padding: 18px 8px 10px;
   border-radius: 12px;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
@@ -117,18 +117,28 @@ const { lang } = useData()
     box-shadow: 0 6px 16px var(--gf-c-glow, rgba(248, 155, 64, 0.08));
     border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
   }
+
+  @media (max-width: 768px) {
+    width: 88px;
+    padding: 14px 6px 8px;
+  }
 }
 
 .database-chip {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 8px;
   background: var(--vp-c-bg);
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+  @media (max-width: 768px) {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 .database-logo {
@@ -138,14 +148,19 @@ const { lang } = useData()
 }
 
 .database-name {
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   font-weight: 500;
   color: var(--vp-c-text-2);
   text-align: center;
-  line-height: 1.2;
-  max-width: 74px;
+  line-height: 1.3;
+  max-width: 88px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media (max-width: 768px) {
+    font-size: 0.625rem;
+    max-width: 74px;
+  }
 }
 </style>
