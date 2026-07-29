@@ -40,7 +40,7 @@ head:
       }
 ---
 
-# SqlKit — Agentic SQL GUI Client，适配所有 SQL 数据库
+# SqlKit - 覆盖所有 SQL 数据库的智能体 SQL 桌面客户端
 
 SqlKit 是一个开源的 SQL 桌面客户端，Mac、Windows、Linux 都能跑。连得上 **50+ 种数据库**——国际主流不用说，国产信创也都在列表里：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase。
 
