@@ -1,10 +1,14 @@
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   product: {
     type: Object,
     required: true
   }
 })
+
+const isExternal = computed(() => props.product.url.startsWith('http'))
 </script>
 
 <template>
@@ -23,7 +27,12 @@ const props = defineProps({
     <p class="product-desc">{{ props.product.description }}</p>
     
     <div class="product-footer">
-      <a class="product-link" :href="props.product.url" target="_blank" rel="noopener noreferrer">
+      <a
+        class="product-link"
+        :href="props.product.url"
+        :target="isExternal ? '_blank' : undefined"
+        :rel="isExternal ? 'noopener noreferrer' : undefined"
+      >
         Learn More <span class="arrow">&rarr;</span>
       </a>
     </div>
@@ -113,6 +122,7 @@ const props = defineProps({
   font-size: 0.95rem;
   color: var(--vp-c-text-2);
   line-height: 1.6;
+  max-width: 68ch;
   flex-grow: 1;
 }
 

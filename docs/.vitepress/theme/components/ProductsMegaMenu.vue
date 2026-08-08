@@ -259,6 +259,7 @@ const groups = [
   display: flex;
   align-items: center;
   gap: 4px;
+  min-height: 44px;
   padding: 0 12px;
   line-height: 36px;
   font-size: 14px;

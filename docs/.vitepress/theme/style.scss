@@ -1,13 +1,16 @@
 :root {
-  /* Brand Colors */
+  /* Brand Colors - original forge amber */
   --vp-c-brand-1: #f89b40;
   --vp-c-brand-2: #e0832a;
   --vp-c-brand-3: #c97120;
   --vp-c-brand-soft: rgba(248, 155, 64, 0.16);
   --vp-c-brand-soft-up: rgba(248, 155, 64, 0.24);
+  --gf-c-brand-display: #f89b40;
 
-  /* Semantic color tokens */
-  --gf-c-text-on-brand: #ffffff;
+  /* Semantic color tokens - dark ink on amber fills (8.3:1 in light, 9.3:1 in dark) */
+  --gf-c-text-on-brand: #241505;
+  --gf-c-btn-fill: #f89b40;
+  --gf-c-btn-fill-hover: #e0832a;
 
   /* Linear/Raycast inspired custom properties - Light Mode */
   --gf-c-bg-card: #ffffff;
@@ -56,6 +59,12 @@
   --vp-c-brand-soft: rgba(248, 155, 64, 0.16);
   --vp-c-brand-soft-up: rgba(248, 155, 64, 0.24);
 
+  /* Dark-mode button fills stay vibrant; text on them is the same dark ink */
+  --gf-c-btn-fill: #fba95a;
+  --gf-c-btn-fill-hover: #f89b40;
+  /* Dark-mode display brand text — vibrant, 9.9:1 on night */
+  --gf-c-brand-display: #fba95a;
+
   /* Linear/Raycast inspired custom properties - Dark Mode */
   --gf-c-bg-card: rgba(24, 24, 27, 0.6);
   --gf-c-border-subtle: rgba(255, 255, 255, 0.08);
@@ -100,7 +109,7 @@ p, .vp-doc p {
   .name {
     font-weight: 800;
     letter-spacing: -0.04em;
-    color: var(--vp-c-brand-1);
+    color: var(--gf-c-brand-display);
   }
   
   .text {
@@ -181,16 +190,16 @@ html .VPFeatures .VPFeature {
 }
 
 :is(.gf-btn-primary, .VPButton.brand) {
-  background-color: var(--vp-c-brand-1);
+  background-color: var(--gf-c-btn-fill);
   color: var(--gf-c-text-on-brand);
 
   &:hover {
-    background-color: var(--vp-c-brand-2);
+    background-color: var(--gf-c-btn-fill-hover);
   }
 }
 
 .dark :is(.gf-btn-primary, .VPButton.brand) {
-  background-color: var(--vp-c-brand-1);
+  background-color: var(--gf-c-btn-fill);
 }
 
 :is(.gf-btn-secondary, .VPButton.alt) {
@@ -249,6 +258,66 @@ html .VPFeatures .VPFeature {
   overflow-x: hidden;
 }
 
+/* Product page docs: contain wide markdown tables so they scroll in place
+   instead of blowing the page out horizontally on small viewports */
+.product-doc .vp-doc {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.product-doc .vp-doc table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* ── Code blocks: guarantee legible code text in both themes ──
+   VitePress defaults code-block text to --vp-c-text-2 (a muted secondary
+   color). Base code tokens get their color from Shiki's --shiki-dark/--shiki-light
+   variables when present, but any un-highlighted text (shell prompts, comments,
+   characters outside a token) falls back to the block color. Raise the baseline
+   so dark mode never renders code dimmer than the surrounding copy. */
+.vp-doc .vp-code {
+  color: var(--vp-c-text-1);
+}
+
+.dark .vp-doc .vp-code {
+  color: #e6e6e9;
+}
+
+/* Un-tokenized plain text inside a code block (e.g. `$` prompts, output) —
+   ensure it never falls below readable contrast on the block background */
+.vp-doc .vp-code span:not([class]) {
+  color: var(--vp-c-text-1);
+}
+
+.dark .vp-doc .vp-code span:not([class]) {
+  color: #d4d4d8;
+}
+
+/* Shiki dual-theme tokens still win where the variables exist */
+.dark .vp-doc .vp-code span[style*="shiki-dark"],
+.dark .vp-doc .vp-code span[class] {
+  color: var(--shiki-dark, var(--vp-c-text-1));
+}
+
+/* ── End code block legibility ── */
+
+/* Product install tabs use Shiki's codeToHtml at runtime, which inlines the
+   LIGHT theme color on every token span (`color:#6F42C1;--shiki-dark:#B392F0`).
+   That inline color outranks any stylesheet rule, so in dark mode tokens
+   render light-theme (dark text) on the dark command box — unreadable.
+   Re-apply the dark token color with !important to win over the inline style. */
+.dark .install-command .shiki span {
+  color: var(--shiki-dark, var(--vp-c-text-1)) !important;
+}
+
+.light .install-command .shiki span,
+html:not(.dark) .install-command .shiki span {
+  color: var(--shiki-light, var(--vp-c-text-1));
+}
+
 /* Tablet breakpoint adjustments (768px - 1024px) */
 @media (max-width: 1024px) {
   .VPFeatures {
@@ -280,6 +349,11 @@ html .VPFeatures .VPFeature {
   :is(.gf-btn, .VPButton.brand, .VPButton.alt) {
     min-height: 44px;
     min-width: 44px;
+  }
+
+  .VPSocialLink {
+    width: 44px;
+    height: 44px;
   }
 }
 

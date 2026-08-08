@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
+import Reveal from '../Reveal.vue'
 
 type SecurityItem = {
   title: string
@@ -7,10 +8,19 @@ type SecurityItem = {
   icon: string
 }
 
+type PermissionMode = {
+  name: string
+  tag?: string
+  desc: string
+  allows: string[]
+  blocks: string[]
+}
+
 type SecurityData = {
   eyebrow?: string
   title?: string
   items: SecurityItem[]
+  permissionModes?: PermissionMode[]
 }
 
 defineProps<{ security: SecurityData }>()
@@ -36,18 +46,61 @@ const getIcon = (name?: string) => {
 <template>
   <section class="security-section">
     <div class="container">
-      <div class="security-header">
-        <span v-if="security.eyebrow" class="security-eyebrow">{{ security.eyebrow }}</span>
-        <h2 v-if="security.title" class="security-title">{{ security.title }}</h2>
-      </div>
+      <Reveal>
+        <div class="security-header">
+          <span v-if="security.eyebrow" class="security-eyebrow">{{ security.eyebrow }}</span>
+          <h2 v-if="security.title" class="security-title">{{ security.title }}</h2>
+        </div>
+      </Reveal>
 
       <div class="security-grid">
-        <div v-for="item in security.items" :key="item.title" class="security-card">
-          <div class="security-icon" v-html="getIcon(item.icon)"></div>
-          <h3 class="security-card-title">{{ item.title }}</h3>
-          <p class="security-card-body">{{ item.body }}</p>
-        </div>
+        <Reveal v-for="(item, i) in security.items" :key="item.title" :delay="i * 70">
+          <div class="security-card">
+            <div class="security-icon" v-html="getIcon(item.icon)"></div>
+            <h3 class="security-card-title">{{ item.title }}</h3>
+            <p class="security-card-body">{{ item.body }}</p>
+          </div>
+        </Reveal>
       </div>
+
+      <template v-if="security.permissionModes && security.permissionModes.length">
+        <Reveal>
+          <h3 class="permission-heading">Permission modes</h3>
+        </Reveal>
+        <div class="permission-grid">
+          <Reveal
+            v-for="(mode, i) in security.permissionModes"
+            :key="mode.name"
+            :delay="i * 80"
+          >
+            <div :class="['permission-card', { 'is-featured': mode.tag === 'Default' || mode.name === 'Data Read/Write' }]">
+              <div class="permission-card-header">
+                <span class="permission-name">{{ mode.name }}</span>
+                <span v-if="mode.tag" class="permission-tag">{{ mode.tag }}</span>
+              </div>
+              <p class="permission-desc">{{ mode.desc }}</p>
+              <div class="permission-section">
+                <span class="permission-label">Allows</span>
+                <ul class="permission-list">
+                  <li v-for="item in mode.allows" :key="item" class="list-item allow">
+                    <span class="list-icon">✓</span>
+                    <span>{{ item }}</span>
+                  </li>
+                </ul>
+              </div>
+              <div v-if="mode.blocks && mode.blocks.length" class="permission-section">
+                <span class="permission-label">Blocks</span>
+                <ul class="permission-list">
+                  <li v-for="item in mode.blocks" :key="item" class="list-item block">
+                    <span class="list-icon">✕</span>
+                    <span>{{ item }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </template>
     </div>
   </section>
 </template>
@@ -109,6 +162,10 @@ const getIcon = (name?: string) => {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 
+  :deep(.reveal) {
+    display: flex;
+  }
+
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -128,6 +185,7 @@ const getIcon = (name?: string) => {
   background-color: var(--vp-c-bg);
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 
   &:hover {
     transform: translateY(-2px);
@@ -165,5 +223,123 @@ const getIcon = (name?: string) => {
   line-height: 1.6;
   color: var(--vp-c-text-2);
   margin: 0;
+}
+
+.permission-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin: 48px 0 16px;
+  text-align: left;
+}
+
+.permission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  :deep(.reveal) {
+    display: flex;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.permission-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background-color: var(--vp-c-bg);
+  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+  border-radius: 12px;
+  width: 100%;
+
+  &.is-featured {
+    border-color: var(--vp-c-brand-1);
+    box-shadow: inset 0 1px 0 0 var(--vp-c-brand-1);
+  }
+}
+
+.permission-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.permission-name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+
+.permission-tag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-soft);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.permission-desc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+  margin: 0;
+}
+
+.permission-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.permission-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--vp-c-text-2);
+}
+
+.permission-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+
+  &.allow .list-icon {
+    color: #2ea043;
+  }
+
+  &.block .list-icon {
+    color: #f85149;
+  }
+}
+
+.list-icon {
+  flex-shrink: 0;
+  font-weight: 600;
 }
 </style>

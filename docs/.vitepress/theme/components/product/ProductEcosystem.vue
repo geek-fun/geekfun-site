@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Reveal from '../Reveal.vue'
+
 type EcoItem = {
   name: string
   logo: string
@@ -18,19 +20,23 @@ defineProps<{ ecosystem: EcosystemData }>()
 <template>
   <section class="ecosystem-section">
     <div class="container">
-      <div class="ecosystem-header">
-        <span v-if="ecosystem.eyebrow" class="ecosystem-label">{{ ecosystem.eyebrow }}</span>
-        <h2 v-if="ecosystem.title" class="ecosystem-title">{{ ecosystem.title }}</h2>
-        <p v-if="ecosystem.subtitle" class="ecosystem-subtitle">{{ ecosystem.subtitle }}</p>
-      </div>
+      <Reveal>
+        <div class="ecosystem-header">
+          <span v-if="ecosystem.eyebrow" class="ecosystem-label">{{ ecosystem.eyebrow }}</span>
+          <h2 v-if="ecosystem.title" class="ecosystem-title">{{ ecosystem.title }}</h2>
+          <p v-if="ecosystem.subtitle" class="ecosystem-subtitle">{{ ecosystem.subtitle }}</p>
+        </div>
+      </Reveal>
 
-      <div class="marquee-stage">
+      <Reveal :delay="120">
+        <div class="marquee-stage">
         <!-- Row 1: AI coding agents -->
         <div class="marquee-row">
           <div class="marquee-track marquee-track-agents">
             <template v-for="dup in 2" :key="dup">
               <div v-for="agent in ecosystem.agents" :key="agent.name + dup" class="marquee-item">
-                <img :src="agent.logo" :alt="agent.name" class="marquee-logo" loading="lazy" />
+                <!-- eager: the track is an offscreen animated container, so loading=lazy never fires -->
+                <img :src="agent.logo" :alt="agent.name" class="marquee-logo" loading="eager" />
                 <span class="marquee-name">{{ agent.name }}</span>
               </div>
             </template>
@@ -42,13 +48,15 @@ defineProps<{ ecosystem: EcosystemData }>()
           <div class="marquee-track marquee-track-databases">
             <template v-for="dup in 2" :key="dup">
               <div v-for="db in ecosystem.databases" :key="db.name + dup" class="marquee-item">
-                <img :src="db.logo" :alt="db.name" class="marquee-logo" loading="lazy" />
+                <!-- eager: the track is an offscreen animated container, so loading=lazy never fires -->
+                <img :src="db.logo" :alt="db.name" class="marquee-logo" loading="eager" />
                 <span class="marquee-name">{{ db.name }}</span>
               </div>
             </template>
           </div>
         </div>
       </div>
+      </Reveal>
     </div>
   </section>
 </template>
@@ -67,10 +75,12 @@ defineProps<{ ecosystem: EcosystemData }>()
 }
 
 .ecosystem-section {
-  padding: 0 0 72px;
+  padding: 72px 0;
+  background-color: var(--vp-c-bg);
+  border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
 
   @media (max-width: 768px) {
-    padding: 0 0 48px;
+    padding: 48px 0;
   }
 }
 

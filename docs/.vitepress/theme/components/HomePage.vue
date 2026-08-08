@@ -51,6 +51,11 @@ const content = computed(() => {
     },
     productStrip: [
       {
+        name: 'Data Studio Agent',
+        logo: '/data-studio-agent.svg',
+        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
+      },
+      {
         name: 'DocKit',
         logo: '/dockit.png',
         url: isZh ? '/zh/products/dockit/' : '/products/dockit/'
@@ -59,11 +64,6 @@ const content = computed(() => {
         name: 'SqlKit',
         logo: '/sqlkit.png',
         url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
-      },
-      {
-        name: 'Data Studio Agent',
-        logo: '/data-studio-agent.svg',
-        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
       },
       {
         name: 'ServerlessInsight',
@@ -83,6 +83,15 @@ const content = computed(() => {
     ] as ProductStripItem[],
     products: [
       {
+        name: 'Data Studio Agent',
+        logo: '/data-studio-agent.svg',
+        preview: '/data-studio-agent-arch.svg',
+        description: isZh
+          ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
+          : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
+        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
+      },
+      {
         name: 'DocKit',
         logo: '/dockit.png',
         preview: '/dockit-client-ui.png',
@@ -99,15 +108,6 @@ const content = computed(() => {
           ? '开源 SQL 桌面客户端，支持 50+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse 等），内置 AI 智能体，提供 Agentic Data Studio 自然语言查询体验。'
           : 'Open-source AI-powered SQL desktop client for 50+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, and more), with Agentic Data Studio for natural language querying.',
         url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
-      },
-      {
-        name: 'Data Studio Agent',
-        logo: '/data-studio-agent.svg',
-        preview: '/data-studio-agent-arch.svg',
-        description: isZh
-          ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
-          : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
-        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
       },
       {
         name: 'ServerlessInsight',
@@ -167,6 +167,9 @@ const activeIndex = ref(0)
 let carouselTimer: ReturnType<typeof setInterval> | null = null
 
 const startCarousel = () => {
+  stopCarousel()
+  // WCAG 2.2.2: never auto-advance when the user prefers reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   carouselTimer = setInterval(() => {
     if (content.value.products && content.value.products.length > 0) {
       activeIndex.value = (activeIndex.value + 1) % content.value.products.length
@@ -197,7 +200,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="homepage">
+  <main class="homepage">
     <!-- Announcement Banner -->
     <div class="announcement-bar">
       <div class="container">
@@ -216,6 +219,20 @@ onUnmounted(() => {
             <span class="subtitle">{{ content.hero.subtitle }}</span>
           </h1>
           <p class="hero-tagline">{{ content.hero.tagline }}</p>
+          <div v-if="content.hero.primaryAction || content.hero.secondaryAction" class="hero-actions">
+            <a
+              v-if="content.hero.primaryAction"
+              :href="content.hero.primaryLink"
+              class="gf-btn gf-btn-primary"
+            >{{ content.hero.primaryAction }}</a>
+            <a
+              v-if="content.hero.secondaryAction"
+              :href="content.hero.secondaryLink"
+              class="gf-btn gf-btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >{{ content.hero.secondaryAction }}</a>
+          </div>
         </div>
       </div>
     </section>
@@ -223,7 +240,16 @@ onUnmounted(() => {
     <!-- Product Carousel Section -->
     <section class="product-carousel-section" :aria-label="content.sections.whatWeMake">
       <div class="container carousel-container">
-        <div class="carousel-viewport">
+        <div class="section-header">
+          <h2 class="section-label">{{ content.sections.whatWeMake }}</h2>
+        </div>
+        <div
+          class="carousel-viewport"
+          @mouseenter="stopCarousel"
+          @mouseleave="startCarousel"
+          @focusin="stopCarousel"
+          @focusout="startCarousel"
+        >
           <transition name="carousel-slide">
             <a
               :key="content.products[activeIndex].name"
@@ -238,15 +264,14 @@ onUnmounted(() => {
             </a>
           </transition>
         </div>
-        <div class="carousel-indicators" role="tablist">
+        <div class="carousel-indicators" role="group" :aria-label="content.sections.whatWeMake">
           <button
-            v-for="(_, index) in content.products"
-            :key="index"
+            v-for="(product, index) in content.products"
+            :key="product.name"
             class="indicator-dot"
             :class="{ active: index === activeIndex }"
-            :aria-selected="index === activeIndex"
-            :aria-label="`View product ${index + 1}`"
-            role="tab"
+            :aria-label="'Show ' + product.name"
+            :aria-current="index === activeIndex ? 'true' : undefined"
             @click="goToProduct(index)"
           ></button>
         </div>
@@ -257,7 +282,7 @@ onUnmounted(() => {
     <section class="values-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">{{ content.sections.values }}</span>
+          <h2 class="section-label">{{ content.sections.values }}</h2>
         </div>
         <div class="values-grid">
           <div v-for="feature in content.features" :key="feature.title" class="value-card">
@@ -273,7 +298,7 @@ onUnmounted(() => {
     <section class="products-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">{{ content.sections.products }}</span>
+          <h2 class="section-label">{{ content.sections.products }}</h2>
         </div>
         <div class="products-grid">
           <Product 
@@ -289,12 +314,12 @@ onUnmounted(() => {
     <section class="team-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">{{ content.sections.team }}</span>
+          <h2 class="section-label">{{ content.sections.team }}</h2>
         </div>
         <TeamMembers />
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped lang="scss">
@@ -343,8 +368,8 @@ onUnmounted(() => {
   }
 
   .badge {
-    background-color: var(--vp-c-brand-1);
-    color: white;
+    background-color: var(--gf-c-btn-fill);
+    color: var(--gf-c-text-on-brand);
     padding: 0.125rem 0.5rem;
     border-radius: 0.75rem;
     font-size: 0.6875rem;
@@ -390,6 +415,7 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--vp-c-brand-1);
+  margin: 0;
   display: inline-flex;
   align-items: center;
   gap: 1rem;
@@ -500,7 +526,7 @@ onUnmounted(() => {
 }
 
 .hero-brand-text {
-  color: var(--vp-c-brand-1);
+  color: var(--gf-c-brand-display);
   font-weight: 800;
   letter-spacing: -0.045em;
 }
@@ -539,6 +565,19 @@ onUnmounted(() => {
   }
 }
 
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 0 0 var(--space-lg, 1.5rem);
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+}
 
 /* Product Carousel */
 .product-carousel-section {
@@ -611,22 +650,43 @@ onUnmounted(() => {
 }
 
 .indicator-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--vp-c-text-3, rgba(128, 128, 128, 0.3));
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
   transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
-  &.active {
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--vp-c-text-3, rgba(128, 128, 128, 0.3));
+    transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.active::before {
     background-color: var(--vp-c-brand-1);
+  }
+
+  &:hover::before {
+    background-color: var(--vp-c-brand-2);
   }
 
   &:focus-visible {
     outline: 2px solid var(--vp-c-brand-1);
-    outline-offset: 4px;
+    outline-offset: 2px;
+    border-radius: 50%;
+  }
+
+  @media (pointer: coarse) {
+    width: 44px;
+    height: 44px;
   }
 }
 

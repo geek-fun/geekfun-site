@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { codeToHtml } from 'shiki'
+import Reveal from '../Reveal.vue'
 
 type InstallTab = {
   label: string
@@ -12,6 +13,7 @@ type InstallTab = {
 type InstallData = {
   eyebrow?: string
   title?: string
+  note?: string
   tabs: InstallTab[]
 }
 
@@ -19,6 +21,8 @@ const props = defineProps<{ install: InstallData }>()
 
 const activeIndex = ref(0)
 const highlighted = ref<string[]>([])
+const copied = ref(false)
+let copyTimer: ReturnType<typeof setTimeout> | null = null
 
 const detectLang = (label: string, command: string): string => {
   const labelLower = label.toLowerCase()
@@ -36,10 +40,14 @@ const highlightAll = async () => {
     tabs.map(async (tab) => {
       const lang = tab.lang ?? detectLang(tab.label, tab.command)
       try {
-        return await codeToHtml(tab.command, {
+        const html = await codeToHtml(tab.command, {
           lang,
           themes: { light: 'github-light', dark: 'github-dark' },
         })
+        // Shiki's codeToHtml emits `class="shiki ..."` without the vp-code
+        // marker VitePress relies on to switch to the dark theme tokens.
+        // Add it so `.dark .vp-code span { color: var(--shiki-dark) }` applies.
+        return html.replace('<pre class="shiki', '<pre class="shiki vp-code')
       } catch {
         return `<pre><code>${escapeHtml(tab.command)}</code></pre>`
       }
@@ -48,12 +56,52 @@ const highlightAll = async () => {
   highlighted.value = results
 }
 
+const flashCopied = () => {
+  copied.value = true
+  if (copyTimer) clearTimeout(copyTimer)
+  copyTimer = setTimeout(() => {
+    copied.value = false
+  }, 2000)
+}
+
 const copyCommand = async (command: string) => {
   try {
     await navigator.clipboard.writeText(command)
+    flashCopied()
+    return
   } catch {
-    /* clipboard unavailable (e.g. non-secure context) — ignore */
+    /* fall through to legacy fallback below */
   }
+
+  // Legacy fallback for non-secure contexts / blocked clipboard API
+  try {
+    const ta = document.createElement('textarea')
+    ta.value = command
+    ta.setAttribute('readonly', '')
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+    flashCopied()
+  } catch {
+    /* clipboard unavailable — ignore */
+  }
+}
+
+/* Roving tabindex for the tab list: only the active tab is focusable,
+   arrow keys move selection. Tab semantics stay complete per APG. */
+const onTabKeydown = (e: KeyboardEvent) => {
+  const tabs = props.install.tabs ?? []
+  if (tabs.length < 2) return
+  const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0
+  if (!dir) return
+  e.preventDefault()
+  const next = (activeIndex.value + dir + tabs.length) % tabs.length
+  activeIndex.value = next
+  const el = document.querySelector<HTMLButtonElement>(`.install-tab[data-index="${next}"]`)
+  el?.focus()
 }
 
 watch(() => props.install, highlightAll, { immediate: true, deep: true })
@@ -62,19 +110,26 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
 <template>
   <section class="install-section">
     <div class="container">
-      <div class="install-header">
-        <span v-if="install.eyebrow" class="install-eyebrow">{{ install.eyebrow }}</span>
-        <h2 v-if="install.title" class="install-title">{{ install.title }}</h2>
-      </div>
+      <Reveal>
+        <div class="install-header">
+          <span v-if="install.eyebrow" class="install-eyebrow">{{ install.eyebrow }}</span>
+          <h2 v-if="install.title" class="install-title">{{ install.title }}</h2>
+        </div>
+      </Reveal>
 
-      <div class="install-tabs" role="tablist" :aria-label="install.title || 'Install'">
+      <Reveal :delay="120">
+        <div class="install-tabs" role="tablist" :aria-label="install.title || 'Install'" @keydown="onTabKeydown">
         <button
           v-for="(tab, index) in install.tabs"
           :key="tab.label"
+          :data-index="index"
           class="install-tab"
           :class="{ active: index === activeIndex }"
           :aria-selected="index === activeIndex"
+          :tabindex="index === activeIndex ? 0 : -1"
           role="tab"
+          :aria-controls="'install-panel'"
+          :id="'install-tab-' + index"
           @click="activeIndex = index"
         >
           <img v-if="tab.icon" :src="tab.icon" :alt="''" class="install-tab-icon" loading="lazy" />
@@ -82,7 +137,7 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
         </button>
       </div>
 
-      <div class="install-command" role="tabpanel">
+      <div class="install-command" id="install-panel" role="tabpanel" :aria-labelledby="'install-tab-' + activeIndex" :aria-label="install.tabs[activeIndex].label + ' install command'">
         <div
           v-if="highlighted[activeIndex]"
           class="install-code"
@@ -91,15 +146,22 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
         <pre v-else class="install-code"><code>{{ install.tabs[activeIndex].command }}</code></pre>
         <button
           class="install-copy"
-          :aria-label="'Copy ' + install.tabs[activeIndex].label + ' command'"
+          :class="{ copied }"
+          :aria-label="copied ? 'Copied' : 'Copy ' + install.tabs[activeIndex].label + ' command'"
           @click="copyCommand(install.tabs[activeIndex].command)"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg v-if="!copied" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="9" y="9" width="13" height="13" rx="2"></rect>
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
           </svg>
+          <svg v-else xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
         </button>
       </div>
+
+      <p v-if="install.note" class="install-note">{{ install.note }}</p>
+      </Reveal>
     </div>
   </section>
 </template>
@@ -118,10 +180,12 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
 }
 
 .install-section {
-  padding: 0 0 72px;
+  padding: 48px 0;
+  background-color: var(--vp-c-bg-alt);
+  border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
 
   @media (max-width: 768px) {
-    padding: 0 0 48px;
+    padding: 32px 0;
   }
 }
 
@@ -158,7 +222,7 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
   gap: 4px;
   margin-bottom: 12px;
   padding: 4px;
-  background-color: var(--vp-c-bg-alt);
+  background-color: var(--vp-c-bg);
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   border-radius: 10px;
   overflow-x: auto;
@@ -170,6 +234,7 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
   gap: 8px;
   flex: 1;
   min-width: max-content;
+  min-height: 44px;
   padding: 8px 20px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -177,7 +242,7 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
   color: var(--vp-c-text-2);
   background: transparent;
   border: none;
-  border-radius: 7px;
+  border-radius: 8px;
   cursor: pointer;
   transition: color 0.2s, background-color 0.2s;
 
@@ -210,7 +275,7 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
   justify-content: space-between;
   gap: 16px;
   padding: 16px 20px;
-  background-color: var(--vp-c-bg-alt);
+  background-color: var(--vp-c-bg);
   border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   border-radius: 10px;
 
@@ -236,8 +301,8 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
   color: var(--vp-c-text-2);
   background: transparent;
@@ -251,10 +316,24 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
     border-color: var(--vp-c-brand-1);
   }
 
+  &.copied {
+    color: var(--gf-c-text-on-brand);
+    background-color: var(--gf-c-btn-fill);
+    border-color: var(--gf-c-btn-fill);
+  }
+
   &:focus-visible {
     outline: 2px solid var(--vp-c-brand-1);
     outline-offset: 2px;
   }
+}
+
+.install-note {
+  margin: 12px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+  text-align: center;
 }
 
 :deep(.shiki) {
@@ -267,6 +346,15 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
     font-family: var(--vp-font-family-mono);
     white-space: pre;
     color: inherit;
+  }
+
+  /* Shiki's codeToHtml inlines the LIGHT theme color on each token span
+     (`color:#6F42C1;--shiki-dark:#B392F0`). That inline color beats the
+     stylesheet's `.dark .vp-code span` rule, so tokens stay dark-on-dark
+     in dark mode. The actual override lives in the global style.scss
+     (`.install-command .shiki span`) with !important to win. */
+  span {
+    color: var(--shiki-light, inherit);
   }
 }
 </style>
