@@ -56,7 +56,7 @@ head:
       }
 
 hero:
-  name: Data Studio Agent
+  name: Data Studio Agent。
   headline: 你的 DBA。
   tagline: 用自然语言和你的数据库对话。你的智能体读懂你的 schema、执行查询，一步步讲给你听。你的 7×24 小时数据库工程师。
   highlights:
@@ -67,6 +67,7 @@ hero:
 install:
   eyebrow: "快速开始"
   title: "一条命令开始使用"
+  note: "需要先安装并启动 DocKit 和/或 SqlKit，并连接到数据库——服务器会自动发现正在运行的后端。"
   tabs:
     - label: Codex
       icon: /agent-logos/codex-logo.png
@@ -127,7 +128,6 @@ ecosystem:
     - { name: SAP HANA, logo: /db-logos/hana-logo.svg }
     - { name: Teradata, logo: /db-logos/teradata-logo.svg }
     - { name: ClickHouse, logo: /db-logos/clickhouse-logo.svg }
-    - { name: Firebird, logo: /db-logos/clickhouse-logo.svg }
     - { name: Redshift, logo: /db-logos/redshift-logo.svg }
     - { name: Informix, logo: /db-logos/informix-logo.svg }
     - { name: DuckDB, logo: /db-logos/duckdb-logo.svg }
@@ -138,14 +138,12 @@ ecosystem:
     - { name: TimescaleDB, logo: /db-logos/timescaledb-logo.svg }
     - { name: CockroachDB, logo: /db-logos/cockroachdb-logo.svg }
     - { name: QuestDB, logo: /db-logos/questdb-logo.svg }
-    - { name: Derby, logo: /db-logos/sqlite-logo.svg }
     - { name: InterSystems IRIS, logo: /db-logos/iris-logo.svg }
     - { name: YugabyteDB, logo: /db-logos/yugabytedb-logo.svg }
     - { name: Exasol, logo: /db-logos/exasol-logo.svg }
     - { name: Manticore Search, logo: /db-logos/manticore-logo.svg }
     - { name: TiDB, logo: /db-logos/tidb-logo.svg }
     - { name: PolarDB, logo: /db-logos/polardb-logo.svg }
-    - { name: TDengine, logo: /db-logos/clickhouse-logo.svg }
     - { name: OceanBase, logo: /db-logos/oceanbase-logo.svg }
     - { name: GBase, logo: /db-logos/gbase-logo.svg }
     - { name: StarRocks, logo: /db-logos/starrocks-logo.svg }
@@ -164,18 +162,73 @@ ecosystem:
     - { name: YashanDB, logo: /db-logos/yashandb-logo.svg }
     - { name: Xugudb, logo: /db-logos/xugudb-logo.svg }
     - { name: SelectDB, logo: /db-logos/selectdb-logo.svg }
-    - { name: rqlite, logo: /db-logos/sqlite-logo.svg }
-    - { name: Turso, logo: /db-logos/sqlite-logo.svg }
 
 showcase:
-  - title: "用自然语言访问你的数据库"
-    body: "告诉你的代理你需要什么，它读取 schema、编写查询并返回结果。\"找出 MongoDB 里所有大于 30 岁的用户\"、\"显示 Elasticsearch 最近的 10 条订单\"、\"列出我 PostgreSQL 数据库里的所有表\"。"
-    image: /data-studio-agent-arch.svg
-    align: left
-  - title: "每个数据库、每个工具，一份配置"
-    body: "SQL 和 NoSQL、本地和云端，一份 MCP 服务器配置自动路由到正确的后端。你的代理无需为每种数据库写胶水代码即可覆盖整个数据栈。"
-    image: /data-studio-agent-arch.svg
-    align: right
+  eyebrow: "实际体验"
+  title: "用自然语言和数据库对话"
+  subtitle: "告诉你的代理你需要什么。它读取 schema、通过 DocKit 或 SqlKit 执行查询，并逐步解释它做了什么——全部在你现有的 AI 编码工具里完成。"
+  items:
+    - title: "在 MongoDB 里找数据"
+      body: "不需要写查询语言。描述你想要的数据，代理找到集合、构造查询、返回文档——每一步都展示它的工作过程。"
+      visual: terminal
+      terminal:
+        title: "Claude Code · data-studio"
+        messages:
+          - role: user
+            text: "找出 MongoDB 里所有大于 30 岁的用户"
+          - role: agent
+            text: "正在读取 users 集合的 schema……"
+          - role: tool
+            name: "data_studio__mongo_find"
+            detail: "db.users.find({ age: { $gt: 30 } }).limit(10)"
+          - role: result
+            text: "12 documents returned\n\n{ \"_id\": \"67f2a1…\", \"name\": \"Ada Lovelace\", \"age\": 42 }\n{ \"_id\": \"67f2a1…\", \"name\": \"Grace Hopper\", \"age\": 51 }\n{ \"_id\": \"67f2a1…\", \"name\": \"Katherine Johnson\", \"age\": 63 }"
+          - role: agent
+            text: "找到 12 个大于 30 岁的用户。这是前三位——需要我按城市筛选或按年龄排序吗？"
+      align: left
+
+    - title: "列出 PostgreSQL 的表"
+      body: "问一句你的 PostgreSQL 数据库有哪些表，代理根据实时 schema 回答——不用记表名，也不用翻 pg_catalog。"
+      visual: terminal
+      terminal:
+        title: "OpenCode · data-studio"
+        messages:
+          - role: user
+            text: "列出我 PostgreSQL 数据库里的所有表"
+          - role: agent
+            text: "正在读取已连接数据库的 schema……"
+          - role: tool
+            name: "data_studio__sql_list_tables"
+            detail: "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name"
+          - role: result
+            text: "14 tables\n\norders · customers · products · order_items\npayments · shipments · reviews · inventory\nusers · sessions · carts · coupons\ndiscounts · audit_logs"
+          - role: agent
+            text: "你的 public schema 有 14 张表。需要我介绍其中某一张吗？"
+      align: left
+
+    - title: "不用 DSL 搜索 Elasticsearch"
+      body: "描述你想要的文档，代理通过 DocKit 的桥接把它翻译成正确的查询——跨索引、映射和聚合。"
+      visual: terminal
+      terminal:
+        title: "Windsurf · data-studio"
+        messages:
+          - role: user
+            text: "显示 Elasticsearch 最近的 10 条订单"
+          - role: agent
+            text: "正在检查 orders* 索引……"
+          - role: tool
+            name: "data_studio__es_search"
+            detail: "GET /orders*/_search  sort: [created_at desc]  size: 10"
+          - role: result
+            text: "10 hits in 18ms\n\n{ \"_source\": { \"order_id\": \"ORD-8291\", \"total\": 149.50, \"created_at\": \"2026-08-07T14:02:11Z\" } }\n{ \"_source\": { \"order_id\": \"ORD-8290\", \"total\": 89.00, \"created_at\": \"2026-08-07T13:41:08Z\" } }"
+          - role: agent
+            text: "这是 orders* 索引里最近的 10 条订单。"
+      align: left
+
+architecture:
+  eyebrow: "工作原理"
+  title: "每个数据库、每个工具，一份配置"
+  subtitle: "用自然语言访问你的数据库——告诉你的代理你需要什么，它读取 schema、编写查询并返回结果。一份 MCP 服务器配置在 SQL 与 NoSQL、本地与云端之间自动路由到正确的后端，无需为每种数据库写胶水代码。"
 
 features:
   eyebrow: "为什么选择 Data Studio Agent"
@@ -185,6 +238,37 @@ features:
     - { title: "自然语言搞定数据库操作", body: "不用再手写每条 JOIN、不用再翻 CLI 输出。说出你的需求，代理针对你的真实 schema 执行经过验证的查询。", icon: "sparkles" }
     - { title: "始终在线的诊断", body: "每个工具都会报告后端可用性和权限状态。如果数据库应用未运行或操作被门控，代理会得到可操作的提示，而不是静默失败。", icon: "search" }
     - { title: "构建在你信赖的应用之上", body: "所有数据库驱动、SSH 隧道和连接管理都在 DocKit 和 SqlKit 里。MCP 服务器只是一个薄路由层，自动发现正在运行的后端。", icon: "layers" }
+
+tools:
+  eyebrow: "你的代理能做什么"
+  title: "一个配置，整套工具"
+  subtitle: "一个 MCP 服务器为每个后端暴露一套聚焦的工具。你的代理读取 schema、执行查询、拿到可操作的诊断——不多也不少。"
+  groups:
+    - name: "SQL · SqlKit"
+      prefix: "data_studio__sql_"
+      tools:
+        - { name: "execute", desc: "对已连接的数据库执行 SQL 语句。读写取决于权限模式。", access: "Read-Write" }
+        - { name: "list_tables", desc: "列出已连接数据库中的表和视图。", access: "Read" }
+        - { name: "describe_table", desc: "展示表的列、类型和约束。", access: "Read" }
+        - { name: "explain", desc: "执行 EXPLAIN 诊断慢查询。", access: "Read" }
+    - name: "Elasticsearch · DocKit"
+      prefix: "data_studio__es_"
+      tools:
+        - { name: "search", desc: "跨一个或多个索引查询文档。", access: "Read-Write" }
+        - { name: "list_indices", desc: "列出可用索引及其健康状态。", access: "Read" }
+        - { name: "get_mapping", desc: "查询前检查索引的 mapping。", access: "Read" }
+    - name: "MongoDB · DocKit"
+      prefix: "data_studio__mongo_"
+      tools:
+        - { name: "find", desc: "用过滤条件和投影查询文档。", access: "Read-Write" }
+        - { name: "list_collections", desc: "列出已连接数据库中的集合。", access: "Read" }
+        - { name: "insert", desc: "向集合中插入一个或多个文档。", access: "Full" }
+    - name: "DynamoDB · DocKit"
+      prefix: "data_studio__dynamo_"
+      tools:
+        - { name: "query", desc: "按分区键和可选排序键查询条目。", access: "Read-Write" }
+        - { name: "list_tables", desc: "列出已连接 AWS 区域中的表。", access: "Read" }
+        - { name: "scan", desc: "扫描表中的条目，服务端过滤。", access: "Read-Write" }
 
 security:
   eyebrow: "企业级安全"
@@ -208,6 +292,36 @@ security:
     - title: "仅本地桥接"
       body: "桥接只绑定 127.0.0.1，其他机器无法访问。一个薄路由层，无需托管服务器、无需管理 API key。"
       icon: "local"
+  permissionModes:
+    - name: "只读"
+      tag: "默认"
+      desc: "最安全的模式——代理可以探索和读取，永远不能修改。"
+      allows:
+        - "探索 schema、表和索引"
+        - "执行 SELECT 查询和搜索"
+        - "用 EXPLAIN 检查查询计划"
+      blocks:
+        - "INSERT、UPDATE、DELETE 语句"
+        - "DDL（CREATE、ALTER、DROP）"
+    - name: "数据读写"
+      tag: "推荐"
+      desc: "让代理处理你的数据——允许写入，保护结构。"
+      allows:
+        - "只读模式的所有能力"
+        - "INSERT 和 UPDATE 语句"
+        - "索引管理"
+      blocks:
+        - "DELETE、TRUNCATE 语句"
+        - "表和视图上的 DDL"
+    - name: "完全访问"
+      tag: "高级用户"
+      desc: "解锁全部能力——破坏性操作仍需你的确认。"
+      allows:
+        - "数据读写模式的所有能力"
+        - "DELETE、DROP、TRUNCATE（需 Ask 确认）"
+        - "连接级覆盖和白名单"
+      blocks:
+        - "无——但破坏性操作始终以 Ask 呈现"
 
 
 cta:
@@ -217,216 +331,3 @@ cta:
     - { text: "开始使用", link: "https://www.npmjs.com/package/@geek-fun/data-studio-mcp", theme: "brand", external: true }
     - { text: "查看 GitHub", link: "https://github.com/geek-fun/data-studio-agent", theme: "alt", external: true }
 ---
-
-## Data Studio Agent 是什么？
-
-Data Studio Agent 是一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 <img src="/dockit.png" alt="DocKit" width="18" height="18" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />[DocKit](/products/dockit/) 和 <img src="/sqlkit.png" alt="SqlKit" width="18" height="18" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />[SqlKit](/products/sqlkit/) 桌面应用，让 AI 编码代理直接访问你的数据库。不用再把查询结果复制粘贴到 AI 工具里，你的代理直接替你查数据库，用自然语言就行。
-
-- **SQL**（走 <img src="/sqlkit.png" alt="SqlKit" width="16" height="16" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />SqlKit）：70+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等）
-- **NoSQL**（走 <img src="/dockit.png" alt="DocKit" width="16" height="16" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />DocKit）：Elasticsearch、OpenSearch、MongoDB、DynamoDB
-
-本地优先。桥接只绑定 `127.0.0.1`，凭据永不离开桌面应用，只向代理暴露只读工具。
-
-## 快速开始
-
-完整配置分四步：安装桌面应用、安装 MCP 包、在你的 AI 工具中注册，然后按需调整权限。
-
-### 1. 前置条件：安装桌面应用
-
-安装并启动 [DocKit](/products/dockit/) 和/或 [SqlKit](/products/sqlkit/)，添加至少一个数据库连接，并确保 **设置 → MCP Bridge → 自动启动** 已开启（默认开启）。
-
-- **SQL** 数据库需要 SqlKit；**NoSQL** 数据库需要 DocKit。两个都装可获得完整工具集。
-- MCP 服务器自动发现正在运行的后端，只有实际运行的应用所对应的工具才会被暴露。
-
-### 2. 安装 MCP 服务器包
-
-两种等价方式，任选其一：
-
-**方式 A：全局安装（推荐）**
-
-```bash
-npm install -g @geek-fun/data-studio-mcp
-```
-
-**方式 B：无需安装（npx 首次运行自动下载）**
-
-```bash
-npx -y @geek-fun/data-studio-mcp
-```
-
-两种方式对下方所有 agent 配置都适用。`npx` 会自动解析包，如果已全局安装则优先使用全局版本，否则按需下载。无需托管服务器、无需管理 API key，一切都在你的机器上本地运行。
-
-### 3. 在你的 AI 编码代理中注册
-
-**OpenAI Codex**，一条命令：
-
-```bash
-codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
-```
-
-用 `codex mcp list` 验证。
-
-**Claude Code**，一条命令：
-
-```bash
-claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
-```
-
-对所有项目生效（user 作用域）：
-
-```bash
-claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
-```
-
-**Cursor。** 创建 `.cursor/mcp.json`（项目）或 `~/.cursor/mcp.json`（全局）：
-
-```json
-{
-  "mcpServers": {
-    "data-studio": {
-      "command": "npx",
-      "args": ["-y", "@geek-fun/data-studio-mcp"]
-    }
-  }
-}
-```
-
-**Windsurf。** 创建 `~/.codeium/windsurf/mcp_config.json`（仅全局）：
-
-```json
-{
-  "mcpServers": {
-    "data-studio": {
-      "command": "npx",
-      "args": ["-y", "@geek-fun/data-studio-mcp"]
-    }
-  }
-}
-```
-
-**OpenCode。** 添加到 `opencode.json`（项目）或 `~/.config/opencode/opencode.json`（全局）：
-
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "mcp": {
-    "data-studio": {
-      "type": "local",
-      "command": ["npx", "-y", "@geek-fun/data-studio-mcp"],
-      "enabled": true
-    }
-  }
-}
-```
-
-或者运行 `opencode mcp add` 交互式配置。
-
-**任何其他 MCP 客户端。** 注册一个 stdio 服务器，命令 `npx`，参数 `-y @geek-fun/data-studio-mcp`。
-
-### 4. 调整权限（可选）
-
-在 DocKit/SqlKit 中打开 **设置 → MCP Bridge**，控制代理能做什么：
-
-| 权限模式 | 代理能做什么 |
-|---|---|
-| **只读**（默认） | 浏览 schema、运行 SELECT 查询。不可写。 |
-| **数据读写** | INSERT、UPDATE、索引操作。不可删除/删表。 |
-| **完全访问** | 一切操作，包括 DELETE、DROP、TRUNCATE。 |
-
-每个应用独立设置模式。你还可以限制连接白名单（MCP 服务器可访问哪些连接），并将单个连接标记为只读。
-
-### 5. 开始提问
-
-直接用自然语言。代理会替你查询数据库：
-
-- "列出我 PostgreSQL 数据库里的所有表"
-- "显示 Elasticsearch `orders*` 索引里最近的 10 条订单"
-- "找出 MongoDB 里所有大于 30 岁的用户"
-- "运行这条查询并解释结果"
-
-代理会读取 schema、执行查询、探索你的数据，然后展示它执行的每一条查询。
-
-## 工作原理
-
-```
-代码代理 (Claude Code / Cursor / OpenCode ...)
-    |
-    | MCP stdio 协议
-    v
-@geek-fun/data-studio-mcp   ← npm 包（纯 TypeScript）
-    |
-    | HTTP（本地）
-    +----------------+----------------+
-    v                v
-dockit:9120    sqlkit:9121
-(NoSQL 桥接)    (SQL 桥接)
-    |                |
-    v                v
-Elasticsearch    PostgreSQL
-MongoDB          MySQL
-DynamoDB         SQL Server
-OpenSearch       SQLite
-```
-
-MCP 服务器是一个薄路由层。所有数据库驱动、SSH 隧道和连接管理都在桌面应用里，应用暴露本地 HTTP 桥接（仅 `127.0.0.1`）。MCP 服务器通过每个应用的端口文件自动发现正在运行的后端。
-
-## 工具命名
-
-所有工具遵循 `data_studio__{backend}__{action}` 命名规范：
-
-| 前缀 | 后端 | 示例 |
-|------|------|------|
-| `data_studio__sql_*` | SqlKit | `data_studio__sql_execute`, `data_studio__sql_list_tables` |
-| `data_studio__es_*` | DocKit | `data_studio__es_search`, `data_studio__es_list_indices` |
-| `data_studio__mongo_*` | DocKit | `data_studio__mongo_find`, `data_studio__mongo_insert` |
-| `data_studio__dynamo_*` | DocKit | `data_studio__dynamo_query`, `data_studio__dynamo_list_tables` |
-
-## 安全
-
-- 桥接只绑定 `127.0.0.1`，其他机器无法访问。
-- 破坏性与提权操作被桥接拒绝。通过 MCP 服务器只暴露只读能力。
-- 凭据永远不会暴露给代理。所有连接都在桌面应用内部解析。
-
-## 常见问题
-
-<details>
-<summary>免费吗？</summary>
-
-是的。Apache 2.0 许可，所有功能免费。
-
-</details>
-
-<details>
-<summary>支持哪些 AI 工具？</summary>
-
-任何支持 MCP 的工具：Claude Code、Cursor、Windsurf、OpenCode、Codex 等。
-
-</details>
-
-<details>
-<summary>需要同时安装 DocKit 和 SqlKit 吗？</summary>
-
-只需要安装与你数据库匹配的那个。SQL 数据库需要 SqlKit；NoSQL 数据库需要 DocKit。两个都装可获得完整工具集。
-
-</details>
-
-<details>
-<summary>我的凭据会离开电脑吗？</summary>
-
-不会。桥接运行在 `127.0.0.1`，所有连接在 DocKit/SqlKit 内部解析。代理只能看到连接元数据和查询结果。
-
-</details>
-
-<details>
-<summary>代理可以修改数据吗？</summary>
-
-默认情况下破坏性和提权操作会被桥接拒绝，通过 MCP 服务器只暴露只读能力。
-
-</details>
-
-<details>
-<summary>agent 框架从哪来？</summary>
-
-同一仓库还包含 `data-studio-agent` Rust 框架，即驱动 DocKit 和 SqlKit 内置助手的共享 AI 代理循环（provider 适配、流式输出、工具调用、上下文压缩）。
-
-</details>
