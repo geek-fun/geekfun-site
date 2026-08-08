@@ -36,7 +36,7 @@ head:
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "featureList": [
           "面向 AI 编码代理的 MCP 服务器",
-          "通过 SqlKit 访问 SQL 数据库 —— 70+ 种",
+          "通过 SqlKit 访问 SQL 数据库（70+ 种）",
           "通过 DocKit 访问 NoSQL 数据库",
           "PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery",
           "Elasticsearch、OpenSearch、MongoDB、DynamoDB",
@@ -58,7 +58,7 @@ head:
 hero:
   name: Data Studio Agent
   headline: 让你的 AI 编码代理连接数据库
-  tagline: 一个开源的 MCP 服务器，把 Claude Code、Cursor、Windsurf、OpenCode、Codex 变成数据库助手 —— 用自然语言查询、探索和理解 SQL 与 NoSQL 数据库。
+  tagline: 一个开源的 MCP 服务器，把 Claude Code、Cursor、Windsurf、OpenCode、Codex 变成数据库助手，用自然语言查询、探索和理解 SQL 与 NoSQL 数据库。
   highlights:
     - "任意数据库 —— 70+ SQL 与 NoSQL"
     - "任意 AI 代理 · 任意 LLM 模型"
@@ -169,11 +169,11 @@ ecosystem:
 
 showcase:
   - title: "用自然语言访问你的数据库"
-    body: "告诉你的代理你需要什么 —— 它读取 schema、编写查询并返回结果。\"找出 MongoDB 里所有大于 30 岁的用户\"、\"显示 Elasticsearch 最近的 10 条订单\"、\"列出我 PostgreSQL 数据库里的所有表\"。"
+    body: "告诉你的代理你需要什么，它读取 schema、编写查询并返回结果。\"找出 MongoDB 里所有大于 30 岁的用户\"、\"显示 Elasticsearch 最近的 10 条订单\"、\"列出我 PostgreSQL 数据库里的所有表\"。"
     image: /data-studio-agent-arch.svg
     align: left
   - title: "每个数据库、每个工具，一份配置"
-    body: "SQL 和 NoSQL、本地和云端 —— 一份 MCP 服务器配置自动路由到正确的后端。你的代理无需为每种数据库写胶水代码即可覆盖整个数据栈。"
+    body: "SQL 和 NoSQL、本地和云端，一份 MCP 服务器配置自动路由到正确的后端。你的代理无需为每种数据库写胶水代码即可覆盖整个数据栈。"
     image: /data-studio-agent-arch.svg
     align: right
 
@@ -181,9 +181,9 @@ features:
   eyebrow: "为什么选择 Data Studio Agent"
   title: "核心能力"
   items:
-    - { title: "一个 MCP 服务器覆盖整个数据栈", body: "一个 npm 包同时路由到 SqlKit（SQL）和 DocKit（NoSQL）的本地桥接。不需要为每种数据库写胶水代码 —— 注册一个 MCP 服务器，查询一切。", icon: "database" }
+    - { title: "一个 MCP 服务器覆盖整个数据栈", body: "一个 npm 包同时路由到 SqlKit（SQL）和 DocKit（NoSQL）的本地桥接。不需要为每种数据库写胶水代码，注册一个 MCP 服务器，查询一切。", icon: "database" }
     - { title: "自然语言搞定数据库操作", body: "不用再手写每条 JOIN、不用再翻 CLI 输出。说出你的需求，代理针对你的真实 schema 执行经过验证的查询。", icon: "sparkles" }
-    - { title: "始终在线的诊断", body: "每个工具都会报告后端可用性和权限状态。如果数据库应用未运行或操作被门控，代理会得到可操作的提示 —— 而不是静默失败。", icon: "search" }
+    - { title: "始终在线的诊断", body: "每个工具都会报告后端可用性和权限状态。如果数据库应用未运行或操作被门控，代理会得到可操作的提示，而不是静默失败。", icon: "search" }
     - { title: "构建在你信赖的应用之上", body: "所有数据库驱动、SSH 隧道和连接管理都在 DocKit 和 SqlKit 里。MCP 服务器只是一个薄路由层，自动发现正在运行的后端。", icon: "layers" }
 
 security:
@@ -191,22 +191,22 @@ security:
   title: "为安全优先的团队而生"
   items:
     - title: "凭据永不离开应用"
-      body: "LLM 只能看到一个不透明的 connection_id —— 真实凭据在 DocKit/SqlKit 内部解析，绝不跨越 MCP 边界。你的密码和密钥始终留在本机、留在应用里。"
+      body: "LLM 只能看到一个不透明的 connection_id。真实凭据在 DocKit/SqlKit 内部解析，绝不跨越 MCP 边界。你的密码和密钥始终留在本机、留在应用里。"
       icon: "lock"
     - title: "基于 ID 的资源访问"
-      body: "代理严格通过连接 ID 访问数据库，绝不在提示词或工具参数中嵌入凭据。模型没有任何途径获取或泄露连接密钥。"
+      body: "代理严格通过连接 ID 访问数据库。凭据不会出现在提示词或工具参数中，模型没有途径获取或泄露连接密钥。"
       icon: "id"
     - title: "三级权限模型"
-      body: "只读 / 数据读写 / 完全访问三种模式按风险等级管控每个能力。外加连接级覆盖：可将任意连接标记为只读，或按操作白名单放行。"
+      body: "只读 / 数据读写 / 完全访问三种模式按风险等级管控每个能力，外加连接级覆盖。你可以将任意连接标记为只读，或按操作白名单放行。"
       icon: "shield"
     - title: "显式用户确认"
-      body: "破坏性操作（DELETE、DROP、TRUNCATE）在策略中标记为 Ask —— 客户端在执行任何破坏性操作前都会弹出显式确认。不会有静默执行的破坏操作。"
+      body: "破坏性操作（DELETE、DROP、TRUNCATE）在策略中标记为 Ask。客户端在执行任何破坏性操作前都会弹出显式确认。"
       icon: "check"
     - title: "操作级语句分类"
-      body: "SQL 在执行前会按语句类型解析分类（读 / 写 / 删除 / DDL）。只写工具拒绝 DELETE 语句；删除工具拒绝 DDL —— 杜绝意外的权限升级。"
+      body: "SQL 在执行前会按语句类型解析分类（读 / 写 / 删除 / DDL）。只写工具拒绝 DELETE 语句，删除工具拒绝 DDL。"
       icon: "alert"
     - title: "仅本地桥接"
-      body: "桥接只绑定 127.0.0.1 —— 其他机器无法访问。一个薄路由层，无需托管服务器、无需管理 API key、不向网络暴露任何东西。"
+      body: "桥接只绑定 127.0.0.1，其他机器无法访问。一个薄路由层，无需托管服务器、无需管理 API key。"
       icon: "local"
 
 
@@ -220,45 +220,45 @@ cta:
 
 ## Data Studio Agent 是什么？
 
-Data Studio Agent 是一个统一的 **[Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器**，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 桌面应用，让 AI 编码代理直接访问你的数据库。不用再把查询结果复制粘贴到 AI 工具里 —— 你的代理直接替你查数据库，用自然语言就行。
+Data Studio Agent 是一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 桌面应用，让 AI 编码代理直接访问你的数据库。不用再把查询结果复制粘贴到 AI 工具里，你的代理直接替你查数据库，用自然语言就行。
 
-- **SQL**（走 SqlKit）：70+ 种数据库 —— PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等
+- **SQL**（走 SqlKit）：70+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等）
 - **NoSQL**（走 DocKit）：Elasticsearch、OpenSearch、MongoDB、DynamoDB
 
-本地优先：桥接只绑定 `127.0.0.1`，凭据永不离开桌面应用，只向代理暴露只读工具。
+本地优先。桥接只绑定 `127.0.0.1`，凭据永不离开桌面应用，只向代理暴露只读工具。
 
 ## 快速开始
 
-完整配置分四步：安装桌面应用、安装 MCP 包、在你的 AI 工具中注册、（可选）调整权限。
+完整配置分四步：安装桌面应用、安装 MCP 包、在你的 AI 工具中注册，然后按需调整权限。
 
-### 1. 前置条件 —— 安装桌面应用
+### 1. 前置条件：安装桌面应用
 
 安装并启动 [DocKit](/products/dockit/) 和/或 [SqlKit](/products/sqlkit/)，添加至少一个数据库连接，并确保 **设置 → MCP Bridge → 自动启动** 已开启（默认开启）。
 
 - **SQL** 数据库需要 SqlKit；**NoSQL** 数据库需要 DocKit。两个都装可获得完整工具集。
-- MCP 服务器自动发现正在运行的后端 —— 只有实际运行的应用所对应的工具才会被暴露。
+- MCP 服务器自动发现正在运行的后端，只有实际运行的应用所对应的工具才会被暴露。
 
 ### 2. 安装 MCP 服务器包
 
 两种等价方式，任选其一：
 
-**方式 A —— 全局安装（推荐）：**
+**方式 A：全局安装（推荐）**
 
 ```bash
 npm install -g @geek-fun/data-studio-mcp
 ```
 
-**方式 B —— 无需安装（npx 首次运行自动下载）：**
+**方式 B：无需安装（npx 首次运行自动下载）**
 
 ```bash
 npx -y @geek-fun/data-studio-mcp
 ```
 
-两种方式对下方所有 agent 配置都适用：`npx` 会自动解析包（如果已全局安装则优先使用全局版本，否则按需下载）。无需托管服务器、无需管理 API key —— 一切都在你的机器上本地运行。
+两种方式对下方所有 agent 配置都适用。`npx` 会自动解析包，如果已全局安装则优先使用全局版本，否则按需下载。无需托管服务器、无需管理 API key，一切都在你的机器上本地运行。
 
 ### 3. 在你的 AI 编码代理中注册
 
-**OpenAI Codex** —— 一条命令：
+**OpenAI Codex**，一条命令：
 
 ```bash
 codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
@@ -266,7 +266,7 @@ codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
 
 用 `codex mcp list` 验证。
 
-**Claude Code** —— 一条命令：
+**Claude Code**，一条命令：
 
 ```bash
 claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
@@ -278,7 +278,7 @@ claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
 claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
 ```
 
-**Cursor** —— 创建 `.cursor/mcp.json`（项目）或 `~/.cursor/mcp.json`（全局）：
+**Cursor。** 创建 `.cursor/mcp.json`（项目）或 `~/.cursor/mcp.json`（全局）：
 
 ```json
 {
@@ -291,7 +291,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 }
 ```
 
-**Windsurf** —— 创建 `~/.codeium/windsurf/mcp_config.json`（仅全局）：
+**Windsurf。** 创建 `~/.codeium/windsurf/mcp_config.json`（仅全局）：
 
 ```json
 {
@@ -304,7 +304,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 }
 ```
 
-**OpenCode** —— 添加到 `opencode.json`（项目）或 `~/.config/opencode/opencode.json`（全局）：
+**OpenCode。** 添加到 `opencode.json`（项目）或 `~/.config/opencode/opencode.json`（全局）：
 
 ```json
 {
@@ -321,7 +321,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 
 或者运行 `opencode mcp add` 交互式配置。
 
-**任何其他 MCP 客户端** —— 注册一个 stdio 服务器，命令 `npx`，参数 `-y @geek-fun/data-studio-mcp`。
+**任何其他 MCP 客户端。** 注册一个 stdio 服务器，命令 `npx`，参数 `-y @geek-fun/data-studio-mcp`。
 
 ### 4. 调整权限（可选）
 
@@ -337,14 +337,14 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 
 ### 5. 开始提问
 
-直接用自然语言 —— 代理会替你查询数据库：
+直接用自然语言。代理会替你查询数据库：
 
 - "列出我 PostgreSQL 数据库里的所有表"
 - "显示 Elasticsearch `orders*` 索引里最近的 10 条订单"
 - "找出 MongoDB 里所有大于 30 岁的用户"
 - "运行这条查询并解释结果"
 
-代理会读取 schema、执行查询、探索你的数据 —— 并展示它执行的每一条查询。
+代理会读取 schema、执行查询、探索你的数据，然后展示它执行的每一条查询。
 
 ## 工作原理
 
@@ -383,9 +383,9 @@ MCP 服务器是一个薄路由层。所有数据库驱动、SSH 隧道和连接
 
 ## 安全
 
-- 桥接只绑定 `127.0.0.1` —— 其他机器无法访问
-- **破坏性与提权操作被桥接拒绝** —— 通过 MCP 服务器只暴露只读能力
-- 凭据永远不会暴露给代理；所有连接都在桌面应用内部解析
+- 桥接只绑定 `127.0.0.1`，其他机器无法访问。
+- 破坏性与提权操作被桥接拒绝。通过 MCP 服务器只暴露只读能力。
+- 凭据永远不会暴露给代理。所有连接都在桌面应用内部解析。
 
 ## 常见问题
 
@@ -402,7 +402,7 @@ MCP 服务器是一个薄路由层。所有数据库驱动、SSH 隧道和连接
 不会。桥接运行在 `127.0.0.1`，所有连接在 DocKit/SqlKit 内部解析。代理只能看到连接元数据和查询结果。
 
 **代理可以修改数据吗？**
-默认情况下破坏性和提权操作会被桥接拒绝 —— 通过 MCP 服务器只暴露只读能力。
+默认情况下破坏性和提权操作会被桥接拒绝，通过 MCP 服务器只暴露只读能力。
 
 **agent 框架从哪来？**
-同一仓库还包含 `data-studio-agent` Rust 框架 —— 驱动 DocKit 和 SqlKit 内置助手的共享 AI 代理循环（provider 适配、流式输出、工具调用、上下文压缩）。
+同一仓库还包含 `data-studio-agent` Rust 框架，即驱动 DocKit 和 SqlKit 内置助手的共享 AI 代理循环（provider 适配、流式输出、工具调用、上下文压缩）。

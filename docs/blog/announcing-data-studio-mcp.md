@@ -47,18 +47,18 @@ head:
 
 # Announcing Data Studio MCP
 
-Your AI coding agent just got access to your databases.
+Your AI coding agent can now query your databases directly.
 
-Today we're open-sourcing **[Data Studio Agent](https://github.com/geek-fun/data-studio-agent)** — a unified [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that connects Claude Code, Cursor, Windsurf, OpenCode, and Codex to your databases through [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/).
+Today we're open-sourcing **[Data Studio Agent](https://github.com/geek-fun/data-studio-agent)**, a [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that connects Claude Code, Cursor, Windsurf, OpenCode, and Codex to your databases through [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/).
 
 Ask in plain language. The agent reads your schemas, runs queries, and shows you every query it executes.
 
 ## What you can do now
 
-- **"List all tables in my PostgreSQL database"** — the agent connects through SqlKit, reads the schema, and returns the answer.
-- **"Show me the last 10 orders from the Elasticsearch index `orders*`"** — routed through DocKit's NoSQL bridge.
-- **"Find all users older than 30 in MongoDB"** — same bridge, plain-language query.
-- **"Run this query and explain the results"** — execution plus explanation, all inside your coding agent.
+- **"List all tables in my PostgreSQL database"** The agent connects through SqlKit, reads the schema, and returns the answer.
+- **"Show me the last 10 orders from the Elasticsearch index `orders*`"** Routed through DocKit's NoSQL bridge.
+- **"Find all users older than 30 in MongoDB"** Same bridge, plain-language query.
+- **"Run this query and explain the results"** Execution plus explanation, all inside your coding agent.
 
 No more copy-pasting query results into your AI tool. The agent works with your real data.
 
@@ -93,11 +93,11 @@ dockit:9120    sqlkit:9121
 
 ## Read-safe by default
 
-Safety was the design constraint, not an afterthought:
+Safety shaped the design from the start:
 
-- **`127.0.0.1` only** — the bridge is unreachable from other machines
-- **Read-safe tools** — destructive and elevated operations are rejected by the bridge; only read-safe capabilities are exposed through the MCP server
-- **Credentials never leave the apps** — all connections resolve inside DocKit/SqlKit; the agent only sees connection metadata and query results
+- **`127.0.0.1` only** The bridge is unreachable from other machines.
+- **Read-safe tools** Destructive and elevated operations are rejected by the bridge. Only read-safe capabilities are exposed through the MCP server.
+- **Credentials never leave the apps** All connections resolve inside DocKit/SqlKit. The agent only sees connection metadata and query results.
 
 ## Set it up in under 5 minutes
 
@@ -121,17 +121,17 @@ codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
 claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
 ```
 
-Cursor, Windsurf, and OpenCode use a config file — [see the product page for the exact snippet](/products/data-studio-agent/#quick-start) for your agent. Any MCP client works: command `npx`, args `-y @geek-fun/data-studio-mcp`.
+Cursor, Windsurf, and OpenCode use a config file. See the [product page](/products/data-studio-agent/#quick-start) for the exact snippet for your agent. Any MCP client works: command `npx`, args `-y @geek-fun/data-studio-mcp`.
 
-**4. Start asking.** That's it. By default the agent is read-only — enable Full Access in Settings → MCP Bridge only if you want it to modify data.
+**4. Start asking.** That's it. By default the agent is read-only. Enable Full Access in Settings → MCP Bridge only if you want it to modify data.
 
 ## What's under the hood
 
-The repository also contains the `data-studio-agent` Rust framework — the shared AI agent loop (provider adapters, streaming, tool calling, context compaction) that powers the built-in assistants in DocKit and SqlKit. Same engine, now exposed to your coding agent through MCP.
+The repository also contains the `data-studio-agent` Rust framework, the shared AI agent loop (provider adapters, streaming, tool calling, context compaction) that powers the built-in assistants in DocKit and SqlKit. The same engine is now exposed to your coding agent through MCP.
 
 ## Get started
 
-- **[Product page](/products/data-studio-agent/)** — overview, install, and configuration
+- **[Product page](/products/data-studio-agent/)** Overview, install, and configuration.
 - **GitHub:** [github.com/geek-fun/data-studio-agent](https://github.com/geek-fun/data-studio-agent)
 - **npm:** [@geek-fun/data-studio-mcp](https://www.npmjs.com/package/@geek-fun/data-studio-mcp)
 

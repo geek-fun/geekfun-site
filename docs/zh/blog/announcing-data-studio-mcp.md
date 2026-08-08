@@ -47,18 +47,18 @@ head:
 
 # 发布 Data Studio MCP
 
-你的 AI 编码代理，现在能直接访问你的数据库了。
+你的 AI 编码代理现在可以直接查询你的数据库了。
 
-今天，我们开源了 **[Data Studio Agent](https://github.com/geek-fun/data-studio-agent)** —— 一个统一的 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 将 Claude Code、Cursor、Windsurf、OpenCode、Codex 连接到你的数据库。
+今天，我们开源了 **[Data Studio Agent](https://github.com/geek-fun/data-studio-agent)**，一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 将 Claude Code、Cursor、Windsurf、OpenCode、Codex 连接到你的数据库。
 
 用自然语言提问。代理读取你的 schema、执行查询，并展示它运行的每一条查询。
 
 ## 现在你可以做到
 
-- **"列出我 PostgreSQL 数据库里的所有表"** —— 代理通过 SqlKit 连接、读取 schema，直接给出答案。
-- **"显示 Elasticsearch `orders*` 索引里最近的 10 条订单"** —— 通过 DocKit 的 NoSQL 桥接路由。
-- **"找出 MongoDB 里所有大于 30 岁的用户"** —— 同一个桥接，自然语言查询。
-- **"运行这条查询并解释结果"** —— 执行 + 解释，全部在你的编码代理里完成。
+- **"列出我 PostgreSQL 数据库里的所有表"** 代理通过 SqlKit 连接、读取 schema，直接给出答案。
+- **"显示 Elasticsearch `orders*` 索引里最近的 10 条订单"** 通过 DocKit 的 NoSQL 桥接路由。
+- **"找出 MongoDB 里所有大于 30 岁的用户"** 同一个桥接，自然语言查询。
+- **"运行这条查询并解释结果"** 执行加解释，全部在你的编码代理里完成。
 
 不用再把查询结果复制粘贴进 AI 工具了。代理直接基于你的真实数据工作。
 
@@ -93,11 +93,11 @@ dockit:9120    sqlkit:9121
 
 ## 默认只读安全
 
-安全是设计约束，不是事后补丁：
+安全从一开始就参与了设计：
 
-- **仅绑定 `127.0.0.1`** —— 其他机器无法访问桥接
-- **只读工具** —— 破坏性和提权操作被桥接拒绝；通过 MCP 服务器只暴露只读能力
-- **凭据永不离开应用** —— 所有连接在 DocKit/SqlKit 内部解析；代理只能看到连接元数据和查询结果
+- **仅绑定 `127.0.0.1`** 其他机器无法访问桥接。
+- **只读工具** 破坏性和提权操作被桥接拒绝。通过 MCP 服务器只暴露只读能力。
+- **凭据永不离开应用** 所有连接在 DocKit/SqlKit 内部解析。代理只能看到连接元数据和查询结果。
 
 ## 5 分钟完成配置
 
@@ -121,17 +121,17 @@ codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
 claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
 ```
 
-Cursor、Windsurf 和 OpenCode 使用配置文件 —— 每种 agent 的精确配置片段见[产品页快速开始](/zh/products/data-studio-agent/#快速开始)。任何 MCP 客户端都可用：命令 `npx`，参数 `-y @geek-fun/data-studio-mcp`。
+Cursor、Windsurf 和 OpenCode 使用配置文件。每种 agent 的精确配置片段见[产品页快速开始](/zh/products/data-studio-agent/#快速开始)。任何 MCP 客户端都可用：命令 `npx`，参数 `-y @geek-fun/data-studio-mcp`。
 
-**4. 开始提问。** 就这么简单。默认情况下代理是只读的 —— 只有当你希望它修改数据时，才在 设置 → MCP Bridge 中开启完全访问。
+**4. 开始提问。** 就这么简单。默认情况下代理是只读的。只有当你希望它修改数据时，才在设置 → MCP Bridge 中开启完全访问。
 
 ## 底层架构
 
-该仓库还包含 `data-studio-agent` Rust 框架 —— 驱动 DocKit 和 SqlKit 内置助手的共享 AI 代理循环（provider 适配、流式输出、工具调用、上下文压缩）。同一引擎，现在通过 MCP 开放给你的编码代理。
+该仓库还包含 `data-studio-agent` Rust 框架，即驱动 DocKit 和 SqlKit 内置助手的共享 AI 代理循环（provider 适配、流式输出、工具调用、上下文压缩）。同一引擎现在通过 MCP 开放给你的编码代理。
 
 ## 开始使用
 
-- **[产品页](/products/data-studio-agent/)** —— 概览、安装与配置
+- **[产品页](/products/data-studio-agent/)** 概览、安装与配置。
 - **GitHub：** [github.com/geek-fun/data-studio-agent](https://github.com/geek-fun/data-studio-agent)
 - **npm：** [@geek-fun/data-studio-mcp](https://www.npmjs.com/package/@geek-fun/data-studio-mcp)
 

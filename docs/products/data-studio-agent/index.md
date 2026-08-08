@@ -1,7 +1,7 @@
 ---
 layout: product
 title: Data Studio Agent – MCP Server to Turn Your AI Coding Agent into a Database Assistant
-description: Data Studio Agent is an open-source Model Context Protocol (MCP) server that gives AI coding agents — Claude Code, Cursor, Windsurf, OpenCode, Codex — direct access to your databases through DocKit (NoSQL) and SqlKit (SQL). Local-first, read-safe, credentials never leave your machine.
+description: Data Studio Agent is an open-source Model Context Protocol (MCP) server that gives AI coding agents (Claude Code, Cursor, Windsurf, OpenCode, Codex) direct access to your databases through DocKit (NoSQL) and SqlKit (SQL). Local-first, read-safe, credentials never leave your machine.
 ogImage: https://www.geekfun.club/og/master-en.png
 head:
   - - meta
@@ -36,7 +36,7 @@ head:
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "featureList": [
           "MCP server for AI coding agents",
-          "SQL access via SqlKit — 70+ databases",
+          "SQL access via SqlKit (70+ databases)",
           "NoSQL access via DocKit",
           "PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery",
           "Elasticsearch, OpenSearch, MongoDB, DynamoDB",
@@ -58,7 +58,7 @@ head:
 hero:
   name: Data Studio Agent
   headline: Your AI coding agent, your databases
-  tagline: An open-source MCP server that turns Claude Code, Cursor, Windsurf, OpenCode, and Codex into database assistants — query, explore, and understand SQL and NoSQL databases in plain language.
+  tagline: An open-source MCP server that turns Claude Code, Cursor, Windsurf, OpenCode, and Codex into database assistants, so you can query, explore, and understand SQL and NoSQL databases in plain language.
   highlights:
     - "Any database — 70+ SQL & NoSQL"
     - "Any AI agent with any LLM models"
@@ -169,11 +169,11 @@ ecosystem:
 
 showcase:
   - title: "Ask your databases in plain language"
-    body: "Tell your agent what you need — it reads schemas, writes queries, and returns results. \"Find all users older than 30 in MongoDB\", \"Show me the last 10 orders from Elasticsearch\", \"List all tables in my PostgreSQL database\"."
+    body: "Tell your agent what you need, it reads schemas, writes queries, and returns results. \"Find all users older than 30 in MongoDB\", \"Show me the last 10 orders from Elasticsearch\", \"List all tables in my PostgreSQL database\"."
     image: /data-studio-agent-arch.svg
     align: left
   - title: "Every database, every tool, one config"
-    body: "SQL and NoSQL, local and cloud — one MCP server config routes to the right backend automatically. Your agent covers your whole data stack without per-database glue code."
+    body: "SQL and NoSQL, local and cloud, one MCP server config routes to the right backend automatically. Your agent covers your whole data stack without per-database glue code."
     image: /data-studio-agent-arch.svg
     align: right
 
@@ -181,9 +181,9 @@ features:
   eyebrow: "Why Data Studio Agent"
   title: "Core capabilities"
   items:
-    - { title: "One MCP server for your whole stack", body: "A single npm package routes to both SqlKit (SQL) and DocKit (NoSQL) bridges over localhost. No per-database glue code — register one MCP server, query everything.", icon: "database" }
+    - { title: "One MCP server for your whole stack", body: "A single npm package routes to both SqlKit (SQL) and DocKit (NoSQL) bridges over localhost. No per-database glue code. Register one MCP server, query everything.", icon: "database" }
     - { title: "Plain-language database work", body: "No more writing every JOIN by hand or digging through CLI output. Ask for what you need and the agent executes verified queries against your real schemas.", icon: "sparkles" }
-    - { title: "Always-on diagnostics", body: "Every tool reports backend availability and permission state. If a database app isn't running or an operation is gated, the agent gets an actionable message — not a silent failure.", icon: "search" }
+    - { title: "Always-on diagnostics", body: "Every tool reports backend availability and permission state. If a database app isn't running or an operation is gated, the agent gets an actionable message, not a silent failure.", icon: "search" }
     - { title: "Built on the apps you trust", body: "All database drivers, SSH tunnels, and connection management live in DocKit and SqlKit. The MCP server is a thin routing layer that auto-discovers running backends.", icon: "layers" }
 
 security:
@@ -191,7 +191,7 @@ security:
   title: "Built for security-first teams"
   items:
     - title: "Credentials never leave the apps"
-      body: "The LLM only ever sees an opaque connection_id — real credentials are resolved inside DocKit/SqlKit and never cross the MCP boundary. Your passwords and keys stay on your machine, in your app."
+      body: "The LLM only ever sees an opaque connection_id. Real credentials are resolved inside DocKit/SqlKit and never cross the MCP boundary. Your passwords and keys stay on your machine, in your app."
       icon: "lock"
     - title: "ID-based resource access"
       body: "Agents access databases strictly by connection ID, never by embedding credentials in prompts or tool arguments. There is no path for the model to obtain or exfiltrate connection secrets."
@@ -200,13 +200,13 @@ security:
       body: "Read Only / Data Read-Write / Full Access modes gate every capability by risk level. Plus per-connection overrides: mark any connection read-only, or allowlist specific actions."
       icon: "shield"
     - title: "Explicit user confirmation"
-      body: "Destructive operations (DELETE, DROP, TRUNCATE) surface as Ask in the policy — the client prompts the user for explicit confirmation before anything destructive executes. Nothing destructive runs silently."
+      body: "Destructive operations (DELETE, DROP, TRUNCATE) surface as Ask in the policy. The client prompts the user for explicit confirmation before anything destructive runs."
       icon: "check"
     - title: "Action-level statement classification"
-      body: "SQL is parsed and classified by statement kind (Read / Write / Delete / DDL) before execution. Write-only tools reject DELETE statements; delete tools reject DDL — no accidental escalation."
+      body: "SQL is parsed and classified by statement kind (Read / Write / Delete / DDL) before execution. Write-only tools reject DELETE statements, and delete tools reject DDL."
       icon: "alert"
     - title: "Local-only bridge"
-      body: "The bridge binds to 127.0.0.1 exclusively — unreachable from other machines. A thin routing layer with no server to host, no API keys to manage, nothing exposed to the network."
+      body: "The bridge binds to 127.0.0.1 exclusively, unreachable from other machines. A thin routing layer with no server to host and no API keys to manage."
       icon: "local"
 
 
@@ -220,45 +220,45 @@ cta:
 
 ## What is Data Studio Agent?
 
-Data Studio Agent is a unified **[Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server** that gives AI coding agents direct access to your databases through the [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/) desktop apps. Instead of copy-pasting query results into your AI tool, your agent queries the databases for you — in plain language.
+Data Studio Agent is a [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that gives AI coding agents direct access to your databases through the [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/) desktop apps. Instead of copy-pasting query results into your AI tool, your agent queries the databases for you in plain language.
 
-- **SQL** (via SqlKit): 70+ databases — PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more
+- **SQL** (via SqlKit): 70+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more)
 - **NoSQL** (via DocKit): Elasticsearch, OpenSearch, MongoDB, DynamoDB
 
-It's local-first: the bridge binds to `127.0.0.1`, your credentials never leave the desktop apps, and only read-safe tools are exposed to the agent.
+It's local-first. The bridge binds to `127.0.0.1`, your credentials never leave the desktop apps, and only read-safe tools are exposed to the agent.
 
 ## Quick Start
 
-The full setup is four steps: install the apps, install the MCP package, register it in your AI tool, and (optionally) tune permissions.
+The full setup is four steps: install the apps, install the MCP package, register it in your AI tool, and optionally tune permissions.
 
-### 1. Prerequisites — install the desktop apps
+### 1. Prerequisites: install the desktop apps
 
 Install and launch [DocKit](/products/dockit/) and/or [SqlKit](/products/sqlkit/), add at least one database connection, and make sure **Settings → MCP Bridge → Auto-start** is enabled (it's on by default).
 
 - **SQL** databases need SqlKit; **NoSQL** databases need DocKit. Install both for the full tool set.
-- The MCP server auto-discovers running backends — only tools for apps that are actually running are exposed.
+- The MCP server auto-discovers running backends. Only tools for apps that are actually running are exposed.
 
 ### 2. Install the MCP server package
 
-Two equivalent options — pick one:
+Two equivalent options, pick one:
 
-**Option A — global install (recommended):**
+**Option A: global install (recommended)**
 
 ```bash
 npm install -g @geek-fun/data-studio-mcp
 ```
 
-**Option B — no install needed (npx downloads on first run):**
+**Option B: no install needed (npx downloads on first run)**
 
 ```bash
 npx -y @geek-fun/data-studio-mcp
 ```
 
-Both work with every agent config below: `npx` resolves the package automatically (it prefers the global install when present, otherwise downloads it on demand). No server to host, no API keys to manage — everything runs locally on your machine.
+Both work with every agent config below. `npx` resolves the package automatically (it prefers the global install when present, otherwise downloads it on demand). There is no server to host and no API keys to manage. Everything runs locally on your machine.
 
 ### 3. Register it in your AI coding agent
 
-**OpenAI Codex** — one command:
+**OpenAI Codex**, one command:
 
 ```bash
 codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
@@ -266,7 +266,7 @@ codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
 
 Verify with `codex mcp list`.
 
-**Claude Code** — one command:
+**Claude Code**, one command:
 
 ```bash
 claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
@@ -278,7 +278,7 @@ For all projects (user scope):
 claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
 ```
 
-**Cursor** — create `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global):
+**Cursor.** Create `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global):
 
 ```json
 {
@@ -291,7 +291,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 }
 ```
 
-**Windsurf** — create `~/.codeium/windsurf/mcp_config.json` (global only):
+**Windsurf.** Create `~/.codeium/windsurf/mcp_config.json` (global only):
 
 ```json
 {
@@ -304,7 +304,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 }
 ```
 
-**OpenCode** — add to `opencode.json` (project) or `~/.config/opencode/opencode.json` (global):
+**OpenCode.** Add to `opencode.json` (project) or `~/.config/opencode/opencode.json` (global):
 
 ```json
 {
@@ -321,7 +321,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 
 Or run `opencode mcp add` interactively.
 
-**Any other MCP client** — register a stdio server with command `npx` and args `-y @geek-fun/data-studio-mcp`.
+**Any other MCP client.** Register a stdio server with command `npx` and args `-y @geek-fun/data-studio-mcp`.
 
 ### 4. Tune permissions (optional)
 
@@ -337,14 +337,14 @@ The mode is set per app. You can also restrict the connection allowlist (which c
 
 ### 5. Start asking
 
-Just use plain language — the agent queries your databases for you:
+Use plain language. The agent queries your databases for you:
 
 - "List all tables in my PostgreSQL database"
 - "Show me the last 10 orders from the Elasticsearch index `orders*`"
 - "Find all users older than 30 in MongoDB"
 - "Run this query and explain the results"
 
-The agent reads schemas, runs queries, and explores your data — and shows you every query it executes.
+The agent reads your schema, runs the query, and shows you every step it executed.
 
 ## How it works
 
@@ -383,9 +383,9 @@ All tools follow the `data_studio__{backend}__{action}` convention:
 
 ## Safety
 
-- The bridge binds to `127.0.0.1` only — unreachable from other machines
-- **Destructive and elevated operations are rejected by the bridge** — only read-safe capabilities are exposed through the MCP server
-- Credentials are never exposed to the agent; all connections are resolved inside the desktop apps
+- The bridge binds to `127.0.0.1` only. It is unreachable from other machines.
+- Destructive and elevated operations are rejected by the bridge. Only read-safe capabilities are exposed through the MCP server.
+- Credentials are never exposed to the agent. All connections are resolved inside the desktop apps.
 
 ## FAQ
 
@@ -402,7 +402,7 @@ Only the ones matching your databases. SQL databases need SqlKit; NoSQL database
 No. The bridge runs on `127.0.0.1` and all connections resolve inside DocKit/SqlKit. The agent only sees connection metadata and query results.
 
 **Can the agent modify data?**
-Destructive and elevated operations are rejected by the bridge by default — only read-safe capabilities are exposed through the MCP server.
+Destructive and elevated operations are rejected by the bridge by default. Only read-safe capabilities are exposed through the MCP server.
 
 **Where does the agent framework come from?**
-The same repository also contains the `data-studio-agent` Rust framework — the shared AI agent loop (provider adapters, streaming, tool calling, context compaction) that powers the built-in assistants in DocKit and SqlKit.
+The same repository also contains the `data-studio-agent` Rust framework, the shared AI agent loop (provider adapters, streaming, tool calling, context compaction) that powers the built-in assistants in DocKit and SqlKit.
