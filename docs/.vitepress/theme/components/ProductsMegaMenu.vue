@@ -148,6 +148,15 @@ const groups = [
     labelZh: '开发者工具',
     items: [
       {
+        name: 'Data Studio Agent',
+        taglineEn: 'MCP server for AI agents to query your databases',
+        taglineZh: '让 AI 编码代理直接访问数据库的 MCP 服务器',
+        logo: '/data-studio-agent.svg',
+        linkEn: '/products/data-studio-agent/',
+        linkZh: '/zh/products/data-studio-agent/',
+        external: false,
+      },
+      {
         name: 'jest-search',
         taglineEn: 'Jest utility for search integration testing',
         taglineZh: '用于搜索集成测试的 Jest 工具',

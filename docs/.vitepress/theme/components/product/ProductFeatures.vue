@@ -5,7 +5,13 @@ type FeatureItem = {
   icon?: string
 }
 
-defineProps<{ features: FeatureItem[] }>()
+type FeaturesData = {
+  eyebrow?: string
+  title?: string
+  items: FeatureItem[]
+}
+
+defineProps<{ features: FeaturesData }>()
 
 const getIcon = (name?: string) => {
   const icons: Record<string, string> = {
@@ -31,8 +37,12 @@ const getIcon = (name?: string) => {
 <template>
   <section class="features-section">
     <div class="container">
+      <div v-if="features.title" class="features-header">
+        <span v-if="features.eyebrow" class="features-eyebrow">{{ features.eyebrow }}</span>
+        <h2 class="features-title">{{ features.title }}</h2>
+      </div>
       <div class="features-grid">
-        <div v-for="feature in features" :key="feature.title" class="feature-card">
+        <div v-for="feature in features.items" :key="feature.title" class="feature-card">
           <div class="feature-icon" v-html="getIcon(feature.icon)"></div>
           <h3 class="feature-title">{{ feature.title }}</h3>
           <p class="feature-body">{{ feature.body }}</p>
@@ -48,6 +58,34 @@ const getIcon = (name?: string) => {
 
   @media (max-width: 768px) {
     padding: 32px 0 48px;
+  }
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.features-eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 8px;
+}
+
+.features-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--vp-c-text-1);
+  margin: 0;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 1.375rem;
   }
 }
 

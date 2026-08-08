@@ -30,9 +30,9 @@ const content = computed(() => {
   const isZh = lang.value === 'zh'
   return {
     announcement: {
-	      text: isZh ? 'SqlKit — AI 原生 SQL 桌面客户端，支持 50+ 数据库，开源免费。' : 'SqlKit — the agentic SQL GUI client for 50+ databases, open-source and free.',
+	      text: isZh ? 'Data Studio Agent — 让你的 AI 编码代理通过 DocKit/SqlKit 直接访问数据库。' : 'Data Studio Agent — gives your AI coding agent direct access to your databases via DocKit & SqlKit.',
 	      linkText: isZh ? '了解更多 →' : 'Learn more →',
-	      link: isZh ? '/zh/products/sqlkit/agentic-sql-client' : '/products/sqlkit/agentic-sql-client'
+	      link: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
 	    },
     hero: {
       name: isZh ? '极客范' : 'GEEKFUN',
@@ -59,6 +59,11 @@ const content = computed(() => {
         name: 'SqlKit',
         logo: '/sqlkit.png',
         url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
+      },
+      {
+        name: 'Data Studio Agent',
+        logo: '/data-studio-agent.svg',
+        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
       },
       {
         name: 'ServerlessInsight',
@@ -94,6 +99,15 @@ const content = computed(() => {
           ? '开源 SQL 桌面客户端，支持 50+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse 等），内置 AI 智能体，提供 Agentic Data Studio 自然语言查询体验。'
           : 'Open-source AI-powered SQL desktop client for 50+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, and more), with Agentic Data Studio for natural language querying.',
         url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
+      },
+      {
+        name: 'Data Studio Agent',
+        logo: '/data-studio-agent.svg',
+        preview: '/data-studio-agent-arch.svg',
+        description: isZh
+          ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
+          : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
+        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
       },
       {
         name: 'ServerlessInsight',

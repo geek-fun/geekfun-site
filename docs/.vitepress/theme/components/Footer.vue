@@ -7,6 +7,7 @@
           <ul>
             <li><a :href="localePath('/products/dockit/')">DocKit</a></li>
             <li><a :href="localePath('/products/sqlkit/')">SqlKit</a></li>
+            <li><a :href="localePath('/products/data-studio-agent/')">Data Studio Agent</a></li>
             <li><a href="https://serverlessinsight.com/" target="_blank" rel="noopener">ServerlessInsight</a></li>
             <li><a href="https://github.com/geek-fun/serverless-adapter" target="_blank" rel="noopener">serverless-adapter</a></li>
             <li><a href="https://github.com/geek-fun/jest-search" target="_blank" rel="noopener">jest-search</a></li>
