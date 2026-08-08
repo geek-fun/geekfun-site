@@ -1,7 +1,7 @@
 ---
 layout: product
 title: Data Studio Agent. Your DBA. – Talk to your databases in plain language
-description: Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did, like a DBA who never sleeps. Supports 70+ SQL databases via SqlKit and NoSQL via DocKit.
+description: Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Your 24/7 database engineer. Supports 70+ SQL databases via SqlKit and NoSQL via DocKit.
 ogImage: https://www.geekfun.club/og/master-en.png
 head:
   - - meta
@@ -58,7 +58,7 @@ head:
 hero:
   name: Data Studio Agent
   headline: Your DBA.
-  tagline: Talk to your databases in plain language. Your agent understands your schema, runs the query, and walks you through what it did. Like a DBA who never sleeps.
+  tagline: Talk to your databases in plain language. Your agent understands your schema, runs the query, and walks you through what it did. Your 24/7 database engineer.
   highlights:
     - "Any database — 70+ SQL & NoSQL"
     - "Any AI agent with any LLM models"

@@ -47,7 +47,7 @@ head:
 
 # Announcing Data Studio Agent. Your DBA.
 
-Your AI coding agent can now query your databases directly. Talk to them in plain language, like a DBA would.
+Your AI coding agent can now query your databases directly. Talk to them in plain language. Your 24/7 database engineer.
 
 Today we're open-sourcing **[Data Studio Agent](https://github.com/geek-fun/data-studio-agent)**, a [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that connects Claude Code, Cursor, Windsurf, OpenCode, and Codex to your databases through [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/).
 

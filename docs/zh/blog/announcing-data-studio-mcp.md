@@ -47,7 +47,7 @@ head:
 
 # 发布 Data Studio Agent。你的 DBA。
 
-你的 AI 编码智能体现在可以直接查询你的数据库了。用自然语言和它们对话，像一个 DBA 那样。
+你的 AI 编码智能体现在可以直接查询你的数据库了。用自然语言和它们对话。你的 7×24 小时数据库工程师。
 
 今天，我们开源了 **[Data Studio Agent](https://github.com/geek-fun/data-studio-agent)**，一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 将 Claude Code、Cursor、Windsurf、OpenCode、Codex 连接到你的数据库。
 

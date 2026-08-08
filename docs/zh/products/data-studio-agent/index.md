@@ -1,7 +1,7 @@
 ---
 layout: product
 title: Data Studio Agent。你的 DBA。– 用自然语言和数据库对话
-description: Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听，像一个永不休息的 DBA。通过 SqlKit 支持 70+ 种 SQL 数据库，通过 DocKit 支持 NoSQL。
+description: Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。你的 7×24 小时数据库工程师。通过 SqlKit 支持 70+ 种 SQL 数据库，通过 DocKit 支持 NoSQL。
 ogImage: https://www.geekfun.club/og/master-zh.png
 head:
   - - meta
@@ -58,7 +58,7 @@ head:
 hero:
   name: Data Studio Agent
   headline: 你的 DBA。
-  tagline: 用自然语言和你的数据库对话。你的智能体读懂你的 schema、执行查询，一步步讲给你听。像一个永不休息的 DBA。
+  tagline: 用自然语言和你的数据库对话。你的智能体读懂你的 schema、执行查询，一步步讲给你听。你的 7×24 小时数据库工程师。
   highlights:
     - "任意数据库 —— 70+ SQL 与 NoSQL"
     - "任意 AI 代理 · 任意 LLM 模型"
