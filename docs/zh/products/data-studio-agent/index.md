@@ -220,10 +220,10 @@ cta:
 
 ## Data Studio Agent 是什么？
 
-Data Studio Agent 是一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 桌面应用，让 AI 编码代理直接访问你的数据库。不用再把查询结果复制粘贴到 AI 工具里，你的代理直接替你查数据库，用自然语言就行。
+Data Studio Agent 是一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 <img src="/dockit.png" alt="DocKit" width="18" height="18" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />[DocKit](/products/dockit/) 和 <img src="/sqlkit.png" alt="SqlKit" width="18" height="18" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />[SqlKit](/products/sqlkit/) 桌面应用，让 AI 编码代理直接访问你的数据库。不用再把查询结果复制粘贴到 AI 工具里，你的代理直接替你查数据库，用自然语言就行。
 
-- **SQL**（走 SqlKit）：70+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等）
-- **NoSQL**（走 DocKit）：Elasticsearch、OpenSearch、MongoDB、DynamoDB
+- **SQL**（走 <img src="/sqlkit.png" alt="SqlKit" width="16" height="16" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />SqlKit）：70+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等）
+- **NoSQL**（走 <img src="/dockit.png" alt="DocKit" width="16" height="16" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />DocKit）：Elasticsearch、OpenSearch、MongoDB、DynamoDB
 
 本地优先。桥接只绑定 `127.0.0.1`，凭据永不离开桌面应用，只向代理暴露只读工具。
 
@@ -389,20 +389,44 @@ MCP 服务器是一个薄路由层。所有数据库驱动、SSH 隧道和连接
 
 ## 常见问题
 
-**免费吗？**
+<details>
+<summary>免费吗？</summary>
+
 是的。Apache 2.0 许可，所有功能免费。
 
-**支持哪些 AI 工具？**
+</details>
+
+<details>
+<summary>支持哪些 AI 工具？</summary>
+
 任何支持 MCP 的工具：Claude Code、Cursor、Windsurf、OpenCode、Codex 等。
 
-**需要同时安装 DocKit 和 SqlKit 吗？**
+</details>
+
+<details>
+<summary>需要同时安装 DocKit 和 SqlKit 吗？</summary>
+
 只需要安装与你数据库匹配的那个。SQL 数据库需要 SqlKit；NoSQL 数据库需要 DocKit。两个都装可获得完整工具集。
 
-**我的凭据会离开电脑吗？**
+</details>
+
+<details>
+<summary>我的凭据会离开电脑吗？</summary>
+
 不会。桥接运行在 `127.0.0.1`，所有连接在 DocKit/SqlKit 内部解析。代理只能看到连接元数据和查询结果。
 
-**代理可以修改数据吗？**
+</details>
+
+<details>
+<summary>代理可以修改数据吗？</summary>
+
 默认情况下破坏性和提权操作会被桥接拒绝，通过 MCP 服务器只暴露只读能力。
 
-**agent 框架从哪来？**
+</details>
+
+<details>
+<summary>agent 框架从哪来？</summary>
+
 同一仓库还包含 `data-studio-agent` Rust 框架，即驱动 DocKit 和 SqlKit 内置助手的共享 AI 代理循环（provider 适配、流式输出、工具调用、上下文压缩）。
+
+</details>

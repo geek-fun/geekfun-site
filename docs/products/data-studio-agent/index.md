@@ -220,10 +220,10 @@ cta:
 
 ## What is Data Studio Agent?
 
-Data Studio Agent is a [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that gives AI coding agents direct access to your databases through the [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/) desktop apps. Instead of copy-pasting query results into your AI tool, your agent queries the databases for you in plain language.
+Data Studio Agent is a [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that gives AI coding agents direct access to your databases through the <img src="/dockit.png" alt="DocKit" width="18" height="18" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />[DocKit](/products/dockit/) and <img src="/sqlkit.png" alt="SqlKit" width="18" height="18" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />[SqlKit](/products/sqlkit/) desktop apps. Instead of copy-pasting query results into your AI tool, your agent queries the databases for you in plain language.
 
-- **SQL** (via SqlKit): 70+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more)
-- **NoSQL** (via DocKit): Elasticsearch, OpenSearch, MongoDB, DynamoDB
+- **SQL** (via <img src="/sqlkit.png" alt="SqlKit" width="16" height="16" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />SqlKit): 70+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more)
+- **NoSQL** (via <img src="/dockit.png" alt="DocKit" width="16" height="16" style="display:inline-block;vertical-align:-3px;margin:0 2px" loading="lazy" />DocKit): Elasticsearch, OpenSearch, MongoDB, DynamoDB
 
 It's local-first. The bridge binds to `127.0.0.1`, your credentials never leave the desktop apps, and only read-safe tools are exposed to the agent.
 
@@ -389,20 +389,44 @@ All tools follow the `data_studio__{backend}__{action}` convention:
 
 ## FAQ
 
-**Is it free?**
+<details>
+<summary>Is it free?</summary>
+
 Yes. Apache 2.0 license, all features included.
 
-**Which AI tools work with it?**
+</details>
+
+<details>
+<summary>Which AI tools work with it?</summary>
+
 Anything that speaks MCP: Claude Code, Cursor, Windsurf, OpenCode, Codex, and more.
 
-**Do I need both DocKit and SqlKit?**
+</details>
+
+<details>
+<summary>Do I need both DocKit and SqlKit?</summary>
+
 Only the ones matching your databases. SQL databases need SqlKit; NoSQL databases need DocKit. Install both for the full tool set.
 
-**Do my credentials leave my machine?**
+</details>
+
+<details>
+<summary>Do my credentials leave my machine?</summary>
+
 No. The bridge runs on `127.0.0.1` and all connections resolve inside DocKit/SqlKit. The agent only sees connection metadata and query results.
 
-**Can the agent modify data?**
+</details>
+
+<details>
+<summary>Can the agent modify data?</summary>
+
 Destructive and elevated operations are rejected by the bridge by default. Only read-safe capabilities are exposed through the MCP server.
 
-**Where does the agent framework come from?**
+</details>
+
+<details>
+<summary>Where does the agent framework come from?</summary>
+
 The same repository also contains the `data-studio-agent` Rust framework, the shared AI agent loop (provider adapters, streaming, tool calling, context compaction) that powers the built-in assistants in DocKit and SqlKit.
+
+</details>
