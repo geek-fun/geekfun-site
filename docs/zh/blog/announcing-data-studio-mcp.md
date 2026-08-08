@@ -1,6 +1,6 @@
 ---
-title: 发布 Data Studio MCP —— 你的 AI 编码代理现在可以直接访问数据库
-description: Data Studio MCP 是一个开源的 MCP 服务器，通过 DocKit 和 SqlKit 将 Claude Code、Cursor、Windsurf、OpenCode、Codex 连接到你的数据库。自然语言查询、默认只读安全、本地优先。5 分钟完成配置。
+title: 发布 Data Studio Agent。你的 DBA。
+description: Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编码智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。5 分钟完成配置。
 date: 2026-08-07
 head:
   - - meta
@@ -27,7 +27,7 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "发布 Data Studio MCP —— 你的 AI 编码代理现在可以直接访问数据库",
+        "headline": "发布 Data Studio Agent。你的 DBA。",
         "description": "Data Studio MCP 是一个开源的 MCP 服务器，通过 DocKit 和 SqlKit 将 AI 编码代理连接到你的数据库。自然语言查询、默认只读安全、本地优先。",
         "image": "https://www.geekfun.club/data-studio-agent-arch.svg",
         "author": {
@@ -45,9 +45,9 @@ head:
       }
 ---
 
-# 发布 Data Studio MCP
+# 发布 Data Studio Agent。你的 DBA。
 
-你的 AI 编码代理现在可以直接查询你的数据库了。
+你的 AI 编码智能体现在可以直接查询你的数据库了。用自然语言和它们对话，像一个 DBA 那样。
 
 今天，我们开源了 **[Data Studio Agent](https://github.com/geek-fun/data-studio-agent)**，一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 将 Claude Code、Cursor、Windsurf、OpenCode、Codex 连接到你的数据库。
 

@@ -30,7 +30,7 @@ const content = computed(() => {
   const isZh = lang.value === 'zh'
   return {
     announcement: {
-	      text: isZh ? 'Data Studio Agent — 让你的 AI 编码代理通过 DocKit/SqlKit 直接访问数据库。' : 'Data Studio Agent — gives your AI coding agent direct access to your databases via DocKit & SqlKit.',
+	      text: isZh ? 'Data Studio Agent。你的 DBA。用自然语言和你的数据库对话。' : 'Data Studio Agent. Your DBA. Talk to your databases in plain language.',
 	      linkText: isZh ? '了解更多 →' : 'Learn more →',
 	      link: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
 	    },

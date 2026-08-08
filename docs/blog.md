@@ -27,10 +27,10 @@ Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:
 
 Product updates, technical deep-dives, and lessons from building open-source database tools. Written by the GEEKFUN team.
 
-## [Announcing Data Studio MCP — Your AI coding agent can now talk to your databases](/blog/announcing-data-studio-mcp)
+## [Announcing Data Studio Agent. Your DBA.](/blog/announcing-data-studio-mcp)
 *August 7, 2026*
 
-Data Studio MCP is an open-source MCP server that connects Claude Code, Cursor, Windsurf, OpenCode, and Codex to your databases through DocKit and SqlKit. Ask in plain language, get read-safe answers, and set it up in under 5 minutes.
+Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Set it up in under 5 minutes.
 
 ## [DocKit 1.0 - The NoSQL desktop client developers deserved](/blog/introducing-dockit-v1)
 *May 10, 2026*

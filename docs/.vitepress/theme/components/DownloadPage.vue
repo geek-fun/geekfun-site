@@ -196,11 +196,11 @@ const content = computed<DownloadContent>(() => {
         ]
       },
       {
-        name: 'Data Studio MCP',
+        name: 'Data Studio Agent',
         logo: '/data-studio-agent.svg',
         description: isZh
-          ? '让 AI 编码代理通过 DocKit / SqlKit 直接访问数据库的 MCP 服务器。'
-          : 'MCP server that gives AI coding agents direct access to your databases via DocKit / SqlKit.',
+          ? '你的 DBA。用自然语言和你的数据库对话的 MCP 服务器。'
+          : 'Your DBA. MCP server to talk to your databases in plain language.',
         category: 'developer-tools',
         installCommand: 'npm install -g @geek-fun/data-studio-mcp',
         installLabel: isZh ? '安装' : 'Install',

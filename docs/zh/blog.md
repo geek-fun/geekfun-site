@@ -27,10 +27,10 @@ head:
 
 产品更新、技术深度解析，以及来自 GEEKFUN 团队构建开源数据库工具的实践记录。
 
-## [发布 Data Studio MCP —— 你的 AI 编码代理现在可以直接访问数据库](/zh/blog/announcing-data-studio-mcp)
+## [发布 Data Studio Agent。你的 DBA。](/zh/blog/announcing-data-studio-mcp)
 *2026年8月7日*
 
-Data Studio MCP 是一个开源的 MCP 服务器，通过 DocKit 和 SqlKit 将 Claude Code、Cursor、Windsurf、OpenCode、Codex 连接到你的数据库。自然语言提问、默认只读安全，5 分钟完成配置。
+Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编码智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。5 分钟完成配置。
 
 ## [DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端](/zh/blog/introducing-dockit-v1)
 *2026年5月10日*

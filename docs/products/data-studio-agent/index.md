@@ -1,7 +1,7 @@
 ---
 layout: product
-title: Data Studio Agent – MCP Server to Turn Your AI Coding Agent into a Database Assistant
-description: Data Studio Agent is an open-source Model Context Protocol (MCP) server that gives AI coding agents (Claude Code, Cursor, Windsurf, OpenCode, Codex) direct access to your databases through DocKit (NoSQL) and SqlKit (SQL). Local-first, read-safe, credentials never leave your machine.
+title: Data Studio Agent. Your DBA. – Talk to your databases in plain language
+description: Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did, like a DBA who never sleeps. Supports 70+ SQL databases via SqlKit and NoSQL via DocKit.
 ogImage: https://www.geekfun.club/og/master-en.png
 head:
   - - meta
@@ -30,7 +30,7 @@ head:
         "@type": "SoftwareApplication",
         "name": "Data Studio Agent",
         "alternateName": ["data-studio-mcp", "Data Studio MCP Server", "database MCP server", "AI database assistant"],
-        "description": "Open-source Model Context Protocol (MCP) server that gives AI coding agents direct access to databases through DocKit and SqlKit desktop apps. Supports 70+ SQL databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more) via SqlKit and NoSQL (Elasticsearch, OpenSearch, MongoDB, DynamoDB) via DocKit. Local-first and read-safe.",
+        "description": "Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Supports 70+ SQL databases via SqlKit and NoSQL via DocKit.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Windows, Linux",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -57,8 +57,8 @@ head:
 
 hero:
   name: Data Studio Agent
-  headline: Your AI coding agent, your databases
-  tagline: An open-source MCP server that turns Claude Code, Cursor, Windsurf, OpenCode, and Codex into database assistants, so you can query, explore, and understand SQL and NoSQL databases in plain language.
+  headline: Your DBA.
+  tagline: Talk to your databases in plain language. Your agent understands your schema, runs the query, and walks you through what it did. Like a DBA who never sleeps.
   highlights:
     - "Any database — 70+ SQL & NoSQL"
     - "Any AI agent with any LLM models"

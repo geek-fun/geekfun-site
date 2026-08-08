@@ -1,6 +1,6 @@
 ---
-title: Announcing Data Studio MCP — Your AI coding agent can now talk to your databases
-description: Data Studio MCP is an open-source MCP server that connects Claude Code, Cursor, Windsurf, OpenCode, and Codex to your databases through DocKit and SqlKit. Plain-language queries, read-safe by default, local-first. Here's how it works and how to set it up in under 5 minutes.
+title: Announcing Data Studio Agent. Your DBA.
+description: Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Here's how it works and how to set it up in under 5 minutes.
 date: 2026-08-07
 head:
   - - meta
@@ -27,7 +27,7 @@ head:
       {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Announcing Data Studio MCP — Your AI coding agent can now talk to your databases",
+        "headline": "Announcing Data Studio Agent. Your DBA.",
         "description": "Data Studio MCP is an open-source MCP server that connects AI coding agents to your databases through DocKit and SqlKit. Plain-language queries, read-safe by default, local-first.",
         "image": "https://www.geekfun.club/data-studio-agent-arch.svg",
         "author": {
@@ -45,9 +45,9 @@ head:
       }
 ---
 
-# Announcing Data Studio MCP
+# Announcing Data Studio Agent. Your DBA.
 
-Your AI coding agent can now query your databases directly.
+Your AI coding agent can now query your databases directly. Talk to them in plain language, like a DBA would.
 
 Today we're open-sourcing **[Data Studio Agent](https://github.com/geek-fun/data-studio-agent)**, a [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that connects Claude Code, Cursor, Windsurf, OpenCode, and Codex to your databases through [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/).
 
