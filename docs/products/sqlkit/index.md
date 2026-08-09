@@ -78,7 +78,7 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/sqlkit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "0.8.1",
+        "softwareVersion": "0.8.5",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
