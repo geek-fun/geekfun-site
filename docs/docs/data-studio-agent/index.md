@@ -29,7 +29,7 @@ Data Studio Agent is a [Model Context Protocol](https://modelcontextprotocol.io/
 - **SQL** (via SqlKit): 70+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more)
 - **NoSQL** (via DocKit): Elasticsearch, OpenSearch, MongoDB, DynamoDB
 
-It's local-first. The bridge binds to `127.0.0.1`, your credentials never leave the desktop apps, and only read-safe tools are exposed to the agent by default.
+It's local-first. The bridge binds to `127.0.0.1`, your credentials never leave the desktop apps, and by default the agent only gets read-safe tools.
 
 ## How it works
 
@@ -47,4 +47,4 @@ dockit:9120    sqlkit:9121
 (NoSQL bridge)  (SQL bridge)
 ```
 
-The MCP server is a thin routing layer; all database drivers, SSH tunnels, and connection management live in DocKit and SqlKit. The bridge is local-only, so credentials never leave your machine.
+The MCP server is a thin routing layer; all database drivers, SSH tunnels, and connection management live in DocKit and SqlKit. The server finds running backends through each app's port file, so there's nothing to host and no API keys to manage.

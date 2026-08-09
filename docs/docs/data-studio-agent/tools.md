@@ -26,10 +26,6 @@ head:
 
 All tools follow the `data_studio__{backend}__{action}` convention. The **User confirmation** column shows which operations surface an explicit confirmation prompt in your AI client before they run.
 
-## Tool reference
-
-All tools follow the `data_studio__{backend}__{action}` convention. The **User confirmation** column shows which operations surface an explicit confirmation prompt in your AI client before they run.
-
 | Tool | Backend | Risk | Requires permission | User confirmation |
 |---|---|---|---|---|
 | `data_studio__list_connections` | Server | 🟢 Safe | Read Only | No |

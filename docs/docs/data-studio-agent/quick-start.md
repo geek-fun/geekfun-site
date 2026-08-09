@@ -31,7 +31,7 @@ The full setup is four steps: install the apps, install the MCP package, registe
 Install and launch [DocKit](/products/dockit/) and/or [SqlKit](/products/sqlkit/), add at least one database connection, and make sure **Settings → MCP Bridge → Auto-start** is enabled (it's on by default).
 
 - **SQL** databases need SqlKit; **NoSQL** databases need DocKit. Install both for the full tool set.
-- The MCP server auto-discovers running backends. Only tools for apps that are actually running are exposed.
+- The MCP server auto-discovers running backends. It only exposes tools for apps that are actually running.
 
 ## 2. Install the MCP server package
 
