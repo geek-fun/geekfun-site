@@ -41,7 +41,7 @@ const descEn = 'GEEKFUN is an open-source community focused on building sustaina
 const descZh = '极客范是一个软件社区，致力于构建可持续的开源软件和服务';
 const docsSidebarEn = [
     {
-        text: 'Docs',
+        text: 'DocKit',
         items: [
             {text: 'DocKit overview', link: '/docs/dockit/'},
             {text: 'Installation', link: '/docs/dockit/installation'},
@@ -50,11 +50,20 @@ const docsSidebarEn = [
             {text: 'Manage Elasticsearch cluster', link: '/docs/dockit/manage-elasticsearch-cluster'},
             {text: 'Agentic Data Studio', link: '/docs/dockit/agentic-datastudio'}
         ]
+    },
+    {
+        text: 'Data Studio Agent',
+        items: [
+            {text: 'Overview', link: '/docs/data-studio-agent/'},
+            {text: 'Quick Start', link: '/docs/data-studio-agent/quick-start'},
+            {text: 'Tool reference', link: '/docs/data-studio-agent/tools'},
+            {text: 'Safety', link: '/docs/data-studio-agent/safety'}
+        ]
     }
 ];
 const docsSidebarZh = [
     {
-        text: '文档',
+        text: 'DocKit',
         items: [
             {text: 'DocKit 概览', link: '/zh/docs/dockit/'},
             {text: '安装指南', link: '/zh/docs/dockit/installation'},
@@ -62,6 +71,15 @@ const docsSidebarZh = [
             {text: '快捷键', link: '/zh/docs/dockit/shortcut'},
             {text: '管理 Elasticsearch 集群', link: '/zh/docs/dockit/manage-elasticsearch-cluster'},
             {text: 'Agentic Data Studio', link: '/zh/docs/dockit/agentic-datastudio'}
+        ]
+    },
+    {
+        text: 'Data Studio Agent',
+        items: [
+            {text: '概览', link: '/zh/docs/data-studio-agent/'},
+            {text: '快速开始', link: '/zh/docs/data-studio-agent/quick-start'},
+            {text: '工具参考', link: '/zh/docs/data-studio-agent/tools'},
+            {text: '安全', link: '/zh/docs/data-studio-agent/safety'}
         ]
     }
 ];

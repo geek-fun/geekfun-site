@@ -194,6 +194,21 @@ const content = computed<DownloadContent>(() => {
           { label: 'npm', href: 'https://www.npmjs.com/package/@geek-fun/jest-search', external: true, kind: 'primary' },
           { label: 'GitHub', href: 'https://github.com/geek-fun/jest-search', external: true, kind: 'secondary' }
         ]
+      },
+      {
+        name: 'Data Studio Agent',
+        logo: '/data-studio-agent.svg',
+        description: isZh
+          ? '你的 DBA。用自然语言和你的数据库对话的 MCP 服务器。'
+          : 'Your DBA. MCP server to talk to your databases in plain language.',
+        category: 'developer-tools',
+        installCommand: 'npm install -g @geek-fun/data-studio-mcp',
+        installLabel: isZh ? '安装' : 'Install',
+        actions: [
+          { label: 'npm', href: 'https://www.npmjs.com/package/@geek-fun/data-studio-mcp', external: true, kind: 'primary' },
+          { label: 'GitHub', href: 'https://github.com/geek-fun/data-studio-agent', external: true, kind: 'secondary' },
+          { label: isZh ? '产品页' : 'Product', href: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/', kind: 'secondary' }
+        ]
       }
     ],
     installCommandLabel: isZh ? '安装命令' : 'Install',

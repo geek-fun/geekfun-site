@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Reveal from '../Reveal.vue'
+
 type Action = {
   text: string
   link: string
@@ -18,22 +20,24 @@ defineProps<{ cta: CTAData }>()
 <template>
   <section class="cta-section">
     <div class="cta-background"></div>
-    <div class="container cta-container">
-      <h2 class="cta-title">{{ cta.title }}</h2>
-      <p class="cta-body">{{ cta.body }}</p>
-      <div v-if="cta.actions && cta.actions.length" class="cta-actions">
-        <a
-          v-for="action in cta.actions"
-          :key="action.link"
-          :href="action.link"
-          :class="['gf-btn', action.theme === 'brand' ? 'gf-btn-primary' : 'gf-btn-secondary']"
-          :target="action.external ? '_blank' : undefined"
-          :rel="action.external ? 'noopener noreferrer' : undefined"
-        >
-          {{ action.text }}
-        </a>
+    <Reveal>
+      <div class="container cta-container">
+        <h2 class="cta-title">{{ cta.title }}</h2>
+        <p class="cta-body">{{ cta.body }}</p>
+        <div v-if="cta.actions && cta.actions.length" class="cta-actions">
+          <a
+            v-for="action in cta.actions"
+            :key="action.link"
+            :href="action.link"
+            :class="['gf-btn', action.theme === 'brand' ? 'gf-btn-primary' : 'gf-btn-secondary']"
+            :target="action.external ? '_blank' : undefined"
+            :rel="action.external ? 'noopener noreferrer' : undefined"
+          >
+            {{ action.text }}
+          </a>
+        </div>
       </div>
-    </div>
+    </Reveal>
   </section>
 </template>
 

@@ -167,7 +167,7 @@ function getDbTone(name: string): string {
 .database-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 12px;
 
   @media (max-width: 768px) {

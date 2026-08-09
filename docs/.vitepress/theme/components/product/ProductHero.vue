@@ -14,9 +14,10 @@ type HeroData = {
   headline: string
   tagline: string
   logo?: string
-  screenshot: string
-  actions: Action[]
+  screenshot?: string
+  actions?: Action[]
   animatedText?: string
+  highlights?: string[]
 }
 
 const props = defineProps<{ hero: HeroData }>()
@@ -81,8 +82,8 @@ onUnmounted(() => {
   <section class="hero-section">
     <div class="container hero-container">
       <div class="hero-content">
-        <div v-if="hero.eyebrow" class="hero-eyebrow">{{ hero.eyebrow }}</div>
-        <h1 class="hero-headline">
+        <div v-if="hero.eyebrow" class="hero-eyebrow hero-reveal">{{ hero.eyebrow }}</div>
+        <h1 class="hero-headline hero-reveal">
           <span class="hero-brand-text">{{ hero.name }}</span>
           <span v-if="hero.name && hero.headline">&nbsp;</span>
           <span v-if="hero.animatedText" class="hero-type-wrapper">
@@ -94,8 +95,16 @@ onUnmounted(() => {
           </span>
           <span class="subtitle">{{ hero.headline }}</span>
         </h1>
-        <p class="hero-tagline">{{ hero.tagline }}</p>
-        <div v-if="hero.actions && hero.actions.length" class="hero-actions">
+        <p class="hero-tagline hero-reveal">{{ hero.tagline }}</p>
+        <div v-if="hero.highlights && hero.highlights.length" class="hero-highlights hero-reveal">
+          <span v-for="h in hero.highlights" :key="h" class="hero-highlight">
+            <svg class="hero-highlight-check" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            {{ h }}
+          </span>
+        </div>
+        <div v-if="hero.actions && hero.actions.length" class="hero-actions hero-reveal">
           <a
             v-for="action in hero.actions"
             :key="action.link"
@@ -108,7 +117,7 @@ onUnmounted(() => {
           </a>
         </div>
       </div>
-      <div class="hero-visual">
+      <div v-if="hero.screenshot" class="hero-visual">
         <div class="glow-bg"></div>
         <img :src="hero.screenshot" :alt="hero.name" class="hero-image" width="1280" height="720" />
       </div>
@@ -135,16 +144,16 @@ onUnmounted(() => {
 }
 
 .hero-section {
-  padding: 48px 0 32px;
+  padding: 72px 0 56px;
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 32px 0 24px;
+    padding: 48px 0 40px;
   }
 
   @media (min-width: 1440px) {
-    padding: 64px 0 40px;
+    padding: 96px 0 72px;
   }
 }
 
@@ -162,6 +171,40 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   max-width: 900px;
+}
+
+/* Hero entrance: elements rise in sequence on page load */
+.hero-reveal {
+  opacity: 0;
+  animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-eyebrow.hero-reveal { animation-delay: 0.05s; }
+.hero-headline.hero-reveal { animation-delay: 0.15s; }
+.hero-tagline.hero-reveal { animation-delay: 0.3s; }
+.hero-highlights.hero-reveal { animation-delay: 0.45s; }
+.hero-actions.hero-reveal { animation-delay: 0.6s; }
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+.hero-content:only-child {
+  max-width: 760px;
 }
 
 .hero-eyebrow {
@@ -210,7 +253,7 @@ onUnmounted(() => {
 .hero-type-mirror {
   visibility: hidden;
   font-weight: 800;
-  color: var(--vp-c-brand-1);
+  color: var(--gf-c-brand-display);
 }
 
 .hero-type-content {
@@ -221,12 +264,12 @@ onUnmounted(() => {
 }
 
 .hero-type-text {
-  color: var(--vp-c-brand-1);
+  color: var(--gf-c-brand-display);
   font-weight: 800;
 }
 
 .hero-type-cursor {
-  color: var(--vp-c-brand-1);
+  color: var(--gf-c-brand-display);
   font-weight: 300;
   margin-left: 1px;
   transition: opacity 0.1s;
@@ -262,6 +305,36 @@ onUnmounted(() => {
     flex-direction: column;
     width: 100%;
   }
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 24px;
+  margin: 0 0 var(--space-xl, 32px);
+  max-width: 100%;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+}
+
+.hero-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+  white-space: nowrap;
+}
+
+.hero-highlight-check {
+  color: var(--vp-c-brand-1);
+  flex-shrink: 0;
 }
 
 .hero-visual {

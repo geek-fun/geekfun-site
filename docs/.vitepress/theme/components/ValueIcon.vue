@@ -90,8 +90,8 @@ defineProps<{
 /* Hover effects propagated from parent value-card */
 :global(.value-card:hover) .value-icon-wrapper {
   transform: translateY(-4px) scale(1.05);
-  border-color: rgba(189, 52, 254, 0.3);
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 8px 16px rgba(189, 52, 254, 0.1);
+  border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1), 0 8px 16px var(--gf-c-glow, rgba(248, 155, 64, 0.1));
   background: var(--gf-gradient-brand-subtle);
 }
 
