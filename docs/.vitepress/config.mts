@@ -56,9 +56,8 @@ const docsSidebarEn = [
         items: [
             {text: 'Overview', link: '/docs/data-studio-agent/'},
             {text: 'Quick Start', link: '/docs/data-studio-agent/quick-start'},
-            {text: 'Tool naming', link: '/docs/data-studio-agent/tools'},
-            {text: 'Safety', link: '/docs/data-studio-agent/safety'},
-            {text: 'FAQ', link: '/docs/data-studio-agent/faq'}
+            {text: 'Tool reference', link: '/docs/data-studio-agent/tools'},
+            {text: 'Safety', link: '/docs/data-studio-agent/safety'}
         ]
     }
 ];
@@ -79,9 +78,8 @@ const docsSidebarZh = [
         items: [
             {text: '概览', link: '/zh/docs/data-studio-agent/'},
             {text: '快速开始', link: '/zh/docs/data-studio-agent/quick-start'},
-            {text: '工具命名', link: '/zh/docs/data-studio-agent/tools'},
-            {text: '安全', link: '/zh/docs/data-studio-agent/safety'},
-            {text: '常见问题', link: '/zh/docs/data-studio-agent/faq'}
+            {text: '工具参考', link: '/zh/docs/data-studio-agent/tools'},
+            {text: '安全', link: '/zh/docs/data-studio-agent/safety'}
         ]
     }
 ];

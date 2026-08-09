@@ -27,11 +27,6 @@ head:
 
 产品更新、技术深度解析，以及来自 GEEKFUN 团队构建开源数据库工具的实践记录。
 
-## [发布 Data Studio Agent。你的 DBA。](/zh/blog/announcing-data-studio-mcp)
-*2026年8月7日*
-
-Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编码智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。5 分钟完成配置。
-
 ## [DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端](/zh/blog/introducing-dockit-v1)
 *2026年5月10日*
 

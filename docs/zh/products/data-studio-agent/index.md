@@ -59,15 +59,11 @@ hero:
   name: Data Studio Agent。
   headline: 你的 DBA。
   tagline: 用自然语言和你的数据库对话。你的智能体读懂你的 schema、执行查询，一步步讲给你听。你的 7×24 小时数据库工程师。
-  highlights:
-    - "任意数据库 —— 70+ SQL 与 NoSQL"
-    - "任意 AI 代理 · 任意 LLM 模型"
-    - "任意系统 —— macOS · Windows · Linux"
 
 install:
   eyebrow: "快速开始"
   title: "一条命令开始使用"
-  note: "需要先安装并启动 DocKit 和/或 SqlKit，并连接到数据库——服务器会自动发现正在运行的后端。"
+  note: "需要先安装并启动 DocKit 和/或 SqlKit，并连接到数据库。服务器会自动发现正在运行的后端。"
   tabs:
     - label: Codex
       icon: /agent-logos/codex-logo.png
@@ -166,10 +162,14 @@ ecosystem:
 showcase:
   eyebrow: "实际体验"
   title: "用自然语言和数据库对话"
-  subtitle: "告诉你的代理你需要什么。它读取 schema、通过 DocKit 或 SqlKit 执行查询，并逐步解释它做了什么——全部在你现有的 AI 编码工具里完成。"
+  subtitle: "告诉你的代理你需要什么。它读取 schema、通过 DocKit 或 SqlKit 执行查询，并逐步解释它做了什么，全部在你现有的 AI 编码工具里完成。"
+  highlights:
+    - "任意数据库，70+ SQL 与 NoSQL"
+    - "任意 AI 代理，任意 LLM"
+    - "任意系统：macOS · Windows · Linux"
   items:
     - title: "在 MongoDB 里找数据"
-      body: "不需要写查询语言。描述你想要的数据，代理找到集合、构造查询、返回文档——每一步都展示它的工作过程。"
+      body: "不需要写查询语言。描述你想要的数据，代理找到集合、构造查询、返回文档，每一步都展示它的工作过程。"
       visual: terminal
       terminal:
         title: "Claude Code · data-studio"
@@ -179,16 +179,16 @@ showcase:
           - role: agent
             text: "正在读取 users 集合的 schema……"
           - role: tool
-            name: "data_studio__mongo_find"
+            name: "data_studio__mongo__find"
             detail: "db.users.find({ age: { $gt: 30 } }).limit(10)"
           - role: result
             text: "12 documents returned\n\n{ \"_id\": \"67f2a1…\", \"name\": \"Ada Lovelace\", \"age\": 42 }\n{ \"_id\": \"67f2a1…\", \"name\": \"Grace Hopper\", \"age\": 51 }\n{ \"_id\": \"67f2a1…\", \"name\": \"Katherine Johnson\", \"age\": 63 }"
           - role: agent
-            text: "找到 12 个大于 30 岁的用户。这是前三位——需要我按城市筛选或按年龄排序吗？"
+            text: "找到 12 个大于 30 岁的用户。这是前三位。需要我按城市筛选或按年龄排序吗？"
       align: left
 
     - title: "列出 PostgreSQL 的表"
-      body: "问一句你的 PostgreSQL 数据库有哪些表，代理根据实时 schema 回答——不用记表名，也不用翻 pg_catalog。"
+      body: "问一句你的 PostgreSQL 数据库有哪些表，代理根据实时 schema 回答。不用记表名，也不用翻 pg_catalog。"
       visual: terminal
       terminal:
         title: "OpenCode · data-studio"
@@ -198,7 +198,7 @@ showcase:
           - role: agent
             text: "正在读取已连接数据库的 schema……"
           - role: tool
-            name: "data_studio__sql_list_tables"
+            name: "data_studio__sqlkit__list_tables"
             detail: "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name"
           - role: result
             text: "14 tables\n\norders · customers · products · order_items\npayments · shipments · reviews · inventory\nusers · sessions · carts · coupons\ndiscounts · audit_logs"
@@ -207,7 +207,7 @@ showcase:
       align: left
 
     - title: "不用 DSL 搜索 Elasticsearch"
-      body: "描述你想要的文档，代理通过 DocKit 的桥接把它翻译成正确的查询——跨索引、映射和聚合。"
+      body: "描述你想要的文档，代理通过 DocKit 的桥接把它翻译成正确的查询，跨索引、映射和聚合。"
       visual: terminal
       terminal:
         title: "Windsurf · data-studio"
@@ -217,7 +217,7 @@ showcase:
           - role: agent
             text: "正在检查 orders* 索引……"
           - role: tool
-            name: "data_studio__es_search"
+            name: "data_studio__es__search"
             detail: "GET /orders*/_search  sort: [created_at desc]  size: 10"
           - role: result
             text: "10 hits in 18ms\n\n{ \"_source\": { \"order_id\": \"ORD-8291\", \"total\": 149.50, \"created_at\": \"2026-08-07T14:02:11Z\" } }\n{ \"_source\": { \"order_id\": \"ORD-8290\", \"total\": 89.00, \"created_at\": \"2026-08-07T13:41:08Z\" } }"
@@ -228,7 +228,7 @@ showcase:
 architecture:
   eyebrow: "工作原理"
   title: "每个数据库、每个工具，一份配置"
-  subtitle: "用自然语言访问你的数据库——告诉你的代理你需要什么，它读取 schema、编写查询并返回结果。一份 MCP 服务器配置在 SQL 与 NoSQL、本地与云端之间自动路由到正确的后端，无需为每种数据库写胶水代码。"
+  subtitle: "用自然语言访问你的数据库。告诉你的代理你需要什么，它读取 schema、编写查询并返回结果。一份 MCP 服务器配置在 SQL 与 NoSQL、本地与云端之间自动路由到正确的后端，无需为每种数据库写胶水代码。"
 
 features:
   eyebrow: "为什么选择 Data Studio Agent"
@@ -242,7 +242,7 @@ features:
 tools:
   eyebrow: "你的代理能做什么"
   title: "一个配置，整套工具"
-  subtitle: "一个 MCP 服务器为每个后端暴露一套聚焦的工具。你的代理读取 schema、执行查询、拿到可操作的诊断——不多也不少。"
+  subtitle: "一个 MCP 服务器为每个后端暴露一套聚焦的工具。你的代理读取 schema、执行查询、拿到可操作的诊断。不多也不少。"
   groups:
     - name: "SQL · SqlKit"
       prefix: "data_studio__sql_"
@@ -295,7 +295,7 @@ security:
   permissionModes:
     - name: "只读"
       tag: "默认"
-      desc: "最安全的模式——代理可以探索和读取，永远不能修改。"
+      desc: "最安全的模式。代理可以探索和读取，永远不能修改。"
       allows:
         - "探索 schema、表和索引"
         - "执行 SELECT 查询和搜索"
@@ -305,7 +305,7 @@ security:
         - "DDL（CREATE、ALTER、DROP）"
     - name: "数据读写"
       tag: "推荐"
-      desc: "让代理处理你的数据——允许写入，保护结构。"
+      desc: "让代理处理你的数据。允许写入，保护结构。"
       allows:
         - "只读模式的所有能力"
         - "INSERT 和 UPDATE 语句"
@@ -315,13 +315,13 @@ security:
         - "表和视图上的 DDL"
     - name: "完全访问"
       tag: "高级用户"
-      desc: "解锁全部能力——破坏性操作仍需你的确认。"
+      desc: "解锁全部能力。破坏性操作仍需你的确认。"
       allows:
         - "数据读写模式的所有能力"
         - "DELETE、DROP、TRUNCATE（需 Ask 确认）"
         - "连接级覆盖和白名单"
       blocks:
-        - "无——但破坏性操作始终以 Ask 呈现"
+        - "无，但破坏性操作始终以 Ask 呈现"
 
 
 cta:

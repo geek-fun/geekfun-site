@@ -59,15 +59,11 @@ hero:
   name: Data Studio Agent.
   headline: Your DBA.
   tagline: Talk to your databases in plain language. Your agent understands your schema, runs the query, and walks you through what it did. Your 24/7 database engineer.
-  highlights:
-    - "Any database — 70+ SQL & NoSQL"
-    - "Any AI agent with any LLM"
-    - "Any OS — macOS · Windows · Linux"
 
 install:
   eyebrow: "Quick Start"
   title: "Get started in one command"
-  note: "Requires DocKit and/or SqlKit installed, running, and connected to a database — the server auto-discovers running backends."
+  note: "Requires DocKit and/or SqlKit installed, running, and connected to a database. The server auto-discovers running backends."
   tabs:
     - label: Codex
       icon: /agent-logos/codex-logo.png
@@ -166,10 +162,14 @@ ecosystem:
 showcase:
   eyebrow: "See it in action"
   title: "Talk to your databases in plain language"
-  subtitle: "Tell your agent what you need. It reads your schema, runs the query through DocKit or SqlKit, and walks you through what it did — all from your existing AI coding tool."
+  subtitle: "Tell your agent what you need. It reads your schema, runs the query through DocKit or SqlKit, and walks you through what it did, all from your existing AI coding tool."
+  highlights:
+    - "Any database, 70+ SQL & NoSQL"
+    - "Any AI agent with any LLM"
+    - "Any OS: macOS · Windows · Linux"
   items:
     - title: "Ask for data in MongoDB"
-      body: "No query language required. Describe the data you want and the agent finds the collection, builds the query, and returns the documents — showing its work at every step."
+      body: "No query language required. Describe the data you want and the agent finds the collection, builds the query, and returns the documents, showing its work at every step."
       visual: terminal
       terminal:
         title: "Claude Code · data-studio"
@@ -179,16 +179,16 @@ showcase:
           - role: agent
             text: "Reading the schema of the users collection…"
           - role: tool
-            name: "data_studio__mongo_find"
+            name: "data_studio__mongo__find"
             detail: "db.users.find({ age: { $gt: 30 } }).limit(10)"
           - role: result
             text: "12 documents returned\n\n{ \"_id\": \"67f2a1…\", \"name\": \"Ada Lovelace\", \"age\": 42 }\n{ \"_id\": \"67f2a1…\", \"name\": \"Grace Hopper\", \"age\": 51 }\n{ \"_id\": \"67f2a1…\", \"name\": \"Katherine Johnson\", \"age\": 63 }"
           - role: agent
-            text: "Found 12 users older than 30. Here are the first three — want me to filter by city or sort by age?"
+            text: "Found 12 users older than 30. Here are the first three. Want me to filter by city or sort by age?"
       align: left
 
     - title: "List tables in PostgreSQL"
-      body: "Ask which tables your PostgreSQL database has and the agent answers from the live schema — no need to memorize names or dig through pg_catalog."
+      body: "Ask which tables your PostgreSQL database has and the agent answers from the live schema. No need to memorize names or dig through pg_catalog."
       visual: terminal
       terminal:
         title: "OpenCode · data-studio"
@@ -198,7 +198,7 @@ showcase:
           - role: agent
             text: "Reading the schema of your connected database…"
           - role: tool
-            name: "data_studio__sql_list_tables"
+            name: "data_studio__sqlkit__list_tables"
             detail: "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name"
           - role: result
             text: "14 tables\n\norders · customers · products · order_items\npayments · shipments · reviews · inventory\nusers · sessions · carts · coupons\ndiscounts · audit_logs"
@@ -207,7 +207,7 @@ showcase:
       align: left
 
     - title: "Search Elasticsearch without the DSL"
-      body: "Describe the documents you're after and the agent translates it into the right query — across indices, mappings, and aggregations — through DocKit's bridge."
+      body: "Describe the documents you're after and the agent translates it into the right query, across indices, mappings, and aggregations, through DocKit's bridge."
       visual: terminal
       terminal:
         title: "Windsurf · data-studio"
@@ -217,7 +217,7 @@ showcase:
           - role: agent
             text: "Checking the orders* indices…"
           - role: tool
-            name: "data_studio__es_search"
+            name: "data_studio__es__search"
             detail: "GET /orders*/_search  sort: [created_at desc]  size: 10"
           - role: result
             text: "10 hits in 18ms\n\n{ \"_source\": { \"order_id\": \"ORD-8291\", \"total\": 149.50, \"created_at\": \"2026-08-07T14:02:11Z\" } }\n{ \"_source\": { \"order_id\": \"ORD-8290\", \"total\": 89.00, \"created_at\": \"2026-08-07T13:41:08Z\" } }"
@@ -228,7 +228,7 @@ showcase:
 architecture:
   eyebrow: "How it works"
   title: "Every database, every tool, one config"
-  subtitle: "Ask your databases in plain language — tell your agent what you need, it reads schemas, writes queries, and returns results. One MCP server config routes to the right backend across SQL and NoSQL, local and cloud, without per-database glue code."
+  subtitle: "Ask your databases in plain language. Tell your agent what you need, it reads schemas, writes queries, and returns results. One MCP server config routes to the right backend across SQL and NoSQL, local and cloud, without per-database glue code."
 
 features:
   eyebrow: "Why Data Studio Agent"
@@ -242,7 +242,7 @@ features:
 tools:
   eyebrow: "What your agent can do"
   title: "Every tool your agent needs, one config"
-  subtitle: "One MCP server exposes a focused toolset per backend. Your agent reads schemas, runs queries, and gets actionable diagnostics — nothing more, nothing less."
+  subtitle: "One MCP server exposes a focused toolset per backend. Your agent reads schemas, runs queries, and gets actionable diagnostics. No more, no less."
   groups:
     - name: "SQL · SqlKit"
       prefix: "data_studio__sql_"
@@ -295,7 +295,7 @@ security:
   permissionModes:
     - name: "Read Only"
       tag: "Default"
-      desc: "The safest mode — the agent can explore and read, never modify."
+      desc: "The safest mode. The agent can explore and read, never modify."
       allows:
         - "Explore schemas, tables, and indices"
         - "Run SELECT queries and searches"
@@ -305,7 +305,7 @@ security:
         - "DDL (CREATE, ALTER, DROP)"
     - name: "Data Read/Write"
       tag: "Recommended"
-      desc: "Let the agent work with your data — writes allowed, structure protected."
+      desc: "Let the agent work with your data. Writes allowed, structure protected."
       allows:
         - "Everything in Read Only"
         - "INSERT and UPDATE statements"
@@ -315,13 +315,13 @@ security:
         - "DDL on tables and views"
     - name: "Full Access"
       tag: "Power user"
-      desc: "Every capability unlocked — destructive operations still require your confirmation."
+      desc: "Every capability unlocked. Destructive operations still require your confirmation."
       allows:
         - "Everything in Data Read/Write"
         - "DELETE, DROP, TRUNCATE with Ask"
         - "Connection-level overrides and allowlists"
       blocks:
-        - "Nothing — but destructive ops always surface as Ask"
+        - "Nothing, but destructive ops always surface as Ask"
 
 
 cta:
