@@ -26,6 +26,7 @@ type ShowcaseHeader = {
   eyebrow?: string
   title?: string
   subtitle?: string
+  highlights?: string[]
 }
 
 // Accept both the legacy array shape (dockit/sqlkit) and the
@@ -334,7 +335,13 @@ onBeforeUnmount(() => {
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <div v-if="header && (header.eyebrow || header.title || header.subtitle)" class="showcase-header container">
+    <!-- Section header: hidden in tabbed mode (terminal sits right under
+         the hero as the first thing visitors see); kept for the legacy
+         alternating-image showcase (dockit/sqlkit). -->
+    <div
+      v-if="!useTabs && header && (header.eyebrow || header.title || header.subtitle)"
+      class="showcase-header container"
+    >
       <Reveal>
         <span v-if="header.eyebrow" class="showcase-eyebrow">{{ header.eyebrow }}</span>
         <h2 v-if="header.title" class="showcase-heading">{{ header.title }}</h2>
@@ -489,6 +496,14 @@ onBeforeUnmount(() => {
             </div>
           </Transition>
         </div>
+      </div>
+      <div v-if="header?.highlights?.length" class="showcase-highlights">
+        <span v-for="h in header.highlights" :key="h" class="showcase-highlight">
+          <svg class="showcase-highlight-check" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          {{ h }}
+        </span>
       </div>
     </div>
 
@@ -879,13 +894,48 @@ onBeforeUnmount(() => {
  * ============================================================ */
 
 .showcase-tabs {
-  padding-top: 48px;
+  padding-top: 8px;
   padding-bottom: 64px;
 
   @media (max-width: 768px) {
-    padding-top: 24px;
+    padding-top: 4px;
     padding-bottom: 40px;
   }
+}
+
+/* Highlight badges shown under the terminal in tabbed mode */
+.showcase-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 28px;
+  margin-top: 32px;
+
+  @media (max-width: 768px) {
+    gap: 8px 18px;
+    margin-top: 24px;
+  }
+}
+
+.showcase-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    font-size: 0.875rem;
+    white-space: normal;
+  }
+}
+
+.showcase-highlight-check {
+  color: var(--vp-c-brand-1);
+  flex-shrink: 0;
 }
 
 .showcase-tabs-grid {

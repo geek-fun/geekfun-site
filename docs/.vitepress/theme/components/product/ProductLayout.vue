@@ -18,10 +18,10 @@ const { frontmatter } = useData()
 <template>
   <main id="main-content" class="product-layout">
     <ProductHero v-if="frontmatter.hero" :hero="frontmatter.hero" />
+    <ProductShowcase v-if="frontmatter.showcase" :showcase="frontmatter.showcase" />
     <ProductInstall v-if="frontmatter.install" :install="frontmatter.install" />
     <ProductEcosystem v-if="frontmatter.ecosystem" :ecosystem="frontmatter.ecosystem" />
     <ProductDatabaseGrid v-if="frontmatter.databases" :databases="frontmatter.databases" />
-    <ProductShowcase v-if="frontmatter.showcase" :showcase="frontmatter.showcase" />
     <ProductArchitecture v-if="frontmatter.architecture" :architecture="frontmatter.architecture" />
     <ProductTools v-if="frontmatter.tools" :tools="frontmatter.tools" />
     <ProductFeatures v-if="frontmatter.features" :features="frontmatter.features" />
