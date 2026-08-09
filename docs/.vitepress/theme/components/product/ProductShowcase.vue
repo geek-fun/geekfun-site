@@ -778,7 +778,7 @@ onBeforeUnmount(() => {
   .msg-text {
     font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace;
     font-size: 0.875rem;
-    color: var(--vp-c-text-1);
+    color: rgba(255, 255, 255, 0.92);
   }
 }
 
@@ -793,7 +793,7 @@ onBeforeUnmount(() => {
   .msg-text {
     font-size: 0.875rem;
     line-height: 1.6;
-    color: var(--vp-c-text-2);
+    color: rgba(255, 255, 255, 0.85);
   }
 }
 
@@ -822,7 +822,7 @@ onBeforeUnmount(() => {
   font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace;
   font-size: 0.8125rem;
   line-height: 1.5;
-  color: var(--vp-c-text-2);
+  color: rgba(255, 255, 255, 0.85);
   background-color: #1f1f22;
   border-left: 2px solid #f89b40;
   border-radius: 4px;
