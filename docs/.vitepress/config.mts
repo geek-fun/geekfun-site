@@ -15,6 +15,29 @@ gtag('js', new Date());
 gtag('config', 'G-ZFVJ89KR9L');`]
 ];
 
+// Auto-detect system language: if the visitor's OS/browser is Chinese and they
+// haven't expressed a preference (localStorage `gf-lang`, set when they switch
+// language in the nav menu), redirect the English (root) page to its /zh/
+// equivalent. Injected into <head> on every page (dev + build) before the app
+// mounts, so there is no flash of the wrong language. Note: this must live in
+// the `head` array — `transformHead` only runs at build time, not in dev.
+const langAutoDetectHead: HeadConfig[] = [['script', {}, `(function () {
+  try {
+    var path = location.pathname;
+    var isZh = path.indexOf('/zh/') === 0 || path === '/zh';
+    var pref = localStorage.getItem('gf-lang');
+    if (pref === 'zh' && !isZh) {
+      location.replace('/zh' + (path.length > 1 ? path : '/'));
+      return;
+    }
+    if (pref) return;
+    var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
+    if (nav.indexOf('zh') === 0 && !isZh) {
+      location.replace('/zh' + (path.length > 1 ? path : '/'));
+    }
+  } catch (e) {}
+})();`]];
+
 function getPageUrl(page: string) {
     const normalizedPage = page.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '');
     return new URL(normalizedPage, `${siteUrl}/`).toString();
@@ -89,7 +112,7 @@ export default defineConfig({
     cleanUrls: true,
     outDir: '../dist',
     cacheDir: '../cache',
-    head: [...gaHead],
+    head: [...gaHead, ...langAutoDetectHead],
     markdown: {
         image: {
             lazyLoading: true
