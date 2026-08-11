@@ -13,10 +13,32 @@
   --gf-c-btn-fill-hover: #e0832a;
 
   /* Linear/Raycast inspired custom properties - Light Mode */
-  --gf-c-bg-card: #ffffff;
+  /* Card fill at 0.4: translucent enough for the blob color behind to show
+     through as frosted glass, opaque enough to keep text readable. */
+  --gf-c-bg-card: rgba(255, 255, 255, 0.4);
   --gf-c-border-subtle: rgba(0, 0, 0, 0.06);
   --gf-c-border-hover: rgba(248, 155, 64, 0.4);
   --gf-c-glow: rgba(248, 155, 64, 0.08);
+
+  /* Glassmorphism tokens - frosted translucent surfaces (light) */
+  --gf-glass-blur: 20px;
+  --gf-glass-blur-strong: 28px;
+  --gf-glass-saturate: 175%;
+  --gf-glass-bg: rgba(255, 255, 255, 0.4);
+  --gf-glass-bg-strong: rgba(255, 255, 255, 0.6);
+  --gf-glass-border: rgba(255, 255, 255, 0.6);
+  --gf-glass-border-subtle: rgba(255, 255, 255, 0.35);
+  --gf-glass-shadow: 0 8px 32px rgba(31, 45, 80, 0.08);
+  /* Soft pastel color blobs behind glass cards — gentle chroma for the frosted
+     blur to diffuse, never loud. These are the anguangkeji-style pastels, not
+     the raw brand colors, so the glass reads as tinted, not painted. */
+  --gf-glass-blob-amber: rgba(250, 185, 120, 0.5);
+  --gf-glass-blob-purple: rgba(200, 160, 250, 0.45);
+  --gf-glass-blob-amber-soft: rgba(250, 195, 140, 0.35);
+  --gf-glass-blob-purple-soft: rgba(210, 170, 250, 0.3);
+  /* Body text color for glass cards — one step darker than --vp-c-text-2 so it
+     stays WCAG AA (4.5:1) even over the saturated blob tints */
+  --gf-glass-text: #56565e;
   --gf-btn-radius: 9999px;
   --gf-btn-shadow-rest: 0 10px 24px rgba(15, 23, 42, 0.08);
   --gf-btn-shadow-hover: 0 18px 38px rgba(15, 23, 42, 0.12);
@@ -66,10 +88,27 @@
   --gf-c-brand-display: #fba95a;
 
   /* Linear/Raycast inspired custom properties - Dark Mode */
-  --gf-c-bg-card: rgba(24, 24, 27, 0.6);
+  --gf-c-bg-card: rgba(24, 24, 27, 0.45);
   --gf-c-border-subtle: rgba(255, 255, 255, 0.08);
   --gf-c-border-hover: rgba(255, 255, 255, 0.2);
   --gf-c-glow: rgba(248, 155, 64, 0.15);
+
+  /* Glassmorphism tokens - frosted translucent surfaces (dark) */
+  --gf-glass-blur: 20px;
+  --gf-glass-blur-strong: 28px;
+  --gf-glass-saturate: 175%;
+  --gf-glass-bg: rgba(24, 24, 27, 0.45);
+  --gf-glass-bg-strong: rgba(24, 24, 27, 0.6);
+  --gf-glass-border: rgba(255, 255, 255, 0.1);
+  --gf-glass-border-subtle: rgba(255, 255, 255, 0.06);
+  --gf-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  /* Soft pastel blobs — dark bg needs a touch more chroma to register, but
+     still gentle (muted pastels, not the raw brand hues) */
+  --gf-glass-blob-amber: rgba(250, 170, 90, 0.45);
+  --gf-glass-blob-purple: rgba(185, 135, 245, 0.4);
+  --gf-glass-blob-amber-soft: rgba(250, 185, 120, 0.3);
+  --gf-glass-blob-purple-soft: rgba(195, 155, 245, 0.28);
+  --gf-glass-text: #c9c9d1;
   --gf-btn-shadow-rest: 0 14px 28px rgba(0, 0, 0, 0.35);
   --gf-btn-shadow-hover: 0 22px 44px rgba(0, 0, 0, 0.48);
   --gf-btn-shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.24);
@@ -90,6 +129,97 @@
 /* Global Smoothness */
 html {
   scroll-behavior: smooth;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Frosted-glass surfaces (毛玻璃)
+   Reference: anguangkeji.com (.glass / nav blur) + dataflare.app (bg-white/60).
+   The nav and every card container get a translucent fill + backdrop blur so
+   page content bleeds through softly. Ambient glows behind card sections give
+   the blur something to diffuse.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Nav bar — translucent glass at every scroll state. Overriding the VitePress
+   nav bg variable lets all scoped states (screen-open, not-home, scrolled)
+   pick up the glass fill without fighting their specificity. */
+:root {
+  --vp-nav-bg-color: var(--gf-glass-bg-strong);
+  --vp-nav-screen-bg-color: var(--gf-glass-bg-strong);
+  --vp-local-nav-bg-color: var(--gf-glass-bg-strong);
+}
+
+html .VPNavBar,
+html .VPNavBar.screen-open,
+html .VPNavBar:not(.home),
+html .VPNavBar:not(.has-sidebar):not(.home.top) {
+  -webkit-backdrop-filter: blur(var(--gf-glass-blur-strong)) saturate(var(--gf-glass-saturate));
+  backdrop-filter: blur(var(--gf-glass-blur-strong)) saturate(var(--gf-glass-saturate));
+}
+
+/* Soften the 1px hairline under the glass nav */
+html .VPNavBar .divider-line {
+  background-color: var(--gf-c-border-subtle) !important;
+}
+
+/* Mobile full-screen nav menu — same glass surface */
+html .VPNavScreen {
+  -webkit-backdrop-filter: blur(var(--gf-glass-blur-strong)) saturate(var(--gf-glass-saturate));
+  backdrop-filter: blur(var(--gf-glass-blur-strong)) saturate(var(--gf-glass-saturate));
+}
+
+/* Card containers — shared frosted-glass treatment.
+   All cards already fill with var(--gf-c-bg-card); the backdrop blur is what
+   turns that translucent fill into actual frosted glass. */
+html :is(
+  .VPFeature,
+  .value-card,
+  .product-card,
+  .team-card,
+  .hero-card,
+  .support-card,
+  .qr-card,
+  .feature-card,
+  .tool-group-card,
+  .arch-node,
+  .dl-product
+) {
+  -webkit-backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
+  backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
+}
+
+/* Tip / callout boxes get the same glass card fill */
+.vp-doc .custom-block.tip {
+  -webkit-backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
+  backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
+}
+
+/* Ambient color blobs behind card sections — the frosted blur needs saturated
+   color variation behind it to actually read as glass (the anguangkeji/dataflare
+   trick: vivid gradient blobs floating behind the glass). Painted directly as a
+   multi-stop radial-gradient background on the section so EVERY card sits over
+   saturated color, not just the corners. !important: scoped component styles use
+   the `background` shorthand (resets background-image), so this must win. */
+html :is(.values-section, .support-section, .team-section, .dl-products, .products-section) {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background-image:
+    radial-gradient(420px 420px at 15% 18%, var(--gf-glass-blob-amber) 0%, transparent 72%),
+    radial-gradient(420px 420px at 50% 55%, var(--gf-glass-blob-amber-soft) 0%, transparent 72%),
+    radial-gradient(460px 460px at 84% 22%, var(--gf-glass-blob-purple) 0%, transparent 72%),
+    radial-gradient(420px 420px at 30% 88%, var(--gf-glass-blob-purple-soft) 0%, transparent 72%),
+    radial-gradient(440px 440px at 72% 92%, var(--gf-glass-blob-amber-soft) 0%, transparent 72%)
+    !important;
+}
+
+/* Body copy inside glass cards gets a slightly darker tint so it stays
+   readable (WCAG AA) over the blob colors bleeding through. No artificial
+   top-edge highlight — the glass reads purely from the translucent fill +
+   backdrop blur + color bleeding through, exactly like the reference sites. */
+html :is(.value-card, .product-card, .team-card, .hero-card, .support-card, .feature-card, .tool-group-card, .arch-node, .dl-product, .VPFeature) {
+  :is(.value-details, .card-details, .product-desc, .details, .feature-body, .team-desc, .tool-desc, .dl-product__description) {
+    color: var(--gf-glass-text);
+  }
 }
 
 /* Typography Refinements for Premium Feel */
