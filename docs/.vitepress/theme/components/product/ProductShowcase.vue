@@ -75,6 +75,7 @@ const TOOL_MS_PER_CHAR = 8
 const RESULT_MS_PER_CHAR = 7
 const THINKING_MS = 600
 const EXECUTING_MS = 650
+const REVEAL_MS = 500
 const HOLD_AFTER_PLAYBACK_MS = 1800
 
 const currentMessages = computed<TerminalMessage[]>(
@@ -82,7 +83,7 @@ const currentMessages = computed<TerminalMessage[]>(
 )
 
 const getMessageState = (mi: number): 'hidden' | 'animating' | 'revealed' => {
-  if (reducedMotion.value || playbackComplete.value) return 'revealed'
+  if (playbackComplete.value) return 'revealed'
   if (!isPlaying.value) return 'hidden'
   if (mi < revealedCount.value) return 'revealed'
   if (mi === revealedCount.value) return 'animating'
@@ -122,7 +123,7 @@ const scrollToBottom = async () => {
   await nextTick()
   const el = contentRef.value
   if (el) {
-    el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' })
+    el.scrollTo({ top: el.scrollHeight, behavior: reducedMotion.value ? 'auto' : 'smooth' })
   }
 }
 
@@ -149,7 +150,43 @@ const playConversation = async () => {
   const token = ++playbackToken
   const messages = currentMessages.value
 
-  if (!messages.length || reducedMotion.value) {
+  if (!messages.length) {
+    revealedCount.value = messages.length
+    isPlaying.value = false
+    playbackComplete.value = true
+    scheduleAdvance()
+    return
+  }
+
+  // Reduced-motion (e.g. Windows with "Show animations" off): still play the
+  // conversation message by message with reading pauses, but without motion —
+  // no typewriter, cursor, spinner, thinking dots, or smooth scroll.
+  if (reducedMotion.value) {
+    isPlaying.value = true
+    playbackComplete.value = false
+    for (let i = 0; i < messages.length; i++) {
+      if (token !== playbackToken) return
+
+      while (hoverPaused.value && token === playbackToken) {
+        await sleep(50)
+      }
+      if (token !== playbackToken) return
+
+      revealedCount.value = i
+      typingChars.value = 0
+      typingRole.value = null
+      thinkingActive.value = false
+      executingActive.value = false
+
+      const msg = messages[i]
+      const pauseMs =
+        msg.role === 'agent' ? THINKING_MS
+        : msg.role === 'tool' ? EXECUTING_MS
+        : REVEAL_MS
+      await sleep(pauseMs)
+      if (token !== playbackToken) return
+      await scrollToBottom()
+    }
     revealedCount.value = messages.length
     isPlaying.value = false
     playbackComplete.value = true
@@ -397,7 +434,7 @@ onBeforeUnmount(() => {
                     <span class="msg-prompt">›</span>
                     <span class="msg-text-wrap">
                       <span class="msg-text">{{
-                        getMessageState(mi) === 'animating'
+                        getMessageState(mi) === 'animating' && typingRole === 'user'
                           ? msg.text.slice(0, typingChars)
                           : msg.text
                       }}</span>
