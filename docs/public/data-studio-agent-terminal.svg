@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <!-- Clip paths for typewriter reveal -->
+    <clipPath id="clip-user">
+      <rect x="38" y="62" width="0" height="22">
+        <animate attributeName="width" values="0;336;336" keyTimes="0;0.167;1" dur="9s" repeatCount="indefinite" fill="freeze" />
+      </rect>
+    </clipPath>
+    <clipPath id="clip-agent">
+      <rect x="38" y="94" width="0" height="22">
+        <animate attributeName="width" values="0;0;370;370" keyTimes="0;0.167;0.333;1" dur="9s" repeatCount="indefinite" fill="freeze" />
+      </rect>
+    </clipPath>
+    <clipPath id="clip-tool">
+      <rect x="24" y="146" width="0" height="20">
+        <animate attributeName="width" values="0;0;331;331" keyTimes="0;0.333;0.5;1" dur="9s" repeatCount="indefinite" fill="freeze" />
+      </rect>
+    </clipPath>
+    <clipPath id="clip-result">
+      <rect x="24" y="174" width="0" height="88">
+        <animate attributeName="width" values="0;0;592;592" keyTimes="0;0.5;0.667;1" dur="9s" repeatCount="indefinite" fill="freeze" />
+      </rect>
+    </clipPath>
+  </defs>
+
+  <!-- Terminal panel background -->
+  <rect width="640" height="360" rx="12" fill="#161618" />
+
+  <!-- Titlebar with rounded top corners -->
+  <path d="M12,0 H628 A12,12 0 0,1 640,12 V40 H0 V12 A12,12 0 0,1 12,0 Z" fill="#1a1a1d" />
+
+  <!-- Titlebar dots -->
+  <circle cx="20" cy="20" r="5" fill="#ff5f57" opacity="0.7" />
+  <circle cx="36" cy="20" r="5" fill="#febc2e" opacity="0.7" />
+  <circle cx="52" cy="20" r="5" fill="#28c840" opacity="0.7" />
+
+  <!-- Titlebar title -->
+  <text x="320" y="25" text-anchor="middle" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="12" fill="rgba(255,255,255,0.5)">Claude Code · data-studio</text>
+
+  <!-- User line -->
+  <text x="24" y="76" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="14" fill="#f89b40" font-weight="600">›</text>
+  <g clip-path="url(#clip-user)">
+    <text x="38" y="76" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="14" fill="rgba(255,255,255,0.92)">Find all users older than 30 in MongoDB</text>
+  </g>
+
+  <!-- Agent line -->
+  <text x="24" y="108" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="14" fill="#f89b40">✦</text>
+  <g clip-path="url(#clip-agent)">
+    <text x="38" y="108" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="14" fill="rgba(255,255,255,0.85)">Reading the schema of the users collection…</text>
+  </g>
+
+  <!-- Tool line -->
+  <text x="24" y="138" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="13" fill="#f89b40" font-weight="500">data_studio__mongo__find</text>
+  <g clip-path="url(#clip-tool)">
+    <text x="24" y="158" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="12" fill="rgba(255,255,255,0.45)">db.users.find({ age: { $gt: 30 } }).limit(10)</text>
+  </g>
+
+  <!-- Result block -->
+  <g clip-path="url(#clip-result)">
+    <rect x="24" y="174" width="592" height="88" rx="4" fill="#1f1f22" />
+    <rect x="24" y="174" width="2" height="88" fill="#f89b40" />
+    <text x="36" y="194" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="13" fill="rgba(255,255,255,0.85)">{ &quot;_id&quot;: &quot;67f2a1c8…&quot;,</text>
+    <text x="36" y="214" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="13" fill="rgba(255,255,255,0.85)">  &quot;name&quot;: &quot;Ada Lovelace&quot;,</text>
+    <text x="36" y="234" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="13" fill="rgba(255,255,255,0.85)">  &quot;age&quot;: 42 }</text>
+  </g>
+
+  <!-- Typing cursor -->
+  <text font-family="ui-monospace, 'SF Mono', 'Cascadia Code', 'Segoe UI Mono', monospace" font-size="14" fill="#f89b40">▌
+    <animate attributeName="x" values="38;374;38;408;24;355;38;38" keyTimes="0;0.167;0.167;0.333;0.333;0.5;0.5;1" dur="9s" repeatCount="indefinite" fill="freeze" />
+    <animate attributeName="y" values="76;76;108;108;158;158;76;76" keyTimes="0;0.167;0.167;0.333;0.333;0.5;0.5;1" dur="9s" repeatCount="indefinite" fill="freeze" />
+    <animate attributeName="visibility" values="visible;visible;hidden;hidden" keyTimes="0;0.5;0.5;1" dur="9s" repeatCount="indefinite" fill="freeze" />
+    <animate attributeName="opacity" values="1;0;1" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite" />
+  </text>
+</svg>
