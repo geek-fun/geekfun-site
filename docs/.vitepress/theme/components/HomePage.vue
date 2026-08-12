@@ -85,7 +85,7 @@ const content = computed(() => {
       {
         name: 'Data Studio Agent',
         logo: '/data-studio-agent.svg',
-        preview: '/data-studio-agent-arch.svg',
+        preview: '/data-studio-agent-terminal.svg',
         description: isZh
           ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
           : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
