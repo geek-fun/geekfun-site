@@ -195,8 +195,9 @@ Sections breathe vertically — hero 120px top padding, values/products 80–100
 
 Grids follow the responsive ladder:
 - **Values grid:** 3 columns → 2 at ≤1024px → 1 at ≤768px; gap 24px → 32px → 40px
-- **Products grid:** 2 columns → 1 at ≤768px; gap 32px → 40px → 48px; an odd last card centers itself on its row
 - **Card content:** `repeat(auto-fit, minmax(280px, 1fr))` where card grids self-adjust
+
+The homepage hero is a **venetian-blind 6-column flip** (HeroBlind): the studio content renders as the front layer; six equal vertical panels flip 180° in a staggered wave to reveal each project (screenshot backdrop, scrim, title + description) as the foreground. Front holds ~6s, back ~10s, then sweeps back — pausing on hover/focus and honoring `prefers-reduced-motion` (static front). ≤768px falls back to a compact 2-column product list. This replaced the former product carousel and the 2-column products grid.
 
 Buttons and actions stack full-width at ≤480px; interactive elements expand to 48px min-height at ≤768px and 44×44px minimum on coarse pointers.
 

@@ -3,7 +3,6 @@ import {inBrowser, useData} from "vitepress";
 import './style.scss';
 import {watchEffect, h} from "vue";
 import TeamMembers from './components/team-members.vue';
-import Product from "./components/product.vue";
 import Footer from "./components/Footer.vue";
 import DownloadPage from "./components/DownloadPage.vue";
 import HomePage from "./components/HomePage.vue";
@@ -70,7 +69,6 @@ export default {
         // register your custom global components
         app.component('product', ProductLayout);
         app.component('TeamMembers', TeamMembers);
-        app.component('Product', Product);
         app.component('DownloadPage', DownloadPage);
         app.component('HomePage', HomePage);
         app.component('AboutPage', AboutPage);
