@@ -32,10 +32,14 @@
   /* Soft pastel color blobs behind glass cards — gentle chroma for the frosted
      blur to diffuse, never loud. These are the anguangkeji-style pastels, not
      the raw brand colors, so the glass reads as tinted, not painted. */
-  --gf-glass-blob-amber: rgba(250, 185, 120, 0.5);
-  --gf-glass-blob-purple: rgba(200, 160, 250, 0.45);
-  --gf-glass-blob-amber-soft: rgba(250, 195, 140, 0.35);
-  --gf-glass-blob-purple-soft: rgba(210, 170, 250, 0.3);
+  --gf-glass-blob-amber: rgba(250, 185, 120, 0.35);
+  --gf-glass-blob-purple: rgba(200, 160, 250, 0.3);
+  --gf-glass-blob-amber-soft: rgba(250, 195, 140, 0.22);
+  --gf-glass-blob-purple-soft: rgba(210, 170, 250, 0.18);
+  /* Faint ambient glows for prominent top-of-page surfaces (announcement bar)
+     — barely-there chroma so the glass reads without the gradient shouting */
+  --gf-glass-blob-amber-faint: rgba(250, 195, 140, 0.2);
+  --gf-glass-blob-purple-faint: rgba(210, 175, 250, 0.16);
   /* Body text color for glass cards — one step darker than --vp-c-text-2 so it
      stays WCAG AA (4.5:1) even over the saturated blob tints */
   --gf-glass-text: #56565e;
@@ -104,10 +108,12 @@
   --gf-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   /* Soft pastel blobs — dark bg needs a touch more chroma to register, but
      still gentle (muted pastels, not the raw brand hues) */
-  --gf-glass-blob-amber: rgba(250, 170, 90, 0.45);
-  --gf-glass-blob-purple: rgba(185, 135, 245, 0.4);
-  --gf-glass-blob-amber-soft: rgba(250, 185, 120, 0.3);
-  --gf-glass-blob-purple-soft: rgba(195, 155, 245, 0.28);
+  --gf-glass-blob-amber: rgba(250, 170, 90, 0.3);
+  --gf-glass-blob-purple: rgba(185, 135, 245, 0.26);
+  --gf-glass-blob-amber-soft: rgba(250, 185, 120, 0.2);
+  --gf-glass-blob-purple-soft: rgba(195, 155, 245, 0.18);
+  --gf-glass-blob-amber-faint: rgba(250, 185, 120, 0.18);
+  --gf-glass-blob-purple-faint: rgba(195, 160, 245, 0.14);
   --gf-glass-text: #c9c9d1;
   --gf-btn-shadow-rest: 0 14px 28px rgba(0, 0, 0, 0.35);
   --gf-btn-shadow-hover: 0 22px 44px rgba(0, 0, 0, 0.48);

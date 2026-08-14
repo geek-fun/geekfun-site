@@ -327,6 +327,24 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
+
+  /* Ambient color blobs at the very top of the page, behind the announcement
+     bar — barely-there chroma so the glass bar reads as frosted without the
+     gradient shouting over the page. */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background:
+      radial-gradient(420px 180px at 18% 0%, var(--gf-glass-blob-amber-faint) 0%, transparent 70%),
+      radial-gradient(460px 200px at 82% 0%, var(--gf-glass-blob-purple-faint) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
 }
 
 .container {
@@ -351,9 +369,14 @@ onUnmounted(() => {
   }
 }
 
-/* Announcement Banner */
+/* Announcement Banner — frosted glass: translucent fill + backdrop blur so the
+   ambient blobs behind it bleed through. Sits above the homepage ::before glow. */
 .announcement-bar {
-  background-color: var(--vp-c-brand-soft);
+  position: relative;
+  z-index: 1;
+  background-color: var(--gf-glass-bg);
+  -webkit-backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
+  backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
   color: var(--vp-c-text-1);
   padding: 0.625rem 0;
   font-size: 0.8125rem;
