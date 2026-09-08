@@ -119,7 +119,7 @@ GEEKFUN's interface is a workshop kept after hours: near-black walls, one warm w
 
 The voice is **quiet precision**. Restraint does the talking: generous vertical rhythm, hairline borders instead of heavy frames, refined soft shadows that only appear at rest and deepen on hover, and a single signal color — forge amber — applied in rare, deliberate moments. Cards float on subtle depth rather than colored noise. The only gradient pair, amber-to-violet, is reserved for decorative backgrounds and accent lines; it never carries text or primary action.
 
-Motion is disciplined: transform and opacity only, expo-eased, one orchestrated reveal per moment. The carousel and the typewriter cursor are the only recurring motion signatures. Accessibility is baseline — WCAG 2.1 AA, visible focus rings in forge amber, touch targets of 44px minimum on coarse pointers, and full `prefers-reduced-motion` support.
+Motion is disciplined: transform and opacity only, expo-eased, one orchestrated reveal per moment. The homepage hero's blind flip cycle and the product-page showcase carousels are the recurring motion signatures. The flip pauses on hover/focus, and content is never gated behind motion (the product list replaces the stage under `prefers-reduced-motion`). Accessibility is baseline — WCAG 2.1 AA, visible focus rings in forge amber, touch targets of 44px minimum on coarse pointers, and full `prefers-reduced-motion` support.
 
 **Key Characteristics:**
 - Dark-first workshop surfaces (`#0f0f11` / `#18181b` / `#1f1f22`), light paper mode for docs
@@ -184,6 +184,11 @@ The product landing pages (ProductLayout kit) use deliberate intermediate steps 
 - **Tight sub-labels** (0.75rem, 600) and **micro-badges** (0.625rem): Platform-grid and database-grid chip labels.
 - **Radii:** 8px is the interactive-element radius for install tabs and copy buttons (bumped from 7px to align with the token); 14px remains the ≥1440px card radius.
 
+### Homepage hero panel steps (documented sub-scale steps)
+The HeroBlind back-face panels carry dense product copy in 1/6-width columns, below the canonical display scale. Documented, not drift:
+- **Panel name** (700, 1rem, tracking -0.01em): Product title on each panel face.
+- **Panel description** (400, 0.875rem, line-height 1.5, 4-line clamp): The readable floor for product copy in narrow columns — never below 0.875rem on the panel faces.
+
 ### Named Rules
 **The Tracking Rule.** Display and headline type always carries negative tracking (-0.02em to -0.04em); labels and badges always carry wide tracking (0.05em to 0.2em) with uppercase. No zero-tracking display type, no tight-tracked labels.
 
@@ -197,7 +202,7 @@ Grids follow the responsive ladder:
 - **Values grid:** 3 columns → 2 at ≤1024px → 1 at ≤768px; gap 24px → 32px → 40px
 - **Card content:** `repeat(auto-fit, minmax(280px, 1fr))` where card grids self-adjust
 
-The homepage hero is a **venetian-blind 6-column flip** (HeroBlind): the studio content renders as the front layer; six equal vertical panels flip 180° in a staggered wave to reveal each project (screenshot backdrop, scrim, title + description) as the foreground. Front holds ~6s, back ~10s, then sweeps back — pausing on hover/focus and honoring `prefers-reduced-motion` (static front). ≤768px falls back to a compact 2-column product list. This replaced the former product carousel and the 2-column products grid.
+The homepage hero is a **venetian-blind 6-column flip** (HeroBlind): the studio content renders as the front layer, visible through the panels' transparent front faces; six equal vertical panels each flip 180° to reveal a project (screenshot backdrop, scrim, logo + name + description). Panels open **one at a time, left→right, ~5s apart**: the front holds ~6s, then the first panel opens and each next follows roughly 5s later until all six are open; they rest open ~10s, then close right→left in a quick sweep, and the cycle repeats — pausing on hover/focus. **Clicking a closed panel (e.g. while the front is showing) flips that column open immediately** to reveal its own image and description; the cycle stays paused while the pointer is over the hero. `prefers-reduced-motion` holds a static front, where a compact 2-column product list is shown in the stage's place so product content is never gated behind motion. ≤768px uses that same compact product list. This replaced the former product carousel and the 2-column products grid.
 
 Buttons and actions stack full-width at ≤480px; interactive elements expand to 48px min-height at ≤768px and 44×44px minimum on coarse pointers.
 
