@@ -353,19 +353,27 @@ const content = computed(() => {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+  grid-template-columns: repeat(6, 1fr);
   border-left: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .product-cell {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 26px 24px;
+  padding: 30px 14px;
   border-right: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  border-bottom: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   text-decoration: none;
+  text-align: center;
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -379,20 +387,26 @@ const content = computed(() => {
 }
 
 .product-icon {
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   flex: none;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-cell:hover .product-icon {
+  transform: translateY(-3px);
 }
 
 .product-name {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--vp-c-text-1);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 100%;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -400,29 +414,19 @@ const content = computed(() => {
   color: var(--gf-c-brand-display, #f89b40);
 }
 
-@media (max-width: 768px) {
-  .product-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+@media (max-width: 640px) {
   .product-cell {
     gap: 12px;
-    padding: 20px 16px;
+    padding: 24px 10px;
   }
 
   .product-icon {
-    width: 34px;
-    height: 34px;
+    width: 52px;
+    height: 52px;
   }
 
   .product-name {
     font-size: 0.9375rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .product-list {
-    grid-template-columns: 1fr;
   }
 }
 
