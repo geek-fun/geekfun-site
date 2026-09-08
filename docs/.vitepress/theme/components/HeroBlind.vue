@@ -25,26 +25,26 @@ const props = defineProps<{
 }>()
 
 // ── Blind cycle state ──────────────────────────────────────────────────
-const flipped = ref(false)
+// Panels open ONE AT A TIME, left→right, ~5s apart: the first panel flips
+// after the front hold, then each next panel follows roughly OPEN_GAP_MS
+// later. All six rest open (back phase), then close right→left in a quick
+// sweep, and the cycle repeats. Hover/focus pauses the clock. While a panel
+// is closed (e.g. on the front face), clicking that column opens it right
+// away to show that product's image + description — the pointer is already
+// over the hero, so the clock stays paused until the user leaves.
+const open = ref<boolean[]>(props.products.map(() => false))
+type BlindPhase = 'front' | 'opening' | 'back' | 'closing'
+const phase = ref<BlindPhase>('front')
 const paused = ref(false)
 const reducedMotion = ref(false)
 
-const FRONT_MS = 6000 // how long the front (studio content) stays before flipping
-const BACK_MS = 10000 // how long the back (project panels) stays before flipping back
-const FLIP_MS = 900 // single panel flip duration
-const STAGGER_MS = 70 // cascade delay between panels
+const FRONT_MS = 6000 // studio content stays before the first panel opens
+const OPEN_GAP_MS = 5000 // wait between each successive panel opening
+const BACK_MS = 10000 // how long all six stay open before closing
+const CLOSE_GAP_MS = 70 // quick right→left cascade when closing
 
 let phaseTimer: ReturnType<typeof setTimeout> | null = null
 let mql: MediaQueryList | null = null
-
-const totalStagger = () => (props.products.length - 1) * STAGGER_MS
-
-/** Cascade follows a wave: opening left→right, closing right→left, so the
- *  blind sweeps in one direction then sweeps back — visually continuous. */
-const delayFor = (i: number) => {
-  const n = props.products.length
-  return (flipped.value ? n - 1 - i : i) * STAGGER_MS
-}
 
 function clearTimer() {
   if (phaseTimer) {
@@ -53,15 +53,90 @@ function clearTimer() {
   }
 }
 
-function schedule() {
+/** Leftmost closed panel, or -1 when every panel is open. */
+function nextClosedFromLeft() {
+  return open.value.findIndex((isOpen) => !isOpen)
+}
+
+/** Rightmost open panel, or -1 when every panel is closed. */
+function rightmostOpen() {
+  for (let i = open.value.length - 1; i >= 0; i--) {
+    if (open.value[i]) return i
+  }
+  return -1
+}
+
+/** Runs the current phase's action and schedules the next one. */
+function step() {
   clearTimer()
   if (paused.value || reducedMotion.value) return
-  const hold = flipped.value ? BACK_MS : FRONT_MS
-  phaseTimer = setTimeout(() => {
-    flipped.value = !flipped.value
-    // wait for the staggered flip animation to fully finish before the next hold
-    phaseTimer = setTimeout(schedule, FLIP_MS + totalStagger())
-  }, hold)
+
+  switch (phase.value) {
+    case 'front': {
+      // hold the studio content, then open the first closed panel from the left
+      phaseTimer = setTimeout(() => {
+        const i = nextClosedFromLeft()
+        if (i >= 0) {
+          open.value[i] = true
+          phase.value = 'opening'
+        } else {
+          phase.value = 'back'
+        }
+        step()
+      }, FRONT_MS)
+      break
+    }
+
+    case 'opening': {
+      if (nextClosedFromLeft() >= 0) {
+        phaseTimer = setTimeout(() => {
+          const i = nextClosedFromLeft()
+          if (i >= 0) open.value[i] = true
+          step()
+        }, OPEN_GAP_MS)
+      } else {
+        // every panel open — hold, then start closing from the right
+        phase.value = 'back'
+        phaseTimer = setTimeout(() => {
+          phase.value = 'closing'
+          step()
+        }, BACK_MS)
+      }
+      break
+    }
+
+    case 'back': {
+      phaseTimer = setTimeout(() => {
+        phase.value = 'closing'
+        step()
+      }, BACK_MS)
+      break
+    }
+
+    case 'closing': {
+      if (rightmostOpen() >= 0) {
+        phaseTimer = setTimeout(() => {
+          const j = rightmostOpen()
+          if (j >= 0) open.value[j] = false
+          step()
+        }, CLOSE_GAP_MS)
+      } else {
+        phase.value = 'front'
+        step()
+      }
+      break
+    }
+  }
+}
+
+/** Clicking a closed panel flips that column open immediately (its own image
+ *  and description); clicking an open panel follows the product link. The
+ *  pointer is over the hero, so the cycle is already paused on hover — the
+ *  revealed panel stays up until the user leaves. */
+function onPanelClick(index: number, event: MouseEvent) {
+  if (open.value[index]) return // open panel → normal navigation
+  event.preventDefault()
+  open.value[index] = true
 }
 
 function onPause() {
@@ -71,16 +146,17 @@ function onPause() {
 
 function onResume() {
   paused.value = false
-  schedule()
+  step()
 }
 
 function syncMotion() {
   reducedMotion.value = mql?.matches ?? false
   if (reducedMotion.value) {
     clearTimer()
-    flipped.value = false
+    open.value = props.products.map(() => false)
+    phase.value = 'front'
   } else {
-    schedule()
+    step()
   }
 }
 
@@ -130,20 +206,22 @@ onBeforeUnmount(() => {
     </div>
 
     <!-- The 6 vertical panels — a venetian blind over the studio content.
-         Front face: transparent (studio content shows through). Back face:
-         the project image + title + description. -->
-    <div class="blind-stage" :class="{ flipped }">
+         Each panel opens on its own clock, left→right ~5s apart. Front face:
+         transparent (studio content shows through). Back face: the project
+         image + title + description. -->
+    <div class="blind-stage">
       <a
         v-for="(p, i) in products"
         :key="p.name"
         class="blind-panel"
-        :href="p.url"
+        :class="{ 'is-open': open[i] }"
+        :href="open[i] ? p.url : undefined"
         :target="p.url.startsWith('http') ? '_blank' : undefined"
         :rel="p.url.startsWith('http') ? 'noopener noreferrer' : undefined"
-        :tabindex="flipped ? 0 : -1"
-        :aria-hidden="!flipped"
-        :aria-label="p.name"
-        :style="{ '--flip-delay': delayFor(i) + 'ms' }"
+        :tabindex="open[i] ? 0 : -1"
+        :aria-hidden="open[i] ? undefined : 'true'"
+        :aria-label="open[i] ? p.name : `Show ${p.name} details`"
+        @click="onPanelClick(i, $event)"
       >
         <div class="blind-inner">
           <div class="blind-face blind-front" aria-hidden="true"></div>
@@ -315,12 +393,11 @@ onBeforeUnmount(() => {
 .blind-panel {
   position: relative;
   transform-style: preserve-3d;
-  transition-delay: var(--flip-delay, 0ms);
-  pointer-events: none;
 }
 
-.blind-stage.flipped .blind-panel {
-  pointer-events: auto;
+.blind-panel,
+.blind-panel * {
+  cursor: pointer;
 }
 
 .blind-inner {
@@ -328,10 +405,9 @@ onBeforeUnmount(() => {
   inset: 0;
   transform-style: preserve-3d;
   transition: transform 900ms cubic-bezier(0.65, 0.05, 0.36, 1);
-  transition-delay: inherit;
 }
 
-.blind-stage.flipped .blind-inner {
+.blind-panel.is-open .blind-inner {
   transform: rotateY(180deg);
 }
 
@@ -359,12 +435,18 @@ onBeforeUnmount(() => {
 
 .blind-back-img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: 2px;
+  top: 12px;
+  width: calc(100% - 4px);
+  height: calc(100% - 12px);
   object-fit: cover;
+  object-position: center 20%;
+  border-radius: 8px;
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* Every panel's screenshot shares the same frame — a 12px reveal above,
+   ~2px sides, flush to the bottom — so the six content blocks stay aligned. */
 
 .blind-panel:hover .blind-back-img {
   transform: scale(1.05);
@@ -379,6 +461,13 @@ onBeforeUnmount(() => {
     rgba(12, 12, 15, 0.4) 45%,
     rgba(12, 12, 15, 0.08) 70%
   );
+}
+
+/* Visible keyboard focus on every panel; invisible to pointer users. */
+.blind-panel:focus-visible {
+  outline: 2px solid var(--gf-c-brand);
+  outline-offset: -2px;
+  z-index: 2;
 }
 
 .blind-back-info {
@@ -398,14 +487,14 @@ onBeforeUnmount(() => {
   width: 26px;
   height: 26px;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.16);
   padding: 3px;
   margin-bottom: 2px;
 }
 
 .blind-back-name {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   margin: 0;
@@ -413,10 +502,10 @@ onBeforeUnmount(() => {
 }
 
 .blind-back-desc {
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.84);
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -425,7 +514,49 @@ onBeforeUnmount(() => {
 
 /* ── Mobile fallback ──────────────────────────────────────────────────── */
 .hero-blind-mobile {
+  position: relative;
+  z-index: 1;
   display: none;
+  width: 100%;
+  max-width: 560px;
+  margin-top: 40px;
+  padding: 0 24px;
+}
+
+.hero-blind-mobile-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background-color: var(--gf-c-bg-card, var(--vp-c-bg-soft));
+  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+  text-decoration: none;
+  color: var(--vp-c-text-1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--gf-c-brand);
+    outline-offset: 2px;
+  }
+}
+
+.hero-blind-mobile-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.hero-blind-mobile-name {
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -434,50 +565,26 @@ onBeforeUnmount(() => {
   }
 
   .hero-blind-mobile {
-    position: relative;
-    z-index: 1;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    width: 100%;
-    max-width: 560px;
-    margin-top: 40px;
-    padding: 0 24px;
-  }
-
-  .hero-blind-mobile-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 14px;
-    border-radius: 12px;
-    background-color: var(--gf-c-bg-card, var(--vp-c-bg-soft));
-    border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-    text-decoration: none;
-    color: var(--vp-c-text-1);
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover {
-      transform: translateY(-2px);
-      border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
-    }
-  }
-
-  .hero-blind-mobile-logo {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    border-radius: 6px;
-  }
-
-  .hero-blind-mobile-name {
-    font-size: 0.875rem;
-    font-weight: 600;
   }
 }
 
+/* Reduced motion never gates content behind the flip: the stage stays
+   static on its front face, so the product list takes its place at every
+   width instead of vanishing on desktop. */
 @media (prefers-reduced-motion: reduce) {
+  .blind-stage {
+    display: none;
+  }
+
+  .hero-blind-mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
   .blind-inner {
     transition: none;
   }
