@@ -201,7 +201,7 @@ Sections breathe vertically — hero 120px top padding, values/products 80–100
 Grids follow the responsive ladder:
 - **Values grid:** 3 columns → 2 at ≤1024px → 1 at ≤768px; gap 24px → 32px → 40px
 - **Card content:** `repeat(auto-fit, minmax(280px, 1fr))` where card grids self-adjust
-- **Products index:** hairline list rows (44px icon + name + one-line ellipsized description + arrow) separated by 1px hairlines — no card backgrounds; hover nudges the arrow and tints the name forge amber
+- **Products index:** minimal grid of icon + name cells (3 → 2 at ≤768px → 1 at ≤480px), separated by 1px hairlines — no card backgrounds, no descriptions; hover tints the name forge amber
 
 The homepage hero is a **venetian-blind 6-column flip** (HeroBlind): the studio content renders as the front layer, visible through the panels' transparent front faces; six equal vertical panels each flip 180° to reveal a project (screenshot backdrop, scrim, logo + name + description). Panels open **one at a time, left→right, ~5s apart**: the front holds ~6s, then the first panel opens and each next follows roughly 5s later until all six are open; they rest open ~10s, then close right→left in a quick sweep, and the cycle repeats — pausing on hover/focus. **Clicking a closed panel (e.g. while the front is showing) flips that column open immediately** to reveal its own image and description; the cycle stays paused while the pointer is over the hero. `prefers-reduced-motion` holds a static front, where a compact 2-column product list is shown in the stage's place so product content is never gated behind motion. ≤768px uses that same compact product list. This replaced the former product carousel and the 2-column products grid.
 

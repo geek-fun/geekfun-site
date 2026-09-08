@@ -153,12 +153,10 @@ const content = computed(() => {
               :href="p.url"
               :target="p.url.startsWith('http') ? '_blank' : undefined"
               :rel="p.url.startsWith('http') ? 'noopener noreferrer' : undefined"
-              class="product-row"
+              class="product-cell"
             >
               <img :src="p.logo" :alt="p.name + ' logo'" class="product-icon" loading="lazy" />
               <span class="product-name">{{ p.name }}</span>
-              <span class="product-desc">{{ p.description }}</span>
-              <span class="product-arrow" aria-hidden="true">→</span>
             </a>
           </li>
         </ul>
@@ -335,8 +333,8 @@ const content = computed(() => {
 
 /* Hero is rendered by the HeroBlind component — see HeroBlind.vue */
 
-/* Products index — hairline list (icon + name + one-line description + arrow).
-   No card backgrounds: rows separated by 1px hairlines per the design system. */
+/* Products index — minimal icon + name grid. Cells separated by 1px hairlines
+   per the design system; no card backgrounds, no descriptions. */
 .products-section {
   padding: 80px 0;
   background-color: var(--vp-c-bg);
@@ -354,93 +352,77 @@ const content = computed(() => {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+  border-left: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
 }
 
-.product-row {
+.product-cell {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 22px 8px;
+  gap: 16px;
+  padding: 26px 24px;
+  border-right: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   border-bottom: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   text-decoration: none;
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.product-list li:first-child .product-row {
-  border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-}
-
-.product-row:hover {
+.product-cell:hover {
   background-color: var(--vp-c-bg-soft);
 }
 
-.product-row:focus-visible {
+.product-cell:focus-visible {
   outline: 2px solid var(--gf-c-brand);
   outline-offset: -2px;
 }
 
 .product-icon {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   flex: none;
 }
 
 .product-name {
-  flex: 0 0 220px;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--vp-c-text-1);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.product-row:hover .product-name {
-  color: var(--gf-c-brand-display, #f89b40);
-}
-
-.product-desc {
-  flex: 1;
-  min-width: 0;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: var(--vp-c-text-2);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.product-arrow {
-  flex: none;
-  color: var(--vp-c-text-2);
-  font-size: 1.0625rem;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.product-row:hover .product-arrow {
-  transform: translateX(4px);
+.product-cell:hover .product-name {
   color: var(--gf-c-brand-display, #f89b40);
 }
 
 @media (max-width: 768px) {
-  .product-row {
-    gap: 14px;
-    padding: 18px 4px;
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-cell {
+    gap: 12px;
+    padding: 20px 16px;
   }
 
   .product-icon {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
   }
 
   .product-name {
-    flex: 0 1 auto;
-    font-size: 1rem;
+    font-size: 0.9375rem;
   }
+}
 
-  .product-desc {
-    font-size: 0.875rem;
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: 1fr;
   }
 }
 
