@@ -39,6 +39,7 @@ const content = computed(() => {
       secondaryLink: 'https://github.com/geek-fun'
     },
     sections: {
+      products: isZh ? '产品' : 'Products',
       values: isZh ? '价值观' : 'Values',
       team: isZh ? '团队成员' : 'Team Members',
     },
@@ -138,6 +139,31 @@ const content = computed(() => {
 
     <!-- Hero: venetian-blind flip between studio content and the 6 projects -->
     <HeroBlind :hero="content.hero" :products="content.products" />
+
+    <!-- Products index: persistent, scannable hairline list (the blind reveals
+         one product at a time; this is the always-visible anchor) -->
+    <section class="products-section" :aria-label="content.sections.products">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-label">{{ content.sections.products }}</h2>
+        </div>
+        <ul class="product-list">
+          <li v-for="p in content.products" :key="p.name">
+            <a
+              :href="p.url"
+              :target="p.url.startsWith('http') ? '_blank' : undefined"
+              :rel="p.url.startsWith('http') ? 'noopener noreferrer' : undefined"
+              class="product-row"
+            >
+              <img :src="p.logo" :alt="p.name + ' logo'" class="product-icon" loading="lazy" />
+              <span class="product-name">{{ p.name }}</span>
+              <span class="product-desc">{{ p.description }}</span>
+              <span class="product-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
     <!-- Value Proposition Section -->
     <section class="values-section">
@@ -308,6 +334,115 @@ const content = computed(() => {
 }
 
 /* Hero is rendered by the HeroBlind component — see HeroBlind.vue */
+
+/* Products index — hairline list (icon + name + one-line description + arrow).
+   No card backgrounds: rows separated by 1px hairlines per the design system. */
+.products-section {
+  padding: 80px 0;
+  background-color: var(--vp-c-bg);
+
+  @media (min-width: 1440px) {
+    padding: 100px 0;
+  }
+
+  @media (min-width: 1920px) {
+    padding: 120px 0;
+  }
+}
+
+.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 8px;
+  border-bottom: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+  text-decoration: none;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-list li:first-child .product-row {
+  border-top: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
+}
+
+.product-row:hover {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.product-row:focus-visible {
+  outline: 2px solid var(--gf-c-brand);
+  outline-offset: -2px;
+}
+
+.product-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: none;
+}
+
+.product-name {
+  flex: 0 0 220px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--vp-c-text-1);
+  white-space: nowrap;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-row:hover .product-name {
+  color: var(--gf-c-brand-display, #f89b40);
+}
+
+.product-desc {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-arrow {
+  flex: none;
+  color: var(--vp-c-text-2);
+  font-size: 1.0625rem;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-row:hover .product-arrow {
+  transform: translateX(4px);
+  color: var(--gf-c-brand-display, #f89b40);
+}
+
+@media (max-width: 768px) {
+  .product-row {
+    gap: 14px;
+    padding: 18px 4px;
+  }
+
+  .product-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .product-name {
+    flex: 0 1 auto;
+    font-size: 1rem;
+  }
+
+  .product-desc {
+    font-size: 0.875rem;
+  }
+}
 
 /* Values Section */
 .values-section {
