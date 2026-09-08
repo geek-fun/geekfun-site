@@ -44,18 +44,9 @@ const content = computed(() => {
     },
     products: [
       {
-        name: 'Data Studio Agent',
-        logo: '/data-studio-agent.svg',
-        preview: '/data-studio-agent-terminal.svg',
-        description: isZh
-          ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
-          : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
-        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
-      },
-      {
         name: 'DocKit',
         logo: '/dockit.png',
-        preview: '/dockit-client-ui.png',
+        preview: '/hero-slice-image/dockit-image.png',
         description: isZh 
           ? '开源 NoSQL 桌面客户端，支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 等数据库，内置 Agentic Data Studio，致力于打造 AI Native 的新一代数据库管理工具。'
           : 'Open-source desktop GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — with Agentic Data Studio for natural language database interaction. Query, manage, and migrate your NoSQL databases from a single native app.',
@@ -64,11 +55,20 @@ const content = computed(() => {
       {
         name: 'SqlKit',
         logo: '/sqlkit.png',
-        preview: '/sqlkit-client-ui.png',
+        preview: '/hero-slice-image/sqlkit-image.png',
         description: isZh
           ? '开源 SQL 桌面客户端，支持 50+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse 等），内置 AI 智能体，提供 Agentic Data Studio 自然语言查询体验。'
           : 'Open-source AI-powered SQL desktop client for 50+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, and more), with Agentic Data Studio for natural language querying.',
         url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
+      },
+      {
+        name: 'Data Studio Agent',
+        logo: '/data-studio-agent.svg',
+        preview: '/data-studio-agent-terminal.svg',
+        description: isZh
+          ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
+          : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
+        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
       },
       {
         name: 'ServerlessInsight',
