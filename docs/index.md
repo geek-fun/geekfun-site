@@ -1,7 +1,7 @@
 ---
 layout: page
-title: GEEKFUN | Open-Source Studio — DocKit NoSQL Desktop GUI for MongoDB, Elasticsearch, DynamoDB & Developer Tools
-description: GEEKFUN is a sustainable open-source software community building DocKit (open-source NoSQL desktop GUI supporting MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch with a built-in data AI agent and Agentic Data Studio), SqlKit, and ServerlessInsight. Free, privacy-first, and community-driven.
+title: GEEKFUN | AI-Native Open-Source Data Tools — Data Studio Agent, DocKit, SqlKit
+description: "GEEKFUN is a sustainable open-source community building AI-native data tools. Featured: Data Studio Agent (open-source MCP server that lets AI coding agents query your databases in plain language), plus DocKit (NoSQL desktop GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB) and SqlKit (AI-powered SQL client for 50+ databases). Free, privacy-first, built in public."
 head:
   - - link
     - rel: canonical
