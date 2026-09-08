@@ -140,8 +140,23 @@ const content = computed(() => {
     <!-- Hero: venetian-blind flip between studio content and the 6 projects -->
     <HeroBlind :hero="content.hero" :products="content.products" />
 
-    <!-- Products index: persistent, scannable hairline list (the blind reveals
-         one product at a time; this is the always-visible anchor) -->
+    <!-- Value Proposition Section -->
+    <section class="values-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-label">{{ content.sections.values }}</h2>
+        </div>
+        <div class="values-grid">
+          <div v-for="feature in content.features" :key="feature.title" class="value-card">
+            <ValueIcon :name="feature.icon" />
+            <h3 class="value-title">{{ feature.title }}</h3>
+            <p class="value-details">{{ feature.details }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products index: minimal icon + name strip -->
     <section class="products-section" :aria-label="content.sections.products">
       <div class="container">
         <div class="section-header">
@@ -160,22 +175,6 @@ const content = computed(() => {
             </a>
           </li>
         </ul>
-      </div>
-    </section>
-
-    <!-- Value Proposition Section -->
-    <section class="values-section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-label">{{ content.sections.values }}</h2>
-        </div>
-        <div class="values-grid">
-          <div v-for="feature in content.features" :key="feature.title" class="value-card">
-            <ValueIcon :name="feature.icon" />
-            <h3 class="value-title">{{ feature.title }}</h3>
-            <p class="value-details">{{ feature.details }}</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -333,8 +332,8 @@ const content = computed(() => {
 
 /* Hero is rendered by the HeroBlind component — see HeroBlind.vue */
 
-/* Products index — minimal icon + name grid. Cells separated by 1px hairlines
-   per the design system; no card backgrounds, no descriptions. */
+/* Products index — minimal icon + name grid. No card backgrounds, no
+   descriptions, no separators. */
 .products-section {
   padding: 80px 0;
   background-color: var(--vp-c-bg);
@@ -354,7 +353,6 @@ const content = computed(() => {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  border-left: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
@@ -371,7 +369,6 @@ const content = computed(() => {
   align-items: center;
   gap: 16px;
   padding: 30px 14px;
-  border-right: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
   text-decoration: none;
   text-align: center;
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
