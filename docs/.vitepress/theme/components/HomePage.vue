@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed } from 'vue'
 import { useData } from 'vitepress'
 
+import HeroBlind from './HeroBlind.vue'
 import ValueIcon, { type ValueIconName } from './ValueIcon.vue'
 
 const { lang } = useData()
@@ -11,12 +12,6 @@ type ProductData = {
   logo: string
   preview: string
   description: string
-  url: string
-}
-
-type ProductStripItem = {
-  name: string
-  logo: string
   url: string
 }
 
@@ -47,54 +42,12 @@ const content = computed(() => {
       products: isZh ? '产品' : 'Products',
       values: isZh ? '价值观' : 'Values',
       team: isZh ? '团队成员' : 'Team Members',
-      whatWeMake: isZh ? '我们的产品' : 'What we make'
     },
-    productStrip: [
-      {
-        name: 'Data Studio Agent',
-        logo: '/data-studio-agent.svg',
-        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
-      },
-      {
-        name: 'DocKit',
-        logo: '/dockit.png',
-        url: isZh ? '/zh/products/dockit/' : '/products/dockit/'
-      },
-      {
-        name: 'SqlKit',
-        logo: '/sqlkit.png',
-        url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
-      },
-      {
-        name: 'ServerlessInsight',
-        logo: '/serverlessinsight.png',
-        url: 'https://serverlessinsight.com/'
-      },
-      {
-        name: 'serverless-adapter',
-        logo: '/serverless-adapter.svg',
-        url: 'https://github.com/geek-fun/serverless-adapter'
-      },
-      {
-        name: 'jest-search',
-        logo: '/jest-search.png',
-        url: 'https://github.com/geek-fun/jest-search'
-      }
-    ] as ProductStripItem[],
     products: [
       {
-        name: 'Data Studio Agent',
-        logo: '/data-studio-agent.svg',
-        preview: '/data-studio-agent-terminal.svg',
-        description: isZh
-          ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
-          : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
-        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
-      },
-      {
         name: 'DocKit',
         logo: '/dockit.png',
-        preview: '/dockit-client-ui.png',
+        preview: '/hero-slice-image/dockit-image.png',
         description: isZh 
           ? '开源 NoSQL 桌面客户端，支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 等数据库，内置 Agentic Data Studio，致力于打造 AI Native 的新一代数据库管理工具。'
           : 'Open-source desktop GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — with Agentic Data Studio for natural language database interaction. Query, manage, and migrate your NoSQL databases from a single native app.',
@@ -103,11 +56,20 @@ const content = computed(() => {
       {
         name: 'SqlKit',
         logo: '/sqlkit.png',
-        preview: '/sqlkit-client-ui.png',
+        preview: '/hero-slice-image/sqlkit-image.png',
         description: isZh
           ? '开源 SQL 桌面客户端，支持 50+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse 等），内置 AI 智能体，提供 Agentic Data Studio 自然语言查询体验。'
           : 'Open-source AI-powered SQL desktop client for 50+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, and more), with Agentic Data Studio for natural language querying.',
         url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
+      },
+      {
+        name: 'Data Studio Agent',
+        logo: '/data-studio-agent.svg',
+        preview: '/hero-slice-image/data-studio-agent-terminal.svg',
+        description: isZh
+          ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
+          : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
+        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
       },
       {
         name: 'ServerlessInsight',
@@ -162,41 +124,6 @@ const content = computed(() => {
     ] as FeatureData[]
   }
 })
-
-const activeIndex = ref(0)
-let carouselTimer: ReturnType<typeof setInterval> | null = null
-
-const startCarousel = () => {
-  stopCarousel()
-  // WCAG 2.2.2: never auto-advance when the user prefers reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-  carouselTimer = setInterval(() => {
-    if (content.value.products && content.value.products.length > 0) {
-      activeIndex.value = (activeIndex.value + 1) % content.value.products.length
-    }
-  }, 5000)
-}
-
-const stopCarousel = () => {
-  if (carouselTimer) {
-    clearInterval(carouselTimer)
-    carouselTimer = null
-  }
-}
-
-const goToProduct = (index: number) => {
-  activeIndex.value = index
-  stopCarousel()
-  startCarousel()
-}
-
-onMounted(() => {
-  startCarousel()
-})
-
-onUnmounted(() => {
-  stopCarousel()
-})
 </script>
 
 <template>
@@ -210,73 +137,8 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <h1 class="hero-headline">
-            <span class="hero-brand-text">{{ content.hero.name }}</span>
-            <span class="subtitle">{{ content.hero.subtitle }}</span>
-          </h1>
-          <p class="hero-tagline">{{ content.hero.tagline }}</p>
-          <div v-if="content.hero.primaryAction || content.hero.secondaryAction" class="hero-actions">
-            <a
-              v-if="content.hero.primaryAction"
-              :href="content.hero.primaryLink"
-              class="gf-btn gf-btn-primary"
-            >{{ content.hero.primaryAction }}</a>
-            <a
-              v-if="content.hero.secondaryAction"
-              :href="content.hero.secondaryLink"
-              class="gf-btn gf-btn-secondary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >{{ content.hero.secondaryAction }}</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Product Carousel Section -->
-    <section class="product-carousel-section" :aria-label="content.sections.whatWeMake">
-      <div class="container carousel-container">
-        <div class="section-header">
-          <h2 class="section-label">{{ content.sections.whatWeMake }}</h2>
-        </div>
-        <div
-          class="carousel-viewport"
-          @mouseenter="stopCarousel"
-          @mouseleave="startCarousel"
-          @focusin="stopCarousel"
-          @focusout="startCarousel"
-        >
-          <transition name="carousel-slide">
-            <a
-              :key="content.products[activeIndex].name"
-              :href="content.products[activeIndex].url"
-              class="carousel-item"
-              :target="content.products[activeIndex].url.startsWith('http') ? '_blank' : undefined"
-              :rel="content.products[activeIndex].url.startsWith('http') ? 'noopener noreferrer' : undefined"
-            >
-              <img :src="content.products[activeIndex].logo" :alt="content.products[activeIndex].name + ' logo'" class="carousel-icon" />
-              <h3 class="carousel-name">{{ content.products[activeIndex].name }}</h3>
-              <p class="carousel-description">{{ content.products[activeIndex].description }}</p>
-            </a>
-          </transition>
-        </div>
-        <div class="carousel-indicators" role="group" :aria-label="content.sections.whatWeMake">
-          <button
-            v-for="(product, index) in content.products"
-            :key="product.name"
-            class="indicator-dot"
-            :class="{ active: index === activeIndex }"
-            :aria-label="'Show ' + product.name"
-            :aria-current="index === activeIndex ? 'true' : undefined"
-            @click="goToProduct(index)"
-          ></button>
-        </div>
-      </div>
-    </section>
+    <!-- Hero: venetian-blind flip between studio content and the 6 projects -->
+    <HeroBlind :hero="content.hero" :products="content.products" />
 
     <!-- Value Proposition Section -->
     <section class="values-section">
@@ -294,19 +156,25 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <!-- Product Showcase Section -->
-    <section class="products-section">
+    <!-- Products index: minimal icon + name strip -->
+    <section class="products-section" :aria-label="content.sections.products">
       <div class="container">
         <div class="section-header">
           <h2 class="section-label">{{ content.sections.products }}</h2>
         </div>
-        <div class="products-grid">
-          <Product 
-            v-for="product in content.products" 
-            :key="product.name" 
-            :product="product" 
-          />
-        </div>
+        <ul class="product-list">
+          <li v-for="p in content.products" :key="p.name">
+            <a
+              :href="p.url"
+              :target="p.url.startsWith('http') ? '_blank' : undefined"
+              :rel="p.url.startsWith('http') ? 'noopener noreferrer' : undefined"
+              class="product-cell"
+            >
+              <img :src="p.logo" :alt="p.name + ' logo'" class="product-icon" loading="lazy" />
+              <span class="product-name">{{ p.name }}</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -462,272 +330,101 @@ onUnmounted(() => {
   }
 }
 
-/* Hero Section */
-.hero-section {
-  padding: 120px 0 64px;
-  position: relative;
-  overflow: hidden;
+/* Hero is rendered by the HeroBlind component — see HeroBlind.vue */
 
-  @media (max-width: 768px) {
-    padding: 80px 0 48px;
-  }
+/* Products index — minimal icon + name grid. No card backgrounds, no
+   descriptions, no separators. */
+.products-section {
+  padding: 80px 0;
+  background-color: var(--vp-c-bg);
 
   @media (min-width: 1440px) {
-    padding: 140px 0 72px;
+    padding: 100px 0;
   }
 
   @media (min-width: 1920px) {
-    padding: 160px 0 88px;
-  }
-
-  @media (min-width: 2560px) {
-    padding: 200px 0 104px;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -10%;
-    width: 60%;
-    height: 80%;
-    transform: translateY(-50%);
-    background: radial-gradient(ellipse at center, rgba(248, 155, 64, 0.08) 0%, transparent 60%);
-    z-index: -1;
-    pointer-events: none;
-    filter: blur(40px);
+    padding: 120px 0;
   }
 }
 
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 880px;
-}
-
-.hero-content {
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 
   @media (max-width: 1024px) {
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
   }
-}
-
-.hero-headline {
-  font-size: 3.5rem;
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  margin: 0 0 var(--space-lg, 1.5rem);
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.75rem;
 
   @media (max-width: 640px) {
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 2.25rem;
-    margin: 0 0 var(--space-md);
-  }
-
-  @media (min-width: 1440px) {
-    font-size: 4.25rem;
-  }
-
-  @media (min-width: 1920px) {
-    font-size: 5rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.hero-brand-text {
-  color: var(--gf-c-brand-display);
-  font-weight: 800;
-  letter-spacing: -0.045em;
-}
-
-.subtitle {
-  color: var(--vp-c-text-2);
-  font-weight: 500;
-  font-size: 1.25rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 0;
-  opacity: 1;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-}
-
-.hero-tagline {
-  font-size: 1.375rem;
-  line-height: 1.45;
-  color: var(--vp-c-text-2);
-  margin: 0 0 var(--space-lg, 1.5rem);
-  max-width: 640px;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-
-  @media (max-width: 768px) {
-    font-size: 1.0625rem;
-    margin: 0 0 var(--space-md, 1rem);
-  }
-
-  @media (min-width: 1440px) {
-    font-size: 1.5rem;
-    max-width: 720px;
-  }
-}
-
-
-.hero-actions {
+.product-cell {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 16px;
-  justify-content: center;
-  margin: 0 0 var(--space-lg, 1.5rem);
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-  }
-}
-
-/* Product Carousel */
-.product-carousel-section {
-  padding: 0 0 80px;
-  text-align: center;
-
-  @media (max-width: 768px) {
-    padding: 0 0 56px;
-  }
-
-  @media (min-width: 1440px) {
-    padding: 0 0 96px;
-  }
-}
-
-.carousel-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.carousel-viewport {
-  position: relative;
-  width: 100%;
-  max-width: 520px;
-  min-height: 180px;
-  margin: 0 auto 24px;
-  overflow: hidden;
-}
-
-.carousel-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 30px 14px;
   text-decoration: none;
-  color: inherit;
+  text-align: center;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.carousel-icon {
-  width: 32px;
-  height: 32px;
+.product-cell:hover {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.product-cell:focus-visible {
+  outline: 2px solid var(--gf-c-brand);
+  outline-offset: -2px;
+}
+
+.product-icon {
+  width: 64px;
+  height: 64px;
   object-fit: contain;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  flex: none;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.carousel-name {
-  font-size: 1.5rem;
+.product-cell:hover .product-icon {
+  transform: translateY(-3px);
+}
+
+.product-name {
+  font-size: 1rem;
   font-weight: 700;
-  margin: 0 0 12px;
+  letter-spacing: -0.01em;
   color: var(--vp-c-text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.carousel-description {
-  font-size: 0.9375rem;
-  color: var(--vp-c-text-2);
-  margin: 0;
-  max-width: 480px;
-  line-height: 1.5;
+.product-cell:hover .product-name {
+  color: var(--gf-c-brand-display, #f89b40);
 }
 
-.carousel-indicators {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-}
-
-.indicator-dot {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-
-  &::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--vp-c-text-3, rgba(128, 128, 128, 0.3));
-    transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+@media (max-width: 640px) {
+  .product-cell {
+    gap: 12px;
+    padding: 24px 10px;
   }
 
-  &.active::before {
-    background-color: var(--vp-c-brand-1);
+  .product-icon {
+    width: 52px;
+    height: 52px;
   }
 
-  &:hover::before {
-    background-color: var(--vp-c-brand-2);
+  .product-name {
+    font-size: 0.9375rem;
   }
-
-  &:focus-visible {
-    outline: 2px solid var(--vp-c-brand-1);
-    outline-offset: 2px;
-    border-radius: 50%;
-  }
-
-  @media (pointer: coarse) {
-    width: 44px;
-    height: 44px;
-  }
-}
-
-/* Transition classes */
-.carousel-slide-enter-active,
-.carousel-slide-leave-active {
-  transition: opacity 350ms cubic-bezier(0.22, 1, 0.36, 1),
-              transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.carousel-slide-enter-from {
-  opacity: 0;
-  transform: translateX(40px);
-}
-
-.carousel-slide-leave-to {
-  opacity: 0;
-  transform: translateX(-40px);
 }
 
 /* Values Section */
@@ -804,75 +501,6 @@ onUnmounted(() => {
   line-height: 1.6;
   color: var(--vp-c-text-2);
   margin: 0;
-}
-
-/* Products Section */
-.products-section {
-  padding: 100px 0;
-
-  @media (min-width: 1440px) {
-    padding: 120px 0;
-  }
-
-  @media (min-width: 1920px) {
-    padding: 140px 0;
-  }
-
-  @media (min-width: 2560px) {
-    padding: 160px 0;
-  }
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-
-  // Override product card's own flex-based sizing to fit the grid
-  :deep(.product-card) {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-  }
-
-  // Center the last card when it's alone on its row (odd count)
-  :deep(.product-card:last-child:nth-child(odd)) {
-    grid-column: 1 / -1;
-    max-width: calc(50% - 16px);
-    justify-self: center;
-  }
-  
-  @media (max-width: 1024px) {
-    gap: 24px;
-
-    :deep(.product-card:last-child:nth-child(odd)) {
-      max-width: calc(50% - 12px);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-
-    :deep(.product-card:last-child:nth-child(odd)) {
-      max-width: 100%;
-    }
-  }
-
-  @media (min-width: 1920px) {
-    gap: 40px;
-
-    :deep(.product-card:last-child:nth-child(odd)) {
-      max-width: calc(50% - 20px);
-    }
-  }
-
-  @media (min-width: 2560px) {
-    gap: 48px;
-
-    :deep(.product-card:last-child:nth-child(odd)) {
-      max-width: calc(50% - 24px);
-    }
-  }
 }
 
 /* Team Section */
