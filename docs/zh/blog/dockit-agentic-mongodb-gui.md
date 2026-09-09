@@ -11,6 +11,10 @@ head:
       href: https://www.geekfun.club/zh/blog/dockit-agentic-mongodb-gui
   - - link
     - rel: alternate
+      hreflang: en
+      href: https://www.geekfun.club/blog/dockit-agentic-mongodb-gui
+  - - link
+    - rel: alternate
       hreflang: zh
       href: https://www.geekfun.club/zh/blog/dockit-agentic-mongodb-gui
   - - link

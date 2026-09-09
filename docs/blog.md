@@ -32,6 +32,11 @@ Product updates, technical deep-dives, and lessons from building open-source dat
 
 After 2 years and 10 months, 970 commits, 244 merged PRs, and 70 releases, DocKit ships its first stable release. A complete re-introduction from scratch: the journey from Electron to Tauri v2, three UI rewrites, DynamoDB, AI integration, and everything the platform does today.
 
+## [DocKit Agentic MongoDB GUI Client - Talk to Your Data in Natural Language](/blog/dockit-agentic-mongodb-gui)
+*June 10, 2026*
+
+An open-source NoSQL desktop client with a built-in Data AI Agent: describe what you need in plain language and it generates the MongoDB query, runs it, and shows you the results — no hand-written Query DSL. A look at why the old MongoDB GUI tools went quiet, why chat-box-style AI isn't enough, and how one app covers MongoDB, Elasticsearch, OpenSearch, and DynamoDB.
+
 ## [Best Elasticsearch GUI Clients in 2026: 5 Tools Compared](/blog/best-elasticsearch-gui-client-2026)
 *May 23, 2026*
 
