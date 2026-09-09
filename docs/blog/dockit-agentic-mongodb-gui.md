@@ -33,7 +33,7 @@ DocKit was built for that gap. It's a NoSQL desktop client with a built-in Data 
 
 ## What is DocKit
 
-DocKit is an open-source NoSQL desktop client with a built-in Data AI Agent. It's schema-aware automatically, chains 30+ AI tools to act on your behalf, and you just describe what you need in natural language. It's built on Tauri (Rust + Vue 3) and the installer is under 30 MB.
+DocKit is an open-source NoSQL desktop client with a built-in Data AI Agent. It understands your schema automatically, chains 30+ AI tools to do the work, and you just describe what you need in natural language. It's built on Tauri (Rust + Vue 3) and the installer is under 30 MB.
 
 Website: [https://www.geekfun.club/products/dockit/](https://www.geekfun.club/products/dockit/)
 GitHub: [https://github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)
@@ -54,7 +54,7 @@ If you use more than MongoDB, say Elasticsearch for search and DynamoDB for KV, 
 
 ### Data AI Agent: query your database in natural language
 
-This is what sets DocKit apart from other database tools.
+This is the biggest difference between DocKit and other database tools.
 
 No hand-written MongoDB Query DSL. Describe what you need in plain language:
 
@@ -98,7 +98,7 @@ JSON, CSV, and JSONL. Batch writes handle large collections.
 
 ### Query history
 
-Saved automatically, nothing to set up. Search, star, and re-run. Stored locally, isolated per connection.
+DocKit saves queries automatically; there's nothing to configure. Search, star, or re-run them any time. History stays local, isolated per connection.
 
 ## How DocKit compares
 
