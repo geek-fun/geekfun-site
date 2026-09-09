@@ -15,6 +15,10 @@ head:
       href: https://www.geekfun.club/products/dockit/dockit-vs-mongodb-compass
   - - link
     - rel: alternate
+      hreflang: zh
+      href: https://www.geekfun.club/zh/products/dockit/dockit-vs-mongodb-compass
+  - - link
+    - rel: alternate
       hreflang: x-default
       href: https://www.geekfun.club/products/dockit/dockit-vs-mongodb-compass
   - - script

@@ -192,6 +192,19 @@ nav: [
                 }],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
+                ['script', {type: 'application/ld+json'}, JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "极客范",
+                    "alternateName": "GEEKFUN",
+                    "url": "https://www.geekfun.club",
+                    "logo": "https://www.geekfun.club/geekfun.png",
+                    "sameAs": [
+                        "https://github.com/geek-fun",
+                        "https://x.com/geekfun_club",
+                        "https://www.youtube.com/@geekfun-club"
+                    ]
+                })],
             ],
             themeConfig: {
                 ...sharedThemeConfig,
@@ -254,6 +267,7 @@ nav: [
             ['meta', {property: 'og:site_name', content: siteName}],
             ['meta', {property: 'og:type', content: pageType}],
             ['meta', {property: 'og:locale', content: isZhPage ? 'zh_CN' : 'en_US'}],
+            ['meta', {property: 'og:locale:alternate', content: isZhPage ? 'en_US' : 'zh_CN'}],
             ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
             ['meta', {name: 'twitter:title', content: title}],
             ['meta', {name: 'twitter:description', content: description}],
