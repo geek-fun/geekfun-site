@@ -163,7 +163,7 @@ const content = computed<DownloadContent>(() => {
         installCommand: 'npm install -g @geek-fun/serverlessinsight',
         installLabel: isZh ? '安装 CLI' : 'Install CLI',
         actions: [
-          { label: isZh ? '文档' : 'Docs', href: 'https://serverlessinsight.geekfun.club', external: true, kind: 'primary' },
+          { label: isZh ? '文档' : 'Docs', href: 'https://serverlessinsight.com', external: true, kind: 'primary' },
           { label: 'GitHub', href: 'https://github.com/geek-fun/serverlessinsight', external: true, kind: 'secondary' }
         ]
       },
