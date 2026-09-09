@@ -10,6 +10,7 @@ import AboutPage from "./components/AboutPage.vue";
 import ProductsMegaMenu from "./components/ProductsMegaMenu.vue";
 import ProductsMobileNav from "./components/ProductsMobileNav.vue";
 import ProductLayout from "./components/product/ProductLayout.vue";
+import NotFoundContent from "./components/NotFoundContent.vue";
 
 const oneYearFromNow = () => new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
 
@@ -72,5 +73,6 @@ export default {
         app.component('DownloadPage', DownloadPage);
         app.component('HomePage', HomePage);
         app.component('AboutPage', AboutPage);
+        app.component('NotFoundContent', NotFoundContent);
     }
 }
