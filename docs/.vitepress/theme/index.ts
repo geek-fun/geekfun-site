@@ -7,6 +7,7 @@ import Footer from "./components/Footer.vue";
 import DownloadPage from "./components/DownloadPage.vue";
 import HomePage from "./components/HomePage.vue";
 import AboutPage from "./components/AboutPage.vue";
+import PricingPage from "./components/PricingPage.vue";
 import ProductsMegaMenu from "./components/ProductsMegaMenu.vue";
 import ProductsMobileNav from "./components/ProductsMobileNav.vue";
 import ProductLayout from "./components/product/ProductLayout.vue";
@@ -72,5 +73,6 @@ export default {
         app.component('DownloadPage', DownloadPage);
         app.component('HomePage', HomePage);
         app.component('AboutPage', AboutPage);
+        app.component('PricingPage', PricingPage);
     }
 }
