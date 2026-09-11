@@ -40,7 +40,7 @@ head:
 
 MongoDB Compass is the official GUI from MongoDB. It's decent for browsing collections and building basic queries. But if you've been using it daily, you've probably run into its limits — it's slow with large collections, the aggregation pipeline builder gets unwieldy, and there's zero AI assistance.
 
-DocKit is a free, open-source alternative that covers the same MongoDB workflows and adds a Data AI Agent, Agentic Data Studio, and support for Elasticsearch, OpenSearch, and DynamoDB on top.
+DocKit is an open-source alternative with a free Community edition that covers the same MongoDB workflows and adds a Data AI Agent, Agentic Data Studio, and support for Elasticsearch, OpenSearch, and DynamoDB on top (the AI features require the paid Ultimate subscription).
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download DocKit</a>
@@ -68,7 +68,7 @@ DocKit is a free, open-source alternative that covers the same MongoDB workflows
 | **Multi-database support** | ✅ MongoDB + ES + OpenSearch + DynamoDB | ❌ Only MongoDB |
 | **Local-first privacy** | ✅ No telemetry, air-gap compatible | ❌ Telemetry on by default |
 | **Open source** | ✅ Apache 2.0 | ✅ SSPL (AGPL for older versions) |
-| **Price** | Free | Free (Enterprise paid) |
+| **Price** | Community: free · Ultimate $9.9/mo | Free (Enterprise paid) |
 
 ## When DocKit is the better choice
 
@@ -106,10 +106,10 @@ Keep Compass if you need:
 
 | | DocKit | MongoDB Compass |
 |---|---|---|
-| **Community Edition** | Free (all features) | Free (limited) |
-| **Full features** | All features included | Paid (Enterprise subscription) |
-| **Data AI Agent** | Included for free | Not available |
-| **Agentic Data Studio** | Included for free | Not available |
+| **Community Edition** | Free (core local features) | Free (limited) |
+| **Full features** | Paid (Ultimate $9.9/mo) | Paid (Enterprise subscription) |
+| **Data AI Agent** | Included with Ultimate subscription | Not available |
+| **Agentic Data Studio** | Included with Ultimate subscription | Not available |
 | **Multi-database** | Included for free | Not available |
 | **Commercial use** | Apache 2.0 license — no restrictions | SSPL (restrictions for cloud services) |
 
@@ -123,7 +123,7 @@ DocKit gives you:
 - **Agentic Data Studio** — 28+ tools with safety gates for managing your databases
 - **One app for all your databases** — MongoDB plus Elasticsearch, OpenSearch, DynamoDB
 - **Privacy-first** — no telemetry, air-gap compatible, offline AI
-- **Free and open source** — Apache 2.0, no paid tiers holding features back
+- **Free and open source** — Apache 2.0 Community edition, with advanced AI features in the paid Ultimate tier
 
 ## Setup: connecting DocKit to MongoDB
 
@@ -141,7 +141,7 @@ Supports MongoDB Atlas, self-hosted MongoDB, replica sets, TLS/SSL, and SRV conn
 For core workflows — browsing collections, running queries, managing indexes, importing/exporting data — yes, it covers the same ground and adds AI-powered querying and multi-database support. Compass wins on the visual aggregation builder and schema analysis. Many teams keep both.
 
 **Is DocKit really free?**
-Yes. DocKit Community Edition is free under Apache 2.0. All features including the Data AI Agent and Agentic Data Studio are included at no cost. No paid tiers. No feature gating.
+Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
 
 **Does DocKit support MongoDB Atlas?**
 Yes. Enter your Atlas connection string in the connection dialog. DocKit supports SRV connection strings, TLS, and all Atlas authentication methods.

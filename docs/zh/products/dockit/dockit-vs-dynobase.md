@@ -1,6 +1,6 @@
 ---
 title: DocKit vs Dynobase — 免费开源 DynamoDB 客户端替代方案
-description: DocKit vs Dynobase 功能对比。DocKit 是免费开源的 DynamoDB GUI 客户端，支持 PartiQL 编辑器、Agentic Data Studio 和多数据库（MongoDB、Elasticsearch、OpenSearch、EasySearch）。无需订阅。
+description: DocKit vs Dynobase 功能对比。DocKit 是免费开源的 DynamoDB GUI 客户端，支持 PartiQL 编辑器、Agentic Data Studio 和多数据库（MongoDB、Elasticsearch、OpenSearch、EasySearch）。社区版永久免费、开源；进阶 AI 能力属于付费旗舰版订阅。
 sidebar: false
 head:
   - - meta
@@ -29,7 +29,7 @@ head:
         "@type": "SoftwareApplication",
         "name": "DocKit",
         "alternateName": ["Dynobase 替代方案", "免费 Dynobase 替代方案", "DynamoDB GUI 客户端"],
-        "description": "开源桌面 DynamoDB GUI 客户端，支持 PartiQL 编辑器、Agentic Data Studio、可视化查询构建器和多数据库支持。Dynobase 的免费替代方案，支持 Mac、Windows 和 Linux。",
+        "description": "开源桌面 DynamoDB GUI 客户端，支持 PartiQL 编辑器、可视化查询构建器和多数据库支持。Dynobase 的免费替代方案，支持 Mac、Windows 和 Linux；Agentic Data Studio 等进阶 AI 能力属于旗舰版订阅。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": { "@type": "Offer", "priceCurrency": "USD" },
@@ -42,7 +42,7 @@ head:
 
 # DocKit vs Dynobase
 
-Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活跃维护（最新版本：v2.5.1，发布于 2023 年 9 月），按订阅收费（$9–79/月）。**DocKit** 是其开源替代方案：Apache 2.0 许可，无需订阅，持续活跃开发，核心 DynamoDB 工作流完整，并额外提供 **Agentic Data Studio** 和多数据库支持。
+Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活跃维护（最新版本：v2.5.1，发布于 2023 年 9 月），按订阅收费（$9–79/月）。**DocKit** 是其开源替代方案：Apache 2.0 许可，社区版免费，持续活跃开发，核心 DynamoDB 工作流完整，并额外提供 **Agentic Data Studio** 和多数据库支持（AI 能力需旗舰版订阅）。
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/zh/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">下载 DocKit</a>
@@ -62,7 +62,7 @@ Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活�
 | 功能 | DocKit | Dynobase |
 |---|---|---|
 | **许可证** | Apache 2.0（开源） | 专有 |
-| **定价** | 社区版：免费 | $9–79/月或 $199–249 终身 |
+| **定价** | 社区版免费 · 旗舰版 $9.9/月 | $9–79/月或 $199–249 终身 |
 | **平台** | Mac、Windows、Linux | Mac、Windows、Linux |
 | **PartiQL 编辑器** | ✅ Monaco 引擎 | ✅ |
 | **可视化查询构建器** | ✅ | ✅ |
@@ -93,7 +93,7 @@ Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活�
 
 Dynobase 只能看 DynamoDB。DocKit 能在同一个窗口里搞定 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch，一个工具顶多个。
 
-### 真的免费
+### 社区版不用订阅
 
 DocKit 社区版没席位费。5 人小团队一年能省下 500 多美金。
 
@@ -165,7 +165,8 @@ Dynobase 做的久，文档更全，刚上手的细节处理得更丝滑。不�
 - **Enterprise**：找老板谈
 
 ### DocKit
-- **社区版**：免费 — 人数不限，功能全开
+- **社区版**：免费 — 人数不限，核心本地功能
+- **旗舰版**：$9.9/月 或 $99/年 — AI 智能体、MCP、集群管理等进阶功能（7 天免费试用）
 
 ## 常见问题
 

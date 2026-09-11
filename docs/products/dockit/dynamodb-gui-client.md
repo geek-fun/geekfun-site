@@ -202,7 +202,7 @@ DocKit also works with **Elasticsearch** and **OpenSearch**. You can switch betw
 | **Offline mode** | Yes | No | Yes | Yes |
 | **Elasticsearch support** | Yes | No | No | No |
 | **Open source** | Apache 2.0 | No | No | No |
-| **Price** | Community: free | Free | Free | $12–30/mo |
+| **Price** | Community: free · Ultimate $9.9/mo | Free | Free | $12–30/mo |
 
 ## Getting started
 

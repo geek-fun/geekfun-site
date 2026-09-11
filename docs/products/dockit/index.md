@@ -1,7 +1,7 @@
 ---
 layout: product
 title: DocKit — Agentic NoSQL Desktop GUI for MongoDB, Elasticsearch, OpenSearch & DynamoDB
-description: DocKit is an open-source agentic NoSQL desktop GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Its data AI agent writes queries, inspects schemas, and manages data through natural language — privacy-first, local, free.
+description: DocKit is an open-source agentic NoSQL desktop GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Its data AI agent writes queries, inspects schemas, and manages data through natural language — privacy-first and local. The Community edition is free and open source; the AI agent is part of the paid Ultimate subscription.
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
@@ -168,7 +168,7 @@ Most teams don't use just one NoSQL database. A team running Elasticsearch for s
 | **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Desktop native** | ✅ | ❌ | Partial | ✅ | ✅ |
 | **Open source** | ✅ Apache 2.0 | Mixed | ✅ MIT | ❌ | ❌ |
-| **Price** | Community: free | Free | Free | $12–30/mo | Free |
+| **Price** | Community: free · Ultimate $9.9/mo | Free | Free | $12–30/mo | Free |
 
 ## Elasticsearch GUI Client
 
@@ -229,8 +229,8 @@ DocKit auto-detects which engine you're connected to and adjusts API calls accor
 **Is DocKit open source?**
 Yes — Apache 2.0 license. The full source is at [github.com/geek-fun/dockit](https://github.com/geek-fun/dockit).
 
-**Will there be a paid tier?**
-A paid Ultimate tier with additional features is planned. The Community edition will remain open-source.
+**Is there a paid tier?**
+Yes. The Community edition remains free and open source, while the paid Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial) unlocks advanced capabilities such as the AI agent, MCP, and cluster management.
 
 **Do you also support SQL databases?**
 DocKit is purpose-built for NoSQL databases. If you need PostgreSQL, MySQL, SQL Server, or SQLite support, check out [**SqlKit**](/products/sqlkit/) — our companion open-source SQL desktop client from the same team.

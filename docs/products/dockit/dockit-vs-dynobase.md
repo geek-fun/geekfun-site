@@ -1,6 +1,6 @@
 ---
 title: DocKit vs Dynobase — Free Open-Source DynamoDB Client Alternative
-description: DocKit vs Dynobase feature comparison. DocKit is a free, open-source DynamoDB GUI client with PartiQL editor, Agentic Data Studio, and multi-DB support (MongoDB, Elasticsearch, OpenSearch, EasySearch). No subscription required.
+description: DocKit vs Dynobase feature comparison. DocKit is a free, open-source DynamoDB GUI client with PartiQL editor, Agentic Data Studio, and multi-DB support (MongoDB, Elasticsearch, OpenSearch, EasySearch). The Community edition is free and open source; advanced AI features are part of the paid Ultimate subscription.
 sidebar: false
 head:
   - - meta
@@ -29,7 +29,7 @@ head:
         "@type": "SoftwareApplication",
         "name": "DocKit",
         "alternateName": ["Dynobase alternative", "free Dynobase alternative", "DynamoDB GUI client"],
-        "description": "Open-source desktop DynamoDB GUI client with PartiQL editor, Agentic Data Studio, visual query builder, and multi-DB support. Free alternative to Dynobase for Mac, Windows, and Linux.",
+        "description": "Open-source desktop DynamoDB GUI client with PartiQL editor, visual query builder, and multi-DB support. Free alternative to Dynobase for Mac, Windows, and Linux; the Agentic Data Studio and other advanced AI features are part of the paid Ultimate subscription.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": { "@type": "Offer", "priceCurrency": "USD" },
@@ -42,7 +42,7 @@ head:
 
 # DocKit vs Dynobase
 
-Dynobase is a commercial DynamoDB client — well designed, but no longer actively maintained (latest release: v2.5.1, September 2023). It costs $9–79/month depending on your tier. **DocKit** is the open-source alternative: Apache 2.0, no subscription, actively developed, and covers the same core DynamoDB workflows plus **Agentic Data Studio** and multi-database support Dynobase lacks.
+Dynobase is a commercial DynamoDB client — well designed, but no longer actively maintained (latest release: v2.5.1, September 2023). It costs $9–79/month depending on your tier. **DocKit** is the open-source alternative: Apache 2.0, a free Community edition, actively developed, and covers the same core DynamoDB workflows plus **Agentic Data Studio** and multi-database support Dynobase lacks (the AI features require the paid Ultimate subscription).
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download DocKit</a>
@@ -64,7 +64,7 @@ Dynobase is a solid tool, but there are a few reasons developers look for altern
 | Feature | DocKit | Dynobase |
 |---|---|---|
 | **License** | Apache 2.0 (open source) | Proprietary |
-| **Pricing** | Community: no cost | $9–79/month or $199–249 lifetime |
+| **Pricing** | Community: free · Ultimate $9.9/mo | $9–79/month or $199–249 lifetime |
 | **Platform** | Mac, Windows, Linux | Mac, Windows, Linux |
 | **PartiQL editor** | ✅ Monaco-based | ✅ |
 | **Visual query builder** | ✅ | ✅ |
@@ -92,7 +92,7 @@ Tell the agent what you need and it writes PartiQL queries, reads table schemas,
 ### Multi-database support
 Dynobase is limited to DynamoDB. DocKit handles MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch in one app. If your stack uses a mix of these, DocKit can replace several separate tools.
 
-### No subscription cost
+### No subscription needed for the Community edition
 Dynobase starts at $9 a month per seat. For a 5-person team, that is at least $540 a year. DocKit’s community build is free for any number of users.
 
 ### Smaller footprint
@@ -158,7 +158,8 @@ Export your Dynobase queries as text, then save them as `.json` or `.partiql` fi
 - **Enterprise**: custom
 
 ### DocKit
-- **Community**: no cost — unlimited seats, all current features
+- **Community**: free — unlimited seats, core local features
+- **Ultimate**: $9.9/month or $99/year — AI agent, MCP, cluster management, and other advanced features (7-day free trial)
 
 ## Frequently asked questions
 

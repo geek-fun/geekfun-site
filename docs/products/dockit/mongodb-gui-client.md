@@ -201,7 +201,7 @@ DocKit saves everything as local `.mongo` files. Browse, create, and organize th
 | **Multi-database** | MongoDB + ES + OS + DynamoDB + EasySearch | MongoDB only | MongoDB only | MongoDB only |
 | **Offline mode** | Yes | No | No | No |
 | **Open source** | Apache 2.0 | No | No | MIT |
-| **Price** | Community: free | Free (Basic) | $149–799/yr | Free |
+| **Price** | Community: free · Ultimate $9.9/mo | Free (Basic) | $149–799/yr | Free |
 
 ## Getting started
 
