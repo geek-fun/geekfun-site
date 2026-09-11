@@ -84,6 +84,7 @@
             <div class="plan-alt">
               <span>{{ altOption }}</span>
             </div>
+            <p v-if="showAltCurrencyNote" class="plan-cny">{{ t.ultimate.cnyNote }}</p>
             <ul class="plan-features">
               <li v-for="feature in t.ultimate.features" :key="feature">
                 <svg class="check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -342,14 +343,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useData } from 'vitepress'
 
 const { lang } = useData()
 
-// Keep the payment FAQ answer in sync with the enabled backend provider
-// (wentsen/geekfun conf payment.provider — currently "waffo").
-const ENABLED_PAYMENT_PROVIDER = 'waffo'
+type Currency = 'USD' | 'CNY'
+type CardProvider = 'creem' | 'waffo'
+
+// Enabled currencies + card MoR provider come from the backend payment config
+// (wentsen/geekfun conf payment.providers via GET /api/v1/payments/provider).
+// Defaults keep the page rendering when the API is unreachable (local dev).
+const PAYMENT_CONFIG_API = 'https://geekfun-api.wentsen.com/api/v1/payments/provider'
+const enabledCurrencies = ref<Currency[]>(['USD'])
+const cardProvider = ref<CardProvider>('waffo')
+
+onMounted(async () => {
+  try {
+    const response = await fetch(PAYMENT_CONFIG_API, { cache: 'no-store' })
+    const payload = await response.json()
+    const map: Partial<Record<Currency, string>> = payload?.data?.currencies ?? {}
+    const list = Object.keys(map).filter(
+      (currency): currency is Currency => currency === 'USD' || currency === 'CNY'
+    )
+    if (list.length) enabledCurrencies.value = list
+    if (map.USD === 'creem' || map.USD === 'waffo') cardProvider.value = map.USD
+  } catch {
+    // keep defaults: USD-only, Waffo
+  }
+})
 
 const translations = {
   en: {
@@ -743,13 +765,23 @@ const translations = {
 const t = computed(() => translations[lang.value as keyof typeof translations] || translations.en)
 const localePath = (path: string) => (lang.value === 'zh' ? `/zh${path}` : path)
 
-// Currency follows the site language switch (nav language menu / auto-detect):
-// 中文页 → CNY, English → USD
-const currentCurrency = computed<'USD' | 'CNY'>(() => (lang.value === 'zh' ? 'CNY' : 'USD'))
+// Currency follows the site language switch (nav language menu / auto-detect),
+// clamped to the currencies enabled in the backend payment config:
+// 中文页 → CNY when enabled, English → USD
+const currentCurrency = computed<Currency>(() => {
+  const preferred: Currency = lang.value === 'zh' ? 'CNY' : 'USD'
+  return enabledCurrencies.value.includes(preferred)
+    ? preferred
+    : (enabledCurrencies.value[0] ?? 'USD')
+})
 
 function toggleBilling() {
   isYearly.value = !isYearly.value
 }
+
+// The "also available in <other currency>" line only makes sense when both
+// currencies are enabled
+const showAltCurrencyNote = computed(() => enabledCurrencies.value.length > 1)
 
 type CompareCell = boolean | string
 interface CompareRow {
@@ -860,10 +892,10 @@ function notifyEnterprise() {
   enterpriseNotifyOpen.value = !enterpriseNotifyOpen.value
 }
 
-// Payment FAQ answer follows the enabled MoR provider (see ENABLED_PAYMENT_PROVIDER)
+// Payment FAQ answer follows the card MoR provider from the payment config API
 const faqItems = computed(() =>
   t.value.faq.items.map((item, index) =>
-    index === 3 ? { ...item, answer: t.value.faq.payment[ENABLED_PAYMENT_PROVIDER] } : item
+    index === 3 ? { ...item, answer: t.value.faq.payment[cardProvider.value] } : item
   )
 )
 </script>
