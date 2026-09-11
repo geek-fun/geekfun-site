@@ -1,38 +1,8 @@
 <template>
   <div class="geekfun-pricing-page">
-    <!-- In-page navigation -->
-    <nav class="pricing-nav">
-      <div class="pricing-nav-inner">
-        <a href="/pricing" class="pricing-logo"><span>GEEKFUN</span></a>
-        <div class="pricing-nav-links">
-          <a href="#overview">{{ t.nav.overview }}</a>
-          <a href="#pricing">{{ t.nav.pricing }}</a>
-          <a href="#compare">{{ t.nav.compare }}</a>
-          <a href="#faq">{{ t.nav.faq }}</a>
-          <a href="#features">{{ t.nav.features }}</a>
-          <button
-            class="currency-toggle"
-            :aria-label="currentCurrency === 'USD' ? t.nav.switchToCny : t.nav.switchToUsd"
-            @click="toggleCurrency"
-          >
-            <span
-              class="flag flag-back"
-              :style="{
-                transform:
-                  currentCurrency === 'USD' ? 'translate(6px, 4px)' : 'translate(-6px, 4px)',
-                zIndex: 0
-              }"
-              >{{ orderedFlags[1] }}</span
-            >
-            <span class="flag flag-front">{{ orderedFlags[0] }}</span>
-          </button>
-        </div>
-      </div>
-    </nav>
-
     <!-- Hero -->
     <section id="overview" class="hero">
-      <div class="hero-inner">
+      <div class="hero-inner animate-fade-in">
         <h1>{{ t.hero.title1 }}</h1>
         <p class="hero-subtitle">
           {{ t.hero.subtitle1 }} <span class="dot">·</span> {{ t.hero.subtitle2 }}
@@ -74,6 +44,22 @@
           </button>
           <span class="toggle-label" :class="{ active: isYearly }">{{ t.billing.yearly }}</span>
           <span class="save-badge">{{ t.billing.save }}</span>
+          <button
+            class="currency-toggle"
+            :aria-label="currentCurrency === 'USD' ? t.nav.switchToCny : t.nav.switchToUsd"
+            @click="toggleCurrency"
+          >
+            <span
+              class="flag flag-back"
+              :style="{
+                transform:
+                  currentCurrency === 'USD' ? 'translate(6px, 4px)' : 'translate(-6px, 4px)',
+                zIndex: 0
+              }"
+              >{{ orderedFlags[1] }}</span
+            >
+            <span class="flag flag-front">{{ orderedFlags[0] }}</span>
+          </button>
         </div>
 
         <div class="plans-grid">
@@ -956,131 +942,8 @@ const faqItems = computed(() =>
 .geekfun-pricing-page {
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
-}
-
-/* ---------- in-page nav ---------- */
-.pricing-nav {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: color-mix(in srgb, var(--vp-c-bg) 95%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--vp-c-divider);
-
-  .pricing-nav-inner {
-    max-width: 1152px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    height: 3.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .pricing-logo span {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--vp-c-brand-1);
-    text-decoration: none;
-  }
-
-  .pricing-nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    overflow-x: auto;
-
-    a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--vp-c-text-2);
-      text-decoration: none;
-      white-space: nowrap;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: var(--vp-c-brand-1);
-      }
-    }
-  }
-}
-
-.currency-toggle {
-  position: relative;
-  width: 2.75rem;
-  height: 2.25rem;
-  font-size: 1.25rem;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background: var(--vp-c-bg-soft);
-  }
-
-  .flag {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
-
-  .flag-back {
-    filter: grayscale(1);
-    opacity: 0.4;
-  }
-
-  .flag-front {
-    z-index: 10;
-  }
-}
-
-/* ---------- shared ---------- */
-.section-inner {
-  max-width: 1152px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.section-title {
-  font-size: 1.875rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 0 0 1rem;
-  color: var(--vp-c-text-1);
-}
-
-.section-subtitle {
-  text-align: center;
-  color: var(--vp-c-text-2);
-  margin: 0 0 2.5rem;
-}
-
-.check {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
-  color: var(--vp-c-brand-1);
-
-  &.small {
-    width: 1rem;
-    height: 1rem;
-  }
-
-  &.center {
-    margin: 0 auto;
-    display: block;
-  }
-}
-
-.rocket {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+  /* Same green as the console pricing page (tailwind --success: 160 84% 39%) */
+  --gf-success: hsl(160, 84%, 39%);
 }
 
 /* ---------- hero ---------- */
@@ -1092,6 +955,10 @@ const faqItems = computed(() =>
   .hero-inner {
     max-width: 1024px;
     margin: 0 auto;
+
+    &.animate-fade-in {
+      animation: gf-fade-in 0.5s ease-in;
+    }
   }
 
   h1 {
@@ -1140,6 +1007,117 @@ const faqItems = computed(() =>
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       }
     }
+  }
+}
+
+@keyframes gf-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- shared ---------- */
+.section-inner {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 1rem;
+  color: var(--vp-c-text-1);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--vp-c-text-2);
+  margin: 0 0 2.5rem;
+}
+
+.check {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  color: var(--gf-success);
+
+  &.small {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &.center {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.rocket {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Rocket boost — same as console: shakes while the parent CTA is hovered */
+@keyframes gf-rocket-shake {
+  0%,
+  100% {
+    transform: translateX(0) scale(1);
+  }
+
+  25% {
+    transform: translateX(-2px) scale(1.02);
+  }
+
+  75% {
+    transform: translateX(2px) scale(1.02);
+  }
+}
+
+.plan-cta.primary:hover .rocket {
+  animation: gf-rocket-shake 0.3s ease-in-out infinite;
+}
+
+.currency-toggle {
+  position: relative;
+  width: 2.75rem;
+  height: 2.25rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 0.75rem;
+
+  &:hover {
+    background: var(--vp-c-bg-soft);
+  }
+
+  .flag {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .flag-back {
+    filter: grayscale(1);
+    opacity: 0.4;
+  }
+
+  .flag-front {
+    z-index: 10;
   }
 }
 
@@ -1229,6 +1207,16 @@ const faqItems = computed(() =>
   &.featured {
     border: 2px solid var(--vp-c-brand-1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* rocket-card hover from the console pricing page */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow:
+        0 20px 40px -10px rgba(249, 115, 22, 0.3),
+        0 0 40px rgba(239, 68, 68, 0.2);
+      border-color: rgba(249, 115, 22, 0.3);
+    }
   }
 
   .popular-badge {
