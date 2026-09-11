@@ -44,22 +44,6 @@
           </button>
           <span class="toggle-label" :class="{ active: isYearly }">{{ t.billing.yearly }}</span>
           <span class="save-badge">{{ t.billing.save }}</span>
-          <button
-            class="currency-toggle"
-            :aria-label="currentCurrency === 'USD' ? t.nav.switchToCny : t.nav.switchToUsd"
-            @click="toggleCurrency"
-          >
-            <span
-              class="flag flag-back"
-              :style="{
-                transform:
-                  currentCurrency === 'USD' ? 'translate(6px, 4px)' : 'translate(-6px, 4px)',
-                zIndex: 0
-              }"
-              >{{ orderedFlags[1] }}</span
-            >
-            <span class="flag flag-front">{{ orderedFlags[0] }}</span>
-          </button>
         </div>
 
         <div class="plans-grid">
@@ -369,15 +353,6 @@ const ENABLED_PAYMENT_PROVIDER = 'waffo'
 
 const translations = {
   en: {
-    nav: {
-      overview: 'Overview',
-      pricing: 'Pricing',
-      compare: 'Compare',
-      faq: 'FAQ',
-      features: 'Features',
-      switchToCny: 'Switch to CNY',
-      switchToUsd: 'Switch to USD'
-    },
     hero: {
       title1: 'GEEKFUN Data Studio',
       subtitle1: 'Unified management for NoSQL & SQL databases',
@@ -575,20 +550,9 @@ const translations = {
     prices: {
       USD: { monthly: '$9.9', yearly: '$99' },
       CNY: { monthly: '¥19.9', yearly: '¥199' }
-    },
-    flags: { USD: '🇺🇸', CNY: '🇨🇳' },
-    compareValuesLabel: true
+    }
   },
   zh: {
-    nav: {
-      overview: '概览',
-      pricing: '定价',
-      compare: '对比',
-      faq: '常见问题',
-      features: '功能',
-      switchToCny: '切换到人民币',
-      switchToUsd: '切换到美元'
-    },
     hero: {
       title1: 'GEEKFUN Data Studio',
       subtitle1: 'NoSQL 和 SQL 数据库统一管理',
@@ -772,13 +736,20 @@ const translations = {
     prices: {
       USD: { monthly: '$9.9', yearly: '$99' },
       CNY: { monthly: '¥19.9', yearly: '¥199' }
-    },
-    flags: { USD: '🇺🇸', CNY: '🇨🇳' }
+    }
   }
 }
 
 const t = computed(() => translations[lang.value as keyof typeof translations] || translations.en)
 const localePath = (path: string) => (lang.value === 'zh' ? `/zh${path}` : path)
+
+// Currency follows the site language switch (nav language menu / auto-detect):
+// 中文页 → CNY, English → USD
+const currentCurrency = computed<'USD' | 'CNY'>(() => (lang.value === 'zh' ? 'CNY' : 'USD'))
+
+function toggleBilling() {
+  isYearly.value = !isYearly.value
+}
 
 type CompareCell = boolean | string
 interface CompareRow {
@@ -874,47 +845,6 @@ const getCell = (row: CompareRow, plan: string): CompareCell =>
 
 // Billing state — same defaults as the console pricing page
 const isYearly = ref(true)
-const CURRENCY_STORAGE_KEY = 'gf-pricing-currency'
-
-function storedCurrency(): 'USD' | 'CNY' | null {
-  try {
-    const stored = localStorage.getItem(CURRENCY_STORAGE_KEY)
-    return stored === 'USD' || stored === 'CNY' ? stored : null
-  } catch {
-    return null
-  }
-}
-
-const initialCurrency = (): 'USD' | 'CNY' => {
-  if (lang.value === 'zh') return 'CNY'
-  const stored = storedCurrency()
-  if (stored) return stored
-  let timezoneIsChina = false
-  try {
-    timezoneIsChina = Intl.DateTimeFormat().resolvedOptions().timeZone === 'Asia/Shanghai'
-  } catch {}
-  return timezoneIsChina ? 'CNY' : 'USD'
-}
-
-const currentCurrency = ref<'USD' | 'CNY'>(initialCurrency())
-
-const flags = computed<Record<string, string>>(() => t.value.flags)
-const orderedFlags = computed(() => {
-  const selected = currentCurrency.value
-  const other = selected === 'USD' ? 'CNY' : 'USD'
-  return [flags.value[selected], flags.value[other]]
-})
-
-function toggleCurrency() {
-  currentCurrency.value = currentCurrency.value === 'USD' ? 'CNY' : 'USD'
-  try {
-    localStorage.setItem(CURRENCY_STORAGE_KEY, currentCurrency.value)
-  } catch {}
-}
-
-function toggleBilling() {
-  isYearly.value = !isYearly.value
-}
 
 const displayPrice = computed(() => t.value.prices[currentCurrency.value][isYearly.value ? 'yearly' : 'monthly'])
 const priceUnit = computed(() => (isYearly.value ? t.value.billing.perYear : t.value.billing.perMonth))
@@ -1084,41 +1014,6 @@ const faqItems = computed(() =>
 
 .plan-cta.primary:hover .rocket {
   animation: gf-rocket-shake 0.3s ease-in-out infinite;
-}
-
-.currency-toggle {
-  position: relative;
-  width: 2.75rem;
-  height: 2.25rem;
-  font-size: 1.25rem;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 0.75rem;
-
-  &:hover {
-    background: var(--vp-c-bg-soft);
-  }
-
-  .flag {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
-
-  .flag-back {
-    filter: grayscale(1);
-    opacity: 0.4;
-  }
-
-  .flag-front {
-    z-index: 10;
-  }
 }
 
 /* ---------- plans ---------- */
