@@ -68,7 +68,7 @@ Amazon DynamoDB 于 2012 年推出，如今遍布游戏、金融科技、物联�
 
 | 工具 | 价格 | 平台 | 最适合 | 开源 |
 |------|-------|----------|----------|-------------|
-| DocKit | 免费 | Mac、Win、Linux | 团队、多数据库工作流 | ✅ Apache 2.0 |
+| DocKit | 社区版免费 · 旗舰版 $9.9/月 | Mac、Win、Linux | 团队、多数据库工作流 | ✅ Apache 2.0 |
 | Dynomate | $199 一次性 | Mac、Win、Linux | SSO 团队、Git 原生工作流 | ❌ |
 | DynamoDB Admin | 免费 | 浏览器（本地） | 本地开发、CI/CD 测试 | ✅ MIT |
 | NoSQL Workbench | 免费 | Mac、Win、Linux | Schema 建模、AWS 中心化 | ❌ |
@@ -89,15 +89,15 @@ Amazon DynamoDB 于 2012 年推出，如今遍布游戏、金融科技、物联�
 - 导入导出：JSON、CSV
 - Elasticsearch/OpenSearch 集群管理（节点、分片、索引）
 
-**价格：** 免费（Apache 2.0）。没坑。
+**价格：** 社区版免费（Apache 2.0）· 旗舰版 $9.9/月。
 
 **活跃度：** 1K+ GitHub stars，数十个版本（2026 年 1 月以来 14+ 个）。每月大概发 3 个版本——活跃。
 
-**优点：** 免费、多引擎、轻量、本地优先、真正的开源、内置 AI 助手。
+**优点：** 社区版免费、多引擎、轻量、本地优先、真正的开源、内置 AI 助手（旗舰版）。
 
 **缺点：** 项目较新、无团队共享功能、UI 实用但不精美。
 
-**最适合：** 需要多数据库支持的团队、预算有限的开发者、想要免费用 AI 辅助查询的人。
+**最适合：** 需要多数据库支持的团队、预算有限的开发者、想要用 AI 辅助查询（自带 LLM）的人。
 
 [下载 DocKit](/zh/download) | [阅读 DynamoDB GUI 指南](/zh/products/dockit/dynamodb-gui-client)
 

@@ -64,7 +64,7 @@ Meanwhile, a new wave of tools has turned up with fresh approaches and features.
 
 | Tool | Price | Platform | Best For | Open Source |
 |------|-------|----------|----------|-------------|
-| DocKit | Free | Mac, Win, Linux | Teams, multi-database workflows | ✅ Apache 2.0 |
+| DocKit | Community: free · Ultimate $9.9/mo | Mac, Win, Linux | Teams, multi-database workflows | ✅ Apache 2.0 |
 | Dynomate | $199 one-time | Mac, Win, Linux | SSO teams, Git-native workflows | ❌ |
 | DynamoDB Admin | Free | Browser (local) | Local dev, CI/CD testing | ✅ MIT |
 | NoSQL Workbench | Free | Mac, Win, Linux | Schema modeling, AWS-centric | ❌ |
@@ -84,15 +84,15 @@ Free, open source. Does DynamoDB plus Elasticsearch and OpenSearch — handy if 
 - Import/Export: JSON, CSV
 - Cluster management for Elasticsearch/OpenSearch (nodes, shards, indices)
 
-**Pricing:** Free (Apache 2.0). No catch.
+**Pricing:** Community: free (Apache 2.0) · Ultimate $9.9/mo.
 
 **Activity:** 1K+ GitHub stars, dozens of releases (14+ since Jan 2026). Roughly 3 releases per month — active.
 
-**Good:** free, multi-engine, lightweight, local-first, actually open source, AI assistant built in.
+**Good:** free Community edition, multi-engine, lightweight, local-first, actually open source, AI assistant (Ultimate).
 
 **Not great:** newer project, no team sharing, UI is functional not pretty.
 
-**Best for:** teams that need multi-database support, cost-conscious devs, anyone who wants AI-assisted querying without paying.
+**Best for:** teams that need multi-database support, cost-conscious devs, anyone who wants AI-assisted querying with a bring-your-own-LLM setup.
 
 [Download DocKit](/download) | [Read DynamoDB GUI Guide](/products/dockit/dynamodb-gui-client)
 

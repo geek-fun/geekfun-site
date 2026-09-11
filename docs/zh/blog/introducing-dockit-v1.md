@@ -129,7 +129,7 @@ Elasticsearch 和 OpenSearch 方面，Monaco 支持的编辑和语法驱动补�
 
 ### 本地优先，注重隐私
 
-DocKit 本地优先。连接、查询和历史存储在你的文件系统上。凭证由操作系统钥匙串加密（macOS Keychain、Windows 凭据管理器、Linux libsecret）。零遥测。无云同步、无回传。无需网络连接——完全离线可用。Apache 2.0 许可。无功能锁。
+DocKit 本地优先。连接、查询和历史存储在你的文件系统上。凭证由操作系统钥匙串加密（macOS Keychain、Windows 凭据管理器、Linux libsecret）。零遥测。无云同步、无回传。无需网络连接——完全离线可用。Apache 2.0 许可。社区版核心功能全部解锁；进阶 AI 能力属于付费旗舰版。
 
 ### 跨平台支持 — macOS、Windows、Linux
 
@@ -205,7 +205,7 @@ MongoDB 支持正在积极开发中。连接管理和查询执行已合并到主
 
 ---
 
-DocKit 使用 Apache 2.0 许可。社区版功能完整——无功能锁、无注册墙。仓库里有的，二进制包里就有。
+DocKit 使用 Apache 2.0 许可。社区版核心工作流功能完整——无注册墙；进阶 AI 能力属于付费旗舰版。仓库里有的，二进制包里就有。
 
 [下载 DocKit 1.0](/zh/download)，支持 macOS、Windows 和 Linux。
 

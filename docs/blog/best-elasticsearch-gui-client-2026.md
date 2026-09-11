@@ -64,7 +64,7 @@ This guide covers the 5 GUI clients worth considering in 2026 — DocKit, Kibana
 
 | Tool | Price | Platform | Best for | Open source |
 |------|-------|----------|----------|-------------|
-| DocKit | Free | Mac, Win, Linux | Multi-engine teams, AI-assisted querying | ✅ Apache 2.0 |
+| DocKit | Community: free · Ultimate $9.9/mo | Mac, Win, Linux | Multi-engine teams, AI-assisted querying | ✅ Apache 2.0 |
 | Kibana | Free / Paid | Web (requires ES cluster) | Dashboards, production monitoring | ❌ Elastic License |
 | Elasticvue | Free | Web, browser extension, desktop | Lightweight ES browsing | ✅ MIT |
 | Elastron | Free | Mac, Win, Linux | Native desktop, cluster monitoring | ✅ MIT |
@@ -83,15 +83,15 @@ Free, open source. Handles Elasticsearch, OpenSearch, and DynamoDB in one app �
 - Multi-server connections — multiple ES clusters open at once
 - Queries saved locally, no telemetry, works offline
 
-**Pricing:** Free (Apache 2.0).
+**Pricing:** Community: free (Apache 2.0) · Ultimate $9.9/mo.
 
 **Activity:** 1K+ GitHub stars, 30 releases. v1.0.1 dropped May 11, 2026.
 
-**Good:** free, multi-engine, lightweight, offline-capable, AI querying without a subscription.
+**Good:** free Community edition, multi-engine, lightweight, offline-capable, AI querying with the Ultimate subscription.
 
 **Not great:** newer project, no team sharing features, UI is practical rather than polished.
 
-**Best for:** developers managing more than one database type, anyone who wants AI-assisted querying for free.
+**Best for:** developers managing more than one database type, anyone who wants AI-assisted querying with a bring-your-own-LLM setup.
 
 [Download DocKit](/download) | [Read the Elasticsearch GUI guide](/products/dockit/elasticsearch-gui-client)
 

@@ -129,7 +129,7 @@ For Elasticsearch and OpenSearch, you get Monaco-backed editing with grammar-dri
 
 ### Local-first, privacy by design
 
-DocKit is local-first. Connections, queries, and history live on your filesystem. Credentials are encrypted by your OS keychain (macOS Keychain, Windows Credential Manager, Linux libsecret). Zero telemetry. No cloud sync, no phoning home. No internet connection required — it works fully offline. Apache 2.0 licensed. No feature gating.
+DocKit is local-first. Connections, queries, and history live on your filesystem. Credentials are encrypted by your OS keychain (macOS Keychain, Windows Credential Manager, Linux libsecret). Zero telemetry. No cloud sync, no phoning home. No internet connection required — it works fully offline. Apache 2.0 licensed. Core features are unlocked in the Community edition; advanced AI capabilities are part of the paid Ultimate tier.
 
 ### Cross-platform — macOS, Windows, Linux
 
@@ -205,7 +205,7 @@ That cadence doesn't stop just because the number starts with 1.
 
 ---
 
-DocKit is Apache 2.0. The open-source release is fully functional — no feature gating, no sign-up walls. If it's in the repo, you get the binary.
+DocKit is Apache 2.0. The Community edition is fully functional for core workflows — no sign-up walls. Advanced AI features are part of the paid Ultimate tier. If it's in the repo, you get the binary.
 
 [Download DocKit 1.0](/products/dockit/) for macOS, Windows, or Linux.
 
