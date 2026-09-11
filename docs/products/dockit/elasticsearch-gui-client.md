@@ -143,7 +143,7 @@ Save multiple connection profiles to switch between dev, staging, and production
 | **DynamoDB support** | Yes | No | No | No |
 | **OpenSearch support** | Yes | No | No | No |
 | **Open source** | Apache 2.0 | Mixed | MIT | Yes |
-| **Price** | Free | Free (Basic) | Free | Free |
+| **Price** | Community: free · Ultimate $9.9/mo | Free (Basic) | Free | Free |
 
 ## Version compatibility
 

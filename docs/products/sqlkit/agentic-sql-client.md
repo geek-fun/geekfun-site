@@ -144,7 +144,7 @@ Entity-relationship diagrams drawn on a canvas. See table relationships, foreign
 | **Startup** | < 2 s | 5–15 s | 10–20 s | 3–8 s |
 | **RAM** | ~150 MB | ~400 MB | ~500 MB | ~200 MB |
 | **Open source** | Apache 2.0 | GPL | ❌ | ❌ |
-| **Price** | Free | Free | $199/yr | $199+ |
+| **Price** | Community: free · Ultimate $9.9/mo | Free | $199/yr | $199+ |
 
 ## Version compatibility
 
@@ -163,7 +163,7 @@ See the [connection guide](/docs/dockit/connect-to-server) if you get stuck.
 ## FAQ
 
 **Is SqlKit's AI agent free?**
-It's included. You only pay if you use cloud LLMs (OpenAI, Anthropic, etc.). Run local models via Ollama or LM Studio and it costs nothing.
+It's part of the paid Ultimate subscription. You also cover your own LLM usage if you use cloud models (OpenAI, Anthropic, etc.); running local models via Ollama or LM Studio has no LLM cost.
 
 **Does SqlKit work offline?**
 Everything except AI works offline. For AI you need network access to your model, or run one locally.

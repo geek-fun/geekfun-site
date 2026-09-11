@@ -437,6 +437,7 @@ const translations = {
       features: [
         'All core DocKit & SqlKit features',
         'Unlimited database connections',
+        'Result export (CSV / JSON)',
         'Community support',
         'Self-hosting option'
       ],
@@ -503,6 +504,8 @@ const translations = {
         sqlPartiqlEditor: 'SQL & PartiQL editor',
         queryHistoryLocal: 'Query history & saved queries (local)',
         dbTableManagement: 'Database & table management',
+        resultExport: 'Result export (CSV / JSON / copy)',
+        securityBaseline: 'Encrypted connections (SSL/TLS) & OS keychain credential storage',
         nl2sql: 'Natural language to SQL / PartiQL',
         aiExplainOptimize: 'AI explain & optimize SQL',
         aiFix: 'One-click AI SQL fix',
@@ -511,7 +514,10 @@ const translations = {
         aiQuota: 'AI request quota',
         clusterManagement: 'Cluster management & monitoring (nodes/shards/indices/templates)',
         erDashboards: 'ER diagrams & dashboards',
-        visualQueryBuilder: 'Advanced visual query builder',
+        visualQueryBuilder: 'Visual query builder',
+        sshProxy: 'SSH tunnel & proxy',
+        cloudCredentials: 'AWS SSO/IAM & enterprise database auth (LDAP / Kerberos / X.509)',
+        scheduledTasks: 'Scheduled tasks & automation',
         batchImportExport: 'Batch import/export (CSV/JSON/XLSX)',
         millionRow: 'Million-row data migration',
         crossDeviceSync: 'Cross-device sync of history & saved queries',
@@ -633,7 +639,7 @@ const translations = {
       description: '免费开源',
       price: '免费',
       priceUnit: '永久',
-      features: ['DocKit 与 SqlKit 全部核心功能', '无限数据库连接', '社区支持', '自托管选项'],
+      features: ['DocKit 与 SqlKit 全部核心功能', '无限数据库连接', '结果集导出（CSV / JSON）', '社区支持', '自托管选项'],
       cta: '下载使用'
     },
     ultimate: {
@@ -690,6 +696,8 @@ const translations = {
         sqlPartiqlEditor: 'SQL / PartiQL 编辑器',
         queryHistoryLocal: '查询历史与已保存查询（本地）',
         dbTableManagement: '库表结构管理',
+        resultExport: '结果集导出（CSV / JSON / 复制）',
+        securityBaseline: 'SSL/TLS 加密连接与系统钥匙串凭据加密',
         nl2sql: '自然语言生成 SQL / PartiQL',
         aiExplainOptimize: 'AI 解释与优化 SQL',
         aiFix: 'AI 一键修复 SQL 错误',
@@ -698,7 +706,10 @@ const translations = {
         aiQuota: 'AI 请求额度',
         clusterManagement: '集群管理与监控（节点/分片/索引/模板）',
         erDashboards: 'ER 图与数据大盘',
-        visualQueryBuilder: '高级可视化查询构建器',
+        visualQueryBuilder: '可视化查询构建器',
+        sshProxy: 'SSH 隧道与代理',
+        cloudCredentials: 'AWS SSO/IAM 与企业认证（LDAP / Kerberos / X.509）',
+        scheduledTasks: '定时任务与自动化',
         batchImportExport: '批量导入/导出（CSV/JSON/XLSX）',
         millionRow: '百万行级数据迁移',
         crossDeviceSync: '查询历史/已保存查询跨设备同步',
@@ -803,7 +814,10 @@ const compareCategories: CompareCategory[] = [
       { key: 'dataBrowseEdit', community: true, ultimate: true, enterprise: true },
       { key: 'sqlPartiqlEditor', community: true, ultimate: true, enterprise: true },
       { key: 'queryHistoryLocal', community: true, ultimate: true, enterprise: true },
-      { key: 'dbTableManagement', community: true, ultimate: true, enterprise: true }
+      { key: 'dbTableManagement', community: true, ultimate: true, enterprise: true },
+      { key: 'resultExport', community: true, ultimate: true, enterprise: true },
+      { key: 'securityBaseline', community: true, ultimate: true, enterprise: true },
+      { key: 'visualQueryBuilder', community: true, ultimate: true, enterprise: true }
     ]
   },
   {
@@ -827,7 +841,9 @@ const compareCategories: CompareCategory[] = [
     rows: [
       { key: 'clusterManagement', community: false, ultimate: true, enterprise: true },
       { key: 'erDashboards', community: false, ultimate: true, enterprise: true },
-      { key: 'visualQueryBuilder', community: false, ultimate: true, enterprise: true }
+      { key: 'sshProxy', community: false, ultimate: true, enterprise: true },
+      { key: 'cloudCredentials', community: false, ultimate: true, enterprise: true },
+      { key: 'scheduledTasks', community: false, ultimate: true, enterprise: true }
     ]
   },
   {
