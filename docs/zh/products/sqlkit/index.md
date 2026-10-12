@@ -105,13 +105,13 @@ hero:
   logo: /sqlkit.png
   screenshot: /sqlkit-client-ui.png
   actions:
+    - text: 开始免费试用
+      link: https://console.geekfun.club/subscribe?intent=trial
+      theme: brand
+      external: true
     - text: 下载
       link: /zh/download
-      theme: brand
-    - text: 访问 GitHub
-      link: https://github.com/geek-fun/sqlkit
       theme: alt
-      external: true
 
 databases:
   title: "50+ 种数据库，一个客户端"
@@ -214,9 +214,9 @@ cta:
   title: "你的数据库值得更好的客户端"
   body: "别再受限于臃肿的 IDE 和功能简陋的免费工具。立即下载 SqlKit — 专为开发者打造的现代化智能 SQL 客户端。"
   actions:
-    - { text: "下载", link: "/zh/download", theme: "brand" }
+    - { text: "开始免费试用", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
+    - { text: "下载", link: "/zh/download", theme: "alt" }
     - { text: "了解 DocKit →", link: "/zh/products/dockit/", theme: "alt" }
-    - { text: "访问 GitHub", link: "https://github.com/geek-fun/sqlkit", theme: "alt", external: true }
 ---
 
 ## Agentic Data Studio

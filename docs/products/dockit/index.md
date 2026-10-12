@@ -92,11 +92,12 @@ hero:
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
+    - text: Start Free Trial
+      link: https://console.geekfun.club/subscribe?intent=trial
+      theme: brand
+      external: true
     - text: Download
       link: /download
-      theme: brand
-    - text: Agentic Data Studio
-      link: /docs/dockit/agentic-datastudio
       theme: alt
 
 databases:
@@ -148,9 +149,9 @@ cta:
   title: "Database management, AI-native"
   body: "Stop wrestling with complex query syntax. Let DocKit's AI assistant and Agentic Data Studio handle the boilerplate while you focus on the data."
   actions:
-    - { text: "Download", link: "/download", theme: "brand" }
+    - { text: "Start Free Trial", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
+    - { text: "Download", link: "/download", theme: "alt" }
     - { text: "Try SqlKit →", link: "/products/sqlkit/", theme: "alt" }
-    - { text: "View on GitHub", link: "https://github.com/geek-fun/dockit", theme: "alt", external: true }
 ---
 
 ## Why DocKit for multi-database teams
