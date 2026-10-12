@@ -44,7 +44,7 @@ head:
 
 MongoDB Compass 是 MongoDB 官方的 GUI 客户端。浏览集合、写写基础查询还算顺手。但如果你每天都在用，多半已经碰到它的天花板了：处理大集合时明显卡顿，聚合管道构建器越来越难驾驭，而且一点 AI 辅助都没有。
 
-DocKit 是免费开源的替代方案，覆盖同样的 MongoDB 工作流，还额外带来 Data AI Agent、Agentic Data Studio，以及对 Elasticsearch、OpenSearch 和 DynamoDB 的支持。
+DocKit 是免费开源的替代方案，覆盖同样的 MongoDB 工作流，还额外带来 Data AI Agent、Agentic Data Studio，以及对 Elasticsearch、OpenSearch 和 DynamoDB 的支持（AI 功能需要付费的 Ultimate 订阅）。
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/zh/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">下载 DocKit</a>
@@ -65,14 +65,14 @@ DocKit 是免费开源的替代方案，覆盖同样的 MongoDB 工作流，还�
 | **聚合管道** | ✅ | ✅ 可视化构建器 |
 | **索引管理** | ✅ 查看、创建、删除 | ✅ |
 | **导入 / 导出** | ✅ JSON、CSV、JSONL | ✅ JSON、CSV |
-| **Data AI Agent** | ✅ 自然语言查询 | ❌ |
-| **Agentic Data Studio** | ✅ 28+ 工具、安全门禁 | ❌ |
+| **Data AI Agent** | ✅ 自然语言查询（Ultimate） | ❌ |
+| **Agentic Data Studio** | ✅ 28+ 工具、安全门禁（Ultimate） | ❌ |
 | **AI 提供商** | 12 家（OpenAI、Anthropic、DeepSeek、Ollama、LM Studio 等） | ❌ |
 | **查询历史** | ✅ 500 条、收藏、持久化 | ❌ |
 | **多数据库支持** | ✅ MongoDB + ES + OpenSearch + DynamoDB | ❌ 仅 MongoDB |
 | **本地优先隐私** | ✅ 无遥测、支持内网隔离 | ❌ 默认开启遥测 |
 | **开源** | ✅ Apache 2.0 | ✅ SSPL（旧版为 AGPL） |
-| **价格** | 免费 | 免费（企业版付费） |
+| **价格** | 社区版免费 · Ultimate $9.9/月 | 免费（企业版付费） |
 
 ## 什么时候 DocKit 更合适
 
@@ -86,7 +86,7 @@ Compass 允许你手写 MongoDB 查询，或者用可视化构建器。DocKit �
 
 ### 你在意本地优先的隐私
 
-Compass 默认会上报遥测。DocKit 不会偷偷联网，没有统计、没有崩溃报告、没有任何数据离开你的机器。所有连接配置和凭证都加密保存在系统钥匙串里。你甚至可以用 Ollama 或 LM Studio 完全离线跑 AI 查询。
+Compass 默认会上报遥测。DocKit 不会偷偷联网，没有统计、没有崩溃报告、没有任何数据离开你的机器。所有连接配置和凭证都加密保存在系统钥匙串里。AI 查询可以用 Ollama 或 LM Studio 完全离线运行，数据不经过云端。
 
 ### 想要 Agentic Data Studio
 
@@ -110,10 +110,10 @@ Compass 基于 Electron，日常占用 400 MB+ 内存。DocKit 基于 Tauri（Ru
 
 | | DocKit | MongoDB Compass |
 |---|---|---|
-| **社区版** | 免费（全功能） | 免费（功能受限） |
-| **完整功能** | 所有功能都包含 | 付费（企业订阅） |
-| **Data AI Agent** | 免费内置 | 不可用 |
-| **Agentic Data Studio** | 免费内置 | 不可用 |
+| **社区版** | 免费（核心本地功能） | 免费（功能受限） |
+| **完整功能** | 付费（Ultimate $9.9/月） | 付费（企业订阅） |
+| **Data AI Agent** | Ultimate 订阅内置 | 不可用 |
+| **Agentic Data Studio** | Ultimate 订阅内置 | 不可用 |
 | **多数据库** | 免费内置 | 不可用 |
 | **商业使用** | Apache 2.0 许可（无限制） | SSPL（对云服务有限制） |
 
@@ -127,7 +127,7 @@ DocKit 能给你：
 - **Agentic Data Studio**：28+ 工具，带安全门禁管理你的数据库
 - **一个应用管所有数据库**：MongoDB 之外还有 Elasticsearch、OpenSearch、DynamoDB
 - **隐私优先**：无遥测、支持内网隔离、AI 可离线使用
-- **免费开源**：Apache 2.0，没有付费层级卡功能
+- **免费开源**：Apache 2.0 社区版，高级 AI 功能包含在付费的 Ultimate 层级
 
 ## 连接 DocKit 到 MongoDB
 
@@ -145,7 +145,7 @@ DocKit 能给你：
 核心工作流，也就是浏览集合、运行查询、管理索引、导入导出数据，是的，它能覆盖同样的场景，还额外加了 AI 查询和多数据库支持。Compass 在可视化聚合构建器和 Schema 分析上更胜一筹。很多团队两个都在用。
 
 **DocKit 真的免费吗？**
-是的。DocKit 社区版在 Apache 2.0 下完全免费，包括 Data AI Agent 和 Agentic Data Studio 在内的所有功能都不收费。没有付费层级，没有功能限制。
+社区版免费且开源（Apache 2.0），覆盖完整的本地数据库工作流，连接数没有限制。高级功能——AI 代理（自带 LLM）、MCP、集群管理、ER 图、批量导入导出、跨设备同步——属于付费的 GEEKFUN Data Studio Ultimate 订阅（$9.9/月或 $99/年，含 7 天免费试用）。订阅期内发布的每个版本，取消订阅后也依然归你所有。
 
 **DocKit 支持 MongoDB Atlas 吗？**
 支持。在连接对话框里粘贴你的 Atlas 连接字符串即可。DocKit 支持 SRV 连接字符串、TLS 和所有 Atlas 认证方式。
@@ -161,4 +161,4 @@ DocKit 能给你：
 
 ---
 
-→ **[DocKit 完整功能概览](/products/dockit/)** · [MongoDB GUI 客户端页面](/products/dockit/mongodb-gui-client) · [全部对比](/products/dockit/)
+[DocKit 完整功能概览](/products/dockit/) · [MongoDB GUI 客户端页面](/products/dockit/mongodb-gui-client) · [全部对比](/products/dockit/)
