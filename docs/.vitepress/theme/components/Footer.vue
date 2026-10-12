@@ -22,6 +22,7 @@
             <li><a :href="localePath('/products/dockit/mongodb-gui-client')">{{ t.mongodbGui }}</a></li>
             <li><a :href="localePath('/products/dockit/dynamodb-gui-client')">{{ t.dynamodbGui }}</a></li>
             <li><a :href="localePath('/products/sqlkit/agentic-sql-client')">{{ t.agenticSqlClient }}</a></li>
+            <li><a :href="localePath('/products/dockit/dockit-vs-mongodb-compass')">{{ t.vsMongodbCompass }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-dynobase')">{{ t.dynobaseAlt }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-kibana')">{{ t.vsKibana }}</a></li>
             <li><a :href="localePath('/products/dockit/dockit-vs-opensearch-dashboards')">{{ t.vsOpensearchDashboards }}</a></li>
@@ -87,6 +88,7 @@ const translations = {
     dynobaseAlt: 'DocKit vs Dynobase',
     vsKibana: 'DocKit vs Kibana',
     vsOpensearchDashboards: 'DocKit vs OpenSearch Dashboards',
+    vsMongodbCompass: 'DocKit vs MongoDB Compass',
     elasticsearchGui: 'Elasticsearch GUI Client',
 	    opensearchGui: 'OpenSearch GUI Client',
 	    agenticSqlClient: 'Agentic SQL GUI Client',
@@ -116,6 +118,7 @@ const translations = {
     dynobaseAlt: 'DocKit vs Dynobase',
     vsKibana: 'DocKit vs Kibana',
     vsOpensearchDashboards: 'DocKit vs OpenSearch Dashboards',
+    vsMongodbCompass: 'DocKit vs MongoDB Compass',
     elasticsearchGui: 'Elasticsearch GUI 客户端',
 	    opensearchGui: 'OpenSearch GUI 客户端',
 	    agenticSqlClient: 'Agentic SQL GUI 客户端',

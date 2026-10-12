@@ -105,13 +105,13 @@ hero:
   logo: /sqlkit.png
   screenshot: /sqlkit-client-ui.png
   actions:
+    - text: Start Free Trial
+      link: https://console.geekfun.club/subscribe?intent=trial
+      theme: brand
+      external: true
     - text: Download
       link: /download
-      theme: brand
-    - text: View on GitHub
-      link: https://github.com/geek-fun/sqlkit
       theme: alt
-      external: true
 
 databases:
   title: "50+ databases, one client"
@@ -214,9 +214,9 @@ cta:
   title: "Stop fighting your database client"
   body: "Download SqlKit. It covers 50+ databases, has an AI agent built in, and runs natively on Mac, Windows, and Linux."
   actions:
-    - { text: "Download", link: "/download", theme: "brand" }
+    - { text: "Start Free Trial", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
+    - { text: "Download", link: "/download", theme: "alt" }
     - { text: "Try DocKit →", link: "/products/dockit/", theme: "alt" }
-    - { text: "View on GitHub", link: "https://github.com/geek-fun/sqlkit", theme: "alt", external: true }
 ---
 
 ## Agentic Data Studio

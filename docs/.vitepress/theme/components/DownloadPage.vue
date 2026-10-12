@@ -140,8 +140,8 @@ const content = computed<DownloadContent>(() => {
         name: 'SqlKit',
         logo: '/sqlkit.png',
         description: isZh
-          ? '50+ 种数据库，一个原生应用 — 从 Oracle 到 DuckDB，AI 智能体内置，开源免费。'
-          : '50+ databases, one native app — from Oracle to DuckDB. AI agent built-in, open-source and free.',
+          ? '50+ 种数据库，一个原生应用 — 从 Oracle 到 DuckDB。社区版免费开源，AI 智能体随 Ultimate 订阅提供。'
+          : '50+ databases, one native app — from Oracle to DuckDB. Community edition free and open source; AI agent in Ultimate.',
         features: isZh
           ? ['AI 智能体', 'SSH 隧道', 'JDBC 桥接', '数据迁移', 'ER 图', '执行计划']
           : ['AI Agent', 'SSH Tunnel', 'JDBC Bridge', 'Data Transfer', 'ER Diagrams', 'Execution Plans'],
@@ -163,7 +163,7 @@ const content = computed<DownloadContent>(() => {
         installCommand: 'npm install -g @geek-fun/serverlessinsight',
         installLabel: isZh ? '安装 CLI' : 'Install CLI',
         actions: [
-          { label: isZh ? '文档' : 'Docs', href: 'https://serverlessinsight.geekfun.club', external: true, kind: 'primary' },
+          { label: isZh ? '文档' : 'Docs', href: 'https://serverlessinsight.com', external: true, kind: 'primary' },
           { label: 'GitHub', href: 'https://github.com/geek-fun/serverlessinsight', external: true, kind: 'secondary' }
         ]
       },

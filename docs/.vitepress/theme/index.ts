@@ -12,6 +12,7 @@ import ProductsMegaMenu from "./components/ProductsMegaMenu.vue";
 import ProductsMobileNav from "./components/ProductsMobileNav.vue";
 import NavAuthActions from "./components/NavAuthActions.vue";
 import ProductLayout from "./components/product/ProductLayout.vue";
+import NotFoundContent from "./components/NotFoundContent.vue";
 
 const oneYearFromNow = () => new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
 
@@ -81,5 +82,6 @@ export default {
         app.component('HomePage', HomePage);
         app.component('AboutPage', AboutPage);
         app.component('PricingPage', PricingPage);
+        app.component('NotFoundContent', NotFoundContent);
     }
 }

@@ -32,6 +32,11 @@ head:
 
 历经 2 年 10 个月、970 次提交、244 个合并 PR 和 70 个版本发布，DocKit 首个稳定版正式发布。从头梳理：从 Electron 到 Tauri v2 的演进、三次 UI 重写、DynamoDB 集成、AI 支持，以及平台今天能做的一切。
 
+## [DocKit agentic MongoDB GUI 客户端 - 用自然语言和你的数据对话](/zh/blog/dockit-agentic-mongodb-gui)
+*2026年6月10日*
+
+DocKit 是内置 Data AI Agent 的开源 NoSQL 桌面客户端——用自然语言描述需求，代理自动生成并执行 MongoDB 查询、直接返回结果，无需手写 Query DSL。回顾老牌 MongoDB GUI 工具为何沉寂、聊天框式 AI 的局限，以及如何用一个轻量应用覆盖 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB。
+
 ## [2026年最佳Elasticsearch GUI客户端：5款工具对比](/zh/blog/best-elasticsearch-gui-client-2026)
 *2026年5月23日*
 
