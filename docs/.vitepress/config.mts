@@ -161,6 +161,10 @@ nav: [
                          link: '/download',
                      },
                      {
+                         text: 'Pricing',
+                         link: '/pricing',
+                     },
+                     {
                          text: 'Docs',
                          link: '/docs',
                      },
@@ -171,10 +175,6 @@ nav: [
                      {
                          text: 'News',
                          link: '/news',
-                     },
-                     {
-                         text: 'About',
-                         link: '/about',
                      },
                  ]
             }
@@ -222,6 +222,10 @@ nav: [
                           link: '/zh/download',
                       },
                       {
+                          text: '定价',
+                          link: '/zh/pricing',
+                      },
+                      {
                           text: '文档',
                           link: '/zh/docs',
                       },
@@ -232,10 +236,6 @@ nav: [
                       {
                           text: '新闻',
                           link: '/zh/news',
-                      },
-                      {
-                          text: '关于',
-                          link: '/zh/about',
                       }
                  ]
             }

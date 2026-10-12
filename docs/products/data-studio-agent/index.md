@@ -30,10 +30,9 @@ head:
         "@type": "SoftwareApplication",
         "name": "Data Studio Agent",
         "alternateName": ["data-studio-mcp", "Data Studio MCP Server", "database MCP server", "AI database assistant"],
-        "description": "Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Supports 70+ SQL databases via SqlKit and NoSQL via DocKit.",
+        "description": "Data Studio Agent. Your DBA. An open-source (Apache 2.0) MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Supports 70+ SQL databases via SqlKit and NoSQL via DocKit.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Windows, Linux",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "featureList": [
           "MCP server for AI coding agents",
           "SQL access via SqlKit (70+ databases)",
@@ -63,7 +62,7 @@ hero:
 install:
   eyebrow: "Quick Start"
   title: "Get started in one command"
-  note: "Requires DocKit and/or SqlKit installed, running, and connected to a database. The server auto-discovers running backends."
+  note: "Requires DocKit and/or SqlKit installed, running, connected to a database, and an active GEEKFUN Data Studio Ultimate subscription. The server auto-discovers running backends."
   tabs:
     - label: Codex
       icon: /agent-logos/codex-logo.png
@@ -326,7 +325,7 @@ security:
 
 cta:
   title: "Give your coding agent access to your data"
-  body: "Install the MCP server, point it at DocKit and SqlKit, and start asking questions in plain language. Free, open source, Apache 2.0."
+  body: "Install the MCP server, point it at DocKit and SqlKit, and start asking questions in plain language. Open source (Apache 2.0), available in-app with a GEEKFUN Data Studio Ultimate subscription."
   actions:
     - { text: "Get Started", link: "https://www.npmjs.com/package/@geek-fun/data-studio-mcp", theme: "brand", external: true }
     - { text: "View on GitHub", link: "https://github.com/geek-fun/data-studio-agent", theme: "alt", external: true }

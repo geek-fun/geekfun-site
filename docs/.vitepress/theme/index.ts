@@ -7,8 +7,10 @@ import Footer from "./components/Footer.vue";
 import DownloadPage from "./components/DownloadPage.vue";
 import HomePage from "./components/HomePage.vue";
 import AboutPage from "./components/AboutPage.vue";
+import PricingPage from "./components/PricingPage.vue";
 import ProductsMegaMenu from "./components/ProductsMegaMenu.vue";
 import ProductsMobileNav from "./components/ProductsMobileNav.vue";
+import NavAuthActions from "./components/NavAuthActions.vue";
 import ProductLayout from "./components/product/ProductLayout.vue";
 import NotFoundContent from "./components/NotFoundContent.vue";
 
@@ -21,8 +23,14 @@ export default {
         const isProduct = frontmatter.value.layout === 'product'
         const slots: Record<string, () => unknown> = {
             'layout-bottom': () => h(Footer),
-            'nav-bar-content-after': () => h(ProductsMegaMenu),
-            'nav-screen-content-after': () => h(ProductsMobileNav)
+            'nav-bar-content-after': () => [
+                h(ProductsMegaMenu),
+                h(NavAuthActions, {variant: 'bar'})
+            ],
+            'nav-screen-content-after': () => [
+                h(ProductsMobileNav),
+                h(NavAuthActions, {variant: 'screen'})
+            ]
         }
         if (isProduct) {
             slots['doc-before'] = () => h(ProductLayout)
@@ -73,6 +81,7 @@ export default {
         app.component('DownloadPage', DownloadPage);
         app.component('HomePage', HomePage);
         app.component('AboutPage', AboutPage);
+        app.component('PricingPage', PricingPage);
         app.component('NotFoundContent', NotFoundContent);
     }
 }

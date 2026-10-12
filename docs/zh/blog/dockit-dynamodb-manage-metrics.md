@@ -1,6 +1,6 @@
 ---
 title: "DocKit DynamoDB 管理与指标 - 随时掌控您的表"
-description: "DocKit 现在允许您直接从桌面管理 DynamoDB 表并监控关键指标。浏览表、查看容量、跟踪项目数量和管理索引 — 全部免费。"
+description: "DocKit 现在允许您直接从桌面管理 DynamoDB 表并监控关键指标。浏览表、查看容量、跟踪项目数量和管理索引。"
 date: 2025-03-04
 head:
   - - meta
@@ -28,7 +28,7 @@ head:
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "DocKit DynamoDB 管理与指标 - 随时掌控您的表",
-        "description": "DocKit 现在允许您直接从桌面管理 DynamoDB 表并监控关键指标。浏览表、查看容量、跟踪项目数量和管理索引 — 全部免费。",
+        "description": "DocKit 现在允许您直接从桌面管理 DynamoDB 表并监控关键指标。浏览表、查看容量、跟踪项目数量和管理索引。",
         "image": "https://www.geekfun.club/dockit-dynamodb-manage.png",
         "author": {
           "@type": "Organization",
@@ -57,7 +57,7 @@ head:
 
 # DocKit DynamoDB 管理与指标 - 随时掌控您的表
 
-**DynamoDB** 是一个强大的全托管 NoSQL 数据库 — 但管理它一直需要使用多个工具。AWS 控制台基于浏览器且速度缓慢。AWS CLI 需要每个操作都有精确的语法知识。Dynobase 等商业工具需要月度订阅费。**DocKit 的 DynamoDB 管理和指标面板**为您提供浏览、管理和监控 DynamoDB 表的原生桌面体验 — 完全免费。
+**DynamoDB** 是一个强大的全托管 NoSQL 数据库 — 但管理它一直需要使用多个工具。AWS 控制台基于浏览器且速度缓慢。AWS CLI 需要每个操作都有精确的语法知识。Dynobase 等商业工具需要月度订阅费。**DocKit 的 DynamoDB 管理和指标面板**为您提供浏览、管理和监控 DynamoDB 表的原生桌面体验。
 
 ## DynamoDB 管理的挑战
 
@@ -171,7 +171,7 @@ LSI 类似地显示，包括其分区键（与表的分区键相同）、排序�
 | **查看 GSI/LSI 详情** | ✅ 一键查看 | ✅ 深藏在标签中 |
 | **容量指标** | ✅ | ✅（+ CloudWatch） |
 | **离线工作** | ✅（DynamoDB Local） | ❌ |
-| **价格** | 免费 | 免费 |
+| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费 |
 | **开源** | ✅ | ❌ |
 
 ## 连接到多个 AWS 账户
@@ -194,4 +194,4 @@ DocKit 支持同时管理多个 AWS 账户和区域的 DynamoDB。通过连接�
 3. 打开 **DynamoDB 管理与指标**面板，开始浏览表和监控指标。
 4. 查看完整的**[DynamoDB 管理与指标文档](/zh/docs/dockit/dynamodb-manage-metrics)**获取完整参考。
 
-DocKit 是**100% 免费且开源的**（Apache 2.0）。没有订阅、没有功能限制、没有数据离开您的桌面。[立即下载](/zh/download)，以零成本体验专业级 DynamoDB 管理。
+DocKit 的**社区版免费且开源**（Apache 2.0），数据不会离开您的桌面。AI 智能体、集群管理等进阶能力属于付费旗舰版订阅。[立即下载](/zh/download)，以零成本上手专业级 DynamoDB 管理。

@@ -30,10 +30,9 @@ head:
         "@type": "SoftwareApplication",
         "name": "Data Studio Agent",
         "alternateName": ["data-studio-mcp", "Data Studio MCP Server", "数据库 MCP 服务器", "AI 数据库助手"],
-        "description": "Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。通过 SqlKit 支持 70+ 种 SQL 数据库，通过 DocKit 支持 NoSQL。",
+        "description": "Data Studio Agent。你的 DBA。一个开源（Apache 2.0）的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。通过 SqlKit 支持 70+ 种 SQL 数据库，通过 DocKit 支持 NoSQL。",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Windows, Linux",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "featureList": [
           "面向 AI 编码代理的 MCP 服务器",
           "通过 SqlKit 访问 SQL 数据库（70+ 种）",
@@ -63,7 +62,7 @@ hero:
 install:
   eyebrow: "快速开始"
   title: "一条命令开始使用"
-  note: "需要先安装并启动 DocKit 和/或 SqlKit，并连接到数据库。服务器会自动发现正在运行的后端。"
+  note: "需要先安装并启动 DocKit 和/或 SqlKit、连接到数据库，并拥有有效的 GEEKFUN Data Studio 旗舰版订阅。服务器会自动发现正在运行的后端。"
   tabs:
     - label: Codex
       icon: /agent-logos/codex-logo.png
@@ -326,7 +325,7 @@ security:
 
 cta:
   title: "让编码代理访问你的数据"
-  body: "安装 MCP 服务器，指向 DocKit 和 SqlKit，然后用自然语言开始提问。免费、开源、Apache 2.0。"
+  body: "安装 MCP 服务器，指向 DocKit 和 SqlKit，然后用自然语言开始提问。开源（Apache 2.0），需订阅 GEEKFUN Data Studio 旗舰版后在应用内使用。"
   actions:
     - { text: "开始使用", link: "https://www.npmjs.com/package/@geek-fun/data-studio-mcp", theme: "brand", external: true }
     - { text: "查看 GitHub", link: "https://github.com/geek-fun/data-studio-agent", theme: "alt", external: true }

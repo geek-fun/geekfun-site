@@ -251,7 +251,7 @@ SqlKit supports **50+ databases** across five adapter strategies, from native Ru
 | **SSH tunnel** | ✅ | ✅ | ✅ | ✅ |
 | **JDBC bridge** | ✅ | ✅ | ❌ | ✅ |
 | **Open source** | ✅ Apache 2.0 | ✅ GPL | ❌ | ❌ |
-| **Price** | Free | Free | $199/yr | $199+ |
+| **Price** | Community: free · Ultimate $9.9/mo | Free | $199/yr | $199+ |
 | **macOS / Windows / Linux** | ✅ | ✅ | ✅ | Partial |
 
 ## Everyday features
@@ -281,7 +281,7 @@ SqlKit supports **50+ databases** across five adapter strategies, from native Ru
 SqlKit supports 40+ databases including PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Firebird, MariaDB, CockroachDB, Redshift, Snowflake, DB2, Trino, BigQuery, Databricks, Hive, Teradata, and more. See the database compatibility table above for the full breakdown.
 
 **Is SqlKit really free?**
-Apache 2.0 license, all features included. The AI agent doesn't cost extra either — you only pay for LLM API usage if you use cloud models.
+Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
 
 **Does SqlKit work offline?**
 Database operations work fine offline. AI features need network access to your model endpoint, or you can run a local model via Ollama or LM Studio.

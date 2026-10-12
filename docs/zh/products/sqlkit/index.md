@@ -101,7 +101,7 @@ head:
 hero:
   name: SqlKit
   headline: "支持 50+ 种数据库的智能 SQL 客户端"
-  tagline: "一个应用，管理 50+ 种数据库。AI 驱动、开源免费、为开发者而生。"
+  tagline: "一个应用，管理 50+ 种数据库。AI 驱动、社区版开源免费、为开发者而生。"
   logo: /sqlkit.png
   screenshot: /sqlkit-client-ui.png
   actions:
@@ -251,7 +251,7 @@ SqlKit 通过五种适配策略支持 **50+ 种数据库**，覆盖从原生 Rus
 | **SSH 隧道** | ✅ | ✅ | ✅ | ✅ |
 | **JDBC 桥接** | ✅ | ✅ | ❌ | ✅ |
 | **开源** | ✅ Apache 2.0 | ✅ GPL | ❌ | ❌ |
-| **价格** | 免费 | 免费 | ¥1,399/年 | ¥1,299+ |
+| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费 | ¥1,399/年 | ¥1,299+ |
 | **macOS / Windows / Linux** | ✅ | ✅ | ✅ | 部分 |
 
 ## 为你的工作流而生
@@ -281,7 +281,7 @@ SqlKit 通过五种适配策略支持 **50+ 种数据库**，覆盖从原生 Rus
 SqlKit 支持 50+ 种数据库，包括 PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Firebird、MariaDB、CockroachDB、Redshift、Snowflake、DB2、Trino、BigQuery、Databricks、Hive、Teradata 等。详见上方数据库兼容性表格。
 
 **SqlKit 真的免费吗？**
-是的。SqlKit 基于 Apache 2.0 开源协议，完全免费。所有功能包括 AI 智能体都不收费。您只需为使用的云端 LLM API 付费。
+是的 —— 社区版永久免费、开源（Apache 2.0），涵盖完整的本地数据库工作流，连接不限量。进阶能力 —— AI 智能体（自带 LLM）、MCP、集群管理、ER 图、批量导入导出、跨设备同步 —— 属于付费的 GEEKFUN Data Studio 旗舰版订阅（$9.9/月 或 $99/年，7 天免费试用）。订阅期间发布的版本永久可用，取消订阅后依然归你。
 
 **SqlKit 可以离线使用吗？**
 可以。桌面端的所有数据库操作均可完全离线运行。AI 功能需要网络连接（或通过 Ollama/LM Studio 使用本地模型）。

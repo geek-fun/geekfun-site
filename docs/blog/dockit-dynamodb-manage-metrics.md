@@ -1,6 +1,6 @@
 ---
 title: "DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips"
-description: "DocKit now lets you manage DynamoDB tables and monitor key metrics directly from your desktop. Browse tables, view capacity, track item counts, and manage indexes — all for free."
+description: "DocKit now lets you manage DynamoDB tables and monitor key metrics directly from your desktop. Browse tables, view capacity, track item counts, and manage indexes."
 date: 2025-03-04
 head:
   - - meta
@@ -28,7 +28,7 @@ head:
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips",
-        "description": "DocKit now lets you manage DynamoDB tables and monitor key metrics directly from your desktop. Browse tables, view capacity, track item counts, and manage indexes — all for free.",
+        "description": "DocKit now lets you manage DynamoDB tables and monitor key metrics directly from your desktop. Browse tables, view capacity, track item counts, and manage indexes.",
         "image": "https://www.geekfun.club/dockit-dynamodb-manage.png",
         "author": {
           "@type": "Organization",
@@ -141,7 +141,7 @@ Having index information alongside table data in one view eliminates the context
 | **View GSI/LSI details** | ✅ One-click | ✅ Buried in tabs |
 | **Capacity metrics** | ✅ | ✅ (+ CloudWatch) |
 | **Works offline** | ✅ (DynamoDB Local) | ❌ |
-| **Price** | Free | Free |
+| **Price** | Community: free · Ultimate $9.9/mo | Free |
 | **Open source** | ✅ | ❌ |
 
 ## Connecting to Multiple AWS Accounts
@@ -163,4 +163,4 @@ Ready to take full control of your DynamoDB tables?
 3. Open the **DynamoDB Manage & Metrics** panel to start browsing tables and monitoring metrics.
 4. Check the full **[DynamoDB Manage & Metrics documentation](/docs/dockit/dynamodb-manage-metrics)** for a complete reference.
 
-DocKit is **100% free and open-source** (Apache 2.0). No subscriptions, no feature limitations, no data leaving your desktop. [Download it today](/download) and experience professional-grade DynamoDB management without the cost.
+DocKit's Community edition is **free and open-source** (Apache 2.0), with no data leaving your desktop. Advanced capabilities such as AI-powered features and cluster management are part of the paid Ultimate subscription. [Download it today](/download) and experience professional-grade DynamoDB management to get started.
