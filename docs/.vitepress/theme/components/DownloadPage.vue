@@ -130,8 +130,8 @@ const content = computed<DownloadContent>(() => {
           : ['AI Agent', 'Natural Language Query', 'Monaco Editor', 'Cluster Management', 'Import/Export', 'Local-First'],
         category: 'database-clients',
         actions: [
-          { label: isZh ? '免费试用' : 'Start Free Trial', href: 'https://console.geekfun.club/subscribe?intent=trial', external: true, kind: 'primary' },
-          { label: isZh ? '了解更多' : 'Learn More', href: isZh ? '/zh/products/dockit/' : '/products/dockit/', kind: 'secondary' }
+          { label: isZh ? '了解更多' : 'Learn More', href: isZh ? '/zh/products/dockit/' : '/products/dockit/', kind: 'primary' },
+          { label: 'GitHub', href: 'https://github.com/geek-fun/dockit', external: true, kind: 'secondary' }
         ],
         releaseHref: 'https://github.com/geek-fun/dockit/releases',
         platformGroups: availablePlatform
@@ -147,8 +147,8 @@ const content = computed<DownloadContent>(() => {
           : ['AI Agent', 'SSH Tunnel', 'JDBC Bridge', 'Data Transfer', 'ER Diagrams', 'Execution Plans'],
         category: 'database-clients',
         actions: [
-          { label: isZh ? '免费试用' : 'Start Free Trial', href: 'https://console.geekfun.club/subscribe?intent=trial', external: true, kind: 'primary' },
-          { label: isZh ? '了解更多' : 'Learn More', href: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/', kind: 'secondary' }
+          { label: isZh ? '了解更多' : 'Learn More', href: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/', kind: 'primary' },
+          { label: 'GitHub', href: 'https://github.com/geek-fun/sqlkit', external: true, kind: 'secondary' }
         ],
         releaseHref: 'https://github.com/geek-fun/sqlkit/releases',
         platformGroups: availablePlatform
