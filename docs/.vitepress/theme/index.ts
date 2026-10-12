@@ -10,6 +10,7 @@ import AboutPage from "./components/AboutPage.vue";
 import PricingPage from "./components/PricingPage.vue";
 import ProductsMegaMenu from "./components/ProductsMegaMenu.vue";
 import ProductsMobileNav from "./components/ProductsMobileNav.vue";
+import NavAuthActions from "./components/NavAuthActions.vue";
 import ProductLayout from "./components/product/ProductLayout.vue";
 
 const oneYearFromNow = () => new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
@@ -21,8 +22,14 @@ export default {
         const isProduct = frontmatter.value.layout === 'product'
         const slots: Record<string, () => unknown> = {
             'layout-bottom': () => h(Footer),
-            'nav-bar-content-after': () => h(ProductsMegaMenu),
-            'nav-screen-content-after': () => h(ProductsMobileNav)
+            'nav-bar-content-after': () => [
+                h(ProductsMegaMenu),
+                h(NavAuthActions, {variant: 'bar'})
+            ],
+            'nav-screen-content-after': () => [
+                h(ProductsMobileNav),
+                h(NavAuthActions, {variant: 'screen'})
+            ]
         }
         if (isProduct) {
             slots['doc-before'] = () => h(ProductLayout)

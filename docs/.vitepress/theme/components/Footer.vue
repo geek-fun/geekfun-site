@@ -36,6 +36,7 @@
             <li><a :href="localePath('/news/')">{{ t.news }}</a></li>
             <li><a :href="localePath('/download')">{{ t.download }}</a></li>
             <li><a :href="localePath('/pricing')">{{ t.pricing }}</a></li>
+            <li><a :href="localePath('/about')">{{ t.about }}</a></li>
           </ul>
         </div>
 
@@ -94,6 +95,7 @@ const translations = {
     blog: 'Blog',
     news: 'News',
     pricing: 'Pricing',
+    about: 'About',
     legalContact: 'Legal & Contact',
     terms: 'Terms of Service',
     privacy: 'Privacy Policy',
@@ -122,6 +124,7 @@ const translations = {
     blog: '博客',
     news: '新闻',
     pricing: '定价',
+    about: '关于',
     legalContact: '法律与联系',
     terms: '服务协议',
     privacy: '隐私政策',

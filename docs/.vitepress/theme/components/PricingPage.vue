@@ -99,7 +99,7 @@
             </ul>
             <a
               class="plan-cta primary"
-              href="https://console.geekfun.club/pricing"
+              :href="subscribeUrl"
               target="_blank"
               rel="noopener"
             >
@@ -164,7 +164,7 @@
         </ul>
         <a
           class="trial-cta"
-          href="https://console.geekfun.club/pricing"
+          :href="trialUrl"
           target="_blank"
           rel="noopener"
         >
@@ -902,6 +902,15 @@ const altOption = computed(() =>
     ? t.value.ultimate.monthlyOption.replace('{price}', t.value.prices[currentCurrency.value].monthly)
     : t.value.ultimate.yearlyOption.replace('{price}', t.value.prices[currentCurrency.value].yearly)
 )
+
+// Deep links into the console: /subscribe checks the login/subscription state
+// and continues to payment (or the 7-day trial) on its own
+const CONSOLE_ORIGIN = 'https://console.geekfun.club'
+const subscribeUrl = computed(
+  () =>
+    `${CONSOLE_ORIGIN}/subscribe?plan=${isYearly.value ? 'YEARLY' : 'MONTHLY'}&currency=${currentCurrency.value}`
+)
+const trialUrl = `${CONSOLE_ORIGIN}/subscribe?intent=trial`
 
 const enterpriseNotifyOpen = ref(false)
 function notifyEnterprise() {

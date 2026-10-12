@@ -176,10 +176,6 @@ nav: [
                          text: 'News',
                          link: '/news',
                      },
-                     {
-                         text: 'About',
-                         link: '/about',
-                     },
                  ]
             }
         },
@@ -227,10 +223,6 @@ nav: [
                       {
                           text: '新闻',
                           link: '/zh/news',
-                      },
-                      {
-                          text: '关于',
-                          link: '/zh/about',
                       }
                  ]
             }

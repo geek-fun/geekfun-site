@@ -16,10 +16,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Use Node.js 20.x
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 24.x
           cache: 'npm'
       - run: npm ci
       - run: npm run docs:build
@@ -41,14 +41,13 @@ jobs:
             
             ${{ steps.changelog.outputs.changelog }}
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        # cloudflare/pages-action was deleted 2026-09-18 (CVE-2026-11325);
+        # wrangler-action is the official replacement
+        uses: cloudflare/wrangler-action@v4
         if: steps.tag_release.outputs.successful
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId:  ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: geekfun-site
-          directory: dist
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=geekfun-site --branch=master
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
-          environment: production
