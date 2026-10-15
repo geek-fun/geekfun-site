@@ -158,6 +158,8 @@ Cmd/Ctrl + Enter 跑查询，加个 Shift 带上执行计划。
 
 搞不定的话看看[连接指南](/zh/docs/dockit/connect-to-server)。
 
+有问题请发邮件至 [support@geekfun.club](mailto:support@geekfun.club)。
+
 ## 常见问题
 
 **SqlKit 的 AI agent 收费吗？**

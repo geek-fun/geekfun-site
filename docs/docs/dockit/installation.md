@@ -55,4 +55,6 @@ Privacy -> General, and click the `Open Anyway` button to open the app.
 After the above steps, I believe you opened DocKit!, Now, you can use and enjoy DocKit!, feel free to let us know if you
 have any feedback or suggestions.
 
+Questions: email [support@geekfun.club](mailto:support@geekfun.club).
+
 ![client ui](/dockit-client-ui.png)

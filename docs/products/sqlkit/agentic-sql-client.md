@@ -160,6 +160,8 @@ If it speaks SQL, SqlKit probably connects. PostgreSQL 9.x–17.x, MySQL 5.7–9
 
 See the [connection guide](/docs/dockit/connect-to-server) if you get stuck.
 
+Questions: email [support@geekfun.club](mailto:support@geekfun.club).
+
 ## FAQ
 
 **Is SqlKit's AI agent free?**

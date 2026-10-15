@@ -131,3 +131,5 @@ Managing multiple connections:
 - **[Elasticsearch Cluster Management](/docs/dockit/manage-elasticsearch-cluster)** — Monitor indices and nodes
 - **[Import & Export](/docs/dockit/import-export)** — Move data in and out
 - **[Query History](/docs/dockit/query-history)** — Access past queries
+
+Questions about connecting: email [support@geekfun.club](mailto:support@geekfun.club).
