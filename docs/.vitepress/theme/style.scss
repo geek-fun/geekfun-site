@@ -492,4 +492,9 @@ html:not(.dark) .install-command .shiki span {
   }
 }
 
+/* Navy mark disappears on the dark surface; swap in the light structure. */
+.dark img[src$="serverlessinsight.png"] {
+  content: url("/serverlessinsight-dark.png");
+}
+
 
