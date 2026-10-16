@@ -128,3 +128,5 @@ OpenSearch 的连接方式与 Elasticsearch 完全一致——相同的主机和
 - **[Elasticsearch 集群管理](/zh/docs/dockit/manage-elasticsearch-cluster)** — 监控索引和节点
 - **[导入导出](/zh/docs/dockit/import-export)** — 数据导入导出
 - **[查询历史](/zh/docs/dockit/query-history)** — 访问历史查询
+
+连接遇到问题请发邮件至 [support@geekfun.club](mailto:support@geekfun.club)。
