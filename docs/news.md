@@ -27,6 +27,18 @@ Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
 Product releases, feature updates, and community milestones from the GEEKFUN team.
 
+## [🎉 DocKit v2.0 Released: Ultimate Plan, Version-Lock Licensing & More AI Providers](/news/dockit-v2-0-release)
+
+**October 18, 2026** — DocKit v2.0 introduces the **Ultimate** plan, a version-lock subscription model, three new AI providers, a movable ES result panel, and a batch of DynamoDB editing fixes. Read the [full announcement](/news/dockit-v2-0-release).
+
+⭐ **[GitHub Release](https://github.com/geek-fun/dockit/releases/tag/v2.0.0)** | 📥 **[Download](/download)** | 💳 **[Pricing](/pricing)**
+
+## [🚀 SqlKit v1.0 Released: SSH Tunnels, Cross-Database Browsing & a Faster JDBC Bridge](/news/sqlkit-v1-0-release)
+
+**October 18, 2026** — SqlKit reaches 1.0 with SSH tunnels, cross-database metadata browsing, DuckDB diagnostics, instant grid sorting, and a JDBC bridge that cuts warm connects to milliseconds. Read the [full announcement](/news/sqlkit-v1-0-release).
+
+⭐ **[GitHub Release](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.0)** | 📥 **[Download](/download)** | 💳 **[Pricing](/pricing)**
+
 ## [🎉 DocKit v1.0 Released: First Stable Release](/news/dockit-v1-0-release)
 
 **May 10, 2026** — DocKit ships its first stable release. After two years of development, a complete UI rewrite, and 30+ releases, the AI-native NoSQL desktop client graduates to **v1.0.0**. Full DynamoDB, Elasticsearch, and OpenSearch support. ES|QL autocomplete, unified query language registry, template body completion, and column sorting in the Manage panel. Read the [full announcement](/news/dockit-v1-0-release) or the [1.0 blog post](/blog/introducing-dockit-v1).
