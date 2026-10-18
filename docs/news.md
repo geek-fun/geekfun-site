@@ -27,17 +27,17 @@ Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
 Product releases, feature updates, and community milestones from the GEEKFUN team.
 
-## [🎉 DocKit v2.0 Released: Ultimate Plan, Version-Lock Licensing & More AI Providers](/news/dockit-v2-0-release)
+## [DocKit v2.0 released: Ultimate plan, version-lock licensing and more AI providers](/news/dockit-v2-0-release)
 
-**October 18, 2026** — DocKit v2.0 introduces the **Ultimate** plan, a version-lock subscription model, three new AI providers, a movable ES result panel, and a batch of DynamoDB editing fixes. Read the [full announcement](/news/dockit-v2-0-release).
+October 18, 2026: DocKit v2.0 adds the Ultimate plan and version-lock licensing, three more AI providers, a result panel you can dock, and several DynamoDB editing fixes. Read the [full announcement](/news/dockit-v2-0-release).
 
-⭐ **[GitHub Release](https://github.com/geek-fun/dockit/releases/tag/v2.0.0)** | 📥 **[Download](/download)** | 💳 **[Pricing](/pricing)**
+[GitHub release](https://github.com/geek-fun/dockit/releases/tag/v2.0.0) · [Download](/download) · [Pricing](/pricing)
 
-## [🚀 SqlKit v1.0 Released: SSH Tunnels, Cross-Database Browsing & a Faster JDBC Bridge](/news/sqlkit-v1-0-release)
+## [SqlKit v1.0 released: SSH tunnels, cross-database browsing and a faster JDBC bridge](/news/sqlkit-v1-0-release)
 
-**October 18, 2026** — SqlKit reaches 1.0 with SSH tunnels, cross-database metadata browsing, DuckDB diagnostics, instant grid sorting, and a JDBC bridge that cuts warm connects to milliseconds. Read the [full announcement](/news/sqlkit-v1-0-release).
+October 18, 2026: SqlKit 1.0 adds SSH tunnels, cross-database browsing, DuckDB diagnostics, client-side result sorting, and a faster JDBC bridge. Read the [full announcement](/news/sqlkit-v1-0-release).
 
-⭐ **[GitHub Release](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.0)** | 📥 **[Download](/download)** | 💳 **[Pricing](/pricing)**
+[GitHub release](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.0) · [Download](/download) · [Pricing](/pricing)
 
 ## [🎉 DocKit v1.0 Released: First Stable Release](/news/dockit-v1-0-release)
 

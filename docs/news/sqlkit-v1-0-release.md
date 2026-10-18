@@ -23,22 +23,28 @@ head:
       href: https://www.geekfun.club/news/sqlkit-v1-0-release
 ---
 
-# SqlKit v1.0 Released
+# SqlKit v1.0 released
 
-SqlKit reaches 1.0 with its largest update yet: secure access through SSH, cross-database browsing, a faster JDBC bridge, and the Ultimate plan with version-lock licensing.
+SqlKit 1.0 adds SSH tunnels, cross-database browsing, DuckDB diagnostics, and a faster JDBC bridge. It also brings the Ultimate plan and version-lock licensing.
 
-**What's new in v1.0:**
+AI features, the Transfer module, SSH tunnels, and the MCP bridge now require Ultimate. The Account & Plan settings tab shows your version-lock state and handles Geekfun login and logout.
 
-- **Ultimate plan & version-lock licensing** — AI features, the Transfer module, SSH tunnels, and the MCP bridge require Ultimate. The Account & Plan settings tab shows your version-lock state and handles Geekfun login and logout.
-- **SSH tunnels for any connection** — connect through a bastion with multi-hop chains, reusable SSH profiles, an optional proxy hop, password or ED25519/RSA key auth, and trust-on-first-use host-key pinning with a recovery command for changed server keys.
-- **Cross-database browsing without reconnecting** — table, column, index, foreign-key, view, routine, and trigger panels can inspect any database on the server; PostgreSQL and SQL Server route through a short-lived connection under the hood.
-- **DuckDB that explains itself** — connection failures now come with the cause and the fix: file locks held by another process (with an inline retry as read-only), instance-configuration conflicts, and storage-format mismatches. The connection form also reports the DuckDB storage-format version and whether a sibling `.wal` file exists.
-- **Create DuckDB / SQLite databases from the connection form** — New… and Open… actions use the native save dialog, explain what will happen on connect, and keep a per-engine recent-files list. DuckDB also gains File / In-Memory tabs and a read-only access mode (the form explains that read-only currently needs a newer bridge build).
-- **Much faster JDBC connections** — the JRE compatibility check is memoised for six hours, cached driver JARs skip Maven resolution, and connections share one bridge process. In testing, a warm connect dropped from ~4.3 s to 5.5 ms with a bridge build that also caches the driver class loader; the currently released bridge measures ~1.4 s per warm connect.
-- **Instant result-grid sorting** — sorting runs in the frontend over the rows already returned, so clicking a header no longer re-runs the query; columns that mix numbers, dates, booleans, and text sort consistently.
-- **Settings that report progress** — JRE/driver installs, provider sync, and update checks now show pending, success, and failure inline with retry instead of failing silently.
-- **More database fixes** — PostgreSQL multi-statement batches keep all result sets, MySQL and SQL Server preserve sessions, Oracle keeps PL/SQL definitions, statements that start with a comment or end in `RETURNING` now return rows, and numeric headers align with their values.
+SSH tunnels work with any connection. You can connect through a bastion with multi-hop chains, reuse SSH profiles, add a proxy hop, and authenticate with a password or an ED25519/RSA key. Host keys are pinned on first use, and a recovery command covers servers whose key changes.
+
+The table, column, index, foreign-key, view, routine, and trigger panels can now inspect any database on the server without reconnecting. PostgreSQL and SQL Server open a short-lived connection in the background for this.
+
+DuckDB connection failures now explain the cause and the fix. A file lock held by another process, an instance-configuration conflict, and a storage-format mismatch each get their own message, and the lock cases offer a retry as read-only in the form. The form also reports the DuckDB storage-format version and whether a sibling `.wal` file exists.
+
+You can create DuckDB and SQLite databases from the connection form. New… and Open… use the native save dialog, the form explains what will happen on connect, and each engine keeps a recent-files list. DuckDB has File and In-Memory tabs, plus a read-only access mode; the form notes that read-only currently needs a newer bridge build.
+
+JDBC connections are faster. The JRE compatibility check is cached for six hours, cached driver JARs skip Maven resolution, and connections share one bridge process. In testing, a warm connect dropped from about 4.3 seconds to 5.5 milliseconds with a bridge build that also caches the driver class loader. The currently released bridge measures about 1.4 seconds per warm connect.
+
+Result grids sort in the frontend over the rows already returned, so clicking a header no longer re-runs the query. Columns that mix numbers, dates, booleans, and text sort consistently.
+
+Settings actions now show pending, success, and failure inline, with retry, instead of failing silently. This covers JRE and driver installs, provider sync, and update checks.
+
+Database fixes: PostgreSQL multi-statement batches keep all result sets; MySQL and SQL Server preserve sessions; Oracle keeps PL/SQL definitions; statements that start with a comment or end in `RETURNING` now return rows; numeric headers align with their values.
 
 SqlKit 1.0 is available for macOS, Windows, and Linux. Read the [full changelog](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.0) or [download SqlKit](/download).
 
-**Links:** [Download](/download) · [Pricing](/pricing) · [SqlKit](/products/sqlkit/)
+Links: [Download](/download) · [Pricing](/pricing) · [SqlKit](/products/sqlkit/)

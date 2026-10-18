@@ -27,17 +27,17 @@ head:
 
 及时了解 GEEKFUN 社区的最新公告、发布和更新。在这里您将找到关于我们项目的新闻、新功能、社区活动和重要里程碑。
 
-## [🎉 DocKit v2.0 发布：Ultimate 订阅、版本锁定授权与更多 AI 提供商](/zh/news/dockit-v2-0-release)
+## [DocKit v2.0 发布：Ultimate 订阅、版本锁定授权与更多 AI 提供商](/zh/news/dockit-v2-0-release)
 
-**2026年10月18日** — DocKit v2.0 引入 **Ultimate** 订阅与版本锁定授权模型，新增三家 AI 提供商，ES 结果面板可停靠底部或右侧，并修复一批 DynamoDB 编辑问题。阅读[完整公告](/zh/news/dockit-v2-0-release)。
+2026年10月18日，DocKit v2.0 加入 Ultimate 订阅和版本锁定授权，新增三家 AI 提供商，结果面板可以停靠，并修复了多处 DynamoDB 编辑问题。阅读[完整公告](/zh/news/dockit-v2-0-release)。
 
-⭐ **[GitHub 发布](https://github.com/geek-fun/dockit/releases/tag/v2.0.0)** | 📥 **[下载](/zh/download)** | 💳 **[定价](/zh/pricing)**
+[GitHub 发布](https://github.com/geek-fun/dockit/releases/tag/v2.0.0) · [下载](/zh/download) · [定价](/zh/pricing)
 
-## [🚀 SqlKit v1.0 发布：SSH 隧道、跨库浏览与更快的 JDBC 连接](/zh/news/sqlkit-v1-0-release)
+## [SqlKit v1.0 发布：SSH 隧道、跨库浏览与更快的 JDBC 连接](/zh/news/sqlkit-v1-0-release)
 
-**2026年10月18日** — SqlKit 迎来 1.0：SSH 隧道、跨数据库元数据浏览、DuckDB 诊断、结果表格即时排序，以及把热连接压缩到毫秒级的 JDBC 桥接。阅读[完整公告](/zh/news/sqlkit-v1-0-release)。
+2026年10月18日，SqlKit 1.0 加入 SSH 隧道、跨库浏览、DuckDB 诊断、结果表格排序和更快的 JDBC 连接。阅读[完整公告](/zh/news/sqlkit-v1-0-release)。
 
-⭐ **[GitHub 发布](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.0)** | 📥 **[下载](/zh/download)** | 💳 **[定价](/zh/pricing)**
+[GitHub 发布](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.0) · [下载](/zh/download) · [定价](/zh/pricing)
 
 ## [🎉 DocKit v1.0 发布：首个稳定版本](/zh/news/dockit-v1-0-release)
 
