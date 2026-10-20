@@ -27,6 +27,11 @@ head:
 
 产品更新、技术深度解析，以及来自 GEEKFUN 团队构建开源数据库工具的实践记录。
 
+## [生产级 AI Agent 工程实践：架构设计（第一篇，共五篇）](/zh/blog/building-ai-agent-architecture)
+*2026年5月22日*
+
+DocKit 如何在 Rust 后端与 Vue 3 前端之间构建生产级 AI Agent——通过 Tauri IPC 实现流式事件传输、可组合的编排层，以及 Agent 逻辑与 UI 状态的清晰分离。五篇系列第一篇，基于真实源代码。
+
 ## [DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端](/zh/blog/introducing-dockit-v1)
 *2026年5月10日*
 
