@@ -27,6 +27,11 @@ head:
 
 产品更新、技术深度解析，以及来自 GEEKFUN 团队构建开源数据库工具的实践记录。
 
+## [通过 Data Studio Agent 将 Codex 连接到数据库](/zh/blog/connect-codex-databases-mcp)
+*2026 年 10 月 22 日*
+
+用 MCP 将 Codex 接入 SqlKit 和 DocKit 中的数据库连接，查看表结构、执行查询，并结合代码排查 API 问题。文中包含配置步骤、提示词示例和常见问题排查。
+
 ## [DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端](/zh/blog/introducing-dockit-v1)
 *2026年5月10日*
 
