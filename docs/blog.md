@@ -27,6 +27,11 @@ Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:
 
 Product updates, technical deep-dives, and lessons from building open-source database tools. Written by the GEEKFUN team.
 
+## [Connect Codex to your databases with Data Studio Agent](/blog/connect-codex-databases-mcp)
+*October 22, 2026*
+
+Connect Codex to SQL and NoSQL databases through MCP. Set up SqlKit or DocKit, add connections, inspect schemas, and investigate an API bug while the desktop apps manage credentials and permissions.
+
 ## [DocKit 1.0 - The NoSQL desktop client developers deserved](/blog/introducing-dockit-v1)
 *May 10, 2026*
 
