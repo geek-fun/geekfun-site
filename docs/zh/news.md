@@ -27,6 +27,18 @@ head:
 
 及时了解 GEEKFUN 社区的最新公告、发布和更新。在这里您将找到关于我们项目的新闻、新功能、社区活动和重要里程碑。
 
+## [DocKit v2.0.1 发布：统一 AI 权限与会话修复](/zh/news/dockit-v2-0-1-release)
+
+2026年10月28日，DocKit v2.0.1 将聊天、Data Studio 和 MCP 客户端纳入统一的 AI 权限模型，新增 Cheaper Inference 提供商，并修复登录状态持久化和 DynamoDB 错误显示问题。阅读[完整公告](/zh/news/dockit-v2-0-1-release)。
+
+[GitHub 发布](https://github.com/geek-fun/dockit/releases/tag/v2.0.1) · [下载](/zh/download) · [定价](/zh/pricing)
+
+## [SqlKit v1.0.1 发布：统一 AI 权限、结果分页与石墨主题](/zh/news/sqlkit-v1-0-1-release)
+
+2026年10月28日，SqlKit v1.0.1 统一 Data Studio 与 MCP 客户端的 AI 权限，新增结果分页、分层智能体提示词和石墨主题，并修复重启后登录状态丢失的问题。阅读[完整公告](/zh/news/sqlkit-v1-0-1-release)。
+
+[GitHub 发布](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.1) · [下载](/zh/download) · [定价](/zh/pricing)
+
 ## [DocKit v2.0 发布：Ultimate 订阅、版本锁定授权与更多 AI 提供商](/zh/news/dockit-v2-0-release)
 
 2026年10月18日，DocKit v2.0 加入 Ultimate 订阅和版本锁定授权，新增三家 AI 提供商，结果面板可以停靠，并修复了多处 DynamoDB 编辑问题。阅读[完整公告](/zh/news/dockit-v2-0-release)。

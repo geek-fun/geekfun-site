@@ -27,6 +27,18 @@ Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
 Product releases, feature updates, and community milestones from the GEEKFUN team.
 
+## [DocKit v2.0.1 released: unified AI permissions and session fixes](/news/dockit-v2-0-1-release)
+
+October 28, 2026: DocKit v2.0.1 brings chat, Data Studio, and MCP clients under one AI permission model, adds the Cheaper Inference provider, and fixes sign-in persistence and DynamoDB error rendering. Read the [full announcement](/news/dockit-v2-0-1-release).
+
+[GitHub release](https://github.com/geek-fun/dockit/releases/tag/v2.0.1) · [Download](/download) · [Pricing](/pricing)
+
+## [SqlKit v1.0.1 released: unified AI permissions, pagination and a graphite theme](/news/sqlkit-v1-0-1-release)
+
+October 28, 2026: SqlKit v1.0.1 unifies AI permissions across Data Studio and MCP clients, adds result pagination, layered agent prompts, and a graphite theme, and keeps sessions alive across restarts. Read the [full announcement](/news/sqlkit-v1-0-1-release).
+
+[GitHub release](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.1) · [Download](/download) · [Pricing](/pricing)
+
 ## [DocKit v2.0 released: Ultimate plan, version-lock licensing and more AI providers](/news/dockit-v2-0-release)
 
 October 18, 2026: DocKit v2.0 adds the Ultimate plan and version-lock licensing, three more AI providers, a result panel you can dock, and several DynamoDB editing fixes. Read the [full announcement](/news/dockit-v2-0-release).
