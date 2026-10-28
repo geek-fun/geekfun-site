@@ -26,7 +26,7 @@ head:
         "@type": "BlogPosting",
         "headline": "通过 Data Studio Agent 将 Codex 连接到数据库",
         "description": "用 MCP、SqlKit 和 DocKit 为 Codex 配置数据库访问，查看 SQL 与 NoSQL 数据结构、执行查询，并由桌面客户端管理连接凭据和操作权限。",
-        "image": "https://www.geekfun.club/blog/codex-data-studio/codex-data-studio-architecture-branded.png",
+        "image": "https://www.geekfun.club/blog/codex-data-studio/codex-data-studio-architecture-branded-zh.png",
         "inLanguage": "zh-CN",
         "author": {
           "@type": "Organization",
@@ -78,7 +78,7 @@ codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
 
 只需在 Codex 中配置一个 MCP 服务，它就会发现正在运行的客户端，并提供相应的数据库工具。你也可以照常在客户端中浏览数据、手动执行查询。
 
-![Codex 通过本机的 Data Studio MCP 服务连接 SqlKit 和 DocKit，访问 SQL 与 NoSQL 数据库，查询结果返回 Codex。](/blog/codex-data-studio/codex-data-studio-architecture-branded.png)
+![Codex 通过本机的 Data Studio MCP 服务连接 SqlKit 和 DocKit，访问 SQL 与 NoSQL 数据库，查询结果返回 Codex。](/blog/codex-data-studio/codex-data-studio-architecture-branded-zh.png)
 
 ## 配置第一个连接
 
@@ -133,7 +133,7 @@ Codex 可以调用 `data_studio__get_status` 检查后端，用 `data_studio__li
 
 假设订单接口返回空列表，但你认为库里应该有已付款订单。可以用下面这组提示词排查，把连接和表名换成自己的。这里展示的是排查思路，实际结果取决于你的数据和代码。
 
-![排查流程：描述问题、查看表结构、查询相关数据、对照代码，最后提出修复方案和回归测试。](/blog/codex-data-studio/codex-data-studio-workflow-branded.png)
+![排查流程：描述问题、查看表结构、查询相关数据、对照代码，最后提出修复方案和回归测试。](/blog/codex-data-studio/codex-data-studio-workflow-branded-zh.png)
 
 先看表结构：
 
