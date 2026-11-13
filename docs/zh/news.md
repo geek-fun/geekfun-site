@@ -27,6 +27,18 @@ head:
 
 及时了解 GEEKFUN 社区的最新公告、发布和更新。在这里您将找到关于我们项目的新闻、新功能、社区活动和重要里程碑。
 
+## [DocKit v2.0.2 发布：新增五家 AI 提供商与繁體中文界面](/zh/news/dockit-v2-0-2-release)
+
+2026年11月13日，DocKit v2.0.2 新增 UberLLM、Standard Compute、cheapaimodel、CloudGPU 和 Runcrate 五家 AI 提供商，引入繁體中文界面，重构 DynamoDB Create Item 编辑器，并修复语言选择持久化和 PartiQL 分页问题。阅读[完整公告](/zh/news/dockit-v2-0-2-release)。
+
+[GitHub 发布](https://github.com/geek-fun/dockit/releases/tag/v2.0.2) · [下载](/zh/download) · [定价](/zh/pricing)
+
+## [SqlKit v1.0.2 发布：新增 AI 提供商预设与更精致的工作区](/zh/news/sqlkit-v1-0-2-release)
+
+2026年11月13日，SqlKit v1.0.2 新增 UberLLM、CloudGPU 和 Runcrate 三个 AI 提供商预设，统一工作区字号与密度，并修复 AI 聊天输入法回车误发送的问题。阅读[完整公告](/zh/news/sqlkit-v1-0-2-release)。
+
+[GitHub 发布](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.2) · [下载](/zh/download) · [定价](/zh/pricing)
+
 ## [DocKit v2.0.1 发布：统一 AI 权限与会话修复](/zh/news/dockit-v2-0-1-release)
 
 2026年10月28日，DocKit v2.0.1 将聊天、Data Studio 和 MCP 客户端纳入统一的 AI 权限模型，新增 Cheaper Inference 提供商，并修复登录状态持久化和 DynamoDB 错误显示问题。阅读[完整公告](/zh/news/dockit-v2-0-1-release)。
