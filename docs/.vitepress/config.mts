@@ -60,8 +60,16 @@ const sharedThemeConfig = {
 };
 const titleEn = 'GEEKFUN | Sustainable Software Community';
 const titleZh = '极客范 | 可持续的开源软件社区';
+const titlePt = 'GEEKFUN | Comunidade de Software Sustentável';
+const titleJa = 'GEEKFUN | 持続可能なソフトウェアコミュニティ';
+const titleKo = 'GEEKFUN | 지속 가능한 소프트웨어 커뮤니티';
+const titleEs = 'GEEKFUN | Comunidad de Software Sostenible';
 const descEn = 'GEEKFUN is an open-source community focused on building sustainable software solutions. We empower developers to collaborate on open-source projects like DocKit (MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch GUI) and explore serverless technologies, including Serverless Insight, Elasticsearch, OpenSearch, and more. Join us in shaping the future of open-source development!';
 const descZh = '极客范是一个软件社区，致力于构建可持续的开源软件和服务';
+const descPt = 'GEEKFUN é uma comunidade open-source dedicada a construir soluções de software sustentáveis, com ferramentas como o DocKit (GUI para MongoDB, Elasticsearch, OpenSearch e DynamoDB) e o SqlKit (cliente SQL para mais de 50 bancos de dados).';
+const descJa = 'GEEKFUN は、持続可能なソフトウェアの構築に取り組むオープンソースコミュニティです。DocKit(MongoDB、Elasticsearch、OpenSearch、DynamoDB 向け GUI)や SqlKit(50 以上のデータベースに対応する SQL クライアント)などのツールを提供しています。';
+const descKo = 'GEEKFUN은 지속 가능한 소프트웨어 구축에 힘쓰는 오픈소스 커뮤니티입니다. DocKit(MongoDB, Elasticsearch, OpenSearch, DynamoDB GUI)과 SqlKit(50개 이상 데이터베이스용 SQL 클라이언트) 같은 도구를 제공합니다.';
+const descEs = 'GEEKFUN es una comunidad open-source dedicada a construir software sostenible, con herramientas como DocKit (GUI para MongoDB, Elasticsearch, OpenSearch y DynamoDB) y SqlKit (cliente SQL para más de 50 bases de datos).';
 const docsSidebarEn = [
     {
         text: 'DocKit',
@@ -240,6 +248,74 @@ nav: [
                  ]
             }
         },
+        'pt-BR': {
+            label: 'Português (BR)',
+            lang: 'pt-BR',
+            title: titlePt,
+            description: descPt,
+            head: [['link', {rel: 'icon', href: icon}]],
+            themeConfig: {
+                ...sharedThemeConfig,
+                siteTitle: 'GEEKFUN',
+                nav: [
+                    {text: 'Download', link: '/pt-BR/download'},
+                    {text: 'Preços', link: '/pt-BR/pricing'},
+                    {text: 'DocKit', link: '/pt-BR/products/dockit/'},
+                    {text: 'Docs', link: '/docs'},
+                ]
+            }
+        },
+        ja: {
+            label: '日本語',
+            lang: 'ja',
+            title: titleJa,
+            description: descJa,
+            head: [['link', {rel: 'icon', href: icon}]],
+            themeConfig: {
+                ...sharedThemeConfig,
+                siteTitle: 'GEEKFUN',
+                nav: [
+                    {text: 'ダウンロード', link: '/ja/download'},
+                    {text: '料金', link: '/ja/pricing'},
+                    {text: 'DocKit', link: '/ja/products/dockit/'},
+                    {text: 'Docs', link: '/docs'},
+                ]
+            }
+        },
+        ko: {
+            label: '한국어',
+            lang: 'ko',
+            title: titleKo,
+            description: descKo,
+            head: [['link', {rel: 'icon', href: icon}]],
+            themeConfig: {
+                ...sharedThemeConfig,
+                siteTitle: 'GEEKFUN',
+                nav: [
+                    {text: '다운로드', link: '/ko/download'},
+                    {text: '가격', link: '/ko/pricing'},
+                    {text: 'DocKit', link: '/ko/products/dockit/'},
+                    {text: 'Docs', link: '/docs'},
+                ]
+            }
+        },
+        es: {
+            label: 'Español',
+            lang: 'es',
+            title: titleEs,
+            description: descEs,
+            head: [['link', {rel: 'icon', href: icon}]],
+            themeConfig: {
+                ...sharedThemeConfig,
+                siteTitle: 'GEEKFUN',
+                nav: [
+                    {text: 'Descargar', link: '/es/download'},
+                    {text: 'Precios', link: '/es/pricing'},
+                    {text: 'DocKit', link: '/es/products/dockit/'},
+                    {text: 'Docs', link: '/docs'},
+                ]
+            }
+        },
     },
     sitemap: {
         hostname: 'https://www.geekfun.club',
@@ -255,6 +331,9 @@ nav: [
         const ogImageUrl = pageData?.frontmatter?.ogImage ?? masterOg;
         const pageType = getPageType(page);
         const ogImageAlt = isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community';
+        const pageLocale = page.split('/')[0] ?? '';
+        const ogLocale = ({zh: 'zh_CN', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES'} as Record<string, string>)[pageLocale] ?? 'en_US';
+        const ogAlternateLocale = ogLocale === 'en_US' ? 'zh_CN' : 'en_US';
 
         const head: HeadConfig[] = [
             ['meta', {property: 'og:title', content: title}],
@@ -266,12 +345,12 @@ nav: [
             ['meta', {property: 'og:url', content: pageUrl}],
             ['meta', {property: 'og:site_name', content: siteName}],
             ['meta', {property: 'og:type', content: pageType}],
-            ['meta', {property: 'og:locale', content: isZhPage ? 'zh_CN' : 'en_US'}],
-            ['meta', {property: 'og:locale:alternate', content: isZhPage ? 'en_US' : 'zh_CN'}],
+            ['meta', {property: 'og:locale', content: ogLocale}],
+            ['meta', {property: 'og:locale:alternate', content: ogAlternateLocale}],
             ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
-            ['meta', {name: 'twitter:title', content: title}],
-            ['meta', {name: 'twitter:description', content: description}],
-            ['meta', {name: 'twitter:image', content: ogImageUrl}],
+            ['meta', {property: 'twitter:title', content: title}],
+            ['meta', {property: 'twitter:description', content: description}],
+            ['meta', {property: 'twitter:image', content: ogImageUrl}],
         ];
 
         if (pageType === 'article') {
