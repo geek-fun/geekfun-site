@@ -27,6 +27,18 @@ Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
 Product releases, feature updates, and community milestones from the GEEKFUN team.
 
+## [DocKit v2.0.2 released: five new AI providers and Traditional Chinese](/news/dockit-v2-0-2-release)
+
+November 13, 2026: DocKit v2.0.2 adds UberLLM, Standard Compute, cheapaimodel, CloudGPU, and Runcrate AI providers, introduces a Traditional Chinese interface, reworks the DynamoDB Create Item editor, and fixes language persistence and PartiQL pagination. Read the [full announcement](/news/dockit-v2-0-2-release).
+
+[GitHub release](https://github.com/geek-fun/dockit/releases/tag/v2.0.2) · [Download](/download) · [Pricing](/pricing)
+
+## [SqlKit v1.0.2 released: new AI provider presets and a refined workspace](/news/sqlkit-v1-0-2-release)
+
+November 13, 2026: SqlKit v1.0.2 adds UberLLM, CloudGPU, and Runcrate AI provider presets, unifies the workspace type scale and density, and fixes IME Enter handling in AI chat. Read the [full announcement](/news/sqlkit-v1-0-2-release).
+
+[GitHub release](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.2) · [Download](/download) · [Pricing](/pricing)
+
 ## [DocKit v2.0.1 released: unified AI permissions and session fixes](/news/dockit-v2-0-1-release)
 
 October 28, 2026: DocKit v2.0.1 brings chat, Data Studio, and MCP clients under one AI permission model, adds the Cheaper Inference provider, and fixes sign-in persistence and DynamoDB error rendering. Read the [full announcement](/news/dockit-v2-0-1-release).
