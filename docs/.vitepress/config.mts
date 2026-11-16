@@ -15,12 +15,15 @@ gtag('js', new Date());
 gtag('config', 'G-ZFVJ89KR9L');`]
 ];
 
-// Auto-detect system language: if the visitor's OS/browser is Chinese and they
-// haven't expressed a preference (localStorage `gf-lang`, set when they switch
-// language in the nav menu), redirect the English (root) page to its /zh/
-// equivalent. Injected into <head> on every page (dev + build) before the app
-// mounts, so there is no flash of the wrong language. Note: this must live in
-// the `head` array — `transformHead` only runs at build time, not in dev.
+// Auto-detect system language: if the visitor's system resolves to zhCN (bare
+// `zh`, `zh-cn`, `zh-sg`) and they haven't expressed a preference (localStorage
+// `gf-lang`, set when they switch language in the nav menu), redirect the
+// English (root) page to its /zh/ equivalent. Tags resolving to locales whose
+// tree is partial (zhTW, pt-BR, ja, ko, es) never auto-redirect, because the
+// redirect target would 404 on untranslated pages. Injected into <head> on
+// every page (dev + build) before the app mounts, so there is no flash of the
+// wrong language. Note: this must live in the `head` array — `transformHead`
+// only runs at build time, not in dev.
 const langAutoDetectHead: HeadConfig[] = [['script', {}, `(function () {
   try {
     var path = location.pathname;
@@ -32,7 +35,8 @@ const langAutoDetectHead: HeadConfig[] = [['script', {}, `(function () {
     }
     if (pref) return;
     var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
-    if (nav.indexOf('zh') === 0 && !isZh) {
+    var isZhCn = nav === 'zh' || nav.indexOf('zh-cn') === 0 || nav.indexOf('zh-sg') === 0;
+    if (isZhCn && !isZh) {
       location.replace('/zh' + (path.length > 1 ? path : '/'));
     }
   } catch (e) {}
