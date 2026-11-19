@@ -27,6 +27,18 @@ Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
 Product releases, feature updates, and community milestones from the GEEKFUN team.
 
+## [DocKit v2.0.3 released: system tray and four new languages](/news/dockit-v2-0-3-release)
+
+November 19, 2026: DocKit v2.0.3 keeps the app running in the system tray, adds Português (Brasil), Japanese, Korean, and Spanish interfaces, unifies Simplified Chinese detection, and fixes sign-in being blocked by locale sync. Read the [full announcement](/news/dockit-v2-0-3-release).
+
+[GitHub release](https://github.com/geek-fun/dockit/releases/tag/v2.0.3) · [Download](/download) · [Pricing](/pricing)
+
+## [SqlKit v1.0.3 released: Apache Cassandra and ScyllaDB support](/news/sqlkit-v1-0-3-release)
+
+November 19, 2026: SqlKit v1.0.3 adds Apache Cassandra and ScyllaDB support over CQL with keyspace browsing and CQL-aware SQL gates, introduces a settings language switcher with five new locales, keeps the app in the system tray, and fixes title bar dragging. Read the [full announcement](/news/sqlkit-v1-0-3-release).
+
+[GitHub release](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.3) · [Download](/download) · [Pricing](/pricing)
+
 ## [DocKit v2.0.2 released: five new AI providers and Traditional Chinese](/news/dockit-v2-0-2-release)
 
 November 13, 2026: DocKit v2.0.2 adds UberLLM, Standard Compute, cheapaimodel, CloudGPU, and Runcrate AI providers, introduces a Traditional Chinese interface, reworks the DynamoDB Create Item editor, and fixes language persistence and PartiQL pagination. Read the [full announcement](/news/dockit-v2-0-2-release).

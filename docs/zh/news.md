@@ -27,6 +27,18 @@ head:
 
 及时了解 GEEKFUN 社区的最新公告、发布和更新。在这里您将找到关于我们项目的新闻、新功能、社区活动和重要里程碑。
 
+## [DocKit v2.0.3 发布：系统托盘常驻与四种新语言](/zh/news/dockit-v2-0-3-release)
+
+2026年11月19日，DocKit v2.0.3 支持关闭窗口后常驻系统托盘，新增 Português (Brasil)、日本語、한국어 和 Español 界面语言，统一简体中文识别标准，并修复语言同步阻塞登录的问题。阅读[完整公告](/zh/news/dockit-v2-0-3-release)。
+
+[GitHub 发布](https://github.com/geek-fun/dockit/releases/tag/v2.0.3) · [下载](/zh/download) · [定价](/zh/pricing)
+
+## [SqlKit v1.0.3 发布：支持 Apache Cassandra 与 ScyllaDB](/zh/news/sqlkit-v1-0-3-release)
+
+2026年11月19日，SqlKit v1.0.3 新增 Apache Cassandra 和 ScyllaDB 支持（CQL 连接、keyspace 浏览、CQL 感知 SQL 门控），设置中新增语言切换器并扩展五种语言，支持常驻系统托盘，并修复标题栏拖动问题。阅读[完整公告](/zh/news/sqlkit-v1-0-3-release)。
+
+[GitHub 发布](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.3) · [下载](/zh/download) · [定价](/zh/pricing)
+
 ## [DocKit v2.0.2 发布：新增五家 AI 提供商与繁體中文界面](/zh/news/dockit-v2-0-2-release)
 
 2026年11月13日，DocKit v2.0.2 新增 UberLLM、Standard Compute、cheapaimodel、CloudGPU 和 Runcrate 五家 AI 提供商，引入繁體中文界面，重构 DynamoDB Create Item 编辑器，并修复语言选择持久化和 PartiQL 分页问题。阅读[完整公告](/zh/news/dockit-v2-0-2-release)。
