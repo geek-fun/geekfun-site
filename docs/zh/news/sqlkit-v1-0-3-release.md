@@ -25,9 +25,9 @@ head:
 
 # SqlKit v1.0.3 发布
 
-SqlKit v1.0.3 新增 Apache Cassandra 和 ScyllaDB 一等连接，设置中加入语言切换器并扩展五种语言，同时支持关闭窗口后常驻系统托盘。
+SqlKit v1.0.3 新增 Apache Cassandra 和 ScyllaDB 支持，设置中加入语言切换器并扩展五种语言，同时支持关闭窗口后常驻系统托盘。
 
-Apache Cassandra 和 ScyllaDB 正式受支持。通过 CQL 连接，基于 `system_schema` 浏览 keyspace 和表，在熟悉的 SQL 编辑器里执行 CQL 语句。连接表单中这两款引擎的数据库字段会标注为 Keyspace，TLS 跟随 sslmode 设置（`prefer` 保持明文连接），多语句 SQL 门控也能理解 CQL 而不再解析失败。两款数据库紧随 TimescaleDB 出现在引擎列表中，使用各自的官方 logo。
+Apache Cassandra 和 ScyllaDB 正式受支持。通过 CQL 连接，基于 `system_schema` 浏览 keyspace 和表，在同一个编辑器里执行 CQL 和 SQL 语句。连接表单中这两款引擎的数据库字段会标注为 Keyspace，TLS 跟随 sslmode 设置（`prefer` 保持明文连接），多语句 SQL 门控也能理解 CQL 而不再解析失败。两款数据库紧随 TimescaleDB 出现在引擎列表中，使用各自的官方 logo。
 
 ![SqlKit 工作区：对象树、SQL 编辑器与查询标签页、结果网格](/sqlkit-sql-editor-ui.png)
 
@@ -35,7 +35,7 @@ Apache Cassandra 和 ScyllaDB 正式受支持。通过 CQL 连接，基于 `syst
 
 关闭窗口不再退出应用。SqlKit 会移入系统托盘，后台任务继续运行，托盘菜单提供 Show Window 和 Quit。
 
-两个修复收尾。标题栏拖动恢复正常（上个版本曾将其破坏），SQLite 适配器遇到空语句或纯注释语句会直接短路返回，不再报错。
+两个修复收尾。标题栏拖动恢复正常，SQLite 适配器遇到空语句或纯注释语句会直接短路返回，不再报错。
 
 ![Data Studio：在 AI 聊天中向数据提问](/sqlkit-data-studio-ui.png)
 

@@ -25,9 +25,9 @@ head:
 
 # SqlKit v1.0.3 released
 
-SqlKit v1.0.3 adds Apache Cassandra and ScyllaDB as first-class connections, introduces a settings language switcher with five more locales, and keeps the app running in the system tray.
+SqlKit v1.0.3 adds Apache Cassandra and ScyllaDB support, introduces a settings language switcher with five more locales, and keeps the app running in the system tray.
 
-Apache Cassandra and ScyllaDB are now supported. Connect over CQL, browse keyspaces and tables with metadata read from `system_schema`, and run CQL statements in the editor you already use for SQL. The connection form labels the database field as Keyspace for both engines, TLS follows your sslmode setting with `prefer` staying plaintext, and the multi-statement SQL gates understand CQL instead of failing the parse. Both databases sit in the engine list right after TimescaleDB, wearing their official logos.
+Apache Cassandra and ScyllaDB are now supported. Connect over CQL, browse keyspaces and tables with metadata read from `system_schema`, and run CQL statements in the SQL editor. The connection form labels the database field as Keyspace for both engines, TLS follows your sslmode setting with `prefer` staying plaintext, and the multi-statement SQL gates understand CQL instead of failing the parse. Both engines sit in the list right after TimescaleDB, under their official logos.
 
 ![SqlKit workspace: object tree, SQL editor with query tabs, and result grid](/sqlkit-sql-editor-ui.png)
 
@@ -35,7 +35,7 @@ The interface now has a language switcher. Settings lets you pick 繁體中文, 
 
 Closing the window no longer quits the app. SqlKit moves to the system tray and background tasks keep running, with Show Window and Quit in the tray menu.
 
-Two fixes round it out. Title bar dragging works again after the last release broke it, and the SQLite adapter short-circuits empty or comment-only statements instead of erroring on them.
+Two fixes round it out. Title bar dragging works again, and the SQLite adapter short-circuits empty or comment-only statements instead of erroring on them.
 
 ![Data Studio: asking questions about your data in AI chat](/sqlkit-data-studio-ui.png)
 
