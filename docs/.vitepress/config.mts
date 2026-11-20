@@ -1,4 +1,5 @@
 import {defineConfig, type HeadConfig} from 'vitepress'
+import {blogDate, isBlogArticle, type BlogFrontmatter} from './blog'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
@@ -129,6 +130,23 @@ export default defineConfig({
     markdown: {
         image: {
             lazyLoading: true
+        },
+        config(md) {
+            // Keep the Markdown heading and its anchor available to local search and the article outline.
+            for (const rule of ['heading_open', 'heading_close'] as const) {
+                const renderHeading = md.renderer.rules[rule];
+                md.renderer.rules[rule] = (tokens, index, options, env, renderer) => {
+                    const heading = renderHeading?.(tokens, index, options, env, renderer)
+                        ?? renderer.renderToken(tokens, index, options);
+                    if (tokens[index].tag !== 'h1' || !isBlogArticle(env.relativePath ?? '')
+                        || tokens.findIndex((token) => token.type === rule && token.tag === 'h1') !== index) {
+                        return heading;
+                    }
+                    return rule === 'heading_open'
+                        ? `<BlogArticleHeader>\n${heading}`
+                        : `${heading}</BlogArticleHeader>\n`;
+                };
+            }
         }
     },
     locales: {
@@ -184,6 +202,7 @@ nav: [
                      {
                          text: 'Blog',
                          link: '/blog',
+                         activeMatch: '^/blog(?:/|$)',
                      },
                      {
                          text: 'News',
@@ -222,6 +241,8 @@ nav: [
             themeConfig: {
                 ...sharedThemeConfig,
                 siteTitle: '极客范',
+                outline: {label: '本页内容'},
+                returnToTopLabel: '返回顶部',
                 sidebar: {
                     '/zh/docs/': docsSidebarZh
                 },
@@ -245,6 +266,7 @@ nav: [
                       {
                           text: '博客',
                           link: '/zh/blog',
+                          activeMatch: '^/zh/blog(?:/|$)',
                       },
                       {
                           text: '新闻',
@@ -333,9 +355,11 @@ nav: [
         const pageUrl = getPageUrl(page);
         const siteName = isZhPage ? siteNameZh : siteNameEn;
         const masterOg = isZhPage ? ogImageZh : ogImageEn;
-        const ogImageUrl = pageData?.frontmatter?.ogImage ?? masterOg;
+        const blogPost: BlogFrontmatter | undefined = isBlogArticle(page) ? pageData?.frontmatter : undefined;
+        const cover = blogPost?.cover;
+        const ogImageUrl = cover?.src ? new URL(cover.src, siteUrl).href : pageData?.frontmatter?.ogImage ?? masterOg;
         const pageType = getPageType(page);
-        const ogImageAlt = isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community';
+        const ogImageAlt = cover?.alt ?? (isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community');
         const pageLocale = page.split('/')[0] ?? '';
         const ogLocale = ({zh: 'zh_CN', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES'} as Record<string, string>)[pageLocale] ?? 'en_US';
         const ogAlternateLocale = ogLocale === 'en_US' ? 'zh_CN' : 'en_US';
@@ -345,7 +369,7 @@ nav: [
             ['meta', {property: 'og:description', content: description}],
             ['meta', {property: 'og:image', content: ogImageUrl}],
             ['meta', {property: 'og:image:width', content: '1200'}],
-            ['meta', {property: 'og:image:height', content: '630'}],
+            ['meta', {property: 'og:image:height', content: cover?.src ? '675' : '630'}],
             ['meta', {property: 'og:image:alt', content: ogImageAlt}],
             ['meta', {property: 'og:url', content: pageUrl}],
             ['meta', {property: 'og:site_name', content: siteName}],
@@ -359,14 +383,16 @@ nav: [
         ];
 
         if (pageType === 'article') {
-            const pubDate = pageData?.frontmatter?.date;
+            const pubDate = blogPost ? blogDate(blogPost.date) : pageData?.frontmatter?.date;
             if (pubDate) {
                 head.push(['meta', {property: 'article:published_time', content: pubDate}]);
                 head.push(['meta', {property: 'article:modified_time', content: pubDate}]);
             }
             head.push(['meta', {property: 'article:author', content: 'https://www.geekfun.club'}]);
-            if (page.startsWith('blog/') || page.startsWith('zh/blog/')) {
-                head.push(['meta', {property: 'article:tag', content: 'blog'}]);
+            if (blogPost) {
+                for (const tag of blogPost.tags?.length ? blogPost.tags : ['blog']) {
+                    head.push(['meta', {property: 'article:tag', content: tag}]);
+                }
             } else if (page.startsWith('news/') || page.startsWith('zh/news/')) {
                 head.push(['meta', {property: 'article:tag', content: 'release'}]);
             }

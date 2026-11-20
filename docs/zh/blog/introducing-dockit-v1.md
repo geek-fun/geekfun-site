@@ -2,6 +2,13 @@
 title: DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端
 description: DocKit v1.0 发布，历经 970+ 次提交、244 个合并 PR、132 个已解决问题、70 个版本发布和 1,000+ GitHub Star。从头梳理 AI 原生 NoSQL 桌面客户端的每一项功能，从第一行代码到首个稳定版。
 date: 2026-05-10
+cardTitle: "DocKit 1.0"
+summary: "从 Elasticsearch 查询编辑器到原生 NoSQL 桌面客户端，回顾 DocKit 的开发历程。"
+tags: ["DocKit", "版本发布"]
+cover:
+  src: /blog/covers/introducing-dockit-v1.webp
+  thumbnail: /blog/covers/introducing-dockit-v1-thumb.webp
+  alt: "DocKit 桌面客户端中的 Elasticsearch 查询、搜索结果和 AI 助手。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +36,7 @@ head:
         "@type": "BlogPosting",
         "headline": "DocKit 1.0 - 开发者早该拥有的 NoSQL 桌面客户端",
         "description": "DocKit v1.0 发布，历经 970+ 次提交、244 个合并 PR、132 个已解决问题、70 个版本发布和 1,000+ GitHub Star。从头梳理 AI 原生 NoSQL 桌面客户端的每一项功能。",
-        "image": "https://www.geekfun.club/dockit-client-ui.png",
+        "image": "https://www.geekfun.club/blog/covers/introducing-dockit-v1.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

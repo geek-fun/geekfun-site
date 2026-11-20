@@ -2,6 +2,13 @@
 title: "Connect Codex to your databases with Data Studio Agent"
 description: "Set up Codex database access with MCP, SqlKit, and DocKit. Inspect SQL and NoSQL schemas, run queries, and keep connection credentials in your desktop apps."
 date: 2026-10-22
+summary: "Inspect SQL and NoSQL schemas and run queries from Codex using MCP, SqlKit, and DocKit."
+featured: true
+tags: ["Data Studio Agent", "MCP"]
+cover:
+  src: /blog/covers/connect-codex-databases-mcp.webp
+  thumbnail: /blog/covers/connect-codex-databases-mcp-thumb.webp
+  alt: "Diagram showing Codex connecting through Data Studio Agent to SQL and NoSQL databases using SqlKit and DocKit."
 head:
   - - link
     - rel: canonical
@@ -26,7 +33,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Connect Codex to your databases with Data Studio Agent",
         "description": "Set up Codex database access with MCP, SqlKit, and DocKit. Inspect SQL and NoSQL schemas, run queries, and keep connection credentials in your desktop apps.",
-        "image": "https://www.geekfun.club/blog/codex-data-studio/codex-data-studio-architecture-branded.png",
+        "image": "https://www.geekfun.club/blog/covers/connect-codex-databases-mcp.webp",
         "inLanguage": "en",
         "author": {
           "@type": "Organization",

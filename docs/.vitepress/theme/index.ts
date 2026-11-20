@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme';
 import {inBrowser, useData} from "vitepress";
 import './style.scss';
+import './components/blog/blog.scss';
 import {watchEffect, h} from "vue";
 import TeamMembers from './components/team-members.vue';
 import Footer from "./components/Footer.vue";
@@ -13,14 +14,19 @@ import ProductsMobileNav from "./components/ProductsMobileNav.vue";
 import NavAuthActions from "./components/NavAuthActions.vue";
 import ProductLayout from "./components/product/ProductLayout.vue";
 import NotFoundContent from "./components/NotFoundContent.vue";
+import BlogArticleHeader from "./components/blog/BlogArticleHeader.vue";
+import { isBlogArticle } from "../blog";
 
 const oneYearFromNow = () => new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
 
 export default {
     extends: DefaultTheme,
     Layout: () => {
-        const {frontmatter} = useData()
+        const {frontmatter, page} = useData()
         const isProduct = frontmatter.value.layout === 'product'
+        const pagePath = page.value.relativePath
+        const isArticle = isBlogArticle(pagePath)
+        const isBlogIndex = /^(zh\/)?blog\.md$/.test(pagePath)
         const slots: Record<string, () => unknown> = {
             'layout-bottom': () => h(Footer),
             'nav-bar-content-after': () => [
@@ -35,7 +41,13 @@ export default {
         if (isProduct) {
             slots['doc-before'] = () => h(ProductLayout)
         }
-        return h(DefaultTheme.Layout, null, slots)
+        return h(DefaultTheme.Layout, {
+            class: {
+                'blog-page': isArticle || isBlogIndex,
+                'blog-index-page': isBlogIndex,
+                'blog-article-page': isArticle
+            }
+        }, slots)
     },
     setup() {
         const {lang} = useData()
@@ -83,5 +95,6 @@ export default {
         app.component('AboutPage', AboutPage);
         app.component('PricingPage', PricingPage);
         app.component('NotFoundContent', NotFoundContent);
+        app.component('BlogArticleHeader', BlogArticleHeader);
     }
 }

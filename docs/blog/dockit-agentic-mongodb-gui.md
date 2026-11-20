@@ -2,6 +2,13 @@
 title: DocKit Agentic MongoDB GUI Client - Talk to Your Data in Natural Language
 description: DocKit is an open-source MongoDB GUI client with a built-in Data AI Agent that lets you query your database in natural language, covering MongoDB, Elasticsearch, OpenSearch, and DynamoDB in one desktop app. The Community edition is free and open source; the AI agent is part of the paid Ultimate subscription.
 date: 2026-06-10
+cardTitle: "Talk to your MongoDB data in natural language"
+summary: "Write and run MongoDB queries with DocKit’s built-in AI assistant."
+tags: ["DocKit", "MongoDB"]
+cover:
+  src: /blog/covers/dockit-agentic-mongodb-gui.webp
+  thumbnail: /blog/covers/dockit-agentic-mongodb-gui-thumb.webp
+  alt: "DocKit’s MongoDB editor with query results and the built-in AI assistant."
 head:
   - - meta
     - name: keywords

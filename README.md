@@ -50,6 +50,14 @@ npm run docs:preview
 - `docs/public/` — static assets, redirects, headers, and robots configuration
 - `.github/workflows/` — CI and deployment workflow definitions
 
+## Publishing a blog post
+
+Place the English post in `docs/blog/` and its Chinese counterpart in `docs/zh/blog/` under the same slug. Keep a single Markdown H1. The index, archive, and article header read the post’s frontmatter.
+
+- Set `title`, `description`, a publication `date` in `YYYY-MM-DD` format, and a list of localized `tags`.
+- Add a 1200 × 675 cover and a 320 × 180 thumbnail under `docs/public/blog/covers/`. Set `cover.src`, `cover.thumbnail`, and a localized `cover.alt` on the post. Asset URLs start with `/blog/covers/`.
+- Use `cardTitle` or `summary` when the post needs a shorter preview. Set `featured: true` on the story to feature in each language. The latest post is featured by default.
+
 ## Deployment
 
 GitHub Actions builds the VitePress site and publishes the generated `dist/` output to Cloudflare Pages.

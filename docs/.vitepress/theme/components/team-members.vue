@@ -9,7 +9,7 @@ type TeamMember = {
   avatar: string
   name: string
   title: string
-  desc: string
+  desc?: string
   links: TeamLink[]
 }
 
@@ -54,6 +54,15 @@ const members: TeamMember[] = [
       { icon: 'github', link: 'https://github.com/AnnChord' },
       { icon: 'x', link: 'https://x.com/@shuu19069667' }
     ]
+  },
+  {
+    avatar: '/team/kcatleong.png',
+    name: 'Kcatleong',
+    title: 'Contributor',
+    desc: 'cat save the world',
+    links: [
+      { icon: 'github', link: 'https://github.com/Kcatleong' }
+    ]
   }
 ]
 
@@ -76,7 +85,7 @@ const linkMarkup = (link: TeamLink): string => {
       <img class="team-avatar" :src="member.avatar" :alt="member.name" loading="lazy" />
       <h3 class="team-name">{{ member.name }}</h3>
       <p class="team-title">{{ member.title }}</p>
-      <p class="team-desc">{{ member.desc }}</p>
+      <p v-if="member.desc" class="team-desc">{{ member.desc }}</p>
       <div class="team-links">
         <a
           v-for="(link, index) in member.links"
@@ -96,7 +105,7 @@ const linkMarkup = (link: TeamLink): string => {
 <style scoped lang="scss">
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 
   @media (max-width: 1024px) {

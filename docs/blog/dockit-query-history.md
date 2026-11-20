@@ -1,7 +1,12 @@
 ---
 title: "DocKit Query History - Never Lose a Query Again"
 description: "DocKit automatically saves every query across MongoDB, Elasticsearch, OpenSearch, and DynamoDB. View, copy, re-execute, and restore past queries — all locally persisted on your machine."
-date: 2025-03-04
+date: 2026-03-03
+tags: ["DocKit", "Query History"]
+cover:
+  src: /blog/covers/dockit-query-history.webp
+  thumbnail: /blog/covers/dockit-query-history-thumb.webp
+  alt: "DocKit’s query history panel showing recently executed queries."
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "DocKit Query History - Never Lose a Query Again",
         "description": "DocKit automatically saves every query across MongoDB, Elasticsearch, OpenSearch, and DynamoDB. View, copy, re-execute, and restore past queries — all locally persisted on your machine.",
-        "image": "https://www.geekfun.club/dockit-query-history.png",
+        "image": "https://www.geekfun.club/blog/covers/dockit-query-history.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2026-03-03",
         "dateModified": "2026-04-08",
         "mainEntityOfPage": {
           "@type": "WebPage",

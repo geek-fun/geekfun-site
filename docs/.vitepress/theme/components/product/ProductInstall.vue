@@ -2,6 +2,7 @@
 import { ref, watch } from 'vue'
 import { codeToHtml } from 'shiki'
 import Reveal from '../Reveal.vue'
+import { copyText } from '../../clipboard'
 
 type InstallTab = {
   label: string
@@ -64,30 +65,8 @@ const flashCopied = () => {
   }, 2000)
 }
 
-const copyCommand = async (command: string) => {
-  try {
-    await navigator.clipboard.writeText(command)
-    flashCopied()
-    return
-  } catch {
-    /* fall through to legacy fallback below */
-  }
-
-  // Legacy fallback for non-secure contexts / blocked clipboard API
-  try {
-    const ta = document.createElement('textarea')
-    ta.value = command
-    ta.setAttribute('readonly', '')
-    ta.style.position = 'fixed'
-    ta.style.opacity = '0'
-    document.body.appendChild(ta)
-    ta.select()
-    document.execCommand('copy')
-    document.body.removeChild(ta)
-    flashCopied()
-  } catch {
-    /* clipboard unavailable — ignore */
-  }
+const copyCommand = async (command: string): Promise<void> => {
+  if (await copyText(command)) flashCopied()
 }
 
 /* Roving tabindex for the tab list: only the active tab is focusable,

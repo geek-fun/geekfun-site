@@ -1,6 +1,6 @@
 ---
 title: Descargar GEEKFUN - DocKit GUI NoSQL y SqlKit cliente SQL para Mac, Windows y Linux
-description: 'Descarga GUIs de bases de datos de código abierto: DocKit para MongoDB, Elasticsearch, OpenSearch y DynamoDB — SqlKit para PostgreSQL, MySQL, SQL Server y más de 50 bases de datos. Aplicaciones de escritorio nativas para Mac, Windows y Linux. Con IA y con la privacidad como prioridad.'
+description: 'Descarga GUIs de bases de datos de código abierto: DocKit para MongoDB, Elasticsearch, OpenSearch y DynamoDB — SqlKit para PostgreSQL, MySQL, SQL Server y más de 70 bases de datos. Aplicaciones de escritorio nativas para Mac, Windows y Linux. Con IA y con la privacidad como prioridad.'
 head:
   - - meta
     - name: keywords

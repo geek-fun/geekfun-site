@@ -1,6 +1,6 @@
 ---
 title: GEEKFUN をダウンロード - DocKit NoSQL GUI & SqlKit SQL クライアント | Mac、Windows、Linux 対応
-description: オープンソースのデータベース GUI をダウンロード：DocKit は MongoDB、Elasticsearch、OpenSearch、DynamoDB に対応、SqlKit は PostgreSQL、MySQL、SQL Server など 50 以上のデータベースに対応。Mac、Windows、Linux 向けネイティブデスクトップアプリ。AI 搭載、プライバシー第一。
+description: オープンソースのデータベース GUI をダウンロード：DocKit は MongoDB、Elasticsearch、OpenSearch、DynamoDB に対応、SqlKit は PostgreSQL、MySQL、SQL Server など 70 種類以上のデータベースに対応。Mac、Windows、Linux 向けネイティブデスクトップアプリ。AI 搭載、プライバシー第一。
 head:
   - - meta
     - name: keywords

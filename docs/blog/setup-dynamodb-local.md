@@ -2,6 +2,11 @@
 title: How to Set Up DynamoDB Local for Local Development
 description: Learn how to set up DynamoDB Local with Docker or the downloadable JAR, configure AWS CLI access, create your first table, and connect local DynamoDB to DocKit.
 date: 2026-04-23
+tags: ["DynamoDB", "Tutorial"]
+cover:
+  src: /blog/covers/setup-dynamodb-local.webp
+  thumbnail: /blog/covers/setup-dynamodb-local-thumb.webp
+  alt: "DocKit connection settings for a local DynamoDB endpoint."
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "How to Set Up DynamoDB Local for Local Development",
         "description": "Learn how to set up DynamoDB Local with Docker or the downloadable JAR, configure AWS CLI access, create your first table, and connect local DynamoDB to DocKit.",
-        "image": "https://www.geekfun.club/dockit-dynamodb-connection.png",
+        "image": "https://www.geekfun.club/blog/covers/setup-dynamodb-local.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

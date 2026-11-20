@@ -1,7 +1,12 @@
 ---
 title: Access and Manage Local DynamoDB with DocKit
 description: Learn how to access and manage DynamoDB Local with DocKit GUI. Step-by-step setup for offline development, querying tables, managing data, and CI/CD integration.
-date: 2025-03-04
+date: 2026-04-08
+tags: ["DynamoDB", "DocKit"]
+cover:
+  src: /blog/covers/query-dynamodb-locally.webp
+  thumbnail: /blog/covers/query-dynamodb-locally-thumb.webp
+  alt: "DocKit managing tables on a local DynamoDB instance."
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Access and Manage Local DynamoDB with DocKit",
         "description": "Learn how to access and manage DynamoDB Local with DocKit GUI. Step-by-step setup for offline development, querying tables, managing data, and CI/CD integration.",
-        "image": "https://www.geekfun.club/dockit-dynamodb-connection.png",
+        "image": "https://www.geekfun.club/blog/covers/query-dynamodb-locally.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2026-04-08",
         "dateModified": "2026-04-08",
         "mainEntityOfPage": {
           "@type": "WebPage",

@@ -1,6 +1,8 @@
 ---
 title: GEEKFUN Blog - DynamoDB Elasticsearch GUI Tutorials & Open Source Guides
 description: "Explore GEEKFUN blog for DynamoDB GUI tutorials, Elasticsearch client guides, OpenSearch tips. DocKit features: query history, import/export, PartiQL, AI query generation. Open-source development insights."
+outline: false
+lastUpdated: false
 head:
   - - meta
     - name: keywords
@@ -21,76 +23,9 @@ head:
       hreflang: x-default
       href: https://www.geekfun.club/blog
 ---
-# Blog
 
-Welcome to the **GEEKFUN Blog!** :rocket::rocket::rocket:
+<script setup>
+import BlogIndex from './.vitepress/theme/components/blog/BlogIndex.vue'
+</script>
 
-Product updates, technical deep-dives, and lessons from building open-source database tools. Written by the GEEKFUN team.
-
-## [Connect Codex to your databases with Data Studio Agent](/blog/connect-codex-databases-mcp)
-*October 22, 2026*
-
-Connect Codex to SQL and NoSQL databases through MCP. Set up SqlKit or DocKit, add connections, inspect schemas, and investigate an API bug while the desktop apps manage credentials and permissions.
-
-## [DocKit 1.0 - The NoSQL desktop client developers deserved](/blog/introducing-dockit-v1)
-*May 10, 2026*
-
-After 2 years and 10 months, 970 commits, 244 merged PRs, and 70 releases, DocKit ships its first stable release. A complete re-introduction from scratch: the journey from Electron to Tauri v2, three UI rewrites, DynamoDB, AI integration, and everything the platform does today.
-
-## [DocKit Agentic MongoDB GUI Client - Talk to Your Data in Natural Language](/blog/dockit-agentic-mongodb-gui)
-*June 10, 2026*
-
-DocKit is an open-source NoSQL desktop client with a built-in Data AI Agent. Describe what you need in plain language and it writes the MongoDB query, runs it, and returns the results. The post covers why the older MongoDB GUI tools have gone quiet, what chat-box-style AI can't do, and how DocKit manages MongoDB, Elasticsearch, OpenSearch, and DynamoDB in one app.
-
-## [Best Elasticsearch GUI Clients in 2026: 5 Tools Compared](/blog/best-elasticsearch-gui-client-2026)
-*May 23, 2026*
-
-The Elasticsearch ecosystem has grown vast, but not all GUI tools are worth your time. Cerebro went quiet in 2021, Elasticsearch Head in 2018. This guide covers the 5 best GUI clients — DocKit, Kibana, Elasticvue, Elastron, and Elasticsearch Head — and tells you which are still active in 2026.
-
-## [Best DynamoDB GUI Clients in 2026: 5 Tools Compared](/blog/best-dynamodb-gui-client-2026)
-*May 9, 2026*
-
-DynamoDB launched in 2012 and a whole ecosystem grew around it. But we're in 2026 now, and the AI era changes things. This guide covers the main GUI clients — DocKit, Dynobase, NoSQL Workbench, AWS Console, Dynomate — and tells you which are still active. Plus other ecosystem tools worth knowing.
-
-## [Instant Documentation Access — Shortcuts in DocKit for Any ES, OpenSearch, or DynamoDB API](/blog/documentation-shortcut)
-*May 6, 2026*
-
-Press a single shortcut in the editor and get the exact official documentation for any Elasticsearch, OpenSearch, or DynamoDB API — version-aware, engine-aware, and language-aware. Rebuilt from the ground up with spec-driven mapping across 1,300+ lines of code and tests.
-
-## [How to Set Up DynamoDB Local for Local Development](/blog/setup-dynamodb-local)
-*April 23, 2026*
-
-Learn how to run DynamoDB Local with Docker or the downloadable JAR, configure AWS CLI access, create your first local table, and connect the local endpoint from DocKit.
-
-## [Serverless Architecture Pitfalls: Alibaba Cloud API Gateway Body Transform Issue](/blog/serverless-api-gateway-body-transform)
-*April 15, 2026*
-
-When implementing Alipay webhook callbacks, we encountered an issue where `application/x-www-form-urlencoded` request bodies were being converted to JSON objects. Deep analysis of ServerlessInsight + serverless-adapter architecture, platform behavior, and solutions.
-
-## [Access and Manage Local DynamoDB with DocKit](/blog/query-dynamodb-locally)
-*April 8, 2026*
-
-DynamoDB Local lets you develop offline, iterate faster, and avoid AWS costs. Learn how to set up DynamoDB Local and access, query, and manage your local tables with DocKit.
-
-## [DocKit Query History - Never Lose a Query Again](/blog/dockit-query-history)
-*March 3, 2026*
-
-DocKit now automatically saves every query you execute — for MongoDB, Elasticsearch, OpenSearch, and DynamoDB. View, copy, re-run, and send past queries back to the editor from the dedicated history panel.
-
-## [DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases](/blog/dockit-import-export)
-*March 3, 2026*
-
-Need to migrate data, seed a test environment, or back up before an upgrade? DocKit's new import/export feature supports JSON, CSV, and bulk formats for MongoDB, Elasticsearch, OpenSearch, and DynamoDB.
-
-## [DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips](/blog/dockit-dynamodb-manage-metrics)
-*March 3, 2026*
-
-Manage DynamoDB tables, view real-time metrics, browse indexes, and monitor capacity — all without leaving DocKit's clean desktop UI.
-
-## [Implementing Elasticsearch Integration Test with jest-search](/blog/elasticsearch-integration-test-jest-search)
-*September 18, 2024*
-
-There are several ways to implement integration test for Elasticsearch, you can startup a container to run the
-elasticsearch server or config a remote elasticsearch server that you dedicated for test purpose only. In this post, I
-will give you a another way to implement Elasticsearch Integration Test by using
-jest-preset [jest-search](https://github.com/geek-fun/jest-search) to startup a local server for you.
+<BlogIndex />

@@ -1,7 +1,12 @@
 ---
 title: 使用 jest-search 实现 Elasticsearch 集成测试
 description: Elasticsearch已经成为现代应用程序的一个重要组成部分，特别是那些需要处理大量数据并且需要高效搜索能力的应用程序。在开发使用 Elasticsearch 的应用程序时，确保应用程序与 Elasticsearch 的集成正常运作非常重要。通过集成测试是实现这一目标的一种有效方式。
-date: 2025-03-04
+date: 2024-09-18
+tags: ["Elasticsearch", "集成测试"]
+cover:
+  src: /blog/covers/elasticsearch-integration-test-jest-search.webp
+  thumbnail: /blog/covers/elasticsearch-integration-test-jest-search-thumb.webp
+  alt: "使用 jest-search 运行 Elasticsearch 集成测试的输出。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "使用 jest-search 实现 Elasticsearch 集成测试",
         "description": "Elasticsearch已经成为现代应用程序的一个重要组成部分，特别是那些需要处理大量数据并且需要高效搜索能力的应用程序。在开发使用 Elasticsearch 的应用程序时，确保应用程序与 Elasticsearch 的集成正常运作非常重要。",
-        "image": "https://www.geekfun.club/og/master-zh.png",
+        "image": "https://www.geekfun.club/blog/covers/elasticsearch-integration-test-jest-search.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2024-09-18",
         "dateModified": "2026-04-08",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
