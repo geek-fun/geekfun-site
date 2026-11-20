@@ -149,6 +149,7 @@ onUnmounted(() => document.removeEventListener('pointerdown', onOutsidePointer))
   text-align: start;
   font-size: 0.875rem;
   font-weight: 550;
+  transition: border-color var(--download-motion-quick) var(--download-motion-ease);
 
   &:hover,
   &[aria-expanded='true'] {
@@ -169,6 +170,11 @@ onUnmounted(() => document.removeEventListener('pointerdown', onOutsidePointer))
   border: solid var(--vp-c-text-2);
   border-width: 0 1.5px 1.5px 0;
   transform: rotate(45deg);
+  transition: transform var(--download-motion-quick) var(--download-motion-ease);
+}
+
+.download-picker-trigger[aria-expanded='true'] .download-picker-chevron {
+  transform: rotate(-135deg);
 }
 
 .download-picker-menu {
@@ -195,6 +201,7 @@ onUnmounted(() => document.removeEventListener('pointerdown', onOutsidePointer))
     border-radius: 4px;
     text-align: start;
     cursor: pointer;
+    transition: background-color var(--download-motion-quick) var(--download-motion-ease);
   }
 
   strong,
@@ -211,6 +218,19 @@ onUnmounted(() => document.removeEventListener('pointerdown', onOutsidePointer))
   small {
     color: var(--vp-c-text-2);
     font-size: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .download-picker-menu {
+    animation: download-picker-enter var(--download-motion-quick) var(--download-motion-ease);
+  }
+}
+
+@keyframes download-picker-enter {
+  from {
+    opacity: 0.72;
+    transform: translateY(-4px);
   }
 }
 

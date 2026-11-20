@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onUnmounted, reactive, ref } from 'vue'
+import { computed, nextTick, onUnmounted, reactive, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { copyText } from '../clipboard'
 import DownloadPackagePicker from './DownloadPackagePicker.vue'
@@ -39,7 +39,10 @@ const categories = [
   { key: 'serverless', id: 'serverless-tools' },
   { key: 'developer', id: 'developer-tools' },
 ] as const
-const activeCategory = ref<typeof categories[number]['key']>('desktop')
+type Category = typeof categories[number]['key']
+const activeCategory = ref<Category>('desktop')
+const tabs = ref<HTMLElement | null>(null)
+const hasSwitchedCategory = ref(false)
 const toolSections = categories.slice(1).map(({ key, id }) => ({
   key,
   id,
@@ -50,6 +53,31 @@ const packageNotes = computed(() => ({
   rpm: 'Fedora / RHEL',
   appImage: copy.value.portable,
 }))
+
+const selectCategory = async (category: Category): Promise<void> => {
+  if (category === activeCategory.value) return
+
+  const indicator = '[aria-selected="true"] .download-tab-indicator'
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const start = reduceMotion ? undefined : tabs.value?.querySelector(indicator)?.getBoundingClientRect()
+  activeCategory.value = category
+  hasSwitchedCategory.value = true
+  if (!start?.width) return
+
+  await nextTick()
+  if (activeCategory.value !== category) return
+  const selected = tabs.value?.querySelector<HTMLElement>(indicator)
+  if (!selected) return
+
+  selected.getAnimations().forEach((animation) => animation.cancel())
+  const end = selected.getBoundingClientRect()
+  if (!end.width || Math.abs(start.top - end.top) > 1) return
+
+  selected.animate([
+    { transform: `translateX(${start.left - end.left}px) scaleX(${start.width / end.width})` },
+    { transform: 'none' },
+  ], { duration: 220, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
+}
 
 const moveTab = (event: KeyboardEvent): void => {
   const current = categories.findIndex(({ key }) => key === activeCategory.value)
@@ -73,9 +101,8 @@ const moveTab = (event: KeyboardEvent): void => {
   }
 
   event.preventDefault()
-  activeCategory.value = categories[next].key
-  const tablist = event.currentTarget as HTMLElement
-  tablist.querySelector<HTMLButtonElement>(`#${categories[next].id}-tab`)?.focus()
+  void selectCategory(categories[next].key)
+  tabs.value?.querySelector<HTMLButtonElement>(`#${categories[next].id}-tab`)?.focus()
 }
 
 const copyFeedback = ref<{ tool: InstallTool['id']; copied: boolean } | null>(null)
@@ -95,15 +122,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <main class="download-page">
-    <div :key="activeCategory" class="download-ambience" aria-hidden="true"></div>
+  <main class="download-page" :class="{ 'download-page--switched': hasSwitchedCategory }">
+    <div class="download-ambience" aria-hidden="true"></div>
 
     <header class="download-heading">
       <h1>{{ copy.title }}</h1>
       <p>{{ copy.description }}</p>
     </header>
 
-    <div class="download-tabs" role="tablist" :aria-label="copy.categories" @keydown="moveTab">
+    <div ref="tabs" class="download-tabs" role="tablist" :aria-label="copy.categories" @keydown="moveTab">
       <button
         v-for="category in categories"
         :id="category.id + '-tab'"
@@ -113,9 +140,10 @@ onUnmounted(() => {
         :aria-controls="category.id"
         :aria-selected="activeCategory === category.key"
         :tabindex="activeCategory === category.key ? 0 : -1"
-        @click="activeCategory = category.key"
+        @click="selectCategory(category.key)"
       >
         {{ copy[category.key] }}
+        <span class="download-tab-indicator" aria-hidden="true"></span>
       </button>
     </div>
 
@@ -223,7 +251,12 @@ onUnmounted(() => {
           </header>
           <div class="download-command">
             <code>{{ tool.command }}</code>
-            <button type="button" :aria-label="`${copy.copy} · ${tool.name}`" @click="copyCommand(tool)">
+            <button
+              type="button"
+              :aria-label="`${copy.copy} · ${tool.name}`"
+              :data-copied="copyFeedback?.tool === tool.id && copyFeedback.copied"
+              @click="copyCommand(tool)"
+            >
               {{ copyFeedback?.tool === tool.id && copyFeedback.copied ? copy.copied : copy.copy }}
             </button>
           </div>
@@ -256,6 +289,9 @@ onUnmounted(() => {
   --download-hover: color-mix(in srgb, var(--vp-c-text-1) 8%, transparent);
   --download-logo-bg: #f3f1ee;
   --download-gutter: clamp(16px, 4vw, 48px);
+  --download-motion-quick: 140ms;
+  --download-motion-standard: 220ms;
+  --download-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   position: relative;
   isolation: isolate;
@@ -320,23 +356,33 @@ onUnmounted(() => {
   border-bottom: 1px solid var(--download-line);
 
   button {
+    position: relative;
     min-height: 44px;
     padding: 6px 0;
     color: var(--vp-c-text-2);
     text-align: start;
     font-size: 0.9375rem;
-    font-weight: 550;
+    font-weight: 600;
+    transition: color var(--download-motion-quick) var(--download-motion-ease);
 
     &:hover,
     &[aria-selected='true'] {
       color: var(--vp-c-text-1);
     }
 
-    &[aria-selected='true'] {
-      box-shadow: inset 0 -2px var(--vp-c-text-1);
-      font-weight: 650;
+    &[aria-selected='true'] .download-tab-indicator {
+      opacity: 1;
     }
   }
+}
+
+.download-tab-indicator {
+  position: absolute;
+  inset: auto 0 0;
+  border-bottom: 2px solid currentColor;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: left;
 }
 
 .download-ambience {
@@ -372,6 +418,11 @@ onUnmounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .download-page {
+    --download-motion-quick: 0s;
+    --download-motion-standard: 0s;
+  }
+
   .download-ambience::before {
     animation: none;
   }
@@ -394,7 +445,7 @@ onUnmounted(() => {
   backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
   border: 1px solid var(--download-line);
   border-radius: 10px;
-  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color var(--download-motion-standard) var(--download-motion-ease);
 
   &:hover {
     border-color: var(--gf-c-border-hover);
@@ -403,9 +454,18 @@ onUnmounted(() => {
   &:focus-within {
     z-index: 1;
   }
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
+@media (prefers-reduced-motion: no-preference) {
+  .download-page--switched :is(.download-app, .download-tool) {
+    animation: download-panel-enter var(--download-motion-standard) var(--download-motion-ease);
+  }
+}
+
+@keyframes download-panel-enter {
+  from {
+    opacity: 0.76;
+    transform: translateY(5px);
   }
 }
 
@@ -543,9 +603,20 @@ onUnmounted(() => {
   height: 44px;
   color: var(--vp-c-text-1);
   border-radius: 6px;
+  transition: background-color var(--download-motion-quick) var(--download-motion-ease);
 
-  &:hover {
-    background: var(--download-hover);
+  &:focus-visible {
+    background-color: var(--download-hover);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--download-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--download-line);
   }
 }
 
@@ -576,6 +647,26 @@ onUnmounted(() => {
     border: solid currentColor;
     border-width: 0 1.5px 1.5px 0;
     transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .download-binary-icon {
+    transition: transform var(--download-motion-quick) var(--download-motion-ease);
+  }
+
+  .download-binary:focus-visible .download-binary-icon {
+    transform: translateY(2px);
+  }
+
+  @media (hover: hover) {
+    .download-binary:hover .download-binary-icon {
+      transform: translateY(2px);
+    }
+  }
+
+  .download-binary:active .download-binary-icon {
+    transform: translateY(2px) scale(0.9);
   }
 }
 
@@ -639,6 +730,19 @@ onUnmounted(() => {
     color: var(--vp-c-text-1);
     font-size: 0.8125rem;
     font-weight: 650;
+    border-radius: 6px;
+    transition: background-color var(--download-motion-quick) var(--download-motion-ease);
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--download-hover);
+      }
+    }
+
+    &:active,
+    &[data-copied='true'] {
+      background-color: var(--download-line);
+    }
   }
 }
 
