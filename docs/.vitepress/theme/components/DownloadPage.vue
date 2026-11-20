@@ -1,801 +1,668 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useData } from 'vitepress'
-
-import { DOCKIT_VERSION, SQLKIT_VERSION } from '../version'
-
-const DOCKIT_GH = 'https://github.com/geek-fun/dockit/releases'
-const SQLKIT_GH = 'https://github.com/geek-fun/sqlkit/releases'
-
-const dockitPlatformLinks: Record<string, { url: string; label: string }> = {
-  macos:       { url: `${DOCKIT_GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_universal.dmg`, label: 'Download .dmg' },
-  windows:     { url: `${DOCKIT_GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_x64-setup.exe`, label: 'Download .exe' },
-  'linux deb': { url: `${DOCKIT_GH}/download/v${DOCKIT_VERSION}/DocKit_${DOCKIT_VERSION}_amd64.deb`, label: 'Download .deb' },
-  'linux rpm': { url: `${DOCKIT_GH}/download/v${DOCKIT_VERSION}/DocKit-${DOCKIT_VERSION}-1.x86_64.rpm`, label: 'Download .rpm' },
-}
-
-const sqlkitPlatformLinks: Record<string, { url: string; label: string }> = {
-  macos:       { url: `${SQLKIT_GH}/download/v${SQLKIT_VERSION}/SqlKit_${SQLKIT_VERSION}_universal.dmg`, label: 'Download .dmg' },
-  windows:     { url: `${SQLKIT_GH}/download/v${SQLKIT_VERSION}/SqlKit_${SQLKIT_VERSION}_x64-setup.exe`, label: 'Download .exe' },
-  'linux deb': { url: `${SQLKIT_GH}/download/v${SQLKIT_VERSION}/SqlKit_${SQLKIT_VERSION}_amd64.deb`, label: 'Download .deb' },
-  'linux rpm': { url: `${SQLKIT_GH}/download/v${SQLKIT_VERSION}/SqlKit-${SQLKIT_VERSION}-1.x86_64.rpm`, label: 'Download .rpm' },
-}
-
-function getPlatformLinks(product: 'dockit' | 'sqlkit'): Record<string, { url: string; label: string }> {
-  return product === 'dockit' ? dockitPlatformLinks : sqlkitPlatformLinks
-}
-
-type DownloadCategoryId = 'database-clients' | 'serverless-infrastructure' | 'developer-tools'
-
-type PlatformGroup = { platform: string }
-
-type ProductAction = {
-  label: string
-  href: string
-  external?: boolean
-  kind: 'primary' | 'secondary'
-}
-
-type DownloadProduct = {
-  name: string
-  logo: string
-  description: string
-  category: DownloadCategoryId
-  actions: ProductAction[]
-  installCommand?: string
-  installLabel?: string
-  releaseHref?: string
-  platformGroups?: PlatformGroup[]
-  features?: string[]
-}
-
-type CategoryContent = {
-  id: DownloadCategoryId
-  label: string
-  eyebrow: string
-  title: string
-  description: string
-}
-
-type DownloadContent = {
-  pageEyebrow: string
-  pageTitle: string
-  pageDescription: string
-  categories: CategoryContent[]
-  products: DownloadProduct[]
-  installCommandLabel: string
-  platformsTitle: string
-  platformsDescription: string
-  openReleaseLabel: string
-}
-
-const availablePlatform: PlatformGroup[] = [
-  { platform: 'macOS' },
-  { platform: 'Windows' },
-  { platform: 'Linux deb' },
-  { platform: 'Linux rpm' },
-]
+import { computed, onUnmounted, reactive, ref } from 'vue'
+import { useData, withBase } from 'vitepress'
+import { copyText } from '../clipboard'
+import DownloadPackagePicker from './DownloadPackagePicker.vue'
+import { downloadCopy } from './download-copy'
+import {
+  appInstallers,
+  appProductPage,
+  appRepository,
+  desktopApps,
+  installerPlatforms,
+  installTools,
+  packageLabels,
+  type DesktopApp,
+  type DownloadLanguage,
+  type InstallTool,
+  type PackageType,
+} from './download-data'
 
 const { lang } = useData()
-
-const activeCategory = ref<DownloadCategoryId>('database-clients')
-
-const content = computed<DownloadContent>(() => {
-  const isZh = lang.value === 'zh'
-
-  return {
-    pageEyebrow: isZh ? '下载中心' : 'Downloads',
-    pageTitle: isZh ? '获取我们的产品' : 'Get our products',
-    pageDescription: isZh
-      ? '桌面客户端、命令行工具与开发库，按需取用。'
-      : 'Desktop apps, CLI tools, and libraries — pick what you need.',
-    categories: [
-      {
-        id: 'database-clients',
-        label: isZh ? '数据库客户端' : 'Database Clients',
-        eyebrow: isZh ? '桌面应用' : 'Desktop Apps',
-        title: isZh ? '从 NoSQL 到 SQL，一个生态全覆盖' : 'From NoSQL to SQL — we\'ve got you covered',
-        description: isZh
-          ? 'DocKit：5 种 NoSQL 引擎。SqlKit：50+ 种 SQL 数据库。共同点：开源、原生、隐私优先。'
-          : 'DocKit: 5 NoSQL engines. SqlKit: 50+ SQL databases. Both: open-source, native, privacy-first.'
-      },
-      {
-        id: 'serverless-infrastructure',
-        label: isZh ? 'Serverless 工具' : 'Serverless Tools',
-        eyebrow: isZh ? '云部署' : 'Cloud Deploy',
-        title: isZh ? '构建与部署 Serverless 应用' : 'Build and deploy serverless applications',
-        description: isZh
-          ? '适配主流云平台，简化部署流程。'
-          : 'Adapts to major cloud platforms for streamlined deployment.'
-      },
-      {
-        id: 'developer-tools',
-        label: isZh ? '开发工具' : 'Dev Tools',
-        eyebrow: isZh ? '库与测试' : 'Libraries & Testing',
-        title: isZh ? '提升本地开发与测试效率' : 'Speed up local development and testing',
-        description: isZh
-          ? '提供安装命令与集成所需的核心链接。'
-          : 'Install commands and essential integration links.'
-      }
-    ],
-    products: [
-      {
-        name: 'DocKit',
-        logo: '/dockit.png',
-        description: isZh
-          ? '5 种 NoSQL 引擎 — MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch。AI 驱动，原生性能。'
-          : '5 NoSQL engines — MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch. AI-powered, native performance.',
-        features: isZh
-          ? ['AI 智能体', '自然语言查询', 'Monaco 编辑器', '集群管理', '导入导出', '本地优先']
-          : ['AI Agent', 'Natural Language Query', 'Monaco Editor', 'Cluster Management', 'Import/Export', 'Local-First'],
-        category: 'database-clients',
-        actions: [
-          { label: isZh ? '了解更多' : 'Learn More', href: isZh ? '/zh/products/dockit/' : '/products/dockit/', kind: 'primary' },
-          { label: 'GitHub', href: 'https://github.com/geek-fun/dockit', external: true, kind: 'secondary' }
-        ],
-        releaseHref: 'https://github.com/geek-fun/dockit/releases',
-        platformGroups: availablePlatform
-      },
-      {
-        name: 'SqlKit',
-        logo: '/sqlkit.png',
-        description: isZh
-          ? '50+ 种数据库，一个原生应用 — 从 Oracle 到 DuckDB。社区版免费开源，AI 智能体随 Ultimate 订阅提供。'
-          : '50+ databases, one native app — from Oracle to DuckDB. Community edition free and open source; AI agent in Ultimate.',
-        features: isZh
-          ? ['AI 智能体', 'SSH 隧道', 'JDBC 桥接', '数据迁移', 'ER 图', '执行计划']
-          : ['AI Agent', 'SSH Tunnel', 'JDBC Bridge', 'Data Transfer', 'ER Diagrams', 'Execution Plans'],
-        category: 'database-clients',
-        actions: [
-          { label: isZh ? '了解更多' : 'Learn More', href: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/', kind: 'primary' },
-          { label: 'GitHub', href: 'https://github.com/geek-fun/sqlkit', external: true, kind: 'secondary' }
-        ],
-        releaseHref: 'https://github.com/geek-fun/sqlkit/releases',
-        platformGroups: availablePlatform
-      },
-      {
-        name: 'ServerlessInsight',
-        logo: '/serverlessinsight.png',
-        description: isZh
-          ? '多云 Serverless 应用部署平台。'
-          : 'Multi-cloud serverless deployment platform.',
-        category: 'serverless-infrastructure',
-        installCommand: 'npm install -g @geek-fun/serverlessinsight',
-        installLabel: isZh ? '安装 CLI' : 'Install CLI',
-        actions: [
-          { label: isZh ? '文档' : 'Docs', href: 'https://serverlessinsight.com', external: true, kind: 'primary' },
-          { label: 'GitHub', href: 'https://github.com/geek-fun/serverlessinsight', external: true, kind: 'secondary' }
-        ]
-      },
-      {
-        name: 'serverless-adapter',
-        logo: '/serverless-adapter.svg',
-        description: isZh
-          ? 'Express/Koa 应用转 Serverless 的适配器。'
-          : 'Adapter to run Express/Koa apps on serverless.',
-        category: 'serverless-infrastructure',
-        installCommand: 'npm i @geek-fun/serverless-adapter',
-        installLabel: isZh ? '安装' : 'Install',
-        actions: [
-          { label: 'npm', href: 'https://www.npmjs.org/package/@geek-fun/serverless-adapter', external: true, kind: 'primary' },
-          { label: 'GitHub', href: 'https://github.com/geek-fun/serverless-adapter', external: true, kind: 'secondary' }
-        ]
-      },
-      {
-        name: 'jest-search',
-        logo: '/jest-search.png',
-        description: isZh
-          ? 'Elasticsearch/OpenSearch 本地集成测试工具。'
-          : 'Local integration testing for Elasticsearch/OpenSearch.',
-        category: 'developer-tools',
-        installCommand: 'npm install --save-dev @geek-fun/jest-search',
-        installLabel: isZh ? '安装依赖' : 'Install',
-        actions: [
-          { label: 'npm', href: 'https://www.npmjs.com/package/@geek-fun/jest-search', external: true, kind: 'primary' },
-          { label: 'GitHub', href: 'https://github.com/geek-fun/jest-search', external: true, kind: 'secondary' }
-        ]
-      },
-      {
-        name: 'Data Studio Agent',
-        logo: '/data-studio-agent.svg',
-        description: isZh
-          ? '你的 DBA。用自然语言和你的数据库对话的 MCP 服务器。'
-          : 'Your DBA. MCP server to talk to your databases in plain language.',
-        category: 'developer-tools',
-        installCommand: 'npm install -g @geek-fun/data-studio-mcp',
-        installLabel: isZh ? '安装' : 'Install',
-        actions: [
-          { label: 'npm', href: 'https://www.npmjs.com/package/@geek-fun/data-studio-mcp', external: true, kind: 'primary' },
-          { label: 'GitHub', href: 'https://github.com/geek-fun/data-studio-agent', external: true, kind: 'secondary' },
-          { label: isZh ? '产品页' : 'Product', href: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/', kind: 'secondary' }
-        ]
-      }
-    ],
-    installCommandLabel: isZh ? '安装命令' : 'Install',
-    platformsTitle: isZh ? '下载桌面应用' : 'Download Desktop App',
-    platformsDescription: isZh ? '选择平台，或查看所有历史版本。' : 'Choose your platform, or browse all versions.',
-    openReleaseLabel: isZh ? '查看所有版本' : 'All Versions'
-  }
+const language = computed<DownloadLanguage>(() =>
+  Object.hasOwn(downloadCopy, lang.value) ? lang.value as DownloadLanguage : 'en',
+)
+const copy = computed(() => downloadCopy[language.value])
+const apps = desktopApps.map((app) => ({
+  app,
+  repository: appRepository(app),
+  installers: appInstallers(app),
+}))
+type Platform = typeof installerPlatforms[number]['id']
+const defaultPackages: Record<Platform, PackageType> = { macos: 'dmg', windows: 'exe', linux: 'deb' }
+const selectedPackages = reactive<Record<DesktopApp['id'], Record<Platform, PackageType>>>({
+  dockit: { ...defaultPackages },
+  sqlkit: { ...defaultPackages },
 })
+const categories = [
+  { key: 'desktop', id: 'database-clients' },
+  { key: 'serverless', id: 'serverless-tools' },
+  { key: 'developer', id: 'developer-tools' },
+] as const
+const activeCategory = ref<typeof categories[number]['key']>('desktop')
+const toolSections = categories.slice(1).map(({ key, id }) => ({
+  key,
+  id,
+  tools: installTools.filter((tool) => tool.section === key),
+}))
+const packageNotes = computed(() => ({
+  deb: 'Debian / Ubuntu',
+  rpm: 'Fedora / RHEL',
+  appImage: copy.value.portable,
+}))
 
-const categories = computed(() => content.value.categories)
-const activeCategory_ = computed(() => categories.value.find(c => c.id === activeCategory.value) ?? categories.value[0])
-const filteredProducts = computed(() => content.value.products.filter(p => p.category === activeCategory.value))
+const moveTab = (event: KeyboardEvent): void => {
+  const current = categories.findIndex(({ key }) => key === activeCategory.value)
+  let next: number
 
+  switch (event.key) {
+    case 'ArrowLeft':
+      next = (current + categories.length - 1) % categories.length
+      break
+    case 'ArrowRight':
+      next = (current + 1) % categories.length
+      break
+    case 'Home':
+      next = 0
+      break
+    case 'End':
+      next = categories.length - 1
+      break
+    default:
+      return
+  }
+
+  event.preventDefault()
+  activeCategory.value = categories[next].key
+  const tablist = event.currentTarget as HTMLElement
+  tablist.querySelector<HTMLButtonElement>(`#${categories[next].id}-tab`)?.focus()
+}
+
+const copyFeedback = ref<{ tool: InstallTool['id']; copied: boolean } | null>(null)
+let currentCopy: symbol | null = null
+
+const copyCommand = async (tool: InstallTool): Promise<void> => {
+  const request = Symbol()
+  currentCopy = request
+  copyFeedback.value = null
+  const copied = await copyText(tool.command)
+  if (currentCopy === request) copyFeedback.value = { tool: tool.id, copied }
+}
+
+onUnmounted(() => {
+  currentCopy = null
+})
 </script>
 
 <template>
-  <div class="download-page">
+  <main class="download-page">
+    <div :key="activeCategory" class="download-ambience" aria-hidden="true"></div>
 
-    <!-- Page Header -->
-    <section class="dl-hero">
-      <div class="container">
-        <div class="section-header section-header--start">
-          <span class="section-label">{{ content.pageEyebrow }}</span>
-        </div>
-        <h1 class="dl-hero__title">{{ content.pageTitle }}</h1>
-        <p class="dl-hero__description">{{ content.pageDescription }}</p>
-      </div>
-    </section>
+    <header class="download-heading">
+      <h1>{{ copy.title }}</h1>
+      <p>{{ copy.description }}</p>
+    </header>
 
-    <!-- Category Tabs -->
-    <div class="dl-tabs-bar">
-      <div class="container">
-        <nav class="dl-tabs" role="tablist" :aria-label="content.pageEyebrow">
-          <button
-            v-for="cat in categories"
-            :key="cat.id"
-            type="button"
-            class="dl-tab"
-            :class="{ 'dl-tab--active': activeCategory === cat.id }"
-            role="tab"
-            :aria-selected="activeCategory === cat.id"
-            @click="activeCategory = cat.id"
-          >
-            {{ cat.label }}
-          </button>
-        </nav>
-      </div>
+    <div class="download-tabs" role="tablist" :aria-label="copy.categories" @keydown="moveTab">
+      <button
+        v-for="category in categories"
+        :id="category.id + '-tab'"
+        :key="category.id"
+        type="button"
+        role="tab"
+        :aria-controls="category.id"
+        :aria-selected="activeCategory === category.key"
+        :tabindex="activeCategory === category.key ? 0 : -1"
+        @click="activeCategory = category.key"
+      >
+        {{ copy[category.key] }}
+      </button>
     </div>
 
-    <!-- Category Intro -->
-    <section class="dl-category-intro">
-      <div class="container">
-        <p class="dl-category-intro__eyebrow">{{ activeCategory_.eyebrow }}</p>
-        <h2 class="dl-category-intro__title">{{ activeCategory_.title }}</h2>
-        <p class="dl-category-intro__description">{{ activeCategory_.description }}</p>
+    <section
+      v-show="activeCategory === 'desktop'"
+      id="database-clients"
+      role="tabpanel"
+      aria-labelledby="database-clients-tab"
+    >
+      <h2 class="download-sr-only">{{ copy.desktop }}</h2>
+      <div class="download-apps">
+        <article v-for="{ app, repository, installers } in apps" :id="app.id" :key="app.id" class="download-app">
+          <header class="download-identity">
+            <img :src="withBase(app.logo)" width="44" height="44" alt="">
+            <div>
+              <h3>{{ app.name }}</h3>
+              <p>{{ copy.appType[app.id] }}</p>
+            </div>
+            <span class="download-version">v{{ app.version }}</span>
+          </header>
+          <p class="download-description">
+            {{ app.id === 'dockit' ? 'MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch' : copy.sqlKitDescription }}
+          </p>
+
+          <table class="download-platforms" :aria-label="app.name">
+            <colgroup>
+              <col>
+              <col class="download-package-column">
+              <col class="download-action-column">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">{{ copy.platform }}</th>
+                <th scope="col">{{ copy.packageType }}</th>
+                <th scope="col"><span class="download-sr-only">{{ copy.download }}</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="platform in installerPlatforms" :key="platform.id" class="download-platform" :data-platform="platform.id">
+                <th scope="row">
+                  <div class="download-platform-name">
+                    <img
+                      class="download-platform-logo"
+                      :src="withBase('/platform/platform-' + platform.id + '.svg')"
+                      width="34"
+                      height="34"
+                      alt=""
+                    >
+                    <div>
+                      <strong>{{ platform.name }}</strong>
+                      <span>{{ platform.architecture || copy.appleArchitecture }}</span>
+                    </div>
+                  </div>
+                </th>
+                <td class="download-package-cell">
+                  <DownloadPackagePicker
+                    v-if="platform.packages.length > 1"
+                    :id="`${app.id}-${platform.id}-packages`"
+                    v-model="selectedPackages[app.id][platform.id]"
+                    :label="`${app.name} · ${platform.name} · ${copy.packageType}`"
+                    :options="platform.packages"
+                    :notes="packageNotes"
+                  />
+                  <span v-else class="download-package-fixed">{{ packageLabels[platform.packages[0]] }}</span>
+                </td>
+                <td class="download-action-cell">
+                  <a
+                    class="download-binary"
+                    :href="installers[selectedPackages[app.id][platform.id]]"
+                    :aria-label="`${copy.download} ${app.name} · ${platform.name} · ${packageLabels[selectedPackages[app.id][platform.id]]}`"
+                    :title="copy.download"
+                  >
+                    <span class="download-binary-icon" aria-hidden="true"></span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <footer class="download-links">
+            <a :href="withBase(appProductPage(app, language))">{{ copy.learnMore }}</a>
+            <a :href="repository" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a :href="repository + '/releases'" target="_blank" rel="noopener noreferrer">{{ copy.allVersions }}</a>
+          </footer>
+        </article>
       </div>
     </section>
 
-    <!-- Products -->
-    <section class="dl-products">
-      <div class="container">
-        <div class="dl-products__list">
-          <article
-            v-for="product in filteredProducts"
-            :key="product.name"
-            class="dl-product"
-          >
-            <!-- Product identity -->
-            <div class="dl-product__identity">
-              <div class="dl-product__logo-wrap">
-                <img :src="product.logo" :alt="`${product.name} logo`" class="dl-product__logo" width="28" height="28" />
-              </div>
-              <div>
-                <h3 class="dl-product__name">{{ product.name }}</h3>
-                <p class="dl-product__description">{{ product.description }}</p>
-                <div v-if="product.features" class="dl-product__tags">
-                  <span v-for="tag in product.features" :key="tag" class="dl-product__tag">{{ tag }}</span>
-                </div>
-              </div>
+    <section
+      v-for="section in toolSections"
+      v-show="activeCategory === section.key"
+      :id="section.id"
+      :key="section.id"
+      role="tabpanel"
+      :aria-labelledby="section.id + '-tab'"
+    >
+      <h2 class="download-sr-only">{{ copy[section.key] }}</h2>
+      <div class="download-tools">
+        <article v-for="tool in section.tools" :key="tool.id" class="download-tool">
+          <header class="download-tool-identity">
+            <img :src="withBase(tool.logo)" width="36" height="36" alt="">
+            <div>
+              <h3>{{ tool.name }}</h3>
+              <p>{{ copy.toolDescriptions[tool.id] }}</p>
             </div>
-
-            <!-- Install command -->
-            <div v-if="product.installCommand" class="dl-install">
-              <span class="dl-install__label">{{ product.installLabel ?? content.installCommandLabel }}</span>
-              <code class="dl-install__code">{{ product.installCommand }}</code>
-            </div>
-
-            <!-- Platform downloads (DocKit) -->
-            <div v-if="product.platformGroups" class="dl-platforms">
-              <div class="dl-platforms__header">
-                <div>
-                  <h4 class="dl-platforms__title">{{ content.platformsTitle }}</h4>
-                  <p class="dl-platforms__sub">{{ content.platformsDescription }}</p>
-                </div>
-                <a
-                  :href="product.releaseHref"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="gf-btn gf-btn-secondary"
-                >{{ content.openReleaseLabel }}</a>
-              </div>
-
-              <div class="dl-platforms__grid">
-                <div class="dl-platforms__col">
-                  <div
-                    v-for="group in product.platformGroups.slice(0, 2)"
-                    :key="group.platform"
-                    class="dl-platform-group"
-                  >
-                    <h5 class="dl-platform-group__name">{{ group.platform }}</h5>
-                    <a
-                      :href="getPlatformLinks(product.name === 'SqlKit' ? 'sqlkit' : 'dockit')[group.platform.toLowerCase()].url"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="gf-btn gf-btn-secondary dl-binary-btn"
-                    >
-                      <span>{{ getPlatformLinks(product.name === 'SqlKit' ? 'sqlkit' : 'dockit')[group.platform.toLowerCase()].label }}</span>
-                      <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
-                    </a>
-                  </div>
-                </div>
-                <div class="dl-platforms__col">
-                  <div
-                    v-for="group in product.platformGroups.slice(2)"
-                    :key="group.platform"
-                    class="dl-platform-group"
-                  >
-                    <h5 class="dl-platform-group__name">{{ group.platform }}</h5>
-                    <a
-                      :href="getPlatformLinks(product.name === 'SqlKit' ? 'sqlkit' : 'dockit')[group.platform.toLowerCase()].url"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="gf-btn gf-btn-secondary dl-binary-btn"
-                    >
-                      <span>{{ getPlatformLinks(product.name === 'SqlKit' ? 'sqlkit' : 'dockit')[group.platform.toLowerCase()].label }}</span>
-                      <span class="dl-binary-btn__icon" aria-hidden="true">↓</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="dl-product__actions">
-              <a
-                v-for="action in product.actions"
-                :key="`${product.name}-${action.label}`"
-                :href="action.href"
-                :target="action.external ? '_blank' : undefined"
-                :rel="action.external ? 'noopener noreferrer' : undefined"
-                class="gf-btn"
-                :class="action.kind === 'primary' ? 'gf-btn-primary' : 'gf-btn-secondary'"
-              >{{ action.label }}</a>
-            </div>
-          </article>
-        </div>
+          </header>
+          <div class="download-command">
+            <code>{{ tool.command }}</code>
+            <button type="button" :aria-label="`${copy.copy} · ${tool.name}`" @click="copyCommand(tool)">
+              {{ copyFeedback?.tool === tool.id && copyFeedback.copied ? copy.copied : copy.copy }}
+            </button>
+          </div>
+          <p v-if="copyFeedback?.tool === tool.id && !copyFeedback.copied" class="download-copy-error">
+            {{ copy.copyFailed }}
+          </p>
+          <footer class="download-links">
+            <a :href="tool.resource.href" target="_blank" rel="noopener noreferrer">
+              {{ tool.resource.label === 'docs' ? copy.docs : 'npm' }}
+            </a>
+            <a :href="tool.repository" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a
+              v-if="tool.id === 'dataStudioAgent'"
+              :href="withBase(language === 'zh' ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/')"
+            >{{ copy.product }}</a>
+          </footer>
+        </article>
       </div>
     </section>
-
-  </div>
+    <p class="download-sr-only" role="status">
+      {{ copyFeedback ? (copyFeedback.copied ? copy.copied : copy.copyFailed) : '' }}
+    </p>
+  </main>
 </template>
 
 <style scoped lang="scss">
-/* ─── Layout ─────────────────────────────────────────────────────────────── */
-
 .download-page {
-  width: 100%;
-}
+  --download-focus: #914810;
+  --download-line: color-mix(in srgb, var(--vp-c-text-1) 16%, transparent);
+  --download-hover: color-mix(in srgb, var(--vp-c-text-1) 8%, transparent);
+  --download-logo-bg: #f3f1ee;
+  --download-gutter: clamp(16px, 4vw, 48px);
 
-.container {
-  max-width: 1152px;
-  margin: 0 auto;
-  padding: 0 24px;
-  width: 100%;
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(28px, 4.5vw, 56px) clamp(50px, 7vw, 88px);
+  padding-inline: max(var(--download-gutter), calc((100% - 1240px) / 2 + var(--download-gutter)));
 
-  @media (min-width: 1440px) {
-    max-width: 1320px;
-    padding: 0 48px;
+  :is(h1, h2, h3) {
+    color: var(--vp-c-text-1);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
   }
 
-  @media (min-width: 1920px) {
-    max-width: 1536px;
-    padding: 0 64px;
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    letter-spacing: -0.04em;
+  }
+
+  :is(a, button):focus-visible {
+    outline: 2px solid var(--download-focus);
+    outline-offset: 3px;
+  }
+
+  :is(section, article[id]) {
+    scroll-margin-top: calc(var(--vp-nav-height) + 20px);
   }
 }
 
-/* ─── Section header (matches HomePage) ─────────────────────────────────── */
+:global(.dark .download-page) {
+  --download-focus: #ffb16a;
+  --download-logo-bg: #eeebe7;
+}
 
-.section-header {
+.download-heading p {
+  margin-top: 8px;
+  color: var(--vp-c-text-2);
+  line-height: 1.55;
+}
+
+.download-tabs {
   display: flex;
-  justify-content: center;
-  margin-bottom: 0;
-}
+  flex-wrap: wrap;
+  gap: 0 22px;
+  margin-block: 16px 22px;
+  border-bottom: 1px solid var(--download-line);
 
-.section-header--start {
-  justify-content: flex-start;
+  button {
+    min-height: 44px;
+    padding: 6px 0;
+    color: var(--vp-c-text-2);
+    text-align: start;
+    font-size: 0.9375rem;
+    font-weight: 550;
 
-  .section-label::before {
-    display: none;
-  }
+    &:hover,
+    &[aria-selected='true'] {
+      color: var(--vp-c-text-1);
+    }
 
-  @media (max-width: 1024px) {
-    justify-content: center;
-
-    .section-label::before {
-      display: block;
+    &[aria-selected='true'] {
+      box-shadow: inset 0 -2px var(--vp-c-text-1);
+      font-weight: 650;
     }
   }
 }
 
-.section-label {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--vp-c-brand-1);
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
+.download-ambience {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent, #000 3%, #000 74%, transparent);
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    opacity: 0.35;
-    background: var(--vp-c-brand-soft);
-  }
-}
-
-/* ─── Hero ───────────────────────────────────────────────────────────────── */
-
-.dl-hero {
-  padding: 80px 0 48px;
-
-  @media (max-width: 768px) {
-    padding: 56px 0 32px;
-  }
-
-  .section-header {
-    margin-bottom: 24px;
-  }
-}
-
-.dl-hero__title {
-  margin: 0 0 var(--space-lg);
-  font-size: clamp(2.25rem, 4vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  color: var(--vp-c-text-1);
-}
-
-.dl-hero__description {
-  margin: 0;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: var(--vp-c-text-2);
-  max-width: 560px;
-}
-
-/* ─── Category Tabs ──────────────────────────────────────────────────────── */
-
-.dl-tabs-bar {
-  border-bottom: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  margin-bottom: 0;
-}
-
-.dl-tabs {
-  display: flex;
-  gap: 0;
-}
-
-.dl-tab {
-  position: relative;
-  padding: 14px 24px;
-  background: transparent;
-  border: none;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--vp-c-text-2);
-  cursor: pointer;
-  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
-
-  &:hover {
-    color: var(--vp-c-text-1);
-  }
-
-  &::after {
-    content: '';
+  &::before {
     position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--vp-c-brand-1);
-    opacity: 0;
-    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    inset: -3%;
+    background-image:
+      radial-gradient(ellipse 63% 82% at 12% 22%, var(--gf-glass-blob-amber-faint), transparent 80%),
+      radial-gradient(ellipse 65% 83% at 88% 45%, var(--gf-glass-blob-purple-faint), transparent 80%);
+    animation: download-glass-drift 4.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    content: '';
   }
 }
 
-.dl-tab--active {
-  color: var(--vp-c-text-1);
-  font-weight: 600;
+@keyframes download-glass-drift {
+  from {
+    transform: translate3d(-2%, 2%, 0);
+    opacity: 0.76;
+  }
 
-  &::after {
+  to {
+    transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 }
 
-/* ─── Category Intro ─────────────────────────────────────────────────────── */
-
-.dl-category-intro {
-  padding: 40px 0 32px;
-  background-color: var(--vp-c-bg-alt);
-  border-bottom: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-}
-
-.dl-category-intro__eyebrow {
-  margin: 0 0 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--vp-c-brand-1);
-}
-
-.dl-category-intro__title {
-  margin: 0 0 12px;
-  font-size: 1.375rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--vp-c-text-1);
-}
-
-.dl-category-intro__description {
-  margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: var(--vp-c-text-2);
-  max-width: 600px;
-}
-
-/* ─── Products list ──────────────────────────────────────────────────────── */
-
-.dl-products {
-  padding: 48px 0 96px;
-
-  @media (max-width: 768px) {
-    padding: 32px 0 64px;
+@media (prefers-reduced-motion: reduce) {
+  .download-ambience::before {
+    animation: none;
   }
 }
 
-.dl-products__list {
+.download-apps,
+.download-tools {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2.5vw, 24px);
+  margin-top: 14px;
+}
 
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+.download-app,
+.download-tool {
+  position: relative;
+  padding: clamp(14px, 2.6vw, 26px);
+  background-color: var(--gf-glass-bg);
+  -webkit-backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
+  backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
+  border: 1px solid var(--download-line);
+  border-radius: 10px;
+
+  &:focus-within {
+    z-index: 1;
   }
 }
 
-/* ─── Product card (matches value-card vocabulary from HomePage) ─────────── */
-
-.dl-product {
-  background-color: var(--gf-c-bg-card, var(--vp-c-bg));
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  border-radius: 12px;
-  padding: 28px 32px;
+.download-app {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
-  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    border-color: var(--gf-c-border-hover, var(--vp-c-brand-1));
-    box-shadow: 0 8px 24px var(--gf-c-glow), var(--vp-shadow-1);
-  }
-
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
 }
 
-/* ─── Product identity ───────────────────────────────────────────────────── */
-
-.dl-product__identity {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-xl);
-
-  @media (max-width: 640px) {
-    gap: var(--space-lg);
-  }
-}
-
-.dl-product__logo-wrap {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  display: flex;
+.download-identity,
+.download-tool-identity {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: center;
-  background-color: var(--vp-c-bg);
-  border-radius: 10px;
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-border));
+  gap: 11px;
+
+  img {
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  p {
+    color: var(--vp-c-text-2);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin-top: 3px;
+  }
 }
 
-.dl-product__logo {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
+.download-identity h3 {
+  font-size: 1.5rem;
 }
 
-.dl-product__name {
-  margin: 0 0 6px;
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--vp-c-text-1);
-}
-
-.dl-product__description {
-  margin: 0 0 12px;
-  font-size: 0.9375rem;
-  line-height: 1.6;
+.download-version {
+  align-self: start;
   color: var(--vp-c-text-2);
-}
-
-.dl-product__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.dl-product__tag {
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--vp-c-brand-1);
-  background: var(--vp-c-brand-soft);
-  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-/* ─── Install block ──────────────────────────────────────────────────────── */
-
-.dl-install {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.dl-install__label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.download-description {
   color: var(--vp-c-text-2);
-}
-
-.dl-install__code {
-  display: block;
-  padding: 0.875rem 1rem;
-  border-radius: 8px;
-  background: var(--vp-c-bg-alt);
-  border: 1px solid var(--gf-c-border-subtle, var(--vp-c-divider));
-  color: var(--vp-c-text-1);
-  font-size: 0.875rem;
-  line-height: 1.6;
-  overflow-x: auto;
-}
-
-/* ─── Platform downloads ─────────────────────────────────────────────────── */
-
-.dl-platforms {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-}
-
-.dl-platforms__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-lg);
-
-  @media (max-width: 640px) {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
-.dl-platforms__title {
-  margin: 0 0 4px;
   font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
+  line-height: 1.5;
+  margin: 12px 0 16px;
+  min-height: 3em;
 }
 
-.dl-platforms__sub {
-  margin: 0;
-  font-size: 0.875rem;
-  color: var(--vp-c-text-2);
-}
-
-.dl-platforms__status {
-  margin: 0;
-  font-size: 0.9375rem;
-  color: var(--vp-c-text-2);
-}
-
-.dl-platforms__status--error {
-  color: var(--vp-c-danger-1, var(--vp-c-text-1));
-}
-
-.dl-platforms__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xl);
-
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.dl-platforms__col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-}
-
-.dl-platform-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.dl-platform-group__name {
-  margin: 0 0 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--vp-c-text-2);
-}
-
-.dl-platform-group__buttons {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.dl-binary-btn {
-  justify-content: space-between;
+.download-platforms {
   width: 100%;
-  border-radius: 8px !important;
-  min-height: 40px;
-  padding: 0.625rem 1rem !important;
-  font-size: 0.875rem !important;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  th,
+  td {
+    text-align: start;
+    vertical-align: middle;
+  }
+
+  thead th {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--download-line);
+    color: var(--vp-c-text-2);
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  tbody :is(th, td) {
+    padding-block: 7px;
+  }
 }
 
-.dl-binary-btn__icon {
-  font-size: 0.8125rem;
-  opacity: 0.6;
+.download-package-column {
+  width: 6.375rem;
 }
 
-/* ─── Product actions ────────────────────────────────────────────────────── */
+.download-action-column {
+  width: 3.5rem;
+}
 
-.dl-product__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.download-platform-logo {
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  object-fit: contain;
+  background: var(--download-logo-bg);
+  border-radius: 7px;
+}
+
+.download-platform-name {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
+  gap: 9px;
+  padding-inline-end: 6px;
+  line-height: 1.35;
+
+  strong,
+  span {
+    display: block;
+  }
+
+  strong {
+    font-size: 0.9375rem;
+    font-weight: 650;
+  }
+
+  span {
+    color: var(--vp-c-text-2);
+    font-size: 0.8125rem;
+    font-weight: 400;
+  }
 }
 
-/* ─── Reduced motion ─────────────────────────────────────────────────────── */
+.download-platform .download-package-cell {
+  padding-inline-end: 9px;
+}
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+.download-package-fixed {
+  color: var(--vp-c-text-1);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.download-platform .download-action-cell {
+  text-align: end;
+}
+
+.download-binary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--vp-c-text-1);
+  border-radius: 6px;
+
+  &:hover {
+    background: var(--download-hover);
+  }
+}
+
+.download-binary-icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-bottom: 1.5px solid currentColor;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 50%;
+    content: '';
+  }
+
+  &::before {
+    top: 0;
+    height: 10px;
+    border-left: 1.5px solid currentColor;
+    transform: translateX(-50%);
+  }
+
+  &::after {
+    top: 5px;
+    width: 7px;
+    height: 7px;
+    border: solid currentColor;
+    border-width: 0 1.5px 1.5px 0;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.download-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--vp-c-text-2);
+  font-size: 0.875rem;
+  font-weight: 550;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+}
+
+.download-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 18px;
+  margin-top: auto;
+  border-top: 1px solid var(--download-line);
+}
+
+.download-tool {
+  min-width: 0;
+}
+
+.download-tool-identity {
+  grid-template-columns: auto minmax(0, 1fr);
+
+  h3 {
+    font-size: 1.0625rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+.download-command {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 8px;
+  padding-inline: 10px 4px;
+  background: var(--download-hover);
+  border-radius: 8px;
+
+  code {
+    min-width: 0;
+    color: var(--vp-c-text-1);
+    font: 0.8125rem/1.6 var(--vp-font-family-mono);
+    overflow-wrap: anywhere;
+  }
+
+  button {
+    flex: 0 0 auto;
+    min-height: 44px;
+    padding-inline: 8px;
+    color: var(--vp-c-text-1);
+    font-size: 0.8125rem;
+    font-weight: 650;
+  }
+}
+
+.download-copy-error {
+  margin-bottom: 8px;
+  color: var(--vp-c-text-2);
+  font-size: 0.875rem;
+}
+
+.download-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .download-apps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .download-description {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .download-tools {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 440px) {
+  .download-package-column {
+    width: 5.25rem;
+  }
+
+  .download-platform-name {
+    gap: 6px;
+  }
+
+  .download-platform-logo {
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+  }
+
+  .download-platform .download-package-cell {
+    padding-inline-end: 6px;
   }
 }
 </style>

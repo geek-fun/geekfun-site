@@ -258,6 +258,7 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 .hero-blind {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -288,7 +289,6 @@ onBeforeUnmount(() => {
 /* ── Front studio content ─────────────────────────────────────────────── */
 .hero-front {
   position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -368,6 +368,8 @@ onBeforeUnmount(() => {
 }
 
 .hero-actions {
+  position: relative;
+  z-index: 3;
   display: flex;
   gap: 16px;
   justify-content: center;
