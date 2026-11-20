@@ -1,7 +1,12 @@
 ---
 title: 使用 DocKit 访问和管理本地 DynamoDB
 description: 学习如何使用 DocKit 访问和管理 DynamoDB Local，完成本地离线开发、表查询、数据调试、初始化配置以及 CI/CD 集成的完整分步实践。
-date: 2025-03-04
+date: 2026-04-08
+tags: ["DynamoDB", "DocKit"]
+cover:
+  src: /blog/covers/query-dynamodb-locally.webp
+  thumbnail: /blog/covers/query-dynamodb-locally-thumb.webp
+  alt: "在 DocKit 中管理本地 DynamoDB 实例的表。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "使用 DocKit 访问和管理本地 DynamoDB",
         "description": "学习如何使用 DocKit GUI 访问和管理 DynamoDB Local。离线开发、查询表、管理数据的分步设置，以及 CI/CD 集成。",
-        "image": "https://www.geekfun.club/dockit-dynamodb-connection.png",
+        "image": "https://www.geekfun.club/blog/covers/query-dynamodb-locally.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2026-04-08",
         "dateModified": "2026-04-08",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {

@@ -2,6 +2,13 @@
 title: "2026年最佳Elasticsearch GUI客户端：5款工具对比"
 description: 对比最佳Elasticsearch GUI客户端，包括DocKit、Kibana、Elasticvue、Elastron和Elasticsearch Head。功能特性、活跃度及推荐选择。
 date: 2026-05-23
+cardTitle: "2026 年最佳 Elasticsearch 图形客户端"
+summary: "从查询编辑器到完整的可视化界面，对比五款 Elasticsearch 工具。"
+tags: ["Elasticsearch", "工具对比"]
+cover:
+  src: /blog/covers/best-elasticsearch-gui-client-2026.webp
+  thumbnail: /blog/covers/best-elasticsearch-gui-client-2026-thumb.webp
+  alt: "DocKit、Kibana、Elasticvue、Elastron 和 Elasticsearch Head 的标志。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +36,7 @@ head:
         "@type": "BlogPosting",
         "headline": "2026年最佳Elasticsearch GUI客户端：5款工具对比",
         "description": "对比最佳Elasticsearch GUI客户端，包括DocKit、Kibana、Elasticvue、Elastron和Elasticsearch Head。功能特性、活跃度及推荐选择。",
-        "image": "https://www.geekfun.club/elasticsearch-gui-tools-cover.png",
+        "image": "https://www.geekfun.club/blog/covers/best-elasticsearch-gui-client-2026.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -53,6 +60,8 @@ head:
         "articleSection": "数据库工具"
       }
 ---
+
+# 2026年最佳Elasticsearch GUI客户端：5款工具对比
 
 Elasticsearch 从 2010 年发展至今，围绕它的 GUI 工具生态参差不齐——有的还在持续更新，有的早已停滞多年但 GitHub Star 还挂在那里。Cerebro 最后发布于 2021 年，Elasticsearch Head 是 2018 年，ElasticHQ 是 2019 年。搜索结果里还能找到它们，但对新项目来说基本没有参考价值。
 

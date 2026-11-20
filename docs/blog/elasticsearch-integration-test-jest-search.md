@@ -1,7 +1,12 @@
 ---
 title: Implementing Elasticsearch Integration Test with jest-search
 description: Learn how to write reliable Elasticsearch integration tests using jest-search — a Jest preset that spins up a local Elasticsearch, OpenSearch, or ZincSearch instance automatically for your test suite.
-date: 2025-03-04
+date: 2024-09-18
+tags: ["Elasticsearch", "Testing"]
+cover:
+  src: /blog/covers/elasticsearch-integration-test-jest-search.webp
+  thumbnail: /blog/covers/elasticsearch-integration-test-jest-search-thumb.webp
+  alt: "Output from an Elasticsearch integration test with jest-search."
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Implementing Elasticsearch Integration Test with jest-search",
         "description": "Learn how to write reliable Elasticsearch integration tests using jest-search — a Jest preset that spins up a local Elasticsearch, OpenSearch, or ZincSearch instance automatically for your test suite.",
-        "image": "https://www.geekfun.club/og/master-en.png",
+        "image": "https://www.geekfun.club/blog/covers/elasticsearch-integration-test-jest-search.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2024-09-18",
         "dateModified": "2026-04-08",
         "mainEntityOfPage": {
           "@type": "WebPage",

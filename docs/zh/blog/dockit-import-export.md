@@ -1,7 +1,12 @@
 ---
 title: "DocKit 导入导出 - 跨 NoSQL 数据库无缝迁移数据"
 description: "了解如何在 DocKit 中导入和导出数据 - 这是适用于 Elasticsearch、OpenSearch 和 DynamoDB 的免费开源 GUI 客户端。支持 JSON、CSV 和 JSONL 导入/导出。"
-date: 2025-03-04
+date: 2026-03-03
+tags: ["DocKit", "导入导出"]
+cover:
+  src: /blog/covers/dockit-import-export.webp
+  thumbnail: /blog/covers/dockit-import-export-thumb.webp
+  alt: "DocKit 的 DynamoDB 数据导入导出界面。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "DocKit 导入导出 - 跨 NoSQL 数据库无缝迁移数据",
         "description": "了解如何在 DocKit 中导入和导出数据 - 这是适用于 Elasticsearch、OpenSearch 和 DynamoDB 的免费开源 GUI 客户端。支持 JSON、CSV 和 JSONL 导入/导出。",
-        "image": "https://www.geekfun.club/dockit-dynamodb-import.png",
+        "image": "https://www.geekfun.club/blog/covers/dockit-import-export.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2026-03-03",
         "dateModified": "2026-04-08",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {

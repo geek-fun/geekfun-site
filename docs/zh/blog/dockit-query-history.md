@@ -1,7 +1,12 @@
 ---
 title: "DocKit 查询历史 - 永不丢失查询记录"
 description: "DocKit 自动保存你在 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB 中执行的每一个查询。查看、复制、重新执行，或将历史查询恢复到编辑器中继续编辑——全部本地持久化，数据不离开你的设备。"
-date: 2025-03-04
+date: 2026-03-03
+tags: ["DocKit", "查询历史"]
+cover:
+  src: /blog/covers/dockit-query-history.webp
+  thumbnail: /blog/covers/dockit-query-history-thumb.webp
+  alt: "DocKit 的查询历史面板，展示最近执行的查询。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "DocKit 查询历史 - 永不丢失查询记录",
         "description": "DocKit 自动保存你在 MongoDB、Elasticsearch、OpenSearch 和 DynamoDB 中执行的每一个查询。查看、复制、重新执行，或将历史查询恢复到编辑器中继续编辑——全部本地持久化，数据不离开你的设备。",
-        "image": "https://www.geekfun.club/dockit-query-history.png",
+        "image": "https://www.geekfun.club/blog/covers/dockit-query-history.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2026-03-03",
         "dateModified": "2026-04-08",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {

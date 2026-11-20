@@ -1,7 +1,12 @@
 ---
 title: "DocKit DynamoDB 管理与指标 - 随时掌控您的表"
 description: "DocKit 现在允许您直接从桌面管理 DynamoDB 表并监控关键指标。浏览表、查看容量、跟踪项目数量和管理索引。"
-date: 2025-03-04
+date: 2026-03-03
+tags: ["DynamoDB", "指标监控"]
+cover:
+  src: /blog/covers/dockit-dynamodb-manage-metrics.webp
+  thumbnail: /blog/covers/dockit-dynamodb-manage-metrics-thumb.webp
+  alt: "DocKit 中的 DynamoDB 表管理和指标视图。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "DocKit DynamoDB 管理与指标 - 随时掌控您的表",
         "description": "DocKit 现在允许您直接从桌面管理 DynamoDB 表并监控关键指标。浏览表、查看容量、跟踪项目数量和管理索引。",
-        "image": "https://www.geekfun.club/dockit-dynamodb-manage.png",
+        "image": "https://www.geekfun.club/blog/covers/dockit-dynamodb-manage-metrics.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2026-03-03",
         "dateModified": "2026-04-08",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {

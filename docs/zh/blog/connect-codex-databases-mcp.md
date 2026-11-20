@@ -2,6 +2,13 @@
 title: "通过 Data Studio Agent 将 Codex 连接到数据库"
 description: "用 MCP、SqlKit 和 DocKit 为 Codex 配置数据库访问，查看 SQL 与 NoSQL 数据结构、执行查询，并由桌面客户端管理连接凭据和操作权限。"
 date: 2026-10-22
+summary: "在 Codex 中通过 MCP、SqlKit 和 DocKit 查看 SQL 与 NoSQL 数据库结构并运行查询。"
+featured: true
+tags: ["Data Studio Agent", "MCP"]
+cover:
+  src: /blog/covers/connect-codex-databases-mcp-zh.webp
+  thumbnail: /blog/covers/connect-codex-databases-mcp-zh-thumb.webp
+  alt: "架构图展示 Codex 通过 Data Studio Agent、SqlKit 和 DocKit 连接 SQL 与 NoSQL 数据库。"
 head:
   - - link
     - rel: canonical
@@ -26,7 +33,7 @@ head:
         "@type": "BlogPosting",
         "headline": "通过 Data Studio Agent 将 Codex 连接到数据库",
         "description": "用 MCP、SqlKit 和 DocKit 为 Codex 配置数据库访问，查看 SQL 与 NoSQL 数据结构、执行查询，并由桌面客户端管理连接凭据和操作权限。",
-        "image": "https://www.geekfun.club/blog/codex-data-studio/codex-data-studio-architecture-branded-zh.png",
+        "image": "https://www.geekfun.club/blog/covers/connect-codex-databases-mcp-zh.webp",
         "inLanguage": "zh-CN",
         "author": {
           "@type": "Organization",

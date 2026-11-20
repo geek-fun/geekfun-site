@@ -2,6 +2,11 @@
 title: 如何在本地搭建 DynamoDB Local
 description: 学习如何通过 Docker 或可下载的 JAR 包搭建 DynamoDB Local，配置 AWS CLI，创建第一张表，并从 DocKit 连接本地 DynamoDB。
 date: 2026-04-23
+tags: ["DynamoDB", "教程"]
+cover:
+  src: /blog/covers/setup-dynamodb-local.webp
+  thumbnail: /blog/covers/setup-dynamodb-local-thumb.webp
+  alt: "DocKit 中的 DynamoDB 本地连接设置。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "如何在本地搭建 DynamoDB Local",
         "description": "学习如何通过 Docker 或可下载的 JAR 包搭建 DynamoDB Local，配置 AWS CLI，创建第一张表，并从 DocKit 连接本地 DynamoDB。",
-        "image": "https://www.geekfun.club/dockit-dynamodb-connection.png",
+        "image": "https://www.geekfun.club/blog/covers/setup-dynamodb-local.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",

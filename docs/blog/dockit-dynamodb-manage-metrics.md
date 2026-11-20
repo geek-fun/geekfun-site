@@ -1,7 +1,12 @@
 ---
 title: "DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips"
 description: "DocKit now lets you manage DynamoDB tables and monitor key metrics directly from your desktop. Browse tables, view capacity, track item counts, and manage indexes."
-date: 2025-03-04
+date: 2026-03-03
+tags: ["DynamoDB", "Metrics"]
+cover:
+  src: /blog/covers/dockit-dynamodb-manage-metrics.webp
+  thumbnail: /blog/covers/dockit-dynamodb-manage-metrics-thumb.webp
+  alt: "A DynamoDB table management and metrics view in DocKit."
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "DocKit DynamoDB Manage & Metrics - Full Table Control at Your Fingertips",
         "description": "DocKit now lets you manage DynamoDB tables and monitor key metrics directly from your desktop. Browse tables, view capacity, track item counts, and manage indexes.",
-        "image": "https://www.geekfun.club/dockit-dynamodb-manage.png",
+        "image": "https://www.geekfun.club/blog/covers/dockit-dynamodb-manage-metrics.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2026-03-03",
         "dateModified": "2026-04-08",
         "mainEntityOfPage": {
           "@type": "WebPage",

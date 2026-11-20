@@ -1,7 +1,12 @@
 ---
 title: "DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases"
 description: "Learn how to import and export data in DocKit - the free, open-source GUI client for Elasticsearch, OpenSearch, and DynamoDB. Supports JSON, CSV, and JSONL import/export."
-date: 2025-03-04
+date: 2026-03-03
+tags: ["DocKit", "Import & Export"]
+cover:
+  src: /blog/covers/dockit-import-export.webp
+  thumbnail: /blog/covers/dockit-import-export-thumb.webp
+  alt: "DocKit’s DynamoDB data import and export interface."
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "DocKit Import & Export - Seamlessly Move Data Across NoSQL Databases",
         "description": "Learn how to import and export data in DocKit - the free, open-source GUI client for Elasticsearch, OpenSearch, and DynamoDB. Supports JSON, CSV, and JSONL import/export.",
-        "image": "https://www.geekfun.club/dockit-dynamodb-import.png",
+        "image": "https://www.geekfun.club/blog/covers/dockit-import-export.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -43,7 +48,7 @@ head:
             "url": "https://www.geekfun.club/geekfun.png"
           }
         },
-        "datePublished": "2025-03-04",
+        "datePublished": "2026-03-03",
         "dateModified": "2026-04-08",
         "mainEntityOfPage": {
           "@type": "WebPage",

@@ -2,6 +2,13 @@
 title: DocKit agentic MongoDB GUI 客户端 - 用自然语言和你的数据对话
 description: DocKit 是一个内置 Data AI Agent 的开源 NoSQL 桌面客户端，覆盖 MongoDB、Elasticsearch、OpenSearch、DynamoDB，用自然语言操作数据库，免费开源。
 date: 2026-06-10
+cardTitle: "用自然语言查询 MongoDB 数据"
+summary: "用 DocKit 内置的 AI 助手编写和运行 MongoDB 查询。"
+tags: ["DocKit", "MongoDB"]
+cover:
+  src: /blog/covers/dockit-agentic-mongodb-gui.webp
+  thumbnail: /blog/covers/dockit-agentic-mongodb-gui-thumb.webp
+  alt: "DocKit 的 MongoDB 编辑器，以及查询结果和内置 AI 助手。"
 head:
   - - meta
     - name: keywords

@@ -2,6 +2,11 @@
 title: 即时文档访问 — DocKit 内置文档快捷方式，支持 ES、OpenSearch、DynamoDB
 description: DocKit 现在将所有 Elasticsearch 操作映射到官方文档——覆盖所有版本（0.90 → 9.x）、所有引擎（ES、OpenSearch、DynamoDB）和语言（EN/ZH）。在编辑器中按文档快捷键即可获取精确的 API 参考。
 date: 2026-05-06
+tags: ["DocKit", "API 文档"]
+cover:
+  src: /blog/covers/documentation-shortcut.webp
+  thumbnail: /blog/covers/documentation-shortcut-thumb.webp
+  alt: "DocKit 的 Elasticsearch 编辑器和 API 工具。"
 head:
   - - meta
     - name: keywords
@@ -29,7 +34,7 @@ head:
         "@type": "BlogPosting",
         "headline": "Ctrl+D 快捷文档——在 DocKit 中为任意 API 打开官方文档",
         "description": "DocKit 现在将所有 Elasticsearch 操作映射到其官方文档——覆盖所有版本、引擎和语言。只需在编辑器中按 Ctrl+D。",
-        "image": "https://www.geekfun.club/dockit-client-ui.png",
+        "image": "https://www.geekfun.club/blog/covers/documentation-shortcut.webp",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
