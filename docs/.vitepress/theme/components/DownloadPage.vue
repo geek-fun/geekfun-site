@@ -259,8 +259,20 @@ onUnmounted(() => {
 
   position: relative;
   isolation: isolate;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--download-gutter), 1fr)
+    [content-start] minmax(0, 1144px)
+    [content-end] minmax(var(--download-gutter), 1fr) [full-end];
   padding-block: clamp(28px, 4.5vw, 56px) clamp(50px, 7vw, 88px);
-  padding-inline: max(var(--download-gutter), calc((100% - 1240px) / 2 + var(--download-gutter)));
+
+  > :is(.download-heading, .download-tabs, [role='tabpanel']) {
+    grid-column: content-start / content-end;
+  }
+
+  > [role='tabpanel'] {
+    grid-row: 3;
+  }
 
   :is(h1, h2, h3) {
     color: var(--vp-c-text-1);
@@ -289,13 +301,18 @@ onUnmounted(() => {
   --download-logo-bg: #eeebe7;
 }
 
-.download-heading p {
-  margin-top: 8px;
-  color: var(--vp-c-text-2);
-  line-height: 1.55;
+.download-heading {
+  grid-row: 1;
+
+  p {
+    margin-top: 8px;
+    color: var(--vp-c-text-2);
+    line-height: 1.55;
+  }
 }
 
 .download-tabs {
+  grid-row: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 0 22px;
@@ -323,9 +340,10 @@ onUnmounted(() => {
 }
 
 .download-ambience {
-  position: absolute;
+  position: relative;
+  grid-column: full-start / full-end;
+  grid-row: 3;
   z-index: -1;
-  inset: 0;
   overflow: hidden;
   pointer-events: none;
   mask-image: linear-gradient(to bottom, transparent, #000 3%, #000 74%, transparent);
@@ -376,9 +394,18 @@ onUnmounted(() => {
   backdrop-filter: blur(var(--gf-glass-blur)) saturate(var(--gf-glass-saturate));
   border: 1px solid var(--download-line);
   border-radius: 10px;
+  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    border-color: var(--gf-c-border-hover);
+  }
 
   &:focus-within {
     z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
 
