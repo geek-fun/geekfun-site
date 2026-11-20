@@ -59,6 +59,7 @@ const members: TeamMember[] = [
     avatar: '/team/kcatleong.png',
     name: 'Kcatleong',
     title: 'Contributor',
+    desc: 'cat save the world',
     links: [
       { icon: 'github', link: 'https://github.com/Kcatleong' }
     ]
