@@ -2,6 +2,7 @@
 title: DocKit vs Dynobase — 免费开源 DynamoDB 客户端替代方案
 description: DocKit vs Dynobase 功能对比。DocKit 是免费开源的 DynamoDB GUI 客户端，支持 PartiQL 编辑器、Agentic Data Studio 和多数据库（MongoDB、Elasticsearch、OpenSearch、EasySearch）。社区版永久免费、开源；进阶 AI 能力属于付费旗舰版订阅。
 sidebar: false
+reviewed: '2026-11-21'
 head:
   - - meta
     - name: keywords
@@ -42,7 +43,9 @@ head:
 
 # DocKit vs Dynobase
 
-Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活跃维护（最新版本：v2.5.1，发布于 2023 年 9 月），按订阅收费（$9–79/月）。**DocKit** 是其开源替代方案：Apache 2.0 许可，社区版免费，持续活跃开发，核心 DynamoDB 工作流完整，并额外提供 **Agentic Data Studio** 和多数据库支持（AI 能力需旗舰版订阅）。
+Dynobase 是一款商业 DynamoDB 桌面客户端。其[官方更新日志](https://dynobase.dev/changelog/)记载，3.0.9 于 2026 年 10 月 28 日发布。**DocKit** 提供 Apache 2.0 开源社区版，可在同一应用中管理多种数据库。内置的 Agentic Data Studio 和 MCP 功能由付费旗舰版提供。
+
+*核对日期：{{ $frontmatter.reviewed }}。*
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/zh/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">下载 DocKit</a>
@@ -51,8 +54,6 @@ Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活�
 
 ## 为什么大家在找 Dynobase 的替代品
 
-- **维护停滞** — Dynobase 最后一个版本是 2023 年 9 月的 v2.5.1，近两年没有任何更新，长期可用性存疑。
-- **省钱** — 每个人每月要花 $9–79，算下来 5 人团队一年得花 $540 到 $4,740。
 - **隐私** — 很多公司要求工具必须跑在本地，不能有云端同步或遥测。
 - **开源** — 源码可查可改，不用担心被某家公司深度绑定。
 - **多库支持** — Dynobase 只管 DynamoDB；如果团队还用 Elasticsearch 或 OpenSearch，就得再折腾一套工具。
@@ -62,7 +63,7 @@ Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活�
 | 功能 | DocKit | Dynobase |
 |---|---|---|
 | **许可证** | Apache 2.0（开源） | 专有 |
-| **定价** | 社区版免费 · 旗舰版 $9.9/月 | $9–79/月或 $199–249 终身 |
+| **定价** | 社区版免费 · 旗舰版 $9.9/月 | [查看定价](https://dynobase.dev/#pricing) |
 | **平台** | Mac、Windows、Linux | Mac、Windows、Linux |
 | **PartiQL 编辑器** | ✅ Monaco 引擎 | ✅ |
 | **可视化查询构建器** | ✅ | ✅ |
@@ -70,7 +71,7 @@ Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活�
 | **表浏览** | ✅ | ✅ |
 | **DynamoDB Local** | ✅ | ✅ |
 | **导出 JSON/CSV** | ✅ | ✅ |
-| **Agentic Data Studio** | ✅（OpenAI、Anthropic、DeepSeek 等） | ❌ |
+| **AI 工作流** | 内置 Agentic Data Studio 与 MCP（旗舰版） | [Dynobase AI](https://dynobase.dev/) 与 [MCP 服务](https://dynobase.dev/dynamodb-mcp-server/) |
 | **查询持久化** | ✅ 本地文件（Git 友好） | ✅ 云同步 |
 | **多标签查询** | ✅ | ✅ |
 | **Elasticsearch 支持** | ✅ | ❌ |
@@ -80,14 +81,12 @@ Dynobase 是一款商业 DynamoDB 客户端——设计不错，但已停止活�
 | **团队协作** | 通过 Git | ✅ 内置 |
 | **商业支持** | 社区（GitHub + Discord） | ✅ 付费 |
 | **源代码访问** | ✅ 完整 | ❌ 闭源 |
-| **遥测** | ❌ 无 | 选择退出 |
-| **安装包大小** | 10–33 MB（Tauri/Rust） | ~100 MB（Electron） |
 
 ## DocKit 哪里更强
 
 ### Agentic Data Studio
 
-用自然语言告诉代理你想干什么，它能写 PartiQL 查询、读表结构、创建条目、更新记录、删数据，全程一个对话搞定。它知道你的表长什么样（键名、类型、GSI 定义），带着 DynamoDB 工具，分安全、升高、破坏性三个风险等级。权限模式（询问/自动）让你决定代理能放开手脚到什么程度。支持 12 种 AI 提供商，包括 OpenAI、Anthropic、DeepSeek、Ollama、LM Studio。Dynobase 没这功能。
+用自然语言描述任务，代理可以在同一对话中编写 PartiQL 查询、读取表结构、创建条目、更新记录和删除数据。通过权限模式（询问或自动）可控制哪些操作需要确认。支持 OpenAI、Anthropic、DeepSeek、Ollama 和 LM Studio 等提供商。
 
 ### 一把梭管理多数据库
 
@@ -95,11 +94,7 @@ Dynobase 只能看 DynamoDB。DocKit 能在同一个窗口里搞定 MongoDB、Dy
 
 ### 社区版不用订阅
 
-DocKit 社区版没席位费。5 人小团队一年能省下 500 多美金。
-
-### 包小还快
-
-基于 Tauri（Rust + WebView）写的，不是 Electron。安装包才 10 多兆，跑起来内存也就占 150MB 左右。
+DocKit 社区版可免费下载和使用。
 
 ### 本地优先，没小动作
 
@@ -117,11 +112,11 @@ Dynobase 卖的是服务，有优先支持和响应时间保证。DocKit 靠 Git
 
 ### 更多导出姿势
 
-Dynobase 能直接往 S3 或 SQL 数据库里塞数据。DocKit 目前只支持导成 JSON 或 CSV。
+Dynobase 可将启用 PITR 的表导出到 S3。DocKit 支持导出到本地 JSON 或 CSV 文件。
 
-### 产品更成熟
+### 按需备份与恢复
 
-Dynobase 做的久，文档更全，刚上手的细节处理得更丝滑。不过最后一个版本是 2023 年 9 月的 v2.5.1，近两年没有新版本，如果你在意工具的长期维护，这点值得留意。
+Dynobase 3.0 可在表的菜单中管理[按需备份](https://dynobase.dev/new-in-3.0/)。DocKit 提供数据导入导出与 DynamoDB 时间点恢复（PITR）配置。
 
 ## 什么时候选 DocKit
 
@@ -159,10 +154,7 @@ Dynobase 做的久，文档更全，刚上手的细节处理得更丝滑。不�
 ## 定价一览
 
 ### Dynobase
-- **Solo（年付）**：$9/月 — 1 人用
-- **Solo（终身）**：$199–249 买断 — 1 人用
-- **Team（年付）**：$79/月 — 支持 10–20 人
-- **Enterprise**：找老板谈
+请查看 [Dynobase 官方定价](https://dynobase.dev/#pricing)。
 
 ### DocKit
 - **社区版**：免费 — 人数不限，核心本地功能
