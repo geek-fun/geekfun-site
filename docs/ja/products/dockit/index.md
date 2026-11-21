@@ -101,7 +101,7 @@ hero:
       theme: brand
       external: true
     - text: ダウンロード
-      link: /ja/download
+      link: /ja/download#dockit
       theme: alt
 
 databases:
@@ -154,7 +154,7 @@ cta:
   body: "複雑なクエリ構文との格闘はもう終わりにしましょう。定型作業は DocKit の AI アシスタントと Agentic Data Studio に任せて、データそのものに集中できます。"
   actions:
     - { text: "無料トライアルを開始", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "ダウンロード", link: "/ja/download", theme: "alt" }
+    - { text: "ダウンロード", link: "/ja/download#dockit", theme: "alt" }
     - { text: "SqlKit を試す →", link: "/products/sqlkit/", theme: "alt" }
 ---
 

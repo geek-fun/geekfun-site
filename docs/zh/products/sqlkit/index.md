@@ -110,7 +110,7 @@ hero:
       theme: brand
       external: true
     - text: 下载
-      link: /zh/download
+      link: /zh/download#sqlkit
       theme: alt
 
 databases:
@@ -215,7 +215,7 @@ cta:
   body: "别再受限于臃肿的 IDE 和功能简陋的免费工具。立即下载 SqlKit — 专为开发者打造的现代化智能 SQL 客户端。"
   actions:
     - { text: "开始免费试用", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "下载", link: "/zh/download", theme: "alt" }
+    - { text: "下载", link: "/zh/download#sqlkit", theme: "alt" }
     - { text: "了解 DocKit →", link: "/zh/products/dockit/", theme: "alt" }
 ---
 

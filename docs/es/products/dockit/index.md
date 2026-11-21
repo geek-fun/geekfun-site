@@ -101,7 +101,7 @@ hero:
       theme: brand
       external: true
     - text: Descargar
-      link: /es/download
+      link: /es/download#dockit
       theme: alt
 
 databases:
@@ -154,7 +154,7 @@ cta:
   body: "Deja de lidiar con sintaxis de consultas complejas. Deja que el asistente de IA de DocKit y Agentic Data Studio se encarguen del trabajo repetitivo mientras tú te concentras en los datos."
   actions:
     - { text: "Iniciar prueba gratis", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "Descargar", link: "/es/download", theme: "alt" }
+    - { text: "Descargar", link: "/es/download#dockit", theme: "alt" }
     - { text: "Prueba SqlKit →", link: "/products/sqlkit/", theme: "alt" }
 ---
 

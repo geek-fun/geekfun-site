@@ -101,7 +101,7 @@ hero:
       theme: brand
       external: true
     - text: 다운로드
-      link: /ko/download
+      link: /ko/download#dockit
       theme: alt
 
 databases:
@@ -154,7 +154,7 @@ cta:
   body: "복잡한 쿼리 문법과 씨름하지 마세요. DocKit의 AI 어시스턴트와 Agentic Data Studio가 번거로운 작업을 처리하도록 맡기고, 데이터에 집중하세요."
   actions:
     - { text: "무료 체험 시작", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "다운로드", link: "/ko/download", theme: "alt" }
+    - { text: "다운로드", link: "/ko/download#dockit", theme: "alt" }
     - { text: "SqlKit 사용해 보기 →", link: "/products/sqlkit/", theme: "alt" }
 ---
 

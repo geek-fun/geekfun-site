@@ -87,7 +87,7 @@ hero:
       theme: brand
       external: true
     - text: 下载
-      link: /zh/download
+      link: /zh/download#dockit
       theme: alt
 
 databases:
@@ -140,7 +140,7 @@ cta:
   body: "别再纠结于复杂的查询语法了。让 DocKit 的 AI 助手和 Agentic Data Studio 包揽那些重复性的劳动，您只需关注数据本身。"
   actions:
     - { text: "开始免费试用", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "下载", link: "/zh/download", theme: "alt" }
+    - { text: "下载", link: "/zh/download#dockit", theme: "alt" }
 ---
 
 ## Elasticsearch GUI 客户端

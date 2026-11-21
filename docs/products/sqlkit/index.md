@@ -110,7 +110,7 @@ hero:
       theme: brand
       external: true
     - text: Download
-      link: /download
+      link: /download#sqlkit
       theme: alt
 
 databases:
@@ -215,7 +215,7 @@ cta:
   body: "Download SqlKit. It covers 70+ databases, has an AI agent built in, and runs natively on Mac, Windows, and Linux."
   actions:
     - { text: "Start Free Trial", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "Download", link: "/download", theme: "alt" }
+    - { text: "Download", link: "/download#sqlkit", theme: "alt" }
     - { text: "Try DocKit →", link: "/products/dockit/", theme: "alt" }
 ---
 

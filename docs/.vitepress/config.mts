@@ -31,15 +31,16 @@ const langAutoDetectHead: HeadConfig[] = [['script', {}, `(function () {
   try {
     var path = location.pathname;
     var isZh = path.indexOf('/zh/') === 0 || path === '/zh';
+    var zhUrl = '/zh' + (path.length > 1 ? path : '/') + location.search + location.hash;
     var pref = localStorage.getItem('gf-lang');
     if (pref === 'zh' && !isZh) {
-      location.replace('/zh' + (path.length > 1 ? path : '/'));
+      location.replace(zhUrl);
       return;
     }
     if (pref) return;
     var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
     if (nav.indexOf('zh') === 0 && !isZh) {
-      location.replace('/zh' + (path.length > 1 ? path : '/'));
+      location.replace(zhUrl);
     }
   } catch (e) {}
 })();`]];
