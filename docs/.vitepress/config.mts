@@ -1,5 +1,6 @@
 import {defineConfig, type HeadConfig} from 'vitepress'
 import {blogDate, isBlogArticle, type BlogFrontmatter} from './blog'
+import {DOCKIT_VERSION} from './theme/version'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
@@ -350,6 +351,21 @@ nav: [
         transformItems(items) {
             return items.filter((item) => item.url !== '404' && item.url !== '/404');
         }
+    },
+    transformPageData({relativePath, frontmatter}) {
+        if (!/(^|\/)products\/dockit\/index\.md$/.test(relativePath)) return;
+
+        const existingHead: HeadConfig[] = frontmatter.head ?? [];
+        const head = existingHead.map((entry): HeadConfig => {
+            const [tag, attributes, content] = entry;
+            if (tag !== 'script' || attributes.type !== 'application/ld+json' || typeof content !== 'string') return entry;
+
+            const schema = JSON.parse(content);
+            if (schema['@type'] !== 'SoftwareApplication' || schema.name !== 'DocKit') return entry;
+            return [tag, attributes, JSON.stringify({...schema, softwareVersion: DOCKIT_VERSION})];
+        });
+
+        return {frontmatter: {...frontmatter, head}};
     },
     transformHead({page, title, description, pageData}) {
         const isZhPage = page.startsWith('zh/');
