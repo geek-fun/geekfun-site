@@ -37,13 +37,6 @@ head:
           "@type": "Offer",
           "priceCurrency": "USD"
         },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "1096",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "featureList": [
           "AI 驱动查询生成",
           "Agentic Data Studio",
@@ -65,7 +58,6 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "1.4.0",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -78,7 +70,7 @@ hero:
   name: DocKit
   headline: "NoSQL 数据库 GUI 客户端"
   animatedText: "Agentic"
-  tagline: "管理您数据库的开源 Data AI Agent。连接 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch — 用自然语言描述您的需求。Agent 会编写查询、查看表结构、更新文档并返回结果。隐私优先、本地运行、Apache 2.0。"
+  tagline: "使用免费开源的社区版连接 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch。旗舰版提供 Agentic Data Studio 和 MCP，支持用自然语言处理数据。"
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -87,7 +79,7 @@ hero:
       theme: brand
       external: true
     - text: 下载
-      link: /zh/download
+      link: /zh/download#dockit
       theme: alt
 
 databases:
@@ -105,11 +97,11 @@ showcase:
     image: /dockit-gui-client-demo.gif
     align: left
   - title: "多数据库数据管理"
-    body: "从统一界面管理 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。监控集群健康状态、管理索引、跟踪指标，通过内置的导入导出和备份功能在数据库间转移数据。"
+    body: "在同一界面管理 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。在 DynamoDB 中运行 PartiQL 查询，或使用 12 个筛选运算符构建可视化查询，还可管理全局二级索引和配置时间点恢复（PITR）。"
     image: /dockit-multi-database-manage-demo.gif
     align: right
-  - title: "导入与备份"
-    body: "通过直观的交互界面完成数据导出和恢复。选择数据来源和目标、可视化映射字段、筛选要导出的字段，剩下的交给 DocKit——全部以后台任务方式运行，实时显示进度。支持 JSON、CSV、JSONL 格式。"
+  - title: "导入与导出"
+    body: "通过直观的交互界面完成数据导入和导出。选择数据来源和目标、可视化映射字段、筛选要导出的字段，剩下的交给 DocKit——全部以后台任务方式运行，实时显示进度。支持 JSON、CSV、JSONL 格式。"
     image: /dockit-import-export-demo.gif
     align: left
   - title: "本地优先，隐私安全"
@@ -140,7 +132,7 @@ cta:
   body: "别再纠结于复杂的查询语法了。让 DocKit 的 AI 助手和 Agentic Data Studio 包揽那些重复性的劳动，您只需关注数据本身。"
   actions:
     - { text: "开始免费试用", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "下载", link: "/zh/download", theme: "alt" }
+    - { text: "下载", link: "/zh/download#dockit", theme: "alt" }
 ---
 
 ## Elasticsearch GUI 客户端
@@ -161,7 +153,7 @@ DocKit 是一款开源 **OpenSearch GUI 客户端**，也是面向日常查询�
 
 ## DynamoDB GUI 客户端
 
-DocKit 是一款开源 **DynamoDB GUI 客户端**，替代 AWS 控制台承担日常表操作工作。包含支持 Schema 感知自动补全的 PartiQL 编辑器、含 13+ 筛选算子的可视化查询构建器、行内 CRUD、可配置页大小的分页，以及完整的表生命周期管理——GSI/LSI 创建、TTL、流、PITR、加密、CloudWatch 指标和表清空。以您的真实属性名为上下文的 AI 查询生成，支持 JSON 和 CSV 的导入导出。
+DocKit 是一款开源 **DynamoDB GUI 客户端**，替代 AWS 控制台承担日常表操作工作。包含支持 Schema 感知自动补全的 PartiQL 编辑器、含 12 个筛选运算符的可视化查询构建器、行内 CRUD、可配置页大小的分页，以及完整的表生命周期管理——全局二级索引管理、本地二级索引查看、TTL、流、加密、CloudWatch 指标和表清空。可在表设置中单独配置 DynamoDB 时间点恢复（PITR）。以您的真实属性名为上下文的 AI 查询生成，支持 JSON 和 CSV 的导入导出。
 
 同时支持 DynamoDB Local 本地开发、AWS 配置文件、SSO、访问密钥和 IAM 角色认证，兼容所有 AWS 区域。
 
@@ -196,11 +188,11 @@ DocKit 的 **Agentic Data Studio** 让你通过自然语言与数据库交互。
 | **OpenSearch** | ✅ | ❌ | ✅ | ❌ | ❌ |
 | **EasySearch** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **DynamoDB** | ✅ | ❌ | ❌ | ✅ | ✅ |
-| **AI 助手** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **AI 助手** | 旗舰版提供 | ❌ | ❌ | [Dynobase AI](https://dynobase.dev/) | ❌ |
+| **MCP** | 旗舰版提供 | — | — | [Dynobase MCP 服务](https://dynobase.dev/dynamodb-mcp-server/) | — |
 | **桌面原生** | ✅ | ❌ | 部分 | ✅ | ✅ |
 | **开源协议** | ✅ Apache 2.0 | Mixed | ✅ MIT | ❌ | ❌ |
-| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费 | 免费 | $12–30/月 | 免费 |
+| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费 | 免费 | [查看定价](https://dynobase.dev/#pricing) | 免费 |
 
 ## 常见问题
 

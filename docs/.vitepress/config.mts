@@ -1,5 +1,6 @@
 import {defineConfig, type HeadConfig} from 'vitepress'
 import {blogDate, isBlogArticle, type BlogFrontmatter} from './blog'
+import {DOCKIT_VERSION} from './theme/version'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
@@ -31,15 +32,16 @@ const langAutoDetectHead: HeadConfig[] = [['script', {}, `(function () {
   try {
     var path = location.pathname;
     var isZh = path.indexOf('/zh/') === 0 || path === '/zh';
+    var zhUrl = '/zh' + (path.length > 1 ? path : '/') + location.search + location.hash;
     var pref = localStorage.getItem('gf-lang');
     if (pref === 'zh' && !isZh) {
-      location.replace('/zh' + (path.length > 1 ? path : '/'));
+      location.replace(zhUrl);
       return;
     }
     if (pref) return;
     var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
     if (nav.indexOf('zh') === 0 && !isZh) {
-      location.replace('/zh' + (path.length > 1 ? path : '/'));
+      location.replace(zhUrl);
     }
   } catch (e) {}
 })();`]];
@@ -349,6 +351,21 @@ nav: [
         transformItems(items) {
             return items.filter((item) => item.url !== '404' && item.url !== '/404');
         }
+    },
+    transformPageData({relativePath, frontmatter}) {
+        if (!/(^|\/)products\/dockit\/index\.md$/.test(relativePath)) return;
+
+        const existingHead: HeadConfig[] = frontmatter.head ?? [];
+        const head = existingHead.map((entry): HeadConfig => {
+            const [tag, attributes, content] = entry;
+            if (tag !== 'script' || attributes.type !== 'application/ld+json' || typeof content !== 'string') return entry;
+
+            const schema = JSON.parse(content);
+            if (schema['@type'] !== 'SoftwareApplication' || schema.name !== 'DocKit') return entry;
+            return [tag, attributes, JSON.stringify({...schema, softwareVersion: DOCKIT_VERSION})];
+        });
+
+        return {frontmatter: {...frontmatter, head}};
     },
     transformHead({page, title, description, pageData}) {
         const isZhPage = page.startsWith('zh/');

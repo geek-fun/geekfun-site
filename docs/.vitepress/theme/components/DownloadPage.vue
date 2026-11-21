@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onUnmounted, reactive, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, reactive, ref, watch } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { copyText } from '../clipboard'
 import DownloadPackagePicker from './DownloadPackagePicker.vue'
@@ -18,7 +18,7 @@ import {
   type PackageType,
 } from './download-data'
 
-const { lang } = useData()
+const { hash, lang } = useData()
 const language = computed<DownloadLanguage>(() =>
   Object.hasOwn(downloadCopy, lang.value) ? lang.value as DownloadLanguage : 'en',
 )
@@ -39,8 +39,8 @@ const categories = [
   { key: 'serverless', id: 'serverless-tools' },
   { key: 'developer', id: 'developer-tools' },
 ] as const
-type Category = typeof categories[number]['key']
-const activeCategory = ref<Category>('desktop')
+type Category = typeof categories[number]
+const activeCategory = ref<Category['key']>('desktop')
 const tabs = ref<HTMLElement | null>(null)
 const hasSwitchedCategory = ref(false)
 const toolSections = categories.slice(1).map(({ key, id }) => ({
@@ -54,18 +54,53 @@ const packageNotes = computed(() => ({
   appImage: copy.value.portable,
 }))
 
-const selectCategory = async (category: Category): Promise<void> => {
-  if (category === activeCategory.value) return
+const followFragment = async (initial = false): Promise<void> => {
+  const currentHash = window.location.hash
+  const fragment = currentHash.slice(1)
+  const category = categories.find(({ id }) => id === fragment)
+  const next = category?.key ?? 'desktop'
+  if (!initial && next === activeCategory.value) return
+
+  hasSwitchedCategory.value = false
+  activeCategory.value = next
+  await nextTick()
+
+  // Scroll once the target is visible and VitePress has queued its anchor scroll.
+  const target = category
+    ? tabs.value
+    : apps.some(({ app }) => app.id === fragment) ? document.getElementById(fragment) : null
+  requestAnimationFrame(() => {
+    if (currentHash === window.location.hash && target?.isConnected) {
+      target.scrollIntoView({ behavior: 'instant', block: 'start' })
+    }
+  })
+}
+
+onMounted(() => { void followFragment(true) })
+watch(hash, () => {
+  if (tabs.value) void followFragment()
+})
+
+const selectCategory = async ({ id, key }: Category): Promise<void> => {
+  const fragment = '#' + id
+  if (key === activeCategory.value && window.location.hash === fragment) return
 
   const indicator = '[aria-selected="true"] .download-tab-indicator'
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const start = reduceMotion ? undefined : tabs.value?.querySelector(indicator)?.getBoundingClientRect()
-  activeCategory.value = category
-  hasSwitchedCategory.value = true
+  const changed = key !== activeCategory.value
+  const animate = changed && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const start = animate ? tabs.value?.querySelector(indicator)?.getBoundingClientRect() : undefined
+  if (changed) {
+    activeCategory.value = key
+    hasSwitchedCategory.value = true
+  }
+
+  const oldURL = window.location.href
+  window.history.replaceState(window.history.state, '', fragment)
+  window.dispatchEvent(new HashChangeEvent('hashchange', { oldURL, newURL: window.location.href }))
   if (!start?.width) return
 
   await nextTick()
-  if (activeCategory.value !== category) return
+  if (activeCategory.value !== key) return
   const selected = tabs.value?.querySelector<HTMLElement>(indicator)
   if (!selected) return
 
@@ -101,7 +136,7 @@ const moveTab = (event: KeyboardEvent): void => {
   }
 
   event.preventDefault()
-  void selectCategory(categories[next].key)
+  void selectCategory(categories[next])
   tabs.value?.querySelector<HTMLButtonElement>(`#${categories[next].id}-tab`)?.focus()
 }
 
@@ -140,7 +175,7 @@ onUnmounted(() => {
         :aria-controls="category.id"
         :aria-selected="activeCategory === category.key"
         :tabindex="activeCategory === category.key ? 0 : -1"
-        @click="selectCategory(category.key)"
+        @click="selectCategory(category)"
       >
         {{ copy[category.key] }}
         <span class="download-tab-indicator" aria-hidden="true"></span>
@@ -327,7 +362,7 @@ onUnmounted(() => {
     outline-offset: 3px;
   }
 
-  :is(section, article[id]) {
+  :is(.download-tabs, section, article[id]) {
     scroll-margin-top: calc(var(--vp-nav-height) + 20px);
   }
 }

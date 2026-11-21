@@ -68,20 +68,12 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "1.4.0",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
           "url": "https://www.geekfun.club"
         },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "1096",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "sameAs": [
           "https://github.com/geek-fun/dockit",
           "https://www.geekfun.club/products/dockit/"
@@ -92,7 +84,7 @@ hero:
   name: DocKit
   headline: "NoSQL 데이터베이스 GUI 클라이언트"
   animatedText: "Agentic"
-  tagline: "데이터베이스를 관리하는 오픈 소스 데이터 AI 에이전트입니다. MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch에 연결하고 — 필요한 것을 자연어로 설명하세요. 에이전트가 쿼리를 작성하고, 스키마를 검사하고, 문서를 업데이트하고 결과를 반환합니다. 프라이버시 우선, 로컬 실행, Apache 2.0."
+  tagline: "무료 오픈 소스 Community 에디션으로 MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch에 연결하세요. Ultimate 에디션은 자연어로 데이터를 다룰 수 있는 Agentic Data Studio와 MCP를 제공합니다."
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -101,7 +93,7 @@ hero:
       theme: brand
       external: true
     - text: 다운로드
-      link: /ko/download
+      link: /ko/download#dockit
       theme: alt
 
 databases:
@@ -119,11 +111,11 @@ showcase:
     image: /dockit-gui-client-demo.gif
     align: left
   - title: "다중 데이터베이스 데이터 관리"
-    body: "하나의 인터페이스에서 MongoDB, DynamoDB, Elasticsearch, OpenSearch, EasySearch를 관리하세요. 클러스터 상태를 모니터링하고, 인덱스를 관리하고, 메트릭을 추적하고, 내장된 가져오기, 내보내기, 백업 기능으로 데이터베이스 간에 데이터를 이동할 수 있습니다."
+    body: "하나의 인터페이스에서 MongoDB, DynamoDB, Elasticsearch, OpenSearch, EasySearch를 관리하세요. DynamoDB에서 PartiQL을 실행하거나 12개의 필터 연산자로 시각적 쿼리를 만들고, 글로벌 보조 인덱스를 관리하며 지정 시간 복구(PITR)를 설정할 수 있습니다."
     image: /dockit-multi-database-manage-demo.gif
     align: right
-  - title: "가져오기 및 백업"
-    body: "대화형 인터페이스를 통해 데이터를 내보내고 복원하세요. 소스와 대상을 선택하고, 필드를 시각적으로 매핑하고, 포함할 필드를 고르면 나머지는 DocKit이 처리합니다 — 모든 작업은 실시간 진행률과 함께 백그라운드 작업으로 실행됩니다. JSON, CSV, JSONL을 지원합니다."
+  - title: "가져오기 및 내보내기"
+    body: "대화형 인터페이스를 통해 데이터를 가져오고 내보낼하세요. 소스와 대상을 선택하고, 필드를 시각적으로 매핑하고, 포함할 필드를 고르면 나머지는 DocKit이 처리합니다 — 모든 작업은 실시간 진행률과 함께 백그라운드 작업으로 실행됩니다. JSON, CSV, JSONL을 지원합니다."
     image: /dockit-import-export-demo.gif
     align: left
   - title: "로컬 우선 프라이버시"
@@ -154,7 +146,7 @@ cta:
   body: "복잡한 쿼리 문법과 씨름하지 마세요. DocKit의 AI 어시스턴트와 Agentic Data Studio가 번거로운 작업을 처리하도록 맡기고, 데이터에 집중하세요."
   actions:
     - { text: "무료 체험 시작", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "다운로드", link: "/ko/download", theme: "alt" }
+    - { text: "다운로드", link: "/ko/download#dockit", theme: "alt" }
     - { text: "SqlKit 사용해 보기 →", link: "/products/sqlkit/", theme: "alt" }
 ---
 
@@ -193,7 +185,7 @@ DocKit은 일상적인 쿼리 작업을 위한 오픈 소스 **OpenSearch GUI �
 
 ## DynamoDB GUI 클라이언트
 
-DocKit은 일상적인 테이블 작업에서 AWS 콘솔을 대체하는 오픈 소스 **DynamoDB GUI 클라이언트**입니다. 스키마 인식 자동 완성을 갖춘 PartiQL 편집기, 13개 이상의 필터 연산자를 지원하는 시각적 쿼리 빌더, 인라인 아이템 CRUD, 페이지 크기를 설정할 수 있는 페이지네이션, 그리고 전체 테이블 수명 주기 관리 — GSI/LSI 생성, TTL, 스트림, PITR, 암호화, CloudWatch 지표, 테이블 비우기 — 를 제공합니다. 실제 속성 이름이 컨텍스트로 주입되는 AI 기반 쿼리 생성과 JSON, CSV 가져오기/내보내기를 지원합니다.
+DocKit은 일상적인 테이블 작업에서 AWS 콘솔을 대체하는 오픈 소스 **DynamoDB GUI 클라이언트**입니다. 스키마 인식 자동 완성을 갖춘 PartiQL 편집기, 12개의 필터 연산자를 지원하는 시각적 쿼리 빌더, 인라인 아이템 CRUD, 페이지 크기를 설정할 수 있는 페이지네이션, 그리고 전체 테이블 수명 주기 관리 — GSI 관리, LSI 확인, TTL, 스트림, PITR, 암호화, CloudWatch 지표, 테이블 비우기 — 를 제공합니다. 실제 속성 이름이 컨텍스트로 주입되는 AI 기반 쿼리 생성과 JSON, CSV 가져오기/내보내기를 지원합니다.
 
 DynamoDB Local을 이용한 로컬 개발, AWS 프로파일, SSO, 액세스 키, 그리고 모든 리전에서의 IAM 역할 인증을 지원합니다.
 

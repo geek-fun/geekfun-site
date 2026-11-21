@@ -64,20 +64,12 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "1.4.0",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
           "url": "https://www.geekfun.club"
         },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "1096",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "sameAs": [
           "https://github.com/geek-fun/dockit",
           "https://www.geekfun.club/products/dockit/"
@@ -88,7 +80,7 @@ hero:
   name: DocKit
   headline: "NoSQL Database GUI Client"
   animatedText: "Agentic"
-  tagline: "Open-source data AI agent that manages your databases. Connect MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — then describe what you need in natural language. The agent writes queries, inspects schemas, updates documents, and returns results. Privacy-first, local, Apache 2.0."
+  tagline: "Connect MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch with the free, open-source Community edition. Ultimate adds Agentic Data Studio and MCP for working with your data in natural language."
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -97,7 +89,7 @@ hero:
       theme: brand
       external: true
     - text: Download
-      link: /download
+      link: /download#dockit
       theme: alt
 
 databases:
@@ -115,11 +107,11 @@ showcase:
     image: /dockit-gui-client-demo.gif
     align: left
   - title: "Multi-Database Data Management"
-    body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one interface. Monitor cluster health, manage indices and indexes, track metrics, and move data between databases with built-in import, export, and backup."
+    body: "Manage MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch from one interface. In DynamoDB, run PartiQL or build visual queries with 12 filter operators, manage global secondary indexes, and configure point-in-time recovery (PITR)."
     image: /dockit-multi-database-manage-demo.gif
     align: right
-  - title: "Import & Backup"
-    body: "Export and restore your data through an interactive interface. Pick your source and target, map fields visually, choose which fields to include, and let DocKit handle the rest — all running as background tasks with real-time progress. Supports JSON, CSV, and JSONL."
+  - title: "Import & Export"
+    body: "Import and export your data through an interactive interface. Pick your source and target, map fields visually, choose which fields to include, and let DocKit handle the rest — all running as background tasks with real-time progress. Supports JSON, CSV, and JSONL."
     image: /dockit-import-export-demo.gif
     align: left
   - title: "Local-First Privacy"
@@ -150,7 +142,7 @@ cta:
   body: "Stop wrestling with complex query syntax. Let DocKit's AI assistant and Agentic Data Studio handle the boilerplate while you focus on the data."
   actions:
     - { text: "Start Free Trial", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "Download", link: "/download", theme: "alt" }
+    - { text: "Download", link: "/download#dockit", theme: "alt" }
     - { text: "Try SqlKit →", link: "/products/sqlkit/", theme: "alt" }
 ---
 
@@ -165,11 +157,11 @@ Most teams don't use just one NoSQL database. A team running Elasticsearch for s
 | **OpenSearch** | ✅ | ❌ | ✅ | ❌ | ❌ |
 | **EasySearch** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **DynamoDB** | ✅ | ❌ | ❌ | ✅ | ✅ |
-| **AI assistant** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **AI assistant** | Included with Ultimate | ❌ | ❌ | [Dynobase AI](https://dynobase.dev/) | ❌ |
+| **MCP** | Included with Ultimate | — | — | [Dynobase MCP server](https://dynobase.dev/dynamodb-mcp-server/) | — |
 | **Desktop native** | ✅ | ❌ | Partial | ✅ | ✅ |
 | **Open source** | ✅ Apache 2.0 | Mixed | ✅ MIT | ❌ | ❌ |
-| **Price** | Community: free · Ultimate $9.9/mo | Free | Free | $12–30/mo | Free |
+| **Price** | Community: free · Ultimate $9.9/mo | Free | Free | [See pricing](https://dynobase.dev/#pricing) | Free |
 
 ## Elasticsearch GUI Client
 
@@ -189,7 +181,7 @@ The same Monaco editor, AI assistant, cluster management, and import/export feat
 
 ## DynamoDB GUI Client
 
-DocKit is an open-source **DynamoDB GUI client** that replaces the AWS Console for day-to-day table work. It includes a PartiQL editor with schema-aware autocomplete, a visual query builder with 13+ filter operators, inline item CRUD, pagination with configurable page sizes, and full table lifecycle management — GSI/LSI creation, TTL, streams, PITR, encryption, CloudWatch metrics, and table truncation. AI-powered query generation with your actual attribute names injected as context, and import/export for JSON and CSV.
+DocKit is an open-source **DynamoDB GUI client** that replaces the AWS Console for day-to-day table work. It includes a PartiQL editor with schema-aware autocomplete, a visual query builder with 12 filter operators, inline item CRUD, pagination with configurable page sizes, and full table lifecycle management — global secondary index management, local secondary index visibility, TTL, streams, encryption, CloudWatch metrics, and table truncation. You can also configure DynamoDB point-in-time recovery (PITR) in table settings. AI-powered query generation with your actual attribute names injected as context, and import/export for JSON and CSV.
 
 It supports DynamoDB Local for local development, AWS profiles, SSO, access keys, and IAM role authentication across any region.
 
