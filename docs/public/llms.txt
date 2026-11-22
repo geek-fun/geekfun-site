@@ -1,0 +1,51 @@
+# GEEKFUN
+
+> GEEKFUN builds open-source database tools. SqlKit is a desktop SQL GUI for PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and more. DocKit is a desktop NoSQL client for MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch. Data Studio Agent connects coding assistants to databases through SqlKit and DocKit using MCP.
+
+## Products, downloads, and plans
+
+- [SqlKit desktop SQL client](https://www.geekfun.club/products/sqlkit/)
+- [DocKit desktop NoSQL client](https://www.geekfun.club/products/dockit/)
+- [Data Studio Agent MCP server](https://www.geekfun.club/products/data-studio-agent/)
+- [Downloads for macOS, Windows, and Linux](https://www.geekfun.club/download)
+- [Community and Ultimate plans](https://www.geekfun.club/pricing)
+
+## SqlKit guides
+
+- [SqlKit documentation](https://www.geekfun.club/docs/sqlkit/)
+- [Install SqlKit](https://www.geekfun.club/docs/sqlkit/installation)
+- [Connect to a database](https://www.geekfun.club/docs/sqlkit/connect-to-database)
+- [Supported databases and drivers](https://www.geekfun.club/docs/sqlkit/supported-databases)
+- [MySQL connection guide](https://www.geekfun.club/docs/sqlkit/mysql-gui-client)
+- [PostgreSQL connection guide](https://www.geekfun.club/docs/sqlkit/postgresql-gui-client)
+- [SQL Server connection guide](https://www.geekfun.club/docs/sqlkit/sql-server-gui-client)
+- [Oracle Database connection guide](https://www.geekfun.club/docs/sqlkit/oracle-gui-client)
+- [Open a SQLite database](https://www.geekfun.club/docs/sqlkit/sqlite-gui-client)
+- [Run SQL and export query results](https://www.geekfun.club/docs/sqlkit/query-editor)
+- [Browse and edit table data](https://www.geekfun.club/docs/sqlkit/table-browser)
+- [Import and export database files](https://www.geekfun.club/docs/sqlkit/import-export)
+- [SqlKit keyboard shortcuts](https://www.geekfun.club/docs/sqlkit/keyboard-shortcuts)
+
+## DocKit guides
+
+- [DocKit documentation](https://www.geekfun.club/docs/dockit/)
+- [Install DocKit](https://www.geekfun.club/docs/dockit/installation)
+- [Set up a database connection](https://www.geekfun.club/docs/dockit/connect-to-server)
+- [Query Elasticsearch, OpenSearch, and EasySearch](https://www.geekfun.club/docs/dockit/search-editor)
+- [Query and edit MongoDB documents](https://www.geekfun.club/docs/dockit/mongodb-workspace)
+- [Query DynamoDB with the visual builder or PartiQL](https://www.geekfun.club/docs/dockit/dynamodb-query-editor)
+- [DocKit keyboard shortcuts](https://www.geekfun.club/docs/dockit/shortcut)
+
+## MCP setup and permissions
+
+- [Data Studio Agent documentation](https://www.geekfun.club/docs/data-studio-agent/)
+- [Set up Data Studio Agent in a coding assistant](https://www.geekfun.club/docs/data-studio-agent/quick-start)
+- [Configure the DocKit MCP bridge](https://www.geekfun.club/docs/dockit/mcp-bridge)
+- [Configure per-connection AI permissions](https://www.geekfun.club/docs/dockit/ai-permissions)
+
+## Optional
+
+- [简体中文文档](https://www.geekfun.club/zh/docs)
+- [SqlKit 简体中文文档](https://www.geekfun.club/zh/docs/sqlkit/)
+- [DocKit 简体中文文档](https://www.geekfun.club/zh/docs/dockit/)
+- [Data Studio Agent 简体中文文档](https://www.geekfun.club/zh/docs/data-studio-agent/)
