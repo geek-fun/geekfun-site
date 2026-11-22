@@ -24,6 +24,8 @@ head:
 
 # DocKit Installation
 
+If you close the window, DocKit continues running in the background. Active import and export tasks and the MCP bridge keep running too. In the menu bar or system tray, choose **Show Window** to reopen DocKit or **Quit** to stop it.
+
 Thanks for trying out DocKit!:rocket::rocket::rocket: This guide will help you get started with DocKit.
 Before use DocKit to connect to your Elasticsearch server, you need to install it first.
 

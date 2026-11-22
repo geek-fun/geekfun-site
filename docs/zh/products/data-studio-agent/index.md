@@ -1,7 +1,7 @@
 ---
 layout: product
 title: Data Studio Agent。你的 DBA。– 用自然语言和数据库对话
-description: Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。你的 7×24 小时数据库工程师。通过 SqlKit 支持 70+ 种 SQL 数据库，通过 DocKit 支持 NoSQL。
+description: Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。你的 7×24 小时数据库工程师。通过 SqlKit 连接 SQL 数据库，通过 DocKit 连接 NoSQL 数据库。
 ogImage: https://www.geekfun.club/og/master-zh.png
 head:
   - - meta
@@ -30,12 +30,12 @@ head:
         "@type": "SoftwareApplication",
         "name": "Data Studio Agent",
         "alternateName": ["data-studio-mcp", "Data Studio MCP Server", "数据库 MCP 服务器", "AI 数据库助手"],
-        "description": "Data Studio Agent。你的 DBA。一个开源（Apache 2.0）的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。通过 SqlKit 支持 70+ 种 SQL 数据库，通过 DocKit 支持 NoSQL。",
+        "description": "Data Studio Agent。你的 DBA。一个开源（Apache 2.0）的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。通过 SqlKit 连接 SQL 数据库，通过 DocKit 连接 NoSQL 数据库。",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Windows, Linux",
         "featureList": [
           "面向 AI 编码代理的 MCP 服务器",
-          "通过 SqlKit 访问 SQL 数据库（70+ 种）",
+          "通过 SqlKit 访问 SQL 数据库",
           "通过 DocKit 访问 NoSQL 数据库",
           "PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery",
           "Elasticsearch、OpenSearch、MongoDB、DynamoDB",
@@ -84,7 +84,7 @@ install:
 
 ecosystem:
   eyebrow: "生态"
-  title: "一个 MCP 服务器，70+ 种数据库"
+  title: "用一个 MCP 服务器连接 SQL 和 NoSQL 数据库"
   subtitle: "与所有主流 AI 编码代理兼容"
   agents:
     - { name: Claude Code, logo: /agent-logos/claude-code-logo.png }
@@ -163,7 +163,7 @@ showcase:
   title: "用自然语言和数据库对话"
   subtitle: "告诉你的代理你需要什么。它读取 schema、通过 DocKit 或 SqlKit 执行查询，并逐步解释它做了什么，全部在你现有的 AI 编码工具里完成。"
   highlights:
-    - "任意数据库，70+ SQL 与 NoSQL"
+    - "通过 SqlKit 和 DocKit 连接数据库"
     - "任意 AI 代理，任意 LLM"
     - "任意系统：macOS · Windows · Linux"
   items:

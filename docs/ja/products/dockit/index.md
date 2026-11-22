@@ -68,20 +68,12 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "1.4.0",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
           "url": "https://www.geekfun.club"
         },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "1096",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "sameAs": [
           "https://github.com/geek-fun/dockit",
           "https://www.geekfun.club/products/dockit/"
@@ -92,7 +84,7 @@ hero:
   name: DocKit
   headline: "NoSQL データベース GUI クライアント"
   animatedText: "Agentic"
-  tagline: "データベースを管理するオープンソースのデータ AI エージェント。MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch に接続し、必要なことを自然言語で伝えてください。エージェントがクエリを記述し、スキーマを調査し、ドキュメントを更新して結果を返します。プライバシー第一、ローカル完結、Apache 2.0。"
+  tagline: "無料でオープンソースの Community 版で MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch に接続できます。Ultimate 版は、自然言語でデータを扱うための Agentic Data Studio と MCP を提供します。"
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -101,7 +93,7 @@ hero:
       theme: brand
       external: true
     - text: ダウンロード
-      link: /ja/download
+      link: /ja/download#dockit
       theme: alt
 
 databases:
@@ -119,11 +111,11 @@ showcase:
     image: /dockit-gui-client-demo.gif
     align: left
   - title: "複数データベースのデータ管理"
-    body: "MongoDB、DynamoDB、Elasticsearch、OpenSearch、EasySearch を 1 つのインターフェースで管理。クラスターの健全性を監視し、インデックスを管理し、メトリクスを追跡し、内蔵のインポート・エクスポート・バックアップ機能でデータベース間のデータ移動を行えます。"
+    body: "MongoDB、DynamoDB、Elasticsearch、OpenSearch、EasySearch を 1 つのインターフェースで管理できます。DynamoDB では、PartiQL の実行、12 種類のフィルター演算子を使ったクエリの作成、グローバルセカンダリインデックスの管理、ポイントインタイムリカバリ（PITR）の設定ができます。"
     image: /dockit-multi-database-manage-demo.gif
     align: right
-  - title: "インポートとバックアップ"
-    body: "対話的なインターフェースでデータのエクスポートと復元ができます。ソースとターゲットを選び、フィールドを視覚的にマッピングし、含めるフィールドを選択すれば、あとは DocKit にお任せ — すべてバックグラウンドタスクとしてリアルタイムの進行状況付きで実行されます。JSON、CSV、JSONL に対応しています。"
+  - title: "インポートとエクスポート"
+    body: "対話的なインターフェースでデータのインポートとエクスポートができます。ソースとターゲットを選び、フィールドを視覚的にマッピングし、含めるフィールドを選択すれば、あとは DocKit にお任せ — すべてバックグラウンドタスクとしてリアルタイムの進行状況付きで実行されます。JSON、CSV、JSONL に対応しています。"
     image: /dockit-import-export-demo.gif
     align: left
   - title: "ローカルファーストのプライバシー"
@@ -154,7 +146,7 @@ cta:
   body: "複雑なクエリ構文との格闘はもう終わりにしましょう。定型作業は DocKit の AI アシスタントと Agentic Data Studio に任せて、データそのものに集中できます。"
   actions:
     - { text: "無料トライアルを開始", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "ダウンロード", link: "/ja/download", theme: "alt" }
+    - { text: "ダウンロード", link: "/ja/download#dockit", theme: "alt" }
     - { text: "SqlKit を試す →", link: "/products/sqlkit/", theme: "alt" }
 ---
 
@@ -193,7 +185,7 @@ DocKit はオープンソースの **OpenSearch GUI クライアント**であ�
 
 ## DynamoDB GUI クライアント
 
-DocKit はオープンソースの **DynamoDB GUI クライアント**で、日々のテーブル操作において AWS コンソールを置き換えます。スキーマを認識する自動補完を備えた PartiQL エディター、13 以上のフィルター演算子を備えたビジュアルクエリビルダー、インラインでのアイテム CRUD、ページサイズを設定できるページネーション、GSI/LSI の作成、TTL、ストリーム、PITR、暗号化、CloudWatch メトリクス、テーブルのトランケートといった完全なテーブルライフサイクル管理を備えています。実際の属性名をコンテキストとして注入する AI によるクエリ生成と、JSON・CSV のインポート/エクスポートにも対応しています。
+DocKit はオープンソースの **DynamoDB GUI クライアント**で、日々のテーブル操作において AWS コンソールを置き換えます。スキーマを認識する自動補完を備えた PartiQL エディター、12 種類のフィルター演算子を備えたビジュアルクエリビルダー、インラインでのアイテム CRUD、ページサイズを設定できるページネーション、GSI の管理、LSI の確認、TTL、ストリーム、PITR、暗号化、CloudWatch メトリクス、テーブルのトランケートといった完全なテーブルライフサイクル管理を備えています。実際の属性名をコンテキストとして注入する AI によるクエリ生成と、JSON・CSV のインポート/エクスポートにも対応しています。
 
 ローカル開発用の DynamoDB Local、AWS プロファイル、SSO、アクセスキー、あらゆるリージョンでの IAM ロール認証に対応しています。
 

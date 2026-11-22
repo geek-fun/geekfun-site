@@ -1,7 +1,8 @@
 ---
 layout: product
-title: SqlKit – Open-Source SQL Desktop Client for 70+ Databases with AI Agent
-description: SqlKit is an open-source agentic SQL desktop GUI client for 70+ databases — PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery and more. AI-powered, privacy-first, and built with Rust + Tauri.
+title: SqlKit | SQL Database GUI for MySQL, PostgreSQL, SQL Server & Oracle
+titleTemplate: false
+description: SqlKit is an open-source SQL database GUI for Mac, Windows, and Linux. Browse tables, run SQL, and export results from MySQL, PostgreSQL, SQL Server, Oracle, and more.
 ogImage: https://www.geekfun.club/og/sqlkit-en.png
 head:
   - - meta
@@ -30,16 +31,19 @@ head:
         "@type": "SoftwareApplication",
         "name": "SqlKit",
         "alternateName": ["agentic SQL client", "database GUI", "SQL database manager", "AI SQL agent", "database desktop client", "open source SQL client"],
-        "description": "Open-source agentic SQL desktop client for 70+ databases — PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more. AI-powered natural language to SQL, visual schema browser, SSH tunnels, and JDBC bridge. Built with Rust + Tauri for native performance.",
-        "applicationCategory": "DatabaseApplication",
+        "description": "Open-source desktop SQL database GUI for MySQL, PostgreSQL, SQL Server, Oracle, SQLite, and more, with a SQL editor, schema browser, and result export.",
+        "url": "https://www.geekfun.club/products/sqlkit/",
+        "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": {
           "@type": "Offer",
+          "name": "Community",
           "price": "0",
-          "priceCurrency": "USD"
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/pricing"
         },
         "featureList": [
-          "70+ database support",
+          "Connects to PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and more",
           "AI agentic data studio",
           "Natural language to SQL",
           "SQL optimization and execution plan visualization",
@@ -74,24 +78,16 @@ head:
           "Saved queries",
           "Auto-update",
           "HTTP proxy for LLM connections",
-          "i18n support (English, 简体中文)"
+          "Multilingual interface"
         ],
         "screenshot": "https://www.geekfun.club/sqlkit-client-ui.png",
-        "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "0.8.5",
+        "downloadUrl": "https://www.geekfun.club/download#sqlkit",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
           "url": "https://www.geekfun.club"
         },
-        "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "892",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
+        "license": "https://github.com/geek-fun/sqlkit/blob/master/LICENSE",
         "sameAs": [
           "https://github.com/geek-fun/sqlkit",
           "https://www.geekfun.club/products/sqlkit/"
@@ -100,8 +96,8 @@ head:
 
 hero:
   name: SqlKit
-  headline: "The agentic SQL client for 70+ databases"
-  tagline: "70+ databases, one desktop app. AI-powered, open-source, and built for developers."
+  headline: "Open-source SQL database GUI"
+  tagline: "Browse tables, run queries, and export results from MySQL, PostgreSQL, SQL Server, Oracle, and more. Available for macOS, Windows, and Linux."
   logo: /sqlkit.png
   screenshot: /sqlkit-client-ui.png
   actions:
@@ -110,11 +106,14 @@ hero:
       theme: brand
       external: true
     - text: Download
-      link: /download
+      link: /download#sqlkit
+      theme: alt
+    - text: Documentation
+      link: /docs/sqlkit/
       theme: alt
 
 databases:
-  title: "70+ databases, one client"
+  title: "Supported databases"
   items:
     - { name: Oracle, logo: /db-logos/oracle-logo.svg }
     - { name: MySQL, logo: /db-logos/mysql-logo.svg }
@@ -177,8 +176,8 @@ showcase:
     body: "Tell it what you need. It reads your schema, writes queries, explains execution plans, and fixes errors. Works with OpenAI, Anthropic, DeepSeek, and Ollama. Bring your own key — credentials stay on your machine."
     image: /sqlkit-data-studio-ui.png
     align: left
-  - title: "All Your Databases, One App"
-    body: "70+ databases through five adapter strategies: native Rust drivers for PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Oracle, Firebird; PG-wire and MySQL-wire compatible engines; a JDBC bridge for Snowflake, DB2, BigQuery, and 20+ more; HTTP bridge for Trino and Presto."
+  - title: "Connect to the databases you use"
+    body: "Connect to PostgreSQL, MySQL, SQL Server, and SQLite with built-in drivers. SqlKit uses JDBC for Oracle and DuckDB, wire-compatible drivers for databases such as MariaDB and CockroachDB, and HTTP for ClickHouse, Trino, and Presto."
     image: /sqlkit-sql-editor-ui.png
     align: right
   - title: "Browse & Visualize Your Data"
@@ -192,7 +191,7 @@ showcase:
 
 features:
   - { title: "Agentic Data Studio", body: "Talk to your databases. The AI agent reads your schema, writes queries, optimizes slow SQL, visualizes execution plans, and fixes errors. Per-source permissions and safety gates for destructive operations. Bring your own LLM key — credentials stay local.", icon: "sparkles" }
-  - { title: "70+ Database Support", body: "Native (Rust) drivers for PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Oracle, Firebird. PG-wire and MySQL-wire for CockroachDB, MariaDB, TiDB, OceanBase, Redshift. JDBC bridge for Snowflake, DB2, BigQuery, Databricks, Teradata, Hive, and 20+ more. HTTP bridge for Trino, Presto.", icon: "database" }
+  - { title: "Database Connections", body: "Connect to SQL databases and data warehouses, including PostgreSQL, MySQL, SQL Server, Oracle, SQLite, Snowflake, and BigQuery. Setup depends on the database and its driver.", icon: "database" }
   - { title: "Product-Grade Editor", body: "Monaco Editor (VS Code engine) with full SQL syntax highlighting, context-aware autocomplete, multi-tab support, and configurable SQL formatting with dialect-specific rules.", icon: "code" }
   - { title: "Visual Schema Browser", body: "Tree view of databases, schemas, tables, columns, indexes, views, procedures, and functions. Inspect DDL, search objects across schemas, and navigate relationships visually.", icon: "search" }
   - { title: "Smart Data Grid", body: "Virtual-scrolled data grid with sort, filter, inline editing, and copy. Row-level data search across all columns. Paginated results with CSV, JSON, and Markdown export.", icon: "table" }
@@ -200,8 +199,8 @@ features:
   - { title: "Query Execution Plans", body: "Visualize query execution plans as structured trees with cost highlighting. Understand how your queries are executed and identify optimization opportunities at a glance.", icon: "zap" }
   - { title: "SSH Tunnel & Security", body: "Connect through SSH with key or password authentication. SSL/TLS for encrypted connections. Credentials secured by OS keychain. HTTP proxy support for LLM provider connections.", icon: "lock" }
   - { title: "Multi-Tab & History", body: "Work on multiple queries simultaneously with tab management. Auto-saved query history — searchable, replayable, never lost. Saved queries with file management and context menus.", icon: "history" }
-  - { title: "JDBC Bridge", body: "Connect to 20+ additional databases via JDBC including Snowflake, DB2, BigQuery, Databricks, Teradata, Hive, Hana, Vertica, Exasol, Informix, Cassandra, TDengine, and more. Automatic JRE detection and driver management.", icon: "terminal" }
-  - { title: "Cross-Platform Native", body: "Built with Rust + Tauri v2 — no Electron, no JRE, no bundled Chromium. Ships as a small native binary for macOS (.dmg), Windows (.exe), and Linux (.AppImage, .deb). Native performance, native look and feel.", icon: "dot" }
+  - { title: "JDBC Bridge", body: "Connect to Oracle, DuckDB, Firebird, Snowflake, BigQuery, and other JDBC databases. SqlKit checks for Java and can download the driver when you test the connection.", icon: "terminal" }
+  - { title: "Desktop Installers", body: "Install SqlKit on macOS (.dmg), Windows (.exe or .msi), or Linux (.deb, .rpm, or AppImage). The app is built with Rust and Tauri, and adds Java on demand for JDBC connections.", icon: "dot" }
 
 platforms:
   title: "Available on all platforms"
@@ -212,10 +211,10 @@ platforms:
 
 cta:
   title: "Stop fighting your database client"
-  body: "Download SqlKit. It covers 70+ databases, has an AI agent built in, and runs natively on Mac, Windows, and Linux."
+  body: "Download SqlKit for macOS, Windows, or Linux and connect to your database."
   actions:
     - { text: "Start Free Trial", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "Download", link: "/download", theme: "alt" }
+    - { text: "Download", link: "/download#sqlkit", theme: "alt" }
     - { text: "Try DocKit →", link: "/products/dockit/", theme: "alt" }
 ---
 
@@ -231,22 +230,21 @@ SqlKit's **Agentic Data Studio** lets you work with databases without writing SQ
 
 ## Multi-Database Architecture
 
-SqlKit supports **70+ databases** across five adapter strategies, from native Rust drivers to a JDBC bridge.
+Check [supported databases and drivers](/docs/sqlkit/supported-databases) to see how to connect to your database.
 
 | Strategy | Databases |
 |----------|-----------|
-| **Native** (Rust) | PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Firebird, Oracle |
+| **Native** (Rust) | PostgreSQL, MySQL, SQL Server, SQLite |
 | **PG-wire compat** | CockroachDB, Redshift, YugabyteDB, TimescaleDB, QuestDB, Vastbase, and more |
 | **MySQL-wire compat** | MariaDB, TiDB, OceanBase, StarRocks, Databend, ManticoreSearch, and more |
-| **JDBC bridge** | Snowflake, DB2, H2, BigQuery, Databricks, Hive, Hana, Teradata, Vertica, Exasol, Informix, Cassandra, TDengine, and more |
-| **HTTP bridge** | Trino, Presto |
+| **JDBC bridge** | Oracle, DuckDB, Firebird, Snowflake, DB2, H2, BigQuery, Databricks, Hive, Hana, Teradata, Vertica, Exasol, Informix, Cassandra, TDengine, and more |
+| **HTTP bridge** | ClickHouse, Trino, Presto, rqlite, Turso |
 
 ## Designed for Developers
 
 | vs. | SqlKit | DBeaver | DataGrip | Navicat |
 |---|---|---|---|---|
 | **AI agent** | ✅ Native | ❌ Plugin | ❌ | ❌ |
-| **Database coverage** | 70+ | 50+ | Partial | 50+ |
 | **Native performance** | ✅ Rust + Tauri | ❌ Java/Electron | ❌ JVM | ❌ C++ |
 | **SSH tunnel** | ✅ | ✅ | ✅ | ✅ |
 | **JDBC bridge** | ✅ | ✅ | ❌ | ✅ |
@@ -278,7 +276,7 @@ SqlKit supports **70+ databases** across five adapter strategies, from native Ru
 ## Frequently asked questions
 
 **What databases does SqlKit support?**
-SqlKit supports 40+ databases including PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Firebird, MariaDB, CockroachDB, Redshift, Snowflake, DB2, Trino, BigQuery, Databricks, Hive, Teradata, and more. See the database compatibility table above for the full breakdown.
+Use SqlKit with PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and other SQL databases and data warehouses. The [database and driver guide](/docs/sqlkit/supported-databases) explains what you need to connect to each one.
 
 **Is SqlKit really free?**
 Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
@@ -290,7 +288,7 @@ Database operations work fine offline. AI features need network access to your m
 It does not. The auto-update feature checks GitHub Releases for new versions, but you can turn that off in settings. Your credentials and queries never leave your machine.
 
 **How is SqlKit different from DBeaver or DataGrip?**
-Rust + Tauri instead of Java or Electron, so it starts fast and uses less memory. AI is built in rather than bolted on as a plugin. Covers 40+ databases from a single small binary. Credentials are encrypted and stored in your OS keychain.
+SqlKit is a desktop app built with Rust and Tauri. It includes Agentic Data Studio and stores connection credentials in your OS keychain. JDBC connections use a Java runtime that SqlKit can set up on demand.
 
 **Can I use my own AI provider?**
 Yes. SqlKit supports OpenAI, Anthropic, DeepSeek, and any Ollama-compatible endpoint. Configure your provider and key in Settings. The agent never exposes your database credentials to the LLM.

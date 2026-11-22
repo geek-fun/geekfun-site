@@ -1,7 +1,7 @@
 ---
 layout: product
 title: Data Studio Agent. Your DBA. – Talk to your databases in plain language
-description: Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Your 24/7 database engineer. Supports 70+ SQL databases via SqlKit and NoSQL via DocKit.
+description: Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Your 24/7 database engineer. Connect to SQL databases through SqlKit and NoSQL databases through DocKit.
 ogImage: https://www.geekfun.club/og/master-en.png
 head:
   - - meta
@@ -30,12 +30,12 @@ head:
         "@type": "SoftwareApplication",
         "name": "Data Studio Agent",
         "alternateName": ["data-studio-mcp", "Data Studio MCP Server", "database MCP server", "AI database assistant"],
-        "description": "Data Studio Agent. Your DBA. An open-source (Apache 2.0) MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Supports 70+ SQL databases via SqlKit and NoSQL via DocKit.",
+        "description": "Data Studio Agent. Your DBA. An open-source (Apache 2.0) MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Connect to SQL databases through SqlKit and NoSQL databases through DocKit.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Windows, Linux",
         "featureList": [
           "MCP server for AI coding agents",
-          "SQL access via SqlKit (70+ databases)",
+          "SQL database access through SqlKit",
           "NoSQL access via DocKit",
           "PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery",
           "Elasticsearch, OpenSearch, MongoDB, DynamoDB",
@@ -84,7 +84,7 @@ install:
 
 ecosystem:
   eyebrow: "Ecosystem"
-  title: "One MCP server, 70+ databases"
+  title: "One MCP server for SQL and NoSQL"
   subtitle: "Works with every major AI coding agent"
   agents:
     - { name: Claude Code, logo: /agent-logos/claude-code-logo.png }
@@ -163,7 +163,7 @@ showcase:
   title: "Talk to your databases in plain language"
   subtitle: "Tell your agent what you need. It reads your schema, runs the query through DocKit or SqlKit, and walks you through what it did, all from your existing AI coding tool."
   highlights:
-    - "Any database, 70+ SQL & NoSQL"
+    - "SQL through SqlKit and NoSQL through DocKit"
     - "Any AI agent with any LLM"
     - "Any OS: macOS · Windows · Linux"
   items:

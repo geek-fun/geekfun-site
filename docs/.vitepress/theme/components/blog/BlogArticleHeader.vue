@@ -14,7 +14,7 @@ const formattedDate = computed(() => date.value && blogDateFormatter(lang.value)
 <template>
   <header class="blog-article-header">
     <a class="blog-article-back" :href="withBase(isZh ? '/zh/blog#all-articles' : '/blog#all-articles')">
-      <span class="blog-arrow blog-arrow--back" aria-hidden="true"></span>
+      <span class="editorial-arrow editorial-arrow--back" aria-hidden="true"></span>
       {{ isZh ? '全部文章' : 'All articles' }}
     </a>
     <slot />

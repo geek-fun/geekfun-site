@@ -68,20 +68,12 @@ head:
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
         "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "1.4.0",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
           "url": "https://www.geekfun.club"
         },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "1096",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "sameAs": [
           "https://github.com/geek-fun/dockit",
           "https://www.geekfun.club/products/dockit/"
@@ -92,7 +84,7 @@ hero:
   name: DocKit
   headline: "Cliente GUI de bases de datos NoSQL"
   animatedText: "Agentic"
-  tagline: "Agente de IA de datos de código abierto que gestiona tus bases de datos. Conecta MongoDB, Elasticsearch, OpenSearch, DynamoDB y EasySearch — y describe lo que necesitas en lenguaje natural. El agente escribe consultas, inspecciona esquemas, actualiza documentos y devuelve resultados. Privacidad primero, local, Apache 2.0."
+  tagline: "Conecta MongoDB, Elasticsearch, OpenSearch, DynamoDB y EasySearch con la edición Community, gratuita y de código abierto. Ultimate añade Agentic Data Studio y MCP para trabajar con tus datos en lenguaje natural."
   logo: /dockit.png
   screenshot: /dockit-client-ui.png
   actions:
@@ -101,7 +93,7 @@ hero:
       theme: brand
       external: true
     - text: Descargar
-      link: /es/download
+      link: /es/download#dockit
       theme: alt
 
 databases:
@@ -119,11 +111,11 @@ showcase:
     image: /dockit-gui-client-demo.gif
     align: left
   - title: "Gestión de datos de múltiples bases de datos"
-    body: "Administra MongoDB, DynamoDB, Elasticsearch, OpenSearch y EasySearch desde una sola interfaz. Supervisa el estado del clúster, gestiona índices, sigue las métricas y mueve datos entre bases de datos con la importación, exportación y copia de seguridad integradas."
+    body: "Administra MongoDB, DynamoDB, Elasticsearch, OpenSearch y EasySearch desde una sola interfaz. En DynamoDB, ejecuta PartiQL o crea consultas visuales con 12 operadores de filtro, administra índices secundarios globales y configura la recuperación a un momento dado (PITR)."
     image: /dockit-multi-database-manage-demo.gif
     align: right
-  - title: "Importación y copia de seguridad"
-    body: "Exporta y restaura tus datos a través de una interfaz interactiva. Elige el origen y el destino, mapea los campos visualmente, selecciona qué campos incluir y deja que DocKit se encargue del resto — todo se ejecuta como tareas en segundo plano con progreso en tiempo real. Compatible con JSON, CSV y JSONL."
+  - title: "Importación y exportación"
+    body: "Importa y exporta tus datos a través de una interfaz interactiva. Elige el origen y el destino, mapea los campos visualmente, selecciona qué campos incluir y deja que DocKit se encargue del resto — todo se ejecuta como tareas en segundo plano con progreso en tiempo real. Compatible con JSON, CSV y JSONL."
     image: /dockit-import-export-demo.gif
     align: left
   - title: "Privacidad local primero"
@@ -154,7 +146,7 @@ cta:
   body: "Deja de lidiar con sintaxis de consultas complejas. Deja que el asistente de IA de DocKit y Agentic Data Studio se encarguen del trabajo repetitivo mientras tú te concentras en los datos."
   actions:
     - { text: "Iniciar prueba gratis", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
-    - { text: "Descargar", link: "/es/download", theme: "alt" }
+    - { text: "Descargar", link: "/es/download#dockit", theme: "alt" }
     - { text: "Prueba SqlKit →", link: "/products/sqlkit/", theme: "alt" }
 ---
 
@@ -193,7 +185,7 @@ El mismo editor Monaco, asistente de IA, gestión de clústeres y funciones de i
 
 ## Cliente GUI de DynamoDB
 
-DocKit es un **cliente GUI de DynamoDB** de código abierto que reemplaza la consola de AWS para el trabajo diario con tablas. Incluye un editor PartiQL con autocompletado consciente del esquema, un constructor visual de consultas con más de 13 operadores de filtro, CRUD de ítems en línea, paginación con tamaños de página configurables y gestión completa del ciclo de vida de las tablas — creación de GSI/LSI, TTL, streams, PITR, cifrado, métricas de CloudWatch y vaciado de tablas. Generación de consultas con IA que inyecta los nombres reales de tus atributos como contexto, e importación/exportación para JSON y CSV.
+DocKit es un **cliente GUI de DynamoDB** de código abierto que reemplaza la consola de AWS para el trabajo diario con tablas. Incluye un editor PartiQL con autocompletado consciente del esquema, un constructor visual de consultas con 12 operadores de filtro, CRUD de ítems en línea, paginación con tamaños de página configurables y gestión completa del ciclo de vida de las tablas — gestión de GSI y consulta de LSI, TTL, streams, PITR, cifrado, métricas de CloudWatch y vaciado de tablas. Generación de consultas con IA que inyecta los nombres reales de tus atributos como contexto, e importación/exportación para JSON y CSV.
 
 Es compatible con DynamoDB Local para desarrollo local, perfiles de AWS, SSO, claves de acceso y autenticación con roles de IAM en cualquier región.
 

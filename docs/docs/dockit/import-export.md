@@ -28,10 +28,12 @@ DocKit supports importing and exporting data from MongoDB, Elasticsearch, OpenSe
 
 ## Prerequisites
 
+Use **Import & Export** in Ultimate to move data between files and your database. To save rows from a query you’ve already run, export them from the result panel.
+
 Before using the import/export feature, ensure you have:
 
 - DocKit installed on your machine. See the [installation guide](/docs/dockit/installation).
-- A configured connection to your MongoDB, Elasticsearch, OpenSearch, or DynamoDB instance. See the [connect to server guide](/docs/dockit/connect-to-server).
+- A configured connection to MongoDB, Elasticsearch, OpenSearch, EasySearch, or DynamoDB. See the [connection guide](/docs/dockit/connect-to-server).
 - Sufficient disk space for the export files (estimate: roughly the same as the compressed index/table size).
 - Read permissions on the source index/table, and write permissions on the target index/table.
 

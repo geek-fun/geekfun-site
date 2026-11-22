@@ -25,6 +25,8 @@ head:
 
 # DocKit Monitor and Manage Elasticsearch Cluster
 
+The Manage workspace requires Ultimate. You can follow the same steps for OpenSearch and EasySearch if the server provides the corresponding management APIs.
+
 DocKit as a NoSQL GUI client, it supports to monitor and manage Elasticsearch including indices and alias management,
 nodes management, shards management, and templates management. This document outlines how to monitor and manage
 Elasticsearch in DocKit.

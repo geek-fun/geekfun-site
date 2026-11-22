@@ -80,19 +80,19 @@ claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
 
 ## 和其他方案比
 
-| | DocKit | DBX | Kibana | Elasticvue |
-|---|---|---|---|---|
-| Easysearch 支持方式 | 原生独立连接类型 | 70+ 数据库兼容项 | ❌ | 兼容模式 |
-| 专为搜索引擎设计 | ✅ | ❌ 通用多库 | ✅ 但笨重 | ✅ |
-| 编辑器 | Monaco + 纯 Query DSL | REST/DSL/SQL 混用 | Dev Tools 基础版 | 基础版 |
-| mapping 实时补全 | ✅ | ❌ | ❌ | ❌ |
-| Data AI Agent | ✅ 自然语言 → DSL，直接执行 | ❌ | ❌ | ❌ |
-| MCP（AI 编码代理直连） | ✅ | 基础 | ❌ | ❌ |
-| 集群管理 | ✅ 可视化 | 基础 | ✅ | 基础 |
-| 启动/内存 | < 2s / ~150MB | 通用 | 10–30s / 500MB+ | < 5s |
-| 查询持久化 | ✅ 本地文件 | 部分 | ✅ | ❌ |
-| 开源 | ✅ Apache 2.0 | 闭源 | Mixed | ✅ MIT |
-| 价格 | 免费 | 免费 | 免费 | 免费 |
+| | DocKit | Kibana | Elasticvue |
+|---|---|---|---|
+| Easysearch 支持方式 | 原生独立连接类型 | ❌ | 兼容模式 |
+| 专为搜索引擎设计 | ✅ | ✅ 但笨重 | ✅ |
+| 编辑器 | Monaco + 纯 Query DSL | Dev Tools 基础版 | 基础版 |
+| mapping 实时补全 | ✅ | ❌ | ❌ |
+| Data AI Agent | ✅ 自然语言 → DSL，直接执行 | ❌ | ❌ |
+| MCP（AI 编码代理直连） | ✅ | ❌ | ❌ |
+| 集群管理 | ✅ 可视化 | ✅ | 基础 |
+| 启动/内存 | < 2s / ~150MB | 10–30s / 500MB+ | < 5s |
+| 查询持久化 | ✅ 本地文件 | ✅ | ❌ |
+| 开源 | ✅ Apache 2.0 | Mixed | ✅ MIT |
+| 价格 | 免费 | 免费 | 免费 |
 
 ## 版本兼容
 

@@ -28,6 +28,8 @@ DocKit 提供内置的 DynamoDB 管理面板，用于浏览表、创建和删除
 
 ## 概述
 
+管理工作区需要旗舰版。要读取或编辑单个项目，请使用 [DynamoDB 查询编辑器](/zh/docs/dockit/dynamodb-query-editor)。
+
 DocKit 中的 DynamoDB 管理与指标面板为您提供以下功能：
 
 - 浏览连接 AWS 账户和区域中的所有表。

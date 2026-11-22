@@ -19,7 +19,7 @@ head:
       href: https://www.geekfun.club/products/dockit/docs
 ---
 
-# Document
+# DocKit documentation {#document}
 
 DocKit as a NoSQL/NewSQL GUI client supports MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch, and more. This document outlines how to use DocKit.
 

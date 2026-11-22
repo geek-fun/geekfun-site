@@ -24,7 +24,7 @@ head:
 
 # Use DocKit GUI connect to Database Server
 
-DocKit connects to [Elasticsearch](https://www.elastic.co), [OpenSearch](https://opensearch.org/), [DynamoDB](https://aws.amazon.com/dynamodb/), and [MongoDB](https://www.mongodb.com). Each database type has its own connection form — everything else works the same way.
+DocKit connects to Elasticsearch, OpenSearch, EasySearch, DynamoDB, and MongoDB. Select a database type in the connection dialog to see which fields and authentication options it uses.
 
 ## Install and Open DocKit
 you can find detailed instructions on how to install and open DocKit in
@@ -62,21 +62,29 @@ You can also append custom query parameters to every request, like `pretty=true`
 
 ## Connect to OpenSearch
 
-OpenSearch works exactly like Elasticsearch — same host and port format, same auth options (Basic and API Key). DocKit detects whether it's talking to Elasticsearch or OpenSearch automatically from the cluster info.
+Choose **OpenSearch** as the connection type. Enter the server URL and port, then select Basic or API key authentication according to the cluster's settings.
+
+## Connect to EasySearch
+
+Choose **EasySearch** as the connection type. Enter the server URL and its port, then choose Basic or API key authentication as configured on the server. Keep certificate verification enabled for HTTPS connections. Test and save the connection, then open the [search query editor](/docs/dockit/search-editor).
 
 ## Connect to DynamoDB
 
-Pick DynamoDB as the database type. There are four authentication methods:
+Pick **DynamoDB** and choose a connection mode. AWS Profile, SSO, and Assume Role require Ultimate.
 
 ![DocKit connect to DynamoDB demo](/dockit-dynamodb-connection-demo.gif)
 
-**Access Key** — the standard approach. Enter your AWS region, access key ID, and secret access key. Works with IAM user credentials, temporary STS credentials, or environment variables.
+For **Access Key**, enter your AWS region, access key ID, and secret access key. For temporary credentials that require a session token, use the applicable AWS Profile, SSO, or Assume Role workflow.
 
 **SSO** — uses AWS IAM Identity Center. Click **Start SSO Login** to open a browser tab for authentication, then pick an account and role from the populated lists. SSO sessions are cached, so you don't need to re-authenticate on every connection.
 
 **Profile** — reads credentials from `~/.aws/credentials` and `~/.aws/config`. Pick a profile from the dropdown, and optionally configure an IAM role to assume. Supports standard profiles, source role chains, SSO-based profiles, and MFA-enabled setups.
 
+For **Assume Role**, select a source profile and enter the IAM role ARN from your administrator. Use the additional fields if your role requires an external ID or MFA. Assume the role before testing the connection.
+
 **DynamoDB Local** — for offline development. Point DocKit at `http://localhost:8000` with any region and dummy credentials. See the [DynamoDB Local guide](/blog/query-dynamodb-locally) for setup.
+
+Use the filter in the connection form to choose which tables appear in the workspace. After connecting, use the [DynamoDB query guide](/docs/dockit/dynamodb-query-editor) to read and edit items.
 
 
 ## Connect to MongoDB
@@ -89,13 +97,11 @@ Pick MongoDB as the database type. DocKit supports three ways to connect:
 
 **SCRAM Auth** — standard username and password authentication. Enter host, port, username, and password. The **Auth Source** field specifies which database holds the user credentials (defaults to `admin`). You can also set an **Auth Mechanism** like `SCRAM-SHA-256` — leave it empty and the driver negotiates automatically.
 
-**URI Auth** — paste a full MongoDB connection string for advanced setups like Atlas or replica sets. This mode passes the URI straight through without modification.
-
-All three modes support **TLS** — toggle it on to append `?tls=true` to the connection. Disable for local development with self-signed certs.
+For **URI Auth**, paste the full MongoDB connection string. This works for Atlas and replica sets. Use the URI parameters supplied by your database provider for TLS and replica-set options. For tunneled MongoDB connections, see the [URI restrictions](/docs/dockit/remote-connections#diagnose-a-connection-failure).
 
 ## Test Connection
 
-Click **Test Connection** before saving. You need at least `view_index_metadata` permission. If your user doesn't have `*` index access, specify an index name.
+Click **Test Connection** before saving. For an Elasticsearch connection with restricted index access, specify an index your account can inspect and grant `view_index_metadata` where required. For a connection through a bastion or system proxy, see the [remote connection guide](/docs/dockit/remote-connections).
 
 Common connection errors and fixes:
 

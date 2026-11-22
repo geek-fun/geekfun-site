@@ -6,12 +6,14 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "test:downloads": "playwright test"
   },
   "keywords": [],
   "author": "geekfun <support@geekfun.club>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "sass": "^1.99.0",
     "vitepress": "^1.6.4"
   }

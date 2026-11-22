@@ -38,8 +38,8 @@ const formatDate = (date: string): string => formatter.value.format(new Date(dat
 </script>
 
 <template>
-  <div class="blog-index">
-    <header class="blog-index-heading">
+  <div class="editorial-index blog-index">
+    <header class="editorial-index-heading">
       <h1>{{ copy.title }}</h1>
       <p>{{ copy.description }}</p>
     </header>
@@ -61,7 +61,7 @@ const formatDate = (date: string): string => formatter.value.format(new Date(dat
           <li v-for="tag in featured.tags.slice(0, 2)" :key="tag">{{ tag }}</li>
         </ul>
         <p class="blog-featured-read" aria-hidden="true">
-          {{ copy.read }} <span class="blog-arrow"></span>
+          {{ copy.read }} <span class="editorial-arrow"></span>
         </p>
       </div>
     </article>
@@ -70,7 +70,7 @@ const formatDate = (date: string): string => formatter.value.format(new Date(dat
       <div class="blog-section-heading">
         <h2 id="latest-articles">{{ copy.latest }}</h2>
         <a class="blog-archive-link" href="#all-articles">
-          {{ copy.all }} <span class="blog-arrow blog-arrow--down" aria-hidden="true"></span>
+          {{ copy.all }} <span class="editorial-arrow editorial-arrow--down" aria-hidden="true"></span>
         </a>
       </div>
       <div class="blog-card-grid">

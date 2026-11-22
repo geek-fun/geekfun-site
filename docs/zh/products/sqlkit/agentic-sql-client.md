@@ -1,6 +1,6 @@
 ---
 title: Agentic SQL GUI 客户端 — SqlKit 桌面应用（Mac / Windows / Linux）
-description: SqlKit 是一款开源的 AI 原生 SQL 桌面客户端，支持自然语言转 SQL、Schema 感知查询生成、执行计划可视化和自动错误修复。原生支持 50+ 种数据库。
+description: 使用 SqlKit 的 Agentic Data Studio 将自然语言转为 SQL、浏览数据库模式并查看执行计划，适用于 PostgreSQL、MySQL、SQL Server 和 Oracle 等数据库。
 sidebar: false
 head:
   - - meta
@@ -29,20 +29,20 @@ head:
         "@type": "SoftwareApplication",
         "name": "SqlKit",
         "alternateName": "Agentic SQL GUI Client",
-        "description": "开源的 AI 原生 SQL 桌面客户端，支持自然语言转 SQL、Schema 感知查询生成、执行计划可视化和自动错误修复。原生支持 50+ 种数据库，包括 PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse、Snowflake。",
+        "description": "桌面 SQL 客户端，可结合数据库模式将自然语言转为 SQL，并在支持的数据库中可视化执行计划。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": { "@type": "Offer", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "极客范", "url": "https://www.geekfun.club" },
-        "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE",
+        "license": "https://github.com/geek-fun/sqlkit/blob/master/LICENSE",
         "sameAs": ["https://github.com/geek-fun/sqlkit"]
       }
 ---
 
-# SqlKit - 覆盖所有 SQL 数据库的 AI 智能体 SQL 桌面客户端
+# 支持 AI 辅助查询的 SqlKit 桌面客户端 {#sqlkit-覆盖所有-sql-数据库的-ai-智能体-sql-桌面客户端}
 
-SqlKit 是一个开源的 SQL 桌面客户端，Mac、Windows、Linux 都能跑。连得上 **50+ 种数据库**——国际主流不用说，国产信创也都在列表里：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase。
+SqlKit 是一款开源桌面 SQL 客户端，可在 macOS、Windows 和 Linux 上运行。除了 PostgreSQL、MySQL、SQL Server 和 Oracle，也支持 TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、openGauss、YashanDB 和 Vastbase 等数据库。
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">免费下载</a>
@@ -105,19 +105,17 @@ Agentic Data Studio 是一个 AI agent，连接你的数据库 schema、索引�
 
 ![SqlKit SQL 编辑器](/sqlkit-sql-editor-ui.png)
 
-Cmd/Ctrl + Enter 跑查询，加个 Shift 带上执行计划。
+按 `⌘ + Enter` 或 `Ctrl + Enter` 运行选中的 SQL 或光标所在语句。支持执行计划的数据库可使用**解释**功能。更多操作见 [SQL 编辑器快捷键](/zh/docs/sqlkit/keyboard-shortcuts)。
 
 ### 多数据库支持
 
-**50+ 种数据库**，国产信创也在内：
-
 | 类型 | 数据库 |
 |---|---|
-| **原生** (Rust) | PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse、Firebird、Oracle |
-| **PG-wire 兼容** | CockroachDB、Redshift、YugabyteDB、TimescaleDB、QuestDB、**Vastbase**、**HighGo**、**UXDB** |
-| **MySQL-wire 兼容** | MariaDB、**TiDB**、**OceanBase**、**StarRocks**、Databend、**PolarDB**、**TDSQL**、**GBase** |
-| **JDBC 桥接** | Snowflake、DB2、BigQuery、Databricks、Hive、Teradata、Exasol、**达梦 DM8**、**KingbaseES**、**GaussDB**、**YashanDB**、**Xugudb**、**SelectDB**、**Doris**、**Kylin** |
-| **HTTP 桥接** | Trino、Presto、**OpenGauss** |
+| **原生** (Rust) | PostgreSQL、MySQL、SQL Server、SQLite |
+| **PG-wire 兼容** | CockroachDB、Redshift、YugabyteDB、TimescaleDB、QuestDB、Vastbase、HighGo、UXDB、KingbaseES、GaussDB、YashanDB、openGauss、GBase 8c |
+| **MySQL-wire 兼容** | MariaDB、TiDB、OceanBase（MySQL 模式）、StarRocks、Databend、PolarDB、TDSQL、SelectDB、Doris |
+| **JDBC 桥接** | Oracle、DuckDB、Firebird、Snowflake、DB2、BigQuery、Databricks、Hive、Teradata、Exasol、达梦 DM8、XuguDB、Kylin、GBase 8a |
+| **HTTP 桥接** | ClickHouse、Trino、Presto |
 
 ### 数据浏览与可视化工具
 
@@ -137,7 +135,6 @@ Cmd/Ctrl + Enter 跑查询，加个 Shift 带上执行计划。
 | **自然语言转 SQL** | ✅ Schema 感知 | ❌ | ❌ | ❌ |
 | **SQL 优化** | ✅ 自动 + 解释 | ❌ | ❌ | ❌ |
 | **错误自动修复** | ✅ | ❌ | ❌ | ❌ |
-| **50+ 数据库** | ✅ | ✅ | 部分 | ✅ |
 | **平台** | Desktop (Rust + Tauri) | Java/Electron | JVM | C++ |
 | **启动速度** | < 2 s | 5–15 s | 10–20 s | 3–8 s |
 | **内存** | ~150 MB | ~400 MB | ~500 MB | ~200 MB |
@@ -146,17 +143,13 @@ Cmd/Ctrl + Enter 跑查询，加个 Shift 带上执行计划。
 
 ## 版本兼容性
 
-能连上就行。PostgreSQL 9.x–17.x、MySQL 5.7–9.x、SQL Server 2012–2025、SQLite 3.x、DuckDB 0.x–1.x，最新的 ClickHouse、Snowflake、BigQuery、Oracle 都没问题。JDBC 桥接覆盖有 JDBC 4.0 驱动的数据库。
+各类数据库的连接方式和设置步骤见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。连上后，能执行哪些操作取决于数据库和账号权限。
 
 ## 快速开始
 
-1. [下载 SqlKit](/download)。
-2. 建个连接——PostgreSQL、MySQL、SQL Server、SQLite，你用什么就连什么。
-3. 输入主机、端口、密码。
-4. 打开 Agentic Data Studio。
-5. 告诉它你要什么。或者直接写 SQL。
-
-搞不定的话看看[连接指南](/zh/docs/dockit/connect-to-server)。
+1. [安装 SqlKit](/zh/docs/sqlkit/installation)。
+2. [连接数据库](/zh/docs/sqlkit/connect-to-database)。
+3. 打开 Agentic Data Studio，描述你要执行的查询。你也可以[直接在编辑器中编写 SQL](/zh/docs/sqlkit/query-editor)。
 
 有问题请发邮件至 [support@geekfun.club](mailto:support@geekfun.club)。
 

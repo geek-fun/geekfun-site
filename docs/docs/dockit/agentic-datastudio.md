@@ -44,7 +44,7 @@ Each tool has a **risk level** (Safe for read-only, Elevated for create/update, 
 
 ## Quick Start
 
-Open **Settings → LLMs** and add an AI provider (OpenAI, Anthropic, DeepSeek, or any of the 12 supported). Then open **Data Studio** from the Nav bar, click **Add Source** to attach a database connection, and type your request in plain English.
+Open **Settings → AI** and add an AI provider (OpenAI, Anthropic, DeepSeek, or any of the 12 supported). Then open **Data Studio** from the Nav bar, click **Add Source** to attach a database connection, and type what you want to do in plain English.
 
 ![DocKit Settings LLMs demo](/dockit-settings-llm.gif)
 
@@ -52,13 +52,7 @@ For quick questions without leaving your editor, use the **Sidebar Assistant** �
 
 ## Safety & Permissions
 
-| Mode | How tools run | Risk level | Requires confirmation |
-|------|-------------|------------|----------------------|
-| **Ask** (default) | Prompts Allow/Deny before every non-read tool | **Safe** — read queries, list indices, describe tables | Never |
-| **Auto** | Executes automatically when session has permissions | **Elevated** — create/update documents, insert items | Only in Ask mode |
-| | | **Destructive** — delete documents, drop indices, delete tables | Always |
-
-You can also set read/create/update/delete permissions per database source, or inherit from the session level. Confirmation rules let you auto-allow safe or repetitive operations, or auto-deny dangerous tools entirely.
+With Ultimate, you can use Data Studio on the connections you’ve added to the conversation. DocKit checks both the connection and conversation permissions before it runs a tool. Ask and Auto determine when it prompts you. See [AI permissions](/docs/dockit/ai-permissions) to set defaults, change access, or find out why a request was blocked.
 
 ## Agent Loop
 
@@ -84,25 +78,13 @@ Each Data Studio conversation is a **session** with its own history, attached so
 
 ## Sidebar Assistant
 
-The Sidebar Assistant is a lightweight chat panel accessible from anywhere in the app. It is separate from Data Studio — it works as a single-turn Q&A interface rather than a multi-step agent loop.
-
-Use it to ask questions about your database schema or query results, generate queries using your schema as context, get explanations of query behavior and error messages, or debug without leaving your current view.
-
-| Feature | Sidebar Assistant | Data Studio |
-|---------|-----------------|-------------|
-| **Interaction** | Single Q&A turns | Multi-step agent loop |
-| **Tool execution** | No — text responses only | Yes — reads schemas, runs queries, modifies data |
-| **Context** | Current conversation only | Full session with history and compaction |
-| **Source attachment** | No | Yes — attach multiple databases per session |
-| **Best for** | Quick questions, explanations | Complex data operations and analysis |
-
-Open it by clicking the chat icon (💬) in the right sidebar, or press the keyboard shortcut. The Assistant shares the same provider and model configuration as Data Studio. You can configure a separate model for it in **Settings → AI → Models** if you want a lighter model for quick Q&A while keeping a more capable model for Data Studio. Multi-chat sessions are supported with automatic provider isolation, and you can delete individual chat sessions from the history panel.
+Open the chat panel from the editor sidebar to ask about a query, explain an error, or generate a request. The assistant can also run tools using the active connection's [AI permissions](/docs/dockit/ai-permissions). Data Studio works with the sources attached to its conversation and can use more than one connection in a session.
 
 ## Providers & Models
 
 DocKit supports **12+** AI provider types — cloud and local: `OpenAI`, `Anthropic`, `DeepSeek`, `OpenRouter` (200+ models), `Google Gemini`, `Grok`, `Mistral`, `Azure OpenAI`, `Ollama` (fully offline), `LM Studio` (fully offline), custom OpenAI-compatible endpoints, and custom Anthropic-compatible endpoints.
 
-To add a provider, go to **Settings → Providers** and click **Add Provider**. Pick a type, give it a display name, enter the API endpoint (pre-filled for standard providers), paste your API key or token, and optionally configure an HTTP proxy URL. Click **Test Connection** to verify, then **Save**.
+To add a provider, go to **Settings → AI** and click **Add Provider**. Pick a type, give it a display name, enter the API endpoint (pre-filled for standard providers), paste your API key or token, and optionally configure an HTTP proxy URL. Click **Test Connection** to verify, then **Save**.
 
 DocKit discovers available models automatically. You can route them to specific features — pick one model for the **Sidebar Assistant** (quick Q&A) and another for **Data Studio** (full agent loop). If you don't set a preference, DocKit picks the best available model.
 
@@ -113,44 +95,17 @@ Getting an API key:
 - **OpenRouter**: [openrouter.ai](https://openrouter.ai) → Keys
 - **Ollama / LM Studio**: Run locally, no API key needed
 
-If you're behind a firewall, enter a proxy URL for each provider in Settings → Providers. Format: `http://host:port`. Or choose **Use system proxy** to inherit OS-level settings.
+If you need a proxy to reach a provider, enter a URL like `http://host:port` for that provider in **Settings → AI**. Select **Use system proxy** to use your operating system’s proxy settings.
 
 ## How Context Works
 
-![DocKit Data Studio Architecture](/dockit-data-studio-arch.png)
+![DocKit Data Studio architecture](/dockit-data-studio-arch.png)
 
-### What gets sent to the LLM
-
-When you attach a database connection, the frontend fetches schema info through capability tools (ES `GetMapping`, DynamoDB `DescribeTable`, MongoDB `listCollections`) and stores it on the session. This schema is injected into the system prompt:
-
-- **Source summary** — which databases are attached and what permissions they grant
-- **Database schema** — index mappings, table schemas, field names and types (no actual records)
-- **Database-specific rules** — PartiQL syntax for DynamoDB, Query DSL patterns for ES
-- **Tool definitions** — which operations the agent is allowed to call, with input schemas
-
-When the agent calls a tool, **only a summary (≤4K chars) of the result goes back to the LLM** — enough to decide the next action. The full result (≤32K chars) stays in local SQLite. **Your document data is never sent to the LLM** unless you explicitly reference it in your prompt.
-
-### What stays on your machine
-
-- **Credentials** — resolved from the OS keychain in the Rust backend. The agent never sees passwords, API keys, or AWS secrets. It passes a `connection_id`, and the backend maps that to the real config before running the tool.
-- **Full query results** — stored in the local SQLite database. Only a truncated summary reaches the LLM.
-- **Conversation history** — persisted in local SQLite, never sent to any server outside your chosen LLM provider.
+What the model can see depends on the sources you add and their read permissions. If you use a cloud model, DocKit can send the provider your prompt, context you attached, the relevant schema, and summaries of tool results. Those summaries may include values from returned records.
 
 ## Privacy & Security
 
-**What the agent sends to AI providers:**
-- ✅ Your text prompt
-- ✅ Current index, table, and collection names
-- ✅ Schema and mapping (field names and types)
-- ✅ Query results (truncated to about 1,024 characters, enough context for the agent to work with)
-- ❌ Full query results (stored locally in DocKit's database, visible in the UI)
-- ❌ Credentials (API keys, passwords, connection secrets never leave your machine)
-
-**How tool results flow to the LLM**: When the agent runs a tool like `es__search` or `mongo__find`, the full result stays local. Only a short summary (around 1,024 characters) goes back to the LLM as context for its next step. Enough to work with, but not your full dataset.
-
-**Credential safety**: Connection secrets live on your machine and get resolved in the Rust backend. The agent never sees them — it passes a `connection_id` (something like `"42"`), and the backend maps that to the real config before running the tool. Passwords, API keys, and AWS secrets never make it into LLM prompts.
-
-**No telemetry**: DocKit doesn't phone home. No query data, credentials, or analytics leave your machine. Works fully offline with local providers like Ollama and LM Studio.
+DocKit resolves database connection secrets in its backend. Tools refer to connections by ID, so the agent can request an operation without receiving the database credentials as arguments. To keep model inference on your machine, configure a local model through Ollama or LM Studio.
 
 ## Troubleshooting
 

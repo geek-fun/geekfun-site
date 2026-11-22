@@ -24,6 +24,8 @@ head:
 
 # DocKit 安装
 
+关闭窗口后，DocKit 仍在后台运行，正在执行的导入导出任务和 MCP 桥接也会继续运行。要重新打开窗口，在菜单栏或系统托盘选**显示窗口**。要结束应用，选**退出**。
+
 感谢您尝试使用 DocKit！:rocket::rocket::rocket: 本指南将帮助您开始使用 DocKit。在使用 DocKit 连接到您的 Elasticsearch 服务器之前，您需要先安装它。
 
 ## 下载 DocKit

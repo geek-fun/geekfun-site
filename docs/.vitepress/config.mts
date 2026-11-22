@@ -1,5 +1,7 @@
 import {defineConfig, type HeadConfig} from 'vitepress'
 import {blogDate, isBlogArticle, type BlogFrontmatter} from './blog'
+import {getDocsSidebar} from './docs-navigation'
+import {DOCKIT_VERSION, SQLKIT_VERSION} from './theme/version'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
@@ -31,15 +33,16 @@ const langAutoDetectHead: HeadConfig[] = [['script', {}, `(function () {
   try {
     var path = location.pathname;
     var isZh = path.indexOf('/zh/') === 0 || path === '/zh';
+    var zhUrl = '/zh' + (path.length > 1 ? path : '/') + location.search + location.hash;
     var pref = localStorage.getItem('gf-lang');
     if (pref === 'zh' && !isZh) {
-      location.replace('/zh' + (path.length > 1 ? path : '/'));
+      location.replace(zhUrl);
       return;
     }
     if (pref) return;
     var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
     if (nav.indexOf('zh') === 0 && !isZh) {
-      location.replace('/zh' + (path.length > 1 ? path : '/'));
+      location.replace(zhUrl);
     }
   } catch (e) {}
 })();`]];
@@ -70,56 +73,12 @@ const titlePt = 'GEEKFUN | Comunidade de Software Sustentável';
 const titleJa = 'GEEKFUN | 持続可能なソフトウェアコミュニティ';
 const titleKo = 'GEEKFUN | 지속 가능한 소프트웨어 커뮤니티';
 const titleEs = 'GEEKFUN | Comunidad de Software Sostenible';
-const descEn = 'GEEKFUN is an open-source community focused on building sustainable software solutions. We empower developers to collaborate on open-source projects like DocKit (MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch GUI) and explore serverless technologies, including Serverless Insight, Elasticsearch, OpenSearch, and more. Join us in shaping the future of open-source development!';
-const descZh = '极客范是一个软件社区，致力于构建可持续的开源软件和服务';
-const descPt = 'GEEKFUN é uma comunidade open-source dedicada a construir soluções de software sustentáveis, com ferramentas como o DocKit (GUI para MongoDB, Elasticsearch, OpenSearch e DynamoDB) e o SqlKit (cliente SQL para mais de 50 bancos de dados).';
-const descJa = 'GEEKFUN は、持続可能なソフトウェアの構築に取り組むオープンソースコミュニティです。DocKit(MongoDB、Elasticsearch、OpenSearch、DynamoDB 向け GUI)や SqlKit(50 以上のデータベースに対応する SQL クライアント)などのツールを提供しています。';
-const descKo = 'GEEKFUN은 지속 가능한 소프트웨어 구축에 힘쓰는 오픈소스 커뮤니티입니다. DocKit(MongoDB, Elasticsearch, OpenSearch, DynamoDB GUI)과 SqlKit(50개 이상 데이터베이스용 SQL 클라이언트) 같은 도구를 제공합니다.';
-const descEs = 'GEEKFUN es una comunidad open-source dedicada a construir software sostenible, con herramientas como DocKit (GUI para MongoDB, Elasticsearch, OpenSearch y DynamoDB) y SqlKit (cliente SQL para más de 50 bases de datos).';
-const docsSidebarEn = [
-    {
-        text: 'DocKit',
-        items: [
-            {text: 'DocKit overview', link: '/docs/dockit/'},
-            {text: 'Installation', link: '/docs/dockit/installation'},
-            {text: 'Connect to server', link: '/docs/dockit/connect-to-server'},
-            {text: 'Shortcuts', link: '/docs/dockit/shortcut'},
-            {text: 'Manage Elasticsearch cluster', link: '/docs/dockit/manage-elasticsearch-cluster'},
-            {text: 'Agentic Data Studio', link: '/docs/dockit/agentic-datastudio'}
-        ]
-    },
-    {
-        text: 'Data Studio Agent',
-        items: [
-            {text: 'Overview', link: '/docs/data-studio-agent/'},
-            {text: 'Quick Start', link: '/docs/data-studio-agent/quick-start'},
-            {text: 'Tool reference', link: '/docs/data-studio-agent/tools'},
-            {text: 'Safety', link: '/docs/data-studio-agent/safety'}
-        ]
-    }
-];
-const docsSidebarZh = [
-    {
-        text: 'DocKit',
-        items: [
-            {text: 'DocKit 概览', link: '/zh/docs/dockit/'},
-            {text: '安装指南', link: '/zh/docs/dockit/installation'},
-            {text: '连接服务器', link: '/zh/docs/dockit/connect-to-server'},
-            {text: '快捷键', link: '/zh/docs/dockit/shortcut'},
-            {text: '管理 Elasticsearch 集群', link: '/zh/docs/dockit/manage-elasticsearch-cluster'},
-            {text: 'Agentic Data Studio', link: '/zh/docs/dockit/agentic-datastudio'}
-        ]
-    },
-    {
-        text: 'Data Studio Agent',
-        items: [
-            {text: '概览', link: '/zh/docs/data-studio-agent/'},
-            {text: '快速开始', link: '/zh/docs/data-studio-agent/quick-start'},
-            {text: '工具参考', link: '/zh/docs/data-studio-agent/tools'},
-            {text: '安全', link: '/zh/docs/data-studio-agent/safety'}
-        ]
-    }
-];
+const descEn = 'GEEKFUN builds open-source desktop database tools. SqlKit is a SQL GUI for PostgreSQL, MySQL, SQL Server, and Oracle. DocKit is a GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch.';
+const descZh = '极客范提供开源桌面数据库工具。SqlKit 支持 PostgreSQL、MySQL、SQL Server 和 Oracle，DocKit 支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch。';
+const descPt = 'A GEEKFUN é uma comunidade de código aberto que desenvolve software sustentável. O DocKit é uma interface gráfica para MongoDB, Elasticsearch, OpenSearch e DynamoDB. O SqlKit é um cliente SQL para PostgreSQL, MySQL, SQL Server, Oracle, SQLite e outros bancos de dados.';
+const descJa = 'GEEKFUN は持続可能なソフトウェアを開発するオープンソースコミュニティです。DocKit は MongoDB、Elasticsearch、OpenSearch、DynamoDB 向けの GUI です。SqlKit は PostgreSQL、MySQL、SQL Server、Oracle、SQLite などに対応する SQL クライアントです。';
+const descKo = 'GEEKFUN은 지속 가능한 소프트웨어를 만드는 오픈소스 커뮤니티입니다. DocKit은 MongoDB, Elasticsearch, OpenSearch, DynamoDB용 GUI입니다. SqlKit은 PostgreSQL, MySQL, SQL Server, Oracle, SQLite 등을 지원하는 SQL 클라이언트입니다.';
+const descEs = 'GEEKFUN es una comunidad de código abierto que desarrolla software sostenible. DocKit es una interfaz gráfica para MongoDB, Elasticsearch, OpenSearch y DynamoDB. SqlKit es un cliente SQL para PostgreSQL, MySQL, SQL Server, Oracle, SQLite y otras bases de datos.';
 
 export default defineConfig({
     lastUpdated: true,
@@ -179,9 +138,7 @@ export default defineConfig({
             themeConfig: {
                 ...sharedThemeConfig,
                 siteTitle: 'GEEKFUN',
-                sidebar: {
-                    '/docs/': docsSidebarEn
-                },
+                sidebar: getDocsSidebar(false),
 nav: [
                      {
                          text: 'Home',
@@ -198,6 +155,7 @@ nav: [
                      {
                          text: 'Docs',
                          link: '/docs',
+                         activeMatch: '^/(?:docs(?:/|$)|products/dockit/docs$)',
                      },
                      {
                          text: 'Blog',
@@ -243,9 +201,8 @@ nav: [
                 siteTitle: '极客范',
                 outline: {label: '本页内容'},
                 returnToTopLabel: '返回顶部',
-                sidebar: {
-                    '/zh/docs/': docsSidebarZh
-                },
+                sidebar: getDocsSidebar(true),
+                sidebarMenuLabel: '文档目录',
 nav: [
                       {
                           text: '首页',
@@ -262,6 +219,7 @@ nav: [
                       {
                           text: '文档',
                           link: '/zh/docs',
+                          activeMatch: '^/zh/(?:docs(?:/|$)|products/dockit/docs$)',
                       },
                       {
                           text: '博客',
@@ -350,6 +308,49 @@ nav: [
             return items.filter((item) => item.url !== '404' && item.url !== '/404');
         }
     },
+    transformPageData({relativePath, frontmatter}) {
+        const guide = relativePath.match(/^(zh\/)?(docs\/(sqlkit|dockit)\/.*\.md)$/);
+        const existingHead: HeadConfig[] = frontmatter.head ?? [];
+        if (guide && !existingHead.some(([tag, attrs]) => tag === 'link' && attrs.rel === 'canonical')) {
+            const [, zh, englishPath, slug] = guide;
+            const app = slug === 'sqlkit' ? 'SqlKit' : 'DocKit';
+            const englishUrl = getPageUrl(englishPath);
+            const chineseUrl = getPageUrl(`zh/${englishPath}`);
+            const head: HeadConfig[] = [
+                ...existingHead,
+                ['link', {rel: 'canonical', href: getPageUrl(relativePath)}],
+                ['link', {rel: 'alternate', hreflang: 'en', href: englishUrl}],
+                ['link', {rel: 'alternate', hreflang: 'zh', href: chineseUrl}],
+                ['link', {rel: 'alternate', hreflang: 'x-default', href: englishUrl}],
+            ];
+            return {
+                frontmatter: {
+                    ...frontmatter,
+                    head,
+                    titleTemplate: false,
+                    ogImage: `${siteUrl}/og/${slug}-${zh ? 'zh' : 'en'}.png`,
+                    ogImageAlt: zh ? `${app} 桌面数据库客户端` : `${app} desktop database client`,
+                }
+            };
+        }
+
+        const product = relativePath.match(/(^|\/)products\/(dockit|sqlkit)\/index\.md$/)?.[2];
+        if (!product) return;
+        const app = product === 'sqlkit'
+            ? {name: 'SqlKit', version: SQLKIT_VERSION}
+            : {name: 'DocKit', version: DOCKIT_VERSION};
+
+        const head = existingHead.map((entry): HeadConfig => {
+            const [tag, attributes, content] = entry;
+            if (tag !== 'script' || attributes.type !== 'application/ld+json' || typeof content !== 'string') return entry;
+
+            const schema = JSON.parse(content);
+            if (schema['@type'] !== 'SoftwareApplication' || schema.name !== app.name) return entry;
+            return [tag, attributes, JSON.stringify({...schema, softwareVersion: app.version})];
+        });
+
+        return {frontmatter: {...frontmatter, head}};
+    },
     transformHead({page, title, description, pageData}) {
         const isZhPage = page.startsWith('zh/');
         const pageUrl = getPageUrl(page);
@@ -359,7 +360,7 @@ nav: [
         const cover = blogPost?.cover;
         const ogImageUrl = cover?.src ? new URL(cover.src, siteUrl).href : pageData?.frontmatter?.ogImage ?? masterOg;
         const pageType = getPageType(page);
-        const ogImageAlt = cover?.alt ?? (isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community');
+        const ogImageAlt = cover?.alt ?? pageData?.frontmatter?.ogImageAlt ?? (isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community');
         const pageLocale = page.split('/')[0] ?? '';
         const ogLocale = ({zh: 'zh_CN', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES'} as Record<string, string>)[pageLocale] ?? 'en_US';
         const ogAlternateLocale = ogLocale === 'en_US' ? 'zh_CN' : 'en_US';
@@ -369,7 +370,7 @@ nav: [
             ['meta', {property: 'og:description', content: description}],
             ['meta', {property: 'og:image', content: ogImageUrl}],
             ['meta', {property: 'og:image:width', content: '1200'}],
-            ['meta', {property: 'og:image:height', content: cover?.src ? '675' : '630'}],
+            ['meta', {property: 'og:image:height', content: cover?.src ? String(cover.height ?? 675) : '630'}],
             ['meta', {property: 'og:image:alt', content: ogImageAlt}],
             ['meta', {property: 'og:url', content: pageUrl}],
             ['meta', {property: 'og:site_name', content: siteName}],

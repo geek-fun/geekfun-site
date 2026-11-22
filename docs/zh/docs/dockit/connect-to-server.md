@@ -24,7 +24,7 @@ head:
 
 # 使用 DocKit 桌面客户端连接到数据库服务器
 
-DocKit 支持连接 [Elasticsearch](https://www.elastic.co)、[OpenSearch](https://opensearch.org/)、[DynamoDB](https://aws.amazon.com/dynamodb/) 和 [MongoDB](https://www.mongodb.com)。每种数据库类型有自己的连接表单，操作方式一致。
+DocKit 支持连接 Elasticsearch、OpenSearch、EasySearch、DynamoDB 和 MongoDB。在连接表单中选好数据库类型，就能看到要填的字段和可用的认证方式。
 
 ## 安装并打开 DocKit
 
@@ -62,19 +62,27 @@ SSL 验证在 `https://` 连接下默认开启。点击主机字段旁的锁图�
 
 ## 连接到 OpenSearch
 
-OpenSearch 的连接方式与 Elasticsearch 完全一致——相同的主机和端口格式，相同的认证选项（基础认证和 API Key）。DocKit 会自动从集群信息中识别出 Elasticsearch 还是 OpenSearch。
+选择 **OpenSearch**，填写服务器地址和端口，然后根据集群设置选择基础认证或 API Key 认证。
+
+## 连接到 EasySearch
+
+选择 **EasySearch**，填写服务器地址和端口，再根据服务器的配置选择基础认证或 API Key 认证。使用 HTTPS 时请保持证书验证开启。测试并保存后，打开[搜索查询编辑器](/zh/docs/dockit/search-editor)。
 
 ## 连接到 DynamoDB
 
-选择 DynamoDB 作为数据库类型。DocKit 支持四种认证方式：
+选择 **DynamoDB** 和对应的连接方式。AWS Profile、SSO 和 Assume Role 需要旗舰版。
 
-**Access Key** — 标准方式。填写 AWS 区域、Access Key ID 和 Secret Access Key。支持 IAM 用户凭证、STS 临时凭证和环境变量。
+使用 **Access Key** 时，填写 AWS 区域、Access Key ID 和 Secret Access Key。对于还需要会话令牌的临时凭据，请使用对应的 AWS Profile、SSO 或 Assume Role 流程。
 
 **DynamoDB Local** — 离线开发。将 DocKit 指向 `http://localhost:8000`，区域和凭证可填任意值。设置方法见 [DynamoDB Local 指南](/zh/blog/query-dynamodb-locally)。
 
 **SSO** — 使用 AWS IAM Identity Center。点击 **Start SSO Login** 在浏览器中完成认证，然后从已填充的列表中选择账户和角色。SSO 会话会被缓存，无需每次重新认证。
 
 **Profile** — 从 `~/.aws/credentials` 和 `~/.aws/config` 读取凭证。从下拉菜单中选择配置文件，可选配置 IAM 角色扮演。支持标准配置文件、源角色链、基于 SSO 的配置文件和启用 MFA 的配置。
+
+使用 **Assume Role** 时，选择源配置档案，并填写管理员提供的 IAM 角色 ARN。如果需要 External ID 或 MFA，请填写对应字段。取得角色凭据后，再测试连接。
+
+如果工作区只需显示部分表，可以在连接表单中按表筛选。连接后可参阅 [DynamoDB 查询指南](/zh/docs/dockit/dynamodb-query-editor)了解读取和编辑项目的操作。
 
 ## 连接到 MongoDB
 
@@ -86,13 +94,11 @@ OpenSearch 的连接方式与 Elasticsearch 完全一致——相同的主机和
 
 **SCRAM 认证** — 标准用户名/密码认证。输入主机、端口、用户名和密码。**Auth Source** 字段指定存放用户凭据的数据库（默认为 `admin`）。你还可以设置 **Auth Mechanism**（如 `SCRAM-SHA-256`）——留空时驱动会自动协商。
 
-**URI 认证** — 粘贴完整的 MongoDB 连接字符串，适用于 Atlas 或副本集等高级配置。此模式直通 URI 不做任何修改。
-
-三种模式均支持 **TLS**——启用后将 `?tls=true` 附加到连接 URI。本地开发使用自签名证书时可关闭。
+如果用的是 Atlas 或副本集等环境，可选 **URI 认证**，粘贴完整的 MongoDB 连接字符串。使用数据库提供商给出的 URI 参数配置 TLS 和副本集。通过 SSH 隧道连接时，请检查 [URI 限制](/zh/docs/dockit/remote-connections#排查连接失败)。
 
 ## 测试连接
 
-点击 **测试连接** 在保存前验证连通性。至少需要 `view_index_metadata` 权限。如果没有 `*` 索引访问权限，需指定索引名。
+保存前先点击**测试连接**。如果 Elasticsearch 账号只能访问部分索引，请指定它可以查看的索引，必要时为该索引授予 `view_index_metadata` 权限。通过堡垒机或系统代理连接时，请参阅[远程连接指南](/zh/docs/dockit/remote-connections)。
 
 常见连接错误及解决方法：
 

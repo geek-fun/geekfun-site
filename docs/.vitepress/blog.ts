@@ -2,6 +2,7 @@ export interface BlogCover {
   src: string
   alt: string
   thumbnail?: string
+  height?: number
 }
 
 export interface BlogFrontmatter {
