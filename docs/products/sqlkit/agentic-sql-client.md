@@ -1,6 +1,6 @@
 ---
 title: Agentic SQL GUI Client — SqlKit Desktop App for Mac, Windows, Linux
-description: SqlKit is an open-source agentic SQL desktop client with AI-powered natural language to SQL, schema-aware query generation, execution plan visualization, and automatic error fixing. Supports 50+ databases natively.
+description: Use SqlKit's Agentic Data Studio to generate SQL from natural language, explore schemas, and explain queries in a desktop client for PostgreSQL, MySQL, SQL Server, and Oracle.
 sidebar: false
 head:
   - - meta
@@ -29,20 +29,20 @@ head:
         "@type": "SoftwareApplication",
         "name": "SqlKit",
         "alternateName": "Agentic SQL GUI Client",
-        "description": "Open-source agentic SQL desktop client with AI-powered natural language to SQL, schema-aware query generation, execution plan visualization, and automatic error fixing for 50+ databases including PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, and Snowflake.",
+        "description": "Desktop SQL client with schema-aware query generation, natural language to SQL, and execution plan visualization on supported engines.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": { "@type": "Offer", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
-        "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE",
+        "license": "https://github.com/geek-fun/sqlkit/blob/master/LICENSE",
         "sameAs": ["https://github.com/geek-fun/sqlkit"]
       }
 ---
 
 # SqlKit — Agentic SQL GUI Client for All Your SQL Databases
 
-SqlKit is an open-source SQL desktop client for Mac, Windows, and Linux. It wraps an AI agent that understands databases around native drivers for **50+ engines** — PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery. Pick your poison.
+SqlKit is an open-source SQL desktop client for macOS, Windows, and Linux. Agentic Data Studio can use your database schema to write SQL and help you troubleshoot query errors.
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">Download — Free</a>
@@ -107,7 +107,7 @@ The editor is Monaco — same engine VS Code uses. Syntax highlighting for every
 
 ![SqlKit SQL editor](/sqlkit-sql-editor-ui.png)
 
-Run with Cmd/Ctrl + Enter. Add Shift to include the execution plan.
+Run selected SQL or the statement at the cursor with `⌘ + Enter` or `Ctrl + Enter`. Use **Explain** for an execution plan on supported engines. See the [SQL editor shortcuts](/docs/sqlkit/keyboard-shortcuts).
 
 ### Multi-database support
 
@@ -115,11 +115,11 @@ Run with Cmd/Ctrl + Enter. Add Shift to include the execution plan.
 
 | Strategy | Databases |
 |---|---|
-| **Native** (Rust) | PostgreSQL, MySQL, SQL Server, SQLite, DuckDB, ClickHouse, Firebird, Oracle |
+| **Native** (Rust) | PostgreSQL, MySQL, SQL Server, SQLite |
 | **PG-wire compat** | CockroachDB, Redshift, YugabyteDB, TimescaleDB, QuestDB |
 | **MySQL-wire compat** | MariaDB, TiDB, OceanBase, StarRocks, Databend |
-| **JDBC bridge** | Snowflake, DB2, H2, BigQuery, Databricks, Hive, Teradata, Vertica, Exasol |
-| **HTTP bridge** | Trino, Presto |
+| **JDBC bridge** | Oracle, DuckDB, Firebird, Snowflake, DB2, H2, BigQuery, Databricks, Hive, Teradata, Vertica, Exasol |
+| **HTTP bridge** | ClickHouse, Trino, Presto |
 
 ### Data browsing & visual tools
 
@@ -148,17 +148,13 @@ Entity-relationship diagrams drawn on a canvas. See table relationships, foreign
 
 ## Version compatibility
 
-If it speaks SQL, SqlKit probably connects. PostgreSQL 9.x–17.x, MySQL 5.7–9.x, SQL Server 2012–2025, SQLite 3.x, DuckDB 0.x–1.x, latest ClickHouse, Snowflake, BigQuery, Oracle. The JDBC bridge picks up anything with a JDBC 4.0 driver.
+See [supported databases and drivers](/docs/sqlkit/supported-databases) to find out how to connect and what you need to set up. After connecting, what you can do depends on the engine and your database account’s permissions.
 
 ## Quick start
 
-1. [Download SqlKit](/download).
-2. Create a connection — PostgreSQL, MySQL, SQL Server, SQLite, whatever you use.
-3. Enter host, port, credentials.
-4. Open the Agentic Data Studio panel.
-5. Tell it what you need. Or just start writing SQL.
-
-See the [connection guide](/docs/dockit/connect-to-server) if you get stuck.
+1. [Install SqlKit](/docs/sqlkit/installation).
+2. [Connect to a database](/docs/sqlkit/connect-to-database).
+3. Open the Agentic Data Studio panel and describe the query you want. You can also [write SQL in the editor](/docs/sqlkit/query-editor).
 
 Questions: email [support@geekfun.club](mailto:support@geekfun.club).
 

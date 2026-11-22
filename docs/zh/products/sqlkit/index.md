@@ -1,7 +1,8 @@
 ---
 layout: product
-title: SqlKit – 开源桌面 SQL 客户端，支持 70+ 种数据库，内置 AI 智能体
-description: SqlKit 是一款免费开源的智能 SQL 桌面 GUI 客户端，支持 70+ 种数据库 — PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等。内置 AI 智能体、隐私优先、基于 Rust + Tauri 构建，极速原生体验。
+title: SqlKit 开源 SQL 数据库客户端 | MySQL、PostgreSQL、SQL Server 和 Oracle
+titleTemplate: false
+description: SqlKit 是一款支持 macOS、Windows 和 Linux 的开源 SQL 数据库 GUI 客户端，可连接 MySQL、PostgreSQL、SQL Server、Oracle 等数据库，浏览数据表、执行 SQL 并导出查询结果。
 ogImage: https://www.geekfun.club/og/sqlkit-zh.png
 head:
   - - meta
@@ -31,12 +32,15 @@ head:
         "name": "SqlKit",
         "alternateName": ["智能 SQL 客户端", "数据库 GUI", "SQL 数据库管理器", "AI SQL 智能体", "数据库桌面客户端", "开源 SQL 客户端"],
         "description": "开源的智能 SQL 桌面客户端，支持 70+ 种数据库 — PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等。内置 AI 自然语言转 SQL、可视化 Schema 浏览器、SSH 隧道和 JDBC 桥接。基于 Rust + Tauri 构建，原生性能。",
-        "applicationCategory": "DatabaseApplication",
+        "url": "https://www.geekfun.club/zh/products/sqlkit/",
+        "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": {
           "@type": "Offer",
+          "name": "社区版",
           "price": "0",
-          "priceCurrency": "USD"
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/zh/pricing"
         },
         "featureList": [
           "支持 70+ 种数据库",
@@ -74,24 +78,16 @@ head:
           "保存的查询",
           "自动更新",
           "LLM 连接 HTTP 代理",
-          "国际化支持（英文、简体中文）"
+          "多语言界面"
         ],
         "screenshot": "https://www.geekfun.club/sqlkit-client-ui.png",
-        "downloadUrl": "https://www.geekfun.club/zh/download",
-        "softwareVersion": "0.8.5",
+        "downloadUrl": "https://www.geekfun.club/zh/download#sqlkit",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
           "url": "https://www.geekfun.club"
         },
-        "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "892",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
+        "license": "https://github.com/geek-fun/sqlkit/blob/master/LICENSE",
         "sameAs": [
           "https://github.com/geek-fun/sqlkit",
           "https://www.geekfun.club/zh/products/sqlkit/"
@@ -100,8 +96,8 @@ head:
 
 hero:
   name: SqlKit
-  headline: "支持 70+ 种数据库的智能 SQL 客户端"
-  tagline: "一个应用，管理 70+ 种数据库。AI 驱动、社区版开源免费、为开发者而生。"
+  headline: "开源 SQL 数据库 GUI 客户端"
+  tagline: "在 macOS、Windows 或 Linux 上连接 MySQL、PostgreSQL、SQL Server、Oracle 等数据库，浏览表、执行 SQL 并导出查询结果。"
   logo: /sqlkit.png
   screenshot: /sqlkit-client-ui.png
   actions:
@@ -111,6 +107,9 @@ hero:
       external: true
     - text: 下载
       link: /zh/download#sqlkit
+      theme: alt
+    - text: 使用文档
+      link: /zh/docs/sqlkit/
       theme: alt
 
 databases:
@@ -201,7 +200,7 @@ features:
   - { title: "SSH 隧道与安全", body: "支持密钥和密码认证的 SSH 隧道连接。SSL/TLS 加密传输。凭据由操作系统密钥链保护。支持 LLM 连接的 HTTP 代理配置。", icon: "lock" }
   - { title: "多标签与历史记录", body: "多标签页同时处理多个查询。自动保存的查询历史 — 可搜索、可回放、永不丢失。保存的查询支持文件管理和右键菜单。", icon: "history" }
   - { title: "JDBC 桥接", body: "通过 JDBC 连接 20+ 种额外数据库：Snowflake、DB2、BigQuery、Databricks、Teradata、Hive、Hana、Vertica、Exasol、Informix、Cassandra、TDengine 等。自动 JRE 检测和驱动管理。", icon: "terminal" }
-  - { title: "跨平台原生体验", body: "基于 Rust + Tauri v2 构建 — 无 Electron、无 JRE、无 Chromium。极小的原生安装包，支持 macOS（.dmg）、Windows（.exe）和 Linux（.AppImage、.deb）。原生性能，原生界面。", icon: "dot" }
+  - { title: "桌面安装包", body: "支持 macOS（.dmg）、Windows（.exe 或 .msi）及 Linux（.deb、.rpm 或 AppImage）。应用基于 Rust 和 Tauri 构建，使用 JDBC 连接时按需下载 Java 运行环境。", icon: "dot" }
 
 platforms:
   title: "支持全平台"

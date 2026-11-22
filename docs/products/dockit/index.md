@@ -91,6 +91,9 @@ hero:
     - text: Download
       link: /download#dockit
       theme: alt
+    - text: Documentation
+      link: /docs/dockit/
+      theme: alt
 
 databases:
   title: "Native support for modern NoSQL"
@@ -193,7 +196,7 @@ DocKit is an open-source **MongoDB GUI client** with a full-featured query edito
 
 Connect with authentication, TLS, and replica set configurations. Bulk write support for efficient batch operations. Query history with star/bookmark favorites, persisted per connection. Import and export collections in JSON, CSV, and JSONL.
 
-→ [MongoDB GUI client documentation](/docs/dockit/connect-to-server)
+→ [MongoDB queries and documents](/docs/dockit/mongodb-workspace)
 
 ## EasySearch Support
 

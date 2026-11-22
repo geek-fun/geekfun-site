@@ -1,7 +1,8 @@
 ---
 layout: product
-title: SqlKit – Open-Source SQL Desktop Client for 70+ Databases with AI Agent
-description: SqlKit is an open-source agentic SQL desktop GUI client for 70+ databases — PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery and more. AI-powered, privacy-first, and built with Rust + Tauri.
+title: SqlKit | SQL Database GUI for MySQL, PostgreSQL, SQL Server & Oracle
+titleTemplate: false
+description: SqlKit is an open-source SQL database GUI for Mac, Windows, and Linux. Browse tables, run SQL, and export results from MySQL, PostgreSQL, SQL Server, Oracle, and more.
 ogImage: https://www.geekfun.club/og/sqlkit-en.png
 head:
   - - meta
@@ -30,13 +31,16 @@ head:
         "@type": "SoftwareApplication",
         "name": "SqlKit",
         "alternateName": ["agentic SQL client", "database GUI", "SQL database manager", "AI SQL agent", "database desktop client", "open source SQL client"],
-        "description": "Open-source agentic SQL desktop client for 70+ databases — PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more. AI-powered natural language to SQL, visual schema browser, SSH tunnels, and JDBC bridge. Built with Rust + Tauri for native performance.",
-        "applicationCategory": "DatabaseApplication",
+        "description": "Open-source desktop SQL database GUI for MySQL, PostgreSQL, SQL Server, Oracle, SQLite, and more, with a SQL editor, schema browser, and result export.",
+        "url": "https://www.geekfun.club/products/sqlkit/",
+        "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": {
           "@type": "Offer",
+          "name": "Community",
           "price": "0",
-          "priceCurrency": "USD"
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/pricing"
         },
         "featureList": [
           "70+ database support",
@@ -74,24 +78,16 @@ head:
           "Saved queries",
           "Auto-update",
           "HTTP proxy for LLM connections",
-          "i18n support (English, 简体中文)"
+          "Multilingual interface"
         ],
         "screenshot": "https://www.geekfun.club/sqlkit-client-ui.png",
-        "downloadUrl": "https://www.geekfun.club/download",
-        "softwareVersion": "0.8.5",
+        "downloadUrl": "https://www.geekfun.club/download#sqlkit",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
           "url": "https://www.geekfun.club"
         },
-        "license": "https://github.com/geek-fun/sqlkit/blob/main/LICENSE",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "892",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
+        "license": "https://github.com/geek-fun/sqlkit/blob/master/LICENSE",
         "sameAs": [
           "https://github.com/geek-fun/sqlkit",
           "https://www.geekfun.club/products/sqlkit/"
@@ -100,8 +96,8 @@ head:
 
 hero:
   name: SqlKit
-  headline: "The agentic SQL client for 70+ databases"
-  tagline: "70+ databases, one desktop app. AI-powered, open-source, and built for developers."
+  headline: "Open-source SQL database GUI"
+  tagline: "Browse tables, run queries, and export results from MySQL, PostgreSQL, SQL Server, Oracle, and more. Available for macOS, Windows, and Linux."
   logo: /sqlkit.png
   screenshot: /sqlkit-client-ui.png
   actions:
@@ -111,6 +107,9 @@ hero:
       external: true
     - text: Download
       link: /download#sqlkit
+      theme: alt
+    - text: Documentation
+      link: /docs/sqlkit/
       theme: alt
 
 databases:
@@ -201,7 +200,7 @@ features:
   - { title: "SSH Tunnel & Security", body: "Connect through SSH with key or password authentication. SSL/TLS for encrypted connections. Credentials secured by OS keychain. HTTP proxy support for LLM provider connections.", icon: "lock" }
   - { title: "Multi-Tab & History", body: "Work on multiple queries simultaneously with tab management. Auto-saved query history — searchable, replayable, never lost. Saved queries with file management and context menus.", icon: "history" }
   - { title: "JDBC Bridge", body: "Connect to 20+ additional databases via JDBC including Snowflake, DB2, BigQuery, Databricks, Teradata, Hive, Hana, Vertica, Exasol, Informix, Cassandra, TDengine, and more. Automatic JRE detection and driver management.", icon: "terminal" }
-  - { title: "Cross-Platform Native", body: "Built with Rust + Tauri v2 — no Electron, no JRE, no bundled Chromium. Ships as a small native binary for macOS (.dmg), Windows (.exe), and Linux (.AppImage, .deb). Native performance, native look and feel.", icon: "dot" }
+  - { title: "Desktop Installers", body: "Install SqlKit on macOS (.dmg), Windows (.exe or .msi), or Linux (.deb, .rpm, or AppImage). The app is built with Rust and Tauri, and adds Java on demand for JDBC connections.", icon: "dot" }
 
 platforms:
   title: "Available on all platforms"

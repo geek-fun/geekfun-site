@@ -24,6 +24,7 @@ head:
 
 # 使用 DocKit 监控和管理 Elasticsearch 集群
 
+管理工作区需要旗舰版。如果服务器提供对应的管理 API，OpenSearch 和 EasySearch 也可以按本页步骤操作。
 DocKit 作为一个 NoSQL GUI 客户端，支持监控和管理 Elasticsearch，包括索引和别名管理、节点管理、分片管理和模板管理。本文档概述了如何在 DocKit 中监控和管理 Elasticsearch。
 
 ## 安装并打开 DocKit

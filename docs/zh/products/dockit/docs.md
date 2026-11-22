@@ -19,7 +19,7 @@ head:
       href: https://www.geekfun.club/products/dockit/docs
 ---
 
-# 文档
+# DocKit 文档 {#文档}
 
 DocKit 作为一个 NoSQL/NewSQL GUI 客户端，支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 等数据库。本文档概述了如何使用 DocKit。
 

@@ -22,7 +22,17 @@ head:
       href: https://www.geekfun.club/docs/dockit/
 ---
 
-# 文档
+# DocKit 文档 {#文档}
+
+## 查询和浏览数据
+
+| 数据库 | 操作指南 |
+| --- | --- |
+| Elasticsearch、OpenSearch、EasySearch | [运行 Query DSL 并查看结果](/zh/docs/dockit/search-editor) |
+| MongoDB | [查询文档、浏览结果和管理集合](/zh/docs/dockit/mongodb-workspace) |
+| DynamoDB | [使用可视化查询构建器和 PartiQL](/zh/docs/dockit/dynamodb-query-editor) |
+
+如果网络要求通过堡垒机或代理访问数据库，请按指南配置 [SSH 隧道和系统代理](/zh/docs/dockit/remote-connections)。让 AI 访问数据库前，先检查这条连接的 [AI 权限](/zh/docs/dockit/ai-permissions)。要接入编程助手，请设置[本地 MCP 桥接](/zh/docs/dockit/mcp-bridge)。
 
 DocKit 是一款 **AI 原生** NoSQL GUI 客户端，支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch。用自然语言写查询，让 AI 处理语法。Agentic Data Studio 提供多步骤数据库操作，支持按源权限控制和安全门禁。
 

@@ -81,6 +81,9 @@ hero:
     - text: 下载
       link: /zh/download#dockit
       theme: alt
+    - text: 使用文档
+      link: /zh/docs/dockit/
+      theme: alt
 
 databases:
   title: "原生支持现代 NoSQL"
@@ -165,7 +168,7 @@ DocKit 是一款开源 **MongoDB GUI 客户端**，具备功能完备的查询�
 
 支持认证、TLS 和副本集配置连接。批量写入支持高效的批量操作。查询历史支持星标/收藏，按连接持久保存。支持以 JSON、CSV 和 JSONL 格式导入导出集合。
 
-→ [MongoDB GUI 客户端文档](/zh/docs/dockit/connect-to-server)
+→ [MongoDB 查询与文档](/zh/docs/dockit/mongodb-workspace)
 
 ## EasySearch 支持
 

@@ -29,7 +29,7 @@ Data Studio Agent is a [Model Context Protocol](https://modelcontextprotocol.io/
 - **SQL** (via SqlKit): 70+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more)
 - **NoSQL** (via DocKit): Elasticsearch, OpenSearch, MongoDB, DynamoDB
 
-It's local-first. The bridge binds to `127.0.0.1`, your credentials never leave the desktop apps, and by default the agent only gets read-safe tools.
+The bridge listens on `127.0.0.1`. DocKit and SqlKit look up database credentials on your machine. What the agent can do depends on that connection’s [AI permissions](/docs/data-studio-agent/safety).
 
 ## How it works
 

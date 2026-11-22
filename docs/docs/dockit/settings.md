@@ -32,7 +32,7 @@ Open settings from:
 - **Menu**: Click the gear icon (⚙️) in the top toolbar
 - **Keyboard**: Press `Cmd+,` (or `Ctrl+,`)
 
-The Settings panel contains three sections: **Theme & Language**, **Editor**, and **History**.
+Open **Basic** to see your plan or change the theme, language, and number of queries kept in history. Go to **Editor** to adjust Monaco settings. Use **AI** for [providers and models](/docs/dockit/agentic-datastudio#providers-models), and **MCP Bridge** for [bridge status](/docs/dockit/mcp-bridge) and [default AI permissions](/docs/dockit/ai-permissions).
 
 ## Theme Settings
 
@@ -49,17 +49,17 @@ Choose how DocKit looks on your system.
 
 Theme changes apply instantly without restarting.
 
+## Account and plan
+
+In **Basic**, check your plan and which features are available in the version you have installed. The Community edition includes direct connections, editors, history, and query result exports. Ultimate adds the AI, MCP, Manage, and file import/export workspaces and advanced connection options. With version lock, a release that came out while your paid subscription was active can keep local access to Ultimate features. Check the plan panel to see whether that applies to your installed version.
+
 ## Language Settings
 
 Select DocKit's display language.
 
 | Option | Values | Description |
 |--------|--------|-------------|
-| **Language** | `auto` / `English` / `Chinese` | `auto` detects OS language; others force specific languages |
-
-Currently supported:
-- **English** (`enUS`)
-- **Chinese** (`zhCN` — 简体中文)
+| **Language** | Auto, English, 简体中文, 繁體中文, Português (Brasil), 日本語, 한국어, Español | Auto follows system language detection. An explicit choice is saved across restarts. |
 
 Language affects:
 - UI labels and menus

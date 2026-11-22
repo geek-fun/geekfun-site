@@ -22,9 +22,19 @@ head:
       href: https://www.geekfun.club/docs/dockit/
 ---
 
-# Document
+# DocKit documentation {#document}
 
 DocKit is an **AI-native** NoSQL GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Describe what you need in plain language and the agent writes the queries. Agentic Data Studio handles multi-step database operations with per-source permissions and safety controls.
+
+## Query and browse data
+
+| Database | Start here |
+| --- | --- |
+| Elasticsearch, OpenSearch, EasySearch | [Run Query DSL requests and inspect results](/docs/dockit/search-editor) |
+| MongoDB | [Query documents, browse results, and manage collections](/docs/dockit/mongodb-workspace) |
+| DynamoDB | [Use the visual query builder and PartiQL](/docs/dockit/dynamodb-query-editor) |
+
+Set up an [SSH tunnel or system proxy](/docs/dockit/remote-connections) if your network requires it. Check the connection’s [AI permissions](/docs/dockit/ai-permissions) before enabling AI access. For a coding assistant, set up [the local MCP bridge](/docs/dockit/mcp-bridge).
 
 ## [Agentic Data Studio](/docs/dockit/agentic-datastudio)
 

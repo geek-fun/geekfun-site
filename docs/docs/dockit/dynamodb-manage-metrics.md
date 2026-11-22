@@ -24,6 +24,8 @@ head:
 
 # DocKit DynamoDB Manage & Metrics
 
+The Manage workspace requires Ultimate. To read or edit individual items, use the [DynamoDB query editor](/docs/dockit/dynamodb-query-editor).
+
 DocKit provides a built-in DynamoDB management panel for browsing tables, creating and deleting tables, viewing table metrics, and inspecting indexes — all from a native desktop interface.
 
 ## Overview

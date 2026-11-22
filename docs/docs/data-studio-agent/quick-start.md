@@ -120,15 +120,9 @@ Or run `opencode mcp add` interactively.
 
 ## 4. Tune permissions (optional)
 
-Open **Settings → MCP Bridge** in DocKit/SqlKit to control what the agent can do:
+In each desktop app, open **Settings → MCP Bridge → Default AI permissions**. Choose **Read** if your coding assistant only needs schema inspection and read queries, then review the connection's settings. If you allow or deny a specific action on a connection, that setting takes priority over the system default.
 
-| Permission mode | What the agent can do |
-|---|---|
-| **Read Only** (default) | Explore schemas, run SELECT queries. No writes. |
-| **Data Read/Write** | INSERT, UPDATE, index operations. No deletes/drops. |
-| **Full Access** | Everything, including DELETE, DROP, TRUNCATE. |
-
-The mode is set per app. You can also restrict the connection allowlist (which connections the MCP server can reach) and mark individual connections read-only.
+**Read & modify data** includes data deletion. Choose **Custom** to allow a narrower set of writes. For details on connection overrides and client-side approvals, see [DocKit AI permissions](/docs/dockit/ai-permissions).
 
 ## 5. Start asking
 

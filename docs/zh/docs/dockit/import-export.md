@@ -28,6 +28,8 @@ DocKit 支持以 JSON、CSV 和 Elasticsearch Bulk 格式从 MongoDB、Elasticse
 
 ## 前提条件
 
+要从文件导入数据，或将数据库中的数据导出为文件，可使用旗舰版的**导入与导出**工作区。如果只想保存当前查询返回的数据，用结果面板的导出按钮即可。
+
 在使用导入/导出功能之前，请确保您具备：
 
 - 机器上已安装 DocKit。请参阅[安装指南](/zh/docs/dockit/installation)。
