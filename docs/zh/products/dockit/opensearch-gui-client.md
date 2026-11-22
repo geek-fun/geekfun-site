@@ -8,7 +8,7 @@ head:
       content: opensearch gui客户端, opensearch桌面客户端, opensearch dashboards替代方案, aws opensearch客户端, opensearch查询工具, opensearch集群管理, 开源opensearch客户端, opensearch mac客户端
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/products/dockit/opensearch-gui-client
+      href: https://www.geekfun.club/zh/products/dockit/opensearch-gui-client
   - - link
     - rel: alternate
       hreflang: en

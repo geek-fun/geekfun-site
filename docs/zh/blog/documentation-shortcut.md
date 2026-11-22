@@ -237,7 +237,7 @@ const url = buildDocUrl(backendType, version, docPath, language);
 ## 相关资源
 
 - **[DocKit — AI Native NoSQL GUI](/zh/products/dockit/)** — 多引擎桌面客户端
-- **[2026 年十大 Elasticsearch 工具](https://www.geekfun.club/zh/blog/elasticsearch-tools-2026)** — ES 工具对比
+- **[2026 年 Elasticsearch GUI 客户端对比](/zh/blog/best-elasticsearch-gui-client-2026)** — ES 工具对比
 - **[Elasticsearch GUI 客户端指南](/zh/products/dockit/elasticsearch-gui-client)** — DocKit ES 功能入门
 - **[OpenSearch GUI 客户端](/zh/products/dockit/opensearch-gui-client)** — OpenSearch 桌面客户端
 - **[下载 DocKit](/download)** — 获取最新版本

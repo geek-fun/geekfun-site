@@ -8,7 +8,7 @@ head:
       content: mongodb gui客户端, mongodb桌面客户端, mongodb gui, mongodb compass替代方案, robo 3t替代方案, studio 3t替代方案, mongodb查询编辑器, mongodb集合浏览器, 开源mongodb客户端, mongodb mac客户端, mongodb windows客户端, mongodb linux客户端, mongodb ai代理, mongodb自然语言查询
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/products/dockit/mongodb-gui-client
+      href: https://www.geekfun.club/zh/products/dockit/mongodb-gui-client
   - - link
     - rel: alternate
       hreflang: en

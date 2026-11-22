@@ -18,38 +18,35 @@ gtag('js', new Date());
 gtag('config', 'G-ZFVJ89KR9L');`]
 ];
 
-// Auto-detect system language: Chinese tags (any zh* variant) redirect to the
-// Simplified Chinese tree when the visitor hasn't expressed a preference
-// (localStorage `gf-lang`, set when they switch language in the nav menu).
-// BCP-47 lookup falls back within the language range: a zhTW-resolving tag has
-// no dedicated tree yet, so it lands on /zh — far better for a Traditional
-// Chinese reader than English. When a zhTW tree ships, this mapping flips to
-// it directly. Locales outside zh have partial trees, so they never
-// auto-redirect (the target would 404 on untranslated pages). Injected into
-// <head> on every page (dev + build) before the app mounts, so there is no
-// flash of the wrong language. Note: this must live in the `head` array —
-// `transformHead` only runs at build time, not in dev.
-const langAutoDetectHead: HeadConfig[] = [['script', {}, `(function () {
+// Omitting VitePress locale labels disables its path-based language switcher.
+const languages = [
+    {prefix: '', lang: 'en', label: 'English'},
+    {prefix: 'zh/', lang: 'zh', label: '简体中文'},
+    {prefix: 'pt-BR/', lang: 'pt-BR', label: 'Português (BR)'},
+    {prefix: 'ja/', lang: 'ja', label: '日本語'},
+    {prefix: 'ko/', lang: 'ko', label: '한국어'},
+    {prefix: 'es/', lang: 'es', label: 'Español'},
+];
+
+function chineseRedirect(englishPath: string, chinesePath: string): HeadConfig {
+    return ['script', {}, `(function () {
   try {
-    var path = location.pathname;
-    var isZh = path.indexOf('/zh/') === 0 || path === '/zh';
-    var zhUrl = '/zh' + (path.length > 1 ? path : '/') + location.search + location.hash;
+    if (location.pathname.replace(/\\/$/, '') !== ${JSON.stringify(englishPath.replace(/\/$/, ''))}) return;
     var pref = localStorage.getItem('gf-lang');
-    if (pref === 'zh' && !isZh) {
-      location.replace(zhUrl);
-      return;
-    }
-    if (pref) return;
     var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
-    if (nav.indexOf('zh') === 0 && !isZh) {
-      location.replace(zhUrl);
+    if (pref === 'zh' || (!pref && nav.indexOf('zh') === 0)) {
+      location.replace(${JSON.stringify(chinesePath)} + location.search + location.hash);
     }
   } catch (e) {}
-})();`]];
+})();`];
+}
+
+function getPagePath(page: string): string {
+    return '/' + page.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '');
+}
 
 function getPageUrl(page: string) {
-    const normalizedPage = page.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '');
-    return new URL(normalizedPage, `${siteUrl}/`).toString();
+    return new URL(getPagePath(page), siteUrl).href;
 }
 
 function getPageType(page: string) {
@@ -85,7 +82,7 @@ export default defineConfig({
     cleanUrls: true,
     outDir: '../dist',
     cacheDir: '../cache',
-    head: [...gaHead, ...langAutoDetectHead],
+    head: gaHead,
     markdown: {
         image: {
             lazyLoading: true
@@ -110,7 +107,6 @@ export default defineConfig({
     },
     locales: {
         root: {
-            label: 'English',
             title: titleEn,
             lang: 'en',
             description: descEn,
@@ -170,7 +166,6 @@ nav: [
             }
         },
         zh: {
-            label: "简体中文",
             lang: 'zh',
             title: titleZh,
             description: descZh,
@@ -234,7 +229,7 @@ nav: [
             }
         },
         'pt-BR': {
-            label: 'Português (BR)',
+            link: '/pt-BR/products/dockit/',
             lang: 'pt-BR',
             title: titlePt,
             description: descPt,
@@ -251,7 +246,7 @@ nav: [
             }
         },
         ja: {
-            label: '日本語',
+            link: '/ja/products/dockit/',
             lang: 'ja',
             title: titleJa,
             description: descJa,
@@ -268,7 +263,7 @@ nav: [
             }
         },
         ko: {
-            label: '한국어',
+            link: '/ko/products/dockit/',
             lang: 'ko',
             title: titleKo,
             description: descKo,
@@ -285,7 +280,7 @@ nav: [
             }
         },
         es: {
-            label: 'Español',
+            link: '/es/products/dockit/',
             lang: 'es',
             title: titleEs,
             description: descEs,
@@ -308,48 +303,60 @@ nav: [
             return items.filter((item) => item.url !== '404' && item.url !== '/404');
         }
     },
-    transformPageData({relativePath, frontmatter}) {
-        const guide = relativePath.match(/^(zh\/)?(docs\/(sqlkit|dockit)\/.*\.md)$/);
-        const existingHead: HeadConfig[] = frontmatter.head ?? [];
-        if (guide && !existingHead.some(([tag, attrs]) => tag === 'link' && attrs.rel === 'canonical')) {
-            const [, zh, englishPath, slug] = guide;
+    transformPageData({relativePath, frontmatter}, {siteConfig}) {
+        const pages = new Set(siteConfig.pages.map((page) => siteConfig.rewrites.map[page] || page));
+        if (!pages.has(relativePath)) return;
+
+        const prefix = languages.find(({prefix}) => prefix && relativePath.startsWith(prefix))?.prefix ?? '';
+        const path = relativePath.slice(prefix.length);
+        const languageLinks = languages
+            .filter(({prefix}) => pages.has(prefix + path))
+            .map(({prefix, lang, label}) => ({lang, label, href: getPagePath(prefix + path)}));
+
+        let head: HeadConfig[] = (frontmatter.head ?? []).filter(([tag, attributes]: HeadConfig) =>
+            tag !== 'link' || attributes.rel !== 'alternate' || !attributes.hreflang
+        );
+        if (languageLinks.length > 1) {
+            for (const {lang, href} of languageLinks) {
+                head.push(['link', {rel: 'alternate', hreflang: lang, href: new URL(href, siteUrl).href}]);
+            }
+            const english = languageLinks.find(({lang}) => lang === 'en');
+            if (english) {
+                head.push(['link', {rel: 'alternate', hreflang: 'x-default', href: new URL(english.href, siteUrl).href}]);
+                const chinese = languageLinks.find(({lang}) => lang === 'zh');
+                if (!prefix && chinese) head.push(chineseRedirect(english.href, chinese.href));
+            }
+        }
+
+        const guide = relativePath.match(/^(zh\/)?docs\/(sqlkit|dockit)\/.*\.md$/);
+        if (guide && !head.some(([tag, attrs]) => tag === 'link' && attrs.rel === 'canonical')) {
+            const [, zh, slug] = guide;
             const app = slug === 'sqlkit' ? 'SqlKit' : 'DocKit';
-            const englishUrl = getPageUrl(englishPath);
-            const chineseUrl = getPageUrl(`zh/${englishPath}`);
-            const head: HeadConfig[] = [
-                ...existingHead,
-                ['link', {rel: 'canonical', href: getPageUrl(relativePath)}],
-                ['link', {rel: 'alternate', hreflang: 'en', href: englishUrl}],
-                ['link', {rel: 'alternate', hreflang: 'zh', href: chineseUrl}],
-                ['link', {rel: 'alternate', hreflang: 'x-default', href: englishUrl}],
-            ];
-            return {
-                frontmatter: {
-                    ...frontmatter,
-                    head,
-                    titleTemplate: false,
-                    ogImage: `${siteUrl}/og/${slug}-${zh ? 'zh' : 'en'}.png`,
-                    ogImageAlt: zh ? `${app} 桌面数据库客户端` : `${app} desktop database client`,
-                }
+            head.push(['link', {rel: 'canonical', href: getPageUrl(relativePath)}]);
+            frontmatter = {
+                ...frontmatter,
+                titleTemplate: false,
+                ogImage: `${siteUrl}/og/${slug}-${zh ? 'zh' : 'en'}.png`,
+                ogImageAlt: zh ? `${app} 桌面数据库客户端` : `${app} desktop database client`,
             };
         }
 
         const product = relativePath.match(/(^|\/)products\/(dockit|sqlkit)\/index\.md$/)?.[2];
-        if (!product) return;
-        const app = product === 'sqlkit'
-            ? {name: 'SqlKit', version: SQLKIT_VERSION}
-            : {name: 'DocKit', version: DOCKIT_VERSION};
+        if (product) {
+            const app = product === 'sqlkit'
+                ? {name: 'SqlKit', version: SQLKIT_VERSION}
+                : {name: 'DocKit', version: DOCKIT_VERSION};
+            head = head.map((entry): HeadConfig => {
+                const [tag, attributes, content] = entry;
+                if (tag !== 'script' || attributes.type !== 'application/ld+json' || typeof content !== 'string') return entry;
 
-        const head = existingHead.map((entry): HeadConfig => {
-            const [tag, attributes, content] = entry;
-            if (tag !== 'script' || attributes.type !== 'application/ld+json' || typeof content !== 'string') return entry;
+                const schema = JSON.parse(content);
+                if (schema['@type'] !== 'SoftwareApplication' || schema.name !== app.name) return entry;
+                return [tag, attributes, JSON.stringify({...schema, softwareVersion: app.version})];
+            });
+        }
 
-            const schema = JSON.parse(content);
-            if (schema['@type'] !== 'SoftwareApplication' || schema.name !== app.name) return entry;
-            return [tag, attributes, JSON.stringify({...schema, softwareVersion: app.version})];
-        });
-
-        return {frontmatter: {...frontmatter, head}};
+        return {frontmatter: {...frontmatter, head, languageLinks}};
     },
     transformHead({page, title, description, pageData}) {
         const isZhPage = page.startsWith('zh/');

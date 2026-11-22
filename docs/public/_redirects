@@ -5,10 +5,36 @@
 # /home legacy URL
 /home  /  301
 
-# /products/ has no index page — forward to DocKit hub
+# Legacy product index
+/products     /products/dockit/    301
 /products/    /products/dockit/    301
+/zh/products  /zh/products/dockit/ 301
 /zh/products/ /zh/products/dockit/ 301
 
 # AI Assistant renamed to Agentic Data Studio
 /docs/dockit/ai-assistant      /docs/dockit/agentic-datastudio      301
 /zh/docs/dockit/ai-assistant   /zh/docs/dockit/agentic-datastudio   301
+
+# Moved comparison articles
+/blog/best-dynamodb-gui-client     /blog/best-dynamodb-gui-client-2026     301
+/zh/blog/best-dynamodb-gui-client  /zh/blog/best-dynamodb-gui-client-2026  301
+/blog/elasticsearch-tools-2026    /blog/best-elasticsearch-gui-client-2026     301
+/zh/blog/elasticsearch-tools-2026 /zh/blog/best-elasticsearch-gui-client-2026  301
+
+# DocKit product pages and guides that cover the original topics
+/blog/dynamodb-gui                                 /docs/dockit/dynamodb-query-editor                  301
+/blog/dynamodb-gui/                                /docs/dockit/dynamodb-query-editor                  301
+/zh/blog/dynamodb-gui                              /zh/products/dockit/dynamodb-gui-client             301
+/zh/blog/dynamodb-gui/                             /zh/products/dockit/dynamodb-gui-client             301
+/blog/elasticsearch-gui-client                     /products/dockit/elasticsearch-gui-client           301
+/zh/blog/elasticsearch-gui-client                  /zh/products/dockit/elasticsearch-gui-client        301
+/zh/blog/elasticsearch-gui                         /zh/products/dockit/elasticsearch-gui-client        301
+/zh/blog/elasticsearch-gui/                        /zh/products/dockit/elasticsearch-gui-client        301
+/blog/elasticsearch-ai-assistant                   /docs/dockit/agentic-datastudio                      301
+/blog/elasticsearch-ai-assistant/                  /docs/dockit/agentic-datastudio                      301
+/zh/blog/elasticsearch-ai-assistant                /zh/docs/dockit/agentic-datastudio                   301
+/zh/blog/elasticsearch-ai-assistant/               /zh/docs/dockit/agentic-datastudio                   301
+/blog/opensearch-gui                               /products/dockit/dockit-vs-opensearch-dashboards     301
+/zh/blog/opensearch-gui                            /zh/products/dockit/opensearch-gui-client            301
+/products/dockit/features/dynamodb-partiql         /docs/dockit/dynamodb-query-editor                  301
+/zh/products/dockit/features/dynamodb-partiql      /zh/docs/dockit/dynamodb-query-editor               301
