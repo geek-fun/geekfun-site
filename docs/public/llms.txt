@@ -1,6 +1,6 @@
 # GEEKFUN
 
-> GEEKFUN builds open-source database tools. SqlKit is a desktop SQL GUI for PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and more. DocKit is a desktop NoSQL client for MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch. Data Studio Agent connects coding assistants to databases through SqlKit and DocKit using MCP.
+> SqlKit and DocKit are open-source desktop clients from GEEKFUN. Use SqlKit with PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and other SQL databases. DocKit is for NoSQL databases such as MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch. Data Studio Agent lets coding assistants use database connections from either app through the Model Context Protocol (MCP).
 
 ## Products, downloads, and plans
 
@@ -30,7 +30,7 @@
 
 - [DocKit documentation](https://www.geekfun.club/docs/dockit/)
 - [Install DocKit](https://www.geekfun.club/docs/dockit/installation)
-- [Set up a database connection](https://www.geekfun.club/docs/dockit/connect-to-server)
+- [Connect DocKit to a database](https://www.geekfun.club/docs/dockit/connect-to-server)
 - [Query Elasticsearch, OpenSearch, and EasySearch](https://www.geekfun.club/docs/dockit/search-editor)
 - [Query and edit MongoDB documents](https://www.geekfun.club/docs/dockit/mongodb-workspace)
 - [Query DynamoDB with the visual builder or PartiQL](https://www.geekfun.club/docs/dockit/dynamodb-query-editor)
@@ -39,9 +39,9 @@
 ## MCP setup and permissions
 
 - [Data Studio Agent documentation](https://www.geekfun.club/docs/data-studio-agent/)
-- [Set up Data Studio Agent in a coding assistant](https://www.geekfun.club/docs/data-studio-agent/quick-start)
+- [Data Studio Agent quick start](https://www.geekfun.club/docs/data-studio-agent/quick-start)
 - [Configure the DocKit MCP bridge](https://www.geekfun.club/docs/dockit/mcp-bridge)
-- [Configure per-connection AI permissions](https://www.geekfun.club/docs/dockit/ai-permissions)
+- [Set AI permissions for a DocKit connection](https://www.geekfun.club/docs/dockit/ai-permissions)
 
 ## Optional
 

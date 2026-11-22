@@ -230,7 +230,7 @@ SqlKit's **Agentic Data Studio** lets you work with databases without writing SQ
 
 ## Multi-Database Architecture
 
-SqlKit uses built-in drivers, PostgreSQL- and MySQL-compatible connections, JDBC, or HTTP depending on the database. See [supported databases and drivers](/docs/sqlkit/supported-databases) for setup details.
+Check [supported databases and drivers](/docs/sqlkit/supported-databases) to see how to connect to your database.
 
 | Strategy | Databases |
 |----------|-----------|
@@ -276,7 +276,7 @@ SqlKit uses built-in drivers, PostgreSQL- and MySQL-compatible connections, JDBC
 ## Frequently asked questions
 
 **What databases does SqlKit support?**
-SqlKit connects to PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and other SQL databases and data warehouses. The [database and driver guide](/docs/sqlkit/supported-databases) lists connection methods and setup requirements.
+Use SqlKit with PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and other SQL databases and data warehouses. The [database and driver guide](/docs/sqlkit/supported-databases) explains what you need to connect to each one.
 
 **Is SqlKit really free?**
 Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.

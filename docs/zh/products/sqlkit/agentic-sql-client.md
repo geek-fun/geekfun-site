@@ -40,9 +40,9 @@ head:
       }
 ---
 
-# SqlKit - 覆盖所有 SQL 数据库的 AI 智能体 SQL 桌面客户端
+# 支持 AI 辅助查询的 SqlKit 桌面客户端 {#sqlkit-覆盖所有-sql-数据库的-ai-智能体-sql-桌面客户端}
 
-SqlKit 是适用于 macOS、Windows 和 Linux 的开源 SQL 桌面客户端。支持 PostgreSQL、MySQL、SQL Server 和 Oracle，也能连接 TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、openGauss、YashanDB 和 Vastbase 等数据库。
+SqlKit 是一款开源桌面 SQL 客户端，可在 macOS、Windows 和 Linux 上运行。除了 PostgreSQL、MySQL、SQL Server 和 Oracle，也支持 TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、openGauss、YashanDB 和 Vastbase 等数据库。
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">免费下载</a>
@@ -108,8 +108,6 @@ Agentic Data Studio 是一个 AI agent，连接你的数据库 schema、索引�
 按 `⌘ + Enter` 或 `Ctrl + Enter` 运行选中的 SQL 或光标所在语句。支持执行计划的数据库可使用**解释**功能。更多操作见 [SQL 编辑器快捷键](/zh/docs/sqlkit/keyboard-shortcuts)。
 
 ### 多数据库支持
-
-不同的数据库使用不同的驱动和连接方式。
 
 | 类型 | 数据库 |
 |---|---|

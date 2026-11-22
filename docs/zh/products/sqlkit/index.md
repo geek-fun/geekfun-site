@@ -230,7 +230,7 @@ SqlKit 的 **Agentic Data Studio** 重新定义了数据库工作方式。无需
 
 ## 多数据库架构
 
-SqlKit 根据数据库类型选择内置驱动、PostgreSQL 或 MySQL 兼容协议、JDBC 或 HTTP。具体设置见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
+连接前，可在[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)中查看需要的驱动和配置。
 
 | 策略 | 支持的数据库 |
 |----------|-----------|
@@ -276,7 +276,7 @@ SqlKit 根据数据库类型选择内置驱动、PostgreSQL 或 MySQL 兼容协�
 ## 常见问题
 
 **SqlKit 支持哪些数据库？**
-SqlKit 支持 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等 SQL 数据库，也能连接数据仓库。各类数据库的连接方式和设置要求见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
+SqlKit 可以连接 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等 SQL 数据库和数据仓库。每种数据库的连接步骤见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
 
 **SqlKit 真的免费吗？**
 是的 —— 社区版永久免费、开源（Apache 2.0），涵盖完整的本地数据库工作流，连接不限量。进阶能力 —— AI 智能体（自带 LLM）、MCP、集群管理、ER 图、批量导入导出、跨设备同步 —— 属于付费的 GEEKFUN Data Studio 旗舰版订阅（$9.9/月 或 $99/年，7 天免费试用）。订阅期间发布的版本永久可用，取消订阅后依然归你。

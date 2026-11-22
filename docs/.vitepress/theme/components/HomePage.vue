@@ -58,7 +58,7 @@ const content = computed(() => {
         logo: '/sqlkit.png',
         preview: '/hero-slice-image/sqlkit-image.png',
         description: isZh
-          ? '开源 SQL 桌面客户端，支持 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等数据库。通过 Agentic Data Studio，可以用自然语言编写查询。'
+          ? '开源 SQL 桌面客户端，支持 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等数据库。你可以用自己的话描述查询需求，交给 Agentic Data Studio 写 SQL。'
           : 'Open-source desktop SQL client for PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and more. Use Agentic Data Studio to write queries in natural language.',
         url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
       },

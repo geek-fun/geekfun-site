@@ -40,7 +40,7 @@ head:
       }
 ---
 
-# SqlKit — Agentic SQL GUI Client for All Your SQL Databases
+# SqlKit desktop SQL client with Agentic Data Studio {#sqlkit-—-agentic-sql-gui-client-for-all-your-sql-databases}
 
 SqlKit is an open-source SQL desktop client for macOS, Windows, and Linux. Agentic Data Studio can use your database schema to write SQL and help you troubleshoot query errors.
 
@@ -110,8 +110,6 @@ The editor is Monaco — same engine VS Code uses. Syntax highlighting for every
 Run selected SQL or the statement at the cursor with `⌘ + Enter` or `Ctrl + Enter`. Use **Explain** for an execution plan on supported engines. See the [SQL editor shortcuts](/docs/sqlkit/keyboard-shortcuts).
 
 ### Multi-database support
-
-SqlKit uses the driver or connection method that fits your database.
 
 | Strategy | Databases |
 |---|---|

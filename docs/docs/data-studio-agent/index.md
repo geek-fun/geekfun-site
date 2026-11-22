@@ -26,8 +26,8 @@ head:
 
 Data Studio Agent is a [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that gives AI coding agents direct access to your databases through the [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/) desktop apps. Instead of copy-pasting query results into your AI tool, your agent queries the databases for you in plain language.
 
-- **SQL** (via SqlKit): PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more
-- **NoSQL** (via DocKit): Elasticsearch, OpenSearch, MongoDB, DynamoDB
+- Use SqlKit for PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and other SQL databases.
+- For NoSQL, use DocKit with Elasticsearch, OpenSearch, MongoDB, or DynamoDB.
 
 The bridge listens on `127.0.0.1`. DocKit and SqlKit look up database credentials on your machine. What the agent can do depends on that connection’s [AI permissions](/docs/data-studio-agent/safety).
 
