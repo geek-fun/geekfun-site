@@ -75,10 +75,10 @@ const titleKo = 'GEEKFUN | 지속 가능한 소프트웨어 커뮤니티';
 const titleEs = 'GEEKFUN | Comunidad de Software Sostenible';
 const descEn = 'GEEKFUN builds open-source desktop database tools. SqlKit is a SQL GUI for PostgreSQL, MySQL, SQL Server, and Oracle. DocKit is a GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch.';
 const descZh = '极客范提供开源桌面数据库工具。SqlKit 支持 PostgreSQL、MySQL、SQL Server 和 Oracle，DocKit 支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch。';
-const descPt = 'GEEKFUN é uma comunidade open-source dedicada a construir soluções de software sustentáveis, com ferramentas como o DocKit (GUI para MongoDB, Elasticsearch, OpenSearch e DynamoDB) e o SqlKit (cliente SQL para mais de 50 bancos de dados).';
-const descJa = 'GEEKFUN は、持続可能なソフトウェアの構築に取り組むオープンソースコミュニティです。DocKit(MongoDB、Elasticsearch、OpenSearch、DynamoDB 向け GUI)や SqlKit(50 以上のデータベースに対応する SQL クライアント)などのツールを提供しています。';
-const descKo = 'GEEKFUN은 지속 가능한 소프트웨어 구축에 힘쓰는 오픈소스 커뮤니티입니다. DocKit(MongoDB, Elasticsearch, OpenSearch, DynamoDB GUI)과 SqlKit(50개 이상 데이터베이스용 SQL 클라이언트) 같은 도구를 제공합니다.';
-const descEs = 'GEEKFUN es una comunidad open-source dedicada a construir software sostenible, con herramientas como DocKit (GUI para MongoDB, Elasticsearch, OpenSearch y DynamoDB) y SqlKit (cliente SQL para más de 50 bases de datos).';
+const descPt = 'GEEKFUN é uma comunidade open-source dedicada a construir soluções de software sustentáveis, com ferramentas como o DocKit (GUI para MongoDB, Elasticsearch, OpenSearch e DynamoDB) e o SqlKit (cliente SQL para PostgreSQL, MySQL, SQL Server, Oracle, SQLite e outros bancos).';
+const descJa = 'GEEKFUN は、持続可能なソフトウェアの構築に取り組むオープンソースコミュニティです。DocKit(MongoDB、Elasticsearch、OpenSearch、DynamoDB 向け GUI)や SqlKit(PostgreSQL、MySQL、SQL Server、Oracle、SQLite などに対応する SQL クライアント)などのツールを提供しています。';
+const descKo = 'GEEKFUN은 지속 가능한 소프트웨어 구축에 힘쓰는 오픈소스 커뮤니티입니다. DocKit(MongoDB, Elasticsearch, OpenSearch, DynamoDB GUI)과 SqlKit(PostgreSQL, MySQL, SQL Server, Oracle, SQLite 등을 지원하는 SQL 클라이언트) 같은 도구를 제공합니다.';
+const descEs = 'GEEKFUN es una comunidad open-source dedicada a construir software sostenible, con herramientas como DocKit (GUI para MongoDB, Elasticsearch, OpenSearch y DynamoDB) y SqlKit (cliente SQL para PostgreSQL, MySQL, SQL Server, Oracle, SQLite y otras bases de datos).';
 
 export default defineConfig({
     lastUpdated: true,

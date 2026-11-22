@@ -411,7 +411,7 @@ const translations = {
           'The MCP server that lets your AI coding agent securely access all your databases.',
         features: [
           'MCP Server: Plug and play with Claude Code, Cursor, OpenCode & any MCP client',
-          'SQL Bridge: Access 70+ databases via SqlKit',
+          'Connect to SQL databases through SqlKit',
           'NoSQL Bridge: Elasticsearch, OpenSearch, MongoDB, DynamoDB',
           'Local-first: Data never leaves your machine, enterprise-grade security',
           'Bring Your Own Model: Any LLM, no vendor lock-in'
@@ -510,7 +510,7 @@ const translations = {
         aiExplainOptimize: 'AI explain & optimize SQL',
         aiFix: 'One-click AI SQL fix',
         mcpServers: 'MCP server for Claude Code, Cursor, OpenCode & any MCP client',
-        mcpBridge: 'SQL + NoSQL database bridge (SqlKit 70+ SQL DBs, DocKit NoSQL)',
+        mcpBridge: 'Database bridge for SqlKit and DocKit',
         aiQuota: 'AI request quota',
         clusterManagement: 'Cluster management & monitoring (nodes/shards/indices/templates)',
         erDashboards: 'ER diagrams & dashboards',
@@ -616,7 +616,7 @@ const translations = {
         description: '让 AI 编程智能体安全访问所有数据库的 MCP 服务器。',
         features: [
           'MCP 服务器：Claude Code、Cursor、OpenCode 等任意 MCP 客户端即插即用',
-          'SQL 桥接：通过 SqlKit 访问 70+ 数据库',
+          '通过 SqlKit 连接 SQL 数据库',
           'NoSQL 桥接：Elasticsearch、OpenSearch、MongoDB、DynamoDB',
           '本地优先：数据不出本机，企业级安全',
           '自带模型：任意 LLM，无供应商锁定'
@@ -702,7 +702,7 @@ const translations = {
         aiExplainOptimize: 'AI 解释与优化 SQL',
         aiFix: 'AI 一键修复 SQL 错误',
         mcpServers: 'MCP 服务器（Claude Code、Cursor、OpenCode 等任意 MCP 客户端）',
-        mcpBridge: 'SQL + NoSQL 数据库桥接（SqlKit 70+ SQL 库、DocKit NoSQL）',
+        mcpBridge: 'SqlKit 和 DocKit 数据库桥接',
         aiQuota: 'AI 请求额度',
         clusterManagement: '集群管理与监控（节点/分片/索引/模板）',
         erDashboards: 'ER 图与数据大盘',

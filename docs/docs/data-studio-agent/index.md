@@ -1,6 +1,6 @@
 ---
 title: Data Studio Agent Documentation — MCP server for databases
-description: Data Studio Agent is an open-source MCP server that lets AI coding agents talk to your databases in plain language. It routes queries to SqlKit (70+ SQL databases) and DocKit (NoSQL) bridges, runs locally on 127.0.0.1, and never exposes credentials.
+description: Data Studio Agent is an open-source MCP server that lets AI coding agents talk to your databases in plain language. It routes queries to SqlKit for SQL and DocKit for NoSQL bridges, runs locally on 127.0.0.1, and never exposes credentials.
 head:
   - - meta
     - name: keywords
@@ -26,7 +26,7 @@ head:
 
 Data Studio Agent is a [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server that gives AI coding agents direct access to your databases through the [DocKit](/products/dockit/) and [SqlKit](/products/sqlkit/) desktop apps. Instead of copy-pasting query results into your AI tool, your agent queries the databases for you in plain language.
 
-- **SQL** (via SqlKit): 70+ databases (PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more)
+- **SQL** (via SqlKit): PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, ClickHouse, Snowflake, BigQuery, and more
 - **NoSQL** (via DocKit): Elasticsearch, OpenSearch, MongoDB, DynamoDB
 
 The bridge listens on `127.0.0.1`. DocKit and SqlKit look up database credentials on your machine. What the agent can do depends on that connection’s [AI permissions](/docs/data-studio-agent/safety).

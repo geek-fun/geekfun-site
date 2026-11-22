@@ -31,7 +31,7 @@ head:
         "@type": "SoftwareApplication",
         "name": "SqlKit",
         "alternateName": ["智能 SQL 客户端", "数据库 GUI", "SQL 数据库管理器", "AI SQL 智能体", "数据库桌面客户端", "开源 SQL 客户端"],
-        "description": "开源的智能 SQL 桌面客户端，支持 70+ 种数据库 — PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等。内置 AI 自然语言转 SQL、可视化 Schema 浏览器、SSH 隧道和 JDBC 桥接。基于 Rust + Tauri 构建，原生性能。",
+        "description": "开源 SQL 桌面客户端，支持 PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake 和 BigQuery 等数据库。内置 AI 自然语言转 SQL、可视化 Schema 浏览器、SSH 隧道和 JDBC 桥接。基于 Rust + Tauri 构建，原生性能。",
         "url": "https://www.geekfun.club/zh/products/sqlkit/",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Windows, macOS, Linux",
@@ -43,7 +43,7 @@ head:
           "url": "https://www.geekfun.club/zh/pricing"
         },
         "featureList": [
-          "支持 70+ 种数据库",
+          "支持 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等数据库",
           "AI Agentic Data Studio",
           "自然语言转 SQL",
           "SQL 优化与执行计划可视化",
@@ -113,7 +113,7 @@ hero:
       theme: alt
 
 databases:
-  title: "70+ 种数据库，一个客户端"
+  title: "支持的数据库"
   items:
     - { name: Oracle, logo: /db-logos/oracle-logo.svg }
     - { name: MySQL, logo: /db-logos/mysql-logo.svg }
@@ -176,8 +176,8 @@ showcase:
     body: "说需求，AI 读 schema、写查询、解释执行计划、修 SQL 错误。支持 OpenAI、Anthropic、DeepSeek、Ollama。自备 key，凭据不上云。"
     image: /sqlkit-data-studio-ui.png
     align: left
-  - title: "70+ 种数据库统一管理"
-    body: "原生支持国产信创数据库：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase 等。国际主流同样全覆盖。"
+  - title: "在一个客户端里连接多个数据库"
+    body: "SqlKit 内置 PostgreSQL、MySQL、SQL Server 和 SQLite 驱动，也能连接 TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、openGauss、YashanDB 和 Vastbase 等数据库。"
     image: /sqlkit-sql-editor-ui.png
     align: right
   - title: "数据浏览与可视化"
@@ -191,7 +191,7 @@ showcase:
 
 features:
   - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI 智能体自动读取 Schema、编写查询、优化慢 SQL、可视化执行计划、自动修复错误。细粒度权限控制，危险操作需二次确认。自带 LLM 密钥，凭据本地保存。", icon: "sparkles" }
-  - { title: "70+ 种数据库支持", body: "原生 Rust 驱动：PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse、Oracle、Firebird。PG/MySQL 协议兼容：CockroachDB、MariaDB、TiDB、OceanBase、Redshift。JDBC 桥接：Snowflake、DB2、BigQuery、Databricks、Teradata、Hive 等 20+ 种。HTTP 桥接：Trino、Presto。", icon: "database" }
+  - { title: "数据库连接", body: "连接 PostgreSQL、MySQL、SQL Server、Oracle、SQLite、Snowflake 和 BigQuery 等数据库和数据仓库。所需驱动和连接设置因数据库而异。", icon: "database" }
   - { title: "产品级查询编辑器", body: "基于 Monaco Editor（VS Code 引擎），支持完整 SQL 语法高亮、上下文感知的自动补全、多标签编辑、可配置的 SQL 格式化（支持多种方言）。", icon: "code" }
   - { title: "可视化 Schema 浏览器", body: "数据库、Schema、表、列、索引、视图、存储过程、函数的树形浏览。一键查看 DDL，跨 Schema 对象搜索，直观查看表关系。", icon: "search" }
   - { title: "智能数据网格", body: "虚拟滚动数据网格，支持排序、筛选、内联编辑和复制。跨列行级数据搜索。分页结果集，支持 CSV、JSON 和 Markdown 导出。", icon: "table" }
@@ -199,7 +199,7 @@ features:
   - { title: "查询执行计划", body: "以结构化树形图展示查询执行计划，成本高亮显示。一眼理解查询执行流程，快速定位优化机会。", icon: "zap" }
   - { title: "SSH 隧道与安全", body: "支持密钥和密码认证的 SSH 隧道连接。SSL/TLS 加密传输。凭据由操作系统密钥链保护。支持 LLM 连接的 HTTP 代理配置。", icon: "lock" }
   - { title: "多标签与历史记录", body: "多标签页同时处理多个查询。自动保存的查询历史 — 可搜索、可回放、永不丢失。保存的查询支持文件管理和右键菜单。", icon: "history" }
-  - { title: "JDBC 桥接", body: "通过 JDBC 连接 20+ 种额外数据库：Snowflake、DB2、BigQuery、Databricks、Teradata、Hive、Hana、Vertica、Exasol、Informix、Cassandra、TDengine 等。自动 JRE 检测和驱动管理。", icon: "terminal" }
+  - { title: "JDBC 桥接", body: "通过 JDBC 连接 Oracle、DuckDB、Firebird、Snowflake 和 BigQuery 等数据库。测试连接时，SqlKit 会检查 Java 运行环境，并可按需下载驱动。", icon: "terminal" }
   - { title: "桌面安装包", body: "支持 macOS（.dmg）、Windows（.exe 或 .msi）及 Linux（.deb、.rpm 或 AppImage）。应用基于 Rust 和 Tauri 构建，使用 JDBC 连接时按需下载 Java 运行环境。", icon: "dot" }
 
 platforms:
@@ -230,22 +230,21 @@ SqlKit 的 **Agentic Data Studio** 重新定义了数据库工作方式。无需
 
 ## 多数据库架构
 
-SqlKit 通过五种适配策略支持 **70+ 种数据库**，覆盖从原生 Rust 驱动到灵活的 JDBC 桥接。没有其他开源 SQL 客户端能覆盖如此广度。
+SqlKit 根据数据库类型选择内置驱动、PostgreSQL 或 MySQL 兼容协议、JDBC 或 HTTP。具体设置见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
 
 | 策略 | 支持的数据库 |
 |----------|-----------|
-| **原生**（Rust） | PostgreSQL、MySQL、SQL Server、SQLite、DuckDB、ClickHouse、Firebird、Oracle |
+| **原生**（Rust） | PostgreSQL、MySQL、SQL Server、SQLite |
 | **PG 协议兼容** | CockroachDB、Redshift、YugabyteDB、TimescaleDB、QuestDB、Vastbase 等 |
 | **MySQL 协议兼容** | MariaDB、TiDB、OceanBase、StarRocks、Databend、ManticoreSearch 等 |
-| **JDBC 桥接** | Snowflake、DB2、H2、BigQuery、Databricks、Hive、Hana、Teradata、Vertica、Exasol、Informix、Cassandra、TDengine 等 |
-| **HTTP 桥接** | Trino、Presto |
+| **JDBC 桥接** | Oracle、DuckDB、Firebird、Snowflake、DB2、H2、BigQuery、Databricks、Hive、Hana、Teradata、Vertica、Exasol、Informix、Cassandra、TDengine 等 |
+| **HTTP 桥接** | ClickHouse、Trino、Presto、rqlite、Turso |
 
 ## 为开发者而生
 
 | 对比 | SqlKit | DBeaver | DataGrip | Navicat |
 |---|---|---|---|---|
 | **AI 智能体** | ✅ 原生内置 | ❌ 插件 | ❌ | ❌ |
-| **数据库覆盖** | 70+ | 50+ | 部分 | 50+ |
 | **原生性能** | ✅ Rust + Tauri | ❌ Java/Electron | ❌ JVM | ❌ C++ |
 | **SSH 隧道** | ✅ | ✅ | ✅ | ✅ |
 | **JDBC 桥接** | ✅ | ✅ | ❌ | ✅ |
@@ -277,7 +276,7 @@ SqlKit 通过五种适配策略支持 **70+ 种数据库**，覆盖从原生 Rus
 ## 常见问题
 
 **SqlKit 支持哪些数据库？**
-SqlKit 支持 70+ 种数据库，包括 PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Firebird、MariaDB、CockroachDB、Redshift、Snowflake、DB2、Trino、BigQuery、Databricks、Hive、Teradata 等。详见上方数据库兼容性表格。
+SqlKit 支持 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等 SQL 数据库，也能连接数据仓库。各类数据库的连接方式和设置要求见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
 
 **SqlKit 真的免费吗？**
 是的 —— 社区版永久免费、开源（Apache 2.0），涵盖完整的本地数据库工作流，连接不限量。进阶能力 —— AI 智能体（自带 LLM）、MCP、集群管理、ER 图、批量导入导出、跨设备同步 —— 属于付费的 GEEKFUN Data Studio 旗舰版订阅（$9.9/月 或 $99/年，7 天免费试用）。订阅期间发布的版本永久可用，取消订阅后依然归你。
@@ -289,7 +288,7 @@ SqlKit 支持 70+ 种数据库，包括 PostgreSQL、MySQL、SQL Server、Oracle
 不会。SqlKit 不收集任何遥测数据。自动更新功能仅检查 GitHub Releases 新版本 — 可在设置中关闭。您的凭据和查询记录始终保存在本地。
 
 **SqlKit 与 DBeaver、DataGrip 有何不同？**
-SqlKit 基于 Rust + Tauri 构建 — 无需 Java 运行环境、无 Electron 开销。AI 功能原生内置（非插件），支持 70+ 种数据库，单个小型安装包即可在 macOS、Windows、Linux 上运行。隐私优先，凭据加密本地存储。
+SqlKit 是基于 Rust 和 Tauri 的桌面应用，内置 Agentic Data Studio。连接凭据保存在系统密钥链中。连接 JDBC 数据库时，SqlKit 可按需配置 Java 运行环境。
 
 **我可以使用自己的 AI 提供商吗？**
 可以。SqlKit 支持 OpenAI、Anthropic、DeepSeek 以及任何 Ollama 兼容端点。在设置中配置提供商和密钥即可。AI 智能体不会将数据库凭据暴露给 LLM。

@@ -42,7 +42,7 @@ head:
 
 # SqlKit - 覆盖所有 SQL 数据库的 AI 智能体 SQL 桌面客户端
 
-SqlKit 是一个开源的 SQL 桌面客户端，Mac、Windows、Linux 都能跑。连得上 **50+ 种数据库**——国际主流不用说，国产信创也都在列表里：TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、OpenGauss、YashanDB、Vastbase。
+SqlKit 是适用于 macOS、Windows 和 Linux 的开源 SQL 桌面客户端。支持 PostgreSQL、MySQL、SQL Server 和 Oracle，也能连接 TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、openGauss、YashanDB 和 Vastbase 等数据库。
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
   <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">免费下载</a>
@@ -109,7 +109,7 @@ Agentic Data Studio 是一个 AI agent，连接你的数据库 schema、索引�
 
 ### 多数据库支持
 
-**50+ 种数据库**，国产信创也在内：
+不同的数据库使用不同的驱动和连接方式。
 
 | 类型 | 数据库 |
 |---|---|
@@ -137,7 +137,6 @@ Agentic Data Studio 是一个 AI agent，连接你的数据库 schema、索引�
 | **自然语言转 SQL** | ✅ Schema 感知 | ❌ | ❌ | ❌ |
 | **SQL 优化** | ✅ 自动 + 解释 | ❌ | ❌ | ❌ |
 | **错误自动修复** | ✅ | ❌ | ❌ | ❌ |
-| **50+ 数据库** | ✅ | ✅ | 部分 | ✅ |
 | **平台** | Desktop (Rust + Tauri) | Java/Electron | JVM | C++ |
 | **启动速度** | < 2 s | 5–15 s | 10–20 s | 3–8 s |
 | **内存** | ~150 MB | ~400 MB | ~500 MB | ~200 MB |

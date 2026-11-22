@@ -1,6 +1,6 @@
 ---
 title: Data Studio Agent 文档 — 数据库 MCP 服务器
-description: MCP 服务器文档，支持 70+ 种 SQL 与 NoSQL，本地优先，仅绑定 127.0.0.1，可按操作配置连接权限。
+description: MCP 服务器文档，通过 SqlKit 和 DocKit 连接 SQL 与 NoSQL 数据库，本地优先，仅绑定 127.0.0.1，可按操作配置连接权限。
 head:
   - - meta
     - name: keywords
@@ -28,7 +28,7 @@ head:
 
 Data Studio Agent 是一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 桌面应用，让 AI 编码代理直接访问你的数据库。不用再把查询结果复制粘贴到 AI 工具里，代理直接替你查数据库，用自然语言就行。
 
-- **SQL**（走 SqlKit）：70+ 种数据库（PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等）
+- **SQL**（走 SqlKit）：PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等
 - **NoSQL**（走 DocKit）：Elasticsearch、OpenSearch、MongoDB、DynamoDB
 
 桥接只监听 `127.0.0.1`。DocKit 和 SqlKit 会在本机读取数据库凭据。编程助手能做什么，取决于该连接的 [AI 权限](/zh/docs/data-studio-agent/safety)。

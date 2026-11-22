@@ -111,7 +111,7 @@ Run selected SQL or the statement at the cursor with `⌘ + Enter` or `Ctrl + En
 
 ### Multi-database support
 
-**50+ databases**, five adapter strategies to get you connected:
+SqlKit uses the driver or connection method that fits your database.
 
 | Strategy | Databases |
 |---|---|
@@ -139,7 +139,6 @@ Entity-relationship diagrams drawn on a canvas. See table relationships, foreign
 | **Natural language to SQL** | ✅ Schema-aware | ❌ | ❌ | ❌ |
 | **SQL optimization** | ✅ Auto + explain | ❌ | ❌ | ❌ |
 | **Error auto-fix** | ✅ | ❌ | ❌ | ❌ |
-| **50+ databases** | ✅ | ✅ | Partial | ✅ |
 | **Platform** | Desktop (Rust + Tauri) | Java/Electron | JVM | C++ |
 | **Startup** | < 2 s | 5–15 s | 10–20 s | 3–8 s |
 | **RAM** | ~150 MB | ~400 MB | ~500 MB | ~200 MB |
