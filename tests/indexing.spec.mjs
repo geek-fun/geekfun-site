@@ -56,7 +56,7 @@ test.describe('language navigation', () => {
   })
 
   test('desktop menu uses the translations of the current page', async ({ page }) => {
-    await page.setViewportSize({ width: 1024, height: 800 })
+    await page.setViewportSize({ width: 1100, height: 800 })
     await page.goto('/docs/sqlkit/connect-to-database#add-and-test-a-connection')
     await page.getByRole('button', { name: 'Change language' }).hover()
     const links = page.getByRole('navigation', { name: 'Change language' }).getByRole('link')
@@ -81,12 +81,12 @@ test.describe('language navigation', () => {
   })
 
   test('tablet keeps the language menu and navigation inside the viewport', async ({ page }) => {
-    await page.setViewportSize({ width: 960, height: 800 })
-    await page.goto('/docs/sqlkit/connect-to-database')
+    await page.setViewportSize({ width: 1024, height: 800 })
+    await page.goto('/pt-BR/docs/sqlkit/connect-to-database')
     await expect(page.locator('.VPNavBar')).toBeInViewport()
     await page.getByRole('button', { name: 'mobile navigation' }).click()
-    await expect(page.getByRole('navigation', { name: 'Change language' }).getByRole('link', { name: '繁體中文' })).toBeInViewport()
-    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960)
+    await expect(page.getByRole('navigation', { name: 'Alterar idioma' }).getByRole('link', { name: '繁體中文' })).toBeInViewport()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1024)
   })
 
   test.describe('with a Chinese browser locale', () => {

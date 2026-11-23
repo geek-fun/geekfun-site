@@ -173,7 +173,7 @@ html .VPNavScreen {
   backdrop-filter: blur(var(--gf-glass-blur-strong)) saturate(var(--gf-glass-saturate));
 }
 
-@media (768px <= width < 1024px) {
+@media (768px <= width < 1100px) {
   .VPNavBar :is(.VPNavBarMenu, .VPNavBarExtra, .nav-auth.bar) {
     display: none;
   }

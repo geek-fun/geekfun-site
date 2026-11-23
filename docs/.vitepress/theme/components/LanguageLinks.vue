@@ -43,7 +43,7 @@ const targetHash = computed(() => getUnprefixedDocsPath(page.value.relativePath)
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   .site-language.bar {
     display: block;
   }
