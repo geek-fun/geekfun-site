@@ -43,9 +43,14 @@
 - [Configure the DocKit MCP bridge](https://www.geekfun.club/docs/dockit/mcp-bridge)
 - [Set AI permissions for a DocKit connection](https://www.geekfun.club/docs/dockit/ai-permissions)
 
-## Optional
+## Documentation by language
 
 - [简体中文文档](https://www.geekfun.club/zh/docs)
 - [SqlKit 简体中文文档](https://www.geekfun.club/zh/docs/sqlkit/)
 - [DocKit 简体中文文档](https://www.geekfun.club/zh/docs/dockit/)
 - [Data Studio Agent 简体中文文档](https://www.geekfun.club/zh/docs/data-studio-agent/)
+- [繁體中文文件](https://www.geekfun.club/zh-TW/docs)
+- [Documentação em português do Brasil](https://www.geekfun.club/pt-BR/docs)
+- [日本語ドキュメント](https://www.geekfun.club/ja/docs)
+- [한국어 문서](https://www.geekfun.club/ko/docs)
+- [Documentación en español](https://www.geekfun.club/es/docs)

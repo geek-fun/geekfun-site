@@ -1,3 +1,5 @@
+import { getLocalizedDocs, getUnprefixedDocsPath } from './docs-locales'
+
 type Guide = [path: string, en: string, zh: string]
 
 type GuideGroup = {
@@ -109,34 +111,59 @@ const products: DocProduct[] = [
   },
 ]
 
-export const getDocsProducts = (isZh: boolean) => {
+export const getDocsProducts = (lang: string) => {
+  const isZh = lang === 'zh'
   const locale = isZh ? 'zh' : 'en'
-  const base = isZh ? '/zh/docs' : '/docs'
-  return products.map(({ id, name, logo, summary, groups }) => {
+  const copy = getLocalizedDocs(lang)
+  const base = isZh || copy ? `/${lang}/docs` : '/docs'
+  const translatedTitles: Record<string, string> | undefined = copy && {
+    installation: copy.guides.installation,
+    'connect-to-database': copy.guides.connection,
+    'connect-to-server': copy.guides.connection,
+    'query-editor': copy.guides.sqlEditor,
+    'keyboard-shortcuts': copy.guides.shortcuts,
+    shortcut: copy.guides.shortcuts,
+    'search-editor': copy.guides.search,
+    'mongodb-workspace': copy.guides.mongo,
+    'dynamodb-query-editor': copy.guides.dynamo,
+    'mysql-gui-client': 'MySQL',
+    'postgresql-gui-client': 'PostgreSQL',
+    'sql-server-gui-client': 'SQL Server',
+    'oracle-gui-client': 'Oracle Database',
+    'sqlite-gui-client': 'SQLite',
+  }
+
+  return products.filter(({ id }) => !copy || id !== 'data-studio-agent').map(({ id, name, logo, summary, groups }) => {
     const link = `${base}/${id}/`
     return {
       id, name, logo, link,
-      summary: summary[locale],
-      groups: groups.map(group => ({
-        text: group[locale],
-        items: group.guides.map(([path, en, zh]) => ({ text: isZh ? zh : en, link: link + path })),
+      summary: copy ? (id === 'sqlkit' ? copy.sqlkit : copy.dockit) : summary[locale],
+      groups: groups.map((group, index) => ({
+        text: copy ? copy.groups[index === 0 ? 0 : id === 'sqlkit' ? 1 : 2] : group[locale],
+        items: group.guides.map(([path, en, zh]) => {
+          const translation = translatedTitles?.[path]
+          if (copy && !translation) {
+            return { text: `${en} (${copy.fallback})`, link: `/docs/${id}/${path}` }
+          }
+          return { text: translation ?? (isZh ? zh : en), link: link + path }
+        }),
       })),
     }
   })
 }
 
-export const getDocsSidebar = (isZh: boolean) => Object.fromEntries(
-  getDocsProducts(isZh).map(({ name, link, groups }) => [link, [
+export const getDocsSidebar = (lang: string) => Object.fromEntries(
+  getDocsProducts(lang).map(({ name, link, groups }) => [link, [
     {
       text: name,
-      items: [{ text: isZh ? '概览' : 'Overview', link }, ...groups[0].items],
+      items: [{ text: getLocalizedDocs(lang)?.overview ?? (lang === 'zh' ? '概览' : 'Overview'), link }, ...groups[0].items],
     },
     ...groups.slice(1),
   ]]),
 )
 
 export const getDocsProductId = (pagePath: string): string | undefined => {
-  const path = pagePath.replace(/^zh\//, '')
+  const path = getUnprefixedDocsPath(pagePath)
   if (path === 'products/dockit/docs.md') return 'dockit'
   return products.find(({ id }) => path.startsWith(`docs/${id}/`))?.id
 }

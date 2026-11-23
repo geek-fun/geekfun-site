@@ -2,19 +2,21 @@
 import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { getDocsProducts } from '../../../docs-navigation'
+import { getLocalizedDocs } from '../../../docs-locales'
 
 const { lang } = useData()
 const isZh = computed(() => lang.value === 'zh')
-const products = computed(() => getDocsProducts(isZh.value))
+const copy = computed(() => getLocalizedDocs(lang.value))
+const products = computed(() => getDocsProducts(lang.value))
 </script>
 
 <template>
   <div class="editorial-index docs-index">
     <header class="editorial-index-heading">
-      <h1>{{ isZh ? '文档' : 'Documentation' }}</h1>
-      <p>{{ isZh
+      <h1>{{ copy?.title ?? (isZh ? '文档' : 'Documentation') }}</h1>
+      <p>{{ copy?.intro ?? (isZh
         ? '安装 SqlKit、DocKit 和 Data Studio Agent，了解如何连接和查询数据库。'
-        : 'Installation, connection, and query guides for SqlKit, DocKit, and Data Studio Agent.' }}</p>
+        : 'Installation, connection, and query guides for SqlKit, DocKit, and Data Studio Agent.') }}</p>
     </header>
 
     <section v-for="product in products" :key="product.id" class="docs-product" :aria-labelledby="product.id">
@@ -23,7 +25,7 @@ const products = computed(() => getDocsProducts(isZh.value))
         <h2 :id="product.id">{{ product.name }}</h2>
         <p>{{ product.summary }}</p>
         <a class="docs-overview-link" :href="withBase(product.link)">
-          {{ isZh ? `${product.name} 概览` : `${product.name} overview` }}
+          {{ copy ? `${product.name} · ${copy.overview}` : isZh ? `${product.name} 概览` : `${product.name} overview` }}
           <span class="editorial-arrow" aria-hidden="true"></span>
         </a>
       </div>

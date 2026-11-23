@@ -1,30 +1,19 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
+import { getLocalizedDocs, getUnprefixedDocsPath } from '../../docs-locales'
 import VPFlyout from 'vitepress/dist/client/theme-default/components/VPFlyout.vue'
 
 defineProps<{ variant: 'bar' | 'screen' }>()
 
 type LanguageLink = { lang: string; label: string; href: string }
 
-const { frontmatter, hash, lang } = useData()
+const { frontmatter, hash, lang, page } = useData()
 const links = computed<LanguageLink[]>(() => frontmatter.value.languageLinks ?? [])
-const labels: Record<string, string> = {
-  zh: '切换语言',
-  'pt-BR': 'Alterar idioma',
-  ja: '言語を変更',
-  ko: '언어 변경',
-  es: 'Cambiar idioma',
-}
-const label = computed(() => labels[lang.value] ?? 'Change language')
-
-function selectLanguage(language: string): void {
-  try {
-    localStorage.setItem('gf-lang', language)
-  } catch {
-    // Language links also work when storage is unavailable.
-  }
-}
+const label = computed(() => getLocalizedDocs(lang.value)?.switchLanguage ?? (
+  lang.value === 'zh' ? '切换语言' : 'Change language'
+))
+const targetHash = computed(() => getUnprefixedDocsPath(page.value.relativePath).startsWith('docs/') ? '' : hash.value)
 </script>
 
 <template>
@@ -40,10 +29,9 @@ function selectLanguage(language: string): void {
         <span v-if="link.lang === lang" :lang="link.lang" class="current">{{ link.label }}</span>
         <a
           v-else
-          :href="withBase(link.href) + hash"
+          :href="withBase(link.href) + targetHash"
           :lang="link.lang"
           :hreflang="link.lang"
-          @click="selectLanguage(link.lang)"
         >{{ link.label }}</a>
       </template>
     </nav>

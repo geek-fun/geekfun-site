@@ -21,6 +21,7 @@ import BlogArticleHeader from "./components/blog/BlogArticleHeader.vue";
 import DocsBreadcrumb from "./components/docs/DocsBreadcrumb.vue";
 import { isBlogArticle } from "../blog";
 import { getDocsProductId } from "../docs-navigation";
+import { getUnprefixedDocsPath } from "../docs-locales";
 
 const oneYearFromNow = () => new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
 
@@ -32,7 +33,7 @@ export default {
         const pagePath = page.value.relativePath
         const isArticle = isBlogArticle(pagePath)
         const isBlogIndex = /^(zh\/)?blog\.md$/.test(pagePath)
-        const isDocsIndex = /^(zh\/)?docs\.md$/.test(pagePath)
+        const isDocsIndex = getUnprefixedDocsPath(pagePath) === 'docs.md'
         const docsProductId = getDocsProductId(pagePath)
         const slots: Record<string, () => unknown> = {
             'nav-bar-content-after': () => [

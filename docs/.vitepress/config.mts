@@ -1,6 +1,7 @@
 import {defineConfig, type HeadConfig} from 'vitepress'
 import {blogDate, isBlogArticle, type BlogFrontmatter} from './blog'
 import {getDocsSidebar} from './docs-navigation'
+import {getLocalizedDocs, localizedDocs} from './docs-locales'
 import {DOCKIT_VERSION, SQLKIT_VERSION} from './theme/version'
 
 const icon = '/favicon.ico';
@@ -22,24 +23,8 @@ gtag('config', 'G-ZFVJ89KR9L');`]
 const languages = [
     {prefix: '', lang: 'en', label: 'English'},
     {prefix: 'zh/', lang: 'zh', label: '简体中文'},
-    {prefix: 'pt-BR/', lang: 'pt-BR', label: 'Português (BR)'},
-    {prefix: 'ja/', lang: 'ja', label: '日本語'},
-    {prefix: 'ko/', lang: 'ko', label: '한국어'},
-    {prefix: 'es/', lang: 'es', label: 'Español'},
+    ...Object.entries(localizedDocs).map(([lang, {language}]) => ({prefix: `${lang}/`, lang, label: language})),
 ];
-
-function chineseRedirect(englishPath: string, chinesePath: string): HeadConfig {
-    return ['script', {}, `(function () {
-  try {
-    if (location.pathname.replace(/\\/$/, '') !== ${JSON.stringify(englishPath.replace(/\/$/, ''))}) return;
-    var pref = localStorage.getItem('gf-lang');
-    var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
-    if (pref === 'zh' || (!pref && nav.indexOf('zh') === 0)) {
-      location.replace(${JSON.stringify(chinesePath)} + location.search + location.hash);
-    }
-  } catch (e) {}
-})();`];
-}
 
 function getPagePath(page: string): string {
     return '/' + page.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '');
@@ -66,6 +51,17 @@ const sharedThemeConfig = {
 };
 const titleEn = 'GEEKFUN | Sustainable Software Community';
 const titleZh = '极客范 | 可持续的开源软件社区';
+const localizedTheme = (lang: keyof typeof localizedDocs) => {
+    const copy = localizedDocs[lang];
+    return {
+        ...sharedThemeConfig,
+        siteTitle: 'GEEKFUN',
+        sidebar: getDocsSidebar(lang),
+        outline: {label: copy.outline},
+        sidebarMenuLabel: copy.sidebar,
+        docFooter: {prev: copy.previous, next: copy.next},
+    };
+};
 const titlePt = 'GEEKFUN | Comunidade de Software Sustentável';
 const titleJa = 'GEEKFUN | 持続可能なソフトウェアコミュニティ';
 const titleKo = 'GEEKFUN | 지속 가능한 소프트웨어 커뮤니티';
@@ -134,7 +130,7 @@ export default defineConfig({
             themeConfig: {
                 ...sharedThemeConfig,
                 siteTitle: 'GEEKFUN',
-                sidebar: getDocsSidebar(false),
+                sidebar: getDocsSidebar('en'),
 nav: [
                      {
                          text: 'Home',
@@ -196,7 +192,7 @@ nav: [
                 siteTitle: '极客范',
                 outline: {label: '本页内容'},
                 returnToTopLabel: '返回顶部',
-                sidebar: getDocsSidebar(true),
+                sidebar: getDocsSidebar('zh'),
                 sidebarMenuLabel: '文档目录',
 nav: [
                       {
@@ -235,13 +231,13 @@ nav: [
             description: descPt,
             head: [['link', {rel: 'icon', href: icon}]],
             themeConfig: {
-                ...sharedThemeConfig,
-                siteTitle: 'GEEKFUN',
+                ...localizedTheme('pt-BR'),
                 nav: [
                     {text: 'Download', link: '/pt-BR/download'},
                     {text: 'Preços', link: '/pt-BR/pricing'},
                     {text: 'DocKit', link: '/pt-BR/products/dockit/'},
-                    {text: 'Docs', link: '/docs'},
+                    {text: 'SqlKit', link: '/pt-BR/products/sqlkit/'},
+                    {text: localizedDocs['pt-BR'].title, link: '/pt-BR/docs'},
                 ]
             }
         },
@@ -252,13 +248,13 @@ nav: [
             description: descJa,
             head: [['link', {rel: 'icon', href: icon}]],
             themeConfig: {
-                ...sharedThemeConfig,
-                siteTitle: 'GEEKFUN',
+                ...localizedTheme('ja'),
                 nav: [
                     {text: 'ダウンロード', link: '/ja/download'},
                     {text: '料金', link: '/ja/pricing'},
                     {text: 'DocKit', link: '/ja/products/dockit/'},
-                    {text: 'Docs', link: '/docs'},
+                    {text: 'SqlKit', link: '/ja/products/sqlkit/'},
+                    {text: localizedDocs['ja'].title, link: '/ja/docs'},
                 ]
             }
         },
@@ -269,13 +265,13 @@ nav: [
             description: descKo,
             head: [['link', {rel: 'icon', href: icon}]],
             themeConfig: {
-                ...sharedThemeConfig,
-                siteTitle: 'GEEKFUN',
+                ...localizedTheme('ko'),
                 nav: [
                     {text: '다운로드', link: '/ko/download'},
                     {text: '가격', link: '/ko/pricing'},
                     {text: 'DocKit', link: '/ko/products/dockit/'},
-                    {text: 'Docs', link: '/docs'},
+                    {text: 'SqlKit', link: '/ko/products/sqlkit/'},
+                    {text: localizedDocs['ko'].title, link: '/ko/docs'},
                 ]
             }
         },
@@ -286,13 +282,29 @@ nav: [
             description: descEs,
             head: [['link', {rel: 'icon', href: icon}]],
             themeConfig: {
-                ...sharedThemeConfig,
-                siteTitle: 'GEEKFUN',
+                ...localizedTheme('es'),
                 nav: [
                     {text: 'Descargar', link: '/es/download'},
                     {text: 'Precios', link: '/es/pricing'},
                     {text: 'DocKit', link: '/es/products/dockit/'},
-                    {text: 'Docs', link: '/docs'},
+                    {text: 'SqlKit', link: '/es/products/sqlkit/'},
+                    {text: localizedDocs['es'].title, link: '/es/docs'},
+                ]
+            }
+        },
+        'zh-TW': {
+            link: '/zh-TW/docs',
+            lang: 'zh-TW',
+            title: 'GEEKFUN | 開源資料庫工具',
+            description: '安裝 SqlKit 或 DocKit，連線到 SQL 或 NoSQL 資料庫。',
+            head: [['link', {rel: 'icon', href: icon}]],
+            themeConfig: {
+                ...localizedTheme('zh-TW'),
+                nav: [
+                    {text: '下載（英文）', link: '/download'},
+                    {text: 'DocKit', link: '/zh-TW/docs/dockit/'},
+                    {text: 'SqlKit', link: '/zh-TW/products/sqlkit/'},
+                    {text: localizedDocs['zh-TW'].title, link: '/zh-TW/docs'},
                 ]
             }
         },
@@ -323,21 +335,24 @@ nav: [
             const english = languageLinks.find(({lang}) => lang === 'en');
             if (english) {
                 head.push(['link', {rel: 'alternate', hreflang: 'x-default', href: new URL(english.href, siteUrl).href}]);
-                const chinese = languageLinks.find(({lang}) => lang === 'zh');
-                if (!prefix && chinese) head.push(chineseRedirect(english.href, chinese.href));
             }
         }
 
-        const guide = relativePath.match(/^(zh\/)?docs\/(sqlkit|dockit)\/.*\.md$/);
-        if (guide && !head.some(([tag, attrs]) => tag === 'link' && attrs.rel === 'canonical')) {
-            const [, zh, slug] = guide;
-            const app = slug === 'sqlkit' ? 'SqlKit' : 'DocKit';
-            head.push(['link', {rel: 'canonical', href: getPageUrl(relativePath)}]);
+        const hasCanonical = head.some(([tag, attrs]) => tag === 'link' && attrs.rel === 'canonical');
+        if (!hasCanonical) head.push(['link', {rel: 'canonical', href: getPageUrl(relativePath)}]);
+
+        const guide = path.match(/^docs\/(sqlkit|dockit)\/.*\.md$/)?.[1];
+        if (guide && !hasCanonical) {
+            const language = prefix.slice(0, -1);
+            const imageLanguage = language === 'zh' || language === 'zh-TW' ? 'zh' : 'en';
+            const app = guide === 'sqlkit' ? 'SqlKit' : 'DocKit';
             frontmatter = {
                 ...frontmatter,
                 titleTemplate: false,
-                ogImage: `${siteUrl}/og/${slug}-${zh ? 'zh' : 'en'}.png`,
-                ogImageAlt: zh ? `${app} 桌面数据库客户端` : `${app} desktop database client`,
+                ogImage: `${siteUrl}/og/${guide}-${imageLanguage}.png`,
+                ogImageAlt: getLocalizedDocs(language)
+                    ? frontmatter.title
+                    : imageLanguage === 'zh' ? `${app} 桌面数据库客户端` : `${app} desktop database client`,
             };
         }
 
@@ -368,9 +383,10 @@ nav: [
         const ogImageUrl = cover?.src ? new URL(cover.src, siteUrl).href : pageData?.frontmatter?.ogImage ?? masterOg;
         const pageType = getPageType(page);
         const ogImageAlt = cover?.alt ?? pageData?.frontmatter?.ogImageAlt ?? (isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community');
-        const pageLocale = page.split('/')[0] ?? '';
-        const ogLocale = ({zh: 'zh_CN', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES'} as Record<string, string>)[pageLocale] ?? 'en_US';
-        const ogAlternateLocale = ogLocale === 'en_US' ? 'zh_CN' : 'en_US';
+        const openGraphLocales: Record<string, string> = {
+            en: 'en_US', zh: 'zh_CN', 'zh-TW': 'zh_TW', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES',
+        };
+        const ogLocale = openGraphLocales[page.split('/')[0]] ?? 'en_US';
 
         const head: HeadConfig[] = [
             ['meta', {property: 'og:title', content: title}],
@@ -383,12 +399,18 @@ nav: [
             ['meta', {property: 'og:site_name', content: siteName}],
             ['meta', {property: 'og:type', content: pageType}],
             ['meta', {property: 'og:locale', content: ogLocale}],
-            ['meta', {property: 'og:locale:alternate', content: ogAlternateLocale}],
             ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
             ['meta', {property: 'twitter:title', content: title}],
             ['meta', {property: 'twitter:description', content: description}],
             ['meta', {property: 'twitter:image', content: ogImageUrl}],
         ];
+
+        for (const {lang} of pageData?.frontmatter.languageLinks ?? []) {
+            const alternate = openGraphLocales[lang];
+            if (alternate && alternate !== ogLocale) {
+                head.push(['meta', {property: 'og:locale:alternate', content: alternate}]);
+            }
+        }
 
         if (pageType === 'article') {
             const pubDate = blogPost ? blogDate(blogPost.date) : pageData?.frontmatter?.date;

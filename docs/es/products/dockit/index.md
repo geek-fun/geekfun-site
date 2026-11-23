@@ -147,7 +147,8 @@ cta:
   actions:
     - { text: "Iniciar prueba gratis", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
     - { text: "Descargar", link: "/es/download#dockit", theme: "alt" }
-    - { text: "Prueba SqlKit →", link: "/products/sqlkit/", theme: "alt" }
+    - { text: "Prueba SqlKit →", link: "/es/products/sqlkit/", theme: "alt" }
+    - { text: "Documentación", link: "/es/docs/dockit/", theme: "alt" }
 ---
 
 ## Por qué DocKit para equipos con múltiples bases de datos
@@ -197,7 +198,7 @@ DocKit es un **cliente GUI de MongoDB** de código abierto con un editor de cons
 
 Conéctate con autenticación, TLS y configuraciones de replica set. Soporte de escrituras en lote (bulk write) para operaciones por lotes eficientes. Historial de consultas con favoritos de estrella/marcador, guardado por conexión. Importa y exporta colecciones en JSON, CSV y JSONL.
 
-→ [Documentación del cliente GUI de MongoDB](/docs/dockit/connect-to-server)
+→ [Documentación del cliente GUI de MongoDB](/es/docs/dockit/connect-to-server)
 
 ## Soporte de EasySearch
 
@@ -207,7 +208,7 @@ DocKit admite **EasySearch** de forma nativa como un tipo de conexión dedicado 
 
 **Agentic Data Studio** de DocKit te permite interactuar con tus bases de datos mediante lenguaje natural. Describe lo que necesitas — el agente escribe consultas, inspecciona esquemas, actualiza documentos, elimina registros, crea índices y devuelve resultados. Cada operación pasa por herramientas validadas con seguridad integrada: permisos detallados por fuente, una puerta de seguridad que exige confirmación explícita antes de acciones destructivas y una arquitectura que protege las credenciales y nunca expone los secretos de conexión al LLM. Compatible con OpenAI, Anthropic y DeepSeek, además de Ollama y LM Studio para un uso totalmente sin conexión.
 
-→ [Guía de Agentic Data Studio](/docs/dockit/agentic-datastudio)
+→ [Guía de Agentic Data Studio (en inglés)](/docs/dockit/agentic-datastudio)
 
 ## Preguntas frecuentes
 

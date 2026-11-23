@@ -25,11 +25,12 @@ for (const prefix of ['', '/zh', '/es', '/ja', '/ko', '/pt-BR']) {
   })
 }
 
-test('Chinese language redirect preserves search and fragment', async ({ page }) => {
+test('a saved language preference leaves the requested download URL intact', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('gf-lang', 'zh'))
   await page.goto('/download?source=docs#developer-tools')
-  await expect(page).toHaveURL('/zh/download?source=docs#developer-tools')
   await expect(page.getByRole('tabpanel')).toHaveAttribute('id', 'developer-tools')
+  await expect(page).toHaveURL('/download?source=docs#developer-tools')
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en')
 })
 
 test('product download links reach the right card on mobile', async ({ page }) => {
