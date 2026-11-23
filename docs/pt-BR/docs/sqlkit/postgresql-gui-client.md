@@ -7,7 +7,7 @@ description: "Conecte ao PostgreSQL, verifique o certificado do servidor e confi
 
 Abra **Conexões → Adicionar nova conexão** e selecione **PostgreSQL**. Preencha o host, a porta (em geral `5432`), o banco e as credenciais do seu papel. Em **Avançado**, escolha **Verificação completa** com a CA correta se precisar verificar o certificado e o nome do servidor.
 
-Teste, salve e abra **Consultas**. Rode este SQL para conferir a sessão:
+Teste, salve e abra **Consultas**. A consulta abaixo mostra o banco e o esquema ativos.
 
 ```sql
 SELECT current_database() AS active_database, current_schema() AS active_schema;

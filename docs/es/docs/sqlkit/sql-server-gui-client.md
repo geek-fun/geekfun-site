@@ -7,7 +7,7 @@ description: "Conecta SqlKit a SQL Server con un inicio de sesión SQL, el puert
 
 Elige **SQL Server** en **Conexiones → Agregar nueva conexión**. Indica el host, puerto TCP, base de datos y credenciales de SQL Server. Muchas instancias predeterminadas usan `1433`. Para una instancia con nombre, pide el puerto TCP exacto al administrador.
 
-Configura el cifrado en **Avanzado** y prueba la conexión. Tras guardarla, ejecuta este T-SQL en **Consultas**:
+Configura el cifrado en **Avanzado** y prueba la conexión. Guarda la conexión y usa esta consulta T-SQL en **Consultas** para comprobar la sesión.
 
 ```sql
 SELECT DB_NAME() AS active_database, SUSER_SNAME() AS login_name;

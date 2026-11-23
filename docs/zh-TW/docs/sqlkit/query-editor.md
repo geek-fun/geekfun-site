@@ -5,7 +5,7 @@ description: "使用 SQL 編輯器測試連線、查看結果、儲存 SQL，並
 
 # 在 SqlKit 執行第一個 SQL 查詢
 
-[連線到資料庫](/zh-TW/docs/sqlkit/connect-to-database)後，開啟 **查詢** 並按 **新增查詢**。確認編輯器工具列顯示的是要使用的連線與資料庫，再輸入下列 SQL：
+[連線到資料庫](/zh-TW/docs/sqlkit/connect-to-database)後，開啟 **查詢** 並按 **新增查詢**。確認編輯器工具列顯示的是要使用的連線與資料庫，再用這個唯讀查詢測試連線。
 
 ```sql
 SELECT 1 AS connection_check;

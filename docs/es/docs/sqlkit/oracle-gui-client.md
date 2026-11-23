@@ -5,7 +5,7 @@ description: "Conecta Oracle con un nombre de servicio, SID, alias TNS o cartera
 
 # Cliente GUI de Oracle Database para macOS, Windows y Linux
 
-En **Conexiones → Agregar nueva conexión**, selecciona **Oracle**. Usa el método que indique tu administrador:
+En **Conexiones → Agregar nueva conexión**, selecciona **Oracle**. Elige el método de conexión según la información que te dio el administrador.
 
 - **Conexión básica.** Host, puerto del listener (habitualmente `1521`) y nombre del servicio o SID.
 - **TNS.** Carpeta que contiene `tnsnames.ora` y alias de TNS.
@@ -13,7 +13,7 @@ En **Conexiones → Agregar nueva conexión**, selecciona **Oracle**. Usa el mé
 
 Escribe el usuario y la contraseña de Oracle. La prueba comprueba Java, el puente JDBC y el controlador. Si no se descargan, revisa **Configuración → JRE y controladores**.
 
-Comprueba el servicio y el esquema desde **Consultas**:
+Esta consulta muestra el servicio y el esquema activos. Ejecútala en **Consultas**.
 
 ```sql
 SELECT SYS_CONTEXT('USERENV', 'SERVICE_NAME') AS service_name,

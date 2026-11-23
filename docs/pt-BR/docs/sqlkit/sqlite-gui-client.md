@@ -7,7 +7,7 @@ description: "Abra um arquivo SQLite no SqlKit, liste as tabelas e execute consu
 
 Abra **Conexões → Adicionar nova conexão** e selecione **SQLite**. Clique em **Abrir...** para usar um arquivo existente ou em **Novo...** para criar outro. Salve e clique em **Conectar**.
 
-Na área **Consultas**, abra uma tabela pela árvore ou rode:
+Abra uma tabela pela árvore em **Consultas**. Você também pode listar tabelas e views com a consulta abaixo.
 
 ```sql
 SELECT type, name

@@ -13,7 +13,7 @@ Em **Conexões → Adicionar nova conexão**, selecione **Oracle** e escolha o m
 
 Informe as credenciais do Oracle e teste a conexão. Se faltar Java ou um componente JDBC, confira **Configurações → JRE e drivers**.
 
-Em **Consultas**, confira o serviço e o esquema ativos:
+A consulta abaixo mostra o serviço e o esquema ativos. Execute-a em **Consultas**.
 
 ```sql
 SELECT SYS_CONTEXT('USERENV', 'SERVICE_NAME') AS service_name,

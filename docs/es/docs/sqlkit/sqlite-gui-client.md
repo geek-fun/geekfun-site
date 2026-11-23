@@ -7,7 +7,7 @@ description: "Abre un archivo SQLite local en SqlKit, lista sus tablas y vistas 
 
 En **Conexiones → Agregar nueva conexión**, elige **SQLite**. Pulsa **Abrir...** para usar un archivo existente o **Nuevo...** para elegir dónde crear uno. Guarda la conexión y pulsa **Conectar**.
 
-En **Consultas**, abre una tabla del árbol o ejecuta:
+En **Consultas**, abre una tabla del árbol. También puedes listar las tablas y vistas con esta consulta.
 
 ```sql
 SELECT type, name

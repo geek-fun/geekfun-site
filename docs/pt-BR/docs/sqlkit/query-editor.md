@@ -5,7 +5,7 @@ description: "Confira a conexão no editor, rode uma instrução de leitura e sa
 
 # Executar a primeira consulta SQL no SqlKit
 
-Após [conectar um banco](/pt-BR/docs/sqlkit/connect-to-database), abra **Consultas** e clique em **Nova consulta**. Verifique a conexão e o banco na barra do editor. Use esta instrução para testar a sessão:
+Após [conectar um banco](/pt-BR/docs/sqlkit/connect-to-database), abra **Consultas** e clique em **Nova consulta**. Verifique a conexão e o banco na barra do editor. Rode uma consulta de leitura para verificar se a sessão funciona.
 
 ```sql
 SELECT 1 AS connection_check;

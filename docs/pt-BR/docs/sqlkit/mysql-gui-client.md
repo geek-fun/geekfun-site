@@ -7,7 +7,7 @@ description: "Use o driver integrado do MySQL para conectar seu banco e conferir
 
 Em **Conexões → Adicionar nova conexão**, selecione **MySQL**. Preencha host, porta (geralmente `3306`) e credenciais. Informe o nome do banco se quiser abri-lo automaticamente. Configure TLS em **Avançado** conforme o provedor, teste e salve.
 
-Abra **Consultas** e rode:
+Em **Consultas**, rode a consulta abaixo para conferir o banco ativo e a versão do servidor.
 
 ```sql
 SELECT DATABASE() AS active_database, VERSION() AS server_version;

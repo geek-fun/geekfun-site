@@ -7,7 +7,7 @@ description: "Conéctate a Postgres con SqlKit, configura TLS y comprueba qué b
 
 En **Conexiones → Agregar nueva conexión**, selecciona **PostgreSQL**. Usa el host, el puerto (normalmente `5432`), el nombre de la base y las credenciales de tu rol. En **Avanzado**, usa **Verificación completa** con la CA correspondiente cuando el proveedor exija comprobar el certificado y el nombre del servidor.
 
-Tras probar y guardar, abre **Consultas**. Expande `public` u otro esquema para ver las tablas. Este SQL comprueba el contexto de la sesión:
+Tras probar y guardar, abre **Consultas**. Expande `public` u otro esquema para ver las tablas. Ejecuta la siguiente consulta para ver el nombre de la base y del esquema activos.
 
 ```sql
 SELECT current_database() AS active_database, current_schema() AS active_schema;

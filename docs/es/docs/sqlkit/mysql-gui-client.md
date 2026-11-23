@@ -13,7 +13,7 @@ Abre **Conexiones → Agregar nueva conexión** y elige **MySQL**. Escribe el ho
 
 ## Verificar la base activa
 
-Ejecuta esto en **Consultas**:
+En **Consultas**, comprueba el nombre de la base activa y la versión del servidor con esta consulta.
 
 ```sql
 SELECT DATABASE() AS active_database, VERSION() AS server_version;

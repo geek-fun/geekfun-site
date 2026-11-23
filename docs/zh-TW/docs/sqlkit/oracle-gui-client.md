@@ -13,7 +13,7 @@ description: "以服務名稱、SID、TNS 別名或雲端錢包，透過 JDBC �
 
 輸入 Oracle 使用者名稱和密碼後測試連線。若 Java 或 JDBC 元件無法下載，請檢查 **設定 → JRE 與驅動程式**。
 
-在 **查詢** 執行下列 SQL，檢查連線的服務和結構描述：
+開啟 **查詢**，執行下列 SQL 可查看連線使用的服務和結構描述。
 
 ```sql
 SELECT SYS_CONTEXT('USERENV', 'SERVICE_NAME') AS service_name,

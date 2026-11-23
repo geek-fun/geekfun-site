@@ -7,7 +7,7 @@ description: "Conecte ao Microsoft SQL Server com uma conta SQL, a porta TCP da 
 
 Em **Conexões → Adicionar nova conexão**, escolha **SQL Server**. Informe host, porta, nome do banco, usuário e senha. A porta padrão costuma ser `1433`. Se a instância for nomeada, peça a porta TCP efetiva ao administrador.
 
-Ajuste a criptografia em **Avançado**, teste e salve. Em **Consultas**, use T-SQL para confirmar o banco e o login:
+Ajuste a criptografia em **Avançado**, teste e salve. A consulta T-SQL abaixo confirma o banco e o login. Rode-a em **Consultas**.
 
 ```sql
 SELECT DB_NAME() AS active_database, SUSER_SNAME() AS login_name;

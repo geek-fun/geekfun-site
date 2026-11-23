@@ -7,7 +7,7 @@ description: "透過執行個體的 TCP 連接埠，用 SQL Server 登入資料�
 
 在 **連線管理 → 新增連線** 選擇 **SQL Server**。填入主機、TCP 連接埠、資料庫名稱及 SQL Server 帳號密碼。預設執行個體常用 `1433`。具名執行個體可能設定其他連接埠，請向管理員確認。
 
-在 **進階** 設定加密選項，測試並儲存。到 **查詢** 確認登入帳號與資料庫：
+在 **進階** 設定加密選項，測試並儲存。在 **查詢** 執行下列 SQL，可確認目前的登入帳號與資料庫。
 
 ```sql
 SELECT DB_NAME() AS active_database, SUSER_SNAME() AS login_name;

@@ -5,7 +5,7 @@ description: "Comprueba una conexión con SQL, revisa los resultados y guarda la
 
 # Ejecutar la primera consulta SQL en SqlKit
 
-Después de [conectar una base de datos](/es/docs/sqlkit/connect-to-database), abre **Consultas** y pulsa **Nueva consulta**. Comprueba qué conexión y base aparecen en la pestaña. Ejecuta esta prueba:
+Después de [conectar una base de datos](/es/docs/sqlkit/connect-to-database), abre **Consultas** y pulsa **Nueva consulta**. Comprueba qué conexión y base aparecen en la pestaña. Usa esta consulta de solo lectura para comprobar la sesión.
 
 ```sql
 SELECT 1 AS connection_check;
