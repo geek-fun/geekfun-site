@@ -19,4 +19,4 @@ POST /orders/_search
 
 各リクエストの先頭行に HTTP メソッドとパスを書き、その下に本文を置きます。複数のリクエストを並べる場合は、実行前に接続先を確認します。再利用するリクエストは `.search` ファイルで保存できます。
 
-[ショートカット](/ja/docs/dockit/shortcut)、[DocKit で MongoDB のドキュメントを検索する](./mongodb-workspace)、[DocKit で PartiQL を使って DynamoDB を検索する](./dynamodb-query-editor)。
+エディターの操作は[ショートカット](/ja/docs/dockit/shortcut)を参照してください。ほかの接続先には、[MongoDB のドキュメント検索](./mongodb-workspace)と[DynamoDB の PartiQL クエリ](./dynamodb-query-editor)のガイドがあります。

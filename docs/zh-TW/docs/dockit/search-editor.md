@@ -17,6 +17,6 @@ POST /orders/_search
 
 將游標移到請求內。macOS 按 `⌘ + Enter`，Windows 與 Linux 按 `Ctrl + Enter`。也可按請求旁的執行按鈕。範例最多回傳十筆結果。
 
-每個請求從新的一行開始，先寫 HTTP 方法和路徑，下一行接著寫內容。若同時編輯多個請求，執行前先檢查目前使用的連線。想保留請求供日後使用，可存成 `.search` 檔案。
+每個請求的第一行寫 HTTP 方法和路徑，下一行再寫請求內容。如果編輯器裡有多個請求，執行前先確認目前的連線。可把要重複使用的請求存成 `.search` 檔案。
 
-參考[快速鍵](/zh-TW/docs/dockit/shortcut)，或直接開啟 [在 DocKit 查詢 MongoDB 文件](./mongodb-workspace) 和 [在 DocKit 以 PartiQL 查詢 DynamoDB](./dynamodb-query-editor) 指南。
+操作編輯器時可參考[快速鍵](/zh-TW/docs/dockit/shortcut)。其他查詢方式見 [MongoDB 查詢](./mongodb-workspace)與 [DynamoDB 的 PartiQL 查詢](./dynamodb-query-editor)。

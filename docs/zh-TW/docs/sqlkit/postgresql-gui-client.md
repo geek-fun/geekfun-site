@@ -13,4 +13,4 @@ description: "使用 SqlKit 連線到 PostgreSQL，設定 TLS 並查看目前的
 SELECT current_database() AS active_database, current_schema() AS active_schema;
 ```
 
-在物件樹展開 `public` 或所需的結構描述。資料表重名時，可在 SQL 使用 `reporting.orders` 這類完整名稱。若看不到資料表，請重新整理物件樹並確認角色有權限存取結構描述與資料表。[SQL 編輯器指南](/zh-TW/docs/sqlkit/query-editor)
+在物件樹展開 `public` 或所需的結構描述。如果不同結構描述下有同名的資料表，請在 SQL 裡加上結構描述名稱，例如 `reporting.orders`。若看不到資料表，請重新整理物件樹並確認角色有權限存取結構描述與資料表。[SQL 編輯器指南](/zh-TW/docs/sqlkit/query-editor)

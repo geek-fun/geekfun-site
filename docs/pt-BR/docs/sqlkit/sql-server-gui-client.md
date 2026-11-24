@@ -5,9 +5,9 @@ description: "Conecte ao Microsoft SQL Server com uma conta SQL, a porta TCP da 
 
 # Cliente GUI para SQL Server no macOS, Windows e Linux
 
-Em **Conexões → Adicionar nova conexão**, escolha **SQL Server**. Informe host, porta, nome do banco, usuário e senha. A porta padrão costuma ser `1433`. Se a instância for nomeada, peça a porta TCP efetiva ao administrador.
+Em **Conexões → Adicionar nova conexão**, escolha **SQL Server**. Informe host, porta, nome do banco, usuário e senha. Instâncias padrão geralmente usam a porta `1433`. Para uma instância nomeada, peça ao administrador a porta TCP em uso.
 
-Ajuste a criptografia em **Avançado**, teste e salve. A consulta T-SQL abaixo confirma o banco e o login. Rode-a em **Consultas**.
+Ajuste a criptografia em **Avançado**, teste e salve. Em **Consultas**, rode o T-SQL abaixo para conferir o banco ativo e o login.
 
 ```sql
 SELECT DB_NAME() AS active_database, SUSER_SNAME() AS login_name;

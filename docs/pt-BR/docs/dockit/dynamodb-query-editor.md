@@ -9,7 +9,7 @@ description: "Leia itens por chave de partição no editor visual ou com uma ins
 
 Escolha a tabela ou o índice no editor visual. Informe o valor da chave de partição e, se houver, adicione uma condição de chave de ordenação. Sem a chave de partição, o editor avisa que fará uma varredura.
 
-Para guardar a consulta como texto, abra o editor PartiQL. Substitua `Orders`, `customerId` e `example-customer` pela tabela, chave de partição e valor que você quer consultar.
+Para guardar a consulta como texto, abra o editor PartiQL. Substitua `Orders` pelo nome da tabela. Troque `customerId` e `example-customer` pelo nome e pelo valor da chave de partição.
 
 ```sql
 SELECT * FROM "Orders" WHERE "customerId" = 'example-customer';
@@ -17,4 +17,4 @@ SELECT * FROM "Orders" WHERE "customerId" = 'example-customer';
 
 Use o botão de execução ou pressione `⌘ + Enter` no macOS e `Ctrl + Enter` no Windows e Linux.
 
-Use os controles do painel de resultados para avançar nas páginas. Se houver um filtro de atributos, uma página vazia pode ser seguida por outra com itens.
+Use os controles do painel de resultados para avançar. Se uma página vier vazia depois de aplicar um filtro de atributos, prossiga para a próxima. Ainda pode haver itens que correspondem ao filtro.

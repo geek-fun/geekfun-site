@@ -15,4 +15,4 @@ Oracle에서는 `SELECT 1 AS connection_check FROM dual;`을 사용합니다. **
 
 특정 SQL만 실행하려면 해당 텍스트를 선택하고 macOS에서 `⌘ + Enter`, Windows 또는 Linux에서 `Ctrl + Enter`를 누릅니다. 선택 영역이 없으면 커서가 위치한 문을 실행합니다. 도구 모음의 **실행**은 편집기 전체 내용을 실행합니다.
 
-객체 트리에서 테이블을 두 번 클릭하면 행을 볼 수 있습니다. 결과 패널의 내보내기 기능은 반환된 행을 CSV 또는 JSON으로 저장합니다. SQL 파일 저장에는 `⌘ + S` 또는 `Ctrl + S`를 사용합니다. [단축키 더 보기](/ko/docs/sqlkit/keyboard-shortcuts)
+객체 트리에서 테이블을 두 번 클릭하면 행을 볼 수 있습니다. 결과 패널에서 조회한 행을 CSV 또는 JSON으로 내보낼 수 있습니다. SQL을 파일로 저장하려면 `⌘ + S` 또는 `Ctrl + S`를 누릅니다. [단축키 더 보기](/ko/docs/sqlkit/keyboard-shortcuts)

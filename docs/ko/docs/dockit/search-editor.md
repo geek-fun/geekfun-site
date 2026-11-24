@@ -19,4 +19,4 @@ POST /orders/_search
 
 요청마다 새 줄에 HTTP 메서드와 경로를 적고 그 아래에 본문을 둡니다. 여러 요청을 작성했다면 실행 전에 활성 연결을 확인합니다. 다시 쓸 요청은 `.search` 파일로 저장할 수 있습니다.
 
-[편집기 단축키](/ko/docs/dockit/shortcut)와 [DocKit에서 MongoDB 문서 조회하기](./mongodb-workspace), [DocKit의 PartiQL 편집기에서 DynamoDB 조회하기](./dynamodb-query-editor) 가이드도 확인하세요.
+[편집기 단축키](/ko/docs/dockit/shortcut)도 참고할 수 있습니다. 다른 데이터베이스를 사용한다면 [MongoDB 문서 조회](./mongodb-workspace) 또는 [PartiQL로 DynamoDB 조회](./dynamodb-query-editor) 가이드를 참고합니다.

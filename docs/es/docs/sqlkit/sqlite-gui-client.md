@@ -7,7 +7,7 @@ description: "Abre un archivo SQLite local en SqlKit, lista sus tablas y vistas 
 
 En **Conexiones → Agregar nueva conexión**, elige **SQLite**. Pulsa **Abrir...** para usar un archivo existente o **Nuevo...** para elegir dónde crear uno. Guarda la conexión y pulsa **Conectar**.
 
-En **Consultas**, abre una tabla del árbol. También puedes listar las tablas y vistas con esta consulta.
+En **Consultas**, abre una tabla desde el árbol. También puedes usar esta consulta para ver la lista de tablas y vistas.
 
 ```sql
 SELECT type, name
@@ -16,4 +16,4 @@ WHERE type IN ('table', 'view')
 ORDER BY type, name;
 ```
 
-Si esperabas datos y no aparecen, comprueba la ruta del archivo. Una base recién creada comienza sin tablas de usuario. Para un archivo cifrado con SQLCipher, elige **SQLCipher** e introduce su clave. [Guía del editor SQL](/es/docs/sqlkit/query-editor).
+Una base nueva aún no tiene tablas de usuario. Si esperabas encontrar tus tablas o datos, comprueba la ruta del archivo. Para un archivo cifrado con SQLCipher, elige **SQLCipher** e introduce su clave. [Guía del editor SQL](/es/docs/sqlkit/query-editor).

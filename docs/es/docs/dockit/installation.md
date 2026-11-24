@@ -23,4 +23,4 @@ Ejecuta el instalador `.exe` o `.msi` y sigue los pasos que aparecen en pantalla
 
 ## Primera apertura
 
-[Configura tu primera conexión](/es/docs/dockit/connect-to-server) con el botón **+**. Al cerrar la ventana, DocKit sigue en segundo plano, incluidas las transferencias activas. Sal de la aplicación desde la bandeja si quieres detenerla.
+[Configura tu primera conexión](/es/docs/dockit/connect-to-server) con el botón **+**. Si cierras la ventana, DocKit sigue en segundo plano y las transferencias continúan. Para cerrar la aplicación por completo, sal desde el menú de la bandeja del sistema.

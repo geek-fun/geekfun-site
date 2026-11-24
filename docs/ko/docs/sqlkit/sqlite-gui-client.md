@@ -16,4 +16,4 @@ WHERE type IN ('table', 'view')
 ORDER BY type, name;
 ```
 
-예상한 테이블이 보이지 않으면 연결에 설정한 파일 경로를 확인하세요. 새 파일에는 사용자 테이블이 없습니다. SQLCipher로 암호화된 파일은 **SQLCipher**를 선택하고 암호화 키를 입력합니다. [SQL 편집기 가이드](/ko/docs/sqlkit/query-editor)
+새 파일에는 사용자 테이블이 없습니다. 기존 테이블이 보이지 않으면 연결에 지정한 파일 경로를 확인합니다. SQLCipher로 암호화된 파일은 **SQLCipher**를 선택하고 암호화 키를 입력합니다. [SQL 편집기 가이드](/ko/docs/sqlkit/query-editor)

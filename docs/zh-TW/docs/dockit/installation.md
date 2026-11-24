@@ -25,4 +25,4 @@ description: "選擇符合電腦作業系統的 DocKit 安裝檔，完成安裝�
 
 ## 第一次啟動
 
-按 **+** [新增第一個連線](/zh-TW/docs/dockit/connect-to-server)。關閉視窗後，DocKit 和進行中的傳輸仍會在背景執行。若要結束程式，請使用選單列或系統匣的選單。
+按 **+** [新增第一個連線](/zh-TW/docs/dockit/connect-to-server)。關閉視窗後，DocKit 會留在背景，傳輸也會繼續。若要完全結束 DocKit，請從選單列或系統匣的選單退出。

@@ -15,8 +15,8 @@ POST /orders/_search
 }
 ```
 
-Deixe o cursor dentro da requisição e use `⌘ + Enter` no macOS ou `Ctrl + Enter` no Windows e Linux. Você também pode clicar no botão de execução ao lado dela. O exemplo retorna até dez resultados.
+Para executar a requisição, coloque o cursor dentro dela e pressione `⌘ + Enter` no macOS ou `Ctrl + Enter` no Windows e Linux. Se preferir, clique no botão de execução ao lado da requisição. O exemplo retorna até dez resultados.
 
 Comece cada requisição em uma linha nova com o método HTTP e o caminho. Coloque o corpo JSON logo abaixo. Se o editor tiver várias requisições, confira a conexão ativa antes de executar. Salve as que pretende reutilizar como arquivos `.search`.
 
-Veja os [atalhos do editor](/pt-BR/docs/dockit/shortcut) e os guias de [Consultar MongoDB no DocKit](./mongodb-workspace) e [Consultar DynamoDB com PartiQL no DocKit](./dynamodb-query-editor).
+Consulte os [atalhos do editor](/pt-BR/docs/dockit/shortcut) ou siga os guias de [MongoDB](./mongodb-workspace) e [DynamoDB com PartiQL](./dynamodb-query-editor).

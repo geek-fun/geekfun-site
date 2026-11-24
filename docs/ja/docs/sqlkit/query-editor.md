@@ -13,6 +13,6 @@ SELECT 1 AS connection_check;
 
 Oracle の場合は `SELECT 1 AS connection_check FROM dual;` を入力します。**実行**をクリックし、結果パネルに `1` が表示されることを確かめます。
 
-SQL の一部を選択して、macOS では `⌘ + Enter`、Windows や Linux では `Ctrl + Enter` を押すと、その範囲だけを実行できます。未選択の場合はカーソル位置の文を実行します。ツールバーの**実行**はエディター全体が対象です。
+SQL の一部を選択して、macOS では `⌘ + Enter`、Windows や Linux では `Ctrl + Enter` を押すと、その範囲だけを実行できます。未選択の場合はカーソル位置の文を実行します。エディター内の SQL をすべて実行するには、ツールバーの**実行**を使います。
 
 オブジェクトツリーでテーブルをダブルクリックすると行を表示できます。結果パネルから CSV や JSON を出力できます。SQL の保存には `⌘ + S` または `Ctrl + S` を使います。[ほかのショートカット](/ja/docs/sqlkit/keyboard-shortcuts)

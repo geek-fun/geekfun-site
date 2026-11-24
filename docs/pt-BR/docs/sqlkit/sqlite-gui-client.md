@@ -7,7 +7,7 @@ description: "Abra um arquivo SQLite no SqlKit, liste as tabelas e execute consu
 
 Abra **Conexões → Adicionar nova conexão** e selecione **SQLite**. Clique em **Abrir...** para usar um arquivo existente ou em **Novo...** para criar outro. Salve e clique em **Conectar**.
 
-Abra uma tabela pela árvore em **Consultas**. Você também pode listar tabelas e views com a consulta abaixo.
+Em **Consultas**, abra uma tabela pela árvore ou rode a consulta abaixo para listar as tabelas e views.
 
 ```sql
 SELECT type, name
@@ -16,4 +16,4 @@ WHERE type IN ('table', 'view')
 ORDER BY type, name;
 ```
 
-Se esperava ver dados, confira se a conexão está apontando para o arquivo certo. Um banco recém-criado começa sem tabelas de usuário. Para bancos criptografados com SQLCipher, escolha **SQLCipher** e informe a chave. [Guia do editor SQL](/pt-BR/docs/sqlkit/query-editor).
+Um banco novo começa sem tabelas de usuário. Se você esperava encontrar dados, confira se a conexão usa o arquivo certo. Para bancos criptografados com SQLCipher, escolha **SQLCipher** e informe a chave. [Guia do editor SQL](/pt-BR/docs/sqlkit/query-editor).

@@ -9,6 +9,6 @@ DocKit はデスクトップ用の NoSQL クライアントです。データベ
 
 1. [DocKit をインストール](/ja/docs/dockit/installation)します。
 2. [接続を追加してテスト](/ja/docs/dockit/connect-to-server)します。
-3. Elasticsearch、OpenSearch、EasySearch の場合は[検索リクエストを試します](/ja/docs/dockit/search-editor)。[ショートカット](/ja/docs/dockit/shortcut)も参照できます。
+3. Elasticsearch、OpenSearch、EasySearch を使う場合は、[検索リクエストを試します](/ja/docs/dockit/search-editor)。エディターの操作には[ショートカット](/ja/docs/dockit/shortcut)を使えます。
 
-[DocKit で MongoDB のドキュメントを検索する](./mongodb-workspace)と[DocKit で PartiQL を使って DynamoDB を検索する](./dynamodb-query-editor)もあります。
+ほかの接続先については、[MongoDB のドキュメントを検索する方法](./mongodb-workspace)や[DynamoDB を PartiQL でクエリする方法](./dynamodb-query-editor)を参照してください。

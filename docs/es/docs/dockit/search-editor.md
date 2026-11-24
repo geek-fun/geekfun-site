@@ -15,8 +15,8 @@ POST /orders/_search
 }
 ```
 
-Coloca el cursor dentro de la petición. Usa `⌘ + Enter` en macOS, `Ctrl + Enter` en Windows y Linux o el botón de reproducción junto a la petición. El ejemplo devuelve como máximo diez resultados de búsqueda.
+Para ejecutar la petición, coloca el cursor dentro y pulsa `⌘ + Enter` en macOS o `Ctrl + Enter` en Windows y Linux. También puedes usar el botón de ejecución junto a la petición. El ejemplo devuelve hasta diez resultados.
 
 Empieza cada petición con el método HTTP y la ruta en una línea aparte. Escribe el cuerpo debajo. Comprueba la conexión activa antes de ejecutar otra petición. Puedes guardar peticiones en archivos `.search` y volver a abrirlas más adelante.
 
-Consulta los [atajos del editor](/es/docs/dockit/shortcut). Para otros motores, consulta [Consultar MongoDB en DocKit](./mongodb-workspace) o [Consultar DynamoDB con PartiQL en DocKit](./dynamodb-query-editor).
+Consulta los [atajos del editor](/es/docs/dockit/shortcut) o sigue las guías de [MongoDB](./mongodb-workspace) y [DynamoDB con PartiQL](./dynamodb-query-editor).

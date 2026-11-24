@@ -13,4 +13,4 @@ Tras probar y guardar, abre **Consultas**. Expande `public` u otro esquema para 
 SELECT current_database() AS active_database, current_schema() AS active_schema;
 ```
 
-Si ves otra tabla con el mismo nombre, usa el esquema en la consulta, por ejemplo `reporting.orders`. Si no ves tablas, actualiza el árbol y confirma con el administrador que tu rol tiene acceso al esquema y a los objetos. [Guía del editor SQL](/es/docs/sqlkit/query-editor).
+Si varias tablas tienen el mismo nombre, incluye el esquema en la consulta, como en `reporting.orders`. Si no ves tablas, actualiza el árbol y confirma con el administrador que tu rol tiene acceso al esquema y a los objetos. [Guía del editor SQL](/es/docs/sqlkit/query-editor).

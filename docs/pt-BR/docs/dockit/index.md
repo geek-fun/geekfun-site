@@ -11,4 +11,4 @@ O DocKit é um cliente NoSQL para macOS, Windows e Linux. O editor e os campos d
 2. [Adicione e teste uma conexão](/pt-BR/docs/dockit/connect-to-server).
 3. Para Elasticsearch, OpenSearch e EasySearch, [execute uma busca de teste](/pt-BR/docs/dockit/search-editor). Veja também os [atalhos do editor](/pt-BR/docs/dockit/shortcut).
 
-Se estiver usando outro editor, veja as instruções de [Consultar MongoDB no DocKit](./mongodb-workspace) ou [Consultar DynamoDB com PartiQL no DocKit](./dynamodb-query-editor).
+Se você usa MongoDB ou DynamoDB, siga o guia de [consultas no MongoDB](./mongodb-workspace) ou de [consultas com PartiQL no DynamoDB](./dynamodb-query-editor).

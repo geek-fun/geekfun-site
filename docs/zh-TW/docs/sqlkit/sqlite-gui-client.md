@@ -16,4 +16,4 @@ WHERE type IN ('table', 'view')
 ORDER BY type, name;
 ```
 
-若沒有預期的資料表，請檢查連線指向的檔案路徑。新建檔案起初沒有使用者資料表。如果檔案使用 SQLCipher 加密，請選擇 **SQLCipher** 並輸入金鑰。[SQL 編輯器指南](/zh-TW/docs/sqlkit/query-editor)
+新建的檔案沒有使用者資料表。若找不到既有的資料表，請確認連線是否指向正確的檔案。如果檔案使用 SQLCipher 加密，請選擇 **SQLCipher** 並輸入金鑰。[SQL 編輯器指南](/zh-TW/docs/sqlkit/query-editor)

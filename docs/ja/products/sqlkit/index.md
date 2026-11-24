@@ -28,10 +28,10 @@ hero:
 
 ## データベースに接続する
 
-SqlKit は MySQL、PostgreSQL、SQL Server、SQLite のドライバーを内蔵しています。Oracle への接続には JDBC を使います。データベース別のガイドに、接続に必要な項目と確認用クエリをまとめています。
+SqlKit は MySQL、PostgreSQL、SQL Server、SQLite のドライバーを内蔵しています。Oracle への接続には JDBC を使います。お使いのデータベースのガイドで、接続に必要な項目と接続確認用のクエリを確認できます。
 
 [MySQL](/ja/docs/sqlkit/mysql-gui-client) · [PostgreSQL](/ja/docs/sqlkit/postgresql-gui-client) · [SQL Server](/ja/docs/sqlkit/sql-server-gui-client) · [Oracle Database](/ja/docs/sqlkit/oracle-gui-client) · [SQLite](/ja/docs/sqlkit/sqlite-gui-client)
 
 ## SQL を書いて結果を保存する
 
-[SqlKit をインストール](/ja/docs/sqlkit/installation)し、[接続を登録](/ja/docs/sqlkit/connect-to-database)したら、[SQL エディター](/ja/docs/sqlkit/query-editor)を開きます。オブジェクトツリーからテーブルの行を確認し、実行したクエリの結果を CSV や JSON に出力できます。SQL はファイルとして保存できます。ほかのエンジンについては[対応データベースとドライバー（英語）](/docs/sqlkit/supported-databases)を参照してください。
+[SqlKit をインストール](/ja/docs/sqlkit/installation)し、[接続を登録](/ja/docs/sqlkit/connect-to-database)したら、[SQL エディター](/ja/docs/sqlkit/query-editor)を開きます。テーブルの行はオブジェクトツリーから開けます。クエリの結果は CSV や JSON に出力でき、SQL はファイルに保存できます。ほかのエンジンについては[対応データベースとドライバー（英語）](/docs/sqlkit/supported-databases)を参照してください。

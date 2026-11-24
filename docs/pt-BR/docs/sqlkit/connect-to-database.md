@@ -17,6 +17,6 @@ description: "Configure e teste uma conexão SQL. Veja as portas padrão e onde 
 | [Oracle Database](/pt-BR/docs/sqlkit/oracle-gui-client) | `1521` e nome do serviço ou SID na conexão básica |
 | [SQLite](/pt-BR/docs/sqlkit/sqlite-gui-client) | Caminho do arquivo local |
 
-Use a porta informada pelo administrador quando for diferente. Para bancos JDBC, o teste procura Java, a ponte JDBC e o driver. Confira **Configurações → JRE e drivers** se algum download falhar.
+Se o servidor usar uma porta diferente da listada acima, informe a porta fornecida pelo administrador. Ao testar uma conexão JDBC, o SqlKit verifica se o Java, a ponte JDBC e o driver estão disponíveis. Se algum download falhar, abra **Configurações → JRE e drivers**.
 
-Se o teste expirar, confirme o host, a porta e se o acesso exige VPN. Para erros de autenticação, confirme as credenciais e as permissões. Para erros de TLS, verifique a CA e o nome do servidor. Por fim, [rode uma consulta de leitura](/pt-BR/docs/sqlkit/query-editor).
+Se o teste expirar, confirme o host, a porta e se o acesso exige VPN. Para erros de autenticação, confirme as credenciais e as permissões. Para erros de TLS, verifique a CA e o nome do servidor. Quando a conexão funcionar, [rode uma consulta de leitura](/pt-BR/docs/sqlkit/query-editor).

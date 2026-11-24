@@ -17,4 +17,4 @@ SELECT * FROM "Orders" WHERE "customerId" = 'example-customer';
 
 Usa el botón de ejecución o pulsa `⌘ + Enter` en macOS y `Ctrl + Enter` en Windows y Linux.
 
-Usa los controles del panel de resultados para cambiar de página. Una página vacía puede ir seguida de otra con coincidencias si aplicas filtros de atributos.
+Usa los controles del panel de resultados para cambiar de página. Si aplicas un filtro de atributos y aparece una página vacía, sigue avanzando. Puede haber coincidencias en las páginas siguientes.

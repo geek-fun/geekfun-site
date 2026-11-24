@@ -28,10 +28,10 @@ hero:
 
 ## 사용하는 데이터베이스에 연결하기
 
-SqlKit은 MySQL, PostgreSQL, SQL Server, SQLite용 드라이버를 기본으로 제공하며 Oracle에는 JDBC로 연결합니다. 데이터베이스별 가이드에서 필요한 연결 값과 확인 쿼리를 확인할 수 있습니다.
+SqlKit은 MySQL, PostgreSQL, SQL Server, SQLite용 드라이버를 기본으로 제공하며 Oracle에는 JDBC로 연결합니다. 데이터베이스별 가이드에 연결할 때 입력할 값과 연결 테스트용 쿼리가 나와 있습니다.
 
 [MySQL](/ko/docs/sqlkit/mysql-gui-client) · [PostgreSQL](/ko/docs/sqlkit/postgresql-gui-client) · [SQL Server](/ko/docs/sqlkit/sql-server-gui-client) · [Oracle Database](/ko/docs/sqlkit/oracle-gui-client) · [SQLite](/ko/docs/sqlkit/sqlite-gui-client)
 
 ## SQL 실행과 결과 내보내기
 
-[SqlKit을 설치](/ko/docs/sqlkit/installation)하고 [연결을 추가](/ko/docs/sqlkit/connect-to-database)한 뒤 [SQL 편집기](/ko/docs/sqlkit/query-editor)를 엽니다. 객체 트리에서 테이블을 탐색하고 SQL 파일을 저장할 수 있습니다. 반환된 행은 CSV 또는 JSON으로 내보낼 수 있습니다. 다른 엔진은 [지원 데이터베이스와 드라이버 목록(영어)](/docs/sqlkit/supported-databases)에서 확인합니다.
+[SqlKit을 설치](/ko/docs/sqlkit/installation)하고 [연결을 추가](/ko/docs/sqlkit/connect-to-database)한 뒤 [SQL 편집기](/ko/docs/sqlkit/query-editor)를 엽니다. 테이블은 객체 트리에서 엽니다. 조회한 행을 CSV 또는 JSON으로 내보내고 SQL을 파일로 저장할 수 있습니다. 다른 엔진은 [지원 데이터베이스와 드라이버 목록(영어)](/docs/sqlkit/supported-databases)에서 확인합니다.

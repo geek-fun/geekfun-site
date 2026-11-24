@@ -23,4 +23,4 @@ Usa el puerto que te indique el administrador. Al probar una conexión JDBC, Sql
 
 ## Si la prueba falla
 
-Un tiempo de espera suele indicar un problema de acceso al host o al puerto. Ante un error de credenciales, comprueba el usuario y su acceso a la base. Si falla TLS, confirma el nombre del servidor y la CA que debes usar. Después de conectar, [prueba una consulta de solo lectura](/es/docs/sqlkit/query-editor).
+Si la conexión agota el tiempo de espera, comprueba que el host y el puerto sean accesibles. Si fallan las credenciales, comprueba el usuario y sus permisos en la base. Para los errores de TLS, confirma el nombre del servidor y la CA. Cuando consigas conectar, [ejecuta una consulta de solo lectura](/es/docs/sqlkit/query-editor).

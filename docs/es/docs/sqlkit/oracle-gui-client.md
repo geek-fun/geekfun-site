@@ -9,9 +9,9 @@ En **Conexiones → Agregar nueva conexión**, selecciona **Oracle**. Elige el m
 
 - **Conexión básica.** Host, puerto del listener (habitualmente `1521`) y nombre del servicio o SID.
 - **TNS.** Carpeta que contiene `tnsnames.ora` y alias de TNS.
-- **Cartera en la nube.** Carpeta del wallet extraído y alias de servicio. Añade su contraseña si se requiere.
+- **Cartera en la nube.** Selecciona la carpeta donde extrajiste el wallet e indica el alias de servicio. Introduce la contraseña del wallet si hace falta.
 
-Escribe el usuario y la contraseña de Oracle. La prueba comprueba Java, el puente JDBC y el controlador. Si no se descargan, revisa **Configuración → JRE y controladores**.
+Escribe el usuario y la contraseña de Oracle. Al probar la conexión, SqlKit comprueba Java, el puente JDBC y el controlador. Si falla alguna descarga, revisa **Configuración → JRE y controladores**.
 
 Esta consulta muestra el servicio y el esquema activos. Ejecútala en **Consultas**.
 

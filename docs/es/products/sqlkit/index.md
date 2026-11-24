@@ -28,11 +28,11 @@ hero:
 
 ## Elige tu base de datos
 
-Usa SqlKit para explorar esquemas y ejecutar consultas desde el escritorio. MySQL, PostgreSQL, SQL Server y SQLite tienen controladores integrados. Oracle usa JDBC. Para una conexión nueva, revisa el puerto, los requisitos de TLS y el método de autenticación con tu proveedor.
+Desde el cliente de escritorio puedes explorar esquemas y ejecutar consultas. SqlKit incluye controladores para MySQL, PostgreSQL, SQL Server y SQLite. Para Oracle usa JDBC. Antes de añadir una conexión, confirma con tu proveedor qué puerto, configuración de TLS y método de autenticación debes usar.
 
 - [MySQL](/es/docs/sqlkit/mysql-gui-client) · [PostgreSQL](/es/docs/sqlkit/postgresql-gui-client)
 - [SQL Server](/es/docs/sqlkit/sql-server-gui-client) · [Oracle Database](/es/docs/sqlkit/oracle-gui-client) · [SQLite](/es/docs/sqlkit/sqlite-gui-client)
 
 ## De la conexión al archivo CSV
 
-[Instala SqlKit](/es/docs/sqlkit/installation), [añade una conexión](/es/docs/sqlkit/connect-to-database) y abre el [editor SQL](/es/docs/sqlkit/query-editor). Puedes abrir una tabla desde el árbol de objetos, guardar la consulta en un archivo SQL y exportar las filas devueltas a CSV o JSON. Consulta la [lista de motores y controladores (en inglés)](/docs/sqlkit/supported-databases) si usas otra base de datos.
+Después de [instalar SqlKit](/es/docs/sqlkit/installation) y [añadir una conexión](/es/docs/sqlkit/connect-to-database), abre el [editor SQL](/es/docs/sqlkit/query-editor). Desde el árbol de objetos puedes abrir una tabla. Si ejecutas una consulta, puedes guardar el SQL en un archivo y exportar los resultados a CSV o JSON. Consulta la [lista de motores y controladores (en inglés)](/docs/sqlkit/supported-databases) si usas otra base de datos.

@@ -5,8 +5,8 @@ description: "Instala DocKit y conecta MongoDB, DynamoDB, Elasticsearch, OpenSea
 
 # Primeros pasos con DocKit
 
-DocKit reúne los editores de consultas de MongoDB, DynamoDB y los motores de búsqueda en una aplicación de escritorio.
+DocKit es una aplicación de escritorio para consultar MongoDB, DynamoDB y motores de búsqueda.
 
-Empieza por [instalar DocKit](/es/docs/dockit/installation) y [conectar una base de datos](/es/docs/dockit/connect-to-server). Si usas Elasticsearch, OpenSearch o EasySearch, [ejecuta una búsqueda de prueba](/es/docs/dockit/search-editor). Guarda los [atajos del editor](/es/docs/dockit/shortcut) para consultarlos mientras trabajas.
+[Instala DocKit](/es/docs/dockit/installation) y [conecta una base de datos](/es/docs/dockit/connect-to-server). Si usas Elasticsearch, OpenSearch o EasySearch, [ejecuta una búsqueda de prueba](/es/docs/dockit/search-editor). Ten a mano los [atajos del editor](/es/docs/dockit/shortcut).
 
-Para otros editores, sigue las guías de [Consultar MongoDB en DocKit](./mongodb-workspace) o [Consultar DynamoDB con PartiQL en DocKit](./dynamodb-query-editor).
+También puedes [consultar MongoDB](./mongodb-workspace) o [consultar DynamoDB con PartiQL](./dynamodb-query-editor).

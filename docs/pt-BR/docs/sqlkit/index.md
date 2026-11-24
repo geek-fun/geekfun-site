@@ -7,7 +7,7 @@ description: "Instale o SqlKit, conecte um banco de dados SQL e execute uma cons
 
 O SqlKit é um cliente SQL para macOS, Windows e Linux. Você pode abrir arquivos SQLite locais e trabalhar com servidores MySQL, PostgreSQL, SQL Server, Oracle e outros bancos.
 
-[Instale o SqlKit](/pt-BR/docs/sqlkit/installation) e [crie uma conexão](/pt-BR/docs/sqlkit/connect-to-database). Depois, [execute uma consulta de leitura](/pt-BR/docs/sqlkit/query-editor) para conferir a sessão. Os [atalhos de teclado](/pt-BR/docs/sqlkit/keyboard-shortcuts) ajudam a executar e salvar SQL no editor.
+[Instale o SqlKit](/pt-BR/docs/sqlkit/installation) e [crie uma conexão](/pt-BR/docs/sqlkit/connect-to-database). Para testar a conexão, [execute uma consulta de leitura](/pt-BR/docs/sqlkit/query-editor). Use os [atalhos de teclado](/pt-BR/docs/sqlkit/keyboard-shortcuts) para executar e salvar SQL no editor.
 
 ## Guias por banco de dados
 
