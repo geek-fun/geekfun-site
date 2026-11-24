@@ -27,6 +27,18 @@ head:
 
 及时了解 GEEKFUN 社区的最新公告、发布和更新。在这里您将找到关于我们项目的新闻、新功能、社区活动和重要里程碑。
 
+## [DocKit v2.0.4 可在系统托盘查看 MCP 桥接状态](/zh/news/dockit-v2-0-4-release)
+
+2026 年 11 月 24 日发布。系统托盘可以查看 MCP 桥接是否在运行，设置中的「MCP」页提供 AI 客户端的配置说明。DocKit 也会提前刷新头像链接，避免头像因链接过期而消失。
+
+[GitHub 发布](https://github.com/geek-fun/dockit/releases/tag/v2.0.4) · [下载 DocKit](/zh/download#dockit)
+
+## [SqlKit v1.0.4 新增 MCP 配置指南和 AI 提供商选项](/zh/news/sqlkit-v1-0-4-release)
+
+2026 年 11 月 24 日发布。系统托盘和设置里都能管理 MCP 桥接。AI 设置加入了 cheapaimodel 预设，原有的 UberLLM 预设改名为 MartLLM。
+
+[GitHub 发布](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.4) · [下载 SqlKit](/zh/download#sqlkit)
+
 ## [DocKit v2.0.3 发布：系统托盘常驻与四种新语言](/zh/news/dockit-v2-0-3-release)
 
 2026年11月19日，DocKit v2.0.3 支持关闭窗口后常驻系统托盘，新增 Português (Brasil)、日本語、한국어 和 Español 界面语言，统一简体中文识别标准，并修复语言同步阻塞登录的问题。阅读[完整公告](/zh/news/dockit-v2-0-3-release)。

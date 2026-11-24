@@ -27,6 +27,18 @@ Welcome to **GEEKFUN News!** :rocket::rocket::rocket:
 
 Product releases, feature updates, and community milestones from the GEEKFUN team.
 
+## [DocKit v2.0.4 adds MCP Bridge controls to the tray](/news/dockit-v2-0-4-release)
+
+Released November 24, 2026. The tray shows whether the MCP Bridge is running. The MCP tab in Settings has setup instructions for AI clients. DocKit also refreshes your avatar link before it expires.
+
+[GitHub release](https://github.com/geek-fun/dockit/releases/tag/v2.0.4) · [Download DocKit](/download#dockit)
+
+## [SqlKit v1.0.4 adds MCP setup guides and new provider options](/news/sqlkit-v1-0-4-release)
+
+Released November 24, 2026. The tray and Settings now have MCP Bridge controls. In AI settings, UberLLM is now called MartLLM, and there’s a new preset for cheapaimodel.
+
+[GitHub release](https://github.com/geek-fun/sqlkit/releases/tag/v1.0.4) · [Download SqlKit](/download#sqlkit)
+
 ## [DocKit v2.0.3 released: system tray and four new languages](/news/dockit-v2-0-3-release)
 
 November 19, 2026: DocKit v2.0.3 keeps the app running in the system tray, adds Português (Brasil), Japanese, Korean, and Spanish interfaces, unifies Simplified Chinese detection, and fixes sign-in being blocked by locale sync. Read the [full announcement](/news/dockit-v2-0-3-release).
