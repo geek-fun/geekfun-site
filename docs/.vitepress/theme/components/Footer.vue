@@ -32,7 +32,7 @@
         <div class="footer-section">
           <h3>{{ t.resources }}</h3>
           <ul>
-            <li><a :href="localePath('/docs/')">{{ t.docs }}</a></li>
+            <li><a :href="localePath('/docs')">{{ docsCopy?.title ?? t.docs }}</a></li>
             <li><a :href="localePath('/blog/')">{{ t.blog }}</a></li>
             <li><a :href="localePath('/news/')">{{ t.news }}</a></li>
             <li><a :href="localePath('/download')">{{ t.download }}</a></li>
@@ -73,8 +73,10 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { computed } from 'vue'
+import { getLocalizedDocs } from '../../docs-locales'
 
 const { lang } = useData()
+const docsCopy = computed(() => getLocalizedDocs(lang.value))
 
 const translations = {
   en: {
@@ -144,7 +146,13 @@ const t = computed(() => {
 })
 
 const localePath = (path: string) => {
-  return lang.value === 'zh' ? `/zh${path}` : path
+  if (lang.value === 'zh') return `/zh${path}`
+  if (!docsCopy.value) return path
+  if (path === '/docs' || path === '/products/sqlkit/') return `/${lang.value}${path}`
+  if (path === '/products/dockit/' && lang.value === 'zh-TW') return '/zh-TW/docs/dockit/'
+  return lang.value !== 'zh-TW' && ['/products/dockit/', '/download', '/pricing'].includes(path)
+    ? `/${lang.value}${path}`
+    : path
 }
 </script>
 

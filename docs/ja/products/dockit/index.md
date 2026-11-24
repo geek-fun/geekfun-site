@@ -147,7 +147,8 @@ cta:
   actions:
     - { text: "無料トライアルを開始", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
     - { text: "ダウンロード", link: "/ja/download#dockit", theme: "alt" }
-    - { text: "SqlKit を試す →", link: "/products/sqlkit/", theme: "alt" }
+    - { text: "SqlKit を試す →", link: "/ja/products/sqlkit/", theme: "alt" }
+    - { text: "ドキュメント", link: "/ja/docs/dockit/", theme: "alt" }
 ---
 
 ## 複数データベースを扱うチームに DocKit を選ぶ理由
@@ -197,7 +198,7 @@ DocKit は、自動補完と結果のフォーマットを備えたフル機能�
 
 認証、TLS、レプリカセット構成での接続に対応しています。効率的なバッチ操作のためのバルク書き込みをサポートしています。クエリ履歴はスター/ブックマーク付きで、接続ごとに保存されます。コレクションは JSON、CSV、JSONL でインポート/エクスポートできます。
 
-→ [MongoDB GUI クライアントのドキュメント](/docs/dockit/connect-to-server)
+→ [MongoDB GUI クライアントのドキュメント](/ja/docs/dockit/connect-to-server)
 
 ## EasySearch サポート
 
@@ -207,7 +208,7 @@ DocKit は **EasySearch** を、Elasticsearch や OpenSearch と並ぶ独立し�
 
 DocKit の **Agentic Data Studio** により、自然言語でデータベースと対話できます。必要なことを伝えれば — エージェントがクエリを記述し、スキーマを調査し、ドキュメントを更新し、レコードを削除し、インデックスを作成して結果を返します。すべての操作は検証済みのツールを通じて実行され、きめ細かなデータソースごとの権限、破壊的な操作の前に明示的な確認を求めるセーフティゲート、接続シークレットを LLM に決して公開しない安全な認証情報アーキテクチャという保護機能が組み込まれています。OpenAI、Anthropic、DeepSeek に加え、Ollama と LM Studio による完全オフライン利用にも対応しています。
 
-→ [Agentic Data Studio ガイド](/docs/dockit/agentic-datastudio)
+→ [Agentic Data Studio ガイド (英語)](/docs/dockit/agentic-datastudio)
 
 ## よくある質問
 

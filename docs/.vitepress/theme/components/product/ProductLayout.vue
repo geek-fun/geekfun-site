@@ -25,6 +25,9 @@ const { frontmatter } = useData()
     <ProductArchitecture v-if="frontmatter.architecture" :architecture="frontmatter.architecture" />
     <ProductTools v-if="frontmatter.tools" :tools="frontmatter.tools" />
     <ProductFeatures v-if="frontmatter.features" :features="frontmatter.features" />
+    <section v-if="frontmatter.showBody" class="product-body vp-doc">
+      <Content />
+    </section>
     <ProductSecurity v-if="frontmatter.security" :security="frontmatter.security" />
     <ProductPlatformGrid v-if="frontmatter.platforms" :platforms="frontmatter.platforms" />
     <ProductCTA v-if="frontmatter.cta" :cta="frontmatter.cta" />
@@ -36,5 +39,12 @@ const { frontmatter } = useData()
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.product-body {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 24px 72px;
 }
 </style>

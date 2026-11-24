@@ -7,15 +7,15 @@ head:
       content: data studio agent tools, MCP tool reference, data_studio__sqlkit, data_studio__es, data_studio__mongo, data_studio__dynamo
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/docs/data-studio-agent/tools/
+      href: https://www.geekfun.club/docs/data-studio-agent/tools
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/docs/data-studio-agent/tools/
+      href: https://www.geekfun.club/docs/data-studio-agent/tools
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/docs/data-studio-agent/tools/
+      href: https://www.geekfun.club/zh/docs/data-studio-agent/tools
   - - link
     - rel: alternate
       hreflang: x-default

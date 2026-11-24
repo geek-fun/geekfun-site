@@ -7,15 +7,15 @@ head:
       content: data studio agent quick start, MCP server install, AI coding agent registration, Claude Code, Codex, Cursor, Windsurf, OpenCode
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/docs/data-studio-agent/quick-start/
+      href: https://www.geekfun.club/docs/data-studio-agent/quick-start
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/docs/data-studio-agent/quick-start/
+      href: https://www.geekfun.club/docs/data-studio-agent/quick-start
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/docs/data-studio-agent/quick-start/
+      href: https://www.geekfun.club/zh/docs/data-studio-agent/quick-start
   - - link
     - rel: alternate
       hreflang: x-default

@@ -147,7 +147,8 @@ cta:
   actions:
     - { text: "Iniciar teste grátis", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
     - { text: "Baixar", link: "/pt-BR/download#dockit", theme: "alt" }
-    - { text: "Experimente o SqlKit →", link: "/products/sqlkit/", theme: "alt" }
+    - { text: "Experimente o SqlKit →", link: "/pt-BR/products/sqlkit/", theme: "alt" }
+    - { text: "Documentação", link: "/pt-BR/docs/dockit/", theme: "alt" }
 ---
 
 ## Por que o DocKit para equipes com múltiplos bancos de dados
@@ -197,7 +198,7 @@ O DocKit é um **cliente GUI MongoDB** open source com um editor de consultas co
 
 Conecte-se com autenticação, TLS e configurações de replica set. Há suporte a gravação em lote (bulk write) para operações em lote eficientes. O histórico de consultas tem favoritos por estrela/marcador e é persistido por conexão. Importe e exporte coleções em JSON, CSV e JSONL.
 
-→ [Documentação do cliente GUI MongoDB](/docs/dockit/connect-to-server)
+→ [Documentação do cliente GUI MongoDB](/pt-BR/docs/dockit/connect-to-server)
 
 ## Suporte ao EasySearch
 
@@ -207,7 +208,7 @@ O DocKit suporta nativamente o **EasySearch** como um tipo de conexão dedicado 
 
 O **Agentic Data Studio** do DocKit permite interagir com seus bancos de dados por linguagem natural. Descreva o que você precisa — o agente escreve consultas, inspeciona esquemas, atualiza documentos, exclui registros, cria índices e retorna resultados. Cada operação passa por ferramentas validadas com segurança integrada: permissões granulares por fonte, um portão de segurança que exige confirmação explícita antes de ações destrutivas e uma arquitetura segura para credenciais que nunca expõe segredos de conexão ao LLM. Suporta OpenAI, Anthropic e DeepSeek, além de Ollama e LM Studio para uso totalmente offline.
 
-→ [Guia do Agentic Data Studio](/docs/dockit/agentic-datastudio)
+→ [Guia do Agentic Data Studio (em inglês)](/docs/dockit/agentic-datastudio)
 
 ## Perguntas frequentes
 

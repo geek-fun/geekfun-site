@@ -8,7 +8,7 @@ head:
       content: dynamodb gui客户端, dynamodb桌面客户端, dynamodb gui, dynobase替代方案, nosql workbench替代方案, dynamodb partiql编辑器, dynamodb查询工具, 开源dynamodb客户端, dynamodb mac客户端
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/products/dockit/dynamodb-gui-client
+      href: https://www.geekfun.club/zh/products/dockit/dynamodb-gui-client
   - - link
     - rel: alternate
       hreflang: en

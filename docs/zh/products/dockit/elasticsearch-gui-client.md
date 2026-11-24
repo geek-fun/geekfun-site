@@ -8,7 +8,7 @@ head:
       content: elasticsearch gui客户端, elasticsearch桌面客户端, kibana替代方案, elasticsearch查询工具, elasticsearch集群管理, 开源elasticsearch客户端, elasticsearch mac客户端, elasticsearch windows客户端
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/products/dockit/elasticsearch-gui-client
+      href: https://www.geekfun.club/zh/products/dockit/elasticsearch-gui-client
   - - link
     - rel: alternate
       hreflang: en

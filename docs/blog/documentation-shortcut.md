@@ -237,7 +237,7 @@ That's it. No setup, no configuration — it works automatically with any connec
 ## Related Resources
 
 - **[DocKit — AI-Native NoSQL GUI](/products/dockit/)** — Multi-engine desktop client
-- **[Best Elasticsearch GUI Tools 2026](https://www.geekfun.club/blog/elasticsearch-tools-2026)** — ES tools comparison
+- **[Best Elasticsearch GUI Clients in 2026](/blog/best-elasticsearch-gui-client-2026)** — ES tools comparison
 - **[Elasticsearch GUI Client Guide](/products/dockit/elasticsearch-gui-client)** — Getting started with ES in DocKit
 - **[OpenSearch GUI Client](/products/dockit/opensearch-gui-client)** — OpenSearch desktop client
 - **[Download DocKit](/download)** — Get the latest version

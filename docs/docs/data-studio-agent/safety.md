@@ -7,15 +7,15 @@ head:
       content: data studio agent safety, MCP security, read only mode, local only, credentials never leave
   - - link
     - rel: canonical
-      href: https://www.geekfun.club/docs/data-studio-agent/safety/
+      href: https://www.geekfun.club/docs/data-studio-agent/safety
   - - link
     - rel: alternate
       hreflang: en
-      href: https://www.geekfun.club/docs/data-studio-agent/safety/
+      href: https://www.geekfun.club/docs/data-studio-agent/safety
   - - link
     - rel: alternate
       hreflang: zh
-      href: https://www.geekfun.club/zh/docs/data-studio-agent/safety/
+      href: https://www.geekfun.club/zh/docs/data-studio-agent/safety
   - - link
     - rel: alternate
       hreflang: x-default
