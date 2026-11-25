@@ -1,8 +1,8 @@
 ---
 outline: false
 lastUpdated: false
-title: 极客范文档中心 | SqlKit 和 DocKit 使用指南
-description: 查阅 SqlKit 的 MySQL、PostgreSQL、SQL Server 和 Oracle 使用指南，以及 DocKit 的 MongoDB、DynamoDB、Elasticsearch 和 OpenSearch 文档。
+title: 极客范文档中心 | SqlKit、DocKit 与 Data Studio Agent
+description: 查阅 SqlKit（68+ SQL 数据库、Monaco 编辑器、ER 图、批量传输、Agentic Data Studio、MCP）、DocKit（NoSQL 客户端）与 Data Studio Agent 完整文档。
 head:
   - - link
     - rel: canonical

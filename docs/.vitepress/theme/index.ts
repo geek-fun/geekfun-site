@@ -20,6 +20,10 @@ import NotFoundContent from "./components/NotFoundContent.vue";
 import BlogArticleHeader from "./components/blog/BlogArticleHeader.vue";
 import DocsBreadcrumb from "./components/docs/DocsBreadcrumb.vue";
 import DocsFigure from "./components/docs/DocsFigure.vue";
+import DocsCardGrid from "./components/docs/DocsCardGrid.vue";
+import DocsCard from "./components/docs/DocsCard.vue";
+import DocsBadge from "./components/docs/DocsBadge.vue";
+import DocsSteps from "./components/docs/DocsSteps.vue";
 import { isBlogArticle } from "../blog";
 import { getDocsProductId } from "../docs-navigation";
 import { getUnprefixedDocsPath } from "../docs-locales";
@@ -62,6 +66,7 @@ export default {
                 'blog-page': isArticle || isBlogIndex,
                 'blog-article-page': isArticle,
                 'docs-guide-page': docsProductId,
+                [`docs-product--${docsProductId}`]: Boolean(docsProductId),
             }
         }, slots)
         return h(Fragment, null, [layout, docsProductId ? h(Footer) : null])
@@ -89,5 +94,9 @@ export default {
         app.component('NotFoundContent', NotFoundContent);
         app.component('BlogArticleHeader', BlogArticleHeader);
         app.component('DocsFigure', DocsFigure);
+        app.component('DocsCardGrid', DocsCardGrid);
+        app.component('DocsCard', DocsCard);
+        app.component('DocsBadge', DocsBadge);
+        app.component('DocsSteps', DocsSteps);
     }
 }

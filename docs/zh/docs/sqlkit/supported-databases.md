@@ -1,29 +1,161 @@
 ---
-title: SqlKit 支持的数据库与驱动
-description: 查看 SqlKit 支持的数据库及其连接方式，了解 MySQL、PostgreSQL、SQL Server、Oracle、SQLite、DuckDB 和 ClickHouse 的驱动要求。
+title: 支持的数据库与 JDBC 驱动（68+ 引擎） | SqlKit
+description: 完整列出 SqlKit 支持的 68 种数据库引擎，涵盖原生 Rust 驱动、PostgreSQL/MySQL 兼容协议、HTTP SQL 与按需下载的 JDBC 桥接及能力矩阵。
+outline: [2, 3]
 ---
 
-# 支持的数据库与驱动
+# 支持的数据库与 JDBC 驱动
 
-在**连接管理 → 添加新连接**中选择数据库类型，表单会显示需要填写的连接信息。如果服务商提供的主机和端口与默认值不同，请填写服务商给出的值。
+SqlKit 在**连接管理 → 添加新连接**中内置 **68 种经过验证的数据库配置**。选择对应的配置会自动匹配默认端口、表单字段、SQL 方言与驱动运行时，并按该引擎的真实能力动态适配界面操作。
 
-## 我的数据库使用哪个驱动？
+::: info 连接支持与功能边界说明
+“能够建立连接”并不代表所有 68 种引擎拥有完全一致的元数据视图或 SQL 语法。SqlKit 通过引擎能力标记自动隐藏不可靠的操作入口，避免误触发报错。
+:::
 
-| 连接方式 | 数据库 | 如何设置 |
+## 1. 核心原生 Rust 驱动（6 种）
+
+直接编译进 SqlKit 主程序，**零 Java 依赖、零外部驱动配置**。
+
+| 数据库 | 底层驱动 | 默认端口 | SSL/TLS | 说明 |
+| --- | --- | --- | --- | --- |
+| [PostgreSQL](/zh/docs/sqlkit/postgresql-gui-client) | `tokio-postgres` + `rustls` | `5432` | 完整 5 档（`disable`–`verify-full`） | 完整模式树、视图/过程/函数/触发器、`EXPLAIN (FORMAT JSON)` 与 `ANALYZE` |
+| [MySQL](/zh/docs/sqlkit/mysql-gui-client) | `mysql_async` + `rustls` | `3306` | 完整 5 档（`disable`–`verify-full`） | 视图/过程/函数/触发器、存储引擎、`EXPLAIN FORMAT=JSON` 与 `ANALYZE` |
+| [SQL Server](/zh/docs/sqlkit/sql-server-gui-client) | `tiberius`（TDS 7.3） | `1433` | TLS + `Trust Server Certificate` | 模式（`dbo`）、T-SQL `SHOWPLAN_TEXT` 与 `STATISTICS PROFILE` |
+| [SQLite](/zh/docs/sqlkit/sqlite-gui-client) | `rusqlite`（内置） | 本地文件 / `:memory:` | 不适用 | 支持打开已有文件、新建文件或 `:memory:` 内存库 |
+| [SQLCipher](/zh/docs/sqlkit/sqlite-gui-client#sqlcipher) | `rusqlite`（`sqlcipher`） | 本地文件 | 不适用 | 支持通过 `PRAGMA key` 打开加密 SQLite 文件 |
+| **ClickHouse** | 原生 Rust HTTP | `8123` | HTTPS / TLS | 支持物化视图；无模式、存储过程和函数节点 |
+
+## 2. PostgreSQL 协议兼容引擎（18 种）
+
+复用原生 Rust PostgreSQL 驱动，内置各引擎专属默认端口与默认库名，完整支持 SSL/TLS。
+
+| 数据库 | 默认端口 | 默认库 / 说明 |
 | --- | --- | --- |
-| 内置 TCP 驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> | 填写服务器地址和登录信息。 |
-| 内置本地文件驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#local--> | 选择本地文件。SQLCipher 还需要加密密钥。 |
-| MySQL 兼容驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#mysql--> | 选择对应的数据库类型，并填写该服务实际使用的 SQL 端口。 |
-| PostgreSQL 兼容驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#postgresql--> | 选择对应的数据库类型，并填写要连接的数据库。 |
-| JDBC 桥接 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#jdbc--> | [设置 Java 和驱动](/zh/docs/sqlkit/connect-to-database#java-and-jdbc-drivers)，然后按数据库类型填写连接信息。 |
-| HTTP 连接 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#http--> | 使用对应服务的地址和端口。ClickHouse 的默认 HTTP 端口为 `8123`。 |
+| **AlloyDB for PostgreSQL** | `5432` | Google Cloud 托管 PG 兼容引擎 |
+| **Amazon Redshift** | `5439` | 需指定数据库名称 |
+| **Cloud SQL for PostgreSQL** | `5432` | Google Cloud 托管 PostgreSQL |
+| **CockroachDB** | `5432` | 默认库 `defaultdb` |
+| **CrateDB** | `5432` | 默认库 `crate` |
+| **EnterpriseDB (EDB)** | `5432` | 需指定数据库名称 |
+| **Fujitsu Enterprise Postgres** | `5432` | 企业级 PostgreSQL 发行版 |
+| **GaussDB** | `5432` | 华为分布式 PG 兼容数据库 |
+| **GBase 8c** | `5432` | 南大通用分布式 PG 兼容库 |
+| **Greenplum** | `5432` | MPP 分析型数据仓库 |
+| **HighGo DB（瀚高）** | `5432` | 默认库 `highgo` |
+| **Materialize** | `5432` | 默认库 `materialize` |
+| **openGauss** | `5432` | 开源企业级关系数据库 |
+| **QuestDB** | `8812` | 默认库 `qdb` |
+| **TimescaleDB** | `5432` | 需指定数据库名称 |
+| **UXDB（优炫）** | `5432` | 默认库 `uxdb` |
+| **Vastbase（海量）** | `5432` | 默认库 `vastbase` |
+| **YugabyteDB** | `5433` | 默认库 `yugabyte` |
 
-默认端口和故障排查步骤见[连接数据库](/zh/docs/sqlkit/connect-to-database)。
+## 3. MySQL 协议兼容引擎（13 种）
 
-## 连接后可以使用哪些功能？
+复用原生 Rust MySQL 驱动，内置各引擎专属默认端口与完整 SSL/TLS 支持。
 
-- 先选择目标数据库和模式。对象树会显示该数据库支持的对象，例如视图或存储过程。
-- 能否查看执行计划、编辑行或导出数据，取决于数据库类型和账号权限。查看计划见 [SQL 编辑器](/zh/docs/sqlkit/query-editor)，编辑或导出数据见[表格浏览器](/zh/docs/sqlkit/table-browser)。
-- 使用 Cassandra 或 ScyllaDB 时，先选择键空间。表格里显示的是数据预览。要用数据库支持的条件筛选或排序，请在编辑器里写 CQL。
+| 数据库 | 默认端口 | 说明 |
+| --- | --- | --- |
+| **Apache Doris** | `9030` | 实时 OLAP 引擎（MySQL 协议查询端口） |
+| **Cloud SQL for MySQL** | `3306` | Google Cloud 托管 MySQL |
+| **Databend** | `3307` | 云原生数仓（MySQL 协议端口） |
+| **GoldenDB** | `3306` | 金融级分布式数据库 |
+| **Manticore Search** | `9306` | 通过 MySQL 协议查询的全文检索引擎 |
+| **MariaDB** | `3306` | 独立配置与专属 `mariadb` 格式化方言 |
+| **OceanBase（MySQL 模式）** | `2883` | ODP 代理默认端口 |
+| **PolarDB** | `3306` | 云原生 MySQL 兼容数据库 |
+| **SelectDB** | `9030` | 云原生 Doris 商业发行版 |
+| **SingleStore（MemSQL）** | `3306` | 分布式 HTAP 引擎 |
+| **StarRocks** | `9030` | 高性能实时 OLAP 引擎 |
+| **TDSQL** | `3306` | 腾讯云分布式 MySQL 兼容数据库 |
+| **TiDB** | `4000` | 分布式 NewSQL 数据库 |
 
-如果连接成功但无法完成某项操作，请检查当前数据库和模式、账号权限以及目标数据库支持的 SQL 方言。网络和驱动问题见[连接故障排查](/zh/docs/sqlkit/connect-to-database#troubleshoot-a-failed-connection)。
+## 4. 原生 HTTP SQL 引擎（4 种）
+
+直接通过原生 Rust HTTP/HTTPS 通信，无需 Java 或 JDBC：
+
+| 数据库 | 默认端口 | 说明 |
+| --- | --- | --- |
+| **Presto** | `8080` | 分布式 SQL 查询引擎 |
+| **rqlite** | `4001` | 基于 Raft 的分布式 SQLite |
+| **Trino** | `8080` | 分布式 SQL 查询引擎 |
+| **Turso (libSQL)** | `443` | 边缘 SQLite（HTTPS + Token） |
+
+*（ClickHouse 同样采用原生 Rust HTTP 适配器，默认端口 `8123`。）*
+
+## 5. JDBC 桥接引擎（27 种）
+
+通过 SqlKit 内置共享 Java 子进程（`jdbc-bridge` + HikariCP 连接池）连接，首次测试连接或在**设置 → JRE 与 JDBC 驱动**中自动按需拉取驱动：
+
+| 数据库 | 默认端口 / 目标 | 驱动包 | 特别说明 |
+| --- | --- | --- | --- |
+| [Oracle Database](/zh/docs/sqlkit/oracle-gui-client) | `1521` | `ojdbc11` | 基础（SID/服务名）、TNS（`tnsnames.ora`）、云钱包、`NORMAL`/`SYSDBA`/`SYSOPER` |
+| [DuckDB](/zh/docs/sqlkit/sqlite-gui-client#duckdb) | 本地文件 / `memory:<label>` | `duckdb_jdbc` | 无 SSL；支持读写 / 只读模式及同文件冲突检测 |
+| **Apache Cassandra (3.0+)** | `9042` | `cassandra-jdbc-wrapper` | CQL 宽列模式，见下方 [CQL 说明](#cql-engines) |
+| **ScyllaDB** | `9042` | `cassandra-jdbc-wrapper` | CQL 宽列模式，与 Cassandra 共用预打包驱动 |
+| **Snowflake** | `443` | `snowflake-jdbc` | 云数据仓库 |
+| **Google BigQuery** | `443` | `googlebigquery-jdbc` | 无服务器数据仓库 |
+| **Databricks SQL** | `443` | `databricks-jdbc` | 湖仓一体 SQL 仓库 |
+| **Apache Hive** | `10000` | `hive-jdbc`（standalone） | HiveServer2 |
+| **Apache Kylin** | `7070` | `kylin-jdbc` | OLAP 分析引擎 |
+| **IBM Db2** | `50000` | `jcc` | 企业级关系数据库 |
+| **IBM Informix** | `9088` | `jcc` | 企业级关系数据库 |
+| **SAP HANA** | `30015` | `ngdbc` | 企业级内存数据库 |
+| **Teradata** | `1025` | `terajdbc` | 企业级数据仓库 |
+| **Vertica** | `5433` | `vertica-jdbc` | 列式分析数据库 |
+| **Exasol** | `8563` | `exasol-jdbc` | 内存分析数据库 |
+| **Firebird** | `3050` | `jaybird` | 开源关系数据库 |
+| **H2** | `9092` | `h2` | Java SQL 引擎 |
+| **Apache Derby** | `1527` | `derbyclient` | 网络版 Derby 服务 |
+| **InterSystems IRIS** | `1972` | `jdbc` | 企业级多模数据库 |
+| **Microsoft Access** | 本地 `.accdb`/`.mdb` | `ucanaccess` | 本地文件，无 SSL |
+| **达梦 Dameng (DM8)** | `5236` | `DmJdbcDriver8` | 国产企业级关系数据库 |
+| **人大金仓 KingbaseES** | `54321` | `kingbase8` | 国产企业级关系数据库 |
+| **OceanBase（Oracle 模式）** | `2881` | `oceanbase-client` | Oracle 兼容租户 |
+| **南大通用 GBase 8a** | `5258` | 预打包驱动 | 分布式分析集群 |
+| **虚谷 XuguDB** | `5138` | `xugu-jdbc` | 国产分布式关系数据库 |
+| **崖山 YashanDB** | `1688` | `yashandb-jdbc` | 国产企业级关系数据库 |
+| **TDengine** | `6030` | `taos-jdbcdriver` | 时序数据库 |
+
+## 管理 JRE 25 与 JDBC 驱动 {#jdbc-manager}
+
+前往**设置 → JRE 与 JDBC 驱动**统一管理全部 Java 组件：
+
+- **Java 运行时（JRE 25）**：自动检测系统已安装的 JDK 25+，或一键从 Adoptium 下载托管的 **Eclipse Temurin JRE 25** 至 `~/.sqlkit/jre`（支持更新检测与卸载）。
+- **JDBC Bridge JAR**：存放于 `~/.sqlkit/jdbc-bridge/jdbc-bridge-<version>.jar`，从 GitHub Releases 拉取并在升级后自动重启桥接进程。
+- **各引擎驱动**：列出全部 27 个 JDBC 驱动的安装状态、版本号与文件大小，支持单个下载、检查更新和删除。
+
+::: info 关于自定义本地 JAR
+目前 SqlKit 通过内置注册表拉取官方验证的驱动包（Maven Central 与预打包发行源），界面暂不提供上传任意自定义本地 JAR 的入口。
+:::
+
+## 特殊引擎说明与能力矩阵 {#engine-notes}
+
+### Cassandra 与 ScyllaDB（CQL） {#cql-engines}
+
+CQL 在数据模型和网络协议上都与关系型 SQL 差异显著，SqlKit 做了针对性适配：
+
+- **Keyspace 映射为模式**：元数据直接查询 `system_schema`；由于 CQL 不存在外键与视图，相关节点自动隐藏。
+- **连接字段**：支持填写**本地数据中心**（默认 `datacenter1`）与 **Keyspace**（默认 `system`）。
+- **TLS 行为**：CQL 无协商回退机制，`prefer` 会自动按明文连接；开启 TLS 的集群请选择 `require`、`verify-ca` 或 `verify-full`。
+- **编辑与预览**：语句拆分器支持 CQL 的 `BEGIN ... APPLY BATCH`、`//` 注释与 `$$` 美元引号；数据表标签页提供只读预览，不支持网格侧过滤、排序与分页，筛选和排序请在编辑器中编写 CQL 执行。
+
+### 引擎能力矩阵
+
+| 能力 | PostgreSQL / MySQL / SQL Server | SQLite / SQLCipher | ClickHouse | Oracle / 标准 JDBC | Cassandra / ScyllaDB (CQL) |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| 对象树与表数据预览 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Schema（模式）层级 | PG / MSSQL ✅ · MySQL — | — | — | ✅ | Keyspace |
+| 视图 / 存储过程 / 函数 | ✅ | 仅视图 | 物化视图 | 视引擎而定 | — |
+| 可视化 `EXPLAIN` 执行计划 | ✅（JSON / Showplan） | ✅ | ✅ | 视引擎而定 | — |
+| 网格筛选、排序与分页 | ✅ | ✅ | ✅ | ✅ | 请在 CQL 编辑器执行 |
+| 交互式 ER 图（旗舰版） | ✅ | ✅ | — | 视引擎而定 | — |
+| Agentic Data Studio（41+ 引擎） | ✅ | ✅ | — | Oracle、DuckDB、DM8 ✅ | — |
+
+## 下一步
+
+<DocsCardGrid :cols="3">
+  <DocsCard title="PostgreSQL 指南" description="Schema、SSL verify-full、EXPLAIN JSON 与 PG 兼容生态。" href="/zh/docs/sqlkit/postgresql-gui-client" icon="database" />
+  <DocsCard title="MySQL 指南" description="存储引擎、字符集、EXPLAIN ANALYZE 与 MariaDB/TiDB。" href="/zh/docs/sqlkit/mysql-gui-client" icon="database" />
+  <DocsCard title="Oracle 指南" description="基础 SID/服务名、TNS 自动解析、云钱包与 SYSDBA。" href="/zh/docs/sqlkit/oracle-gui-client" icon="database" />
+</DocsCardGrid>

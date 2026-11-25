@@ -1,8 +1,8 @@
 ---
 outline: false
 lastUpdated: false
-title: GEEKFUN Documentation for SqlKit and DocKit
-description: Install and use SqlKit for MySQL, PostgreSQL, SQL Server, and Oracle, or find DocKit guides for MongoDB, DynamoDB, Elasticsearch, and OpenSearch.
+title: GEEKFUN Documentation | SqlKit, DocKit & Data Studio Agent
+description: Production documentation for SqlKit (68+ SQL databases, Monaco SQL editor, ER diagrams, Transfer, Agentic Data Studio, MCP), DocKit (NoSQL GUI), and Data Studio Agent.
 head:
   - - link
     - rel: canonical

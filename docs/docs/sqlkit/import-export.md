@@ -1,22 +1,108 @@
 ---
-title: Import and Export CSV, JSONL, SQL, and Excel in SqlKit
-description: Use the SqlKit Transfer workspace to import a file, map columns to a target table, export table data, and check the result of a job.
+title: Bulk Import & Export (CSV, JSONL, SQL, Excel) | SqlKit Transfer
+description: Export tables, databases, or servers and import CSV, JSONL, SQL, and Excel (.xlsx) files in SqlKit Transfer with auto-detection, column mapping, conflict strategies, dry runs, and background tasks.
+outline: [2, 3]
 ---
 
-# Import and export database files
+# Bulk import & export (Transfer)
 
-With SqlKit Ultimate, you can use **Transfer** to import or export CSV, JSONL, SQL, and Excel (`.xlsx`) files. If you’ve already run a query and only need the rows it returned, use [query result export](/docs/sqlkit/query-editor#browse-and-export-data) to save them as CSV or JSON.
+SqlKit offers two levels of data movement depending on your task:
 
-## Import a CSV into an existing table
+- **Quick Grid Export** <DocsBadge variant="community">Community · Free</DocsBadge>: export or copy the rows returned by any query (**CSV**, **JSON**, **SQL `INSERT`**) or the active page in the table browser (**CSV**). See [SQL editor results](/docs/sqlkit/query-editor#browse-and-export-data).
+- **Transfer Workspace** <DocsBadge variant="ultimate">Ultimate</DocsBadge>: full 4-step **Export** and **Import** wizards for **CSV**, **JSONL**, **SQL**, and **Excel (`.xlsx`)** files with live preview, column mapping, conflict strategies, dry runs, and background task tracking.
 
-1. Open **Transfer → Import** and browse for the CSV file. Check the detected columns and preview. If the header row or delimiter is wrong, check the source file before continuing.
-2. In **Target & Mapping**, select the connection, database, schema where applicable, and table. Match each source column to a destination column. Use **Auto-Map** to match by name and check the matches.
-3. Review the import options and run the import. Before retrying, check how many rows the import processed and which errors it reported. If it may have written some batches, check the target table before you run it again.
+## Supported transfer formats
 
-For SQL files, examine the script before importing. The statements run against the selected destination using its SQL dialect and your database permissions.
+| Format | Export options | Import capabilities |
+| --- | --- | --- |
+| **CSV** (`.csv`) | Custom delimiter, quote character, encoding, header row toggle, quote-all, `LF` / `CRLF` line endings | Auto-detects format, delimiter, encoding, header row, and columns |
+| **JSONL** (`.jsonl`) | One JSON object per line, configurable date format (e.g., ISO-8601) | Auto-detects JSON keys and previews records |
+| **SQL** (`.sql`) | Target table name, batch size (default `1,000`), include `CREATE TABLE`, include `DROP TABLE`, target engine dialect | Executes SQL statements against the selected target connection & database |
+| **Excel** (`.xlsx`) | Sheet name, include header row, auto-fit column widths, freeze header row | Reads Excel worksheets with automatic column preview and mapping |
 
-## Export table data to a file
+*(Parquet files are not currently supported.)*
 
-1. Open **Transfer → Export** and select a connection. Choose the export scope and the source tables or database as required.
-2. Choose CSV for a flat table, JSONL for one object per line, Excel for a spreadsheet, or SQL for a script. For SQL output, review the options for including table creation and drop statements.
-3. Select an output path and click **Start Export**. Check the task result and open the written file to confirm it contains the intended data.
+## Export database data
+
+Open **Transfer → Export** from the main sidebar (or right-click any table in **Queries** and choose **Export Data** to pre-select that table).
+
+<DocsSteps>
+
+### Choose source scope
+
+Select your saved connection and pick an export scope:
+- **Tables** — pick one or more tables and optionally narrow down specific columns per table.
+- **Database** — export all tables in the selected database/schema.
+- **Server** — export across databases visible on the connection.
+
+### Pick format & options
+
+Select **CSV**, **JSONL**, **SQL**, or **Excel (`.xlsx`)** and configure format-specific options (delimiters, line endings, sheet settings, or SQL `CREATE`/`DROP` statements and batch size).
+
+### Preview the output
+
+Review the live **Export Preview** to verify formatting, column headers, quoting, and dialect syntax before writing to disk.
+
+### Run & monitor progress
+
+Choose an output path and click **Start Export**. Progress updates in real time in the wizard and in the **Background Task Manager**.
+
+</DocsSteps>
+
+## Import files into a database
+
+Open **Transfer → Import** to load CSV, JSONL, Excel (`.xlsx`), or SQL files into a target connection.
+
+<DocsSteps>
+
+### Select or drop the source file
+
+Drop a file onto the upload zone or browse from disk. SqlKit runs automatic detection to identify the **file format, delimiter, text encoding, header row, and column names**, showing a preview of the first rows.
+
+### Map source columns to target columns
+
+In **Target & Mapping**, select the target **connection**, **database**, **schema** (where applicable), and **table** (or choose to create a new table). Match each source column to a destination column and target type, or skip unneeded columns.
+
+### Configure conflict handling & run a Dry Run
+
+Before writing to your database, configure import execution options:
+
+| Option | Behavior |
+| --- | --- |
+| **Conflict Strategy — `Skip`** | Ignores rows that violate primary-key or unique constraints and continues |
+| **Conflict Strategy — `Replace`** | Replaces existing conflicting rows |
+| **Conflict Strategy — `Upsert`** | Inserts new rows and updates existing rows on key match |
+| **Conflict Strategy — `Abort`** | Stops the import immediately on the first conflict |
+| **Batch Size** | Rows written per batch (default `5,000`) |
+| **Create Table if missing** | Creates the destination table automatically using mapped column types |
+| **Truncate before import** | Empties the destination table before inserting rows (use with caution) |
+| **Dry Run** | Validates parsing, type conversion, and mapping without modifying the target table |
+
+### Execute & review row-level results
+
+Click **Start Import** and monitor processed, inserted, skipped, and errored row counts.
+
+</DocsSteps>
+
+::: warning Retrying a partially completed import
+If an import stops midway after writing earlier batches, inspect the target table (or switch conflict strategy to **Skip** / **Upsert**) before re-running so you do not duplicate rows. For `.sql` imports, always review the script before running—statements execute directly under your database account's privileges.
+:::
+
+## Background task manager
+
+Long-running exports and imports run in the background without blocking your **Queries** or **Data Studio** tabs. Open the **Task Sidebar / Task Manager Panel** at any time to check:
+
+- Active, completed, and failed transfer jobs
+- Processed row counts, skipped counts, and error summaries
+- Elapsed execution time
+
+::: info Operational boundary
+Transfer is designed for development datasets, analytics extracts, and everyday table imports/exports. For multi-gigabyte or production disaster-recovery backups, use your database's native dump utilities (`pg_dump`, `mysqldump`, `sqlcmd`, Oracle Data Pump / RMAN).
+:::
+
+## Next steps
+
+<DocsCardGrid :cols="2">
+  <DocsCard title="Data grid & table browser" description="Inspect imported rows, run filters, and verify values immediately." href="/docs/sqlkit/table-browser" icon="table" />
+  <DocsCard title="SQL editor & results" description="Use free CSV/JSON/SQL quick export on any query result set." href="/docs/sqlkit/query-editor#browse-and-export-data" icon="code" />
+</DocsCardGrid>

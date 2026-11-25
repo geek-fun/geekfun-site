@@ -1,22 +1,55 @@
 ---
-title: 为 Codex、Claude Code 和 Cursor 配置 SqlKit MCP
-description: 启动本地 SqlKit MCP 桥接，在编程工具中注册 Data Studio Agent，并验证已保存的 SQL 数据库连接。
+title: MCP 桥接与编程智能体（Claude Code、Codex、Cursor） | SqlKit
+description: 启动 SqlKit 本地 MCP 桥接，在 Claude Code、OpenAI Codex 或 Cursor 中注册 Data Studio Agent（@geek-fun/data-studio-mcp），并查阅全部 25 个注册数据库与 DBA 工具。
+outline: [2, 3]
 ---
 
-# 通过 MCP 将编程智能体连接到 SqlKit
+# MCP 桥接与编程智能体
 
-Data Studio Agent 是供外部编程工具使用的 MCP 服务。编程工具在本机启动该服务，服务再通过 SqlKit 的 MCP 桥接访问已保存的数据库连接。桥接需要旗舰版。若要使用 SqlKit 内置的助手，请查看 [Agentic Data Studio](/zh/docs/sqlkit/agentic-datastudio)。
+<DocsBadge variant="ultimate">旗舰版</DocsBadge>
 
-## 准备 SqlKit {#prepare-sqlkit}
+SqlKit 内嵌基于 Rust / Axum 的本地 HTTP **MCP 桥接**，让外部 AI 编程工具——如 **Claude Code**、**OpenAI Codex**、**Cursor**、**Windsurf** 与 **OpenCode**——通过 **Data Studio Agent**（`@geek-fun/data-studio-mcp`）安全访问你在 SqlKit 中已授权的数据库连接。
 
-1. [安装并打开 SqlKit](/zh/docs/sqlkit/installation)，登录可使用旗舰版的账号，[保存一个测试通过的连接](/zh/docs/sqlkit/connect-to-database)。
-2. 打开**设置 → MCP 桥接**，确认桥接正在运行。如有需要，重启桥接。开启自动启动后，桥接会随 SqlKit 启动。
-3. 若仅需查看结构和执行读查询，在**默认 AI 权限**中选择**读取**。确认待使用的连接也允许读取，详见 [AI 权限](/zh/docs/sqlkit/ai-permissions)。使用时保持 SqlKit 运行。
-4. 在运行编程工具的机器上安装 Node.js 18 或更高版本及 npm，并用 `npx --version` 确认可以执行 `npx`。
+```text
+外部编程智能体（Claude Code / Codex / Cursor）
+   ──(stdio MCP)──► npx @geek-fun/data-studio-mcp
+      ──(localhost HTTP)──► SqlKit MCP 桥接（权限策略 + AST 防护）
+         ──(原生 / SSH / JDBC)──► 目标数据库
+```
 
-## 注册 Data Studio Agent {#register}
+外部编程工具永远接触不到你的数据库密码、SSH 私钥或 TLS 证书——所有连接管理、权限拦截与 SQL 语法树校验均由本机 SqlKit 统一把关。
 
-使用对应客户端的配置。客户端首次运行服务时，`npx` 会按需安装 npm 包。
+<DocsFigure src="/blog/codex-data-studio/codex-data-studio-architecture-branded.png" alt="本地编程智能体通过 Data Studio Agent 与 SqlKit MCP 桥接访问数据库的架构图" caption="Data Studio Agent 在本机以 stdio 模式运行，并通过 SqlKit 内嵌 MCP 桥接路由已授权的数据库工具调用。" :width="3600" :height="2160" />
+
+## 准备 SqlKit 环境 {#prepare-sqlkit}
+
+<DocsSteps>
+
+### 确认旗舰版状态与已保存连接
+
+打开 SqlKit 并登录**旗舰版**（或有效 7 天试用），确保**连接管理**中至少有一个已测试通过的数据库连接。
+
+### 确认 MCP 桥接正在运行
+
+进入**设置 → MCP 桥接**，确认状态显示为**运行中（Running on port `<port>`）**；如有需要可点击**重启桥接**。旗舰版激活后桥接会自动随应用启动，并且关闭主窗口后仍会在**系统托盘 / 菜单栏**中保持运行。
+
+### 配置默认与单连接 AI 权限
+
+在**设置 → MCP 桥接 → 默认 AI 权限**中建议先设为**只读（Read）**，并核对目标连接的[AI 权限](/zh/docs/sqlkit/ai-permissions)允许读取。设为**无访问（No Access）**的连接不会暴露在 MCP 发现列表中。
+
+### 确认本机已安装 Node.js（`npx`）
+
+确保运行编程客户端的机器上已安装 **Node.js 18+** 与 `npm`：
+
+```bash
+npx --version
+```
+
+</DocsSteps>
+
+## 在编程客户端中注册 Data Studio Agent {#register}
+
+按你的工具选择下方配置（**设置 → MCP 桥接**内也提供一键复制标签页）。首次启动时 `npx -y` 会自动按需拉取 `@geek-fun/data-studio-mcp`。
 
 ::: code-group
 
@@ -28,23 +61,43 @@ Data Studio Agent 是供外部编程工具使用的 MCP 服务。编程工具在
 
 :::
 
-Codex 可用 `codex mcp list` 查看注册结果。Claude Code 可在会话中执行 `/mcp` 检查状态。Cursor 可将 JSON 保存到项目的 `.cursor/mcp.json` 或用户的 `~/.cursor/mcp.json`，再查看服务状态。若文件已包含 `mcpServers`，请将新条目合并到其中。
+- **Codex**：执行 `codex mcp list` 核对 `data-studio` 是否已注册。
+- **Claude Code**：在会话内输入 `/mcp` 查看服务在线状态。
+- **Cursor**：将 JSON 片段写入项目级 `.cursor/mcp.json` 或用户级 `~/.cursor/mcp.json`（如已有 `mcpServers` 对象请合并条目），然后刷新 MCP 服务。
+- **其他标准 stdio MCP 客户端**（Windsurf、OpenCode 等）：配置命令为 `npx`，参数为 `["-y", "@geek-fun/data-studio-mcp"]`。更多客户端示例见 [Data Studio Agent 快速开始](/zh/docs/data-studio-agent/quick-start)。
 
-Windsurf、OpenCode 等客户端的配置见 [Data Studio Agent 快速开始](/zh/docs/data-studio-agent/quick-start)。
+## 验证接入与监控活跃会话 {#verify}
 
-## 验证连接 {#verify}
+1. 在编程工具中直接提问：*“列出当前可访问的 SqlKit 连接，然后以只读方式查看 `<你的开发库连接>` 中的所有表，不要修改任何数据。”*
+2. 确认返回结果仅包含安全连接元数据（ID、名称、引擎类型——不含密码），随后正确列出数据表。
+3. 在**设置 → MCP 桥接**或点击**系统托盘 / 菜单栏**图标，即可实时查看当前**活跃客户端会话**（客户端名称、版本，30 秒心跳保活）或一键复制 Bridge URL。
 
-先请编程工具列出可访问的 SqlKit 连接，再指定一个开发库，让它列出表名并保持只读。确认返回的是预期连接和表。客户端连上后，**设置 → MCP 桥接**会显示活动会话。
+## 注册的 25 个 MCP 工具总览
 
-<DocsFigure src="/blog/codex-data-studio/codex-data-studio-architecture-branded-zh.png" alt="编程智能体通过本地 Data Studio Agent 和 SqlKit 桥接访问 SQL 数据库" caption="MCP 服务在本机运行，并通过 SqlKit 访问已保存的 SQL 连接。编程工具接收工具返回的结果。" :width="1800" :height="1080" />
+全部 25 个工具在 MCP 桥接、Agentic Data Studio 与查询页 AI 助手之间共享，并按风险级别严格拆分：
 
-## 排查桥接问题 {#troubleshoot}
+| 类别 | 工具名 | 所需权限 |
+| --- | --- | --- |
+| **连接发现（1）** | `sqlkit__list_connections` *（仅返回 id、名称与类型，绝不含密码）* | 至少具备一项允许操作 |
+| **只读查询与结构探查（16）** | `sqlkit__execute_query` *（经 AST 校验的只读 `SELECT`/`SHOW`/`EXPLAIN`）*、`sqlkit__list_databases`、`sqlkit__list_schemas`、`sqlkit__list_tables`、`sqlkit__get_schema`、`sqlkit__describe_table`、`sqlkit__explain_query`、`sqlkit__list_indexes`、`sqlkit__list_foreign_keys`、`sqlkit__list_views`、`sqlkit__list_procedures`、`sqlkit__list_functions`、`sqlkit__list_triggers`、`sqlkit__get_object_ddl`、`sqlkit__get_table_info`、`sqlkit__get_foreign_keys` | **只读（Read）** |
+| **数据写入 SQL（1）** | `sqlkit__execute_write`（`INSERT`、`UPDATE`、`MERGE`） | **新增 / 更新** |
+| **破坏性 SQL（2）** | `sqlkit__execute_delete`（`DELETE`、`TRUNCATE`）、`sqlkit__execute_ddl`（`CREATE`、`ALTER`、`DROP`） | **删除 / 管理** |
+| **DBA 与运维诊断（5）** | `sqlkit__list_sessions` *（只读）*、`sqlkit__get_slow_queries` *（只读）*、`sqlkit__kill_session` *（管理）*、`sqlkit__grant_privilege` *（管理）*、`sqlkit__revoke_privilege` *（管理）* | **只读**或**管理** |
+
+详细参数定义请查阅 [Data Studio Agent 工具参考](/zh/docs/data-studio-agent/tools)。
+
+## 常见故障排查 {#troubleshoot}
 
 | 现象 | 检查项 |
 | --- | --- |
-| 客户端无法启动服务 | 确认客户端能找到 `npx`，npm 可下载该包。改完配置后重新加载客户端。 |
-| 服务已启动，但找不到 SqlKit | 打开 SqlKit，确认旗舰版状态和桥接状态。自动发现要求客户端与 SqlKit 在同一台机器上运行。 |
-| 找不到某个已保存的连接 | 查看连接的有效 AI 权限。至少允许一项操作的连接才会显示。 |
-| 查询或修改被拒绝 | 检查连接的 [AI 权限](/zh/docs/sqlkit/ai-permissions)和数据库账号权限。 |
+| **客户端无法启动 MCP 服务** | 确认 IDE/CLI 的 `PATH` 能找到 `npx`，且 npm 可拉取 `@geek-fun/data-studio-mcp`；修改配置后重载客户端。 |
+| **MCP 已启动，但提示 SqlKit 不可用** | 确认 SqlKit 正在运行（前台或系统托盘均可）、旗舰版有效，且**设置 → MCP 桥接**显示正在监听端口。编程客户端与 SqlKit 需位于同一台机器以完成本地自动发现。 |
+| **某个已保存连接未出现在列表中** | 检查该连接生效的[AI 权限](/zh/docs/sqlkit/ai-permissions)。只有至少允许一项操作的连接才会向 MCP 暴露。 |
+| **查询或变更被拒绝** | 核对该连接的 AI 权限（增/改/删/管理），同时确认数据库账号自身具备相应权限。 |
 
-[Codex 实操与截图](/zh/blog/connect-codex-databases-mcp) · [MCP 工具参考](/zh/docs/data-studio-agent/tools)
+## 下一步
+
+<DocsCardGrid :cols="2">
+  <DocsCard title="AI 权限与安全模型" description="了解 AST 写防护与单连接策略如何守护生产环境。" href="/zh/docs/sqlkit/ai-permissions" icon="shield" />
+  <DocsCard title="Codex 实战图文教程" description="查看从零配置 OpenAI Codex 连接数据库的完整截图指南。" href="/zh/blog/connect-codex-databases-mcp" icon="book" />
+</DocsCardGrid>
