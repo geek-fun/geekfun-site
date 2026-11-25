@@ -5,7 +5,27 @@ description: 在 macOS、Windows 或 Linux 上安装 SqlKit，连接 MySQL、Pos
 
 # SqlKit 文档
 
-SqlKit 是一款开源桌面 SQL 客户端，支持 macOS、Windows 和 Linux。它可以保存 MySQL、PostgreSQL、SQL Server、Oracle Database、SQLite 等数据库的连接。连上数据库后，就能查看表等对象、编写 SQL 和导出查询结果。
+SqlKit 是一款开源桌面数据库客户端，支持 macOS、Windows 和 Linux。连接服务器或打开本地数据库文件后，可以在同一个工作区查看表结构、编写 SQL 并检查查询结果。
+
+<div class="docs-section-links">
+
+- [安装 SqlKit](/zh/docs/sqlkit/installation)
+- [查看功能](/zh/docs/sqlkit/capabilities)
+- [查看支持的数据库](/zh/docs/sqlkit/supported-databases)
+
+</div>
+
+<DocsFigure src="/sqlkit-sql-editor-ui.png" alt="SqlKit 桌面端的数据库对象树、SQL 编辑器和查询结果" caption="查询工作区同时显示数据库结构、编辑器和查询结果。" :width="3424" :height="2224" eager />
+
+## SqlKit 能做什么？
+
+| 任务 | 从这里开始 |
+| --- | --- |
+| 保存本地或远程连接并测试访问 | [连接与驱动](/zh/docs/sqlkit/capabilities#connections) |
+| 编写和保存 SQL，查看执行计划 | [SQL 编辑器与结果](/zh/docs/sqlkit/capabilities#query) |
+| 查看列、键、索引和表之间的关系 | [表结构与 ER 图](/zh/docs/sqlkit/capabilities#schema) |
+| 编辑数据行、导出结果或导入文件 | [表数据与传输](/zh/docs/sqlkit/capabilities#data) |
+| 配置应用内助手或编程智能体 | [Agentic Data Studio](/zh/docs/sqlkit/agentic-datastudio) · [MCP 配置](/zh/docs/sqlkit/mcp-bridge) · [AI 权限](/zh/docs/sqlkit/ai-permissions) |
 
 ## 快速开始
 
@@ -16,22 +36,19 @@ SqlKit 是一款开源桌面 SQL 客户端，支持 macOS、Windows 和 Linux。
 
 ## SqlKit 支持哪些数据库？
 
-| 数据库 | 连接类型 | 使用指南 |
-| --- | --- | --- |
-| MySQL | 内置驱动，使用 TCP 连接 | [MySQL GUI 客户端](/zh/docs/sqlkit/mysql-gui-client) |
-| PostgreSQL（Postgres） | 内置驱动，使用 TCP 连接 | [PostgreSQL GUI 客户端](/zh/docs/sqlkit/postgresql-gui-client) |
-| Microsoft SQL Server | 内置驱动，使用 TCP 连接 | [SQL Server GUI 客户端](/zh/docs/sqlkit/sql-server-gui-client) |
-| Oracle Database | JDBC 桥接 | [Oracle Database GUI 客户端](/zh/docs/sqlkit/oracle-gui-client) |
-| SQLite | 本地数据库文件 | [SQLite GUI 与数据库浏览器](/zh/docs/sqlkit/sqlite-gui-client) |
+在**连接管理 → 添加新连接**中选择数据库类型。
 
-有关 MariaDB、DuckDB、ClickHouse、CockroachDB、Snowflake 和 BigQuery 等数据库的连接方式，请参阅[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
+| 连接方式 | 数据库 |
+| --- | --- |
+| 内置 TCP 驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> |
+| 内置本地文件驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#local--> |
+| MySQL 兼容驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#mysql--> |
+| PostgreSQL 兼容驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#postgresql--> |
+| JDBC 桥接 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#jdbc--> |
+| HTTP 连接 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#http--> |
 
-## 常用操作
-
-- 通过堡垒机访问数据库时，可[配置 SSH 隧道](/zh/docs/sqlkit/ssh-tunnel)。
-- 在表格中[浏览与编辑表数据](/zh/docs/sqlkit/table-browser)，并查看键和索引。
-- 在传输工作区[导入与导出文件](/zh/docs/sqlkit/import-export)，或直接导出查询返回的行。
+连接要求见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
 
 ## 可以不配置 AI 直接使用 SqlKit 吗？
 
-可以。社区版包含 SQL 编辑器、数据库连接和 CSV、JSON 结果导出。需要 AI 辅助时，可以使用 [Agentic Data Studio](/zh/products/sqlkit/agentic-sql-client)。各版本功能见[定价页](/zh/pricing)。
+可以。社区版包含数据库连接、SQL 编辑器和 CSV、JSON 结果导出。更多信息见[功能使用条件](/zh/docs/sqlkit/capabilities#requirements)和[版本对比](/zh/pricing)。

@@ -139,7 +139,7 @@ Agentic Data Studio 是一个 AI agent，连接你的数据库 schema、索引�
 | **启动速度** | < 2 s | 5–15 s | 10–20 s | 3–8 s |
 | **内存** | ~150 MB | ~400 MB | ~500 MB | ~200 MB |
 | **开源** | Apache 2.0 | GPL | ❌ | ❌ |
-| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费 | $199/年 | $199+ |
+| **价格** | 社区版免费 · 旗舰版 USD 9.90/月 | 免费 | $199/年 | $199+ |
 
 ## 版本兼容性
 
@@ -149,7 +149,7 @@ Agentic Data Studio 是一个 AI agent，连接你的数据库 schema、索引�
 
 1. [安装 SqlKit](/zh/docs/sqlkit/installation)。
 2. [连接数据库](/zh/docs/sqlkit/connect-to-database)。
-3. 打开 Agentic Data Studio，描述你要执行的查询。你也可以[直接在编辑器中编写 SQL](/zh/docs/sqlkit/query-editor)。
+3. [在 Agentic Data Studio 中配置模型并添加连接](/zh/docs/sqlkit/agentic-datastudio)。你也可以[直接在编辑器中编写 SQL](/zh/docs/sqlkit/query-editor)。
 
 有问题请发邮件至 [support@geekfun.club](mailto:support@geekfun.club)。
 

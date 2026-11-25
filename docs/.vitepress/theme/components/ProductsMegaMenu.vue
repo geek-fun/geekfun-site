@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 import { useData, withBase } from 'vitepress';
+import { getNavigationCopy, getProductNavLink } from '../../site-navigation';
 
 const { lang } = useData();
 const isZh = computed(() => lang.value === 'zh');
@@ -71,22 +72,9 @@ const keydownHandler = (e: KeyboardEvent) => {
   if (e.key === 'Escape' && isOpen.value) closeMenuImmediate();
 };
 
-// Move the mega-menu wrapper into .VPNavBarMenu after the first nav link (Home),
-// so the visual order becomes: Home | Products | Download | Docs | …
-// This is a one-time DOM placement on mount — no style mutation.
-const reorderNav = () => {
-  const wrapper = wrapperRef.value;
-  const navBarMenu = document.querySelector('.VPNavBarMenu');
-  const firstNavLink = navBarMenu?.querySelector('.VPNavBarMenuLink');
-  if (wrapper && navBarMenu && firstNavLink) {
-    firstNavLink.after(wrapper);
-  }
-};
-
 onMounted(() => {
   document.addEventListener('click', clickOutsideHandler);
   document.addEventListener('keydown', keydownHandler);
-  nextTick(() => reorderNav());
 });
 
 onUnmounted(() => {
@@ -184,7 +172,7 @@ const groups = [
       aria-controls="products-mega-menu-panel"
       @click.stop="toggleMenu"
     >
-      {{ isZh ? '产品' : 'Products' }}
+      {{ getNavigationCopy(lang).products }}
       <svg
         class="mega-menu-chevron"
         :class="{ open: isOpen }"
@@ -217,7 +205,7 @@ const groups = [
             <ul class="mega-menu-items">
               <li v-for="(item, iIdx) in group.items" :key="iIdx">
                 <a
-                  :href="isZh ? (item.external ? item.linkZh : withBase(item.linkZh)) : (item.external ? item.linkEn : withBase(item.linkEn))"
+                  :href="withBase(getProductNavLink(item, lang))"
                   :target="item.external ? '_blank' : '_self'"
                   :rel="item.external ? 'noopener noreferrer' : undefined"
                   role="menuitem"

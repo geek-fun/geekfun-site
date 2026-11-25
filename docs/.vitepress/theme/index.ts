@@ -4,7 +4,7 @@ import './style.scss';
 import './editorial.scss';
 import './components/blog/blog.scss';
 import './components/docs/docs.scss';
-import {Fragment, watchEffect, h} from "vue";
+import {Fragment, watchEffect, h, defineComponent} from "vue";
 import TeamMembers from './components/team-members.vue';
 import Footer from "./components/Footer.vue";
 import DownloadPage from "./components/DownloadPage.vue";
@@ -19,6 +19,7 @@ import ProductLayout from "./components/product/ProductLayout.vue";
 import NotFoundContent from "./components/NotFoundContent.vue";
 import BlogArticleHeader from "./components/blog/BlogArticleHeader.vue";
 import DocsBreadcrumb from "./components/docs/DocsBreadcrumb.vue";
+import DocsFigure from "./components/docs/DocsFigure.vue";
 import { isBlogArticle } from "../blog";
 import { getDocsProductId } from "../docs-navigation";
 import { getUnprefixedDocsPath } from "../docs-locales";
@@ -32,17 +33,16 @@ export default {
         const isProduct = frontmatter.value.layout === 'product'
         const pagePath = page.value.relativePath
         const isArticle = isBlogArticle(pagePath)
-        const isBlogIndex = /^(zh\/)?blog\.md$/.test(pagePath)
-        const isDocsIndex = getUnprefixedDocsPath(pagePath) === 'docs.md'
+        const sitePath = getUnprefixedDocsPath(pagePath)
+        const isBlogIndex = sitePath === 'blog.md'
+        const isDocsIndex = sitePath === 'docs.md'
         const docsProductId = getDocsProductId(pagePath)
         const slots: Record<string, () => unknown> = {
             'nav-bar-content-after': () => [
-                h(ProductsMegaMenu),
                 h(LanguageLinks, {variant: 'bar'}),
                 h(NavAuthActions, {variant: 'bar'})
             ],
             'nav-screen-content-after': () => [
-                h(ProductsMobileNav),
                 h(LanguageLinks, {variant: 'screen'}),
                 h(NavAuthActions, {variant: 'screen'})
             ]
@@ -75,6 +75,10 @@ export default {
         })
     },
     enhanceApp({app}) {
+        app.component('SiteProductsMenu', defineComponent({
+            props: {screenMenu: Boolean},
+            setup: (props) => () => h(props.screenMenu ? ProductsMobileNav : ProductsMegaMenu),
+        }));
         // register your custom global components
         app.component('product', ProductLayout);
         app.component('TeamMembers', TeamMembers);
@@ -84,5 +88,6 @@ export default {
         app.component('PricingPage', PricingPage);
         app.component('NotFoundContent', NotFoundContent);
         app.component('BlogArticleHeader', BlogArticleHeader);
+        app.component('DocsFigure', DocsFigure);
     }
 }

@@ -65,7 +65,7 @@ Dynobase is a solid tool, but there are a few reasons developers look for altern
 | Feature | DocKit | Dynobase |
 |---|---|---|
 | **License** | Apache 2.0 (open source) | Proprietary |
-| **Pricing** | Community: free · Ultimate $9.9/mo | [See pricing](https://dynobase.dev/#pricing) |
+| **Pricing** | Community: free · Ultimate USD 9.90/mo | [See pricing](https://dynobase.dev/#pricing) |
 | **Platform** | Mac, Windows, Linux | Mac, Windows, Linux |
 | **PartiQL editor** | ✅ Monaco-based | ✅ |
 | **Visual query builder** | ✅ | ✅ |
@@ -152,7 +152,7 @@ See [Dynobase pricing](https://dynobase.dev/#pricing) for current plans.
 
 ### DocKit
 - **Community**: free — unlimited seats, core local features
-- **Ultimate**: $9.9/month or $99/year — AI agent, MCP, cluster management, and other advanced features (7-day free trial)
+- **Ultimate**: USD 9.90/month or USD 99.00/year — AI agent, MCP, cluster management, and other advanced features (7-day free trial)
 
 ## Frequently asked questions
 

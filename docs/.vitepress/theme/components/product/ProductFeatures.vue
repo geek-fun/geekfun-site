@@ -10,6 +10,7 @@ type FeatureItem = {
 type FeaturesData = {
   eyebrow?: string
   title?: string
+  guide?: { text: string; link: string }
   items: FeatureItem[]
 }
 
@@ -43,9 +44,12 @@ const getIcon = (name?: string) => {
         <div v-if="features.title" class="features-header">
           <span v-if="features.eyebrow" class="features-eyebrow">{{ features.eyebrow }}</span>
           <h2 class="features-title">{{ features.title }}</h2>
+          <a v-if="features.guide" class="features-guide" :href="features.guide.link">
+            {{ features.guide.text }}
+          </a>
         </div>
       </Reveal>
-      <div class="features-grid">
+      <div class="features-grid" :class="{ 'has-guide': features.guide }">
         <Reveal v-for="(feature, i) in features.items" :key="feature.title" :delay="i * 80">
           <div class="feature-card">
             <div class="feature-icon" v-html="getIcon(feature.icon)"></div>
@@ -95,6 +99,22 @@ const getIcon = (name?: string) => {
   }
 }
 
+.features-guide {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 4px;
+  color: var(--vp-c-text-1);
+  font-size: 0.9375rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+
+  &:focus-visible {
+    outline: 2px solid var(--vp-c-brand-1);
+    outline-offset: 4px;
+  }
+}
+
 .container {
   max-width: 1152px;
   margin: 0 auto;
@@ -114,6 +134,18 @@ const getIcon = (name?: string) => {
 
   :deep(.reveal) {
     display: flex;
+  }
+
+  &.has-guide {
+    grid-template-columns: minmax(0, 1fr);
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 }
 

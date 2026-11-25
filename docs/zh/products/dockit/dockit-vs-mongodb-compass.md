@@ -72,7 +72,7 @@ DocKit 是免费开源的替代方案，覆盖同样的 MongoDB 工作流，还�
 | **多数据库支持** | ✅ MongoDB + ES + OpenSearch + DynamoDB | ❌ 仅 MongoDB |
 | **本地优先隐私** | ✅ 无遥测、支持内网隔离 | ❌ 默认开启遥测 |
 | **开源** | ✅ Apache 2.0 | ✅ SSPL（旧版为 AGPL） |
-| **价格** | 社区版免费 · Ultimate $9.9/月 | 免费（企业版付费） |
+| **价格** | 社区版免费 · Ultimate USD 9.90/月 | 免费（企业版付费） |
 
 ## 什么时候 DocKit 更合适
 
@@ -111,7 +111,7 @@ Compass 基于 Electron，日常占用 400 MB+ 内存。DocKit 基于 Tauri（Ru
 | | DocKit | MongoDB Compass |
 |---|---|---|
 | **社区版** | 免费（核心本地功能） | 免费（功能受限） |
-| **完整功能** | 付费（Ultimate $9.9/月） | 付费（企业订阅） |
+| **完整功能** | 付费（Ultimate USD 9.90/月） | 付费（企业订阅） |
 | **Data AI Agent** | Ultimate 订阅内置 | 不可用 |
 | **Agentic Data Studio** | Ultimate 订阅内置 | 不可用 |
 | **多数据库** | 免费内置 | 不可用 |
@@ -145,7 +145,7 @@ DocKit 能给你：
 核心工作流，也就是浏览集合、运行查询、管理索引、导入导出数据，是的，它能覆盖同样的场景，还额外加了 AI 查询和多数据库支持。Compass 在可视化聚合构建器和 Schema 分析上更胜一筹。很多团队两个都在用。
 
 **DocKit 真的免费吗？**
-社区版免费且开源（Apache 2.0），覆盖完整的本地数据库工作流，连接数没有限制。高级功能——AI 代理（自带 LLM）、MCP、集群管理、ER 图、批量导入导出、跨设备同步——属于付费的 GEEKFUN Data Studio Ultimate 订阅（$9.9/月或 $99/年，含 7 天免费试用）。订阅期内发布的每个版本，取消订阅后也依然归你所有。
+社区版免费且开源（Apache 2.0），覆盖完整的本地数据库工作流，连接数没有限制。高级功能——AI 代理（自带 LLM）、MCP、集群管理、ER 图、批量导入导出、跨设备同步——属于付费的 GEEKFUN Data Studio Ultimate 订阅（USD 9.90/月或 USD 99.00/年，含 7 天免费试用）。订阅期内发布的每个版本，取消订阅后也依然归你所有。
 
 **DocKit 支持 MongoDB Atlas 吗？**
 支持。在连接对话框里粘贴你的 Atlas 连接字符串即可。DocKit 支持 SRV 连接字符串、TLS 和所有 Atlas 认证方式。

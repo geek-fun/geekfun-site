@@ -34,4 +34,6 @@ SqlKit은 MySQL, PostgreSQL, SQL Server, SQLite용 드라이버를 기본으로 
 
 ## SQL 실행과 결과 내보내기
 
+[SqlKit 기능 안내](/ko/docs/sqlkit/capabilities)에서 실제 화면과 함께 SQL 편집기, ER 다이어그램, 데이터 전송, AI, MCP 사용법을 확인하세요.
+
 [SqlKit을 설치](/ko/docs/sqlkit/installation)하고 [연결을 추가](/ko/docs/sqlkit/connect-to-database)한 뒤 [SQL 편집기](/ko/docs/sqlkit/query-editor)를 엽니다. 테이블은 객체 트리에서 엽니다. 조회한 행을 CSV 또는 JSON으로 내보내고 SQL을 파일로 저장할 수 있습니다. 다른 엔진은 [지원 데이터베이스와 드라이버 목록(영어)](/docs/sqlkit/supported-databases)에서 확인합니다.

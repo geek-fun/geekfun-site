@@ -27,11 +27,23 @@ const products: DocProduct[] = [
     },
     groups: [
       {
-        en: 'Setup and workflows', zh: '设置与常用操作',
+        en: 'Start here', zh: '入门',
         guides: [
+          ['capabilities', 'SqlKit capabilities', 'SqlKit 功能'],
           ['installation', 'Installation', '安装指南'],
+        ],
+      },
+      {
+        en: 'Connections', zh: '连接与驱动',
+        guides: [
           ['connect-to-database', 'Connect to a database', '连接数据库'],
+          ['supported-databases', 'Supported databases and drivers', '支持的数据库与驱动'],
           ['ssh-tunnel', 'SSH tunnels', 'SSH 隧道'],
+        ],
+      },
+      {
+        en: 'SQL and data workflows', zh: 'SQL 与数据操作',
+        guides: [
           ['query-editor', 'SQL editor and results', 'SQL 编辑器与结果'],
           ['table-browser', 'Browse and edit table data', '浏览与编辑表数据'],
           ['import-export', 'Import and export files', '文件导入与导出'],
@@ -39,14 +51,11 @@ const products: DocProduct[] = [
         ],
       },
       {
-        en: 'Database guides', zh: '数据库指南',
+        en: 'AI and MCP', zh: 'AI 与 MCP',
         guides: [
-          ['supported-databases', 'Supported databases and drivers', '支持的数据库与驱动'],
-          ['mysql-gui-client', 'MySQL', 'MySQL'],
-          ['postgresql-gui-client', 'PostgreSQL', 'PostgreSQL'],
-          ['sql-server-gui-client', 'SQL Server', 'SQL Server'],
-          ['oracle-gui-client', 'Oracle', 'Oracle'],
-          ['sqlite-gui-client', 'SQLite', 'SQLite'],
+          ['agentic-datastudio', 'Agentic Data Studio', 'Agentic Data Studio'],
+          ['mcp-bridge', 'MCP setup', 'MCP 配置'],
+          ['ai-permissions', 'AI permissions', 'AI 权限'],
         ],
       },
     ],
@@ -117,6 +126,7 @@ export const getDocsProducts = (lang: string) => {
   const copy = getLocalizedDocs(lang)
   const base = isZh || copy ? `/${lang}/docs` : '/docs'
   const translatedTitles: Record<string, string> | undefined = copy && {
+    capabilities: copy.guides.capabilities,
     installation: copy.guides.installation,
     'connect-to-database': copy.guides.connection,
     'connect-to-server': copy.guides.connection,
@@ -126,22 +136,23 @@ export const getDocsProducts = (lang: string) => {
     'search-editor': copy.guides.search,
     'mongodb-workspace': copy.guides.mongo,
     'dynamodb-query-editor': copy.guides.dynamo,
-    'mysql-gui-client': 'MySQL',
-    'postgresql-gui-client': 'PostgreSQL',
-    'sql-server-gui-client': 'SQL Server',
-    'oracle-gui-client': 'Oracle Database',
-    'sqlite-gui-client': 'SQLite',
+  }
+  const sqlkitAiTitles: Record<string, string> | undefined = copy && {
+    'agentic-datastudio': 'Agentic Data Studio',
+    'mcp-bridge': copy.guides.mcpSetup,
+    'ai-permissions': copy.guides.aiPermissions,
   }
 
   return products.filter(({ id }) => !copy || id !== 'data-studio-agent').map(({ id, name, logo, summary, groups }) => {
     const link = `${base}/${id}/`
+    const groupTitles = id === 'sqlkit' ? copy?.sqlkitGroups : copy?.dockitGroups
     return {
       id, name, logo, link,
       summary: copy ? (id === 'sqlkit' ? copy.sqlkit : copy.dockit) : summary[locale],
       groups: groups.map((group, index) => ({
-        text: copy ? copy.groups[index === 0 ? 0 : id === 'sqlkit' ? 1 : 2] : group[locale],
+        text: groupTitles?.[index] ?? group[locale],
         items: group.guides.map(([path, en, zh]) => {
-          const translation = translatedTitles?.[path]
+          const translation = translatedTitles?.[path] ?? (id === 'sqlkit' ? sqlkitAiTitles?.[path] : undefined)
           if (copy && !translation) {
             return { text: `${en} (${copy.fallback})`, link: `/docs/${id}/${path}` }
           }

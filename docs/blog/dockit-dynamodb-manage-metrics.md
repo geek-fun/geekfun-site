@@ -146,7 +146,7 @@ Having index information alongside table data in one view eliminates the context
 | **View GSI/LSI details** | ✅ One-click | ✅ Buried in tabs |
 | **Capacity metrics** | ✅ | ✅ (+ CloudWatch) |
 | **Works offline** | ✅ (DynamoDB Local) | ❌ |
-| **Price** | Community: free · Ultimate $9.9/mo | Free |
+| **Price** | Community: free · Ultimate USD 9.90/mo | Free |
 | **Open source** | ✅ | ❌ |
 
 ## Connecting to Multiple AWS Accounts

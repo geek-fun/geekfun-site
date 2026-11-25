@@ -166,7 +166,7 @@ cta:
 | **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **데스크톱 네이티브** | ✅ | ❌ | 부분 지원 | ✅ | ✅ |
 | **오픈 소스** | ✅ Apache 2.0 | 혼합 | ✅ MIT | ❌ | ❌ |
-| **가격** | Community: 무료 · Ultimate $9.9/월 | 무료 | 무료 | $12–30/월 | 무료 |
+| **가격** | Community: 무료 · Ultimate USD 9.90/월 | 무료 | 무료 | $12–30/월 | 무료 |
 
 ## Elasticsearch GUI 클라이언트
 
@@ -228,7 +228,7 @@ DocKit은 연결된 엔진을 자동으로 감지하고 그에 맞게 API 호출
 네 — Apache 2.0 라이선스입니다. 전체 소스는 [github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)에 있습니다.
 
 **유료 플랜이 있나요?**
-네. Community 에디션은 계속 무료·오픈 소스로 제공되며, 유료 Ultimate 구독($9.9/월 또는 $99/년, 7일 무료 체험)으로 AI 에이전트, MCP, 클러스터 관리 등의 고급 기능을 사용할 수 있습니다.
+네. Community 에디션은 계속 무료·오픈 소스로 제공되며, 유료 Ultimate 구독(USD 9.90/월 또는 USD 99.00/년, 7일 무료 체험)으로 AI 에이전트, MCP, 클러스터 관리 등의 고급 기능을 사용할 수 있습니다.
 
 **SQL 데이터베이스도 지원하나요?**
 DocKit은 NoSQL 데이터베이스 전용으로 만들어졌습니다. PostgreSQL, MySQL, SQL Server, SQLite 지원이 필요하다면 같은 팀이 만든 오픈 소스 SQL 데스크톱 클라이언트인 [**SqlKit**](/products/sqlkit/)을 확인해 보세요.

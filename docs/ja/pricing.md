@@ -1,6 +1,6 @@
 ---
 title: 料金 - GEEKFUN Data Studio Community & Ultimate | GEEKFUN
-description: GEEKFUN Data Studio の料金 — Community エディションは永久無料。Ultimate（月額 $9.9 または年額 $99、7 日間の無料トライアル付き）で、AI NL2SQL、MCP サーバー、クラスター管理、ER ダッシュボードなど、DocKit・SqlKit・Data Studio Agent のすべての高度な機能が利用可能になります。
+description: GEEKFUN Data Studio の料金 — Community エディションは永久無料。Ultimate（月額 USD 9.90 または年額 USD 99.00、7 日間の無料トライアル付き）で、AI NL2SQL、MCP サーバー、クラスター管理、ER ダッシュボードなど、DocKit・SqlKit・Data Studio Agent のすべての高度な機能が利用可能になります。
 head:
   - - meta
     - name: keywords

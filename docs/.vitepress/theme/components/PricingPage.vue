@@ -36,6 +36,7 @@
           <button
             class="switch"
             role="switch"
+            :aria-label="t.billing.yearly"
             :aria-checked="isYearly"
             :class="{ checked: isYearly }"
             @click="toggleBilling"
@@ -84,7 +85,6 @@
             <div class="plan-alt">
               <span>{{ altOption }}</span>
             </div>
-            <p v-if="showAltCurrencyNote" class="plan-cny">{{ t.ultimate.cnyNote }}</p>
             <ul class="plan-features">
               <li v-for="feature in t.ultimate.features" :key="feature">
                 <svg class="check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -344,16 +344,23 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
+import { getLocalizedSitePath } from '../../site-navigation'
+import { pricingEs } from './pricing-es'
+import { pricingJa } from './pricing-ja'
+import { pricingKo } from './pricing-ko'
+import { pricingPt } from './pricing-pt'
 
 const { lang } = useData()
 
 type Currency = 'USD' | 'CNY'
 type CardProvider = 'creem' | 'waffo'
 
-// Enabled currencies + card MoR provider come from the backend payment config
-// (wentsen/geekfun conf payment.providers via GET /api/v1/payments/provider).
-// Defaults keep the page rendering when the API is unreachable (local dev).
+const ultimatePrices = {
+  USD: { monthly: 9.9, yearly: 99 },
+  CNY: { monthly: 19.9, yearly: 199 }
+} satisfies Record<Currency, { monthly: number; yearly: number }>
+
 const PAYMENT_CONFIG_API = 'https://geekfun-api.wentsen.com/api/v1/payments/provider'
 const enabledCurrencies = ref<Currency[]>(['USD'])
 const cardProvider = ref<CardProvider>('waffo')
@@ -539,9 +546,10 @@ const translations = {
       title: 'Frequently Asked Questions',
       payment: {
         creem:
-          'We accept all major credit cards (Visa, MasterCard, American Express). Payments are processed by Creem, our Merchant of Record: Creem is the legal seller of record for the transaction and handles payment collection, tax compliance, invoices, and refunds. CNY payments are processed through Alipay.',
+          'We accept all major credit cards (Visa, MasterCard, American Express). Payments are processed by Creem, our Merchant of Record: Creem is the legal seller of record for the transaction and handles payment collection, tax compliance, invoices, and refunds.',
         waffo:
-          'We accept all major credit cards (Visa, MasterCard, American Express). Payments are processed by Waffo (Waffo.com Limited), our Merchant of Record: Waffo is the legal seller of record for the transaction and handles payment collection, tax compliance, invoices, and refunds. CNY payments are processed through Alipay.'
+          'We accept all major credit cards (Visa, MasterCard, American Express). Payments are processed by Waffo (Waffo.com Limited), our Merchant of Record: Waffo is the legal seller of record for the transaction and handles payment collection, tax compliance, invoices, and refunds.',
+        alipay: 'CNY payments are processed through Alipay.'
       },
       items: [
         {
@@ -574,10 +582,6 @@ const translations = {
             "We're working on the Enterprise plan and expect to launch it soon. Click \"Notify When Available\" to be notified when it's ready."
         }
       ]
-    },
-    prices: {
-      USD: { monthly: '$9.9', yearly: '$99' },
-      CNY: { monthly: '¥19.9', yearly: '¥199' }
     }
   },
   zh: {
@@ -731,9 +735,10 @@ const translations = {
       title: '常见问题',
       payment: {
         creem:
-          '我们接受所有主要信用卡（Visa、MasterCard、American Express）。款项由 Creem（我们的 Merchant of Record，登记卖方）处理：Creem 是该交易法律意义上的卖方，负责收款、税务合规、开票与退款。人民币支付通过支付宝处理。',
+          '我们接受所有主要信用卡（Visa、MasterCard、American Express）。款项由 Creem（我们的 Merchant of Record，登记卖方）处理：Creem 是该交易法律意义上的卖方，负责收款、税务合规、开票与退款。',
         waffo:
-          '我们接受所有主要信用卡（Visa、MasterCard、American Express）。款项由 Waffo（Waffo.com Limited，我们的 Merchant of Record，登记卖方）处理：Waffo 是该交易法律意义上的卖方，负责收款、税务合规、开票与退款。人民币支付通过支付宝处理。'
+          '我们接受所有主要信用卡（Visa、MasterCard、American Express）。款项由 Waffo（Waffo.com Limited，我们的 Merchant of Record，登记卖方）处理：Waffo 是该交易法律意义上的卖方，负责收款、税务合规、开票与退款。',
+        alipay: '人民币（CNY）支付通过支付宝处理。'
       },
       items: [
         {
@@ -765,20 +770,22 @@ const translations = {
           answer: '我们正在开发企业版，预计很快推出。点击"有货时通知我"获取推出通知。'
         }
       ]
-    },
-    prices: {
-      USD: { monthly: '$9.9', yearly: '$99' },
-      CNY: { monthly: '¥19.9', yearly: '¥199' }
     }
   }
 }
 
-const t = computed(() => translations[lang.value as keyof typeof translations] || translations.en)
-const localePath = (path: string) => (lang.value === 'zh' ? `/zh${path}` : path)
+const localizedPricing: Record<string, typeof translations.en> = {
+  ...translations,
+  'pt-BR': pricingPt,
+  ja: pricingJa,
+  ko: pricingKo,
+  es: pricingEs,
+}
 
-// Currency follows the site language switch (nav language menu / auto-detect),
-// clamped to the currencies enabled in the backend payment config:
-// 中文页 → CNY when enabled, English → USD
+const t = computed(() => localizedPricing[lang.value] ?? translations.en)
+const localePath = (path: string): string => withBase(getLocalizedSitePath(path, lang.value))
+
+// Prefer CNY on the Chinese page when checkout offers it.
 const currentCurrency = computed<Currency>(() => {
   const preferred: Currency = lang.value === 'zh' ? 'CNY' : 'USD'
   return enabledCurrencies.value.includes(preferred)
@@ -789,10 +796,6 @@ const currentCurrency = computed<Currency>(() => {
 function toggleBilling() {
   isYearly.value = !isYearly.value
 }
-
-// The "also available in <other currency>" line only makes sense when both
-// currencies are enabled
-const showAltCurrencyNote = computed(() => enabledCurrencies.value.length > 1)
 
 type CompareCell = boolean | string
 interface CompareRow {
@@ -894,13 +897,24 @@ const getCell = (row: CompareRow, plan: string): CompareCell =>
 // Billing state — same defaults as the console pricing page
 const isYearly = ref(true)
 
-const displayPrice = computed(() => t.value.prices[currentCurrency.value][isYearly.value ? 'yearly' : 'monthly'])
+const formattedPrices = computed(() => {
+  const currency = currentCurrency.value
+  const formatter = new Intl.NumberFormat(lang.value, {
+    style: 'currency',
+    currency,
+    currencyDisplay: 'code'
+  })
+  const { monthly, yearly } = ultimatePrices[currency]
+  return { monthly: formatter.format(monthly), yearly: formatter.format(yearly) }
+})
+
+const displayPrice = computed(() => formattedPrices.value[isYearly.value ? 'yearly' : 'monthly'])
 const priceUnit = computed(() => (isYearly.value ? t.value.billing.perYear : t.value.billing.perMonth))
 // Yearly view shows the monthly alternative, monthly view shows the yearly one — same as console
 const altOption = computed(() =>
   isYearly.value
-    ? t.value.ultimate.monthlyOption.replace('{price}', t.value.prices[currentCurrency.value].monthly)
-    : t.value.ultimate.yearlyOption.replace('{price}', t.value.prices[currentCurrency.value].yearly)
+    ? t.value.ultimate.monthlyOption.replace('{price}', formattedPrices.value.monthly)
+    : t.value.ultimate.yearlyOption.replace('{price}', formattedPrices.value.yearly)
 )
 
 // Deep links into the console: /subscribe checks the login/subscription state
@@ -917,10 +931,18 @@ function notifyEnterprise() {
   enterpriseNotifyOpen.value = !enterpriseNotifyOpen.value
 }
 
-// Payment FAQ answer follows the card MoR provider from the payment config API
+const paymentMethods = computed(() => {
+  const { payment } = t.value.faq
+  const currencies = enabledCurrencies.value
+  return [
+    currencies.includes('USD') ? payment[cardProvider.value] : '',
+    currencies.includes('CNY') ? payment.alipay : ''
+  ].filter(Boolean).join(' ')
+})
+
 const faqItems = computed(() =>
   t.value.faq.items.map((item, index) =>
-    index === 3 ? { ...item, answer: t.value.faq.payment[cardProvider.value] } : item
+    index === 3 ? { ...item, answer: paymentMethods.value } : item
   )
 )
 </script>
@@ -1201,8 +1223,9 @@ const faqItems = computed(() =>
   .plan-price-row {
     margin-bottom: 1.5rem;
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.5rem;
+    column-gap: 0.5rem;
 
     .plan-price {
       font-size: 2.25rem;

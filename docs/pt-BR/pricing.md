@@ -1,6 +1,6 @@
 ---
 title: Preços - GEEKFUN Data Studio Community & Ultimate | GEEKFUN
-description: Preços do GEEKFUN Data Studio — a edição Community é grátis para sempre, e a Ultimate ($9.9/mês ou $99/ano, com 7 dias de teste grátis) desbloqueia IA NL2SQL, servidores MCP, gerenciamento de clusters, painéis ER e muito mais no DocKit, SqlKit e Data Studio Agent.
+description: Preços do GEEKFUN Data Studio — a edição Community é grátis para sempre, e a Ultimate (USD 9,90/mês ou USD 99,00/ano, com 7 dias de teste grátis) desbloqueia IA NL2SQL, servidores MCP, gerenciamento de clusters, painéis ER e muito mais no DocKit, SqlKit e Data Studio Agent.
 head:
   - - meta
     - name: keywords

@@ -35,13 +35,13 @@ you can download the latest version of DocKit from the [Download](/download) pag
 to download the corresponding installation package.
 DocKit recently supports Windows, macOS, and Linux.
 
-![DocKit download page](/download-page.png)
+![DocKit download page](/download-page.jpg)
 
 ## Install DocKit
 
 After downloading the installation package, Simply double-click the downloaded file to start installation, as a sample
 of macOS installation: you will need to move the DocKit to the Applications folder.
-![mac-move-to-app](/mac-move-to-app.png)
+![mac-move-dockit-to-app](/mac-dockit-move-to-app.png)
 
 you might receive a system warning popup that notice you this app is downloaded from the internet and not verified,
 don't worry, DocKit won't collect any of your information without your explicit agreement, you can click the Open/Ok to

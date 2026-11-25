@@ -2,6 +2,7 @@ import {defineConfig, type HeadConfig} from 'vitepress'
 import {blogDate, isBlogArticle, type BlogFrontmatter} from './blog'
 import {getDocsSidebar} from './docs-navigation'
 import {getLocalizedDocs, localizedDocs} from './docs-locales'
+import {getSiteNavigation} from './site-navigation'
 import {DOCKIT_VERSION, SQLKIT_VERSION} from './theme/version'
 
 const icon = '/favicon.ico';
@@ -56,6 +57,7 @@ const localizedTheme = (lang: keyof typeof localizedDocs) => {
     return {
         ...sharedThemeConfig,
         siteTitle: 'GEEKFUN',
+        nav: getSiteNavigation(lang),
         sidebar: getDocsSidebar(lang),
         outline: {label: copy.outline},
         sidebarMenuLabel: copy.sidebar,
@@ -131,34 +133,7 @@ export default defineConfig({
                 ...sharedThemeConfig,
                 siteTitle: 'GEEKFUN',
                 sidebar: getDocsSidebar('en'),
-nav: [
-                     {
-                         text: 'Home',
-                         link: '/',
-                     },
-                     {
-                         text: 'Download',
-                         link: '/download',
-                     },
-                     {
-                         text: 'Pricing',
-                         link: '/pricing',
-                     },
-                     {
-                         text: 'Docs',
-                         link: '/docs',
-                         activeMatch: '^/(?:docs(?:/|$)|products/dockit/docs$)',
-                     },
-                     {
-                         text: 'Blog',
-                         link: '/blog',
-                         activeMatch: '^/blog(?:/|$)',
-                     },
-                     {
-                         text: 'News',
-                         link: '/news',
-                     },
-                 ]
+                nav: getSiteNavigation('en'),
             }
         },
         zh: {
@@ -194,119 +169,36 @@ nav: [
                 returnToTopLabel: '返回顶部',
                 sidebar: getDocsSidebar('zh'),
                 sidebarMenuLabel: '文档目录',
-nav: [
-                      {
-                          text: '首页',
-                          link: '/zh/',
-                      },
-                      {
-                          text: '下载',
-                          link: '/zh/download',
-                      },
-                      {
-                          text: '定价',
-                          link: '/zh/pricing',
-                      },
-                      {
-                          text: '文档',
-                          link: '/zh/docs',
-                          activeMatch: '^/zh/(?:docs(?:/|$)|products/dockit/docs$)',
-                      },
-                      {
-                          text: '博客',
-                          link: '/zh/blog',
-                          activeMatch: '^/zh/blog(?:/|$)',
-                      },
-                      {
-                          text: '新闻',
-                          link: '/zh/news',
-                      }
-                 ]
+                nav: getSiteNavigation('zh'),
             }
         },
         'pt-BR': {
-            link: '/pt-BR/products/dockit/',
             lang: 'pt-BR',
             title: titlePt,
             description: descPt,
             head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('pt-BR'),
-                nav: [
-                    {text: 'Download', link: '/pt-BR/download'},
-                    {text: 'Preços', link: '/pt-BR/pricing'},
-                    {text: 'DocKit', link: '/pt-BR/products/dockit/'},
-                    {text: 'SqlKit', link: '/pt-BR/products/sqlkit/'},
-                    {text: localizedDocs['pt-BR'].title, link: '/pt-BR/docs'},
-                ]
-            }
+            themeConfig: localizedTheme('pt-BR'),
         },
         ja: {
-            link: '/ja/products/dockit/',
             lang: 'ja',
             title: titleJa,
             description: descJa,
             head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('ja'),
-                nav: [
-                    {text: 'ダウンロード', link: '/ja/download'},
-                    {text: '料金', link: '/ja/pricing'},
-                    {text: 'DocKit', link: '/ja/products/dockit/'},
-                    {text: 'SqlKit', link: '/ja/products/sqlkit/'},
-                    {text: localizedDocs['ja'].title, link: '/ja/docs'},
-                ]
-            }
+            themeConfig: localizedTheme('ja'),
         },
         ko: {
-            link: '/ko/products/dockit/',
             lang: 'ko',
             title: titleKo,
             description: descKo,
             head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('ko'),
-                nav: [
-                    {text: '다운로드', link: '/ko/download'},
-                    {text: '가격', link: '/ko/pricing'},
-                    {text: 'DocKit', link: '/ko/products/dockit/'},
-                    {text: 'SqlKit', link: '/ko/products/sqlkit/'},
-                    {text: localizedDocs['ko'].title, link: '/ko/docs'},
-                ]
-            }
+            themeConfig: localizedTheme('ko'),
         },
         es: {
-            link: '/es/products/dockit/',
             lang: 'es',
             title: titleEs,
             description: descEs,
             head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('es'),
-                nav: [
-                    {text: 'Descargar', link: '/es/download'},
-                    {text: 'Precios', link: '/es/pricing'},
-                    {text: 'DocKit', link: '/es/products/dockit/'},
-                    {text: 'SqlKit', link: '/es/products/sqlkit/'},
-                    {text: localizedDocs['es'].title, link: '/es/docs'},
-                ]
-            }
-        },
-        'zh-TW': {
-            link: '/zh-TW/docs',
-            lang: 'zh-TW',
-            title: 'GEEKFUN | 開源資料庫工具',
-            description: '安裝 SqlKit 或 DocKit，連線到 SQL 或 NoSQL 資料庫。',
-            head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('zh-TW'),
-                nav: [
-                    {text: '下載（英文）', link: '/download'},
-                    {text: 'DocKit', link: '/zh-TW/docs/dockit/'},
-                    {text: 'SqlKit', link: '/zh-TW/products/sqlkit/'},
-                    {text: localizedDocs['zh-TW'].title, link: '/zh-TW/docs'},
-                ]
-            }
+            themeConfig: localizedTheme('es'),
         },
     },
     sitemap: {
@@ -344,7 +236,7 @@ nav: [
         const guide = path.match(/^docs\/(sqlkit|dockit)\/.*\.md$/)?.[1];
         if (guide && !hasCanonical) {
             const language = prefix.slice(0, -1);
-            const imageLanguage = language === 'zh' || language === 'zh-TW' ? 'zh' : 'en';
+            const imageLanguage = language === 'zh' ? 'zh' : 'en';
             const app = guide === 'sqlkit' ? 'SqlKit' : 'DocKit';
             frontmatter = {
                 ...frontmatter,
@@ -384,7 +276,7 @@ nav: [
         const pageType = getPageType(page);
         const ogImageAlt = cover?.alt ?? pageData?.frontmatter?.ogImageAlt ?? (isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community');
         const openGraphLocales: Record<string, string> = {
-            en: 'en_US', zh: 'zh_CN', 'zh-TW': 'zh_TW', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES',
+            en: 'en_US', zh: 'zh_CN', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES',
         };
         const ogLocale = openGraphLocales[page.split('/')[0]] ?? 'en_US';
 

@@ -32,4 +32,6 @@ MySQL, PostgreSQL, SQL Server e SQLite têm drivers integrados no SqlKit. O Orac
 
 ## Da primeira consulta à exportação
 
+O [guia de recursos do SqlKit](/pt-BR/docs/sqlkit/capabilities) mostra como usar o editor SQL, diagramas ER, transferência de dados, IA e MCP.
+
 Depois de [instalar o SqlKit](/pt-BR/docs/sqlkit/installation) e [adicionar uma conexão](/pt-BR/docs/sqlkit/connect-to-database), abra o [editor SQL](/pt-BR/docs/sqlkit/query-editor). Ali você pode abrir tabelas, salvar consultas em arquivos SQL e exportar os resultados para CSV ou JSON. Se você usa outro banco, confira a [lista de bancos e drivers (em inglês)](/docs/sqlkit/supported-databases).

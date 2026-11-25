@@ -1,127 +1,49 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useData } from 'vitepress'
-
+import { useData, withBase } from 'vitepress'
+import { getLocalizedSitePath } from '../../site-navigation'
 import HeroBlind from './HeroBlind.vue'
-import ValueIcon, { type ValueIconName } from './ValueIcon.vue'
+import ValueIcon from './ValueIcon.vue'
+import { getHomeCopy } from './home-copy'
 
 const { lang } = useData()
 
-type ProductData = {
-  name: string
-  logo: string
-  preview: string
-  description: string
-  url: string
-}
-
-type FeatureData = {
-  title: string
-  icon: ValueIconName
-  details: string
-}
+const products = [
+  { id: 'dockit', name: 'DocKit', logo: '/dockit.png', preview: '/hero-slice-image/dockit-image.png', url: '/products/dockit/' },
+  { id: 'sqlkit', name: 'SqlKit', logo: '/sqlkit.png', preview: '/hero-slice-image/sqlkit-image.png', url: '/products/sqlkit/' },
+  { id: 'agent', name: 'Data Studio Agent', logo: '/data-studio-agent.svg', preview: '/hero-slice-image/data-studio-agent-terminal.svg', url: '/products/data-studio-agent/' },
+  { id: 'insight', name: 'ServerlessInsight', logo: '/serverlessinsight.png', preview: '/serverlessinsight-preview.png', url: 'https://serverlessinsight.com/' },
+  { id: 'adapter', name: 'serverless-adapter', logo: '/serverless-adapter.svg', preview: '/serverless-adapter-preview.svg', url: 'https://github.com/geek-fun/serverless-adapter' },
+  { id: 'jest', name: 'jest-search', logo: '/jest-search.png', preview: '/jest-search-preview.png', url: 'https://github.com/geek-fun/jest-search' },
+] as const
+const featureIcons = ['impact', 'transparent', 'lasting'] as const
+const localLink = (path: string): string => withBase(getLocalizedSitePath(path, lang.value))
 
 const content = computed(() => {
-  const isZh = lang.value === 'zh'
+  const copy = getHomeCopy(lang.value)
   return {
     announcement: {
-	      text: isZh ? 'Data Studio Agent。你的 DBA。用自然语言和你的数据库对话。' : 'Data Studio Agent. Your DBA. Talk to your databases in plain language.',
-	      linkText: isZh ? '了解更多 →' : 'Learn more →',
-	      link: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
-	    },
+      badge: copy.badge,
+      text: copy.announcement,
+      linkText: copy.learnMore + ' →',
+      link: localLink('/products/data-studio-agent/'),
+    },
     hero: {
-      name: isZh ? '极客范' : 'GEEKFUN',
-      subtitle: isZh ? '开源俱乐部' : 'Open-Source Studio',
-      tagline: isZh ? '致力于打造高效可持续的专业软件生态。' : 'Crafted for developers who ship. Sustained for the long term.',
-      primaryAction: isZh ? '产品' : 'Products',
-      primaryLink: isZh ? '/zh/download' : '/download',
+      name: copy.name,
+      subtitle: copy.subtitle,
+      tagline: copy.tagline,
+      primaryAction: copy.productsLabel,
+      primaryLink: localLink('/download'),
       secondaryAction: 'GitHub',
-      secondaryLink: 'https://github.com/geek-fun'
+      secondaryLink: 'https://github.com/geek-fun',
     },
-    sections: {
-      products: isZh ? '产品' : 'Products',
-      values: isZh ? '价值观' : 'Values',
-      team: isZh ? '团队成员' : 'Team Members',
-    },
-    products: [
-      {
-        name: 'DocKit',
-        logo: '/dockit.png',
-        preview: '/hero-slice-image/dockit-image.png',
-        description: isZh 
-          ? '开源 NoSQL 桌面客户端，支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 等数据库，内置 Agentic Data Studio，致力于打造 AI Native 的新一代数据库管理工具。'
-          : 'Open-source desktop GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch — with Agentic Data Studio for natural language database interaction. Query, manage, and migrate your NoSQL databases from a single native app.',
-        url: isZh ? '/zh/products/dockit/' : '/products/dockit/'
-      },
-      {
-        name: 'SqlKit',
-        logo: '/sqlkit.png',
-        preview: '/hero-slice-image/sqlkit-image.png',
-        description: isZh
-          ? '开源 SQL 桌面客户端，支持 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等数据库。你可以用自己的话描述查询需求，交给 Agentic Data Studio 写 SQL。'
-          : 'Open-source desktop SQL client for PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and more. Use Agentic Data Studio to write queries in natural language.',
-        url: isZh ? '/zh/products/sqlkit/' : '/products/sqlkit/'
-      },
-      {
-        name: 'Data Studio Agent',
-        logo: '/data-studio-agent.svg',
-        preview: '/hero-slice-image/data-studio-agent-terminal.svg',
-        description: isZh
-          ? '开源的 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理通过 DocKit / SqlKit 直接用自然语言查询你的数据库。本地优先，默认只读安全。'
-          : 'Open-source MCP server that lets AI coding agents (Claude Code, Cursor, and more) query your databases in plain language via DocKit & SqlKit. Local-first, read-safe by default.',
-        url: isZh ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/'
-      },
-      {
-        name: 'ServerlessInsight',
-        logo: '/serverlessinsight.png',
-        preview: '/serverlessinsight-preview.png',
-        description: isZh
-          ? '开源、无厂商锁定的 Serverless 基础设施与代码框架，支持阿里云、腾讯云、火山引擎等平台，打造一站式应用开发能力。'
-          : 'Open-source and vendor-neutral serverless infrastructure platform for Alibaba Cloud, Tencent Cloud, and Volcengine, with end-to-end application delivery capabilities.',
-        url: 'https://serverlessinsight.com/'
-      },
-      {
-        name: 'serverless-adapter',
-        logo: '/serverless-adapter.svg',
-        preview: '/serverless-adapter-preview.svg',
-        description: isZh
-          ? '面向 Serverless 场景的 Web 框架适配器，支持 Express、Koa 运行在阿里云函数计算、腾讯云 SCF 和火山引擎 veFaaS 等平台。'
-          : 'Serverless adapter for Express and Koa across Alibaba Cloud Function Compute, Tencent SCF, and Volcengine veFaaS with automatic provider detection.',
-        url: 'https://github.com/geek-fun/serverless-adapter'
-      },
-      {
-        name: 'jest-search',
-        logo: '/jest-search.png',
-        preview: '/jest-search-preview.png',
-        description: isZh
-          ? '面向搜索场景测试的 Jest 工具，可在本地快速拉起 Elasticsearch、OpenSearch 和 ZincSearch，提升集成测试效率与稳定性。'
-          : 'Jest tool for search integration testing that quickly boots local Elasticsearch, OpenSearch, and ZincSearch environments.',
-        url: 'https://github.com/geek-fun/jest-search'
-      }
-    ] as ProductData[],
-    features: [
-      {
-        title: isZh ? '价值驱动' : 'Driven by Impact',
-        icon: 'impact',
-        details: isZh
-          ? '我们构建能为开发者和团队带来直接价值的软件，每一款工具都经过精心设计，解决真实问题，提升工作效率。'
-          : 'We build software that delivers immediate, tangible value to developers and teams. Every tool is meticulously designed to solve real problems and elevate your workflow.'
-      },
-      {
-        title: isZh ? '透明开放' : 'Radically Transparent',
-        icon: 'transparent',
-        details: isZh
-          ? '我们对开源的承诺始终如一。所有工具在公开环境中构建、迭代和优化，推动协作共建的开发者生态。'
-          : 'Our commitment to open source is absolute. We build, iterate, and refine our tools in public, fostering a collaborative ecosystem where developers thrive together.'
-      },
-      {
-        title: isZh ? '持续可靠' : 'Built to Last',
-        icon: 'lasting',
-        details: isZh
-          ? '我们优先追求可持续的软件工程，确保每款产品具备长期可靠性、卓越性能和持久影响力。'
-          : 'We prioritize sustainable software engineering over fleeting trends. Our solutions are engineered to ensure long-term reliability, premium performance, and lasting impact.'
-      }
-    ] as FeatureData[]
+    sections: { products: copy.productsLabel, values: copy.values, team: copy.team },
+    products: products.map(({ id, url, ...product }) => ({
+      ...product,
+      description: copy.products[id],
+      url: url.startsWith('/') ? localLink(url) : url,
+    })),
+    features: featureIcons.map((icon) => ({ ...copy.features[icon], icon })),
   }
 })
 </script>
@@ -131,7 +53,7 @@ const content = computed(() => {
     <!-- Announcement Banner -->
     <div class="announcement-bar">
       <div class="container">
-        <span class="badge">New</span>
+        <span class="badge">{{ content.announcement.badge }}</span>
         <span class="text">{{ content.announcement.text }}</span>
         <a :href="content.announcement.link" class="link">{{ content.announcement.linkText }}</a>
       </div>
@@ -157,7 +79,7 @@ const content = computed(() => {
     </section>
 
     <!-- Products index: minimal icon + name strip -->
-    <section class="products-section" :aria-label="content.sections.products">
+    <section id="products" class="products-section" :aria-label="content.sections.products">
       <div class="container">
         <div class="section-header">
           <h2 class="section-label">{{ content.sections.products }}</h2>

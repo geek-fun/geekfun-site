@@ -63,7 +63,7 @@ Dynobase 是一款商业 DynamoDB 桌面客户端。其[官方更新日志](http
 | 功能 | DocKit | Dynobase |
 |---|---|---|
 | **许可证** | Apache 2.0（开源） | 专有 |
-| **定价** | 社区版免费 · 旗舰版 $9.9/月 | [查看定价](https://dynobase.dev/#pricing) |
+| **定价** | 社区版免费 · 旗舰版 USD 9.90/月 | [查看定价](https://dynobase.dev/#pricing) |
 | **平台** | Mac、Windows、Linux | Mac、Windows、Linux |
 | **PartiQL 编辑器** | ✅ Monaco 引擎 | ✅ |
 | **可视化查询构建器** | ✅ | ✅ |
@@ -158,7 +158,7 @@ Dynobase 3.0 可在表的菜单中管理[按需备份](https://dynobase.dev/new-
 
 ### DocKit
 - **社区版**：免费 — 人数不限，核心本地功能
-- **旗舰版**：$9.9/月 或 $99/年 — AI 智能体、MCP、集群管理等进阶功能（7 天免费试用）
+- **旗舰版**：USD 9.90/月 或 USD 99.00/年 — AI 智能体、MCP、集群管理等进阶功能（7 天免费试用）
 
 ## 常见问题
 

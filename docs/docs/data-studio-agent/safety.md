@@ -30,4 +30,6 @@ Data Studio Agent calls DocKit and SqlKit through a local bridge. Each app resol
 - Choose **Read** for schema inspection and read queries. **Read & modify data** includes deletion. Choose **Custom** for a narrower set of writes.
 - The desktop app reports each tool’s risk level. The MCP client decides when to prompt, and the app checks the connection’s permissions before it runs the tool.
 - The desktop app looks up connection secrets on your machine. Your client may send query results to its model, so allow only the connections and actions it needs.
-- The bridge listens on `127.0.0.1`. For setup and troubleshooting, see [DocKit's MCP bridge](/docs/dockit/mcp-bridge) and [AI permissions guide](/docs/dockit/ai-permissions).
+- The bridge listens on `127.0.0.1`. For setup and troubleshooting, see the [SqlKit MCP bridge](/docs/sqlkit/mcp-bridge) or [DocKit MCP bridge](/docs/dockit/mcp-bridge) guide.
+
+See [SqlKit AI permissions](/docs/sqlkit/ai-permissions) or [DocKit AI permissions](/docs/dockit/ai-permissions) for connection overrides and in-app confirmations.

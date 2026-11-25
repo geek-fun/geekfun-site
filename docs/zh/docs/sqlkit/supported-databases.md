@@ -9,16 +9,16 @@ description: 查看 SqlKit 支持的数据库及其连接方式，了解 MySQL�
 
 ## 我的数据库使用哪个驱动？
 
-| 连接方式 | 数据库示例 | 如何设置 |
+| 连接方式 | 数据库 | 如何设置 |
 | --- | --- | --- |
-| 内置 TCP 驱动 | [MySQL](/zh/docs/sqlkit/mysql-gui-client)、[PostgreSQL](/zh/docs/sqlkit/postgresql-gui-client)、[SQL Server](/zh/docs/sqlkit/sql-server-gui-client) | 填写服务器地址和登录信息。 |
-| 内置本地文件驱动 | [SQLite](/zh/docs/sqlkit/sqlite-gui-client)、SQLCipher | 选择本地文件。SQLCipher 还需要加密密钥。 |
-| MySQL 兼容驱动 | MariaDB、TiDB、OceanBase（MySQL 模式）、Doris、StarRocks | 选择对应的数据库类型，并填写该服务实际使用的 SQL 端口。 |
-| PostgreSQL 兼容驱动 | CockroachDB、TimescaleDB、Redshift、YugabyteDB、openGauss | 选择对应的数据库类型，并填写要连接的数据库。 |
-| JDBC 桥接 | [Oracle](/zh/docs/sqlkit/oracle-gui-client)、DuckDB、Firebird、Snowflake、IBM Db2、BigQuery、Cassandra、ScyllaDB | [设置 Java 和驱动](/zh/docs/sqlkit/connect-to-database#java-and-jdbc-drivers)，然后按数据库类型填写连接信息。 |
-| 基于 HTTP 的连接 | ClickHouse、Trino、Presto、rqlite、Turso | 使用对应服务的地址和端口。ClickHouse 的默认 HTTP 端口为 `8123`。 |
+| 内置 TCP 驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> | 填写服务器地址和登录信息。 |
+| 内置本地文件驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#local--> | 选择本地文件。SQLCipher 还需要加密密钥。 |
+| MySQL 兼容驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#mysql--> | 选择对应的数据库类型，并填写该服务实际使用的 SQL 端口。 |
+| PostgreSQL 兼容驱动 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#postgresql--> | 选择对应的数据库类型，并填写要连接的数据库。 |
+| JDBC 桥接 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#jdbc--> | [设置 Java 和驱动](/zh/docs/sqlkit/connect-to-database#java-and-jdbc-drivers)，然后按数据库类型填写连接信息。 |
+| HTTP 连接 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#http--> | 使用对应服务的地址和端口。ClickHouse 的默认 HTTP 端口为 `8123`。 |
 
-[SqlKit 产品页](/zh/products/sqlkit/)列出了更多数据库。可在连接表单的数据库类型选择器中查看当前安装版本支持的类型。
+默认端口和故障排查步骤见[连接数据库](/zh/docs/sqlkit/connect-to-database)。
 
 ## 连接后可以使用哪些功能？
 

@@ -164,7 +164,7 @@ Most teams don't use just one NoSQL database. A team running Elasticsearch for s
 | **MCP** | Included with Ultimate | — | — | [Dynobase MCP server](https://dynobase.dev/dynamodb-mcp-server/) | — |
 | **Desktop native** | ✅ | ❌ | Partial | ✅ | ✅ |
 | **Open source** | ✅ Apache 2.0 | Mixed | ✅ MIT | ❌ | ❌ |
-| **Price** | Community: free · Ultimate $9.9/mo | Free | Free | [See pricing](https://dynobase.dev/#pricing) | Free |
+| **Price** | Community: free · Ultimate USD 9.90/mo | Free | Free | [See pricing](https://dynobase.dev/#pricing) | Free |
 
 ## Elasticsearch GUI Client
 
@@ -226,7 +226,7 @@ DocKit auto-detects which engine you're connected to and adjusts API calls accor
 Yes — Apache 2.0 license. The full source is at [github.com/geek-fun/dockit](https://github.com/geek-fun/dockit).
 
 **Is there a paid tier?**
-Yes. The Community edition remains free and open source, while the paid Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial) unlocks advanced capabilities such as the AI agent, MCP, and cluster management.
+Yes. The Community edition remains free and open source, while the paid Ultimate subscription (USD 9.90/month or USD 99.00/year, with a 7-day free trial) unlocks advanced capabilities such as the AI agent, MCP, and cluster management.
 
 **Do you also support SQL databases?**
 DocKit is purpose-built for NoSQL databases. If you need PostgreSQL, MySQL, SQL Server, or SQLite support, check out [**SqlKit**](/products/sqlkit/) — our companion open-source SQL desktop client from the same team.

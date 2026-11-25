@@ -30,6 +30,7 @@ head:
 
 安装并启动 [DocKit](/products/dockit/) 和/或 [SqlKit](/products/sqlkit/)，添加至少一个数据库连接，并确保 **设置 → MCP Bridge → 自动启动** 已开启（默认开启）。
 
+- 若只使用 SqlKit，可按 [SqlKit MCP 配置](/zh/docs/sqlkit/mcp-bridge)检查桥接、配置客户端并验证连接。
 - **SQL** 数据库需要 SqlKit；**NoSQL** 数据库需要 DocKit。两个都装可获得完整工具集。
 - MCP 服务器自动发现正在运行的后端，只有实际运行的应用所对应的工具才会被暴露。
 
@@ -55,17 +56,13 @@ npx -y @geek-fun/data-studio-mcp
 
 **OpenAI Codex**，一条命令：
 
-```bash
-codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
-```
+<!--@include: @/.vitepress/includes/data-studio-mcp.md#codex-->
 
 用 `codex mcp list` 验证。
 
 **Claude Code**，一条命令：
 
-```bash
-claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
-```
+<!--@include: @/.vitepress/includes/data-studio-mcp.md#claude-->
 
 对所有项目生效（user 作用域）：
 
@@ -75,16 +72,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 
 **Cursor。** 创建 `.cursor/mcp.json`（项目）或 `~/.cursor/mcp.json`（全局）：
 
-```json
-{
-  "mcpServers": {
-    "data-studio": {
-      "command": "npx",
-      "args": ["-y", "@geek-fun/data-studio-mcp"]
-    }
-  }
-}
-```
+<!--@include: @/.vitepress/includes/data-studio-mcp.md#cursor-->
 
 **Windsurf。** 创建 `~/.codeium/windsurf/mcp_config.json`（仅全局）：
 
@@ -122,7 +110,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 
 在相应桌面应用中打开**设置 → MCP 桥接 → 默认 AI 权限**。如果编程助手只需要查看结构和读取数据，可选择**读取**，并核对连接的设置。如果为某条连接单独允许或拒绝了一项操作，就按该连接的设置执行。
 
-**读取与修改数据**包含删除数据。要只允许部分写入操作，请使用**自定义**。关于连接权限、会话限制和客户端确认，见 [DocKit AI 权限指南](/zh/docs/dockit/ai-permissions)。
+**读取与修改数据**包含删除数据。要只允许部分写入操作，请使用**自定义**。连接权限、会话限制与客户端确认见 [SqlKit AI 权限](/zh/docs/sqlkit/ai-permissions)或 [DocKit AI 权限](/zh/docs/dockit/ai-permissions)。
 
 ## 5. 开始提问
 

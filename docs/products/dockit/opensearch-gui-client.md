@@ -116,7 +116,7 @@ Save as many connection profiles as you need. You can jump between local, stagin
 | **DynamoDB** | ✅ | ❌ | ❌ |
 | **Elasticsearch** | ✅ | ❌ | ✅ |
 | **License** | Apache 2.0 | Apache 2.0 | MIT |
-| **Price** | Community: free · Ultimate $9.9/mo | Free | Free |
+| **Price** | Community: free · Ultimate USD 9.90/mo | Free | Free |
 
 ## Usage scenarios
 

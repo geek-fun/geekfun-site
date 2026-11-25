@@ -73,7 +73,7 @@ This guide covers the 5 GUI clients worth considering in 2026 — DocKit, Kibana
 
 | Tool | Price | Platform | Best for | Open source |
 |------|-------|----------|----------|-------------|
-| DocKit | Community: free · Ultimate $9.9/mo | Mac, Win, Linux | Multi-engine teams, AI-assisted querying | ✅ Apache 2.0 |
+| DocKit | Community: free · Ultimate USD 9.90/mo | Mac, Win, Linux | Multi-engine teams, AI-assisted querying | ✅ Apache 2.0 |
 | Kibana | Free / Paid | Web (requires ES cluster) | Dashboards, production monitoring | ❌ Elastic License |
 | Elasticvue | Free | Web, browser extension, desktop | Lightweight ES browsing | ✅ MIT |
 | Elastron | Free | Mac, Win, Linux | Native desktop, cluster monitoring | ✅ MIT |
@@ -92,7 +92,7 @@ Free, open source. Handles Elasticsearch, OpenSearch, and DynamoDB in one app �
 - Multi-server connections — multiple ES clusters open at once
 - Queries saved locally, no telemetry, works offline
 
-**Pricing:** Community: free (Apache 2.0) · Ultimate $9.9/mo.
+**Pricing:** Community: free (Apache 2.0) · Ultimate USD 9.90/mo.
 
 **Activity:** 1K+ GitHub stars, 30 releases. v1.0.1 dropped May 11, 2026.
 

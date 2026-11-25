@@ -2,6 +2,7 @@
 import { computed, nextTick, onMounted, onUnmounted, reactive, ref, watch } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { copyText } from '../clipboard'
+import { getLocalizedSitePath } from '../../site-navigation'
 import DownloadPackagePicker from './DownloadPackagePicker.vue'
 import { downloadCopy } from './download-copy'
 import {
@@ -305,7 +306,7 @@ onUnmounted(() => {
             <a :href="tool.repository" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a
               v-if="tool.id === 'dataStudioAgent'"
-              :href="withBase(language === 'zh' ? '/zh/products/data-studio-agent/' : '/products/data-studio-agent/')"
+              :href="withBase(getLocalizedSitePath('/products/data-studio-agent/', language))"
             >{{ copy.product }}</a>
           </footer>
         </article>

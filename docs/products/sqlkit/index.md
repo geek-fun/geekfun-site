@@ -190,17 +190,15 @@ showcase:
     align: right
 
 features:
-  - { title: "Agentic Data Studio", body: "Talk to your databases. The AI agent reads your schema, writes queries, optimizes slow SQL, visualizes execution plans, and fixes errors. Per-source permissions and safety gates for destructive operations. Bring your own LLM key — credentials stay local.", icon: "sparkles" }
-  - { title: "Database Connections", body: "Connect to SQL databases and data warehouses, including PostgreSQL, MySQL, SQL Server, Oracle, SQLite, Snowflake, and BigQuery. Setup depends on the database and its driver.", icon: "database" }
-  - { title: "Product-Grade Editor", body: "Monaco Editor (VS Code engine) with full SQL syntax highlighting, context-aware autocomplete, multi-tab support, and configurable SQL formatting with dialect-specific rules.", icon: "code" }
-  - { title: "Visual Schema Browser", body: "Tree view of databases, schemas, tables, columns, indexes, views, procedures, and functions. Inspect DDL, search objects across schemas, and navigate relationships visually.", icon: "search" }
-  - { title: "Smart Data Grid", body: "Virtual-scrolled data grid with sort, filter, inline editing, and copy. Row-level data search across all columns. Paginated results with CSV, JSON, and Markdown export.", icon: "table" }
-  - { title: "ER Diagram Visualization", body: "Interactive ER diagrams rendered on a canvas — explore table relationships, foreign keys, and indexes visually. Powered by Dagre for smart graph layout.", icon: "layers" }
-  - { title: "Query Execution Plans", body: "Visualize query execution plans as structured trees with cost highlighting. Understand how your queries are executed and identify optimization opportunities at a glance.", icon: "zap" }
-  - { title: "SSH Tunnel & Security", body: "Connect through SSH with key or password authentication. SSL/TLS for encrypted connections. Credentials secured by OS keychain. HTTP proxy support for LLM provider connections.", icon: "lock" }
-  - { title: "Multi-Tab & History", body: "Work on multiple queries simultaneously with tab management. Auto-saved query history — searchable, replayable, never lost. Saved queries with file management and context menus.", icon: "history" }
-  - { title: "JDBC Bridge", body: "Connect to Oracle, DuckDB, Firebird, Snowflake, BigQuery, and other JDBC databases. SqlKit checks for Java and can download the driver when you test the connection.", icon: "terminal" }
-  - { title: "Desktop Installers", body: "Install SqlKit on macOS (.dmg), Windows (.exe or .msi), or Linux (.deb, .rpm, or AppImage). The app is built with Rust and Tauri, and adds Java on demand for JDBC connections.", icon: "dot" }
+  title: "What you can do with SqlKit"
+  guide: {"text": "Explore the capabilities guide", "link": "/docs/sqlkit/capabilities"}
+  items:
+    - {"title": "Connect to your databases", "body": "Save server connections and open local database files. See which profiles use built-in drivers, JDBC, or HTTP.", "icon": "database"}
+    - {"title": "Write and troubleshoot SQL", "body": "Run a statement or a selection, save queries, and inspect execution plans on supported engines.", "icon": "code"}
+    - {"title": "Explore schemas and relationships", "body": "Open table definitions to inspect columns, keys, and indexes. Use ER diagrams in Ultimate to follow foreign keys.", "icon": "layers"}
+    - {"title": "Edit rows and move data", "body": "Filter and edit data on supported engines. Export query results, or use Transfer in Ultimate to import files and export tables.", "icon": "table"}
+    - {"title": "Draft queries with AI", "body": "In Ultimate, connect your own model to Agentic Data Studio and review SQL drafted with your schema context.", "icon": "sparkles"}
+    - {"title": "Connect coding agents with MCP", "body": "Use the Ultimate MCP Bridge and Data Studio Agent to share selected connections with tools such as Codex.", "icon": "terminal"}
 
 platforms:
   title: "Available on all platforms"
@@ -249,7 +247,7 @@ Check [supported databases and drivers](/docs/sqlkit/supported-databases) to see
 | **SSH tunnel** | ✅ | ✅ | ✅ | ✅ |
 | **JDBC bridge** | ✅ | ✅ | ❌ | ✅ |
 | **Open source** | ✅ Apache 2.0 | ✅ GPL | ❌ | ❌ |
-| **Price** | Community: free · Ultimate $9.9/mo | Free | $199/yr | $199+ |
+| **Price** | Community: free · Ultimate USD 9.90/mo | Free | $199/yr | $199+ |
 | **macOS / Windows / Linux** | ✅ | ✅ | ✅ | Partial |
 
 ## Everyday features
@@ -279,7 +277,7 @@ Check [supported databases and drivers](/docs/sqlkit/supported-databases) to see
 Use SqlKit with PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and other SQL databases and data warehouses. The [database and driver guide](/docs/sqlkit/supported-databases) explains what you need to connect to each one.
 
 **Is SqlKit really free?**
-Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
+Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription (USD 9.90/month or USD 99.00/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
 
 **Does SqlKit work offline?**
 Database operations work fine offline. AI features need network access to your model endpoint, or you can run a local model via Ollama or LM Studio.

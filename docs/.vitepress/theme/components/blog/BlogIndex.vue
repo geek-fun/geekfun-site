@@ -2,12 +2,25 @@
 import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { blogDateFormatter } from '../../../blog'
+import { getLocalizedEditorialCopy } from '../editorial-copy'
 import BlogCover from './BlogCover.vue'
 import { data } from './posts.data.mts'
 
 const { lang } = useData()
 const isZh = computed(() => lang.value.startsWith('zh'))
-const copy = computed(() => isZh.value
+const localized = computed(() => getLocalizedEditorialCopy(lang.value))
+const copy = computed(() => localized.value
+  ? {
+      title: localized.value.blog,
+      description: localized.value.blogDesc,
+      featured: localized.value.featured,
+      latest: localized.value.latest,
+      all: localized.value.all,
+      count: (total: number) => `${total} ${localized.value?.count}`,
+      read: localized.value.read,
+      tags: localized.value.tags,
+    }
+  : isZh.value
   ? {
       title: '博客',
       description: '开源数据库工具的产品更新、技术指南和开发经验。',
@@ -42,13 +55,14 @@ const formatDate = (date: string): string => formatter.value.format(new Date(dat
     <header class="editorial-index-heading">
       <h1>{{ copy.title }}</h1>
       <p>{{ copy.description }}</p>
+      <p v-if="localized">{{ localized.blogSource }}</p>
     </header>
 
     <article v-if="featured" class="blog-featured">
       <BlogCover :cover="featured.cover" variant="featured" />
       <div class="blog-featured-copy">
         <h2>
-          <a class="blog-post-link" :href="withBase(featured.url)">{{ featured.cardTitle ?? featured.title }}</a>
+          <a class="blog-post-link" :href="withBase(featured.url)" :lang="localized ? 'en' : undefined" :hreflang="localized ? 'en' : undefined">{{ featured.cardTitle ?? featured.title }}</a>
         </h2>
         <p class="blog-post-meta">
           <span>{{ copy.featured }}</span>
@@ -78,7 +92,7 @@ const formatDate = (date: string): string => formatter.value.format(new Date(dat
           <BlogCover :cover="post.cover" variant="card" />
           <time v-if="post.date" :datetime="post.date">{{ formatDate(post.date) }}</time>
           <h3>
-            <a class="blog-post-link" :href="withBase(post.url)">{{ post.cardTitle ?? post.title }}</a>
+            <a class="blog-post-link" :href="withBase(post.url)" :lang="localized ? 'en' : undefined" :hreflang="localized ? 'en' : undefined">{{ post.cardTitle ?? post.title }}</a>
           </h3>
           <p v-if="post.summary || post.description" class="blog-card-summary">{{ post.summary ?? post.description }}</p>
           <ul v-if="post.tags?.length" class="blog-tags" :aria-label="copy.tags">
@@ -98,7 +112,7 @@ const formatDate = (date: string): string => formatter.value.format(new Date(dat
           <BlogCover :cover="post.cover" variant="thumbnail" />
           <div class="blog-archive-details">
             <h3>
-              <a class="blog-post-link" :href="withBase(post.url)">{{ post.title }}</a>
+              <a class="blog-post-link" :href="withBase(post.url)" :lang="localized ? 'en' : undefined" :hreflang="localized ? 'en' : undefined">{{ post.title }}</a>
             </h3>
             <time v-if="post.date" :datetime="post.date">{{ formatDate(post.date) }}</time>
             <p v-if="post.summary || post.description" class="blog-archive-summary">

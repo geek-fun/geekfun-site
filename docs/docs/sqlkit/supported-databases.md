@@ -9,16 +9,16 @@ In **Connections → Add New Connection**, choose your database type to see its 
 
 ## Which driver does my database use?
 
-| Connection method | Example databases | Setup |
+| Connection method | Databases | Setup |
 | --- | --- | --- |
-| Built-in TCP driver | [MySQL](/docs/sqlkit/mysql-gui-client), [PostgreSQL](/docs/sqlkit/postgresql-gui-client), [SQL Server](/docs/sqlkit/sql-server-gui-client) | Enter the server address and credentials. |
-| Built-in local file driver | [SQLite](/docs/sqlkit/sqlite-gui-client), SQLCipher | Choose a local file. SQLCipher also requires the encryption key. |
-| MySQL-compatible driver | MariaDB, TiDB, OceanBase in MySQL mode, Doris, StarRocks | Select your engine's profile. Use its configured SQL port. |
-| PostgreSQL-compatible driver | CockroachDB, TimescaleDB, Redshift, YugabyteDB, openGauss | Select your engine's profile and enter the target database. |
-| JDBC bridge | [Oracle](/docs/sqlkit/oracle-gui-client), DuckDB, Firebird, Snowflake, IBM Db2, BigQuery, Cassandra, ScyllaDB | [Set up Java and the driver](/docs/sqlkit/connect-to-database#java-and-jdbc-drivers). Connection fields depend on the engine. |
-| HTTP-based connection | ClickHouse, Trino, Presto, rqlite, Turso | Use the endpoint and port for that profile. For ClickHouse, `8123` is the default HTTP port. |
+| Built-in TCP driver | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> | Enter the server address and credentials. |
+| Built-in local file driver | <!--@include: @/.vitepress/includes/sqlkit-databases.md#local--> | Choose a local file. SQLCipher also requires the encryption key. |
+| MySQL-compatible driver | <!--@include: @/.vitepress/includes/sqlkit-databases.md#mysql--> | Select your engine's profile and use its configured SQL port. |
+| PostgreSQL-compatible driver | <!--@include: @/.vitepress/includes/sqlkit-databases.md#postgresql--> | Select your engine's profile and enter the target database. |
+| JDBC bridge | <!--@include: @/.vitepress/includes/sqlkit-databases.md#jdbc--> | [Set up Java and the driver](/docs/sqlkit/connect-to-database#java-and-jdbc-drivers). Connection fields depend on the engine. |
+| HTTP connection | <!--@include: @/.vitepress/includes/sqlkit-databases.md#http--> | Use the endpoint and port for that profile. For ClickHouse, `8123` is the default HTTP port. |
 
-The [SqlKit product page](/products/sqlkit/) lists more examples. The database type picker shows the profiles in your installed version.
+See [Connect SqlKit to a database](/docs/sqlkit/connect-to-database) for default ports and connection troubleshooting.
 
 ## Which tools are available after connecting?
 

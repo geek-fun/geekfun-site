@@ -141,7 +141,7 @@ Entity-relationship diagrams drawn on a canvas. See table relationships, foreign
 | **Startup** | < 2 s | 5–15 s | 10–20 s | 3–8 s |
 | **RAM** | ~150 MB | ~400 MB | ~500 MB | ~200 MB |
 | **Open source** | Apache 2.0 | GPL | ❌ | ❌ |
-| **Price** | Community: free · Ultimate $9.9/mo | Free | $199/yr | $199+ |
+| **Price** | Community: free · Ultimate USD 9.90/mo | Free | $199/yr | $199+ |
 
 ## Version compatibility
 
@@ -151,7 +151,7 @@ See [supported databases and drivers](/docs/sqlkit/supported-databases) to find 
 
 1. [Install SqlKit](/docs/sqlkit/installation).
 2. [Connect to a database](/docs/sqlkit/connect-to-database).
-3. Open the Agentic Data Studio panel and describe the query you want. You can also [write SQL in the editor](/docs/sqlkit/query-editor).
+3. [Configure a model and attach the connection in Agentic Data Studio](/docs/sqlkit/agentic-datastudio). You can also [write SQL in the editor](/docs/sqlkit/query-editor).
 
 Questions: email [support@geekfun.club](mailto:support@geekfun.club).
 

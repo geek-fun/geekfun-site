@@ -166,7 +166,7 @@ La mayoría de los equipos no usan una sola base de datos NoSQL. Un equipo que e
 | **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Nativo de escritorio** | ✅ | ❌ | Parcial | ✅ | ✅ |
 | **Código abierto** | ✅ Apache 2.0 | Mixto | ✅ MIT | ❌ | ❌ |
-| **Precio** | Community: gratis · Ultimate $9.9/mes | Gratis | Gratis | $12–30/mes | Gratis |
+| **Precio** | Community: gratis · Ultimate 9,90 USD/mes | Gratis | Gratis | $12–30/mes | Gratis |
 
 ## Cliente GUI de Elasticsearch
 
@@ -228,7 +228,7 @@ DocKit detecta automáticamente a qué motor estás conectado y ajusta las llama
 Sí — licencia Apache 2.0. El código fuente completo está en [github.com/geek-fun/dockit](https://github.com/geek-fun/dockit).
 
 **¿Hay un plan de pago?**
-Sí. La edición Community sigue siendo gratuita y de código abierto, mientras que la suscripción de pago Ultimate ($9.9/mes o $99/año, con prueba gratuita de 7 días) desbloquea funciones avanzadas como el agente de IA, MCP y la gestión de clústeres.
+Sí. La edición Community sigue siendo gratuita y de código abierto, mientras que la suscripción de pago Ultimate (9,90 USD/mes o 99,00 USD/año, con prueba gratuita de 7 días) desbloquea funciones avanzadas como el agente de IA, MCP y la gestión de clústeres.
 
 **¿También soportan bases de datos SQL?**
 DocKit está diseñado específicamente para bases de datos NoSQL. Si necesitas soporte para PostgreSQL, MySQL, SQL Server o SQLite, prueba [**SqlKit**](/products/sqlkit/) — nuestro cliente SQL de escritorio de código abierto creado por el mismo equipo.

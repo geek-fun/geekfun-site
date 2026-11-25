@@ -30,6 +30,7 @@ The full setup is four steps: install the apps, install the MCP package, registe
 
 Install and launch [DocKit](/products/dockit/) and/or [SqlKit](/products/sqlkit/), add at least one database connection, and make sure **Settings → MCP Bridge → Auto-start** is enabled (it's on by default).
 
+- For a SqlKit-only setup, see [SqlKit MCP setup](/docs/sqlkit/mcp-bridge) for the bridge, client configuration, and a first connection check.
 - **SQL** databases need SqlKit; **NoSQL** databases need DocKit. Install both for the full tool set.
 - The MCP server auto-discovers running backends. It only exposes tools for apps that are actually running.
 
@@ -55,17 +56,13 @@ Both work with every agent config below. `npx` resolves the package automaticall
 
 **OpenAI Codex**, one command:
 
-```bash
-codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
-```
+<!--@include: @/.vitepress/includes/data-studio-mcp.md#codex-->
 
 Verify with `codex mcp list`.
 
 **Claude Code**, one command:
 
-```bash
-claude mcp add --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
-```
+<!--@include: @/.vitepress/includes/data-studio-mcp.md#claude-->
 
 For all projects (user scope):
 
@@ -75,16 +72,7 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 
 **Cursor.** Create `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global):
 
-```json
-{
-  "mcpServers": {
-    "data-studio": {
-      "command": "npx",
-      "args": ["-y", "@geek-fun/data-studio-mcp"]
-    }
-  }
-}
-```
+<!--@include: @/.vitepress/includes/data-studio-mcp.md#cursor-->
 
 **Windsurf.** Create `~/.codeium/windsurf/mcp_config.json` (global only):
 
@@ -122,7 +110,7 @@ Or run `opencode mcp add` interactively.
 
 In each desktop app, open **Settings → MCP Bridge → Default AI permissions**. Choose **Read** if your coding assistant only needs schema inspection and read queries, then review the connection's settings. If you allow or deny a specific action on a connection, that setting takes priority over the system default.
 
-**Read & modify data** includes data deletion. Choose **Custom** to allow a narrower set of writes. For details on connection overrides and client-side approvals, see [DocKit AI permissions](/docs/dockit/ai-permissions).
+**Read & modify data** includes data deletion. Choose **Custom** to allow a narrower set of writes. For connection overrides and client-side approvals, see [SqlKit AI permissions](/docs/sqlkit/ai-permissions) or [DocKit AI permissions](/docs/dockit/ai-permissions).
 
 ## 5. Start asking
 

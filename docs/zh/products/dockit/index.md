@@ -195,7 +195,7 @@ DocKit 的 **Agentic Data Studio** 让你通过自然语言与数据库交互。
 | **MCP** | 旗舰版提供 | — | — | [Dynobase MCP 服务](https://dynobase.dev/dynamodb-mcp-server/) | — |
 | **桌面原生** | ✅ | ❌ | 部分 | ✅ | ✅ |
 | **开源协议** | ✅ Apache 2.0 | Mixed | ✅ MIT | ❌ | ❌ |
-| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费 | 免费 | [查看定价](https://dynobase.dev/#pricing) | 免费 |
+| **价格** | 社区版免费 · 旗舰版 USD 9.90/月 | 免费 | 免费 | [查看定价](https://dynobase.dev/#pricing) | 免费 |
 
 ## 常见问题
 
@@ -215,4 +215,4 @@ DocKit 会自动检测您连接的引擎并相应调整 API 调用，同一连�
 是的——Apache 2.0 许可证。完整源码在 [github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)。
 
 **有付费版本吗？**
-有。社区版保持免费开源；付费旗舰版订阅（$9.9/月 或 $99/年，7 天免费试用）解锁 AI 智能体、MCP、集群管理等进阶能力。
+有。社区版保持免费开源；付费旗舰版订阅（USD 9.90/月 或 USD 99.00/年，7 天免费试用）解锁 AI 智能体、MCP、集群管理等进阶能力。

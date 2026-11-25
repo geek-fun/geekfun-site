@@ -1,4 +1,5 @@
 import { DOCKIT_VERSION, SQLKIT_VERSION } from '../version'
+import { getLocalizedSitePath } from '../../site-navigation'
 
 export type DownloadLanguage = 'en' | 'zh' | 'pt-BR' | 'ja' | 'ko' | 'es'
 
@@ -62,11 +63,8 @@ export type InstallTool = typeof installTools[number]
 
 export const appRepository = (app: DesktopApp): string => `https://github.com/geek-fun/${app.id}`
 
-export const appProductPage = (app: DesktopApp, language: DownloadLanguage): string => {
-  const localized = app.id === 'dockit' || language === 'zh'
-  const prefix = localized && language !== 'en' ? `/${language}` : ''
-  return `${prefix}/products/${app.id}/`
-}
+export const appProductPage = (app: DesktopApp, language: DownloadLanguage): string =>
+  getLocalizedSitePath(`/products/${app.id}/`, language)
 
 export const appInstallers = ({ id, name, version }: DesktopApp) => {
   const root = `https://github.com/geek-fun/${id}/releases/download/v${version}`

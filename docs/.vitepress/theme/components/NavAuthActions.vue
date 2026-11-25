@@ -6,7 +6,14 @@ const props = defineProps<{ variant: 'bar' | 'screen' }>();
 const CONSOLE_URL = 'https://console.geekfun.club';
 
 const { lang } = useData();
-const isZh = computed(() => lang.value === 'zh');
+const accountLabels: Record<string, { login: string; console: string }> = {
+  "en": { login: "Log in", console: "Console" },
+  "zh": { login: "登录", console: "控制台" },
+  "pt-BR": { login: "Entrar", console: "Console" },
+  "ja": { login: "ログイン", console: "コンソール" },
+  "ko": { login: "로그인", console: "콘솔" },
+  "es": { login: "Iniciar sesión", console: "Consola" },
+};
 
 /**
  * Auth-aware nav entry (mirrors serverlessinsight-site's AuthNav): renders
@@ -37,8 +44,8 @@ const linkHref = computed(() =>
   isLoggedIn.value ? `${CONSOLE_URL}/home` : `${CONSOLE_URL}/login`,
 );
 const label = computed(() => {
-  if (isZh.value) return isLoggedIn.value ? '控制台' : '登录';
-  return isLoggedIn.value ? 'Console' : 'Log in';
+  const copy = accountLabels[lang.value] ?? accountLabels.en;
+  return isLoggedIn.value ? copy.console : copy.login;
 });
 </script>
 

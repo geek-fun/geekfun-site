@@ -72,7 +72,7 @@ DocKit is an open-source alternative with a free Community edition that covers t
 | **Multi-database support** | ✅ MongoDB + ES + OpenSearch + DynamoDB | ❌ Only MongoDB |
 | **Local-first privacy** | ✅ No telemetry, air-gap compatible | ❌ Telemetry on by default |
 | **Open source** | ✅ Apache 2.0 | ✅ SSPL (AGPL for older versions) |
-| **Price** | Community: free · Ultimate $9.9/mo | Free (Enterprise paid) |
+| **Price** | Community: free · Ultimate USD 9.90/mo | Free (Enterprise paid) |
 
 ## When DocKit is the better choice
 
@@ -111,7 +111,7 @@ Keep Compass if you need:
 | | DocKit | MongoDB Compass |
 |---|---|---|
 | **Community Edition** | Free (core local features) | Free (limited) |
-| **Full features** | Paid (Ultimate $9.9/mo) | Paid (Enterprise subscription) |
+| **Full features** | Paid (Ultimate USD 9.90/mo) | Paid (Enterprise subscription) |
 | **Data AI Agent** | Included with Ultimate subscription | Not available |
 | **Agentic Data Studio** | Included with Ultimate subscription | Not available |
 | **Multi-database** | Included for free | Not available |
@@ -145,7 +145,7 @@ Supports MongoDB Atlas, self-hosted MongoDB, replica sets, TLS/SSL, and SRV conn
 For core workflows — browsing collections, running queries, managing indexes, importing/exporting data — yes, it covers the same ground and adds AI-powered querying and multi-database support. Compass wins on the visual aggregation builder and schema analysis. Many teams keep both.
 
 **Is DocKit really free?**
-Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
+Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription (USD 9.90/month or USD 99.00/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
 
 **Does DocKit support MongoDB Atlas?**
 Yes. Enter your Atlas connection string in the connection dialog. DocKit supports SRV connection strings, TLS, and all Atlas authentication methods.

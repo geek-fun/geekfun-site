@@ -32,12 +32,12 @@ head:
 
 您可以从[下载](/zh/download)页面下载最新版本的 DocKit，然后选择目标平台下载相应的安装包。DocKit 目前支持 Windows、macOS 和 Linux。
 
-![DocKit 下载页面](/download-page.png)
+![DocKit 下载页面](/download-page.jpg)
 
 ## 安装 DocKit
 
 下载安装包后，双击下载的文件开始安装，以 macOS 安装为例：您需要将 DocKit 移动到应用程序文件夹。
-![mac 移动到应用程序](/mac-move-to-app.png)
+![mac 移动到应用程序](/mac-dockit-move-to-app.png)
 
 您可能会收到系统警告弹窗，提示您此应用程序是从互联网下载的，未经过验证，不用担心，DocKit 不会在未经您明确同意的情况下收集您的任何信息，您可以点击打开/确定进行安装。
 ![mac 安装警告](/install-warning-popup.png)

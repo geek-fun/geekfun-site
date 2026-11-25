@@ -9,10 +9,16 @@ You’ll need the server’s hostname, port, and login credentials. Depending on
 
 ## Add and test a connection
 
-1. Open **Connections** and select **Add New Connection**.
-2. Give the connection a name and select its database type.
-3. In **Basic**, enter the server details or choose a local database file. Use **Advanced** to set up TLS or [connect through an SSH tunnel](/docs/sqlkit/ssh-tunnel).
-4. Test the connection, save it, and select **Connect** on its connection card. Open **Queries** to browse objects and run SQL.
+Once you've installed the SqlKit succesfully, click the **`+`** floating button at the right bottom, a new connection modal will show you to establish a connection with connection details as bellow screenshot shows.
+
+![SqlKit connect to new database server](/sqlkit-connect-to-database.png)
+
+SqlKit have two tabs in connection modal:
+
+**Basic** — Give the connection name, select its database type and enter the server details or choose a local database file, and you can click the  `Test connection` to verify the connectivity or click the `Create Connection` to save connection info.
+
+**Advanced** — To set up TLS or [connect through an SSH tunnel](/docs/sqlkit/ssh-tunnel), or setup agent context and fine-grained permissions against the new connection.
+
 
 ## Choose a connection type
 

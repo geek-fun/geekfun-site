@@ -201,6 +201,72 @@
   }
 }
 
+.docs-guide-page .vp-doc {
+  .docs-section-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 20px 0 24px;
+    list-style: none;
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 6px 14px;
+      border: 1px solid var(--editorial-line);
+      border-radius: 999px;
+      color: var(--vp-c-text-1);
+      font-size: 0.875rem;
+      line-height: 1.4;
+      text-decoration: none;
+
+      &:is(:hover, :focus-visible) {
+        border-color: var(--editorial-accent);
+        color: var(--editorial-accent);
+      }
+    }
+
+    li:first-child a {
+      background: var(--vp-c-brand-soft);
+      color: var(--editorial-accent);
+    }
+  }
+
+  .docs-figure {
+    margin: 24px 0 32px;
+
+    a {
+      display: block;
+      border: 1px solid var(--editorial-line);
+      border-radius: 12px;
+      background: var(--vp-c-bg-soft);
+
+      &:hover {
+        border-color: var(--editorial-accent);
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 8px;
+      color: var(--editorial-muted);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+  }
+}
+
 .Layout.docs-guide-page {
   min-height: 0;
 }

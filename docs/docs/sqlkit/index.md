@@ -5,7 +5,28 @@ description: Learn how to install SqlKit, connect to MySQL, PostgreSQL, SQL Serv
 
 # SqlKit documentation
 
-SqlKit is an open-source desktop SQL database GUI for macOS, Windows, and Linux. Save connections to MySQL, PostgreSQL, SQL Server, Oracle Database, SQLite, and other databases. From a saved connection, you can browse tables and other objects, write SQL, and export query results.
+SqlKit is an open-source desktop database client for macOS, Windows, and Linux. Connect to a server or open a local database file, inspect the schema, and run SQL with the results alongside the editor.
+
+<div class="docs-section-links">
+
+- [Install SqlKit](/docs/sqlkit/installation)
+- [Explore capabilities](/docs/sqlkit/capabilities)
+- [Check database support](#which-databases-can-i-open-in-sqlkit)
+
+</div>
+
+
+<DocsFigure src="/sqlkit-database-list.png" alt="SqlKit database support graphic with database product names and logos" caption="SqlKit connects through built-in drivers, compatible wire protocols, JDBC, and HTTP. Use the table above to look up a particular profile." :width="1280" :height="720" />
+
+## What can I do with SqlKit?
+
+| Task | Where to start |
+| --- | --- |
+| Save a local or remote connection and test access | [Connections and drivers](/docs/sqlkit/capabilities#connections) |
+| Write SQL, save queries, and inspect execution plans | [SQL editor and results](/docs/sqlkit/capabilities#query) |
+| Check columns, keys, indexes, and table relationships | [Schema browser and ER diagrams](/docs/sqlkit/capabilities#schema) |
+| Edit rows, export a result, or import a file | [Table data and Transfer](/docs/sqlkit/capabilities#data) |
+| Set up the in-app assistant or a coding agent | [Agentic Data Studio](/docs/sqlkit/agentic-datastudio) · [MCP setup](/docs/sqlkit/mcp-bridge) · [AI permissions](/docs/sqlkit/ai-permissions) |
 
 ## Get started
 
@@ -16,22 +37,20 @@ SqlKit is an open-source desktop SQL database GUI for macOS, Windows, and Linux.
 
 ## Which databases can I open in SqlKit?
 
-| Database | Connection type | Guide |
-| --- | --- | --- |
-| MySQL | Native connection over TCP | [MySQL GUI client](/docs/sqlkit/mysql-gui-client) |
-| PostgreSQL (Postgres) | Native connection over TCP | [PostgreSQL GUI client](/docs/sqlkit/postgresql-gui-client) |
-| Microsoft SQL Server | Native connection over TCP | [SQL Server GUI client](/docs/sqlkit/sql-server-gui-client) |
-| Oracle Database | JDBC bridge | [Oracle Database GUI client](/docs/sqlkit/oracle-gui-client) |
-| SQLite | Local database file | [SQLite GUI and database browser](/docs/sqlkit/sqlite-gui-client) |
+Choose a database type under **Connections → Add New Connection**.
 
-See [supported databases and drivers](/docs/sqlkit/supported-databases) for MariaDB, DuckDB, ClickHouse, CockroachDB, Snowflake, BigQuery, and other connection types.
+| Connection method | Databases |
+| --- | --- |
+| Built-in TCP driver | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> |
+| Built-in local file driver | <!--@include: @/.vitepress/includes/sqlkit-databases.md#local--> |
+| MySQL-compatible driver | <!--@include: @/.vitepress/includes/sqlkit-databases.md#mysql--> |
+| PostgreSQL-compatible driver | <!--@include: @/.vitepress/includes/sqlkit-databases.md#postgresql--> |
+| JDBC bridge | <!--@include: @/.vitepress/includes/sqlkit-databases.md#jdbc--> |
+| HTTP connection | <!--@include: @/.vitepress/includes/sqlkit-databases.md#http--> |
 
-## Work with your data
+For connection requirements, see [supported databases and drivers](/docs/sqlkit/supported-databases).
 
-- [Connect through an SSH tunnel](/docs/sqlkit/ssh-tunnel) when your database is reachable through a bastion.
-- [Browse and edit table data](/docs/sqlkit/table-browser) with the table grid and inspect keys and indexes.
-- [Import and export files](/docs/sqlkit/import-export) with the Transfer workspace, or export the rows returned by a query.
 
 ## Can I use SqlKit without setting up AI?
 
-Yes. The Community plan includes the core SQL editor, database connections, and CSV and JSON result export. For help writing SQL, use [Agentic Data Studio](/products/sqlkit/agentic-sql-client). See the [plan comparison](/pricing) for details.
+Yes. The Community plan includes database connections, the SQL editor, and CSV and JSON result export. See the [capability requirements](/docs/sqlkit/capabilities#requirements) and [plan comparison](/pricing) for details.
