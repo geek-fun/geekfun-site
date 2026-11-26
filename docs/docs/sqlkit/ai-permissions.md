@@ -1,26 +1,22 @@
 ---
 title: AI Permissions & Safety Model | SqlKit Data Studio & MCP
-description: Understand SqlKit's unified AI permission chain, 5 granular action controls, sqlparser AST & CQL write guards, Ask vs. Auto approval modes, and credential isolation.
+description: Understand SqlKit's shared AI permission chain, 5 granular action controls, sqlparser AST and CQL write guards, Ask vs. Auto approval modes, and credential isolation.
 outline: [2, 3]
 ---
 
 # AI permissions & safety model
 
-SqlKit enforces **one unified AI safety engine** across every AI entry point—**Agentic Data Studio**, the **Queries AI Assistant sidebar**, and external **MCP clients** (Claude Code, Codex, Cursor). Editing default and per-connection AI policies requires **SqlKit Ultimate**.
+SqlKit applies one AI policy engine across **Agentic Data Studio**, the **Queries AI Assistant sidebar**, and external **MCP clients** (Claude Code, Codex, Cursor). Editing default and per-connection AI policies requires SqlKit Ultimate.
 
-## Defense-in-depth architecture
+## Five-layer safety model
 
-Rather than relying on a single confirmation toggle, SqlKit applies five independent layers of protection:
+SqlKit enforces five separate checks on every AI or MCP request:
 
-1. **Database account privileges (ultimate boundary)** — SqlKit always executes queries using your saved database login. Using a read-only database role on production guarantees no write can ever succeed regardless of client settings.
-2. **Fail-closed policy chain** — every AI/MCP tool call is evaluated strictly in order:
-   ```text
-   Per-connection explicit rule (Allow / Deny)  ──►  System AI default  ──►  Deny (fail closed)
-   ```
-   If a policy file is missing or corrupted, SqlKit fails closed and denies access.
-3. **AST-verified write isolation (`sqlparser` + CQL classifier)** — `sqlkit__execute_query` parses incoming SQL into an AST before execution. Writes—including **data-modifying CTEs** (`WITH updated AS (UPDATE ... RETURNING *) SELECT * FROM updated`)—cannot sneak through the read-only query tool. For Cassandra/ScyllaDB, a dedicated CQL keyword classifier enforces the same separation.
-4. **Risk-separated tool surface** — reads (`execute_query`), non-destructive writes (`execute_write`), deletes (`execute_delete`), DDL (`execute_ddl`), and DBA operations (`kill_session`, `grant_privilege`, `revoke_privilege`) are separate tools mapped to separate permissions.
-5. **Interactive approval cards & credential isolation** — destructive operations require explicit human approval in interactive sessions, and database credentials are never sent to LLMs or exposed via `list_connections`.
+1. **Database account privileges**: SqlKit executes every query with the database login saved in your connection. A read-only database user cannot write regardless of client settings.
+2. **Fail-closed policy chain**: every AI and MCP tool call is checked in strict order (`per-connection explicit Allow/Deny -> system AI default -> deny`). If a policy file is missing or corrupted, SqlKit denies access.
+3. **AST-verified write isolation (`sqlparser` + CQL classifier)**: `sqlkit__execute_query` parses incoming SQL into an AST before execution so writes, including data-modifying CTEs (`WITH updated AS (UPDATE ... RETURNING *) SELECT * FROM updated`), cannot run through the read-only query tool. For Cassandra and ScyllaDB, a CQL keyword classifier enforces the same boundary.
+4. **Risk-separated tools**: reads (`execute_query`), non-destructive writes (`execute_write`), deletes (`execute_delete`), DDL (`execute_ddl`), and DBA operations (`kill_session`, `grant_privilege`, `revoke_privilege`) are separate tools bound to separate permissions.
+5. **Interactive approval cards and credential isolation**: destructive calls prompt for human approval in interactive sessions, and database passwords, SSH keys, and TLS private keys are never sent to LLMs or exposed via `list_connections`.
 
 ## Set default and per-connection permissions {#connection-permissions}
 
@@ -28,18 +24,15 @@ Rather than relying on a single confirmation toggle, SqlKit applies five indepen
 
 ### Set the system default policy
 
-Open **Settings → MCP Bridge → Default AI permissions**. For everyday development, choose **Read** (schema inspection and read-only queries) and save. Any connection set to **Inherit default** follows this baseline.
+Open **Settings → MCP Bridge → Default AI permissions**. For everyday development, pick **Read** (schema inspection and read-only queries) and save. Any connection set to **Inherit default** follows this baseline.
 
 ### Override individual connections
 
-In **Connections**, edit a saved connection and open **Advanced → AI permissions**:
-- Leave on **Inherit default** to track the global baseline.
-- Set production connections to **No Access** to keep them completely invisible to Data Studio and MCP, or **Read** for safe diagnostics.
-- Choose **Custom** to set each of the 5 granular actions independently to **Allow**, **Deny**, or **Inherit**.
+In **Connections**, edit a saved connection and open **Advanced → AI permissions**. Leave a connection on **Inherit default** to track the global baseline, set production connections to **No Access** (hides them from Data Studio and MCP) or **Read** for safe diagnostics, or choose **Custom** to set each of the 5 actions independently to **Allow**, **Deny**, or **Inherit**.
 
 ### Restrict further per Data Studio session
 
-Inside **Data Studio**, click any attached data source badge to review or tighten access for that conversation. Session restrictions can only narrow—never expand—what the connection policy allows.
+Inside **Data Studio**, click any attached data source badge to review or narrow access for that conversation. Session restrictions can only narrow what the connection policy allows; they cannot expand it.
 
 </DocsSteps>
 
@@ -47,46 +40,39 @@ Inside **Data Studio**, click any attached data source badge to review or tighte
 
 | Preset | Read | Create data | Update data | Delete data | Manage structure & admin | Typical use |
 | --- | :---: | :---: | :---: | :---: | :---: | --- |
-| **No access** | ❌ | ❌ | ❌ | ❌ | ❌ | Sensitive production databases excluded from AI & MCP |
-| **Read** | ✅ | ❌ | ❌ | ❌ | ❌ | Schema exploration, SQL drafting, `EXPLAIN` & slow-query analysis |
-| **Read & modify data** | ✅ | ✅ | ✅ | ✅ | ❌ | Staging / dev data seeding and updates without DDL/admin changes |
-| **Full access** | ✅ | ✅ | ✅ | ✅ | ✅ | Disposable local databases for schema prototyping and migrations |
-| **Custom** | Custom | Custom | Custom | Custom | Custom | Fine-grained control (e.g., allow `Read` + `Create`, deny `Delete` & `Manage`) |
+| No access | <DocsCheck value="no" /> | <DocsCheck value="no" /> | <DocsCheck value="no" /> | <DocsCheck value="no" /> | <DocsCheck value="no" /> | Production databases kept out of AI and MCP |
+| Read | <DocsCheck value="yes" /> | <DocsCheck value="no" /> | <DocsCheck value="no" /> | <DocsCheck value="no" /> | <DocsCheck value="no" /> | Schema exploration, SQL drafting, `EXPLAIN`, slow-query checks |
+| Read & modify data | <DocsCheck value="yes" /> | <DocsCheck value="yes" /> | <DocsCheck value="yes" /> | <DocsCheck value="yes" /> | <DocsCheck value="no" /> | Staging or dev data seeding and updates without DDL or admin |
+| Full access | <DocsCheck value="yes" /> | <DocsCheck value="yes" /> | <DocsCheck value="yes" /> | <DocsCheck value="yes" /> | <DocsCheck value="yes" /> | Disposable local databases for schema prototyping and migrations |
+| Custom | <DocsCheck value="custom" /> | <DocsCheck value="custom" /> | <DocsCheck value="custom" /> | <DocsCheck value="custom" /> | <DocsCheck value="custom" /> | Per-action rules (for example, allow Read and Create, deny Delete and Manage) |
 
 ## Understand Ask, Auto, and MCP approvals {#approvals}
 
-For actions **already permitted** by the connection policy, approval behavior depends on whether you are in an in-app AI session or an external MCP client:
+For actions permitted by the connection policy, confirmation prompts depend on the client and risk tier:
 
-| Action risk tier | Examples | In-app **Ask** mode | In-app **Auto** mode | External MCP client |
+| Action risk tier | Examples | In-app Ask mode | In-app Auto mode | External MCP client |
 | --- | --- | --- | --- | --- |
-| **Safe (Read)** | `execute_query`, `list_tables`, `describe_table`, `explain_query`, `list_sessions`, `get_slow_queries` | Runs automatically | Runs automatically | Runs under client's tool-approval rules |
-| **Elevated (Write)** | `execute_write` (`INSERT` / `UPDATE` / `MERGE`) | Prompts confirmation card | Runs automatically | SqlKit checks connection policy; client manages prompt |
-| **Destructive (Delete / DDL / Admin)** | `execute_delete` (`DELETE` / `TRUNCATE`), `execute_ddl` (`CREATE` / `ALTER` / `DROP`), `kill_session`, `grant`/`revoke` | **Always prompts** | **Always prompts** *(unless saved rule matches)* | SqlKit checks connection policy; client manages prompt |
+| Safe (Read) | `execute_query`, `list_tables`, `describe_table`, `explain_query`, `list_sessions`, `get_slow_queries` | Runs automatically | Runs automatically | Runs under client's tool-approval rules |
+| Elevated (Write) | `execute_write` (`INSERT`, `UPDATE`, `MERGE`) | Prompts confirmation card | Runs automatically | SqlKit checks connection policy; client manages prompt |
+| Destructive (Delete / DDL / Admin) | `execute_delete` (`DELETE`, `TRUNCATE`), `execute_ddl` (`CREATE`, `ALTER`, `DROP`), `kill_session`, `grant`/`revoke` | Always prompts | Always prompts *(unless saved rule matches)* | SqlKit checks connection policy; client manages prompt |
 
 ### Confirmation card actions (saved session rules)
 
-When a confirmation card appears in Data Studio or the AI Assistant sidebar, you can choose:
-- **Allow Once** — approve only this specific call
-- **Allow Always** — save a matching confirmation rule for the current session
-- **Deny** — reject this call and let the agent adjust
-- **Deny Always** — block matching calls for the rest of the session
-- **Cancel** — stop the current agent turn
+When a confirmation card appears in Data Studio or the AI Assistant sidebar, pick **Allow Once** (approve only this call), **Allow Always** (save a matching rule for the current session), **Deny** (reject this call and let the agent adjust), **Deny Always** (block matching calls for the rest of the session), or **Cancel** (stop the current agent turn).
 
 ::: warning Switching to Auto never grants new permissions
-Changing a session from **Ask** to **Auto** only skips prompts for permitted **Elevated** writes. It can **never** allow an action that the connection policy or session restriction denies.
+Changing a session from **Ask** to **Auto** only skips prompts for permitted Elevated writes. It never allows an action denied by the connection policy or session restriction.
 :::
 
 ## Review and retry a blocked action {#blocked-actions}
 
-1. On a blocked action card in **Data Studio**, click **Review permissions** to see the exact connection and action category that was denied.
-2. Decide whether the action belongs on that database. If yes, adjust the connection's policy (for example, enable just **Create** under **Custom**) or the session's source settings.
-3. Save the policy change and click **Retry request**—SqlKit re-evaluates the policy live before executing.
+1. On a blocked action card in **Data Studio**, click **Review permissions** to check which connection and action category were denied.
+2. If the action should be permitted on that database, update the connection policy (for example, enable **Create** under **Custom**) or the session source settings.
+3. Save the change and click **Retry request**. SqlKit re-evaluates the policy before running the call.
 
 ## Privacy & data boundaries
 
-- **Credentials**: passwords, SSH keys, and TLS private keys are never passed to LLMs or MCP clients.
-- **Tool outputs**: schema metadata and query results returned by permitted tools are sent to your configured LLM (in Data Studio / Sidebar) or returned to the calling MCP client (which decides what to send to its model).
-- **Keeping sensitive data offline**: set sensitive connections to **No Access**, or configure **Ollama** / **LM Studio** in [Agentic Data Studio](/docs/sqlkit/agentic-datastudio) for 100% local inference.
+Database passwords, SSH keys, and TLS private keys are never passed to LLMs or MCP clients. Schema metadata and query results returned by permitted tools go to your configured LLM (in Data Studio and the Queries sidebar) or back to the calling MCP client (which controls what it sends to its model). To keep sensitive databases offline, set them to **No Access**, or configure Ollama or LM Studio in [Agentic Data Studio](/docs/sqlkit/agentic-datastudio) for local inference.
 
 ## Next steps
 

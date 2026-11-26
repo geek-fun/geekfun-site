@@ -8,7 +8,7 @@ outline: [2, 3]
 
 <DocsBadge variant="native">Native Rust Driver</DocsBadge> <DocsBadge variant="community">Community</DocsBadge>
 
-SqlKit connects to PostgreSQL natively via `tokio-postgres` + `deadpool-postgres` + `rustls`—requiring zero Java runtime or external binaries. The same native adapter powers **18 PostgreSQL-wire compatible engines** including CockroachDB, Amazon Redshift, TimescaleDB, YugabyteDB, AlloyDB, Cloud SQL, Greenplum, openGauss, and GaussDB.
+SqlKit connects to PostgreSQL natively through `tokio-postgres`, `deadpool-postgres`, and `rustls`, with no Java runtime or external binaries required. The same adapter handles 18 PostgreSQL-wire compatible engines, including CockroachDB, Amazon Redshift, TimescaleDB, YugabyteDB, AlloyDB, Cloud SQL, Greenplum, openGauss, and GaussDB.
 
 ## Connect to PostgreSQL
 
@@ -16,23 +16,20 @@ SqlKit connects to PostgreSQL natively via `tokio-postgres` + `deadpool-postgres
 
 ### Open New Connection and pick PostgreSQL
 
-Open **Connections → Add New Connection** (<kbd>⌘</kbd>+<kbd>N</kbd> / <kbd>Ctrl</kbd>+<kbd>N</kbd>) and select **PostgreSQL** (or a dedicated PG-compatible profile such as **Amazon Redshift**, **CockroachDB**, **TimescaleDB**, or **YugabyteDB**).
+Open **Connections → Add New Connection** (<kbd>⌘</kbd>+<kbd>N</kbd> / <kbd>Ctrl</kbd>+<kbd>N</kbd>) and select **PostgreSQL** (or a dedicated PG-compatible profile such as Amazon Redshift, CockroachDB, TimescaleDB, or YugabyteDB).
 
 ### Enter server & role details
 
 | Field | Typical value | Notes |
 | --- | --- | --- |
-| **Host** | `localhost` or cloud endpoint | Use the internal host if connecting through an [SSH tunnel](/docs/sqlkit/ssh-tunnel) |
-| **Port** | `5432` | Redshift defaults to `5439`, YugabyteDB `5433`, QuestDB `8812` |
-| **Database** | `postgres` or app database | Required for PostgreSQL, Redshift, TimescaleDB, and EDB |
-| **Username / Password** | PostgreSQL role credentials | Stored locally on your machine |
+| Host | `localhost` or cloud endpoint | Enter the internal host when connecting through an [SSH tunnel](/docs/sqlkit/ssh-tunnel) |
+| Port | `5432` | Redshift defaults to `5439`, YugabyteDB `5433`, QuestDB `8812` |
+| Database | `postgres` or app database | Required for PostgreSQL, Redshift, TimescaleDB, and EDB |
+| Username / Password | PostgreSQL role credentials | Stored locally on your machine |
 
 ### Match your server's SSL / TLS settings
 
-In **Advanced → SSL/TLS**, pick the mode required by your provider:
-- Use **`verify-full`** with your provider's CA certificate for AWS RDS, Google Cloud SQL, Neon, Supabase, and Azure Database for PostgreSQL.
-- Use **`verify-ca`** when connecting through an SSH tunnel or private IP where the hostname differs from the certificate SAN.
-- Attach a **Client Certificate** and **Client Private Key** if your cluster requires mTLS.
+In **Advanced → SSL/TLS**, pick the mode required by your provider. Use `verify-full` with your provider's CA certificate for AWS RDS, Google Cloud SQL, Neon, Supabase, and Azure Database for PostgreSQL. Use `verify-ca` when connecting through an SSH tunnel or private IP where the hostname differs from the certificate SAN. Attach a **Client Certificate** and **Client Private Key** if your cluster requires mTLS.
 
 ### Test, save, and verify the session
 
@@ -48,17 +45,17 @@ SELECT
 
 </DocsSteps>
 
-## PostgreSQL features in SqlKit
+## PostgreSQL support in SqlKit
 
-- **Schema-first object browser**: expand databases → schemas (such as `public` or `analytics`) → tables, views, stored procedures, and functions, plus table **Indexes**, **Foreign Keys**, and **Triggers**.
-- **PostgreSQL-aware Monaco editor**: supports `pgsql` autocomplete, `postgresql` dialect formatting (`Shift+Option/Alt+F`), and `$$...$$` dollar-quoted blocks in functions and DO blocks.
-- **Visual `EXPLAIN (FORMAT JSON)` & `EXPLAIN (ANALYZE, FORMAT JSON)`**: press <kbd>F6</kbd> to inspect an interactive operator cost tree with the most expensive node highlighted, alongside Summary and Raw JSON views.
-- **Database creation**: **Create Database** supports PostgreSQL **Encoding** and **Locale** options.
-- **Interactive ER Diagrams & Data Studio** <DocsBadge variant="ultimate">Ultimate</DocsBadge>: visualize foreign keys across schemas, or attach PostgreSQL to Agentic Data Studio / MCP with AST-guarded read-only queries (blocks data-modifying CTEs like `WITH ... DELETE`).
+- The object tree expands databases into schemas (such as `public` or `analytics`), then tables, views, stored procedures, and functions, plus table Indexes, Foreign Keys, and Triggers.
+- Monaco uses `pgsql` autocomplete, `postgresql` dialect formatting (`Shift+Option/Alt+F`), and handles `$$...$$` dollar-quoted blocks in functions and `DO` blocks.
+- Pressing <kbd>F6</kbd> runs `EXPLAIN (FORMAT JSON)` or `EXPLAIN (ANALYZE, FORMAT JSON)` and displays an operator cost tree with the most expensive node marked, alongside Summary and Raw JSON views.
+- **Create Database** includes PostgreSQL **Encoding** and **Locale** options.
+- With Ultimate <DocsBadge variant="ultimate">Ultimate</DocsBadge>, plot foreign keys across schemas in ER Diagrams, or attach PostgreSQL to Agentic Data Studio and MCP with AST-guarded read-only queries (blocks data-modifying CTEs such as `WITH ... DELETE`).
 
 ## Working with schemas & `search_path`
 
-`current_schema()` returns the first existing schema on your session's `search_path` (commonly `public`). When tables with the same name exist across multiple schemas—or when querying a non-default schema—qualify the table name explicitly:
+`current_schema()` returns the first existing schema on your session's `search_path` (commonly `public`). When tables with the same name exist across multiple schemas, or when querying a non-default schema, qualify the table name explicitly:
 
 ```sql
 SELECT *
@@ -69,7 +66,7 @@ LIMIT 100;
 
 ## PostgreSQL-compatible engines
 
-Select the dedicated engine profile rather than generic PostgreSQL so SqlKit sets the right default port and database name:
+Pick the dedicated engine profile so SqlKit sets the right default port and database name:
 
 <!--@include: @/.vitepress/includes/sqlkit-databases.md#postgresql-->
 
@@ -77,10 +74,10 @@ Select the dedicated engine profile rather than generic PostgreSQL so SqlKit set
 
 | Symptom | What to check |
 | --- | --- |
-| **Connected, but no tables appear** | Expand the intended database and schema in **Queries** and refresh the tree. If queries return `permission denied for schema`, ask your DBA for `USAGE` on the schema and `SELECT` on its tables. |
-| **`pg_hba.conf` / authentication rejected** | Verify your role password, client IP allowlist, and whether the server mandates `sslmode=require` or `verify-full` in `pg_hba.conf`. |
-| **SSL certificate verification failed** | Download your cloud provider's root CA bundle and set it in **Advanced → SSL/TLS → CA Certificate**. |
-| **Dollar-quoted function split incorrectly** | Ensure matching `$$` or `$tag$` delimiters—SqlKit's statement scanner handles `$$...$$` blocks natively. |
+| Connected, but no tables appear | Expand the intended database and schema in **Queries** and refresh the tree. If queries return `permission denied for schema`, ask your DBA for `USAGE` on the schema and `SELECT` on its tables. |
+| `pg_hba.conf` / authentication rejected | Check your role password, client IP allowlist, and whether the server mandates `sslmode=require` or `verify-full` in `pg_hba.conf`. |
+| SSL certificate verification failed | Download your cloud provider's root CA bundle and set it in **Advanced → SSL/TLS → CA Certificate**. |
+| Dollar-quoted function split incorrectly | Check for matching `$$` or `$tag$` delimiters. SqlKit's statement scanner parses `$$...$$` blocks natively. |
 
 ## Next steps
 

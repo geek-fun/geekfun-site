@@ -872,7 +872,7 @@ const compareCategories: CompareCategory[] = [
   {
     key: 'support',
     rows: [
-      { key: 'communitySupport', community: true, ultimate: false, enterprise: false },
+      { key: 'communitySupport', community: true, ultimate: true, enterprise: true },
       { key: 'prioritySupport', community: false, ultimate: true, enterprise: true },
       { key: 'dedicatedSupport', community: false, ultimate: false, enterprise: true }
     ]

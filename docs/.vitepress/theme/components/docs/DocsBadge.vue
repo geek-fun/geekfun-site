@@ -1,14 +1,27 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useData, withBase } from 'vitepress'
+import { getLocalizedSitePath } from '../../../site-navigation'
 import DocsIcon, { type DocsIconName } from './DocsIcon.vue'
 
 const props = withDefaults(defineProps<{
   variant?: 'default' | 'ultimate' | 'community' | 'native' | 'jdbc' | 'http' | 'warning'
   icon?: DocsIconName
+  href?: string
   noIcon?: boolean
 }>(), {
   variant: 'default',
   noIcon: false,
+})
+
+const { lang } = useData()
+
+const resolvedHref = computed(() => {
+  if (props.href) return withBase(props.href)
+  if (props.variant === 'ultimate') {
+    return withBase(getLocalizedSitePath('/pricing', lang.value))
+  }
+  return undefined
 })
 
 const resolvedIcon = computed<DocsIconName | undefined>(() => {
@@ -32,8 +45,13 @@ const resolvedIcon = computed<DocsIconName | undefined>(() => {
 </script>
 
 <template>
-  <span class="docs-badge" :class="`docs-badge--${variant}`">
+  <component
+    :is="resolvedHref ? 'a' : 'span'"
+    class="docs-badge"
+    :class="[`docs-badge--${variant}`, { 'docs-badge--link': Boolean(resolvedHref) }]"
+    :href="resolvedHref"
+  >
     <DocsIcon v-if="resolvedIcon" :name="resolvedIcon" :size="11" />
     <slot />
-  </span>
+  </component>
 </template>

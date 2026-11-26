@@ -24,6 +24,9 @@ import DocsCardGrid from "./components/docs/DocsCardGrid.vue";
 import DocsCard from "./components/docs/DocsCard.vue";
 import DocsBadge from "./components/docs/DocsBadge.vue";
 import DocsSteps from "./components/docs/DocsSteps.vue";
+import DocsPlatform from "./components/docs/DocsPlatform.vue";
+import DocsFlowDiagram from "./components/docs/DocsFlowDiagram.vue";
+import DocsCheck from "./components/docs/DocsCheck.vue";
 import { isBlogArticle } from "../blog";
 import { getDocsProductId } from "../docs-navigation";
 import { getUnprefixedDocsPath } from "../docs-locales";
@@ -98,5 +101,8 @@ export default {
         app.component('DocsCard', DocsCard);
         app.component('DocsBadge', DocsBadge);
         app.component('DocsSteps', DocsSteps);
+        app.component('DocsPlatform', DocsPlatform);
+        app.component('DocsFlowDiagram', DocsFlowDiagram);
+        app.component('DocsCheck', DocsCheck);
     }
 }

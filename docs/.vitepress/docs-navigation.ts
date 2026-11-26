@@ -103,8 +103,8 @@ const products: DocProduct[] = [
       {
         en: 'Database guides', zh: '数据库指南', icon: 'database',
         guides: [
-          ['postgresql-gui-client', 'PostgreSQL & PG-compatible', 'PostgreSQL 及兼容生态'],
-          ['mysql-gui-client', 'MySQL & MySQL-compatible', 'MySQL 及兼容生态'],
+          ['postgresql-gui-client', 'PostgreSQL & PG-compatible', 'PostgreSQL 及兼容数据库'],
+          ['mysql-gui-client', 'MySQL & MySQL-compatible', 'MySQL 及兼容数据库'],
           ['sql-server-gui-client', 'Microsoft SQL Server', 'Microsoft SQL Server'],
           ['oracle-gui-client', 'Oracle Database', 'Oracle Database'],
           ['sqlite-gui-client', 'SQLite, SQLCipher & DuckDB', 'SQLite、SQLCipher 与 DuckDB'],

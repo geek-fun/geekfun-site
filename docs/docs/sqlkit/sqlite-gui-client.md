@@ -6,13 +6,13 @@ outline: [2, 3]
 
 # SQLite, SQLCipher & DuckDB
 
-SqlKit supports local embedded databases directly on disk or in memory—ideal for application debugging, local analytics, and offline SQL prototyping.
+Open local embedded databases from disk or in memory for app debugging, local analytics, and offline SQL testing.
 
 | Engine | Driver layer | Storage modes | Special options |
 | --- | --- | --- | --- |
-| **SQLite** | <DocsBadge variant="native">Native Rust (`rusqlite`)</DocsBadge> | Existing file, new file, or `:memory:` | Zero setup; no SSL section |
-| **SQLCipher** | <DocsBadge variant="native">Native Rust (`sqlcipher`)</DocsBadge> | Encrypted local file | **Encryption Key** field (`PRAGMA key`) |
-| **DuckDB** | <DocsBadge variant="jdbc">JDBC (`duckdb_jdbc`)</DocsBadge> | Local file or named in-memory (`memory:<label>`) | **Read-Write** / **Read-Only** mode with lock conflict guard |
+| SQLite | <DocsBadge variant="native">Native Rust (`rusqlite`)</DocsBadge> | Existing file, new file, or `:memory:` | No setup; SSL section hidden |
+| SQLCipher | <DocsBadge variant="native">Native Rust (`sqlcipher`)</DocsBadge> | Encrypted local file | **Encryption Key** field (`PRAGMA key`) |
+| DuckDB | <DocsBadge variant="jdbc">JDBC (`duckdb_jdbc`)</DocsBadge> | Local file or named in-memory (`memory:<label>`) | **Read-Write** or **Read-Only** mode with lock conflict check |
 
 ## Open a SQLite database {#sqlite}
 
@@ -20,17 +20,15 @@ SqlKit supports local embedded databases directly on disk or in memory—ideal f
 
 ### Create a SQLite connection
 
-Open **Connections → Add New Connection** (<kbd>⌘</kbd>+<kbd>N</kbd> / <kbd>Ctrl</kbd>+<kbd>N</kbd>) and choose **SQLite**.
+Open **Connections → Add New Connection** (<kbd>⌘</kbd>+<kbd>N</kbd> / <kbd>Ctrl</kbd>+<kbd>N</kbd>) and pick **SQLite**.
 
 ### Choose a file or in-memory mode
 
-- **Open existing file**: click **Open…** and pick your `.db`, `.sqlite`, or `.sqlite3` file on disk.
-- **Create a new database**: click **New…** and pick a target path for a fresh database file.
-- **In-memory scratchpad**: select **`:memory:`** for an ephemeral local SQLite session.
+Use **Open...** to pick an existing `.db`, `.sqlite`, or `.sqlite3` file on disk, **New...** to pick a path for a new database file, or **`:memory:`** for a temporary in-memory session.
 
 ### Save, connect, and inspect tables
 
-Save the connection, double-click it to open **Queries**, and inspect the objects in the file:
+Save the connection, double-click it to open **Queries**, and list objects in the file:
 
 ```sql
 SELECT type, name
@@ -43,34 +41,30 @@ ORDER BY type, name;
 
 ## Open an encrypted SQLCipher database {#sqlcipher}
 
-To inspect a SQLCipher-encrypted SQLite file:
-
-1. Select **SQLCipher** as the database type (instead of plain SQLite).
+1. Pick **SQLCipher** as the database type (plain SQLite will fail to read encrypted files).
 2. Browse to the encrypted database file on disk.
-3. Enter your database **Encryption Key** (applied via `PRAGMA key` on open).
-4. Click **Test Connection** to verify the key decrypts the database cleanly before saving.
+3. Enter your **Encryption Key** (applied with `PRAGMA key` on open).
+4. Click **Test Connection** to confirm the key decrypts the file before saving.
 
 ::: warning Wrong key or unencrypted file
-If SQLCipher reports *"file is not a database"*, verify that the encryption key is exact (keys are case-sensitive) and that the file is encrypted with a compatible SQLCipher format rather than plain SQLite.
+If SQLCipher reports "file is not a database", check that the encryption key matches exact case and that the file was encrypted with a compatible SQLCipher format.
 :::
 
 ## Open a DuckDB analytical database {#duckdb}
 
-DuckDB connects through SqlKit's managed JDBC Bridge (`duckdb_jdbc` — automatically downloaded on first test) and supports both **local `.duckdb` files** and **named in-memory databases** (`memory:<label>`).
+DuckDB connects through SqlKit's JDBC Bridge (`duckdb_jdbc`, downloaded automatically on first test) and supports local `.duckdb` files and named in-memory databases (`memory:<label>`).
 
 ### Read-Write vs. Read-Only access mode
 
-DuckDB enforces strict single-writer file locking at the engine level. In the DuckDB connection form, choose:
-- **Read-Write**: full querying, table creation, and writes (exclusive writer lock).
-- **Read-Only** (`access_mode=READ_ONLY`): safe concurrent inspection while another read-only process reads the same file.
+DuckDB enforces a single-writer file lock at the engine level. Pick **Read-Write** for table creation and writes (exclusive writer lock), or **Read-Only** (`access_mode=READ_ONLY`) to read a file alongside other read-only processes.
 
-::: info Built-in DuckDB file conflict detection
-SqlKit checks your saved connections when configuring a DuckDB file path and warns you if another saved connection opens the exact same file in the opposite access mode (`Read-Write` vs. `Read-Only`). Align access modes or disconnect the conflicting session before connecting.
+::: info DuckDB file conflict detection
+When you pick a DuckDB file path, SqlKit checks your other saved connections and warns if another connection opens the same file in the opposite access mode (`Read-Write` vs. `Read-Only`). Align both connections to Read-Only or disconnect the conflicting session first.
 :::
 
 ### Querying Parquet & CSV directly with DuckDB
 
-Once connected to a local or in-memory DuckDB session, you can query local Parquet, CSV, or JSON files directly in the SQL editor using DuckDB's built-in readers:
+Once connected to a local or in-memory DuckDB session, query local Parquet, CSV, or JSON files directly in the SQL editor:
 
 ```sql
 SELECT *
@@ -82,10 +76,10 @@ LIMIT 100;
 
 | Symptom | What to check |
 | --- | --- |
-| **Database opens, but shows zero tables** | Verify the file path in the connection settings. Selecting a new path creates an empty database file with no user tables yet. |
-| **SQLite `database is locked`** | Another process is holding a write transaction on the file. Finish the write transaction or wait for WAL checkpointing to complete. |
-| **DuckDB file lock / access-mode conflict** | Close external writers (Python/CLI) or switch SqlKit's DuckDB connection to **Read-Only** if you only need to inspect data. |
-| **DuckDB JDBC download fails** | Open **Settings → JRE & JDBC Drivers** to verify JRE 25, `jdbc-bridge`, and `duckdb_jdbc` installation status. |
+| Database opens, but shows zero tables | Check the file path in the connection settings. Picking a new path creates an empty file with no user tables yet. |
+| SQLite `database is locked` | Another process holds a write transaction on the file. Wait for the transaction or WAL checkpoint to finish. |
+| DuckDB file lock / access-mode conflict | Close external writers (Python or CLI) or switch SqlKit's DuckDB connection to **Read-Only** if you only need to read data. |
+| DuckDB JDBC download fails | Open **Settings → JRE & JDBC Drivers** to check JRE 25, `jdbc-bridge`, and `duckdb_jdbc` status. |
 
 ## Next steps
 
