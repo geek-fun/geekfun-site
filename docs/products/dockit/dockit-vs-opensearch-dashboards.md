@@ -28,7 +28,7 @@ head:
         "description": "Open-source desktop OpenSearch GUI client with AI query generation, Monaco editor, and local-first persistence. Lightweight alternative to OpenSearch Dashboards for Mac, Windows, and Linux.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",

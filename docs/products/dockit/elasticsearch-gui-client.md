@@ -32,7 +32,7 @@ head:
         "description": "Open-source desktop Elasticsearch GUI client with AI query generation, Monaco editor, cluster management, and local-first persistence. Free alternative to Kibana for Mac, Windows, and Linux.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
@@ -143,7 +143,7 @@ Save multiple connection profiles to switch between dev, staging, and production
 | **DynamoDB support** | Yes | No | No | No |
 | **OpenSearch support** | Yes | No | No | No |
 | **Open source** | Apache 2.0 | Mixed | MIT | Yes |
-| **Price** | Community: free · Ultimate $9.9/mo | Free (Basic) | Free | Free |
+| **Price** | Community: free · Ultimate USD 9.90/mo | Free (Basic) | Free | Free |
 
 ## Version compatibility
 

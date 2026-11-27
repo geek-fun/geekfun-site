@@ -32,8 +32,8 @@ head:
         "description": "开源桌面 MongoDB GUI 客户端，支持 AI 查询生成、Monaco 编辑器、集合管理、导入导出和本地化持久化存储。MongoDB Compass、Robo 3T 和 Studio 3T 的免费替代方案，适用于 Mac、Windows 和 Linux。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]
@@ -203,7 +203,7 @@ DocKit 把所有查询保存为本地 `.mongo` 文件。在应用内直接浏览
 | **多数据库** | MongoDB + ES + OS + DynamoDB + EasySearch | MongoDB 仅 | MongoDB 仅 | MongoDB 仅 |
 | **离线模式** | ✅ | ❌ | ❌ | ❌ |
 | **开源** | Apache 2.0 | ❌ | ❌ | MIT |
-| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费（基础版） | $149–799/年 | 免费 |
+| **价格** | 社区版免费 · 旗舰版 USD 9.90/月 | 免费（基础版） | $149–799/年 | 免费 |
 
 ## 快速开始
 

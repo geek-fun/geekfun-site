@@ -34,4 +34,6 @@ SqlKit は MySQL、PostgreSQL、SQL Server、SQLite のドライバーを内蔵�
 
 ## SQL を書いて結果を保存する
 
+[SqlKit の機能ガイド](/ja/docs/sqlkit/capabilities)で、画面を見ながら SQL エディター、ER 図、データ転送、AI、MCP の使い方を確認できます。
+
 [SqlKit をインストール](/ja/docs/sqlkit/installation)し、[接続を登録](/ja/docs/sqlkit/connect-to-database)したら、[SQL エディター](/ja/docs/sqlkit/query-editor)を開きます。テーブルの行はオブジェクトツリーから開けます。クエリの結果は CSV や JSON に出力でき、SQL はファイルに保存できます。ほかのエンジンについては[対応データベースとドライバー（英語）](/docs/sqlkit/supported-databases)を参照してください。

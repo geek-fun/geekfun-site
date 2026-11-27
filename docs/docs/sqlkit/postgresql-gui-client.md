@@ -1,31 +1,87 @@
 ---
-title: PostgreSQL GUI Client for macOS, Windows, and Linux | SqlKit
-description: Connect to Postgres with SqlKit, configure SSL/TLS, browse schemas such as public, and verify the active database and schema in the SQL editor.
+title: PostgreSQL GUI Client for macOS, Windows & Linux | SqlKit
+description: Connect to PostgreSQL and 18 PG-wire databases with SqlKit's native Rust driver. Configure SSL/TLS verify-full, navigate schemas, run EXPLAIN (FORMAT JSON), and troubleshoot roles.
+outline: [2, 3]
 ---
 
-# PostgreSQL GUI client
+# PostgreSQL & PG-compatible databases
 
-Connect to Postgres with SqlKit’s built-in driver. The object tree shows schemas, tables, views, and indexes, and you can run queries in the SQL editor. SqlKit is open source and runs on macOS, Windows, and Linux.
+<DocsBadge variant="native">Native Rust Driver</DocsBadge> <DocsBadge variant="community">Community</DocsBadge>
+
+SqlKit connects to PostgreSQL natively through `tokio-postgres`, `deadpool-postgres`, and `rustls`, with no Java runtime or external binaries required. The same adapter handles 18 PostgreSQL-wire compatible engines, including CockroachDB, Amazon Redshift, TimescaleDB, YugabyteDB, AlloyDB, Cloud SQL, Greenplum, openGauss, and GaussDB.
 
 ## Connect to PostgreSQL
 
-1. [Download and install SqlKit](/docs/sqlkit/installation), then open **Connections → Add New Connection**.
-2. Select **PostgreSQL**. Enter the host, port (usually `5432`), and the username and password for your PostgreSQL role. Use the database name from your provider or administrator.
-3. In **Advanced**, match your server's TLS settings. Use **Verify Full** with the appropriate CA certificate when your provider requires verification of both the certificate and hostname.
-4. Test and save the connection, then choose **Connect**.
+<DocsSteps>
 
-## Find the right schema
+### Open New Connection and pick PostgreSQL
 
-In **Queries**, select the database and expand the schema that contains your tables. Many setups use `public`. If the same table name appears in multiple schemas, qualify it in your SQL, for example `reporting.orders`.
+Open **Connections → Add New Connection** (<kbd>⌘</kbd>+<kbd>N</kbd> / <kbd>Ctrl</kbd>+<kbd>N</kbd>) and select **PostgreSQL** (or a dedicated PG-compatible profile such as Amazon Redshift, CockroachDB, TimescaleDB, or YugabyteDB).
+
+### Enter server & role details
+
+| Field | Typical value | Notes |
+| --- | --- | --- |
+| Host | `localhost` or cloud endpoint | Enter the internal host when connecting through an [SSH tunnel](/docs/sqlkit/ssh-tunnel) |
+| Port | `5432` | Redshift defaults to `5439`, YugabyteDB `5433`, QuestDB `8812` |
+| Database | `postgres` or app database | Required for PostgreSQL, Redshift, TimescaleDB, and EDB |
+| Username / Password | PostgreSQL role credentials | Stored locally on your machine |
+
+### Match your server's SSL / TLS settings
+
+In **Advanced → SSL/TLS**, pick the mode required by your provider. Use `verify-full` with your provider's CA certificate for AWS RDS, Google Cloud SQL, Neon, Supabase, and Azure Database for PostgreSQL. Use `verify-ca` when connecting through an SSH tunnel or private IP where the hostname differs from the certificate SAN. Attach a **Client Certificate** and **Client Private Key** if your cluster requires mTLS.
+
+### Test, save, and verify the session
+
+Click **Test Connection**, save the profile, and open **Queries**. Run a quick check:
 
 ```sql
-SELECT current_database() AS active_database, current_schema() AS active_schema;
+SELECT
+  current_database() AS active_database,
+  current_schema() AS active_schema,
+  current_user AS active_role,
+  version();
 ```
 
-`current_schema()` shows the first existing schema on your session's search path. Check the object tree or qualify the table name when working in another schema.
+</DocsSteps>
 
-## Why can I connect but see no tables?
+## PostgreSQL support in SqlKit
 
-Check that you opened the intended database and schema, then refresh the tree. If an object is still missing or a query returns `permission denied`, ask your administrator to check schema usage and table privileges for your PostgreSQL role.
+- The object tree expands databases into schemas (such as `public` or `analytics`), then tables, views, stored procedures, and functions, plus table Indexes, Foreign Keys, and Triggers.
+- Monaco uses `pgsql` autocomplete, `postgresql` dialect formatting (`Shift+Option/Alt+F`), and handles `$$...$$` dollar-quoted blocks in functions and `DO` blocks.
+- Pressing <kbd>F6</kbd> runs `EXPLAIN (FORMAT JSON)` or `EXPLAIN (ANALYZE, FORMAT JSON)` and displays an operator cost tree with the most expensive node marked, alongside Summary and Raw JSON views.
+- **Create Database** includes PostgreSQL **Encoding** and **Locale** options.
+- With Ultimate <DocsBadge variant="ultimate">Ultimate</DocsBadge>, plot foreign keys across schemas in ER Diagrams, or attach PostgreSQL to Agentic Data Studio and MCP with AST-guarded read-only queries (blocks data-modifying CTEs such as `WITH ... DELETE`).
 
-For TLS or network errors, see the [general connection guide](/docs/sqlkit/connect-to-database#troubleshoot-a-failed-connection). Once you’re connected, the [SQL editor guide](/docs/sqlkit/query-editor) shows how to run a query.
+## Working with schemas & `search_path`
+
+`current_schema()` returns the first existing schema on your session's `search_path` (commonly `public`). When tables with the same name exist across multiple schemas, or when querying a non-default schema, qualify the table name explicitly:
+
+```sql
+SELECT *
+FROM reporting.orders
+ORDER BY created_at DESC
+LIMIT 100;
+```
+
+## PostgreSQL-compatible engines
+
+Pick the dedicated engine profile so SqlKit sets the right default port and database name:
+
+<!--@include: @/.vitepress/includes/sqlkit-databases.md#postgresql-->
+
+## Troubleshooting PostgreSQL connections
+
+| Symptom | What to check |
+| --- | --- |
+| Connected, but no tables appear | Expand the intended database and schema in **Queries** and refresh the tree. If queries return `permission denied for schema`, ask your DBA for `USAGE` on the schema and `SELECT` on its tables. |
+| `pg_hba.conf` / authentication rejected | Check your role password, client IP allowlist, and whether the server mandates `sslmode=require` or `verify-full` in `pg_hba.conf`. |
+| SSL certificate verification failed | Download your cloud provider's root CA bundle and set it in **Advanced → SSL/TLS → CA Certificate**. |
+| Dollar-quoted function split incorrectly | Check for matching `$$` or `$tag$` delimiters. SqlKit's statement scanner parses `$$...$$` blocks natively. |
+
+## Next steps
+
+<DocsCardGrid :cols="2">
+  <DocsCard title="SQL editor & EXPLAIN plans" description="Run visual EXPLAIN (FORMAT JSON) trees and format PostgreSQL queries." href="/docs/sqlkit/query-editor" icon="code" />
+  <DocsCard title="Schema browser & ER diagrams" description="Inspect PostgreSQL schemas, foreign keys, triggers, and ER graphs." href="/docs/sqlkit/schema-and-er-diagrams" icon="layers" />
+</DocsCardGrid>

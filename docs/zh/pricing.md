@@ -1,6 +1,6 @@
 ---
-title: 定价 - GEEKFUN Data Studio 社区版与旗舰版 | 极客范
-description: GEEKFUN Data Studio 定价 —— 社区版永久免费，旗舰版按月付或年付订阅，含 7 天免费试用，解锁 AI NL2SQL、MCP 服务器、集群管理、ER 图等 DocKit、SqlKit、Data Studio Agent 全部高级功能。
+title: 定价 - GEEKFUN Data Studio 社区版与旗舰版
+description: GEEKFUN Data Studio 社区版永久免费，旗舰版支持月付或年付并含 7 天免费试用，解锁 DocKit、SqlKit 和 Data Studio Agent 的 AI、MCP、集群管理与 ER 图功能。
 head:
   - - meta
     - name: keywords

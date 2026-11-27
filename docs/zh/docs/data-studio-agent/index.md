@@ -26,7 +26,7 @@ head:
 
 ## Data Studio Agent 是什么？
 
-Data Studio Agent 是一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/products/dockit/) 和 [SqlKit](/products/sqlkit/) 桌面应用，让 AI 编码代理直接访问你的数据库。不用再把查询结果复制粘贴到 AI 工具里，代理直接替你查数据库，用自然语言就行。
+Data Studio Agent 是一个 [Model Context Protocol](https://modelcontextprotocol.io/)（MCP）服务器，通过 [DocKit](/zh/products/dockit/) 和 [SqlKit](/zh/products/sqlkit/) 桌面应用，让 AI 编码代理直接访问你的数据库。不用再把查询结果复制粘贴到 AI 工具里，代理直接替你查数据库，用自然语言就行。
 
 - 通过 SqlKit 连接 PostgreSQL、MySQL、SQL Server、Oracle、SQLite、DuckDB、ClickHouse、Snowflake、BigQuery 等 SQL 数据库。
 - 通过 DocKit 连接 Elasticsearch、OpenSearch、MongoDB 和 DynamoDB 等 NoSQL 数据库。

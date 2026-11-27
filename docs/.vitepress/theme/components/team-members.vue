@@ -1,4 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+
+const { lang } = useData()
+const roles: Record<string, { Founder: string; Contributor: string }> = {
+  "en": { Founder: "Founder", Contributor: "Contributor" },
+  "zh": { Founder: "创始人", Contributor: "贡献者" },
+  "pt-BR": { Founder: "Fundador", Contributor: "Colaborador" },
+  "ja": { Founder: "創設者", Contributor: "コントリビューター" },
+  "ko": { Founder: "창립자", Contributor: "기여자" },
+  "es": { Founder: "Fundador", Contributor: "Colaborador" },
+}
+const roleLabels = computed(() => roles[lang.value] ?? roles.en)
+
 type TeamLink = {
   icon: string | { svg: string }
   link: string
@@ -8,7 +22,7 @@ type TeamLink = {
 type TeamMember = {
   avatar: string
   name: string
-  title: string
+  title: 'Founder' | 'Contributor'
   desc?: string
   links: TeamLink[]
 }
@@ -84,7 +98,7 @@ const linkMarkup = (link: TeamLink): string => {
     <article v-for="member in members" :key="member.name" class="team-card">
       <img class="team-avatar" :src="member.avatar" :alt="member.name" loading="lazy" />
       <h3 class="team-name">{{ member.name }}</h3>
-      <p class="team-title">{{ member.title }}</p>
+      <p class="team-title">{{ roleLabels[member.title] }}</p>
       <p v-if="member.desc" class="team-desc">{{ member.desc }}</p>
       <div class="team-links">
         <a

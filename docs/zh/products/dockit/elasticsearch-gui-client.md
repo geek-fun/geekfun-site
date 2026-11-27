@@ -32,8 +32,8 @@ head:
         "description": "开源桌面 Elasticsearch GUI 客户端，支持 AI 查询生成、Monaco 编辑器、集群管理和本地化持久化存储。适用于 Mac、Windows 和 Linux 的 Kibana 替代方案。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]

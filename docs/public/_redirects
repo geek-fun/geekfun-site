@@ -20,3 +20,12 @@
 /zh/blog/best-dynamodb-gui-client  /zh/blog/best-dynamodb-gui-client-2026  301
 /blog/elasticsearch-tools-2026    /blog/best-elasticsearch-gui-client-2026     301
 /zh/blog/elasticsearch-tools-2026 /zh/blog/best-elasticsearch-gui-client-2026  301
+
+# Retired Traditional Chinese site URLs
+/zh-TW   /zh/        301
+/zh-TW/  /zh/        301
+/zh-TW/* /zh/:splat  301
+
+# Legacy DocKit docs stub
+/products/dockit/docs     /docs/dockit/     301
+/zh/products/dockit/docs  /zh/docs/dockit/  301

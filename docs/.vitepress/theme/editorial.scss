@@ -1,11 +1,13 @@
 .editorial-page {
-  --editorial-accent: #914810;
-  --editorial-muted: var(--vp-c-text-2);
-  --editorial-line: var(--vp-c-divider);
+  --editorial-accent: #c2410c;
+  --editorial-muted: #475569;
+  --editorial-line: rgba(15, 23, 42, 0.09);
 }
 
 .dark .editorial-page {
-  --editorial-accent: #ffb16a;
+  --editorial-accent: #fb923c;
+  --editorial-muted: #a1a1aa;
+  --editorial-line: rgba(255, 255, 255, 0.09);
 }
 
 .editorial-page :is(.VPNavBarMenuLink, .VPNavScreenMenuLink):is(.active, :hover) {

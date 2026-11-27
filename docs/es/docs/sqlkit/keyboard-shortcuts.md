@@ -1,6 +1,6 @@
 ---
 title: "Atajos de teclado de SqlKit"
-description: "Consulta las teclas para ejecutar y guardar consultas, dar formato al editor y abrir las sugerencias."
+description: "Atajos de teclado de SqlKit para ejecutar sentencias SQL, guardar archivos, dar formato al editor y ver planes de ejecución."
 ---
 
 # Atajos de teclado de SqlKit

@@ -33,8 +33,8 @@
           <h3>{{ t.resources }}</h3>
           <ul>
             <li><a :href="localePath('/docs')">{{ docsCopy?.title ?? t.docs }}</a></li>
-            <li><a :href="localePath('/blog/')">{{ t.blog }}</a></li>
-            <li><a :href="localePath('/news/')">{{ t.news }}</a></li>
+            <li><a :href="localePath('/blog')">{{ t.blog }}</a></li>
+            <li><a :href="localePath('/news')">{{ t.news }}</a></li>
             <li><a :href="localePath('/download')">{{ t.download }}</a></li>
             <li><a :href="localePath('/pricing')">{{ t.pricing }}</a></li>
             <li><a :href="localePath('/about')">{{ t.about }}</a></li>
@@ -71,9 +71,10 @@
 </template>
 
 <script setup lang="ts">
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 import { computed } from 'vue'
 import { getLocalizedDocs } from '../../docs-locales'
+import { getLocalizedSitePath, getNavigationCopy } from '../../site-navigation'
 
 const { lang } = useData()
 const docsCopy = computed(() => getLocalizedDocs(lang.value))
@@ -141,19 +142,96 @@ const translations = {
   }
 }
 
+const localizedFooter: Record<string, Partial<typeof translations.en>> = {
+  "pt-BR": {
+    resources: "Recursos",
+    community: "Comunidade",
+    dbClients: "Clientes de banco de dados",
+    about: "Sobre",
+    legalContact: "Informações legais e contato",
+    terms: "Termos de serviço",
+    privacy: "Política de privacidade",
+    refundPolicy: "Política de reembolso",
+    opensource: "Código aberto",
+    support: "Suporte",
+    message: "GEEKFUN é uma comunidade que cria e mantém software de código aberto.",
+    mongodbGui: "Cliente gráfico para MongoDB",
+    dynamodbGui: "Cliente gráfico para DynamoDB",
+    elasticsearchGui: "Cliente gráfico para Elasticsearch",
+    opensearchGui: "Cliente gráfico para OpenSearch",
+    agenticSqlClient: "Cliente SQL gráfico com IA",
+  },
+  "ja": {
+    resources: "リソース",
+    community: "コミュニティ",
+    dbClients: "データベースクライアント",
+    about: "概要",
+    legalContact: "法的情報とお問い合わせ",
+    terms: "利用規約",
+    privacy: "プライバシーポリシー",
+    refundPolicy: "返金ポリシー",
+    opensource: "オープンソース",
+    support: "サポート",
+    message: "GEEKFUN はオープンソースソフトウェアを開発し、保守するコミュニティです。",
+    mongodbGui: "MongoDB GUI クライアント",
+    dynamodbGui: "DynamoDB GUI クライアント",
+    elasticsearchGui: "Elasticsearch GUI クライアント",
+    opensearchGui: "OpenSearch GUI クライアント",
+    agenticSqlClient: "AI 対応の SQL GUI クライアント",
+  },
+  "ko": {
+    resources: "리소스",
+    community: "커뮤니티",
+    dbClients: "데이터베이스 클라이언트",
+    about: "소개",
+    legalContact: "법적 정보 및 문의",
+    terms: "서비스 이용약관",
+    privacy: "개인정보 처리방침",
+    refundPolicy: "환불 정책",
+    opensource: "오픈 소스",
+    support: "지원",
+    message: "GEEKFUN은 오픈 소스 소프트웨어를 개발하고 유지보수하는 커뮤니티입니다.",
+    mongodbGui: "MongoDB GUI 클라이언트",
+    dynamodbGui: "DynamoDB GUI 클라이언트",
+    elasticsearchGui: "Elasticsearch GUI 클라이언트",
+    opensearchGui: "OpenSearch GUI 클라이언트",
+    agenticSqlClient: "AI 지원 SQL GUI 클라이언트",
+  },
+  "es": {
+    resources: "Recursos",
+    community: "Comunidad",
+    dbClients: "Clientes de bases de datos",
+    about: "Acerca de",
+    legalContact: "Información legal y contacto",
+    terms: "Términos del servicio",
+    privacy: "Política de privacidad",
+    refundPolicy: "Política de reembolso",
+    opensource: "Código abierto",
+    support: "Soporte",
+    message: "GEEKFUN es una comunidad que desarrolla y mantiene software de código abierto.",
+    mongodbGui: "Cliente gráfico para MongoDB",
+    dynamodbGui: "Cliente gráfico para DynamoDB",
+    elasticsearchGui: "Cliente gráfico para Elasticsearch",
+    opensearchGui: "Cliente gráfico para OpenSearch",
+    agenticSqlClient: "Cliente SQL gráfico con IA",
+  },
+}
+
 const t = computed(() => {
-  return translations[lang.value as keyof typeof translations] || translations.en
+  if (lang.value === 'zh') return translations.zh
+  const nav = getNavigationCopy(lang.value)
+  return {
+    ...translations.en,
+    ...localizedFooter[lang.value],
+    products: nav.products,
+    download: nav.download,
+    pricing: nav.pricing,
+    blog: nav.blog,
+    news: nav.news,
+  }
 })
 
-const localePath = (path: string) => {
-  if (lang.value === 'zh') return `/zh${path}`
-  if (!docsCopy.value) return path
-  if (path === '/docs' || path === '/products/sqlkit/') return `/${lang.value}${path}`
-  if (path === '/products/dockit/' && lang.value === 'zh-TW') return '/zh-TW/docs/dockit/'
-  return lang.value !== 'zh-TW' && ['/products/dockit/', '/download', '/pricing'].includes(path)
-    ? `/${lang.value}${path}`
-    : path
-}
+const localePath = (path: string): string => withBase(getLocalizedSitePath(path, lang.value))
 </script>
 
 <style scoped lang="scss">

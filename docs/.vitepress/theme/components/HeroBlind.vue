@@ -33,6 +33,7 @@ const props = defineProps<{
 // away to show that product's image + description — the pointer is already
 // over the hero, so the clock stays paused until the user leaves.
 const open = ref<boolean[]>(props.products.map(() => false))
+const blindStage = ref<HTMLElement | null>(null)
 type BlindPhase = 'front' | 'opening' | 'back' | 'closing'
 const phase = ref<BlindPhase>('front')
 const paused = ref(false)
@@ -139,6 +140,14 @@ function onPanelClick(index: number, event: MouseEvent) {
   open.value[index] = true
 }
 
+function onBackgroundClick(event: MouseEvent) {
+  const bounds = blindStage.value?.getBoundingClientRect()
+  if (!bounds?.width) return
+
+  const index = Math.floor((event.clientX - bounds.left) / bounds.width * open.value.length)
+  if (index >= 0 && index < open.value.length) open.value[index] = true
+}
+
 function onPause() {
   paused.value = true
   clearTimer()
@@ -176,6 +185,7 @@ onBeforeUnmount(() => {
   <section
     class="hero-blind"
     aria-label="Open Source Studio — featured projects"
+    @click.self="onBackgroundClick"
     @mouseenter="onPause"
     @mouseleave="onResume"
     @focusin="onPause"
@@ -209,7 +219,7 @@ onBeforeUnmount(() => {
          Each panel opens on its own clock, left→right ~5s apart. Front face:
          transparent (studio content shows through). Back face: the project
          image + title + description. -->
-    <div class="blind-stage">
+    <div ref="blindStage" class="blind-stage">
       <a
         v-for="(p, i) in products"
         :key="p.name"
@@ -281,6 +291,7 @@ onBeforeUnmount(() => {
   }
 
   @media (max-width: 768px) {
+    flex-direction: column;
     padding: 72px 0 64px;
     min-height: auto;
   }
@@ -369,7 +380,7 @@ onBeforeUnmount(() => {
 
 .hero-actions {
   position: relative;
-  z-index: 3;
+  pointer-events: auto;
   display: flex;
   gap: 16px;
   justify-content: center;
@@ -382,6 +393,11 @@ onBeforeUnmount(() => {
   }
 }
 
+.hero-actions a:focus-visible {
+  position: relative;
+  z-index: 3;
+}
+
 /* ── The blind: 6 vertical flip panels ───────────────────────────────── */
 .blind-stage {
   position: absolute;
@@ -390,6 +406,7 @@ onBeforeUnmount(() => {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   perspective: 1600px;
+  pointer-events: none;
 }
 
 .blind-panel {
@@ -433,6 +450,7 @@ onBeforeUnmount(() => {
   transform: rotateY(180deg);
   overflow: hidden;
   background: var(--vp-c-bg-alt);
+  pointer-events: auto;
 }
 
 .blind-back-img {
@@ -559,6 +577,16 @@ onBeforeUnmount(() => {
 .hero-blind-mobile-name {
   font-size: 0.875rem;
   font-weight: 600;
+}
+
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+  .hero-blind {
+    cursor: pointer;
+  }
+
+  .hero-front {
+    pointer-events: none;
+  }
 }
 
 @media (max-width: 768px) {

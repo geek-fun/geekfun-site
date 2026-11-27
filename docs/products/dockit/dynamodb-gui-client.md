@@ -32,7 +32,7 @@ head:
         "description": "Open-source desktop DynamoDB GUI client with PartiQL editor, AI query generation, visual query builder, import/export, and local-first persistence. Free alternative to Dynobase and NoSQL Workbench.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
@@ -202,7 +202,7 @@ DocKit also works with **Elasticsearch** and **OpenSearch**. You can switch betw
 | **Offline mode** | Yes | No | Yes | Yes |
 | **Elasticsearch support** | Yes | No | No | No |
 | **Open source** | Apache 2.0 | No | No | No |
-| **Price** | Community: free · Ultimate $9.9/mo | Free | Free | $12–30/mo |
+| **Price** | Community: free · Ultimate USD 9.90/mo | Free | Free | $12–30/mo |
 
 ## Getting started
 

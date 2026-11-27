@@ -73,7 +73,7 @@ The Data AI Agent breaks the request down, finds the right collection, generates
 
 It handles writes too: create documents, update fields, delete records. Destructive operations sit behind a safety gate and only run after you confirm.
 
-The AI itself is part of the paid Ultimate subscription ($9.9/month or $99/year, with a 7-day free trial). You can connect OpenAI, Anthropic, and DeepSeek with your own API key, or run models locally with Ollama so your data never leaves the machine.
+The AI itself is part of the paid Ultimate subscription (USD 9.90/month or USD 99.00/year, with a 7-day free trial). You can connect OpenAI, Anthropic, and DeepSeek with your own API key, or run models locally with Ollama so your data never leaves the machine.
 
 ### Why not a chat box?
 
@@ -115,7 +115,7 @@ DocKit saves queries automatically; there's nothing to configure. Search, star, 
 | Offline AI | ✅ Ollama locally | ❌ |
 | Privacy | No telemetry | Telemetry on by default |
 | Open source | Apache 2.0 | SSPL |
-| Price | Community: free · Ultimate $9.9/mo | Free (paid advanced features) |
+| Price | Community: free · Ultimate USD 9.90/mo | Free (paid advanced features) |
 
 ## What other databases are supported
 

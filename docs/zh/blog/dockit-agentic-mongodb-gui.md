@@ -42,7 +42,7 @@ DocKit 就是在这样的背景下设计的——一个内置 Data AI Agent 的 
 
 DocKit 是一个开源的 NoSQL 桌面客户端，内置 Data AI Agent，自动 schema 感知，30+ AI 工具自动联动执行，你只需用自然语言描述你的需求。基于 Tauri（Rust + Vue 3）构建，安装包不到 30 MB。
 
-官网：[https://www.geekfun.club/products/dockit/](https://www.geekfun.club/products/dockit/)
+官网：[https://www.geekfun.club/zh/products/dockit/](https://www.geekfun.club/zh/products/dockit/)
 GitHub：[https://github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)
 
 跟 Compass 动辄 400MB+ 的体积不同，DocKit 安装包不到 30 MB，启动快，内存占用低。查询存储在本地文件里，以 .mongo 后缀名组织，可以像普通文件一样管理，也能直接放进 git 和团队共享。
@@ -139,7 +139,7 @@ DocKit 目前覆盖五种引擎：
 
 网页工具丢查询，传统 GUI 没有 AI，多数据库需要多个工具——这三个问题 DocKit 一次解决。
 
-- **官网下载**: [https://www.geekfun.club/products/dockit/](https://www.geekfun.club/products/dockit/)
+- **官网下载**: [https://www.geekfun.club/zh/products/dockit/](https://www.geekfun.club/zh/products/dockit/)
 - **GitHub 仓库**: [https://github.com/geek-fun/dockit](https://github.com/geek-fun/dockit)
 - **下载 DocKit**：[https://www.geekfun.club/download](https://www.geekfun.club/download)
 

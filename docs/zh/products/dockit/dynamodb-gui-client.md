@@ -32,8 +32,8 @@ head:
         "description": "开源桌面 DynamoDB GUI 客户端，支持 PartiQL 编辑器、AI 查询生成、可视化查询构建器、导入导出和本地化持久化存储。Dynobase 和 NoSQL Workbench 的免费替代方案。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]
@@ -200,7 +200,7 @@ DocKit 同样支持在同一应用中使用 **Elasticsearch** 和 **OpenSearch**
 | **离线模式** | ✅ | ❌ | ✅ | ✅ |
 | **Elasticsearch 支持** | ✅ | ❌ | ❌ | ❌ |
 | **开源协议** | ✅ Apache 2.0 | ❌ | ❌ | ❌ |
-| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费 | 免费 | $12–30/月 |
+| **价格** | 社区版免费 · 旗舰版 USD 9.90/月 | 免费 | 免费 | $12–30/月 |
 
 ## 快速开始
 

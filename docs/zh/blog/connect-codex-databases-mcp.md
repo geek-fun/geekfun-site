@@ -74,12 +74,12 @@ codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
 
 ## 连接如何工作
 
-[Data Studio Agent](/products/data-studio-agent/) 通过两个桌面客户端，为 Codex 提供数据库工具：
+[Data Studio Agent](/zh/products/data-studio-agent/) 通过两个桌面客户端，为 Codex 提供数据库工具：
 
 | 桌面客户端 | 适用数据库 |
 | --- | --- |
-| [SqlKit](/products/sqlkit/) | PostgreSQL、MySQL、SQL Server、SQLite 等 SQL 数据库 |
-| [DocKit](/products/dockit/) | MongoDB、Elasticsearch、OpenSearch、DynamoDB 等 NoSQL 数据库 |
+| [SqlKit](/zh/products/sqlkit/) | PostgreSQL、MySQL、SQL Server、SQLite 等 SQL 数据库 |
+| [DocKit](/zh/products/dockit/) | MongoDB、Elasticsearch、OpenSearch、DynamoDB 等 NoSQL 数据库 |
 
 按数据库类型安装对应客户端。如果项目同时使用 SQL 和 NoSQL，可以两个都运行。在客户端中添加数据库连接，并启用 MCP Bridge，Data Studio 才能把查询发到这些连接。
 
@@ -93,7 +93,7 @@ codex mcp add data-studio -- npx -y @geek-fun/data-studio-mcp
 
 ### 1. 准备 SqlKit 或 DocKit
 
-SQL 数据库使用 [SqlKit](/products/sqlkit/)，NoSQL 数据库使用 [DocKit](/products/dockit/)。安装后：
+SQL 数据库使用 [SqlKit](/zh/products/sqlkit/)，NoSQL 数据库使用 [DocKit](/zh/products/dockit/)。安装后：
 
 1. 启动客户端，登录有 MCP 访问权限的账号。
 2. 添加数据库连接，先在客户端中执行一次查询，确认连接正常。
@@ -192,6 +192,6 @@ MCP 进程和桌面桥接服务在你的电脑上运行。SqlKit 或 DocKit 管�
 
 连接开发数据库，给 Codex 一个手头的问题。例如，核对接口的状态过滤条件与库里的实际取值，或者对照字段映射与查询代码。
 
-先准备 [SqlKit](/products/sqlkit/) 或 [DocKit](/products/dockit/)，再按 [Data Studio Agent](/products/data-studio-agent/) 的说明配置。MCP 包在 [npm](https://www.npmjs.com/package/@geek-fun/data-studio-mcp)，源码和问题反馈在 [GitHub](https://github.com/geek-fun/data-studio-agent)。
+先准备 [SqlKit](/zh/products/sqlkit/) 或 [DocKit](/zh/products/dockit/)，再按 [Data Studio Agent](/zh/products/data-studio-agent/) 的说明配置。MCP 包在 [npm](https://www.npmjs.com/package/@geek-fun/data-studio-mcp)，源码和问题反馈在 [GitHub](https://github.com/geek-fun/data-studio-agent)。
 
 如果缺少你需要的数据库或操作，可以提交 issue，附上数据库类型、尝试执行的任务和脱敏后的示例。

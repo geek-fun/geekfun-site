@@ -73,7 +73,7 @@ Elasticsearch 从 2010 年发展至今，围绕它的 GUI 工具生态参差不�
 
 | 工具 | 价格 | 平台 | 适合场景 | 开源 |
 |------|------|------|----------|------|
-| DocKit | 社区版免费 · 旗舰版 $9.9/月 | Mac, Win, Linux | 多引擎团队、AI 辅助查询 | ✅ Apache 2.0 |
+| DocKit | 社区版免费 · 旗舰版 USD 9.90/月 | Mac, Win, Linux | 多引擎团队、AI 辅助查询 | ✅ Apache 2.0 |
 | Kibana | 免费 / 付费 | Web（需要 ES 集群） | 仪表板、生产监控 | ❌ Elastic License |
 | Elasticvue | 免费 | Web、浏览器扩展、桌面端 | 轻量 ES 浏览 | ✅ MIT |
 | Elastron | 免费 | Mac, Win, Linux | 原生桌面、集群监控 | ✅ MIT |
@@ -90,7 +90,7 @@ Elasticsearch 从 2010 年发展至今，围绕它的 GUI 工具生态参差不�
 - 多服务器连接，多个 ES 集群同时开着
 - 查询保存在本地，无遥测，离线可用
 
-**价格：** 社区版免费（Apache 2.0）· 旗舰版 $9.9/月。
+**价格：** 社区版免费（Apache 2.0）· 旗舰版 USD 9.90/月。
 
 **活跃度：** GitHub 1K+ Star，30 个版本。v1.0.1 于 2026 年 5 月 11 日发布。
 

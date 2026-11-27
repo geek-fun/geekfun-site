@@ -33,7 +33,7 @@ head:
         "description": "Open-source desktop DynamoDB GUI client with PartiQL editor, visual query builder, and multi-DB support. Free alternative to Dynobase for Mac, Windows, and Linux; the Agentic Data Studio and other advanced AI features are part of the paid Ultimate subscription.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
@@ -65,7 +65,7 @@ Dynobase is a solid tool, but there are a few reasons developers look for altern
 | Feature | DocKit | Dynobase |
 |---|---|---|
 | **License** | Apache 2.0 (open source) | Proprietary |
-| **Pricing** | Community: free · Ultimate $9.9/mo | [See pricing](https://dynobase.dev/#pricing) |
+| **Pricing** | Community: free · Ultimate USD 9.90/mo | [See pricing](https://dynobase.dev/#pricing) |
 | **Platform** | Mac, Windows, Linux | Mac, Windows, Linux |
 | **PartiQL editor** | ✅ Monaco-based | ✅ |
 | **Visual query builder** | ✅ | ✅ |
@@ -151,8 +151,8 @@ Export your Dynobase queries as text, then save them as `.json` or `.partiql` fi
 See [Dynobase pricing](https://dynobase.dev/#pricing) for current plans.
 
 ### DocKit
-- **Community**: free — unlimited seats, core local features
-- **Ultimate**: $9.9/month or $99/year — AI agent, MCP, cluster management, and other advanced features (7-day free trial)
+- Community: free. Unlimited seats and core local features.
+- Ultimate: USD 9.90/month or USD 99.00/year (7-day free trial). Includes AI agent, MCP, cluster management, and other advanced features.
 
 ## Frequently asked questions
 

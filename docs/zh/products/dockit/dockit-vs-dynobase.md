@@ -33,8 +33,8 @@ head:
         "description": "开源桌面 DynamoDB GUI 客户端，支持 PartiQL 编辑器、可视化查询构建器和多数据库支持。Dynobase 的免费替代方案，支持 Mac、Windows 和 Linux；Agentic Data Studio 等进阶 AI 能力属于旗舰版订阅。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]
@@ -63,7 +63,7 @@ Dynobase 是一款商业 DynamoDB 桌面客户端。其[官方更新日志](http
 | 功能 | DocKit | Dynobase |
 |---|---|---|
 | **许可证** | Apache 2.0（开源） | 专有 |
-| **定价** | 社区版免费 · 旗舰版 $9.9/月 | [查看定价](https://dynobase.dev/#pricing) |
+| **定价** | 社区版免费 · 旗舰版 USD 9.90/月 | [查看定价](https://dynobase.dev/#pricing) |
 | **平台** | Mac、Windows、Linux | Mac、Windows、Linux |
 | **PartiQL 编辑器** | ✅ Monaco 引擎 | ✅ |
 | **可视化查询构建器** | ✅ | ✅ |
@@ -157,8 +157,8 @@ Dynobase 3.0 可在表的菜单中管理[按需备份](https://dynobase.dev/new-
 请查看 [Dynobase 官方定价](https://dynobase.dev/#pricing)。
 
 ### DocKit
-- **社区版**：免费 — 人数不限，核心本地功能
-- **旗舰版**：$9.9/月 或 $99/年 — AI 智能体、MCP、集群管理等进阶功能（7 天免费试用）
+- 社区版：免费，不限人数，包含核心本地功能
+- 旗舰版：USD 9.90/月 或 USD 99.00/年，包含 AI 智能体、MCP、集群管理等进阶功能（7 天免费试用）
 
 ## 常见问题
 
@@ -179,4 +179,4 @@ Dynobase 3.0 可在表的菜单中管理[按需备份](https://dynobase.dev/new-
 
 ---
 
-→ **[DocKit 完整功能概览](/products/dockit/)** · [DynamoDB GUI 客户端页面](/products/dockit/dynamodb-gui-client) · [DynamoDB GUI 深度解析](/zh/products/dockit/dynamodb-gui-client)
+→ **[DocKit 完整功能概览](/zh/products/dockit/)** · [DynamoDB GUI 客户端页面](/zh/products/dockit/dynamodb-gui-client) · [DynamoDB GUI 深度解析](/zh/products/dockit/dynamodb-gui-client)

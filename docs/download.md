@@ -1,6 +1,6 @@
 ---
 title: Download GEEKFUN - DocKit NoSQL GUI & SqlKit SQL Client for Mac, Windows, Linux
-description: 'Download open-source database GUIs: DocKit for MongoDB, Elasticsearch, OpenSearch, DynamoDB — SqlKit for PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and more. Native desktop apps for Mac, Windows, and Linux. AI-powered, privacy-first.'
+description: 'Download DocKit (NoSQL GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB) and SqlKit (SQL GUI for PostgreSQL, MySQL, SQL Server, Oracle) for macOS, Windows, and Linux.'
 head:
   - - meta
     - name: keywords

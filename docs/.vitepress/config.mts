@@ -2,7 +2,9 @@ import {defineConfig, type HeadConfig} from 'vitepress'
 import {blogDate, isBlogArticle, type BlogFrontmatter} from './blog'
 import {getDocsSidebar} from './docs-navigation'
 import {getLocalizedDocs, localizedDocs} from './docs-locales'
-import {DOCKIT_VERSION, SQLKIT_VERSION} from './theme/version'
+import {getPricingSchemas} from './pricing-schema'
+import {getSiteNavigation} from './site-navigation'
+import {DATA_STUDIO_AGENT_VERSION, DOCKIT_VERSION, SQLKIT_VERSION} from './theme/version'
 
 const icon = '/favicon.ico';
 const logo = '/geekfun.png';
@@ -56,6 +58,7 @@ const localizedTheme = (lang: keyof typeof localizedDocs) => {
     return {
         ...sharedThemeConfig,
         siteTitle: 'GEEKFUN',
+        nav: getSiteNavigation(lang),
         sidebar: getDocsSidebar(lang),
         outline: {label: copy.outline},
         sidebarMenuLabel: copy.sidebar,
@@ -72,6 +75,23 @@ const descPt = 'A GEEKFUN é uma comunidade de código aberto que desenvolve sof
 const descJa = 'GEEKFUN は持続可能なソフトウェアを開発するオープンソースコミュニティです。DocKit は MongoDB、Elasticsearch、OpenSearch、DynamoDB 向けの GUI です。SqlKit は PostgreSQL、MySQL、SQL Server、Oracle、SQLite などに対応する SQL クライアントです。';
 const descKo = 'GEEKFUN은 지속 가능한 소프트웨어를 만드는 오픈소스 커뮤니티입니다. DocKit은 MongoDB, Elasticsearch, OpenSearch, DynamoDB용 GUI입니다. SqlKit은 PostgreSQL, MySQL, SQL Server, Oracle, SQLite 등을 지원하는 SQL 클라이언트입니다.';
 const descEs = 'GEEKFUN es una comunidad de código abierto que desarrolla software sostenible. DocKit es una interfaz gráfica para MongoDB, Elasticsearch, OpenSearch y DynamoDB. SqlKit es un cliente SQL para PostgreSQL, MySQL, SQL Server, Oracle, SQLite y otras bases de datos.';
+
+const organizationJsonLdEn = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GEEKFUN",
+    "url": "https://www.geekfun.club",
+    "logo": "https://www.geekfun.club/geekfun.png",
+    "sameAs": [
+        "https://github.com/geek-fun",
+        "https://x.com/geekfun_club",
+        "https://www.youtube.com/@geekfun-club"
+    ]
+});
+const localizedHead: HeadConfig[] = [
+    ['link', {rel: 'icon', href: icon}],
+    ['script', {type: 'application/ld+json'}, organizationJsonLdEn],
+];
 
 export default defineConfig({
     lastUpdated: true,
@@ -104,6 +124,7 @@ export default defineConfig({
     locales: {
         root: {
             title: titleEn,
+            titleTemplate: ':title | GEEKFUN',
             lang: 'en',
             description: descEn,
             head: [
@@ -114,56 +135,19 @@ export default defineConfig({
                 }],
                 ['meta', {name: 'baidu-site-verification', content: 'codeva-owQvVYl3h3'}],
                 ['meta', {name: 'msvalidate.01', content: '56AE1305771756AAB07967736F936525'}],
-                ['script', {type: 'application/ld+json'}, JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "Organization",
-                    "name": "GEEKFUN",
-                    "url": "https://www.geekfun.club",
-                    "logo": "https://www.geekfun.club/geekfun.png",
-                    "sameAs": [
-                        "https://github.com/geek-fun",
-                        "https://x.com/geekfun_club",
-                        "https://www.youtube.com/@geekfun-club"
-                    ]
-                })],
+                ['script', {type: 'application/ld+json'}, organizationJsonLdEn],
             ],
             themeConfig: {
                 ...sharedThemeConfig,
                 siteTitle: 'GEEKFUN',
                 sidebar: getDocsSidebar('en'),
-nav: [
-                     {
-                         text: 'Home',
-                         link: '/',
-                     },
-                     {
-                         text: 'Download',
-                         link: '/download',
-                     },
-                     {
-                         text: 'Pricing',
-                         link: '/pricing',
-                     },
-                     {
-                         text: 'Docs',
-                         link: '/docs',
-                         activeMatch: '^/(?:docs(?:/|$)|products/dockit/docs$)',
-                     },
-                     {
-                         text: 'Blog',
-                         link: '/blog',
-                         activeMatch: '^/blog(?:/|$)',
-                     },
-                     {
-                         text: 'News',
-                         link: '/news',
-                     },
-                 ]
+                nav: getSiteNavigation('en'),
             }
         },
         zh: {
             lang: 'zh',
             title: titleZh,
+            titleTemplate: ':title | 极客范',
             description: descZh,
             head: [
                 ['link', {rel: 'icon', href: icon}],
@@ -194,133 +178,68 @@ nav: [
                 returnToTopLabel: '返回顶部',
                 sidebar: getDocsSidebar('zh'),
                 sidebarMenuLabel: '文档目录',
-nav: [
-                      {
-                          text: '首页',
-                          link: '/zh/',
-                      },
-                      {
-                          text: '下载',
-                          link: '/zh/download',
-                      },
-                      {
-                          text: '定价',
-                          link: '/zh/pricing',
-                      },
-                      {
-                          text: '文档',
-                          link: '/zh/docs',
-                          activeMatch: '^/zh/(?:docs(?:/|$)|products/dockit/docs$)',
-                      },
-                      {
-                          text: '博客',
-                          link: '/zh/blog',
-                          activeMatch: '^/zh/blog(?:/|$)',
-                      },
-                      {
-                          text: '新闻',
-                          link: '/zh/news',
-                      }
-                 ]
+                nav: getSiteNavigation('zh'),
             }
         },
         'pt-BR': {
-            link: '/pt-BR/products/dockit/',
             lang: 'pt-BR',
             title: titlePt,
+            titleTemplate: ':title | GEEKFUN',
             description: descPt,
-            head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('pt-BR'),
-                nav: [
-                    {text: 'Download', link: '/pt-BR/download'},
-                    {text: 'Preços', link: '/pt-BR/pricing'},
-                    {text: 'DocKit', link: '/pt-BR/products/dockit/'},
-                    {text: 'SqlKit', link: '/pt-BR/products/sqlkit/'},
-                    {text: localizedDocs['pt-BR'].title, link: '/pt-BR/docs'},
-                ]
-            }
+            head: localizedHead,
+            themeConfig: localizedTheme('pt-BR'),
         },
         ja: {
-            link: '/ja/products/dockit/',
             lang: 'ja',
             title: titleJa,
+            titleTemplate: ':title | GEEKFUN',
             description: descJa,
-            head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('ja'),
-                nav: [
-                    {text: 'ダウンロード', link: '/ja/download'},
-                    {text: '料金', link: '/ja/pricing'},
-                    {text: 'DocKit', link: '/ja/products/dockit/'},
-                    {text: 'SqlKit', link: '/ja/products/sqlkit/'},
-                    {text: localizedDocs['ja'].title, link: '/ja/docs'},
-                ]
-            }
+            head: localizedHead,
+            themeConfig: localizedTheme('ja'),
         },
         ko: {
-            link: '/ko/products/dockit/',
             lang: 'ko',
             title: titleKo,
+            titleTemplate: ':title | GEEKFUN',
             description: descKo,
-            head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('ko'),
-                nav: [
-                    {text: '다운로드', link: '/ko/download'},
-                    {text: '가격', link: '/ko/pricing'},
-                    {text: 'DocKit', link: '/ko/products/dockit/'},
-                    {text: 'SqlKit', link: '/ko/products/sqlkit/'},
-                    {text: localizedDocs['ko'].title, link: '/ko/docs'},
-                ]
-            }
+            head: localizedHead,
+            themeConfig: localizedTheme('ko'),
         },
         es: {
-            link: '/es/products/dockit/',
             lang: 'es',
             title: titleEs,
+            titleTemplate: ':title | GEEKFUN',
             description: descEs,
-            head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('es'),
-                nav: [
-                    {text: 'Descargar', link: '/es/download'},
-                    {text: 'Precios', link: '/es/pricing'},
-                    {text: 'DocKit', link: '/es/products/dockit/'},
-                    {text: 'SqlKit', link: '/es/products/sqlkit/'},
-                    {text: localizedDocs['es'].title, link: '/es/docs'},
-                ]
-            }
-        },
-        'zh-TW': {
-            link: '/zh-TW/docs',
-            lang: 'zh-TW',
-            title: 'GEEKFUN | 開源資料庫工具',
-            description: '安裝 SqlKit 或 DocKit，連線到 SQL 或 NoSQL 資料庫。',
-            head: [['link', {rel: 'icon', href: icon}]],
-            themeConfig: {
-                ...localizedTheme('zh-TW'),
-                nav: [
-                    {text: '下載（英文）', link: '/download'},
-                    {text: 'DocKit', link: '/zh-TW/docs/dockit/'},
-                    {text: 'SqlKit', link: '/zh-TW/products/sqlkit/'},
-                    {text: localizedDocs['zh-TW'].title, link: '/zh-TW/docs'},
-                ]
-            }
+            head: localizedHead,
+            themeConfig: localizedTheme('es'),
         },
     },
     sitemap: {
         hostname: 'https://www.geekfun.club',
         transformItems(items) {
-            return items.filter((item) => item.url !== '404' && item.url !== '/404');
+            return items
+                .filter((item) => item.url !== '404' && item.url !== '/404')
+                .map((item) => {
+                    if (!item.links || item.links.length < 2) return item;
+                    const english = item.links.find((link) => link.lang === 'en');
+                    if (!english || item.links.some((link) => link.lang === 'x-default')) return item;
+                    return {
+                        ...item,
+                        links: [...item.links, {lang: 'x-default', url: english.url}],
+                    };
+                });
         }
     },
-    transformPageData({relativePath, frontmatter}, {siteConfig}) {
+    transformPageData(pageData, {siteConfig}) {
+        const {relativePath} = pageData;
+        let {frontmatter, titleTemplate} = pageData;
         const pages = new Set(siteConfig.pages.map((page) => siteConfig.rewrites.map[page] || page));
         if (!pages.has(relativePath)) return;
 
         const prefix = languages.find(({prefix}) => prefix && relativePath.startsWith(prefix))?.prefix ?? '';
+        const lang = prefix ? prefix.slice(0, -1) : 'en';
         const path = relativePath.slice(prefix.length);
+        const pageUrl = getPageUrl(relativePath);
         const languageLinks = languages
             .filter(({prefix}) => pages.has(prefix + path))
             .map(({prefix, lang, label}) => ({lang, label, href: getPagePath(prefix + path)}));
@@ -339,28 +258,44 @@ nav: [
         }
 
         const hasCanonical = head.some(([tag, attrs]) => tag === 'link' && attrs.rel === 'canonical');
-        if (!hasCanonical) head.push(['link', {rel: 'canonical', href: getPageUrl(relativePath)}]);
+        if (!hasCanonical) head.push(['link', {rel: 'canonical', href: pageUrl}]);
 
-        const guide = path.match(/^docs\/(sqlkit|dockit)\/.*\.md$/)?.[1];
-        if (guide && !hasCanonical) {
-            const language = prefix.slice(0, -1);
-            const imageLanguage = language === 'zh' || language === 'zh-TW' ? 'zh' : 'en';
-            const app = guide === 'sqlkit' ? 'SqlKit' : 'DocKit';
-            frontmatter = {
-                ...frontmatter,
-                titleTemplate: false,
-                ogImage: `${siteUrl}/og/${guide}-${imageLanguage}.png`,
-                ogImageAlt: getLocalizedDocs(language)
-                    ? frontmatter.title
-                    : imageLanguage === 'zh' ? `${app} 桌面数据库客户端` : `${app} desktop database client`,
-            };
+        if (
+            titleTemplate === undefined &&
+            typeof frontmatter.title === 'string' &&
+            (/geekfun|极客范/i.test(frontmatter.title) || frontmatter.title.includes('|'))
+        ) {
+            titleTemplate = false;
         }
 
-        const product = relativePath.match(/(^|\/)products\/(dockit|sqlkit)\/index\.md$/)?.[2];
+        const guide = path.match(/^docs\/(sqlkit|dockit)\/.*\.md$/)?.[1];
+        const productSection = guide ?? path.match(/^products\/(sqlkit|dockit)\/.*\.md$/)?.[1];
+        if (productSection) {
+            const imageLanguage = lang === 'zh' ? 'zh' : 'en';
+            const app = productSection === 'sqlkit' ? 'SqlKit' : 'DocKit';
+            const nextFrontmatter = {...frontmatter};
+            if (guide && titleTemplate === undefined) {
+                titleTemplate = false;
+            }
+            if (!nextFrontmatter.ogImage) {
+                nextFrontmatter.ogImage = `${siteUrl}/og/${productSection}-${imageLanguage}.png`;
+            }
+            if (!nextFrontmatter.ogImageAlt) {
+                nextFrontmatter.ogImageAlt = getLocalizedDocs(lang)
+                    ? nextFrontmatter.title
+                    : imageLanguage === 'zh' ? `${app} 桌面数据库客户端` : `${app} desktop database client`;
+            }
+            frontmatter = nextFrontmatter;
+        }
+
+        const product = relativePath.match(/(^|\/)products\/(dockit|sqlkit|data-studio-agent)\/index\.md$/)?.[2];
         if (product) {
-            const app = product === 'sqlkit'
-                ? {name: 'SqlKit', version: SQLKIT_VERSION}
-                : {name: 'DocKit', version: DOCKIT_VERSION};
+            const apps = {
+                sqlkit: {name: 'SqlKit', version: SQLKIT_VERSION},
+                dockit: {name: 'DocKit', version: DOCKIT_VERSION},
+                'data-studio-agent': {name: 'Data Studio Agent', version: DATA_STUDIO_AGENT_VERSION},
+            } as const;
+            const app = apps[product as keyof typeof apps];
             head = head.map((entry): HeadConfig => {
                 const [tag, attributes, content] = entry;
                 if (tag !== 'script' || attributes.type !== 'application/ld+json' || typeof content !== 'string') return entry;
@@ -371,7 +306,64 @@ nav: [
             });
         }
 
-        return {frontmatter: {...frontmatter, head, languageLinks}};
+        if (path === 'pricing.md') {
+            for (const schema of getPricingSchemas(lang, pageUrl)) {
+                head.push(['script', {type: 'application/ld+json'}, JSON.stringify(schema)]);
+            }
+        }
+
+        if (getPageType(relativePath) === 'article') {
+            const hasArticleSchema = head.some(([tag, attributes, content]) => {
+                if (tag !== 'script' || attributes.type !== 'application/ld+json' || typeof content !== 'string') return false;
+                try {
+                    const type = JSON.parse(content)['@type'];
+                    return typeof type === 'string' && /^(?:Article|BlogPosting|NewsArticle|TechArticle)$/.test(type);
+                } catch {
+                    return false;
+                }
+            });
+            if (!hasArticleSchema) {
+                const isBlog = isBlogArticle(relativePath);
+                const isZh = lang === 'zh';
+                const pubDate = blogDate(frontmatter.date);
+                const coverSrc = (frontmatter as BlogFrontmatter).cover?.src;
+                const imageUrl = coverSrc
+                    ? new URL(coverSrc, siteUrl).href
+                    : frontmatter.ogImage ?? (isZh ? ogImageZh : ogImageEn);
+                const articleSchema: Record<string, unknown> = {
+                    '@context': 'https://schema.org',
+                    '@type': isBlog ? 'BlogPosting' : 'Article',
+                    headline: frontmatter.title,
+                    description: frontmatter.description,
+                    image: imageUrl,
+                    inLanguage: lang,
+                    author: {
+                        '@type': 'Organization',
+                        name: isZh ? siteNameZh : siteNameEn,
+                        url: siteUrl,
+                    },
+                    publisher: {
+                        '@type': 'Organization',
+                        name: isZh ? siteNameZh : siteNameEn,
+                        logo: {
+                            '@type': 'ImageObject',
+                            url: `${siteUrl}${logo}`,
+                        },
+                    },
+                    mainEntityOfPage: {
+                        '@type': 'WebPage',
+                        '@id': pageUrl,
+                    },
+                };
+                if (pubDate) {
+                    articleSchema.datePublished = pubDate;
+                    articleSchema.dateModified = pubDate;
+                }
+                head.push(['script', {type: 'application/ld+json'}, JSON.stringify(articleSchema)]);
+            }
+        }
+
+        return {titleTemplate, frontmatter: {...frontmatter, head, languageLinks}};
     },
     transformHead({page, title, description, pageData}) {
         const isZhPage = page.startsWith('zh/');
@@ -384,7 +376,7 @@ nav: [
         const pageType = getPageType(page);
         const ogImageAlt = cover?.alt ?? pageData?.frontmatter?.ogImageAlt ?? (isZhPage ? '极客范 - 可持续的开源软件社区' : 'GEEKFUN - Sustainable Open Source Community');
         const openGraphLocales: Record<string, string> = {
-            en: 'en_US', zh: 'zh_CN', 'zh-TW': 'zh_TW', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES',
+            en: 'en_US', zh: 'zh_CN', 'pt-BR': 'pt_BR', ja: 'ja_JP', ko: 'ko_KR', es: 'es_ES',
         };
         const ogLocale = openGraphLocales[page.split('/')[0]] ?? 'en_US';
 
@@ -400,9 +392,9 @@ nav: [
             ['meta', {property: 'og:type', content: pageType}],
             ['meta', {property: 'og:locale', content: ogLocale}],
             ['meta', {name: 'twitter:card', content: 'summary_large_image'}],
-            ['meta', {property: 'twitter:title', content: title}],
-            ['meta', {property: 'twitter:description', content: description}],
-            ['meta', {property: 'twitter:image', content: ogImageUrl}],
+            ['meta', {name: 'twitter:title', content: title}],
+            ['meta', {name: 'twitter:description', content: description}],
+            ['meta', {name: 'twitter:image', content: ogImageUrl}],
         ];
 
         for (const {lang} of pageData?.frontmatter.languageLinks ?? []) {

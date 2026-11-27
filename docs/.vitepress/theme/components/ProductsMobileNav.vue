@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useData, withBase } from 'vitepress';
+import { getNavigationCopy, getProductNavLink } from '../../site-navigation';
 
 const { lang } = useData();
 const isZh = computed(() => lang.value === 'zh');
@@ -96,7 +97,7 @@ const groups = [
       aria-controls="products-mobile-panel"
       @click="toggleMenu"
     >
-      {{ isZh ? '产品' : 'Products' }}
+      {{ getNavigationCopy(lang).products }}
       <svg
         class="mobile-menu-chevron"
         :class="{ open: isOpen }"
@@ -125,7 +126,7 @@ const groups = [
         <ul class="mobile-menu-items">
           <li v-for="(item, iIdx) in group.items" :key="iIdx">
             <a
-              :href="isZh ? (item.external ? item.linkZh : withBase(item.linkZh)) : (item.external ? item.linkEn : withBase(item.linkEn))"
+              :href="withBase(getProductNavLink(item, lang))"
               :target="item.external ? '_blank' : '_self'"
               :rel="item.external ? 'noopener noreferrer' : undefined"
               role="menuitem"
@@ -154,9 +155,8 @@ const groups = [
 .products-mobile-nav {
   display: block;
   border-bottom: 1px solid var(--vp-c-divider);
-  padding: 12px 16px;
   
-  @media (min-width: 768px) {
+  @media (min-width: 1100px) {
     display: none;
   }
 }
@@ -167,12 +167,13 @@ const groups = [
   align-items: center;
   width: 100%;
   font-size: 14px;
+  line-height: 24px;
   font-weight: 500;
   color: var(--vp-c-text-1);
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 8px 0;
+  padding: 12px 0 11px;
   transition: color 0.25s;
 
   &:hover {

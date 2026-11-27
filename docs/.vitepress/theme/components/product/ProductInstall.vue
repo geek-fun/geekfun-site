@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { useData } from 'vitepress'
 import { codeToHtml } from 'shiki'
 import Reveal from '../Reveal.vue'
 import { copyText } from '../../clipboard'
+import { downloadCopy } from '../download-copy'
+import type { DownloadLanguage } from '../download-data'
 
 type InstallTab = {
   label: string
@@ -19,6 +22,8 @@ type InstallData = {
 }
 
 const props = defineProps<{ install: InstallData }>()
+const { lang } = useData()
+const copy = computed(() => downloadCopy[lang.value as DownloadLanguage] ?? downloadCopy.en)
 
 const activeIndex = ref(0)
 const highlighted = ref<string[]>([])
@@ -116,7 +121,7 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
         </button>
       </div>
 
-      <div class="install-command" id="install-panel" role="tabpanel" :aria-labelledby="'install-tab-' + activeIndex" :aria-label="install.tabs[activeIndex].label + ' install command'">
+      <div class="install-command" id="install-panel" role="tabpanel" :aria-labelledby="'install-tab-' + activeIndex">
         <div
           v-if="highlighted[activeIndex]"
           class="install-code"
@@ -126,7 +131,7 @@ watch(() => props.install, highlightAll, { immediate: true, deep: true })
         <button
           class="install-copy"
           :class="{ copied }"
-          :aria-label="copied ? 'Copied' : 'Copy ' + install.tabs[activeIndex].label + ' command'"
+          :aria-label="copied ? copy.copied : copy.copy"
           @click="copyCommand(install.tabs[activeIndex].command)"
         >
           <svg v-if="!copied" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

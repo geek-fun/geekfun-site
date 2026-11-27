@@ -1,5 +1,6 @@
 ---
 layout: product
+showBody: true
 title: SqlKit 开源 SQL 数据库客户端 | MySQL、PostgreSQL、SQL Server 和 Oracle
 titleTemplate: false
 description: SqlKit 是一款支持 macOS、Windows 和 Linux 的开源 SQL 数据库 GUI 客户端，可连接 MySQL、PostgreSQL、SQL Server、Oracle 等数据库，浏览数据表、执行 SQL 并导出查询结果。
@@ -190,17 +191,15 @@ showcase:
     align: right
 
 features:
-  - { title: "Agentic Data Studio", body: "用自然语言与数据库对话。AI 智能体自动读取 Schema、编写查询、优化慢 SQL、可视化执行计划、自动修复错误。细粒度权限控制，危险操作需二次确认。自带 LLM 密钥，凭据本地保存。", icon: "sparkles" }
-  - { title: "数据库连接", body: "连接 PostgreSQL、MySQL、SQL Server、Oracle、SQLite、Snowflake 和 BigQuery 等数据库和数据仓库。所需驱动和连接设置因数据库而异。", icon: "database" }
-  - { title: "产品级查询编辑器", body: "基于 Monaco Editor（VS Code 引擎），支持完整 SQL 语法高亮、上下文感知的自动补全、多标签编辑、可配置的 SQL 格式化（支持多种方言）。", icon: "code" }
-  - { title: "可视化 Schema 浏览器", body: "数据库、Schema、表、列、索引、视图、存储过程、函数的树形浏览。一键查看 DDL，跨 Schema 对象搜索，直观查看表关系。", icon: "search" }
-  - { title: "智能数据网格", body: "虚拟滚动数据网格，支持排序、筛选、内联编辑和复制。跨列行级数据搜索。分页结果集，支持 CSV、JSON 和 Markdown 导出。", icon: "table" }
-  - { title: "ER 图可视化", body: "交互式 ER 图 — 直观探索表关系、外键和索引。基于 Dagre 智能图形布局，复杂数据库结构一目了然。", icon: "layers" }
-  - { title: "查询执行计划", body: "以结构化树形图展示查询执行计划，成本高亮显示。一眼理解查询执行流程，快速定位优化机会。", icon: "zap" }
-  - { title: "SSH 隧道与安全", body: "支持密钥和密码认证的 SSH 隧道连接。SSL/TLS 加密传输。凭据由操作系统密钥链保护。支持 LLM 连接的 HTTP 代理配置。", icon: "lock" }
-  - { title: "多标签与历史记录", body: "多标签页同时处理多个查询。自动保存的查询历史 — 可搜索、可回放、永不丢失。保存的查询支持文件管理和右键菜单。", icon: "history" }
-  - { title: "JDBC 桥接", body: "通过 JDBC 连接 Oracle、DuckDB、Firebird、Snowflake 和 BigQuery 等数据库。测试连接时，SqlKit 会检查 Java 运行环境，并可按需下载驱动。", icon: "terminal" }
-  - { title: "桌面安装包", body: "支持 macOS（.dmg）、Windows（.exe 或 .msi）及 Linux（.deb、.rpm 或 AppImage）。应用基于 Rust 和 Tauri 构建，使用 JDBC 连接时按需下载 Java 运行环境。", icon: "dot" }
+  title: "SqlKit 能做什么？"
+  guide: {"text": "查看 SqlKit 功能指南", "link": "/zh/docs/sqlkit/capabilities"}
+  items:
+    - {"title": "连接数据库", "body": "保存服务器连接或打开本地数据库文件。按数据库类型使用内置驱动、JDBC 或 HTTP。", "icon": "database"}
+    - {"title": "编写与排查 SQL", "body": "执行单条语句或选中的 SQL，保存常用查询，并在受支持的数据库上查看执行计划。", "icon": "code"}
+    - {"title": "查看表结构与关系", "body": "打开表结构查看列、键和索引。旗舰版可用 ER 图查看数据库声明的外键关系。", "icon": "layers"}
+    - {"title": "编辑与传输数据", "body": "在受支持的数据库上筛选和编辑数据。可导出查询结果，旗舰版还支持导入文件和导出表。", "icon": "table"}
+    - {"title": "使用 AI 起草查询", "body": "在旗舰版的 Agentic Data Studio 中配置自己的模型，基于数据库结构起草 SQL 并在编辑器中检查。", "icon": "sparkles"}
+    - {"title": "通过 MCP 接入编程工具", "body": "用旗舰版的 MCP 桥接与 Data Studio Agent，将允许访问的连接交给 Codex 等编程工具。", "icon": "terminal"}
 
 platforms:
   title: "支持全平台"
@@ -249,7 +248,7 @@ SqlKit 的 **Agentic Data Studio** 重新定义了数据库工作方式。无需
 | **SSH 隧道** | ✅ | ✅ | ✅ | ✅ |
 | **JDBC 桥接** | ✅ | ✅ | ❌ | ✅ |
 | **开源** | ✅ Apache 2.0 | ✅ GPL | ❌ | ❌ |
-| **价格** | 社区版免费 · 旗舰版 $9.9/月 | 免费 | ¥1,399/年 | ¥1,299+ |
+| **价格** | 社区版免费 · 旗舰版 USD 9.90/月 | 免费 | ¥1,399/年 | ¥1,299+ |
 | **macOS / Windows / Linux** | ✅ | ✅ | ✅ | 部分 |
 
 ## 为你的工作流而生
@@ -279,7 +278,7 @@ SqlKit 的 **Agentic Data Studio** 重新定义了数据库工作方式。无需
 SqlKit 可以连接 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等 SQL 数据库和数据仓库。每种数据库的连接步骤见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
 
 **SqlKit 真的免费吗？**
-是的 —— 社区版永久免费、开源（Apache 2.0），涵盖完整的本地数据库工作流，连接不限量。进阶能力 —— AI 智能体（自带 LLM）、MCP、集群管理、ER 图、批量导入导出、跨设备同步 —— 属于付费的 GEEKFUN Data Studio 旗舰版订阅（$9.9/月 或 $99/年，7 天免费试用）。订阅期间发布的版本永久可用，取消订阅后依然归你。
+是的。社区版永久免费且开源（Apache 2.0），涵盖完整的本地数据库工作流，不限连接数。进阶功能（AI 智能体与自带 LLM、MCP、集群管理、ER 图、批量导入导出和跨设备同步）包含在付费的 GEEKFUN Data Studio 旗舰版订阅中（USD 9.90/月 或 USD 99.00/年，含 7 天免费试用）。订阅期间发布的版本永久可用，取消订阅后依然归你。
 
 **SqlKit 可以离线使用吗？**
 可以。桌面端的所有数据库操作均可完全离线运行。AI 功能需要网络连接（或通过 Ollama/LM Studio 使用本地模型）。

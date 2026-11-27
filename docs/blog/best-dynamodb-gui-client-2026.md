@@ -71,7 +71,7 @@ Meanwhile, a new wave of tools has turned up with fresh approaches and features.
 
 | Tool | Price | Platform | Best For | Open Source |
 |------|-------|----------|----------|-------------|
-| DocKit | Community: free · Ultimate $9.9/mo | Mac, Win, Linux | Teams, multi-database workflows | ✅ Apache 2.0 |
+| DocKit | Community: free · Ultimate USD 9.90/mo | Mac, Win, Linux | Teams, multi-database workflows | ✅ Apache 2.0 |
 | Dynomate | $199 one-time | Mac, Win, Linux | SSO teams, Git-native workflows | ❌ |
 | DynamoDB Admin | Free | Browser (local) | Local dev, CI/CD testing | ✅ MIT |
 | NoSQL Workbench | Free | Mac, Win, Linux | Schema modeling, AWS-centric | ❌ |
@@ -91,7 +91,7 @@ Free, open source. Does DynamoDB plus Elasticsearch and OpenSearch — handy if 
 - Import/Export: JSON, CSV
 - Cluster management for Elasticsearch/OpenSearch (nodes, shards, indices)
 
-**Pricing:** Community: free (Apache 2.0) · Ultimate $9.9/mo.
+**Pricing:** Community: free (Apache 2.0) · Ultimate USD 9.90/mo.
 
 **Activity:** 1K+ GitHub stars, dozens of releases (14+ since Jan 2026). Roughly 3 releases per month — active.
 
