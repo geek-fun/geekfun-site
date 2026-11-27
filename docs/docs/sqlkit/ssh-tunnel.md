@@ -64,6 +64,8 @@ The proxy URL is resolved dynamically from the OS at connect time rather than sa
 
 Drag hops by their handle, or use the up and down arrow buttons, to reorder the chain. SqlKit displays a live route preview (`System Proxy → Hop 1 → Hop 2 → Database`) so you can check the forwarding path before connecting.
 
+<DocsFigure src="/sqlkit-ssh-tunnel-ui.png" alt="SqlKit Edit Connection Advanced tab showing SSL/TLS Mode, SSH Tunnel hop selector, detected OS System Proxy Add banner, draggable hop card, live route preview, and AI permissions" caption="The Advanced tab pairs reusable SSH tunnel hops and OS System Proxy detection with a live route preview alongside SSL/TLS and AI permissions." :width="3034" :height="2266" />
+
 ### Test and save the connection
 
 Use the chain test button in the **SSH Tunnel** header to test the first hop, or click **Test Connection** on the database dialog to open the full SSH chain, bind a local forwarding socket, and validate the database login and TLS settings end to end.

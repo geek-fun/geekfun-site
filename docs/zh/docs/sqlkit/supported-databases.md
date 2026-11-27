@@ -8,6 +8,8 @@ outline: [2, 3]
 
 SqlKit 在**连接管理 → 添加新连接**中提供 68 种数据库配置。选择对应配置后，表单会自动匹配默认端口、连接字段、SQL 方言与驱动运行时，并按该引擎实际支持的能力显示对应界面操作。
 
+<DocsFigure src="/sqlkit-database-list.png" alt="SqlKit 支持的 68 种数据库引擎总览，涵盖原生 Rust、兼容协议、HTTP SQL 与 JDBC 桥接" caption="SqlKit 支持的 68 种数据库配置总览：内置原生驱动、兼容协议、HTTP SQL 与按需 JDBC 桥接。" :width="1280" :height="720" />
+
 ::: info 连接支持与功能差异
 “能建立连接”不等于所有 68 种引擎拥有一致的元数据视图或 SQL 语法。SqlKit 按引擎能力标记只启用可靠的对象树节点、执行计划和编辑入口。
 :::
@@ -18,12 +20,12 @@ SqlKit 在**连接管理 → 添加新连接**中提供 68 种数据库配置。
 
 | 数据库 | 底层驱动 | 默认端口 | SSL/TLS | 说明 |
 | --- | --- | --- | --- | --- |
-| [PostgreSQL](/zh/docs/sqlkit/postgresql-gui-client) | `tokio-postgres` + `rustls` | `5432` | 完整 5 档（`disable` 到 `verify-full`） | 模式树、视图/过程/函数/触发器、`EXPLAIN (FORMAT JSON)` 与 `ANALYZE` |
-| [MySQL](/zh/docs/sqlkit/mysql-gui-client) | `mysql_async` + `rustls` | `3306` | 完整 5 档（`disable` 到 `verify-full`） | 视图/过程/函数/触发器、存储引擎、`EXPLAIN FORMAT=JSON` 与 `ANALYZE` |
-| [SQL Server](/zh/docs/sqlkit/sql-server-gui-client) | `tiberius`（TDS 7.3） | `1433` | TLS + `Trust Server Certificate` | 模式（`dbo`）、T-SQL `SHOWPLAN_TEXT` 与 `STATISTICS PROFILE` |
-| [SQLite](/zh/docs/sqlkit/sqlite-gui-client) | `rusqlite`（内置） | 本地文件 / `:memory:` | 不适用 | 打开已有文件、新建文件或 `:memory:` 内存库 |
-| [SQLCipher](/zh/docs/sqlkit/sqlite-gui-client#sqlcipher) | `rusqlite`（`sqlcipher`） | 本地文件 | 不适用 | 通过 `PRAGMA key` 打开加密 SQLite 文件 |
-| ClickHouse | 原生 Rust HTTP | `8123` | HTTPS / TLS | 支持物化视图；无模式、存储过程和函数节点 |
+| <DocsDb id="postgresql" label="PostgreSQL" href="/zh/docs/sqlkit/postgresql-gui-client" /> | `tokio-postgres` + `rustls` | `5432` | 完整 5 档（`disable` 到 `verify-full`） | 模式树、视图/过程/函数/触发器、`EXPLAIN (FORMAT JSON)` 与 `ANALYZE` |
+| <DocsDb id="mysql" label="MySQL" href="/zh/docs/sqlkit/mysql-gui-client" /> | `mysql_async` + `rustls` | `3306` | 完整 5 档（`disable` 到 `verify-full`） | 视图/过程/函数/触发器、存储引擎、`EXPLAIN FORMAT=JSON` 与 `ANALYZE` |
+| <DocsDb id="sqlserver" label="SQL Server" href="/zh/docs/sqlkit/sql-server-gui-client" /> | `tiberius`（TDS 7.3） | `1433` | TLS + `Trust Server Certificate` | 模式（`dbo`）、T-SQL `SHOWPLAN_TEXT` 与 `STATISTICS PROFILE` |
+| <DocsDb id="sqlite" label="SQLite" href="/zh/docs/sqlkit/sqlite-gui-client" /> | `rusqlite`（内置） | 本地文件 / `:memory:` | 不适用 | 打开已有文件、新建文件或 `:memory:` 内存库 |
+| <DocsDb id="sqlcipher" label="SQLCipher" href="/zh/docs/sqlkit/sqlite-gui-client#sqlcipher" /> | `rusqlite`（`sqlcipher`） | 本地文件 | 不适用 | 通过 `PRAGMA key` 打开加密 SQLite 文件 |
+| <DocsDb id="clickhouse" label="ClickHouse" /> | 原生 Rust HTTP | `8123` | HTTPS / TLS | 支持物化视图；无模式、存储过程和函数节点 |
 
 ## 2. PostgreSQL 协议兼容引擎（18 种）
 
@@ -31,24 +33,24 @@ SqlKit 在**连接管理 → 添加新连接**中提供 68 种数据库配置。
 
 | 数据库 | 默认端口 | 默认库 / 说明 |
 | --- | --- | --- |
-| AlloyDB for PostgreSQL | `5432` | Google Cloud 托管 PG 兼容引擎 |
-| Amazon Redshift | `5439` | 需指定数据库名称 |
-| Cloud SQL for PostgreSQL | `5432` | Google Cloud 托管 PostgreSQL |
-| CockroachDB | `5432` | 默认库 `defaultdb` |
-| CrateDB | `5432` | 默认库 `crate` |
-| EnterpriseDB (EDB) | `5432` | 需指定数据库名称 |
-| Fujitsu Enterprise Postgres | `5432` | 企业级 PostgreSQL 发行版 |
-| GaussDB | `5432` | 华为分布式 PG 兼容数据库 |
-| GBase 8c | `5432` | 南大通用分布式 PG 兼容库 |
-| Greenplum | `5432` | MPP 分析型数据仓库 |
-| HighGo DB（瀚高） | `5432` | 默认库 `highgo` |
-| Materialize | `5432` | 默认库 `materialize` |
-| openGauss | `5432` | 开源企业级关系数据库 |
-| QuestDB | `8812` | 默认库 `qdb` |
-| TimescaleDB | `5432` | 需指定数据库名称 |
-| UXDB（优炫） | `5432` | 默认库 `uxdb` |
-| Vastbase（海量） | `5432` | 默认库 `vastbase` |
-| YugabyteDB | `5433` | 默认库 `yugabyte` |
+| <DocsDb id="alloydb" label="AlloyDB for PostgreSQL" /> | `5432` | Google Cloud 托管 PG 兼容引擎 |
+| <DocsDb id="redshift" label="Amazon Redshift" /> | `5439` | 需指定数据库名称 |
+| <DocsDb id="cloudsqlpg" label="Cloud SQL for PostgreSQL" /> | `5432` | Google Cloud 托管 PostgreSQL |
+| <DocsDb id="cockroachdb" label="CockroachDB" /> | `5432` | 默认库 `defaultdb` |
+| <DocsDb id="cratedb" label="CrateDB" /> | `5432` | 默认库 `crate` |
+| <DocsDb id="enterprisedb" label="EnterpriseDB (EDB)" /> | `5432` | 需指定数据库名称 |
+| <DocsDb id="fujitsupg" label="Fujitsu Enterprise Postgres" /> | `5432` | 企业级 PostgreSQL 发行版 |
+| <DocsDb id="gaussdb" label="GaussDB" /> | `5432` | 华为分布式 PG 兼容数据库 |
+| <DocsDb id="gbase" label="GBase 8c" /> | `5432` | 南大通用分布式 PG 兼容库 |
+| <DocsDb id="greenplum" label="Greenplum" /> | `5432` | MPP 分析型数据仓库 |
+| <DocsDb id="highgo" label="HighGo DB（瀚高）" /> | `5432` | 默认库 `highgo` |
+| <DocsDb id="materialize" label="Materialize" /> | `5432` | 默认库 `materialize` |
+| <DocsDb id="opengauss" label="openGauss" /> | `5432` | 开源企业级关系数据库 |
+| <DocsDb id="questdb" label="QuestDB" /> | `8812` | 默认库 `qdb` |
+| <DocsDb id="timescaledb" label="TimescaleDB" /> | `5432` | 需指定数据库名称 |
+| <DocsDb id="uxdb" label="UXDB（优炫）" /> | `5432` | 默认库 `uxdb` |
+| <DocsDb id="vastbase" label="Vastbase（海量）" /> | `5432` | 默认库 `vastbase` |
+| <DocsDb id="yugabytedb" label="YugabyteDB" /> | `5433` | 默认库 `yugabyte` |
 
 ## 3. MySQL 协议兼容引擎（13 种）
 
@@ -56,19 +58,19 @@ SqlKit 在**连接管理 → 添加新连接**中提供 68 种数据库配置。
 
 | 数据库 | 默认端口 | 说明 |
 | --- | --- | --- |
-| Apache Doris | `9030` | 实时 OLAP 引擎（MySQL 协议查询端口） |
-| Cloud SQL for MySQL | `3306` | Google Cloud 托管 MySQL |
-| Databend | `3307` | 云原生数仓（MySQL 协议端口） |
-| GoldenDB | `3306` | 分布式事务数据库 |
-| Manticore Search | `9306` | 通过 MySQL 协议查询的全文检索引擎 |
-| MariaDB | `3306` | 独立配置与专属 `mariadb` 格式化方言 |
-| OceanBase（MySQL 模式） | `2883` | ODP 代理默认端口 |
-| PolarDB | `3306` | 云原生 MySQL 兼容数据库 |
-| SelectDB | `9030` | 云原生 Doris 发行版 |
-| SingleStore（MemSQL） | `3306` | 分布式 HTAP 引擎 |
-| StarRocks | `9030` | 实时 OLAP 引擎 |
-| TDSQL | `3306` | 分布式 MySQL 兼容数据库 |
-| TiDB | `4000` | 分布式 NewSQL 数据库 |
+| <DocsDb id="doris" label="Apache Doris" /> | `9030` | 实时 OLAP 引擎（MySQL 协议查询端口） |
+| <DocsDb id="cloudsqlmysql" label="Cloud SQL for MySQL" /> | `3306` | Google Cloud 托管 MySQL |
+| <DocsDb id="databend" label="Databend" /> | `3307` | 云原生数仓（MySQL 协议端口） |
+| <DocsDb id="goldendb" label="GoldenDB" /> | `3306` | 分布式事务数据库 |
+| <DocsDb id="manticore" label="Manticore Search" /> | `9306` | 通过 MySQL 协议查询的全文检索引擎 |
+| <DocsDb id="mariadb" label="MariaDB" /> | `3306` | 独立配置与专属 `mariadb` 格式化方言 |
+| <DocsDb id="oceanbase" label="OceanBase（MySQL 模式）" /> | `2883` | ODP 代理默认端口 |
+| <DocsDb id="polardb" label="PolarDB" /> | `3306` | 云原生 MySQL 兼容数据库 |
+| <DocsDb id="selectdb" label="SelectDB" /> | `9030` | 云原生 Doris 发行版 |
+| <DocsDb id="singlestore" label="SingleStore（MemSQL）" /> | `3306` | 分布式 HTAP 引擎 |
+| <DocsDb id="starrocks" label="StarRocks" /> | `9030` | 实时 OLAP 引擎 |
+| <DocsDb id="tdsql" label="TDSQL" /> | `3306` | 分布式 MySQL 兼容数据库 |
+| <DocsDb id="tidb" label="TiDB" /> | `4000` | 分布式 NewSQL 数据库 |
 
 ## 4. 原生 HTTP SQL 引擎（4 种）
 
@@ -76,10 +78,10 @@ SqlKit 在**连接管理 → 添加新连接**中提供 68 种数据库配置。
 
 | 数据库 | 默认端口 | 说明 |
 | --- | --- | --- |
-| Presto | `8080` | 分布式 SQL 查询引擎 |
-| rqlite | `4001` | 基于 Raft 的分布式 SQLite |
-| Trino | `8080` | 分布式 SQL 查询引擎 |
-| Turso (libSQL) | `443` | 边缘 SQLite（HTTPS + Token） |
+| <DocsDb id="presto" label="Presto" /> | `8080` | 分布式 SQL 查询引擎 |
+| <DocsDb id="rqlite" label="rqlite" /> | `4001` | 基于 Raft 的分布式 SQLite |
+| <DocsDb id="trino" label="Trino" /> | `8080` | 分布式 SQL 查询引擎 |
+| <DocsDb id="turso" label="Turso (libSQL)" /> | `443` | 边缘 SQLite（HTTPS + Token） |
 
 *（ClickHouse 同样采用原生 Rust HTTP 适配器，默认端口 `8123`。）*
 
@@ -89,33 +91,33 @@ SqlKit 在**连接管理 → 添加新连接**中提供 68 种数据库配置。
 
 | 数据库 | 默认端口 / 目标 | 驱动包 | 特别说明 |
 | --- | --- | --- | --- |
-| [Oracle Database](/zh/docs/sqlkit/oracle-gui-client) | `1521` | `ojdbc11` | 基础（SID/服务名）、TNS（`tnsnames.ora`）、云钱包、`NORMAL`/`SYSDBA`/`SYSOPER` |
-| [DuckDB](/zh/docs/sqlkit/sqlite-gui-client#duckdb) | 本地文件 / `memory:<label>` | `duckdb_jdbc` | 无 SSL；支持读写 / 只读模式及同文件冲突检测 |
-| Apache Cassandra (3.0+) | `9042` | `cassandra-jdbc-wrapper` | CQL 宽列模式（见下方 [CQL 说明](#cql-engines)） |
-| ScyllaDB | `9042` | `cassandra-jdbc-wrapper` | CQL 宽列模式，与 Cassandra 共用预打包驱动 |
-| Snowflake | `443` | `snowflake-jdbc` | 云数据仓库 |
-| Google BigQuery | `443` | `googlebigquery-jdbc` | 无服务器数据仓库 |
-| Databricks SQL | `443` | `databricks-jdbc` | 湖仓 SQL 仓库 |
-| Apache Hive | `10000` | `hive-jdbc`（standalone） | HiveServer2 |
-| Apache Kylin | `7070` | `kylin-jdbc` | OLAP 分析引擎 |
-| IBM Db2 | `50000` | `jcc` | 企业级关系数据库 |
-| IBM Informix | `9088` | `jcc` | 企业级关系数据库 |
-| SAP HANA | `30015` | `ngdbc` | 内存数据库 |
-| Teradata | `1025` | `terajdbc` | 企业级数据仓库 |
-| Vertica | `5433` | `vertica-jdbc` | 列式分析数据库 |
-| Exasol | `8563` | `exasol-jdbc` | 内存分析数据库 |
-| Firebird | `3050` | `jaybird` | 开源关系数据库 |
-| H2 | `9092` | `h2` | Java SQL 引擎 |
-| Apache Derby | `1527` | `derbyclient` | 网络版 Derby 服务 |
-| InterSystems IRIS | `1972` | `jdbc` | 企业级多模数据库 |
-| Microsoft Access | 本地 `.accdb`/`.mdb` | `ucanaccess` | 本地文件，无 SSL |
-| 达梦 Dameng (DM8) | `5236` | `DmJdbcDriver8` | 国产关系数据库 |
-| 人大金仓 KingbaseES | `54321` | `kingbase8` | 国产关系数据库 |
-| OceanBase（Oracle 模式） | `2881` | `oceanbase-client` | Oracle 兼容租户 |
-| 南大通用 GBase 8a | `5258` | 预打包驱动 | 分布式分析集群 |
-| 虚谷 XuguDB | `5138` | `xugu-jdbc` | 分布式关系数据库 |
-| 崖山 YashanDB | `1688` | `yashandb-jdbc` | 企业级关系数据库 |
-| TDengine | `6030` | `taos-jdbcdriver` | 时序数据库 |
+| <DocsDb id="oracle" label="Oracle Database" href="/zh/docs/sqlkit/oracle-gui-client" /> | `1521` | `ojdbc11` | 基础（SID/服务名）、TNS（`tnsnames.ora`）、云钱包、`NORMAL`/`SYSDBA`/`SYSOPER` |
+| <DocsDb id="duckdb" label="DuckDB" href="/zh/docs/sqlkit/sqlite-gui-client#duckdb" /> | 本地文件 / `memory:<label>` | `duckdb_jdbc` | 无 SSL；支持读写 / 只读模式及同文件冲突检测 |
+| <DocsDb id="cassandra" label="Apache Cassandra (3.0+)" /> | `9042` | `cassandra-jdbc-wrapper` | CQL 宽列模式（见下方 [CQL 说明](#cql-engines)） |
+| <DocsDb id="scylladb" label="ScyllaDB" /> | `9042` | `cassandra-jdbc-wrapper` | CQL 宽列模式，与 Cassandra 共用预打包驱动 |
+| <DocsDb id="snowflake" label="Snowflake" /> | `443` | `snowflake-jdbc` | 云数据仓库 |
+| <DocsDb id="bigquery" label="Google BigQuery" /> | `443` | `googlebigquery-jdbc` | 无服务器数据仓库 |
+| <DocsDb id="databricks" label="Databricks SQL" /> | `443` | `databricks-jdbc` | 湖仓 SQL 仓库 |
+| <DocsDb id="hive" label="Apache Hive" /> | `10000` | `hive-jdbc`（standalone） | HiveServer2 |
+| <DocsDb id="kylin" label="Apache Kylin" /> | `7070` | `kylin-jdbc` | OLAP 分析引擎 |
+| <DocsDb id="db2" label="IBM Db2" /> | `50000` | `jcc` | 企业级关系数据库 |
+| <DocsDb id="informix" label="IBM Informix" /> | `9088` | `jcc` | 企业级关系数据库 |
+| <DocsDb id="hana" label="SAP HANA" /> | `30015` | `ngdbc` | 内存数据库 |
+| <DocsDb id="teradata" label="Teradata" /> | `1025` | `terajdbc` | 企业级数据仓库 |
+| <DocsDb id="vertica" label="Vertica" /> | `5433` | `vertica-jdbc` | 列式分析数据库 |
+| <DocsDb id="exasol" label="Exasol" /> | `8563` | `exasol-jdbc` | 内存分析数据库 |
+| <DocsDb id="firebird" label="Firebird" /> | `3050` | `jaybird` | 开源关系数据库 |
+| <DocsDb id="h2" label="H2" /> | `9092` | `h2` | Java SQL 引擎 |
+| <DocsDb id="derby" label="Apache Derby" /> | `1527` | `derbyclient` | 网络版 Derby 服务 |
+| <DocsDb id="iris" label="InterSystems IRIS" /> | `1972` | `jdbc` | 企业级多模数据库 |
+| <DocsDb id="access" label="Microsoft Access" /> | 本地 `.accdb`/`.mdb` | `ucanaccess` | 本地文件，无 SSL |
+| <DocsDb id="dm8" label="达梦 Dameng (DM8)" /> | `5236` | `DmJdbcDriver8` | 国产关系数据库 |
+| <DocsDb id="kingbasees" label="人大金仓 KingbaseES" /> | `54321` | `kingbase8` | 国产关系数据库 |
+| <DocsDb id="oceanbase" label="OceanBase（Oracle 模式）" /> | `2881` | `oceanbase-client` | Oracle 兼容租户 |
+| <DocsDb id="gbase" label="南大通用 GBase 8a" /> | `5258` | 预打包驱动 | 分布式分析集群 |
+| <DocsDb id="xugudb" label="虚谷 XuguDB" /> | `5138` | `xugu-jdbc` | 分布式关系数据库 |
+| <DocsDb id="yashandb" label="崖山 YashanDB" /> | `1688` | `yashandb-jdbc` | 企业级关系数据库 |
+| <DocsDb id="tdengine" label="TDengine" /> | `6030` | `taos-jdbcdriver` | 时序数据库 |
 
 ## 管理 JRE 25 与 JDBC 驱动 {#jdbc-manager}
 

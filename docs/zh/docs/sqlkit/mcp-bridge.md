@@ -24,7 +24,9 @@ SqlKit 内嵌基于 Rust 和 Axum 的本地 HTTP **MCP 桥接**，让 Claude Cod
 
 ### 确认 MCP 桥接正在运行
 
-进入**设置 → MCP 桥接**，确认状态显示**运行中（Running on port `<port>`）**；需要时可点击**重启桥接**。旗舰版激活后桥接会随应用自动启动，关闭主窗口后继续在系统托盘或菜单栏中运行。
+进入**设置 → MCP 桥接**，确认状态显示**运行中（Running on port `<port>`）**；需要时可点击重启按钮。旗舰版激活并开启 **Auto-start** 后，桥接会随应用自动启动，关闭主窗口后继续在系统托盘或菜单栏中运行。
+
+<DocsFigure src="/sqlkit-mcp-bridge-settings.png" alt="SqlKit 设置中的 MCP Bridge 选项卡：显示运行端口 9121、自动启动开关、Claude Code/Codex/Cursor 注册命令以及默认 AI 权限" caption="在设置 → MCP 桥接中可查看监听端口、一键复制各编程客户端注册命令、查看活跃会话并配置默认 AI 权限。" :width="3458" :height="2266" />
 
 ### 配置默认与单连接 AI 权限
 

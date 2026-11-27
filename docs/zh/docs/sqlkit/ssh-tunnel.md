@@ -64,6 +64,8 @@ outline: [2, 3]
 
 在列表中拖动排序手柄（或点击上下移按钮）即可调整跳板顺序。SqlKit 会实时显示路径预览（`System Proxy → Hop 1 → Hop 2 → Database`），方便在测试前核对完整转发链路。
 
+<DocsFigure src="/sqlkit-ssh-tunnel-ui.png" alt="SqlKit 编辑连接弹窗的高级选项卡：展示 SSL/TLS 模式、SSH 隧道配置选择、系统代理检测添加条、可拖拽跳板卡片、实时路径预览与 AI 权限" caption="连接的高级选项卡将可复用 SSH 跳板、系统代理检测与实时路径预览和 SSL/TLS、AI 权限集中管理。" :width="3034" :height="2266" />
+
 ### 测试并保存连接
 
 点击 **SSH 隧道**标题栏的测试图标可校验第一跳连通性；点击数据库连接弹窗底部的**测试连接**，SqlKit 会建立整条 SSH 链路、绑定本地回环端口，并端到端校验数据库登录与 TLS 配置。

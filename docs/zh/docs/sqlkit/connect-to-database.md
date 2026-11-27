@@ -86,7 +86,9 @@ Oracle、DuckDB、Snowflake、BigQuery、Databricks、DB2、SAP HANA、Firebird�
 2. **JDBC 桥接包**：从 GitHub Releases 下载 `jdbc-bridge-<version>.jar` 至 `~/.sqlkit/jdbc-bridge/`。
 3. **数据库驱动**：从 Maven Central 或预打包发行源拉取对应引擎驱动。
 
-随时打开**设置 → JRE 与 JDBC 驱动**可查看所有组件的版本与大小、检查更新、预先下载或删除不需要的驱动。
+随时打开**设置 → JRE 与驱动（JRE & Drivers）**可查看所有组件的版本与大小、检查更新、预先下载或删除不需要的驱动。
+
+<DocsFigure src="/sqlkit-settings-drivers.png" alt="SqlKit 设置中的 JRE & Drivers 选项卡：显示受管 JRE 25、Bridge JAR 以及 Apache Cassandra、DuckDB、GBase 8a、KingbaseES、Oracle 等 JDBC 驱动安装状态" caption="在设置 → JRE & Drivers 中可以集中管理受管 JRE 25、Bridge JAR 和各数据库 JDBC 驱动的版本与更新。" :width="3842" :height="2306" />
 
 ::: warning 受限网络或内网环境
 自动下载组件需要出站 HTTPS 访问 Adoptium、GitHub Releases 和 Maven Central（或驱动发行源）。若防火墙拦截这些地址，请放通后在**设置 → JRE 与 JDBC 驱动**中重试。

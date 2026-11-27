@@ -86,7 +86,9 @@ Clicking **Test Connection** on a JDBC profile runs a 3-step setup check:
 2. **JDBC Bridge**: downloads `jdbc-bridge-<version>.jar` from GitHub Releases into `~/.sqlkit/jdbc-bridge/`.
 3. **Database Driver**: downloads the engine driver from Maven Central or its pre-shaded release bundle.
 
-Open **Settings → JRE & JDBC Drivers** anytime to check installed versions and sizes, check for updates, download drivers ahead of time, or remove unused components.
+Open **Settings → JRE & Drivers** anytime to check installed versions and sizes, check for updates, download drivers ahead of time, or remove unused components.
+
+<DocsFigure src="/sqlkit-settings-drivers.png" alt="SqlKit Settings JRE & Drivers tab showing managed JRE 25, Bridge JAR, and installed JDBC drivers for Apache Cassandra, DuckDB, GBase 8a, KingbaseES, and Oracle Database" caption="Settings → JRE & Drivers tracks the managed JRE 25 runtime, Bridge JAR, and per-engine JDBC driver versions, sizes, and updates." :width="3842" :height="2306" />
 
 ::: warning Restricted or air-gapped networks
 Automatic downloads require outbound HTTPS access to Adoptium, GitHub Releases, and Maven Central (or the vendor bundle URL). If your firewall blocks those hosts, allow access before retrying in **Settings → JRE & JDBC Drivers**.

@@ -24,7 +24,9 @@ Open SqlKit, sign in with **Ultimate** (or an active 7-day trial), and confirm y
 
 ### Confirm the MCP Bridge is running
 
-Open **Settings → MCP Bridge** and verify the status shows **Running on port `<port>`**. Use **Restart Bridge** if needed. When Ultimate is active, the bridge starts automatically on launch and stays running in the system tray or menu bar after you close the main window.
+Open **Settings → MCP Bridge** and verify the status shows **Running on port `<port>`**. Use the restart button if needed. When Ultimate is active, the bridge starts automatically on launch (controlled by **Auto-start**) and stays running in the system tray or menu bar after you close the main window.
+
+<DocsFigure src="/sqlkit-mcp-bridge-settings.png" alt="SqlKit Settings MCP Bridge tab showing Running on port 9121, Auto-start enabled, one-click setup commands for Claude Code, Codex, Cursor, and Other clients, and Default AI permissions" caption="Settings → MCP Bridge shows the running local port, one-click client registration snippets, active client status, and Default AI permissions." :width="3458" :height="2266" />
 
 ### Set default & per-connection AI permissions
 

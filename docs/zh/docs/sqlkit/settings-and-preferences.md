@@ -10,14 +10,16 @@ outline: [2, 3]
 
 ## 六个设置选项卡
 
+<DocsFigure src="/sqlkit-settings-drivers.png" alt="SqlKit 设置页面展示六个选项卡（General、Editor、Query、LLMs、MCP Bridge、JRE & Drivers）以及受管 JRE 25、Bridge JAR 和已安装的 JDBC 驱动列表" caption="设置页按六个选项卡组织：通用、编辑器、查询、LLMs、MCP 桥接与 JRE 与驱动管理。" :width="3842" :height="2306" />
+
 | 选项卡 | 配置项 | 版本要求 |
 | --- | --- | --- |
 | 通用（General） | 主题（跟随系统、深色、浅色）、界面语言（7 种语言加自动检测系统）、账号与方案、关于与签名自动更新 | <DocsBadge variant="community">社区版</DocsBadge> |
 | 编辑器（Editor） | Monaco 字号、Tab 宽度、格式化缩进与行宽、自动换行、行号显示、代码缩略图（Minimap） | <DocsBadge variant="community">社区版</DocsBadge> |
 | 查询（Query） | 默认结果行数上限、默认查询超时时间、自动保存查询 | <DocsBadge variant="community">社区版</DocsBadge> |
-| AI | 20 个 BYOK 模型服务商预设、单服务商 HTTP 代理、模型同步、全局系统提示词、自动压缩与预算护栏 | <DocsBadge variant="ultimate">旗舰版</DocsBadge> |
+| 模型（LLMs） | 20 个 BYOK 模型服务商预设、单服务商 HTTP 代理、模型同步、全局系统提示词、自动压缩与预算护栏 | <DocsBadge variant="ultimate">旗舰版</DocsBadge> |
 | MCP 桥接（MCP Bridge） | 内嵌桥接状态与重启、活跃客户端列表、Claude/Codex/Cursor 注册指引、默认 AI 权限 | <DocsBadge variant="ultimate">旗舰版</DocsBadge> |
-| JRE 与 JDBC 驱动 | 系统 JDK 25+ 检测或托管 Eclipse Temurin JRE 25、`jdbc-bridge` JAR 与全部 27 个 JDBC 驱动 | <DocsBadge variant="community">社区版</DocsBadge> |
+| JRE 与驱动（JRE & Drivers） | 系统 JDK 25+ 检测或托管 Eclipse Temurin JRE 25、`jdbc-bridge` JAR 与全部 27 个 JDBC 驱动 | <DocsBadge variant="community">社区版</DocsBadge> |
 
 ## 通用设置：主题、7 种语言与账号方案
 

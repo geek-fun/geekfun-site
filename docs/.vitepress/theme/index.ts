@@ -27,6 +27,7 @@ import DocsSteps from "./components/docs/DocsSteps.vue";
 import DocsPlatform from "./components/docs/DocsPlatform.vue";
 import DocsFlowDiagram from "./components/docs/DocsFlowDiagram.vue";
 import DocsCheck from "./components/docs/DocsCheck.vue";
+import DocsDb from "./components/docs/DocsDb.vue";
 import { isBlogArticle } from "../blog";
 import { getDocsProductId } from "../docs-navigation";
 import { getUnprefixedDocsPath } from "../docs-locales";
@@ -104,5 +105,6 @@ export default {
         app.component('DocsPlatform', DocsPlatform);
         app.component('DocsFlowDiagram', DocsFlowDiagram);
         app.component('DocsCheck', DocsCheck);
+        app.component('DocsDb', DocsDb);
     }
 }

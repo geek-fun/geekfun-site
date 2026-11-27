@@ -10,14 +10,16 @@ Open **Settings** from the bottom of the left navigation rail to configure appea
 
 ## Overview of the 6 Settings tabs
 
+<DocsFigure src="/sqlkit-settings-drivers.png" alt="SqlKit Settings page showing all six tabs (General, Editor, Query, LLMs, MCP Bridge, JRE & Drivers) with the JRE 25 runtime, Bridge JAR, and installed JDBC drivers" caption="Settings organizes preferences across six tabs: General, Editor, Query, LLMs, MCP Bridge, and JRE & Drivers." :width="3842" :height="2306" />
+
 | Tab | What you configure | Edition |
 | --- | --- | --- |
 | General | Theme (System, Dark, Light), UI Language (7 languages plus OS auto-detect), Account & Plan, About & Signed Auto-Updater | <DocsBadge variant="community">Community</DocsBadge> |
 | Editor | Monaco font size, tab size, SQL formatter indent and line width, word wrap, line numbers, minimap | <DocsBadge variant="community">Community</DocsBadge> |
 | Query | Default row limit, default query timeout, auto-save queries | <DocsBadge variant="community">Community</DocsBadge> |
-| AI | 20 BYOK LLM provider presets, per-provider HTTP proxy, model sync, global system prompt, auto-compact, safety budgets | <DocsBadge variant="ultimate">Ultimate</DocsBadge> |
+| LLMs | 20 BYOK LLM provider presets, per-provider HTTP proxy, model sync, global system prompt, auto-compact, safety budgets | <DocsBadge variant="ultimate">Ultimate</DocsBadge> |
 | MCP Bridge | Embedded bridge status and restart, active clients, Claude/Codex/Cursor setup snippets, Default AI permissions | <DocsBadge variant="ultimate">Ultimate</DocsBadge> |
-| JRE & JDBC Drivers | System JDK 25+ detection or managed Eclipse Temurin JRE 25, `jdbc-bridge` JAR, and all 27 JDBC drivers | <DocsBadge variant="community">Community</DocsBadge> |
+| JRE & Drivers | System JDK 25+ detection or managed Eclipse Temurin JRE 25, `jdbc-bridge` JAR, and all 27 JDBC drivers | <DocsBadge variant="community">Community</DocsBadge> |
 
 ## General: themes, 7 UI languages & account
 

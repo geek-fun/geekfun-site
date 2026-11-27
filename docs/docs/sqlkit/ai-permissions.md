@@ -12,6 +12,8 @@ SqlKit applies one AI policy engine across **Agentic Data Studio**, the **Querie
 
 SqlKit enforces five separate checks on every AI or MCP request:
 
+<DocsFlowDiagram variant="ai-safety" />
+
 1. **Database account privileges**: SqlKit executes every query with the database login saved in your connection. A read-only database user cannot write regardless of client settings.
 2. **Fail-closed policy chain**: every AI and MCP tool call is checked in strict order (`per-connection explicit Allow/Deny -> system AI default -> deny`). If a policy file is missing or corrupted, SqlKit denies access.
 3. **AST-verified write isolation (`sqlparser` + CQL classifier)**: `sqlkit__execute_query` parses incoming SQL into an AST before execution so writes, including data-modifying CTEs (`WITH updated AS (UPDATE ... RETURNING *) SELECT * FROM updated`), cannot run through the read-only query tool. For Cassandra and ScyllaDB, a CQL keyword classifier enforces the same boundary.
@@ -58,7 +60,9 @@ For actions permitted by the connection policy, confirmation prompts depend on t
 
 ### Confirmation card actions (saved session rules)
 
-When a confirmation card appears in Data Studio or the AI Assistant sidebar, pick **Allow Once** (approve only this call), **Allow Always** (save a matching rule for the current session), **Deny** (reject this call and let the agent adjust), **Deny Always** (block matching calls for the rest of the session), or **Cancel** (stop the current agent turn).
+When a confirmation card appears in Data Studio or the AI Assistant sidebar, pick **Allow Once** (approve only this call), **Always Allow** (save a matching rule for the current session), **Deny** (reject this call and let the agent adjust), **Always Deny** (block matching calls for the rest of the session), or **Cancel** (stop the current agent turn).
+
+<DocsFigure src="/sqlkit-ai-approval-card.png" alt="SqlKit Data Studio showing an Elevated Risk confirmation card for sqlkit__execute_write with the exact SQL statement and Allow Once, Always Allow, Deny, Always Deny, and Cancel buttons" caption="In Ask mode, elevated and destructive tool calls pause on an inline confirmation card displaying the exact SQL payload before anything executes." :width="3458" :height="2266" />
 
 ::: warning Switching to Auto never grants new permissions
 Changing a session from **Ask** to **Auto** only skips prompts for permitted Elevated writes. It never allows an action denied by the connection policy or session restriction.

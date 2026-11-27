@@ -56,6 +56,8 @@ SqlKit 内嵌 Monaco Editor，自动同步浅色或深色主题。在**设置 �
 
 按 <kbd>F6</kbd> 或点击工具栏**解释（Explain）**分析 SQL 执行计划，可在 **EXPLAIN**（估算计划，不执行语句）和 **EXPLAIN ANALYZE**（实际执行并采集耗时与行数）之间切换。
 
+<DocsFigure src="/sqlkit-explain-tree.png" alt="SqlKit PostgreSQL 分区表连接查询的可视化 EXPLAIN 树状视图，显示总估算开销、最高开销算子及各节点行数指标" caption="可视化 EXPLAIN 树状视图标注了总估算开销、开销最高算子以及各层扫描与连接节点，并支持在 Tree、Summary、Raw 视图间切换。" :width="3842" :height="2306" />
+
 ::: warning EXPLAIN ANALYZE 会实际执行语句
 分析执行计划时请优先使用只读 `SELECT` 语句；除非确有必要，不要对写操作执行 `EXPLAIN ANALYZE`。
 :::

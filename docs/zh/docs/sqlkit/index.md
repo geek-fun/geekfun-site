@@ -68,6 +68,8 @@ SqlKit 是一款开源、跨平台的桌面 SQL 客户端，基于 Rust、Tauri 
 
 SqlKit 按数据库协议选用对应适配器。内置引擎在安装后可直接连接，不需要额外运行时；Oracle、DuckDB、Snowflake 等 JDBC 引擎在首次测试连接时自动配置受管的 Eclipse Temurin JRE 25 与对应驱动。
 
+<DocsFlowDiagram variant="multi-driver" />
+
 | 驱动层 | 数量 | 代表数据库 | 运行时要求 |
 | --- | --- | --- | --- |
 | 内置原生 Rust（TCP） | 3 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> | 内置，无需配置 |

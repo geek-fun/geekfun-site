@@ -56,6 +56,8 @@ The character-level statement scanner splits multi-statement scripts without bre
 
 Press <kbd>F6</kbd> or click **Explain** in the toolbar to inspect how the database plans a query. Switch between **EXPLAIN** (estimated plan without running the query) and **EXPLAIN ANALYZE** (runs the query to collect real timings and row counts).
 
+<DocsFigure src="/sqlkit-explain-tree.png" alt="SqlKit visual EXPLAIN plan Tree view for a PostgreSQL join across partitioned tables showing estimated total cost, most expensive operator, and per-node cost and row metrics" caption="Visual EXPLAIN Tree view highlighting estimated total cost, the most expensive operator, and nested scan/join nodes across Tree, Summary, and Raw tabs." :width="3842" :height="2306" />
+
 ::: warning EXPLAIN ANALYZE executes the statement
 Use `EXPLAIN ANALYZE` only on read-only `SELECT` statements unless you intend to run a write statement on the target database.
 :::

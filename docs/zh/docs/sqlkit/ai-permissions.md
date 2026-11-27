@@ -12,6 +12,8 @@ outline: [2, 3]
 
 每次 AI 或 MCP 请求都会经过五层独立检查：
 
+<DocsFlowDiagram variant="ai-safety" />
+
 1. **数据库账号权限**：所有查询以连接中保存的数据库账号身份执行。为生产库配置只读数据库角色后，任何客户端配置都无法突破服务端授权。
 2. **默认拒绝（Fail-Closed）策略链**：每次工具调用按顺序判定：`单连接显式规则（允许 / 拒绝） -> 系统默认 AI 权限 -> 拒绝`。策略文件缺失或损坏时直接拒绝放行。
 3. **AST 读写隔离（`sqlparser` + CQL 分类器）**：`sqlkit__execute_query` 在执行前对 SQL 做语法树解析，拦截包括数据修改型 CTE（如 `WITH updated AS (UPDATE ... RETURNING *) SELECT * FROM updated`）在内的写语句；Cassandra 和 ScyllaDB 由专用 CQL 分类器做同等隔离。
@@ -58,7 +60,9 @@ outline: [2, 3]
 
 ### 确认卡选项（会话级记忆规则）
 
-在 Data Studio 或 AI 助手侧边栏弹出确认卡时，可以选择**仅允许本次（Allow Once）**、**总是允许（Allow Always）**（为当前会话保存一条匹配规则）、**拒绝（Deny）**（拒绝本次调用并让智能体调整方案）、**总是拒绝（Deny Always）**（本会话后续同类调用直接拦截），或**取消（Cancel）**（立即中止当前推理轮次）。
+在 Data Studio 或 AI 助手侧边栏弹出确认卡时，可以选择**仅允许本次（Allow Once）**、**总是允许（Always Allow）**（为当前会话保存一条匹配规则）、**拒绝（Deny）**（拒绝本次调用并让智能体调整方案）、**总是拒绝（Always Deny）**（本会话后续同类调用直接拦截），或**取消（Cancel）**（立即中止当前推理轮次）。
+
+<DocsFigure src="/sqlkit-ai-approval-card.png" alt="SqlKit Data Studio 中 sqlkit__execute_write 写入操作触发的 Elevated Risk 风险确认卡，展示完整 SQL 语句及 Allow Once、Always Allow、Deny、Always Deny、Cancel 按钮" caption="Ask 模式下，提权写入与破坏性调用会在对话内弹出确认卡并展示完整 SQL，经人工确认后才会执行。" :width="3458" :height="2266" />
 
 ::: warning 切换到 Auto 不会放宽权限
 将会话从 **Ask** 切到 **Auto** 只跳过已授权常规写入的确认弹窗，无法绕过连接策略或会话限制中已拒绝的操作。

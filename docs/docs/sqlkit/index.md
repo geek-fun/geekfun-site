@@ -68,6 +68,8 @@ SqlKit is an open-source desktop SQL client built with Rust, Tauri v2, and Vue 3
 
 SqlKit routes each engine to an adapter built for its protocol. Built-in databases work immediately after installation with no external runtime. JDBC engines set up a managed Eclipse Temurin JRE 25 and the database driver automatically during your first connection test.
 
+<DocsFlowDiagram variant="multi-driver" />
+
 | Driver layer | Engines | Representative databases | Runtime requirement |
 | --- | --- | --- | --- |
 | Native Rust (TCP) | 3 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> | Built in, no setup |
