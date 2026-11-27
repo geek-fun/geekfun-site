@@ -32,7 +32,7 @@ head:
         "description": "Open-source desktop MongoDB GUI client with Data AI Agent, Agentic Data Studio, Monaco editor, collection management, and multi-database support. Free alternative to MongoDB Compass for Mac, Windows, and Linux.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",

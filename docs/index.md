@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "GEEKFUN | AI-Native Data Tools: Data Studio Agent, DocKit, SqlKit"
-description: "GEEKFUN is a sustainable open-source community building AI-native data tools in public. Data Studio Agent, an MCP server, lets AI coding agents like Claude Code and Cursor query your databases in plain language. DocKit covers MongoDB, Elasticsearch, OpenSearch, and DynamoDB; SqlKit connects to PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and more. The Community editions are free and open source, privacy-first; advanced AI features are part of the paid Ultimate subscription."
+description: "Open-source desktop database tools by GEEKFUN: SqlKit for SQL, DocKit for NoSQL, and Data Studio Agent (MCP) for AI coding agents. Free Community edition."
 head:
   - - link
     - rel: canonical

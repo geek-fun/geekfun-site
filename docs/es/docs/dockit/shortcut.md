@@ -1,6 +1,6 @@
 ---
 title: "Atajos de teclado de DocKit"
-description: "Consulta las teclas para ejecutar y guardar consultas, dar formato al editor y abrir las sugerencias."
+description: "Atajos de teclado de DocKit para ejecutar y guardar consultas, dar formato al editor, plegar bloques y abrir sugerencias."
 ---
 
 # Atajos de teclado de DocKit

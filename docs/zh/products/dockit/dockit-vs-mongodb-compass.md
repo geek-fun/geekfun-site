@@ -32,8 +32,8 @@ head:
         "description": "开源桌面 MongoDB GUI 客户端，支持 Data AI Agent、Agentic Data Studio、Monaco 编辑器、集合管理和多数据库支持。MongoDB Compass 的免费替代方案，适用于 Mac、Windows 和 Linux。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]
@@ -161,4 +161,4 @@ DocKit 能给你：
 
 ---
 
-[DocKit 完整功能概览](/products/dockit/) · [MongoDB GUI 客户端页面](/products/dockit/mongodb-gui-client) · [全部对比](/products/dockit/)
+[DocKit 完整功能概览](/zh/products/dockit/) · [MongoDB GUI 客户端页面](/zh/products/dockit/mongodb-gui-client) · [全部对比](/zh/products/dockit/)

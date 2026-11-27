@@ -33,8 +33,8 @@ head:
         "description": "开源桌面 DynamoDB GUI 客户端，支持 PartiQL 编辑器、可视化查询构建器和多数据库支持。Dynobase 的免费替代方案，支持 Mac、Windows 和 Linux；Agentic Data Studio 等进阶 AI 能力属于旗舰版订阅。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]
@@ -179,4 +179,4 @@ Dynobase 3.0 可在表的菜单中管理[按需备份](https://dynobase.dev/new-
 
 ---
 
-→ **[DocKit 完整功能概览](/products/dockit/)** · [DynamoDB GUI 客户端页面](/products/dockit/dynamodb-gui-client) · [DynamoDB GUI 深度解析](/zh/products/dockit/dynamodb-gui-client)
+→ **[DocKit 完整功能概览](/zh/products/dockit/)** · [DynamoDB GUI 客户端页面](/zh/products/dockit/dynamodb-gui-client) · [DynamoDB GUI 深度解析](/zh/products/dockit/dynamodb-gui-client)

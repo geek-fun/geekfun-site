@@ -1,7 +1,8 @@
 ---
 layout: product
+showBody: true
 title: DocKit | MongoDB, Elasticsearch, OpenSearch, DynamoDB용 Agentic NoSQL 데스크톱 GUI
-description: 'DocKit은 MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch를 위한 오픈 소스 Agentic NoSQL 데스크톱 GUI입니다. 로컬 환경에서 프라이버시를 지키며 데이터 AI 에이전트가 자연어로 쿼리를 작성하고 스키마를 검사하며 데이터를 관리합니다. Community 에디션은 무료 오픈 소스이며, AI 에이전트는 유료 Ultimate 구독에 포함됩니다.'
+description: 'MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch용 오픈 소스 NoSQL 데스크톱 GUI입니다. Community는 무료이며 Ultimate에 AI 에이전트와 MCP가 포함됩니다.'
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
@@ -37,9 +38,14 @@ head:
         "description": "MongoDB, Elasticsearch, OpenSearch, DynamoDB, EasySearch용 Apache 2.0 오픈 소스 데스크톱 GUI 클라이언트입니다. 내장 AI 어시스턴트와 Agentic Data Studio로 자연어 쿼리를 생성하고 실행하며, 데이터를 로컬에 저장합니다.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
+        "url": "https://www.geekfun.club/ko/products/dockit/",
+        "inLanguage": "ko",
         "offers": {
           "@type": "Offer",
-          "priceCurrency": "USD"
+          "name": "Community",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/ko/pricing"
         },
         "featureList": [
           "AI 기반 쿼리 생성",
@@ -67,7 +73,7 @@ head:
           "테이블 수명 주기 관리"
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
-        "downloadUrl": "https://www.geekfun.club/download",
+        "downloadUrl": "https://www.geekfun.club/ko/download#dockit",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -231,4 +237,4 @@ DocKit은 연결된 엔진을 자동으로 감지하고 그에 맞게 API 호출
 네. Community 에디션은 계속 무료·오픈 소스로 제공되며, 유료 Ultimate 구독(USD 9.90/월 또는 USD 99.00/년, 7일 무료 체험)으로 AI 에이전트, MCP, 클러스터 관리 등의 고급 기능을 사용할 수 있습니다.
 
 **SQL 데이터베이스도 지원하나요?**
-DocKit은 NoSQL 데이터베이스 전용으로 만들어졌습니다. PostgreSQL, MySQL, SQL Server, SQLite 지원이 필요하다면 같은 팀이 만든 오픈 소스 SQL 데스크톱 클라이언트인 [SqlKit](/products/sqlkit/)을 확인해 보세요.
+DocKit은 NoSQL 데이터베이스 전용으로 만들어졌습니다. PostgreSQL, MySQL, SQL Server, SQLite 지원이 필요하다면 같은 팀이 만든 오픈 소스 SQL 데스크톱 클라이언트인 [SqlKit](/ko/products/sqlkit/)을 확인해 보세요.

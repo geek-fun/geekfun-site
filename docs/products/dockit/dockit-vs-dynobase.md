@@ -33,7 +33,7 @@ head:
         "description": "Open-source desktop DynamoDB GUI client with PartiQL editor, visual query builder, and multi-DB support. Free alternative to Dynobase for Mac, Windows, and Linux; the Agentic Data Studio and other advanced AI features are part of the paid Ultimate subscription.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",

@@ -32,8 +32,8 @@ head:
         "description": "开源桌面 DynamoDB GUI 客户端，支持 PartiQL 编辑器、AI 查询生成、可视化查询构建器、导入导出和本地化持久化存储。Dynobase 和 NoSQL Workbench 的免费替代方案。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]

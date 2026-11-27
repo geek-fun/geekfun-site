@@ -1,7 +1,7 @@
 ---
 layout: product
 title: Data Studio Agent. Your DBA. – Talk to your databases in plain language
-description: Data Studio Agent. Your DBA. An open-source MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Your 24/7 database engineer. Connect to SQL databases through SqlKit and NoSQL databases through DocKit.
+description: Open-source MCP server letting AI coding agents like Claude Code and Cursor query SQL and NoSQL databases locally through SqlKit and DocKit.
 ogImage: https://www.geekfun.club/og/master-en.png
 head:
   - - meta
@@ -33,6 +33,14 @@ head:
         "description": "Data Studio Agent. Your DBA. An open-source (Apache 2.0) MCP server that lets AI coding agents talk to your databases in plain language, securely. It understands your schema, runs queries, and walks you through what it did. Connect to SQL databases through SqlKit and NoSQL databases through DocKit.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Windows, Linux",
+        "url": "https://www.geekfun.club/products/data-studio-agent/",
+        "offers": {
+          "@type": "Offer",
+          "name": "Community",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/pricing"
+        },
         "featureList": [
           "MCP server for AI coding agents",
           "SQL database access through SqlKit",

@@ -44,7 +44,7 @@ export const getSiteNavigation = (lang: string): DefaultTheme.NavItem[] => {
     {
       text: localized?.title ?? (lang === 'zh' ? '文档' : 'Docs'),
       link: `${prefix}/docs`,
-      activeMatch: `^${prefix}/(?:docs(?:/|$)|products/dockit/docs$)`,
+      activeMatch: `^${prefix}/docs(?:/|$)`,
     },
     { text: copy.blog, link: `${prefix}/blog`, activeMatch: `^${prefix}/blog(?:/|$)` },
     { text: copy.news, link: `${prefix}/news`, activeMatch: `^${prefix}/news(?:/|$)` },

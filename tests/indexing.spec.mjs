@@ -42,15 +42,35 @@ test('sitemap pages publish matching canonical and language URLs', async () => {
 
     const htmlAlternates = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
       .map(([, lang, href]) => [lang, href])
-    const english = alternates.find(([lang]) => lang === 'en')
-    const expectedAlternates = english ? [...alternates, ['x-default', english[1]]] : alternates
-    expect(htmlAlternates.sort(), url).toEqual(expectedAlternates.sort())
+    expect(htmlAlternates.sort(), url).toEqual(alternates.sort())
     expect(alternates.every(([, href]) => published.has(href)), url).toBe(true)
 
     const menus = [...html.matchAll(/<nav[^>]*class="language-options"[^>]*>(.*?)<\/nav>/gs)]
     const menuLinks = menus.flatMap(([, menu]) => [...menu.matchAll(/<a href="([^"]+)" lang="([^"]+)" hreflang="[^"]+"/g)])
       .map(([, href, lang]) => [lang, new URL(href, origin).href])
-    expect(menuLinks.sort(), url).toEqual(alternates.filter(([, href]) => href !== url).sort())
+    expect(menuLinks.sort(), url).toEqual(
+      alternates.filter(([lang, href]) => lang !== 'x-default' && href !== url).sort(),
+    )
+
+    expect(html, url).not.toMatch(/property="twitter:/)
+    expect(html, url).toContain('name="twitter:title"')
+    expect(html, url).toContain('name="twitter:description"')
+    expect(html, url).toContain('name="twitter:image"')
+
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? ''
+    expect(title, url).not.toMatch(/GEEKFUN.*GEEKFUN|极客范.*极客范/i)
+
+    const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map(([, raw]) => JSON.parse(raw))
+    expect(schemas.some((schema) => schema['@type'] === 'Organization'), url).toBe(true)
+    for (const schema of schemas.filter((s) => s['@type'] === 'SoftwareApplication')) {
+      const offers = Array.isArray(schema.offers) ? schema.offers : [schema.offers]
+      expect(offers.length, url).toBeGreaterThan(0)
+      for (const offer of offers) {
+        expect(offer?.price, url).toBeDefined()
+        expect(offer?.priceCurrency, url).toBeDefined()
+      }
+    }
   }
 })
 

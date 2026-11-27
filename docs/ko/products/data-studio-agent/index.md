@@ -4,6 +4,11 @@ description: "Data Studio Agent는 Claude Code, Cursor 등의 코딩 에이전�
 layout: product
 showBody: true
 titleTemplate: false
+head:
+  - - script
+    - type: application/ld+json
+    - |
+      {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Data Studio Agent", "alternateName": ["data-studio-mcp", "Data Studio MCP Server"], "description": "Data Studio Agent는 Claude Code, Cursor 등의 코딩 에이전트에서 데이터베이스를 조회할 수 있게 해 주는 오픈 소스 MCP 서버입니다.", "url": "https://www.geekfun.club/ko/products/data-studio-agent/", "inLanguage": "ko", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Windows, Linux", "offers": {"@type": "Offer", "name": "Community", "price": "0", "priceCurrency": "USD", "url": "https://www.geekfun.club/ko/pricing"}, "downloadUrl": "https://www.npmjs.com/package/@geek-fun/data-studio-mcp", "author": {"@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club"}, "license": "https://github.com/geek-fun/data-studio-agent/blob/master/LICENSE", "sameAs": ["https://github.com/geek-fun/data-studio-agent", "https://www.npmjs.com/package/@geek-fun/data-studio-mcp"]}
 hero:
   name: Data Studio Agent
   headline: "데이터베이스용 MCP 서버"

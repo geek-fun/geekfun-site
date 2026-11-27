@@ -25,3 +25,7 @@
 /zh-TW   /zh/        301
 /zh-TW/  /zh/        301
 /zh-TW/* /zh/:splat  301
+
+# Legacy DocKit docs stub
+/products/dockit/docs     /docs/dockit/     301
+/zh/products/dockit/docs  /zh/docs/dockit/  301

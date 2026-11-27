@@ -285,6 +285,5 @@ export const getDocsSidebar = (lang: string) => Object.fromEntries(
 
 export const getDocsProductId = (pagePath: string): string | undefined => {
   const path = getUnprefixedDocsPath(pagePath)
-  if (path === 'products/dockit/docs.md') return 'dockit'
   return products.find(({ id }) => path.startsWith(`docs/${id}/`))?.id
 }

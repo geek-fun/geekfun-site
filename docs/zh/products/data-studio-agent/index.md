@@ -1,7 +1,7 @@
 ---
 layout: product
 title: Data Studio Agent。你的 DBA。– 用自然语言和数据库对话
-description: Data Studio Agent。你的 DBA。一个开源的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。你的 7×24 小时数据库工程师。通过 SqlKit 连接 SQL 数据库，通过 DocKit 连接 NoSQL 数据库。
+description: 开源 MCP 服务器，让 Claude Code、Cursor 等 AI 编程代理通过 SqlKit 和 DocKit 在本地安全查询 SQL 与 NoSQL 数据库。
 ogImage: https://www.geekfun.club/og/master-zh.png
 head:
   - - meta
@@ -33,6 +33,14 @@ head:
         "description": "Data Studio Agent。你的 DBA。一个开源（Apache 2.0）的 MCP 服务器，让 AI 编程智能体用自然语言、安全地和你的数据库对话。它读懂你的 schema、执行查询、一步步讲给你听。通过 SqlKit 连接 SQL 数据库，通过 DocKit 连接 NoSQL 数据库。",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Windows, Linux",
+        "url": "https://www.geekfun.club/zh/products/data-studio-agent/",
+        "offers": {
+          "@type": "Offer",
+          "name": "社区版",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/zh/pricing"
+        },
         "featureList": [
           "面向 AI 编码代理的 MCP 服务器",
           "通过 SqlKit 访问 SQL 数据库",

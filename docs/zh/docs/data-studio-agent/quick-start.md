@@ -28,7 +28,7 @@ head:
 
 ## 1. 前置条件：安装桌面应用
 
-安装并启动 [DocKit](/products/dockit/) 和/或 [SqlKit](/products/sqlkit/)，添加至少一个数据库连接，并确保 **设置 → MCP Bridge → 自动启动** 已开启（默认开启）。
+安装并启动 [DocKit](/zh/products/dockit/) 和/或 [SqlKit](/zh/products/sqlkit/)，添加至少一个数据库连接，并确保 **设置 → MCP Bridge → 自动启动** 已开启（默认开启）。
 
 - 若只使用 SqlKit，可按 [SqlKit MCP 配置](/zh/docs/sqlkit/mcp-bridge)检查桥接、配置客户端并验证连接。
 - **SQL** 数据库需要 SqlKit；**NoSQL** 数据库需要 DocKit。两个都装可获得完整工具集。

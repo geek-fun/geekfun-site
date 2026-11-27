@@ -222,7 +222,7 @@ DocKit 的一个关键设计原则是**本地优先数据存储**。您的查询
 
 ## 相关资源
 
-- **[DocKit 完整功能概览](/products/dockit/)** - 支持 Elasticsearch、OpenSearch、DynamoDB
-- **[Elasticsearch GUI 客户端](/products/dockit/elasticsearch-gui-client)** - 查询编辑器与集群管理
-- **[OpenSearch GUI 客户端](/products/dockit/opensearch-gui-client)** - OpenSearch 功能详情
+- **[DocKit 完整功能概览](/zh/products/dockit/)** - 支持 Elasticsearch、OpenSearch、DynamoDB
+- **[Elasticsearch GUI 客户端](/zh/products/dockit/elasticsearch-gui-client)** - 查询编辑器与集群管理
+- **[OpenSearch GUI 客户端](/zh/products/dockit/opensearch-gui-client)** - OpenSearch 功能详情
 - **[GitHub 仓库](https://github.com/geek-fun/dockit)** - 源代码和问题

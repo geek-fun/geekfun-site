@@ -32,8 +32,8 @@ head:
         "description": "开源桌面 Elasticsearch GUI 客户端，支持 AI 查询生成、Monaco 编辑器和本地优先持久化。适用于 Mac、Windows 和 Linux 的轻量 Kibana Dev Tools 替代方案。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]
@@ -113,7 +113,7 @@ DocKit 的编辑器基于 Monaco。支持 JSON5，可以加注释和尾随逗号
 4. 点 **连接**，索引就会出现在侧边栏里。
 5. 打开 **Dev Tools** 开始查询。
 
-如果你的集群用了 TLS 或客户端证书，参考[连接指南](/docs/dockit/connect-to-server)。
+如果你的集群用了 TLS 或客户端证书，参考[连接指南](/zh/docs/dockit/connect-to-server)。
 
 ## Elasticsearch 版本支持
 
@@ -135,4 +135,4 @@ DocKit 使用标准 REST API，支持 **Elasticsearch 1.x 到 9.x**，Apache 2.0
 
 ---
 
-→ **[DocKit 完整功能概览](/products/dockit/)** · [Elasticsearch GUI 客户端页面](/products/dockit/elasticsearch-gui-client) · [Elasticsearch GUI 深度解析](/zh/products/dockit/elasticsearch-gui-client)
+→ **[DocKit 完整功能概览](/zh/products/dockit/)** · [Elasticsearch GUI 客户端页面](/zh/products/dockit/elasticsearch-gui-client) · [Elasticsearch GUI 深度解析](/zh/products/dockit/elasticsearch-gui-client)

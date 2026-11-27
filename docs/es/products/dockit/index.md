@@ -1,7 +1,8 @@
 ---
 layout: product
+showBody: true
 title: DocKit | GUI de escritorio NoSQL agéntica para MongoDB, Elasticsearch, OpenSearch y DynamoDB
-description: 'DocKit es una GUI de escritorio NoSQL agéntica de código abierto para MongoDB, Elasticsearch, OpenSearch, DynamoDB y EasySearch. Su agente de IA de datos escribe consultas, inspecciona esquemas y gestiona datos en lenguaje natural, de forma local y priorizando la privacidad. La edición Community es gratuita y de código abierto; el agente de IA forma parte de la suscripción de pago Ultimate.'
+description: 'GUI de escritorio NoSQL de código abierto para MongoDB, Elasticsearch, OpenSearch, DynamoDB y EasySearch. Community gratis; Ultimate añade agente de IA y MCP.'
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
@@ -37,9 +38,14 @@ head:
         "description": "Cliente GUI de escritorio de código abierto (Apache 2.0) para MongoDB, Elasticsearch, OpenSearch, DynamoDB y EasySearch, con ejecución local, asistente de IA integrado y Agentic Data Studio para crear y ejecutar consultas en lenguaje natural.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
+        "url": "https://www.geekfun.club/es/products/dockit/",
+        "inLanguage": "es",
         "offers": {
           "@type": "Offer",
-          "priceCurrency": "USD"
+          "name": "Community",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/es/pricing"
         },
         "featureList": [
           "Generación de consultas con IA",
@@ -67,7 +73,7 @@ head:
           "Gestión del ciclo de vida de tablas"
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
-        "downloadUrl": "https://www.geekfun.club/download",
+        "downloadUrl": "https://www.geekfun.club/es/download#dockit",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -231,4 +237,4 @@ Sí, bajo licencia Apache 2.0. El código fuente completo está en [github.com/g
 Sí. La edición Community sigue siendo gratuita y de código abierto, mientras que la suscripción de pago Ultimate (9,90 USD/mes o 99,00 USD/año, con prueba gratuita de 7 días) incluye funciones adicionales como el agente de IA, MCP y la gestión de clústeres.
 
 **¿También soportan bases de datos SQL?**
-DocKit está diseñado específicamente para bases de datos NoSQL. Si necesitas soporte para PostgreSQL, MySQL, SQL Server o SQLite, prueba [SqlKit](/products/sqlkit/), nuestro cliente SQL de escritorio de código abierto creado por el mismo equipo.
+DocKit está diseñado específicamente para bases de datos NoSQL. Si necesitas soporte para PostgreSQL, MySQL, SQL Server o SQLite, prueba [SqlKit](/es/products/sqlkit/), nuestro cliente SQL de escritorio de código abierto creado por el mismo equipo.

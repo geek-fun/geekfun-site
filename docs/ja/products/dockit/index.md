@@ -1,7 +1,8 @@
 ---
 layout: product
+showBody: true
 title: DocKit | MongoDB、Elasticsearch、OpenSearch、DynamoDB 向け Agentic NoSQL デスクトップ GUI
-description: DocKit は MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch に対応したオープンソースの Agentic NoSQL デスクトップ GUI です。ローカル環境でプライバシーを守りながら、データ AI エージェントが自然言語でクエリを作成し、スキーマを調査し、データを管理します。Community エディションは無料かつオープンソースで、AI エージェントは有料の Ultimate サブスクリプションに含まれます。
+description: MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 向けのオープンソース NoSQL デスクトップ GUI。Community は無料、Ultimate は AI エージェントと MCP を搭載。
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
@@ -37,9 +38,14 @@ head:
         "description": "MongoDB、Elasticsearch、OpenSearch、DynamoDB、EasySearch 向けのオープンソース（Apache 2.0）デスクトップ GUI クライアント。内蔵の AI アシスタントや Agentic Data Studio を使って自然言語でクエリを生成・実行でき、すべてのデータをローカルで管理します。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
+        "url": "https://www.geekfun.club/ja/products/dockit/",
+        "inLanguage": "ja",
         "offers": {
           "@type": "Offer",
-          "priceCurrency": "USD"
+          "name": "Community",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/ja/pricing"
         },
         "featureList": [
           "AI によるクエリ生成",
@@ -67,7 +73,7 @@ head:
           "テーブルライフサイクル管理"
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
-        "downloadUrl": "https://www.geekfun.club/download",
+        "downloadUrl": "https://www.geekfun.club/ja/download#dockit",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -231,4 +237,4 @@ DocKit は接続先のエンジンを自動検出し、API 呼び出しをそれ
 はい。Community エディションは無料かつオープンソースのまま提供され、有料の Ultimate サブスクリプション（月額 USD 9.90 または年額 USD 99.00、7 日間の無料トライアル付き）で、AI エージェント、MCP、クラスター管理などの高度な機能が利用できます。
 
 **SQL データベースにも対応していますか？**
-DocKit は NoSQL データベース向けに特化して作られています。PostgreSQL、MySQL、SQL Server、SQLite のサポートが必要な場合は、同じチームが開発する姉妹製品のオープンソース SQL デスクトップクライアント [SqlKit](/products/sqlkit/) をご覧ください。
+DocKit は NoSQL データベース向けに特化して作られています。PostgreSQL、MySQL、SQL Server、SQLite のサポートが必要な場合は、同じチームが開発する姉妹製品のオープンソース SQL デスクトップクライアント [SqlKit](/ja/products/sqlkit/) をご覧ください。

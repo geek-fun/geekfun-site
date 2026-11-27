@@ -1,14 +1,33 @@
 # GEEKFUN
 
-> SqlKit and DocKit are open-source desktop clients from GEEKFUN. Use SqlKit with PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and other SQL databases. DocKit is for NoSQL databases such as MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch. Data Studio Agent lets coding assistants use database connections from either app through the Model Context Protocol (MCP).
+> SqlKit and DocKit are open-source (Apache 2.0) desktop database clients from GEEKFUN for macOS, Windows, and Linux. SqlKit connects to 68+ SQL databases including PostgreSQL, MySQL, SQL Server, Oracle, SQLite, DuckDB, and ClickHouse. DocKit covers NoSQL engines including MongoDB, DynamoDB, Elasticsearch, OpenSearch, and EasySearch. Data Studio Agent is an open-source MCP server (`npx -y @geek-fun/data-studio-mcp`) that lets AI coding agents such as Claude Code, Cursor, Codex, Windsurf, and OpenCode query databases through local DocKit and SqlKit connections.
+
+## Key facts
+
+- **License**: Apache 2.0 open source for SqlKit, DocKit, and Data Studio Agent.
+- **Pricing**: Community edition is free forever with unlimited connections, query editing, schema browsing, and CSV/JSON export. GEEKFUN Data Studio Ultimate (USD 9.90/month or USD 99.00/year, with a 7-day free trial) covers all three tools and adds Agentic Data Studio (BYO LLM: OpenAI, Anthropic, DeepSeek, Ollama, LM Studio), MCP Bridge, ER diagrams, bulk data transfer, and cluster management. Versions released during a paid subscription remain usable after cancellation.
+- **Architecture & privacy**: Native desktop apps built with Rust and Tauri. Connection credentials stay in the OS keychain and are never sent to LLMs; MCP binds locally (`127.0.0.1`) with per-connection read/write permissions and approval gates for destructive actions.
+- **Platforms**: macOS (Apple Silicon & Intel), Windows, and Linux.
 
 ## Products, downloads, and plans
 
 - [SqlKit desktop SQL client](https://www.geekfun.club/products/sqlkit/)
+- [Agentic SQL client overview](https://www.geekfun.club/products/sqlkit/agentic-sql-client)
 - [DocKit desktop NoSQL client](https://www.geekfun.club/products/dockit/)
 - [Data Studio Agent MCP server](https://www.geekfun.club/products/data-studio-agent/)
 - [Downloads for macOS, Windows, and Linux](https://www.geekfun.club/download)
 - [Community and Ultimate plans](https://www.geekfun.club/pricing)
+
+## Database clients and comparisons
+
+- [Elasticsearch GUI client](https://www.geekfun.club/products/dockit/elasticsearch-gui-client)
+- [OpenSearch GUI client](https://www.geekfun.club/products/dockit/opensearch-gui-client)
+- [MongoDB GUI client](https://www.geekfun.club/products/dockit/mongodb-gui-client)
+- [DynamoDB GUI client](https://www.geekfun.club/products/dockit/dynamodb-gui-client)
+- [DocKit vs Kibana](https://www.geekfun.club/products/dockit/dockit-vs-kibana)
+- [DocKit vs OpenSearch Dashboards](https://www.geekfun.club/products/dockit/dockit-vs-opensearch-dashboards)
+- [DocKit vs MongoDB Compass](https://www.geekfun.club/products/dockit/dockit-vs-mongodb-compass)
+- [DocKit vs Dynobase](https://www.geekfun.club/products/dockit/dockit-vs-dynobase)
 
 ## SqlKit guides
 
@@ -38,15 +57,24 @@
 - [DocKit documentation](https://www.geekfun.club/docs/dockit/)
 - [Install DocKit](https://www.geekfun.club/docs/dockit/installation)
 - [Connect DocKit to a database](https://www.geekfun.club/docs/dockit/connect-to-server)
+- [Remote connections and AWS authentication](https://www.geekfun.club/docs/dockit/remote-connections)
 - [Query Elasticsearch, OpenSearch, and EasySearch](https://www.geekfun.club/docs/dockit/search-editor)
+- [Manage Elasticsearch and OpenSearch clusters](https://www.geekfun.club/docs/dockit/manage-elasticsearch-cluster)
 - [Query and edit MongoDB documents](https://www.geekfun.club/docs/dockit/mongodb-workspace)
 - [Query DynamoDB with the visual builder or PartiQL](https://www.geekfun.club/docs/dockit/dynamodb-query-editor)
+- [Manage DynamoDB tables, indexes, and CloudWatch metrics](https://www.geekfun.club/docs/dockit/dynamodb-manage-metrics)
+- [Import and export data in DocKit](https://www.geekfun.club/docs/dockit/import-export)
+- [Query history and saved queries](https://www.geekfun.club/docs/dockit/query-history)
+- [Agentic Data Studio for DocKit](https://www.geekfun.club/docs/dockit/agentic-datastudio)
+- [DocKit settings and LLM configuration](https://www.geekfun.club/docs/dockit/settings)
 - [DocKit keyboard shortcuts](https://www.geekfun.club/docs/dockit/shortcut)
 
 ## MCP setup and permissions
 
 - [Data Studio Agent documentation](https://www.geekfun.club/docs/data-studio-agent/)
 - [Data Studio Agent quick start](https://www.geekfun.club/docs/data-studio-agent/quick-start)
+- [Data Studio Agent MCP tools reference](https://www.geekfun.club/docs/data-studio-agent/tools)
+- [Data Studio Agent safety model and permissions](https://www.geekfun.club/docs/data-studio-agent/safety)
 - [Configure the DocKit MCP bridge](https://www.geekfun.club/docs/dockit/mcp-bridge)
 - [Set AI permissions for a DocKit connection](https://www.geekfun.club/docs/dockit/ai-permissions)
 

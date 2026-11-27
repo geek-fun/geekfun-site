@@ -1,7 +1,8 @@
 ---
 layout: product
+showBody: true
 title: DocKit - Agentic NoSQL 数据库 GUI 客户端 — MongoDB、Elasticsearch、OpenSearch、DynamoDB
-description: DocKit 是一款开源的 Agentic NoSQL 桌面 GUI，支持 MongoDB、DynamoDB、Elasticsearch、OpenSearch 和 EasySearch。Data AI Agent 通过自然语言编写查询、查看表结构、管理数据 — 隐私优先、本地运行。社区版永久免费、开源；AI 智能体属于付费的旗舰版订阅。
+description: 开源 NoSQL 桌面 GUI 客户端，支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB 和 EasySearch。社区版免费开源，旗舰版包含 AI 智能体与 MCP。
 ogImage: https://www.geekfun.club/og/dockit-zh.png
 head:
   - - meta
@@ -33,9 +34,14 @@ head:
         "description": "AI 原生桌面 GUI 客户端，支持 MongoDB、DynamoDB、OpenSearch 和 Elasticsearch。内置 AI 助手从自然语言生成数据库查询。Agentic Data Studio 支持用自然语言与数据库交互。快速、安全、本地优先。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
+        "url": "https://www.geekfun.club/zh/products/dockit/",
+        "inLanguage": "zh",
         "offers": {
           "@type": "Offer",
-          "priceCurrency": "USD"
+          "name": "社区版",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/zh/pricing"
         },
         "featureList": [
           "AI 驱动查询生成",
@@ -57,7 +63,7 @@ head:
           "Monaco 编辑器"
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
-        "downloadUrl": "https://www.geekfun.club/download",
+        "downloadUrl": "https://www.geekfun.club/zh/download#dockit",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -185,7 +191,7 @@ DocKit 的 **Agentic Data Studio** 让你通过自然语言与数据库交互。
 大多数团队不止使用一种 NoSQL 数据库。同时运行 Elasticsearch 做搜索和 DynamoDB 做键值存储的团队，通常需要两套工具——一套用于 Kibana/Elasticvue，另一套用于 Dynobase/NoSQL Workbench。DocKit 用一个桌面应用覆盖这三种数据库。
 
 | | DocKit | Kibana | Elasticvue | Dynobase | NoSQL Workbench |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | **MongoDB** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Elasticsearch** | ✅ | ✅ | ✅ | ❌ | ❌ |
 | **OpenSearch** | ✅ | ❌ | ✅ | ❌ | ❌ |

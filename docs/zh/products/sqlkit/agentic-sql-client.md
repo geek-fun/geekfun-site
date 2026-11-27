@@ -32,8 +32,8 @@ head:
         "description": "桌面 SQL 客户端，可结合数据库模式将自然语言转为 SQL，并在支持的数据库中可视化执行计划。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "极客范", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/sqlkit/blob/master/LICENSE",
         "sameAs": ["https://github.com/geek-fun/sqlkit"]
@@ -45,7 +45,7 @@ head:
 SqlKit 是一款开源桌面 SQL 客户端，可在 macOS、Windows 和 Linux 上运行。除了 PostgreSQL、MySQL、SQL Server 和 Oracle，也支持 TiDB、OceanBase、PolarDB、达梦 DM8、人大金仓 KingbaseES、GaussDB、GBase、TDSQL、openGauss、YashanDB 和 Vastbase 等数据库。
 
 <div style="display:flex;gap:12px;margin:1.5rem 0">
-  <a href="/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">免费下载</a>
+  <a href="/zh/download" style="padding:10px 20px;background:var(--vp-c-brand-1);color:#fff;border-radius:6px;font-weight:600;text-decoration:none">免费下载</a>
   <a href="https://github.com/geek-fun/sqlkit" style="padding:10px 20px;border:1px solid var(--vp-c-border);border-radius:6px;font-weight:600;text-decoration:none" target="_blank" rel="noopener">查看 GitHub</a>
 </div>
 

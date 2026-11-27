@@ -1,5 +1,6 @@
 ---
 layout: product
+showBody: true
 title: SqlKit 开源 SQL 数据库客户端 | MySQL、PostgreSQL、SQL Server 和 Oracle
 titleTemplate: false
 description: SqlKit 是一款支持 macOS、Windows 和 Linux 的开源 SQL 数据库 GUI 客户端，可连接 MySQL、PostgreSQL、SQL Server、Oracle 等数据库，浏览数据表、执行 SQL 并导出查询结果。

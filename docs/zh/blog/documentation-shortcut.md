@@ -240,7 +240,7 @@ const url = buildDocUrl(backendType, version, docPath, language);
 - **[2026 年 Elasticsearch GUI 客户端对比](/zh/blog/best-elasticsearch-gui-client-2026)** — ES 工具对比
 - **[Elasticsearch GUI 客户端指南](/zh/products/dockit/elasticsearch-gui-client)** — DocKit ES 功能入门
 - **[OpenSearch GUI 客户端](/zh/products/dockit/opensearch-gui-client)** — OpenSearch 桌面客户端
-- **[下载 DocKit](/download)** — 获取最新版本
+- **[下载 DocKit](/zh/download)** — 获取最新版本
 
 ---
 

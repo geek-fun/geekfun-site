@@ -32,7 +32,7 @@ head:
         "description": "Open-source desktop MongoDB GUI client with AI query generation, Monaco editor, collection management, import/export, and local-first persistence. Free alternative to MongoDB Compass, Robo 3T, and Studio 3T for Mac, Windows, and Linux.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",

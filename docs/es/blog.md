@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "Blog de GEEKFUN — Guías de SQL, NoSQL y MCP"
 description: "Actualizaciones, guías técnicas y experiencias del desarrollo de herramientas de código abierto para bases de datos."
 outline: false
 lastUpdated: false

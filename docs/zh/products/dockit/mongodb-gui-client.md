@@ -32,8 +32,8 @@ head:
         "description": "开源桌面 MongoDB GUI 客户端，支持 AI 查询生成、Monaco 编辑器、集合管理、导入导出和本地化持久化存储。MongoDB Compass、Robo 3T 和 Studio 3T 的免费替代方案，适用于 Mac、Windows 和 Linux。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]

@@ -32,7 +32,7 @@ head:
         "description": "Open-source desktop DynamoDB GUI client with PartiQL editor, AI query generation, visual query builder, import/export, and local-first persistence. Free alternative to Dynobase and NoSQL Workbench.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "downloadUrl": "https://www.geekfun.club/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",

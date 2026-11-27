@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 极客范|AI 原生数据工具：Data Studio Agent、DocKit、SqlKit
-description: "极客范是一个可持续的开源社区，公开构建 AI 原生数据工具。Data Studio Agent 是一个开源 MCP 服务器，让 Claude Code、Cursor 等 AI 编码代理用自然语言查询数据库；DocKit 支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB，SqlKit 支持 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等 SQL 数据库。社区版永久免费、开源，隐私优先；进阶 AI 能力属于付费旗舰版订阅。"
+title: 极客范 | AI 原生数据工具：Data Studio Agent、DocKit、SqlKit
+description: "极客范开源桌面数据库工具：SqlKit 支持主流 SQL 数据库，DocKit 支持 MongoDB、Elasticsearch、OpenSearch、DynamoDB，Data Studio Agent 通过 MCP 连接 AI 编程代理。"
 head:
   - - link
     - rel: canonical

@@ -32,8 +32,8 @@ head:
         "description": "开源桌面 OpenSearch GUI 客户端，支持 AI 查询生成、Monaco 编辑器和本地优先持久化。适用于 Mac、Windows 和 Linux 的轻量 OpenSearch Dashboards 替代方案。",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
-        "offers": { "@type": "Offer", "priceCurrency": "USD" },
-        "downloadUrl": "https://www.geekfun.club/download",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://www.geekfun.club/zh/download",
         "author": { "@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club" },
         "license": "https://github.com/geek-fun/dockit/blob/main/LICENSE",
         "sameAs": ["https://github.com/geek-fun/dockit"]
@@ -195,7 +195,7 @@ DocKit 用的 Monaco 编辑器灵活得多：
 3. 选 **AWS 凭证** 认证方式，DocKit 会自动读取 `~/.aws/credentials` 或环境变量。
 4. 点 **连接**。
 
-VPC 集群或细粒度访问控制，参考[连接指南](/docs/dockit/connect-to-server)。
+VPC 集群或细粒度访问控制，参考[连接指南](/zh/docs/dockit/connect-to-server)。
 
 ## OpenSearch 版本支持
 
@@ -217,4 +217,4 @@ OpenSearch Serverless 要求每个请求都做 SigV4 签名，普通凭证认证
 
 ---
 
-→ **[DocKit 完整功能概览](/products/dockit/)** · [OpenSearch GUI 客户端页面](/products/dockit/opensearch-gui-client) · [OpenSearch GUI 深度解析](/zh/products/dockit/opensearch-gui-client)
+→ **[DocKit 完整功能概览](/zh/products/dockit/)** · [OpenSearch GUI 客户端页面](/zh/products/dockit/opensearch-gui-client) · [OpenSearch GUI 深度解析](/zh/products/dockit/opensearch-gui-client)

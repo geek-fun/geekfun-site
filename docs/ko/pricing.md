@@ -1,6 +1,6 @@
 ---
-title: 가격 안내 - GEEKFUN Data Studio Community & Ultimate | GEEKFUN
-description: 'GEEKFUN Data Studio 가격 안내입니다. Community 에디션은 영구 무료이며, Ultimate(월 USD 9.90 또는 연 USD 99.00, 7일 무료 체험)는 DocKit, SqlKit, Data Studio Agent의 AI NL2SQL, MCP 서버, 클러스터 관리, ER 대시보드 등의 기능을 포함합니다.'
+title: 가격 안내 - GEEKFUN Data Studio Community & Ultimate
+description: 'Community는 영구 무료입니다. Ultimate(월 USD 9.90 또는 연 USD 99, 7일 무료 체험)에서 DocKit·SqlKit·Data Studio Agent의 AI, MCP, 클러스터 관리, ER 다이어그램을 사용할 수 있습니다.'
 head:
   - - meta
     - name: keywords

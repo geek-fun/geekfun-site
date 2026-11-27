@@ -4,6 +4,11 @@ description: "Data Studio Agent é um servidor MCP de código aberto para consul
 layout: product
 showBody: true
 titleTemplate: false
+head:
+  - - script
+    - type: application/ld+json
+    - |
+      {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Data Studio Agent", "alternateName": ["data-studio-mcp", "Data Studio MCP Server"], "description": "Data Studio Agent é um servidor MCP de código aberto para consultar bancos de dados com Claude Code, Cursor e outros agentes de programação.", "url": "https://www.geekfun.club/pt-BR/products/data-studio-agent/", "inLanguage": "pt-BR", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Windows, Linux", "offers": {"@type": "Offer", "name": "Community", "price": "0", "priceCurrency": "USD", "url": "https://www.geekfun.club/pt-BR/pricing"}, "downloadUrl": "https://www.npmjs.com/package/@geek-fun/data-studio-mcp", "author": {"@type": "Organization", "name": "GEEKFUN", "url": "https://www.geekfun.club"}, "license": "https://github.com/geek-fun/data-studio-agent/blob/master/LICENSE", "sameAs": ["https://github.com/geek-fun/data-studio-agent", "https://www.npmjs.com/package/@geek-fun/data-studio-mcp"]}
 hero:
   name: Data Studio Agent
   headline: "Servidor MCP para bancos de dados"

@@ -1,7 +1,8 @@
 ---
 layout: product
+showBody: true
 title: DocKit — Agentic NoSQL Desktop GUI for MongoDB, Elasticsearch, OpenSearch & DynamoDB
-description: DocKit is an open-source agentic NoSQL desktop GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Its data AI agent writes queries, inspects schemas, and manages data through natural language — privacy-first and local. The Community edition is free and open source; the AI agent is part of the paid Ultimate subscription.
+description: Open-source desktop NoSQL GUI for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Free Community edition; Ultimate adds AI agent and MCP.
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
@@ -33,9 +34,13 @@ head:
         "description": "Open-source desktop GUI client for MongoDB, Elasticsearch, OpenSearch, DynamoDB, and EasySearch. Generate database queries from natural language with a built-in AI assistant. Agentic Data Studio for natural language database interaction. Fast, local-first, Apache 2.0.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
+        "url": "https://www.geekfun.club/products/dockit/",
         "offers": {
           "@type": "Offer",
-          "priceCurrency": "USD"
+          "name": "Community",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://www.geekfun.club/pricing"
         },
         "featureList": [
           "AI-powered query generation",
@@ -63,7 +68,7 @@ head:
           "Table lifecycle management"
         ],
         "screenshot": "https://www.geekfun.club/dockit-client-ui.png",
-        "downloadUrl": "https://www.geekfun.club/download",
+        "downloadUrl": "https://www.geekfun.club/download#dockit",
         "author": {
           "@type": "Organization",
           "name": "GEEKFUN",
@@ -154,7 +159,7 @@ cta:
 Most teams don't use just one NoSQL database. A team running Elasticsearch for search plus DynamoDB for key-value workloads typically needs two separate tools — Kibana/Elasticvue for one, Dynobase/NoSQL Workbench for the other. DocKit covers all three in a single desktop app.
 
 | | DocKit | Kibana | Elasticvue | Dynobase | NoSQL Workbench |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | **MongoDB** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Elasticsearch** | ✅ | ✅ | ✅ | ❌ | ❌ |
 | **OpenSearch** | ✅ | ❌ | ✅ | ❌ | ❌ |

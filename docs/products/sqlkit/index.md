@@ -1,5 +1,6 @@
 ---
 layout: product
+showBody: true
 title: SqlKit | SQL Database GUI for MySQL, PostgreSQL, SQL Server & Oracle
 titleTemplate: false
 description: SqlKit is an open-source SQL database GUI for Mac, Windows, and Linux. Browse tables, run SQL, and export results from MySQL, PostgreSQL, SQL Server, Oracle, and more.
