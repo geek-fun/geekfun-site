@@ -49,12 +49,14 @@
 
         <div class="plans-grid">
           <!-- Community -->
-          <article class="plan-card">
+          <article class="plan-card" @mousemove="handleCardPointerMove">
             <h3 class="plan-title">{{ t.community.title }}</h3>
             <p class="plan-desc">{{ t.community.description }}</p>
-            <div class="plan-price-row">
-              <span class="plan-price">{{ t.community.price }}</span>
-              <span class="plan-price-unit">{{ t.community.priceUnit }}</span>
+            <div class="plan-price-block">
+              <div class="plan-price-row">
+                <span class="plan-price">{{ t.community.price }}</span>
+                <span class="plan-price-unit">{{ t.community.priceUnit }}</span>
+              </div>
             </div>
             <ul class="plan-features">
               <li v-for="feature in t.community.features" :key="feature">
@@ -74,16 +76,28 @@
           </article>
 
           <!-- Ultimate -->
-          <article class="plan-card featured">
+          <article class="plan-card featured" @mousemove="handleCardPointerMove">
             <span class="popular-badge">{{ t.ultimate.badge }}</span>
             <h3 class="plan-title">{{ t.ultimate.title }}</h3>
             <p class="plan-desc">{{ t.ultimate.description }}</p>
-            <div class="plan-price-row">
-              <span class="plan-price">{{ displayPrice }}</span>
-              <span class="plan-price-unit">{{ priceUnit }}</span>
-            </div>
-            <div class="plan-alt">
-              <span>{{ altOption }}</span>
+            <div class="plan-price-block">
+              <div class="plan-price-row">
+                <span class="plan-price">
+                  <Transition name="price-swap" mode="out-in">
+                    <span :key="displayPrice" class="price-swap-inner">{{ displayPrice }}</span>
+                  </Transition>
+                </span>
+                <span class="plan-price-unit">
+                  <Transition name="price-swap" mode="out-in">
+                    <span :key="priceUnit" class="price-swap-inner">{{ priceUnit }}</span>
+                  </Transition>
+                </span>
+              </div>
+              <div class="plan-alt">
+                <Transition name="price-swap" mode="out-in">
+                  <span :key="altOption" class="price-swap-inner">{{ altOption }}</span>
+                </Transition>
+              </div>
             </div>
             <ul class="plan-features">
               <li v-for="feature in t.ultimate.features" :key="feature">
@@ -103,7 +117,7 @@
               target="_blank"
               rel="noopener"
             >
-              <svg class="rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg class="rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
                 <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
                 <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
@@ -114,11 +128,13 @@
           </article>
 
           <!-- Enterprise -->
-          <article class="plan-card">
+          <article class="plan-card" @mousemove="handleCardPointerMove">
             <h3 class="plan-title">{{ t.enterprise.title }}</h3>
             <p class="plan-desc">{{ t.enterprise.description }}</p>
-            <div class="plan-price-row">
-              <span class="plan-price enterprise-price">{{ t.enterprise.price }}</span>
+            <div class="plan-price-block">
+              <div class="plan-price-row">
+                <span class="plan-price enterprise-price">{{ t.enterprise.price }}</span>
+              </div>
             </div>
             <ul class="plan-features">
               <li v-for="feature in t.enterprise.features" :key="feature">
@@ -136,9 +152,11 @@
               <button class="plan-cta secondary as-button" @click="notifyEnterprise">
                 {{ t.enterprise.cta }}
               </button>
-              <p v-if="enterpriseNotifyOpen" class="notify-message">
-                {{ t.enterprise.notifyMessage }}
-              </p>
+              <Transition name="fade-slide">
+                <p v-if="enterpriseNotifyOpen" class="notify-message">
+                  {{ t.enterprise.notifyMessage }}
+                </p>
+              </Transition>
             </div>
           </article>
         </div>
@@ -147,7 +165,7 @@
 
     <!-- Trial -->
     <section id="trial" class="trial-section">
-      <div class="trial-inner">
+      <div class="trial-inner" @mousemove="handleCardPointerMove">
         <h2>{{ t.trial.title }}</h2>
         <p class="trial-desc">{{ t.trial.description }}</p>
         <ul class="trial-perks">
@@ -168,7 +186,7 @@
           target="_blank"
           rel="noopener"
         >
-          <svg class="rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
             <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
             <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
@@ -247,10 +265,19 @@
       <div class="faq-inner">
         <h2 class="section-title">{{ t.faq.title }}</h2>
         <div class="faq-list">
-          <details v-for="(item, index) in faqItems" :key="index" class="faq-item">
+          <details
+            v-for="(item, index) in faqItems"
+            :key="index"
+            class="faq-item"
+            @mousemove="handleCardPointerMove"
+          >
             <summary>
               <span>{{ item.question }}</span>
-              <span class="faq-arrow" aria-hidden="true">▼</span>
+              <span class="faq-arrow" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5.5 7.75L10 12.25l4.5-4.5" />
+                </svg>
+              </span>
             </summary>
             <p>{{ item.answer }}</p>
           </details>
@@ -283,13 +310,13 @@
               </li>
             </ul>
           </div>
-          <div class="feature-visual">
+          <div class="feature-visual" @mousemove="handleCardPointerMove">
             <img src="/pricing/dockit-screenshot.png" :alt="t.features.dockit.screenshotAlt" />
           </div>
         </div>
 
         <div class="feature-row reverse">
-          <div class="feature-visual">
+          <div class="feature-visual" @mousemove="handleCardPointerMove">
             <img src="/pricing/sqlkit-screenshot.png" alt="SqlKit" />
           </div>
           <div class="feature-copy">
@@ -333,7 +360,7 @@
               </li>
             </ul>
           </div>
-          <div class="feature-visual">
+          <div class="feature-visual" @mousemove="handleCardPointerMove">
             <img src="/pricing/data-studio-agent-terminal.svg" alt="Data Studio Agent" />
           </div>
         </div>
@@ -797,6 +824,14 @@ function toggleBilling() {
   isYearly.value = !isYearly.value
 }
 
+const handleCardPointerMove = (event: MouseEvent) => {
+  const card = event.currentTarget as HTMLElement | null
+  if (!card) return
+  const rect = card.getBoundingClientRect()
+  card.style.setProperty('--mx', `${event.clientX - rect.left}px`)
+  card.style.setProperty('--my', `${event.clientY - rect.top}px`)
+}
+
 type CompareCell = boolean | string
 interface CompareRow {
   key: string
@@ -948,31 +983,94 @@ const faqItems = computed(() =>
 </script>
 
 <style scoped lang="scss">
+@mixin gf-luminous-border($ring-size: 260px, $sheen-size: 360px) {
+  position: relative;
+
+  /* 1px cursor-tracking luminous hairline border */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      #{$ring-size} circle at var(--mx, 50%) var(--my, 0%),
+      var(--gf-border-glow) 0%,
+      var(--gf-border-glow-mid) 42%,
+      transparent 74%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.36s var(--gf-ease);
+  }
+
+  /* Subtle ambient surface sheen */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      #{$sheen-size} circle at var(--mx, 50%) var(--my, 0%),
+      var(--gf-surface-glow),
+      transparent 70%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.36s var(--gf-ease);
+  }
+}
+
 .geekfun-pricing-page {
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
   /* Same green as the console pricing page (tailwind --success: 160 84% 39%) */
   --gf-success: hsl(160, 84%, 39%);
+  --gf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --gf-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --gf-card-bg: var(--vp-c-bg);
+  --gf-line: rgba(15, 23, 42, 0.085);
+  --gf-line-soft: rgba(15, 23, 42, 0.055);
+  --gf-line-hover: rgba(248, 155, 64, 0.38);
+  --gf-line-featured: rgba(248, 155, 64, 0.36);
+  --gf-border-glow: rgba(248, 155, 64, 0.88);
+  --gf-border-glow-mid: rgba(248, 155, 64, 0.32);
+  --gf-surface-glow: rgba(248, 155, 64, 0.045);
+  --gf-card-shadow: 0 1px 2px rgba(15, 23, 42, 0.025), 0 8px 24px -18px rgba(15, 23, 42, 0.08);
+  --gf-card-shadow-hover: 0 16px 36px -16px rgba(15, 23, 42, 0.13);
+  --gf-featured-shadow: 0 10px 28px -16px rgba(248, 155, 64, 0.24), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --gf-featured-shadow-hover: 0 22px 46px -16px rgba(248, 155, 64, 0.30);
+  --gf-row-hover: rgba(248, 155, 64, 0.045);
+  --gf-row-hover-solid: color-mix(in srgb, var(--gf-card-bg) 95.5%, #f89b40 4.5%);
 }
 
 /* ---------- hero ---------- */
 .hero {
-  padding: 3rem 1.5rem 4rem;
+  position: relative;
+  padding: 3.5rem 1.5rem 4rem;
   text-align: center;
-  background: var(--vp-c-bg-soft);
+  background:
+    radial-gradient(640px 260px at 50% 0%, color-mix(in srgb, var(--vp-c-brand-1) 9%, transparent), transparent 72%),
+    var(--vp-c-bg-soft);
+  border-bottom: 1px solid var(--gf-line-soft);
 
   .hero-inner {
     max-width: 1024px;
     margin: 0 auto;
 
     &.animate-fade-in {
-      animation: gf-fade-in 0.5s ease-in;
+      animation: gf-fade-in 0.58s var(--gf-ease) both;
     }
   }
 
   h1 {
     font-size: 2.75rem;
     font-weight: 700;
+    letter-spacing: -0.03em;
     margin: 0 0 1rem;
     color: var(--vp-c-text-1);
   }
@@ -984,6 +1082,7 @@ const faqItems = computed(() =>
 
     .dot {
       margin: 0 0.5rem;
+      opacity: 0.45;
     }
   }
 
@@ -1000,20 +1099,30 @@ const faqItems = computed(() =>
     gap: 1rem;
 
     .hero-logo {
-      display: inline-block;
-      transition: transform 0.2s ease;
+      display: inline-flex;
+      padding: 3px;
+      border-radius: 0.875rem;
+      border: 1px solid var(--gf-line);
+      background: var(--gf-card-bg);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      transition:
+        transform 0.34s var(--gf-ease),
+        border-color 0.28s var(--gf-ease),
+        box-shadow 0.34s var(--gf-ease);
 
-      &:hover {
-        transform: scale(1.1);
+      &:hover,
+      &:focus-visible {
+        transform: translateY(-3px) scale(1.04);
+        border-color: var(--gf-line-hover);
+        box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--vp-c-brand-1) 36%, transparent);
       }
 
       img {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.25rem;
+        height: 3.25rem;
         object-fit: contain;
-        border-radius: 0.75rem;
-        border: 1px solid var(--vp-c-divider);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        border-radius: 0.625rem;
+        display: block;
       }
     }
   }
@@ -1022,7 +1131,7 @@ const faqItems = computed(() =>
 @keyframes gf-fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(14px);
   }
 
   to {
@@ -1041,6 +1150,7 @@ const faqItems = computed(() =>
 .section-title {
   font-size: 1.875rem;
   font-weight: 700;
+  letter-spacing: -0.025em;
   text-align: center;
   margin: 0 0 1rem;
   color: var(--vp-c-text-1);
@@ -1057,6 +1167,7 @@ const faqItems = computed(() =>
   height: 1.25rem;
   flex-shrink: 0;
   color: var(--gf-success);
+  transition: transform 0.24s var(--gf-spring);
 
   &.small {
     width: 1rem;
@@ -1073,31 +1184,48 @@ const faqItems = computed(() =>
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
+  transition: transform 0.34s var(--gf-spring);
 }
 
-/* Rocket boost — same as console: shakes while the parent CTA is hovered */
-@keyframes gf-rocket-shake {
-  0%,
-  100% {
-    transform: translateX(0) scale(1);
-  }
-
-  25% {
-    transform: translateX(-2px) scale(1.02);
-  }
-
-  75% {
-    transform: translateX(2px) scale(1.02);
-  }
+.plan-cta.primary:hover .rocket,
+.trial-cta:hover .rocket {
+  transform: translate(2.5px, -2.5px) rotate(-6deg);
 }
 
-.plan-cta.primary:hover .rocket {
-  animation: gf-rocket-shake 0.3s ease-in-out infinite;
+/* Price switch transition */
+.price-swap-inner {
+  display: inline-block;
+}
+
+.price-swap-enter-active,
+.price-swap-leave-active {
+  transition: opacity 0.2s var(--gf-ease), transform 0.2s var(--gf-ease);
+}
+
+.price-swap-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.price-swap-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: opacity 0.24s var(--gf-ease), transform 0.24s var(--gf-ease);
+}
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
 }
 
 /* ---------- plans ---------- */
 .plans-section {
-  padding: 2rem 0 6rem;
+  padding: 2.75rem 0 6rem;
 
   .billing-toggle {
     display: flex;
@@ -1110,9 +1238,11 @@ const faqItems = computed(() =>
       font-size: 0.875rem;
       font-weight: 500;
       color: var(--vp-c-text-2);
+      transition: color 0.24s var(--gf-ease);
 
       &.active {
         color: var(--vp-c-brand-1);
+        font-weight: 600;
       }
     }
   }
@@ -1120,27 +1250,47 @@ const faqItems = computed(() =>
   .switch {
     width: 2.75rem;
     height: 1.5rem;
-    border: none;
+    border: 1px solid var(--gf-line);
     border-radius: 999px;
-    background: var(--vp-c-divider);
+    background: var(--vp-c-bg-soft);
     position: relative;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition:
+      background-color 0.28s var(--gf-ease),
+      border-color 0.28s var(--gf-ease),
+      box-shadow 0.28s var(--gf-ease),
+      transform 0.16s var(--gf-ease);
     padding: 0;
+
+    &:hover {
+      border-color: var(--gf-line-hover);
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+
+    &:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--vp-c-brand-1) 55%, transparent);
+      outline-offset: 2px;
+    }
 
     &.checked {
       background: var(--vp-c-brand-1);
+      border-color: transparent;
+      box-shadow: 0 2px 10px -2px color-mix(in srgb, var(--vp-c-brand-1) 50%, transparent);
     }
 
     .switch-knob {
       position: absolute;
-      top: 0.1875rem;
-      left: 0.1875rem;
+      top: 0.125rem;
+      left: 0.125rem;
       width: 1.125rem;
       height: 1.125rem;
       border-radius: 999px;
       background: #fff;
-      transition: transform 0.2s ease;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.22);
+      transition: transform 0.36s var(--gf-spring);
     }
 
     &.checked .switch-knob {
@@ -1149,11 +1299,12 @@ const faqItems = computed(() =>
   }
 
   .save-badge {
-    background: color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 24%, transparent);
+    background: color-mix(in srgb, var(--vp-c-brand-1) 9%, transparent);
     color: var(--vp-c-brand-1);
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.125rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 650;
+    padding: 0.15rem 0.55rem;
     border-radius: 999px;
   }
 }
@@ -1161,7 +1312,7 @@ const faqItems = computed(() =>
 .plans-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.75rem;
 
   @media (max-width: 960px) {
     grid-template-columns: 1fr;
@@ -1169,47 +1320,79 @@ const faqItems = computed(() =>
 }
 
 .plan-card {
-  position: relative;
+  @include gf-luminous-border(260px, 360px);
   display: flex;
   flex-direction: column;
   height: 100%;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  background: var(--vp-c-bg);
+  border: 1px solid var(--gf-line);
+  border-radius: 1.125rem;
+  padding: 1.75rem;
+  background: var(--gf-card-bg);
+  box-shadow: var(--gf-card-shadow);
+  transition:
+    transform 0.38s var(--gf-ease),
+    border-color 0.32s var(--gf-ease),
+    box-shadow 0.38s var(--gf-ease);
+  animation: gf-fade-in 0.54s var(--gf-ease) both;
+
+  &:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    border-color: var(--gf-line-hover);
+    box-shadow: var(--gf-card-shadow-hover);
+
+    &::before,
+    &::after {
+      opacity: 1;
+    }
+  }
 
   &.featured {
-    border: 2px solid var(--vp-c-brand-1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    /* rocket-card hover from the console pricing page */
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--gf-line-featured);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--vp-c-brand-1) 5.5%, transparent) 0%,
+        transparent 34%
+      ),
+      var(--gf-card-bg);
+    box-shadow: var(--gf-featured-shadow);
 
-    &:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow:
-        0 20px 40px -10px rgba(249, 115, 22, 0.3),
-        0 0 40px rgba(239, 68, 68, 0.2);
-      border-color: rgba(249, 115, 22, 0.3);
+    &:hover,
+    &:focus-within {
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--vp-c-brand-1) 56%, transparent);
+      box-shadow: var(--gf-featured-shadow-hover);
     }
   }
 
   .popular-badge {
     position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
+    top: -0.6875rem;
+    right: 1.25rem;
     z-index: 20;
-    background: var(--vp-c-brand-1);
+    background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
     color: var(--vp-c-white);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 700;
-    padding: 0.125rem 0.625rem;
+    letter-spacing: 0.05em;
+    padding: 0.18rem 0.68rem;
     border-radius: 999px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px -2px color-mix(in srgb, var(--vp-c-brand-1) 48%, transparent);
   }
 
   .plan-title {
     font-size: 1.25rem;
     font-weight: 700;
+    letter-spacing: -0.02em;
     margin: 0 0 0.25rem;
     color: var(--vp-c-text-1);
   }
@@ -1217,11 +1400,24 @@ const faqItems = computed(() =>
   .plan-desc {
     font-size: 0.875rem;
     color: var(--vp-c-text-2);
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.4rem;
+  }
+
+  .plan-price-block {
+    min-height: 5.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.15rem;
+    border-bottom: 1px solid var(--gf-line-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @media (max-width: 960px) {
+      min-height: auto;
+    }
   }
 
   .plan-price-row {
-    margin-bottom: 1.5rem;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
@@ -1230,6 +1426,9 @@ const faqItems = computed(() =>
     .plan-price {
       font-size: 2.25rem;
       font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
       color: var(--vp-c-text-1);
 
       &.enterprise-price {
@@ -1246,7 +1445,8 @@ const faqItems = computed(() =>
   .plan-alt {
     font-size: 0.75rem;
     color: var(--vp-c-text-2);
-    margin: -1rem 0 1rem;
+    margin-top: 0.45rem;
+    min-height: 1.125rem;
   }
 
   .plan-features {
@@ -1259,50 +1459,89 @@ const faqItems = computed(() =>
       display: flex;
       align-items: flex-start;
       font-size: 0.875rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
       color: var(--vp-c-text-1);
-      line-height: 1.5;
+      line-height: 1.55;
 
       .check {
         margin-right: 0.75rem;
         margin-top: 0.125rem;
       }
+
+      &:hover .check {
+        transform: scale(1.08);
+      }
     }
   }
 
   .plan-cta {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 0.75rem 2rem;
+    padding: 0.72rem 1.75rem;
     border-radius: 0.625rem;
     font-weight: 600;
     font-size: 0.9375rem;
     text-decoration: none;
     transition:
-      background-color 0.2s ease,
-      color 0.2s ease,
-      border-color 0.2s ease;
+      transform 0.25s var(--gf-ease),
+      background-color 0.25s var(--gf-ease),
+      color 0.25s var(--gf-ease),
+      border-color 0.25s var(--gf-ease),
+      box-shadow 0.28s var(--gf-ease);
 
     &.primary {
-      background: var(--vp-c-brand-1);
+      background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
       color: var(--vp-c-white);
+      box-shadow: 0 4px 14px -4px color-mix(in srgb, var(--vp-c-brand-1) 52%, transparent);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          110deg,
+          transparent 25%,
+          rgba(255, 255, 255, 0.24) 50%,
+          transparent 75%
+        );
+        transform: translateX(-120%);
+        transition: transform 0.65s var(--gf-ease);
+      }
 
       &:hover {
-        background: var(--vp-c-brand-2);
+        transform: translateY(-1px);
         color: var(--vp-c-white);
+        box-shadow: 0 10px 24px -6px color-mix(in srgb, var(--vp-c-brand-1) 58%, transparent);
+
+        &::after {
+          transform: translateX(120%);
+        }
+      }
+
+      &:active {
+        transform: translateY(0) scale(0.99);
       }
     }
 
     &.secondary {
-      border: 1px solid var(--vp-c-divider);
+      border: 1px solid var(--gf-line);
       color: var(--vp-c-text-1);
       background: transparent;
 
       &:hover {
-        border-color: var(--vp-c-brand-1);
+        transform: translateY(-1px);
+        border-color: var(--gf-line-hover);
         color: var(--vp-c-brand-1);
+        background: color-mix(in srgb, var(--vp-c-brand-1) 5%, transparent);
+      }
+
+      &:active {
+        transform: translateY(0) scale(0.99);
       }
     }
 
@@ -1313,15 +1552,17 @@ const faqItems = computed(() =>
   }
 
   .enterprise-cta-wrap {
+    position: relative;
+    z-index: 1;
     width: 100%;
 
     .notify-message {
       margin: 0.75rem 0 0;
       width: 100%;
-      border: 1px solid var(--vp-c-divider);
+      border: 1px solid var(--gf-line);
       background: var(--vp-c-bg-soft);
       font-size: 0.875rem;
-      border-radius: 0.375rem;
+      border-radius: 0.5rem;
       padding: 0.75rem 1rem;
       color: var(--vp-c-text-1);
       line-height: 1.6;
@@ -1331,18 +1572,45 @@ const faqItems = computed(() =>
 
 /* ---------- trial ---------- */
 .trial-section {
-  padding: 3rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   text-align: center;
   background: var(--vp-c-bg-soft);
+  border-top: 1px solid var(--gf-line-soft);
+  border-bottom: 1px solid var(--gf-line-soft);
 
   .trial-inner {
-    max-width: 768px;
+    @include gf-luminous-border(320px, 440px);
+    max-width: 820px;
     margin: 0 auto;
+    padding: 2.25rem 2rem;
+    border-radius: 1.125rem;
+    border: 1px solid var(--gf-line);
+    background:
+      radial-gradient(500px 180px at 50% 0%, color-mix(in srgb, var(--vp-c-brand-1) 8%, transparent), transparent 72%),
+      var(--gf-card-bg);
+    box-shadow: var(--gf-card-shadow);
+    transition:
+      transform 0.36s var(--gf-ease),
+      border-color 0.3s var(--gf-ease),
+      box-shadow 0.36s var(--gf-ease);
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-2px);
+      border-color: var(--gf-line-hover);
+      box-shadow: var(--gf-card-shadow-hover);
+
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+    }
   }
 
   h2 {
     font-size: 1.5rem;
     font-weight: 700;
+    letter-spacing: -0.02em;
     margin: 0 0 0.5rem;
     color: var(--vp-c-text-1);
   }
@@ -1357,7 +1625,7 @@ const faqItems = computed(() =>
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem 1.75rem;
+    gap: 0.65rem 1.5rem;
     padding: 0;
     margin: 0 0 1.75rem;
 
@@ -1369,33 +1637,60 @@ const faqItems = computed(() =>
       color: var(--vp-c-text-1);
 
       .check {
-        margin-right: 0.5rem;
+        margin-right: 0.45rem;
       }
     }
   }
 
   .trial-cta {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
-    padding: 0.75rem 2rem;
+    padding: 0.72rem 2rem;
     border-radius: 0.625rem;
-    background: var(--vp-c-brand-1);
+    background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
     color: var(--vp-c-white);
     font-weight: 600;
     font-size: 0.9375rem;
     text-decoration: none;
-    transition: background-color 0.2s ease;
+    box-shadow: 0 4px 14px -4px color-mix(in srgb, var(--vp-c-brand-1) 50%, transparent);
+    transition: transform 0.25s var(--gf-ease), box-shadow 0.28s var(--gf-ease);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        110deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.24) 50%,
+        transparent 75%
+      );
+      transform: translateX(-120%);
+      transition: transform 0.65s var(--gf-ease);
+    }
 
     &:hover {
-      background: var(--vp-c-brand-2);
+      transform: translateY(-1px);
       color: var(--vp-c-white);
+      box-shadow: 0 10px 24px -6px color-mix(in srgb, var(--vp-c-brand-1) 58%, transparent);
+
+      &::after {
+        transform: translateX(120%);
+      }
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.99);
     }
   }
 }
 
 /* ---------- compare ---------- */
 .compare-section {
-  padding: 6rem 0;
+  padding: 5.5rem 0;
 
   .section-subtitle {
     margin-bottom: 2.5rem;
@@ -1404,11 +1699,15 @@ const faqItems = computed(() =>
 
 .compare-table-wrap {
   overflow-x: auto;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 1rem;
-  background: var(--vp-c-bg);
-  padding: 0.25rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--gf-line);
+  border-radius: 1.125rem;
+  background: var(--gf-card-bg);
+  box-shadow: var(--gf-card-shadow);
+  transition: border-color 0.32s var(--gf-ease), box-shadow 0.36s var(--gf-ease);
+
+  &:hover {
+    border-color: var(--gf-line-hover);
+  }
 }
 
 .compare-table {
@@ -1422,35 +1721,53 @@ const faqItems = computed(() =>
 
   th,
   td {
-    padding: 1rem 1.5rem;
+    padding: 0.85rem 1.375rem;
   }
 
   thead tr {
-    border-bottom: 1px solid var(--vp-c-divider);
+    border-bottom: 1px solid var(--gf-line);
 
     th {
-      font-weight: 600;
+      font-weight: 650;
       text-align: center;
-      color: var(--vp-c-text-2);
+      color: var(--vp-c-text-1);
 
       &.plan-col.highlighted {
-        background: color-mix(in srgb, var(--vp-c-brand-1) 6%, transparent);
+        color: var(--vp-c-brand-1);
+        background: color-mix(in srgb, var(--vp-c-brand-1) 5%, transparent);
       }
     }
   }
 
   .category-row td {
     background: var(--vp-c-bg-soft);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 650;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.06em;
     color: var(--vp-c-text-2);
-    border-bottom: 1px solid var(--vp-c-divider);
+    padding-block: 0.625rem;
+    border-top: 1px solid var(--gf-line-soft);
+    border-bottom: 1px solid var(--gf-line-soft);
   }
 
   tbody tr:not(.category-row) {
-    border-bottom: 1px solid var(--vp-c-divider);
+    border-bottom: 1px solid var(--gf-line-soft);
+    transition: background-color 0.2s var(--gf-ease);
+
+    &:hover {
+      background: var(--gf-row-hover);
+
+      .sticky-col {
+        background: var(--gf-row-hover-solid);
+        color: var(--vp-c-text-1);
+        box-shadow: inset 2px 0 0 var(--vp-c-brand-1);
+      }
+
+      .check {
+        transform: scale(1.1);
+      }
+    }
 
     &:last-child {
       border-bottom: none;
@@ -1460,10 +1777,14 @@ const faqItems = computed(() =>
   .sticky-col {
     position: sticky;
     left: 0;
-    background: var(--vp-c-bg);
+    background: var(--gf-card-bg);
     text-align: left;
     color: var(--vp-c-text-2);
     z-index: 1;
+    transition:
+      background-color 0.2s var(--gf-ease),
+      color 0.2s var(--gf-ease),
+      box-shadow 0.2s var(--gf-ease);
   }
 
   .category-row .sticky-col.category-cell {
@@ -1472,17 +1793,19 @@ const faqItems = computed(() =>
 
   .value-cell {
     text-align: center;
+    vertical-align: middle;
 
     &.highlighted {
-      background: color-mix(in srgb, var(--vp-c-brand-1) 5%, transparent);
+      background: color-mix(in srgb, var(--vp-c-brand-1) 3.5%, transparent);
     }
 
     .value-dash {
       color: var(--vp-c-text-3);
+      opacity: 0.6;
     }
 
     .value-text {
-      font-weight: 500;
+      font-weight: 550;
       color: var(--vp-c-text-1);
     }
   }
@@ -1490,39 +1813,96 @@ const faqItems = computed(() =>
 
 /* ---------- faq ---------- */
 .faq-section {
-  padding: 6rem 1.5rem;
+  padding: 5.5rem 1.5rem;
   background: var(--vp-c-bg-soft);
+  border-top: 1px solid var(--gf-line-soft);
+  border-bottom: 1px solid var(--gf-line-soft);
 
   .faq-inner {
     max-width: 768px;
     margin: 0 auto;
 
     .section-title {
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
   }
 
   .faq-list {
-    border-top: 1px solid var(--vp-c-divider);
-    border-bottom: 1px solid var(--vp-c-divider);
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--gf-line);
   }
 
   .faq-item {
-    padding: 1.25rem 0;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid var(--gf-line);
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
     cursor: pointer;
-    border-bottom: 1px solid var(--vp-c-divider);
+    interpolate-size: allow-keywords;
+    transition: border-color 0.28s var(--gf-ease);
 
-    &:last-child {
-      border-bottom: none;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: radial-gradient(
+        300px circle at var(--mx, 50%) 50%,
+        var(--gf-border-glow) 0%,
+        var(--gf-line-hover) 55%,
+        transparent 85%
+      );
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.32s var(--gf-ease);
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+
+      summary {
+        color: var(--vp-c-brand-1);
+      }
+    }
+
+    &[open] {
+      border-bottom-color: color-mix(in srgb, var(--vp-c-brand-1) 36%, var(--gf-line));
+    }
+
+    &::details-content {
+      block-size: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition:
+        block-size 0.32s var(--gf-ease),
+        opacity 0.26s var(--gf-ease),
+        content-visibility 0.32s allow-discrete;
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+      opacity: 1;
     }
 
     summary {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-weight: 500;
+      gap: 1rem;
+      padding: 1.3rem 0;
+      font-weight: 550;
       list-style: none;
       color: var(--vp-c-text-1);
+      transition: color 0.22s var(--gf-ease);
 
       &::-webkit-details-marker {
         display: none;
@@ -1530,16 +1910,36 @@ const faqItems = computed(() =>
     }
 
     .faq-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 1.25rem;
+      height: 1.25rem;
       color: var(--vp-c-text-2);
-      transition: transform 0.2s ease;
+      transition: transform 0.32s var(--gf-ease), color 0.22s var(--gf-ease);
+
+      svg {
+        width: 1.05rem;
+        height: 1.05rem;
+        display: block;
+      }
+    }
+
+    &:hover .faq-arrow {
+      color: var(--vp-c-brand-1);
     }
 
     &[open] .faq-arrow {
       transform: rotate(180deg);
+      color: var(--vp-c-brand-1);
     }
 
     p {
-      margin: 0.75rem 0 0;
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      padding: 0 2rem 1.35rem 0;
       font-size: 0.875rem;
       color: var(--vp-c-text-2);
       line-height: 1.7;
@@ -1549,22 +1949,23 @@ const faqItems = computed(() =>
 
 /* ---------- features ---------- */
 .features-section {
-  padding: 6rem 0;
+  padding: 5.5rem 0 2rem;
 
   .features-title {
-    margin-bottom: 4rem;
+    margin-bottom: 3.25rem;
   }
 }
 
 .feature-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  gap: 3.5rem;
   align-items: center;
-  margin-bottom: 6rem;
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--gf-line);
 
   &:last-child {
-    margin-bottom: 0;
+    border-bottom: 1px solid var(--gf-line);
   }
 
   &.reverse .feature-visual {
@@ -1573,6 +1974,8 @@ const faqItems = computed(() =>
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
 
     &.reverse .feature-visual {
       order: 0;
@@ -1583,31 +1986,38 @@ const faqItems = computed(() =>
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     text-decoration: none;
 
     .feature-logo {
-      width: 4rem;
-      height: 4rem;
+      width: 3.5rem;
+      height: 3.5rem;
       object-fit: contain;
-      transition: transform 0.2s ease;
+      transition: transform 0.34s var(--gf-spring);
     }
 
     h3 {
-      font-size: 1.875rem;
+      font-size: 1.75rem;
       font-weight: 700;
+      letter-spacing: -0.025em;
       margin: 0;
       color: var(--vp-c-text-1);
-      transition: color 0.2s ease;
+      transition: color 0.22s var(--gf-ease);
     }
 
-    &:hover h3 {
-      color: var(--vp-c-brand-1);
+    &:hover {
+      .feature-logo {
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      h3 {
+        color: var(--vp-c-brand-1);
+      }
     }
   }
 
   .feature-desc {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     color: var(--vp-c-text-2);
     margin: 0 0 1.5rem;
     line-height: 1.7;
@@ -1621,11 +2031,15 @@ const faqItems = computed(() =>
     li {
       display: flex;
       align-items: flex-start;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
 
       .check {
         margin-right: 0.75rem;
         margin-top: 0.125rem;
+      }
+
+      &:hover .check {
+        transform: scale(1.08);
       }
 
       span {
@@ -1637,22 +2051,37 @@ const faqItems = computed(() =>
   }
 
   .feature-visual {
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--vp-c-brand-1) 20%, transparent),
-      color-mix(in srgb, var(--vp-c-bg-soft) 60%, transparent)
-    );
-    border-radius: 1.5rem;
-    padding: 2rem;
+    @include gf-luminous-border(300px, 420px);
+    border: 1px solid var(--gf-line);
+    background: color-mix(in srgb, var(--vp-c-bg-soft) 45%, transparent);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
     height: 20rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: border-color 0.32s var(--gf-ease);
+
+    &:hover {
+      border-color: var(--gf-line-hover);
+
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+
+      img {
+        transform: scale(1.015);
+      }
+    }
 
     img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       object-fit: contain;
+      transition: transform 0.44s var(--gf-ease);
     }
   }
 }
@@ -1665,5 +2094,72 @@ const faqItems = computed(() =>
   .section-title {
     font-size: 1.5rem;
   }
+
+  .trial-section .trial-inner {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .geekfun-pricing-page {
+    .hero-inner,
+    .plan-card {
+      animation: none;
+    }
+
+    .plan-card,
+    .plan-card::before,
+    .plan-card::after,
+    .plan-cta,
+    .plan-cta::after,
+    .trial-cta,
+    .trial-cta::after,
+    .switch,
+    .switch-knob,
+    .rocket,
+    .hero-logo,
+    .check,
+    .trial-inner,
+    .trial-inner::before,
+    .trial-inner::after,
+    .compare-table-wrap,
+    .compare-table tbody tr,
+    .compare-table .sticky-col,
+    .faq-item,
+    .faq-item::after,
+    .faq-item::details-content,
+    .faq-item summary,
+    .faq-arrow,
+    .feature-visual,
+    .feature-visual::before,
+    .feature-visual::after,
+    .feature-visual img,
+    .feature-logo,
+    .price-swap-enter-active,
+    .price-swap-leave-active,
+    .fade-slide-enter-active,
+    .fade-slide-leave-active {
+      transition: none;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+html.dark .geekfun-pricing-page {
+  --gf-card-bg: #131316;
+  --gf-line: rgba(255, 255, 255, 0.11);
+  --gf-line-soft: rgba(255, 255, 255, 0.065);
+  --gf-line-hover: rgba(251, 169, 90, 0.42);
+  --gf-line-featured: rgba(251, 169, 90, 0.38);
+  --gf-border-glow: rgba(251, 169, 90, 0.92);
+  --gf-border-glow-mid: rgba(251, 169, 90, 0.34);
+  --gf-surface-glow: rgba(251, 169, 90, 0.065);
+  --gf-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.32), 0 10px 28px -18px rgba(0, 0, 0, 0.65);
+  --gf-card-shadow-hover: 0 20px 42px -14px rgba(0, 0, 0, 0.72);
+  --gf-featured-shadow: 0 12px 32px -16px rgba(248, 155, 64, 0.24), 0 1px 3px rgba(0, 0, 0, 0.45);
+  --gf-featured-shadow-hover: 0 24px 48px -16px rgba(248, 155, 64, 0.32);
+  --gf-row-hover: rgba(251, 169, 90, 0.055);
+  --gf-row-hover-solid: color-mix(in srgb, #131316 94.5%, #fba95a 5.5%);
 }
 </style>
