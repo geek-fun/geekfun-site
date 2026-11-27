@@ -78,7 +78,10 @@ export default defineConfig({
     cleanUrls: true,
     outDir: '../dist',
     cacheDir: '../cache',
-    head: gaHead,
+    head: [
+        ...gaHead,
+        ['link', {rel: 'me', href: 'https://x.com/lisheng_z'}],
+    ],
     markdown: {
         image: {
             lazyLoading: true
