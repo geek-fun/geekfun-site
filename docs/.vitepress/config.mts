@@ -61,6 +61,7 @@ const localizedTheme = (lang: keyof typeof localizedDocs) => {
         nav: getSiteNavigation(lang),
         sidebar: getDocsSidebar(lang),
         outline: {label: copy.outline},
+        returnToTopLabel: copy.returnToTop,
         sidebarMenuLabel: copy.sidebar,
         docFooter: {prev: copy.previous, next: copy.next},
     };

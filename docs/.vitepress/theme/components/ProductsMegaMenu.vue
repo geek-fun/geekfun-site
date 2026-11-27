@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 import { useData, withBase } from 'vitepress';
+import { getProductMenuGroups } from '../../product-menu';
 import { getNavigationCopy, getProductNavLink } from '../../site-navigation';
 
 const { lang } = useData();
-const isZh = computed(() => lang.value === 'zh');
+const groups = computed(() => getProductMenuGroups(lang.value));
 
 const wrapperRef = ref<HTMLElement | null>(null);
 const isOpen = ref(false);
@@ -81,81 +82,6 @@ onUnmounted(() => {
   document.removeEventListener('click', clickOutsideHandler);
   document.removeEventListener('keydown', keydownHandler);
 });
-
-const groups = [
-  {
-    labelEn: 'Database Clients',
-    labelZh: '数据库客户端',
-    items: [
-      {
-        name: 'DocKit',
-        taglineEn: 'NoSQL desktop client for Elasticsearch, OpenSearch, DynamoDB',
-        taglineZh: '面向 Elasticsearch、OpenSearch、DynamoDB 的 NoSQL 桌面客户端',
-        logo: '/dockit.png',
-        linkEn: '/products/dockit/',
-        linkZh: '/zh/products/dockit/',
-        external: false,
-      },
-      {
-        name: 'SqlKit',
-        taglineEn: 'SQL desktop client for PostgreSQL, MySQL, SQL Server, SQLite',
-        taglineZh: '面向 PostgreSQL、MySQL、SQL Server、SQLite 的 SQL 桌面客户端',
-        logo: '/sqlkit.png',
-        linkEn: '/products/sqlkit/',
-        linkZh: '/zh/products/sqlkit/',
-        external: false,
-      },
-    ],
-  },
-  {
-    labelEn: 'Infrastructure',
-    labelZh: '基础设施',
-    items: [
-      {
-        name: 'ServerlessInsight',
-        taglineEn: 'Serverless infrastructure platform and CLI',
-        taglineZh: 'Serverless 基础设施平台和 CLI',
-        logo: '/serverlessinsight.png',
-        linkEn: 'https://serverlessinsight.com/',
-        linkZh: 'https://serverlessinsight.com/',
-        external: true,
-      },
-      {
-        name: 'serverless-adapter',
-        taglineEn: 'Serverless adapter for Express and Koa',
-        taglineZh: '面向 Express 与 Koa 的 Serverless 适配器',
-        logo: '/serverless-adapter.svg',
-        linkEn: 'https://github.com/geek-fun/serverless-adapter',
-        linkZh: 'https://github.com/geek-fun/serverless-adapter',
-        external: true,
-      },
-    ],
-  },
-  {
-    labelEn: 'Developer Tools',
-    labelZh: '开发者工具',
-    items: [
-      {
-        name: 'Data Studio Agent',
-        taglineEn: 'MCP server for AI agents to query your databases',
-        taglineZh: '让 AI 编码代理直接访问数据库的 MCP 服务器',
-        logo: '/data-studio-agent.svg',
-        linkEn: '/products/data-studio-agent/',
-        linkZh: '/zh/products/data-studio-agent/',
-        external: false,
-      },
-      {
-        name: 'jest-search',
-        taglineEn: 'Jest utility for search integration testing',
-        taglineZh: '用于搜索集成测试的 Jest 工具',
-        logo: '/jest-search.png',
-        linkEn: 'https://github.com/geek-fun/jest-search',
-        linkZh: 'https://github.com/geek-fun/jest-search',
-        external: true,
-      },
-    ],
-  },
-];
 </script>
 
 <template>
@@ -201,7 +127,7 @@ const groups = [
       >
         <div class="mega-menu-grid">
           <div v-for="(group, gIdx) in groups" :key="gIdx" class="mega-menu-group">
-            <h3 class="mega-menu-group-label">{{ isZh ? group.labelZh : group.labelEn }}</h3>
+            <h3 class="mega-menu-group-label">{{ group.label }}</h3>
             <ul class="mega-menu-items">
               <li v-for="(item, iIdx) in group.items" :key="iIdx">
                 <a
@@ -220,7 +146,7 @@ const groups = [
                         <polyline points="7 7 17 7 17 17"></polyline>
                       </svg>
                     </span>
-                    <span class="mega-menu-item-tagline">{{ isZh ? item.taglineZh : item.taglineEn }}</span>
+                    <span class="mega-menu-item-tagline">{{ item.tagline }}</span>
                   </div>
                 </a>
               </li>
