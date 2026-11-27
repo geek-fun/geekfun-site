@@ -62,7 +62,7 @@ outline: [2, 3]
 
 在数据库、模式或表的右键菜单选择**展示 ER 图表**，SqlKit 会读取实时列信息与外键约束并绘制实体关系图。
 
-<DocsFigure src="/sqlkit-er-diagram-ui.png" alt="SqlKit 交互式 ER 图，展示表卡片、字段列表和正交外键连线" caption="ER 图基于真实外键自动完成 dagre 布局，支持拖拽微调与双击直达数据表。" :width="3424" :height="2224" />
+<DocsFigure src="/sqlkit-er-diagram-ui.png" alt="SqlKit 交互式 ER 图，展示表卡片、字段列表和正交外键连线" caption="ER 图基于真实外键自动完成 dagre 布局，支持拖拽微调与双击打开数据表。" :width="3424" :height="2224" />
 
 ### 画布导航与交互
 

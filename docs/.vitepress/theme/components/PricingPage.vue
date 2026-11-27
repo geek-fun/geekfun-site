@@ -412,10 +412,10 @@ const translations = {
     hero: {
       title1: 'GEEKFUN Data Studio',
       subtitle1: 'Unified management for NoSQL & SQL databases',
-      subtitle2: 'Intelligent, efficient, and user-friendly'
+      subtitle2: 'Built for everyday database work'
     },
     features: {
-      title: 'Meet your powerful database tools.',
+      title: 'Meet your database tools',
       dockit: {
         title: 'DocKit',
         description: 'Professional NoSQL database GUI client for modern data platforms.',
@@ -447,14 +447,14 @@ const translations = {
           'MCP Server: Plug and play with Claude Code, Cursor, OpenCode & any MCP client',
           'Connect to SQL databases through SqlKit',
           'NoSQL Bridge: Elasticsearch, OpenSearch, MongoDB, DynamoDB',
-          'Local-first: Data never leaves your machine, enterprise-grade security',
-          'Bring Your Own Model: Any LLM, no vendor lock-in'
+          'Local-first: Data never leaves your machine',
+          'Bring Your Own Model: Use any LLM you prefer'
         ]
       }
     },
     plans: {
       title: 'Choose Your Plan',
-      subtitle: 'One subscription. All tools. Unlimited possibilities.'
+      subtitle: 'One subscription covers all three tools.'
     },
     billing: {
       monthly: 'Monthly',
@@ -486,7 +486,7 @@ const translations = {
       features: [
         'Everything in Community',
         'AI Assistant: Custom agent & LLM configuration across DocKit & SqlKit',
-        'DocKit Import/Export: Data migration made easy',
+        'DocKit Import/Export: Migrate data across collections and indices',
         'All DocKit features: NoSQL GUI, monitoring, PartiQL',
         'All SqlKit features: SQL editor, multi-database, history',
         'Priority support'
@@ -615,10 +615,10 @@ const translations = {
     hero: {
       title1: 'GEEKFUN Data Studio',
       subtitle1: 'NoSQL 和 SQL 数据库统一管理',
-      subtitle2: '智能、高效、易用'
+      subtitle2: '面向日常数据库开发与运维'
     },
     features: {
-      title: '强大的数据库工具。',
+      title: '了解三款数据库工具',
       dockit: {
         title: 'DocKit',
         description: '面向现代数据平台的专业 NoSQL 数据库 GUI 客户端。',
@@ -649,14 +649,14 @@ const translations = {
           'MCP 服务器：Claude Code、Cursor、OpenCode 等任意 MCP 客户端即插即用',
           '通过 SqlKit 连接 SQL 数据库',
           'NoSQL 桥接：Elasticsearch、OpenSearch、MongoDB、DynamoDB',
-          '本地优先：数据不出本机，企业级安全',
-          '自带模型：任意 LLM，无供应商锁定'
+          '本地优先：数据不出本机',
+          '自带模型：自由选择任意 LLM'
         ]
       }
     },
     plans: {
       title: '选择您的方案',
-      subtitle: '一个订阅。所有工具。无限可能。'
+      subtitle: '一个订阅即可使用全部三款工具。'
     },
     billing: {
       monthly: '月付',
@@ -682,7 +682,7 @@ const translations = {
       features: [
         '社区版所有功能',
         'AI 助手：自定义 Agent 与 LLM 配置，支持 DocKit 和 SqlKit',
-        'DocKit 导入/导出：轻松实现数据迁移',
+        'DocKit 导入/导出：跨集合与索引迁移数据',
         '所有 DocKit 功能：NoSQL GUI、监控、PartiQL',
         '所有 SqlKit 功能：SQL 编辑器、多数据库、历史记录',
         '优先支持'

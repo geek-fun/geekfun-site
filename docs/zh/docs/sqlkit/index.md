@@ -36,7 +36,7 @@ SqlKit 是一款开源、跨平台的桌面 SQL 客户端，基于 Rust、Tauri 
   />
   <DocsCard
     title="浏览、筛选与修改表数据"
-    description="虚拟滚动数据表格支持全表搜索、SQL WHERE 过滤、后端列筛选标签、多列排序、行详情与 JSON 查看器、主键感知行编辑及 CSV/JSON/SQL 导出。"
+    description="虚拟滚动数据表格支持全表搜索、SQL WHERE 过滤、后端列筛选标签、多列排序、行详情与 JSON 查看器、按主键定位的行编辑及 CSV/JSON/SQL 导出。"
     href="/zh/docs/sqlkit/table-browser"
     icon="table"
   />

@@ -5,7 +5,7 @@ description: Consulta cómo conectar bases de datos, ejecutar SQL, explorar esqu
 
 # Funciones de SqlKit
 
-Usa SqlKit para conectarte a una base de datos, explorar sus tablas, ejecutar SQL y guardar los resultados. Aquí encontrarás dónde empezar cada tarea y qué depende del controlador o del plan.
+Usa SqlKit para conectarte a una base de datos, explorar sus tablas, ejecutar SQL y guardar los resultados. Cada tarea comienza en un área distinta de la aplicación, y algunas funciones dependen del controlador o del plan Ultimate.
 
 <div class="docs-section-links">
 

@@ -33,7 +33,7 @@ Desde el cliente de escritorio puedes explorar esquemas y ejecutar consultas. Sq
 - [MySQL](/es/docs/sqlkit/mysql-gui-client) · [PostgreSQL](/es/docs/sqlkit/postgresql-gui-client)
 - [SQL Server](/es/docs/sqlkit/sql-server-gui-client) · [Oracle Database](/es/docs/sqlkit/oracle-gui-client) · [SQLite](/es/docs/sqlkit/sqlite-gui-client)
 
-## De la conexión al archivo CSV
+## Ejecutar consultas y exportar resultados
 
 La [guía de funciones de SqlKit](/es/docs/sqlkit/capabilities) muestra el editor SQL, los diagramas ER, la transferencia de datos, la IA y MCP en la aplicación.
 

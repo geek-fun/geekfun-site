@@ -1,6 +1,6 @@
 ---
 title: 支持的数据库与 JDBC 驱动（68+ 引擎） | SqlKit
-description: 完整列出 SqlKit 支持的 68 种数据库引擎，涵盖原生 Rust 驱动、PostgreSQL/MySQL 兼容协议、HTTP SQL 与按需下载的 JDBC 桥接及能力矩阵。
+description: SqlKit 支持的 68 种数据库引擎及能力矩阵，涵盖原生 Rust 驱动、PostgreSQL/MySQL 兼容协议、HTTP SQL 与按需下载的 JDBC 桥接。
 outline: [2, 3]
 ---
 

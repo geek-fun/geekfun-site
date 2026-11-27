@@ -1,6 +1,6 @@
 ---
 title: AI 权限与安全模型 | SqlKit Data Studio 与 MCP
-description: 了解 SqlKit 统一的 AI 权限策略链、5 维细粒度动作控制、sqlparser AST 与 CQL 写拦截、Ask/Auto 审批机制以及凭据隔离边界。
+description: SqlKit 统一的 AI 权限策略链：5 维动作控制、sqlparser AST 与 CQL 写拦截、Ask/Auto 审批机制及凭据隔离边界。
 outline: [2, 3]
 ---
 
@@ -14,11 +14,11 @@ outline: [2, 3]
 
 <DocsFlowDiagram variant="ai-safety" />
 
-1. **数据库账号权限**：所有查询以连接中保存的数据库账号身份执行。为生产库配置只读数据库角色后，任何客户端配置都无法突破服务端授权。
-2. **默认拒绝（Fail-Closed）策略链**：每次工具调用按顺序判定：`单连接显式规则（允许 / 拒绝） -> 系统默认 AI 权限 -> 拒绝`。策略文件缺失或损坏时直接拒绝放行。
-3. **AST 读写隔离（`sqlparser` + CQL 分类器）**：`sqlkit__execute_query` 在执行前对 SQL 做语法树解析，拦截包括数据修改型 CTE（如 `WITH updated AS (UPDATE ... RETURNING *) SELECT * FROM updated`）在内的写语句；Cassandra 和 ScyllaDB 由专用 CQL 分类器做同等隔离。
-4. **按风险拆分的工具面**：只读查询（`execute_query`）、普通写入（`execute_write`）、删除（`execute_delete`）、结构变更（`execute_ddl`）和 DBA 管理（`kill_session`、`grant_privilege`、`revoke_privilege`）分属独立工具并绑定各自权限位。
-5. **交互确认卡与凭据隔离**：交互式会话中破坏性操作需要人工确认；数据库密码、SSH 私钥与 TLS 私钥永远不会暴露给 LLM 或 `list_connections`。
+1. 数据库账号权限：所有查询以连接中保存的数据库账号身份执行。为生产库配置只读数据库角色后，任何客户端配置都无法突破服务端授权。
+2. 默认拒绝（Fail-Closed）策略链：每次工具调用按顺序判定：`单连接显式规则（允许 / 拒绝） -> 系统默认 AI 权限 -> 拒绝`。策略文件缺失或损坏时直接拒绝放行。
+3. AST 读写隔离（`sqlparser` + CQL 分类器）：`sqlkit__execute_query` 在执行前对 SQL 做语法树解析，拦截包括数据修改型 CTE（如 `WITH updated AS (UPDATE ... RETURNING *) SELECT * FROM updated`）在内的写语句；Cassandra 和 ScyllaDB 由专用 CQL 分类器做同等隔离。
+4. 按风险拆分的工具面：只读查询（`execute_query`）、普通写入（`execute_write`）、删除（`execute_delete`）、结构变更（`execute_ddl`）和 DBA 管理（`kill_session`、`grant_privilege`、`revoke_privilege`）分属独立工具并绑定各自权限位。
+5. 交互确认卡与凭据隔离：交互式会话中破坏性操作需要人工确认；数据库密码、SSH 私钥与 TLS 私钥永远不会暴露给 LLM 或 `list_connections`。
 
 ## 配置默认与单连接权限 {#connection-permissions}
 
@@ -76,7 +76,7 @@ outline: [2, 3]
 
 ## 隐私与数据边界
 
-数据库密码、SSH 私钥与 TLS 私钥不会发送给大模型或 MCP 客户端。已授权工具返回的元数据与结果行会发往你配置的模型（应用内 AI）或返回给调用方 MCP 客户端（由客户端决定如何发送给模型）。如需离线保护敏感数据，可将连接设为**无访问**，或在 [Agentic Data Studio](/zh/docs/sqlkit/agentic-datastudio) 中配置 Ollama 或 LM Studio 进行本地推理。
+数据库密码、SSH 私钥与 TLS 私钥不会发送给大模型或 MCP 客户端。已授权工具返回的元数据与结果行会发往你配置的模型（应用内 AI）或返回给调用方 MCP 客户端（由客户端决定如何发送给模型）。如需离线保护敏感数据，可将连接设为**无访问**，或在 [Agentic Data Studio](/zh/docs/sqlkit/agentic-datastudio) 中配置 Ollama 或 LM Studio 在本地运行模型。
 
 ## 下一步
 

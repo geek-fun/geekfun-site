@@ -1,6 +1,6 @@
 ---
 title: MCP 桥接与编程智能体（Claude Code、Codex、Cursor） | SqlKit
-description: 启动 SqlKit 本地 MCP 桥接，在 Claude Code、OpenAI Codex 或 Cursor 中注册 Data Studio Agent（@geek-fun/data-studio-mcp），并查阅全部 25 个注册数据库与 DBA 工具。
+description: 启动 SqlKit 本地 MCP 桥接，在 Claude Code、OpenAI Codex 或 Cursor 中注册 Data Studio Agent（@geek-fun/data-studio-mcp），通过 25 个内置数据库与 DBA 工具访问已授权连接。
 outline: [2, 3]
 ---
 
@@ -26,7 +26,7 @@ SqlKit 内嵌基于 Rust 和 Axum 的本地 HTTP **MCP 桥接**，让 Claude Cod
 
 进入**设置 → MCP 桥接**，确认状态显示**运行中（Running on port `<port>`）**；需要时可点击重启按钮。旗舰版激活并开启 **Auto-start** 后，桥接会随应用自动启动，关闭主窗口后继续在系统托盘或菜单栏中运行。
 
-<DocsFigure src="/sqlkit-mcp-bridge-settings.png" alt="SqlKit 设置中的 MCP Bridge 选项卡：显示运行端口 9121、自动启动开关、Claude Code/Codex/Cursor 注册命令以及默认 AI 权限" caption="在设置 → MCP 桥接中可查看监听端口、一键复制各编程客户端注册命令、查看活跃会话并配置默认 AI 权限。" :width="3458" :height="2266" />
+<DocsFigure src="/sqlkit-mcp-bridge-settings.png" alt="SqlKit 设置中的 MCP Bridge 选项卡：显示运行端口 9121、自动启动开关、Claude Code/Codex/Cursor 注册命令以及默认 AI 权限" caption="在设置 → MCP 桥接中可查看监听端口、复制各编程客户端注册命令、查看活跃会话并配置默认 AI 权限。" :width="3458" :height="2266" />
 
 ### 配置默认与单连接 AI 权限
 
@@ -44,7 +44,7 @@ npx --version
 
 ## 在编程客户端中注册 Data Studio Agent {#register}
 
-按你的工具选择下方配置（**设置 → MCP 桥接**内也提供一键复制标签页）。首次启动时 `npx -y` 会自动拉取 `@geek-fun/data-studio-mcp`。
+按你的工具选择下方配置（**设置 → MCP 桥接**内也提供按客户端分类的复制标签页）。首次启动时 `npx -y` 会自动拉取 `@geek-fun/data-studio-mcp`。
 
 ::: code-group
 

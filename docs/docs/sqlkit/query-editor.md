@@ -56,7 +56,7 @@ The character-level statement scanner splits multi-statement scripts without bre
 
 Press <kbd>F6</kbd> or click **Explain** in the toolbar to inspect how the database plans a query. Switch between **EXPLAIN** (estimated plan without running the query) and **EXPLAIN ANALYZE** (runs the query to collect real timings and row counts).
 
-<DocsFigure src="/sqlkit-explain-tree.png" alt="SqlKit visual EXPLAIN plan Tree view for a PostgreSQL join across partitioned tables showing estimated total cost, most expensive operator, and per-node cost and row metrics" caption="Visual EXPLAIN Tree view highlighting estimated total cost, the most expensive operator, and nested scan/join nodes across Tree, Summary, and Raw tabs." :width="3842" :height="2306" />
+<DocsFigure src="/sqlkit-explain-tree.png" alt="SqlKit visual EXPLAIN plan Tree view for a PostgreSQL join across partitioned tables showing estimated total cost, most expensive operator, and per-node cost and row metrics" caption="Visual EXPLAIN Tree view shows estimated total cost, the most expensive operator, and nested scan and join nodes alongside the Summary and Raw tabs." :width="3842" :height="2306" />
 
 ::: warning EXPLAIN ANALYZE executes the statement
 Use `EXPLAIN ANALYZE` only on read-only `SELECT` statements unless you intend to run a write statement on the target database.
@@ -95,7 +95,7 @@ SqlKit records every executed query in **History** with its SQL text, connection
 
 ::: info Current editor boundaries
 - SqlKit does not have toolbar buttons for autocommit, commit, or rollback; run `BEGIN`, `COMMIT`, and `ROLLBACK` in SQL when you need manual transaction control.
-- Mid-flight query cancellation is not yet implemented. Set **Query Timeout** (1-300 s, default `30 s`) in **Settings → Query** or per connection to bound long-running queries.
+- SqlKit does not yet cancel running queries mid-flight. Set **Query Timeout** (1-300 s, default `30 s`) in **Settings → Query** or per connection to bound long-running queries.
 - With Ultimate, open the **AI Assistant** right sidebar in Queries to explain SQL, diagnose errors, or rewrite slow queries using your active editor context.
 :::
 

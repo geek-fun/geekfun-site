@@ -31,4 +31,4 @@ Abra o assistente de IA na barra superior de **Consultas** e peça uma explicaç
 
 ## Resolver problemas de configuração {#troubleshoot}
 
-Se não houver modelos, confira se o provedor está habilitado e tem modelos cadastrados. Se a fonte não aparecer, salve e teste a conexão. Se uma operação for bloqueada, confira as permissões da conexão e da conversa.
+Quando não houver modelos disponíveis, confira se o provedor está habilitado e tem modelos cadastrados. Caso a fonte não apareça, salve e teste a conexão primeiro. Diante de uma operação bloqueada, revise as permissões da conexão e da conversa.

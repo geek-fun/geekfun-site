@@ -72,8 +72,8 @@ SqlKit routes each engine to an adapter built for its protocol. Built-in databas
 
 | Driver layer | Engines | Representative databases | Runtime requirement |
 | --- | --- | --- | --- |
-| Native Rust (TCP) | 3 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> | Built in, no setup |
-| Native Rust (Local file) | 2 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#local--> | Built in, no setup |
+| Native Rust (TCP) | 3 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#tcp--> | Built in (native Rust) |
+| Native Rust (Local file) | 2 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#local--> | Built in (native Rust) |
 | MySQL-wire compatible | 13 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#mysql--> | Built in (reuses native MySQL driver) |
 | PostgreSQL-wire compatible | 18 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#postgresql--> | Built in (reuses native PostgreSQL driver) |
 | HTTP SQL | 5 | <!--@include: @/.vitepress/includes/sqlkit-databases.md#http--> | Built in (native Rust HTTP) |
@@ -103,7 +103,7 @@ SqlKit runs locally on your machine and sends no usage telemetry.
 - Database grants remain the final boundary. SqlKit runs every query under the database account in your connection, so a read-only database user cannot write even if client settings allow it.
 - In-app AI (Data Studio and the Queries AI Assistant sidebar) and external MCP clients share one policy chain: per-connection rule, then system default, then deny.
 - Read-only query tools parse SQL with `sqlparser` (and a CQL classifier for Cassandra and ScyllaDB) to reject writes, including data-modifying CTEs (`WITH ... INSERT/UPDATE/DELETE`).
-- In interactive AI sessions, `DELETE`, `TRUNCATE`, and `CREATE`/`ALTER`/`DROP` statements always prompt for confirmation in both `Ask` and `Auto` modes unless a matching session rule has been saved.
+- In interactive AI sessions, `DELETE`, `TRUNCATE`, and `CREATE`/`ALTER`/`DROP` statements always prompt for confirmation in both `Ask` and `Auto` modes unless you save a matching session rule.
 
 Read the details in [AI permissions and safety model](/docs/sqlkit/ai-permissions).
 

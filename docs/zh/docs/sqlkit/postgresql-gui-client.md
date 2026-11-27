@@ -51,7 +51,7 @@ SELECT
 - Monaco 内置 `pgsql` 元数据补全与 `postgresql` 方言格式化（`Shift+Option/Alt+F`），可识别函数和 `DO` 块中的 `$$...$$` 美元引号。
 - 按 <kbd>F6</kbd> 运行 `EXPLAIN (FORMAT JSON)` 或 `EXPLAIN (ANALYZE, FORMAT JSON)`，在成本树（标记最高开销算子）、汇总表与原始 JSON 视图之间切换。
 - **新建数据库**支持配置 PostgreSQL 的 **Encoding（编码）** 与 **Locale（区域设置）**。
-- 旗舰版 <DocsBadge variant="ultimate">旗舰版</DocsBadge> 支持跨模式绘制外键 ER 图，或在 Agentic Data Studio 与 MCP 中通过 AST 只读护栏（拦截 `WITH ... DELETE` 等数据修改型 CTE）安全查询生产结构。
+- 旗舰版 <DocsBadge variant="ultimate">旗舰版</DocsBadge> 支持跨模式绘制外键 ER 图，或在 Agentic Data Studio 与 MCP 中通过 AST 只读校验（拦截 `WITH ... DELETE` 等数据修改型 CTE）安全查询生产结构。
 
 ## 切换模式与 `search_path`
 

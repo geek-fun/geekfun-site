@@ -30,7 +30,7 @@ hero:
 
 MySQL, PostgreSQL, SQL Server e SQLite têm drivers integrados no SqlKit. O Oracle usa JDBC. Consulte os guias de [MySQL](/pt-BR/docs/sqlkit/mysql-gui-client), [PostgreSQL](/pt-BR/docs/sqlkit/postgresql-gui-client), [SQL Server](/pt-BR/docs/sqlkit/sql-server-gui-client), [Oracle Database](/pt-BR/docs/sqlkit/oracle-gui-client) e [SQLite](/pt-BR/docs/sqlkit/sqlite-gui-client) para encontrar os campos de conexão e uma consulta de teste.
 
-## Da primeira consulta à exportação
+## Executar consultas e exportar resultados
 
 O [guia de recursos do SqlKit](/pt-BR/docs/sqlkit/capabilities) mostra como usar o editor SQL, diagramas ER, transferência de dados, IA e MCP.
 

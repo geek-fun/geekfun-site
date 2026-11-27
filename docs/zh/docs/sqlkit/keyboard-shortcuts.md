@@ -1,6 +1,6 @@
 ---
 title: SqlKit 快捷键参考 | macOS、Windows 与 Linux
-description: 列出 SqlKit 在 macOS、Windows 与 Linux 下的 SQL 编辑器、标签页、应用窗口、数据网格以及 ER 图画布快捷键与交互手势。
+description: SqlKit 在 macOS、Windows 与 Linux 下的 SQL 编辑器、标签页、应用窗口、数据网格及 ER 图画布快捷键与交互手势参考。
 outline: [2, 3]
 ---
 

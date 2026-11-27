@@ -151,8 +151,8 @@ Export your Dynobase queries as text, then save them as `.json` or `.partiql` fi
 See [Dynobase pricing](https://dynobase.dev/#pricing) for current plans.
 
 ### DocKit
-- **Community**: free — unlimited seats, core local features
-- **Ultimate**: USD 9.90/month or USD 99.00/year — AI agent, MCP, cluster management, and other advanced features (7-day free trial)
+- Community: free. Unlimited seats and core local features.
+- Ultimate: USD 9.90/month or USD 99.00/year (7-day free trial). Includes AI agent, MCP, cluster management, and other advanced features.
 
 ## Frequently asked questions
 

@@ -145,7 +145,7 @@ Supports MongoDB Atlas, self-hosted MongoDB, replica sets, TLS/SSL, and SRV conn
 For core workflows — browsing collections, running queries, managing indexes, importing/exporting data — yes, it covers the same ground and adds AI-powered querying and multi-database support. Compass wins on the visual aggregation builder and schema analysis. Many teams keep both.
 
 **Is DocKit really free?**
-Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription (USD 9.90/month or USD 99.00/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
+Yes. The Community edition is free and open source (Apache 2.0), and it includes the full local database workflow with no connection limits. Advanced capabilities (AI agent with your own LLM, MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync) are part of the paid GEEKFUN Data Studio Ultimate subscription (USD 9.90/month or USD 99.00/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
 
 **Does DocKit support MongoDB Atlas?**
 Yes. Enter your Atlas connection string in the connection dialog. DocKit supports SRV connection strings, TLS, and all Atlas authentication methods.

@@ -1,12 +1,12 @@
 ---
 title: SqlKit 功能概览与版本对比 | SQL、数据、结构、AI 与 MCP
-description: 介绍 SqlKit 桌面端的连接管理、Monaco SQL 编辑器、可视化执行计划、交互式 ER 图、虚拟滚动表格、批量传输、Agentic Data Studio、MCP 桥接与版本差异。
+description: SqlKit 桌面端的连接管理、Monaco SQL 编辑器、可视化执行计划、交互式 ER 图、虚拟滚动表格、批量传输、Agentic Data Studio、MCP 桥接与社区版/旗舰版差异。
 outline: [2, 3]
 ---
 
 # 功能概览与版本对比
 
-查看 SqlKit 桌面端各个工作区的入口、实现方式以及社区版与旗舰版的区别。
+SqlKit 将连接管理、SQL 编写、结构与数据编辑、批量传输以及 AI/MCP 能力拆分为独立工作区；核心本地功能归属社区版，进阶网络、建模与 AI 能力归属旗舰版。
 
 <div class="docs-section-links">
 
@@ -38,7 +38,7 @@ outline: [2, 3]
 - SQL 格式化支持 17 种方言，按 <kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd>（macOS）或 <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd>（Windows/Linux）格式化选区或全文。
 - 每条语句首行左侧带播放图标，右键可单独执行、格式化或复制；语句拆分器支持 PostgreSQL `$$` 美元引号和 CQL `BEGIN ... APPLY BATCH`，结果区支持多结果集下拉切换。
 - 按 <kbd>F6</kbd> 查看可视化 `EXPLAIN` 和 `EXPLAIN ANALYZE`，可在成本树（标记最高开销节点）、汇总表与原始输出之间切换。
-- 按 <kbd>⌘</kbd>+<kbd>S</kbd> / <kbd>Ctrl</kbd>+<kbd>S</kbd> 保存 `.sql` 文件；在**历史记录**中按状态筛选、收藏常用语句并一键在新标签页重新打开。
+- 按 <kbd>⌘</kbd>+<kbd>S</kbd> / <kbd>Ctrl</kbd>+<kbd>S</kbd> 保存 `.sql` 文件；在**历史记录**中按状态筛选、收藏常用语句并点击在新标签页重新打开。
 
 [SQL 编辑器、执行计划与历史](/zh/docs/sqlkit/query-editor) · [快捷键](/zh/docs/sqlkit/keyboard-shortcuts)
 

@@ -10,7 +10,7 @@ Open local embedded databases from disk or in memory for app debugging, local an
 
 | Engine | Driver layer | Storage modes | Special options |
 | --- | --- | --- | --- |
-| SQLite | <DocsBadge variant="native">Native Rust (`rusqlite`)</DocsBadge> | Existing file, new file, or `:memory:` | No setup; SSL section hidden |
+| SQLite | <DocsBadge variant="native">Native Rust (`rusqlite`)</DocsBadge> | Existing file, new file, or `:memory:` | Bundled in app; SSL section hidden |
 | SQLCipher | <DocsBadge variant="native">Native Rust (`sqlcipher`)</DocsBadge> | Encrypted local file | **Encryption Key** field (`PRAGMA key`) |
 | DuckDB | <DocsBadge variant="jdbc">JDBC (`duckdb_jdbc`)</DocsBadge> | Local file or named in-memory (`memory:<label>`) | **Read-Write** or **Read-Only** mode with lock conflict check |
 

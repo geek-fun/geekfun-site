@@ -277,7 +277,7 @@ Check [supported databases and drivers](/docs/sqlkit/supported-databases) to see
 Use SqlKit with PostgreSQL, MySQL, SQL Server, Oracle, SQLite, and other SQL databases and data warehouses. The [database and driver guide](/docs/sqlkit/supported-databases) explains what you need to connect to each one.
 
 **Is SqlKit really free?**
-Yes — the Community edition is free and open source (Apache 2.0), covering the full local database workflow with no connection limits. Advanced capabilities — AI agent (bring your own LLM), MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync — are part of the paid GEEKFUN Data Studio Ultimate subscription (USD 9.90/month or USD 99.00/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
+Yes. The Community edition is free and open source (Apache 2.0), and it includes the full local database workflow with no connection limits. Advanced capabilities (AI agent with your own LLM, MCP, cluster management, ER diagrams, bulk import/export, and cross-device sync) are part of the paid GEEKFUN Data Studio Ultimate subscription (USD 9.90/month or USD 99.00/year, with a 7-day free trial). Every version released while you're subscribed stays yours even if you cancel later.
 
 **Does SqlKit work offline?**
 Database operations work fine offline. AI features need network access to your model endpoint, or you can run a local model via Ollama or LM Studio.

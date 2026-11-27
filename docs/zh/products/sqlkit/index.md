@@ -195,7 +195,7 @@ features:
   items:
     - {"title": "连接数据库", "body": "保存服务器连接或打开本地数据库文件。按数据库类型使用内置驱动、JDBC 或 HTTP。", "icon": "database"}
     - {"title": "编写与排查 SQL", "body": "执行单条语句或选中的 SQL，保存常用查询，并在受支持的数据库上查看执行计划。", "icon": "code"}
-    - {"title": "查看表结构与关系", "body": "打开表结构查看列、键和索引。旗舰版可用 ER 图查看数据库报告的外键关系。", "icon": "layers"}
+    - {"title": "查看表结构与关系", "body": "打开表结构查看列、键和索引。旗舰版可用 ER 图查看数据库声明的外键关系。", "icon": "layers"}
     - {"title": "编辑与传输数据", "body": "在受支持的数据库上筛选和编辑数据。可导出查询结果，旗舰版还支持导入文件和导出表。", "icon": "table"}
     - {"title": "使用 AI 起草查询", "body": "在旗舰版的 Agentic Data Studio 中配置自己的模型，基于数据库结构起草 SQL 并在编辑器中检查。", "icon": "sparkles"}
     - {"title": "通过 MCP 接入编程工具", "body": "用旗舰版的 MCP 桥接与 Data Studio Agent，将允许访问的连接交给 Codex 等编程工具。", "icon": "terminal"}
@@ -277,7 +277,7 @@ SqlKit 的 **Agentic Data Studio** 重新定义了数据库工作方式。无需
 SqlKit 可以连接 PostgreSQL、MySQL、SQL Server、Oracle、SQLite 等 SQL 数据库和数据仓库。每种数据库的连接步骤见[支持的数据库与驱动](/zh/docs/sqlkit/supported-databases)。
 
 **SqlKit 真的免费吗？**
-是的 —— 社区版永久免费、开源（Apache 2.0），涵盖完整的本地数据库工作流，连接不限量。进阶能力 —— AI 智能体（自带 LLM）、MCP、集群管理、ER 图、批量导入导出、跨设备同步 —— 属于付费的 GEEKFUN Data Studio 旗舰版订阅（USD 9.90/月 或 USD 99.00/年，7 天免费试用）。订阅期间发布的版本永久可用，取消订阅后依然归你。
+是的。社区版永久免费且开源（Apache 2.0），涵盖完整的本地数据库工作流，不限连接数。进阶功能（AI 智能体与自带 LLM、MCP、集群管理、ER 图、批量导入导出和跨设备同步）包含在付费的 GEEKFUN Data Studio 旗舰版订阅中（USD 9.90/月 或 USD 99.00/年，含 7 天免费试用）。订阅期间发布的版本永久可用，取消订阅后依然归你。
 
 **SqlKit 可以离线使用吗？**
 可以。桌面端的所有数据库操作均可完全离线运行。AI 功能需要网络连接（或通过 Ollama/LM Studio 使用本地模型）。

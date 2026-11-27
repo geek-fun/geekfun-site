@@ -1,5 +1,5 @@
 ---
-title: Data Studio Agent Quick Start — install the MCP server
+title: Data Studio Agent Quick Start | Install the MCP Server
 description: Step-by-step guide to get Data Studio Agent up and running. Install DocKit/SqlKit, add the MCP server, register it in your AI coding tool, and start asking plain-language queries.
 head:
   - - meta
@@ -22,7 +22,7 @@ head:
       href: https://www.geekfun.club/docs/data-studio-agent/quick-start/
 ---
 
-# Quick Start
+# Quick start
 
 The full setup is four steps: install the apps, install the MCP package, register it in your AI tool, and optionally tune permissions.
 
@@ -36,7 +36,7 @@ Install and launch [DocKit](/products/dockit/) and/or [SqlKit](/products/sqlkit/
 
 ## 2. Install the MCP server package
 
-Two equivalent options, pick one:
+Choose either installation method:
 
 **Option A: global install (recommended)**
 
@@ -50,17 +50,17 @@ npm install -g @geek-fun/data-studio-mcp
 npx -y @geek-fun/data-studio-mcp
 ```
 
-Both work with every agent config below. `npx` resolves the package automatically (it prefers the global install when present, otherwise downloads it on demand). There is no server to host and no API keys to manage. Everything runs locally on your machine.
+Both work with every agent config below. `npx` resolves the package automatically (it prefers the global install when present, otherwise downloads it on demand). Everything runs locally on your machine without a hosted server or extra API keys.
 
 ## 3. Register it in your AI coding agent
 
-**OpenAI Codex**, one command:
+**OpenAI Codex.** Add the server:
 
 <!--@include: @/.vitepress/includes/data-studio-mcp.md#codex-->
 
 Verify with `codex mcp list`.
 
-**Claude Code**, one command:
+**Claude Code.** Add the server for the current project:
 
 <!--@include: @/.vitepress/includes/data-studio-mcp.md#claude-->
 

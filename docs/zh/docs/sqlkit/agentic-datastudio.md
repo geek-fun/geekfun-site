@@ -1,6 +1,6 @@
 ---
 title: Agentic Data Studio 与 AI 助手 | BYOK 数据库智能体 | SqlKit
-description: 在 SqlKit 的 Agentic Data Studio 与查询页 AI 助手中配置云端或本地大模型（20 个预设，含 OpenAI、Anthropic、Gemini、DeepSeek、Ollama、LM Studio），实现上下文压缩与安全写 SQL。
+description: 在 SqlKit 的 Agentic Data Studio 与查询页 AI 助手中配置云端或本地大模型（20 个预设，含 OpenAI、Anthropic、Gemini、DeepSeek、Ollama、LM Studio），自动压缩上下文并受控起草 SQL。
 outline: [2, 3]
 ---
 
@@ -71,7 +71,7 @@ Data Studio 支持 41+ 种 SQL 引擎，覆盖 PostgreSQL 及 PG 兼容引擎、
 
 </DocsSteps>
 
-<DocsFigure src="/sqlkit-data-studio-ui.png" alt="SqlKit Data Studio 展示挂载的数据源、模型选择器与生成的 SQL" caption="Agentic Data Studio 通过元数据工具感知真实表结构，并展示每次工具调用和生成的 SQL。" :width="1440" :height="935" />
+<DocsFigure src="/sqlkit-data-studio-ui.png" alt="SqlKit Data Studio 展示挂载的数据源、模型选择器与生成的 SQL" caption="Agentic Data Studio 通过元数据工具读取真实表结构，并展示每次工具调用和生成的 SQL。" :width="1440" :height="935" />
 
 ## 在查询页使用 AI 助手侧边栏 {#assistant}
 

@@ -5,7 +5,7 @@ description: Veja como conectar bancos de dados, rodar SQL, visualizar esquemas,
 
 # Recursos do SqlKit
 
-No SqlKit, você pode conectar um banco de dados, explorar tabelas, executar SQL e salvar os resultados. Veja onde iniciar cada tarefa e quais recursos dependem do banco, do driver ou do plano.
+No SqlKit, você pode conectar um banco de dados, explorar tabelas, executar SQL e salvar os resultados. Cada tarefa começa em uma área específica do aplicativo, e alguns recursos dependem do banco, do driver ou do plano Ultimate.
 
 <div class="docs-section-links">
 

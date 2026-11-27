@@ -158,7 +158,7 @@ export const pricingPt = {
       },
       {
         question: 'Quando o plano Enterprise estará disponível?',
-        answer: 'Estamos desenvolvendo o plano Enterprise e esperamos lançá-lo em breve. Selecione “Avise-me quando estiver disponível” para receber uma notificação.',
+        answer: 'Estamos desenvolvendo o plano Enterprise e esperamos lançá-lo em breve. Selecione "Avise-me quando estiver disponível" para receber uma notificação.',
       },
     ],
   },

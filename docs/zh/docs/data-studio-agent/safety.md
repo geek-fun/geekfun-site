@@ -1,6 +1,6 @@
 ---
-title: Data Studio Agent 安全 — 本地优先与权限模式
-description: Data Studio Agent 的安全设计：仅本机访问、只读默认、凭据不外泄，提供三种权限模式以满足不同需求。
+title: Data Studio Agent 安全 | 本地优先与权限模式
+description: Data Studio Agent 的安全设计：桥接仅监听本机 127.0.0.1、凭据留在本地，按连接独立控制读取、写入、删除与管理权限。
 head:
   - - meta
     - name: keywords

@@ -31,4 +31,4 @@ Abre el asistente de IA en la barra superior de **Consultas** para pedir una exp
 
 ## Resolver problemas de configuración {#troubleshoot}
 
-Si no hay modelos, comprueba que el proveedor esté activado y tenga modelos configurados. Si la fuente no aparece, guarda y prueba la conexión. Si una operación se bloquea, revisa los permisos de la conexión y de la conversación.
+Cuando no aparecen modelos, comprueba que el proveedor esté activado y tenga modelos configurados. Si la fuente no se muestra, guarda y prueba primero la conexión. Ante una operación bloqueada, revisa los permisos de la conexión y de la conversación.

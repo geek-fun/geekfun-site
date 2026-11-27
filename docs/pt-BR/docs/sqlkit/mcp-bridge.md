@@ -41,4 +41,4 @@ Confira o registro com `codex mcp list` no Codex, `/mcp` no Claude Code ou nas c
 
 ## Resolver problemas da ponte {#troubleshoot}
 
-Se o cliente não iniciar o servidor, confira se encontra `npx` e consegue baixar o pacote. Se o servidor não encontrar o SqlKit, abra o app na mesma máquina e verifique a ponte. Se faltar uma conexão, confira as permissões de IA dessa conexão.
+Quando o cliente não iniciar o servidor, confira se encontra `npx` e consegue baixar o pacote. Caso o servidor não encontre o SqlKit, abra o app na mesma máquina e verifique se a ponte está ativa. Para uma conexão que não aparece na lista, confira as permissões de IA dessa conexão.

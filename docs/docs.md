@@ -2,7 +2,7 @@
 outline: false
 lastUpdated: false
 title: GEEKFUN Documentation | SqlKit, DocKit & Data Studio Agent
-description: Production documentation for SqlKit (68+ SQL databases, Monaco SQL editor, ER diagrams, Transfer, Agentic Data Studio, MCP), DocKit (NoSQL GUI), and Data Studio Agent.
+description: Documentation for SqlKit (68+ SQL databases, Monaco SQL editor, ER diagrams, Transfer, Agentic Data Studio, MCP), DocKit (NoSQL GUI), and Data Studio Agent.
 head:
   - - link
     - rel: canonical

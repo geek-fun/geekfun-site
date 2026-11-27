@@ -1,6 +1,6 @@
 ---
 title: 在 macOS、Windows 或 Linux 上安装 SqlKit | 快速开始
-description: 下载并安装 SqlKit 桌面客户端（macOS 通用版、Windows x64、Linux DEB/RPM/AppImage），了解后台托盘常驻模式与签名自动更新。
+description: 在 macOS（通用版）、Windows x64 或 Linux（DEB/RPM/AppImage）上下载并安装 SqlKit 桌面客户端，支持后台托盘常驻与签名自动更新。
 outline: [2, 3]
 ---
 

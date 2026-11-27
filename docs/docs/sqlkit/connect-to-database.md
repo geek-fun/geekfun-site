@@ -1,6 +1,6 @@
 ---
 title: Connect to a SQL Database in SqlKit | Ports, SSL/TLS & Recovery
-description: Configure TCP, local file, HTTP, and JDBC database connections in SqlKit. Covers all 5 SSL/TLS modes, timeouts, Connection Guardian auto-recovery, and troubleshooting.
+description: Configure TCP, local file, HTTP, and JDBC database connections in SqlKit with SSL/TLS modes, timeouts, Connection Guardian auto-recovery, and troubleshooting.
 outline: [2, 3]
 ---
 
@@ -41,7 +41,7 @@ In the **Connections** toolbar, switch between Grid View and List View, filter s
 
 Replace the default port if your server or cloud provider listens on a custom port.
 
-| Database | Driver | Default port / target | Key fields |
+| Database | Driver | Default port / target | Required fields |
 | --- | --- | --- | --- |
 | [PostgreSQL](/docs/sqlkit/postgresql-gui-client) | <DocsBadge variant="native">Native Rust</DocsBadge> | `5432` | Host, port, database name, role and password |
 | [MySQL](/docs/sqlkit/mysql-gui-client) | <DocsBadge variant="native">Native Rust</DocsBadge> | `3306` | Host, port, user and password, optional default database |

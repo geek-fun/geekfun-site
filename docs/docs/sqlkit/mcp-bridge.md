@@ -56,7 +56,10 @@ Choose the configuration for your client (the same snippets are in **Settings â†
 
 :::
 
-In Codex, run `codex mcp list` to verify the `data-studio` entry. In Claude Code, run `/mcp` inside a session to check server status. In Cursor, add the JSON block to your project's `.cursor/mcp.json` or user-level `~/.cursor/mcp.json` (merge inside an existing `mcpServers` object if present) and reload MCP servers. For Windsurf, OpenCode, or other stdio MCP clients, configure command `npx` with args `["-y", "@geek-fun/data-studio-mcp"]`; see the [Data Studio Agent quick start](/docs/data-studio-agent/quick-start) for additional clients.
+- Codex: run `codex mcp list` to verify the `data-studio` entry.
+- Claude Code: run `/mcp` inside a session to check server status.
+- Cursor: add the JSON block to `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (user), merging into an existing `mcpServers` object if present, then reload MCP servers.
+- Windsurf, OpenCode, or other stdio MCP clients: configure command `npx` with args `["-y", "@geek-fun/data-studio-mcp"]`, or see the [Data Studio Agent quick start](/docs/data-studio-agent/quick-start).
 
 ## Verify the connection & monitor sessions {#verify}
 
@@ -84,7 +87,7 @@ See the [Data Studio Agent tool reference](/docs/data-studio-agent/tools) for fu
 | --- | --- |
 | Coding client cannot launch the server | Confirm `npx` is on the `PATH` visible to your IDE or CLI and that npm can download `@geek-fun/data-studio-mcp`. Reload the client after changing MCP config. |
 | MCP server starts, but reports SqlKit unavailable | Make sure SqlKit is running (window open or in the system tray), Ultimate is active, and **Settings â†’ MCP Bridge** shows **Running on port**. Both the coding client and SqlKit must run on the same machine for local discovery. |
-| A saved connection is missing from `list_connections` | Check the connection's effective [AI permissions](/docs/sqlkit/ai-permissions). Only connections with at least one permitted action are returned to MCP. |
+| A saved connection is missing from `list_connections` | Check the connection's effective [AI permissions](/docs/sqlkit/ai-permissions). MCP discovery lists only connections with at least one permitted action. |
 | A query or schema change is denied | Check the connection's AI policy (Create, Update, Delete, Manage) and confirm the database login itself has the required privileges. |
 
 ## Next steps

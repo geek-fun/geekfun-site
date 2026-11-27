@@ -6,7 +6,7 @@ outline: [2, 3]
 
 # Capabilities & feature tour
 
-Every workspace in SqlKit, where each task starts in the desktop app, and what Community and Ultimate include.
+SqlKit splits daily database work across Connections, Queries, Transfer, and Data Studio. All 68 database profiles and core SQL editing are free in Community; SSH tunnels, ER diagrams, bulk transfer, AI, and MCP require Ultimate.
 
 <div class="docs-section-links">
 
@@ -20,8 +20,8 @@ Every workspace in SqlKit, where each task starts in the desktop app, and what C
 
 Open **Connections** to view saved database profiles in grid or list view, search by name, host, or engine, and check active connection status. Click **`+`** to add a profile.
 
-- 68 database profiles across native Rust adapters (PostgreSQL, MySQL, SQL Server, SQLite, SQLCipher, ClickHouse), PostgreSQL/MySQL wire-compatible engines, HTTP SQL engines, and 27 JDBC Bridge engines.
-- Five SSL/TLS modes (`disable`, `prefer`, `require`, `verify-ca`, `verify-full`) with custom CA certificates, client certificates, private keys, and SQL Server `trustServerCertificate`.
+- Connect to 68 database profiles across native Rust adapters (PostgreSQL, MySQL, SQL Server, SQLite, SQLCipher, ClickHouse), PostgreSQL/MySQL wire-compatible engines, HTTP SQL engines, and 27 JDBC Bridge engines.
+- Choose from five SSL/TLS modes (`disable`, `prefer`, `require`, `verify-ca`, `verify-full`) with custom CA certificates, client certificates, private keys, and SQL Server `trustServerCertificate`.
 - Connection Guardian monitors connection health and replaces broken or stale transport sessions on demand without replaying write queries.
 - Testing an Oracle, DuckDB, Snowflake, BigQuery, or Cassandra connection runs a live 3-step check for JRE 25, `jdbc-bridge`, and the engine driver.
 - With Ultimate <DocsBadge variant="ultimate">Ultimate</DocsBadge>, attach reusable SSH profiles, drag and drop to reorder multi-hop bastions, chain through the OS System HTTP CONNECT proxy, resolve `~/.ssh/config` host aliases, and authenticate with password, private key, SSH agent, or Windows Pageant.
@@ -35,7 +35,7 @@ Open **Connections** to view saved database profiles in grid or list view, searc
 Open **Queries** for the database object tree, multi-tab Monaco Editor, Saved Queries panel, and bottom result grid in one window.
 
 - Schema-aware autocomplete covers 6 SQL dialect profiles (`sql`, `mysql`, `pgsql`, `mssql`, `plsql`, `sqlite`) and suggests tables, columns, schemas, functions, data types, and keywords.
-- SQL formatting supports 17 dialects via <kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> (macOS) or <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (Windows/Linux), acting on the selection or the full script.
+- SQL formatting supports 17 dialects via <kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>F</kbd> (macOS) or <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (Windows/Linux), and formats either the current selection or the full script.
 - Statement execution includes clickable gutter play icons, SQL and CQL statement splitting (including PostgreSQL `$$` dollar quotes and CQL `BEGIN ... APPLY BATCH`), and a multi-result-set dropdown.
 - Press <kbd>F6</kbd> for visual `EXPLAIN` and `EXPLAIN ANALYZE` with three views: an interactive Tree View (showing total cost and the most expensive node), a Summary Table, and Raw Output.
 - Save `.sql` files locally (<kbd>⌘</kbd>+<kbd>S</kbd> / <kbd>Ctrl</kbd>+<kbd>S</kbd>), filter execution history by status, star favorites, and reopen any past run in a new tab.

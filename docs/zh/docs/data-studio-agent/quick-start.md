@@ -1,5 +1,5 @@
 ---
-title: Data Studio Agent 快速开始 — 安装 MCP 服务器
+title: Data Studio Agent 快速开始 | 安装 MCP 服务器
 description: 快速上手 Data Studio Agent，完整四步配置：安装桌面应用、安装 MCP 包、在 AI 代理中注册、可选调整权限。
 head:
   - - meta
@@ -50,17 +50,21 @@ npm install -g @geek-fun/data-studio-mcp
 npx -y @geek-fun/data-studio-mcp
 ```
 
-两种方式对下方所有 agent 配置都适用。`npx` 会自动解析包，如果已全局安装则优先使用全局版本，否则按需下载。无需托管服务器、无需管理 API key，一切都在你的机器上本地运行。
+两种方式对下方所有 agent 配置都适用。`npx` 会自动解析包，如果已全局安装则优先使用全局版本，否则按需下载。所有进程都在本机运行，直接复用桌面应用中的本地连接，不依赖云端中转或额外 API key。
 
 ## 3. 在你的 AI 编码代理中注册
 
-**OpenAI Codex**，一条命令：
+### OpenAI Codex
+
+运行以下命令注册：
 
 <!--@include: @/.vitepress/includes/data-studio-mcp.md#codex-->
 
 用 `codex mcp list` 验证。
 
-**Claude Code**，一条命令：
+### Claude Code
+
+运行以下命令为当前项目注册：
 
 <!--@include: @/.vitepress/includes/data-studio-mcp.md#claude-->
 
@@ -70,11 +74,15 @@ npx -y @geek-fun/data-studio-mcp
 claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/data-studio-mcp
 ```
 
-**Cursor。** 创建 `.cursor/mcp.json`（项目）或 `~/.cursor/mcp.json`（全局）：
+### Cursor
+
+创建 `.cursor/mcp.json`（项目）或 `~/.cursor/mcp.json`（全局）：
 
 <!--@include: @/.vitepress/includes/data-studio-mcp.md#cursor-->
 
-**Windsurf。** 创建 `~/.codeium/windsurf/mcp_config.json`（仅全局）：
+### Windsurf
+
+创建 `~/.codeium/windsurf/mcp_config.json`（仅全局）：
 
 ```json
 {
@@ -87,7 +95,9 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 }
 ```
 
-**OpenCode。** 添加到 `opencode.json`（项目）或 `~/.config/opencode/opencode.json`（全局）：
+### OpenCode
+
+添加到 `opencode.json`（项目）或 `~/.config/opencode/opencode.json`（全局）：
 
 ```json
 {
@@ -104,7 +114,9 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 
 或者运行 `opencode mcp add` 交互式配置。
 
-**任何其他 MCP 客户端。** 注册一个 stdio 服务器，命令 `npx`，参数 `-y @geek-fun/data-studio-mcp`。
+### 其他 MCP 客户端
+
+注册一个 stdio 服务器，命令为 `npx`，参数为 `-y @geek-fun/data-studio-mcp`。
 
 ## 4. 调整权限（可选）
 
@@ -114,11 +126,11 @@ claude mcp add --scope user --transport stdio data-studio -- npx -y @geek-fun/da
 
 ## 5. 开始提问
 
-直接用自然语言。代理会替你查询数据库：
+直接用自然语言提问，代理会替你查询数据库：
 
 - "列出我 PostgreSQL 数据库里的所有表"
 - "显示 Elasticsearch `orders*` 索引里最近的 10 条订单"
-- "找出 MongoDB 里所有大于 30 岍的用户"
+- "找出 MongoDB 里所有大于 30 岁的用户"
 - "运行这条查询并解释结果"
 
-代理会读取 schema、执行查询、探索你的数据，然后展示它执行的每一条查询。
+代理会先读取表结构再执行查询，并在回复中展示实际运行的每一条语句。

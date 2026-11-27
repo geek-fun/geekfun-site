@@ -40,7 +40,7 @@ You can edit rows in **Table Data** tabs and in single-table `SELECT` query resu
 1. In the row's **Actions** column (or right-click context menu), choose **Edit Row**.
 2. Check the identifying primary key columns (protected in the dialog) and change any editable fields.
 3. Use the **Set NULL** checkbox beside nullable fields to distinguish SQL `NULL` from an empty string `""`.
-4. Click **Save**. Numeric and boolean fields are validated before execution, and closing the dialog with unsaved edits asks for confirmation.
+4. Click **Save**. SqlKit validates numeric and boolean fields before running the update and asks for confirmation if you close the dialog with unsaved edits.
 
 ### Duplicate or delete rows
 

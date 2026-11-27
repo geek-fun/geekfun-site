@@ -1,6 +1,6 @@
 ---
 title: Oracle Database GUI Client (Basic, TNS & Cloud Wallet) | SqlKit
-description: Connect to Oracle Database and Autonomous Database (ATP/ADW) in SqlKit via JDBC (ojdbc11). Supports Service Name, SID, tnsnames.ora auto-parsing, Cloud Wallet, and NORMAL/SYSDBA/SYSOPER roles.
+description: Connect to Oracle Database and Autonomous Database (ATP/ADW) in SqlKit via JDBC (ojdbc11) with Service Name, SID, tnsnames.ora auto-parsing, Cloud Wallet, and NORMAL/SYSDBA/SYSOPER roles.
 outline: [2, 3]
 ---
 

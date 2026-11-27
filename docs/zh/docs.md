@@ -2,7 +2,7 @@
 outline: false
 lastUpdated: false
 title: 极客范文档中心 | SqlKit、DocKit 与 Data Studio Agent
-description: 查阅 SqlKit（68+ SQL 数据库、Monaco 编辑器、ER 图、批量传输、Agentic Data Studio、MCP）、DocKit（NoSQL 客户端）与 Data Studio Agent 完整文档。
+description: SqlKit（68+ SQL 数据库、Monaco 编辑器、ER 图、批量传输、Agentic Data Studio、MCP）、DocKit（NoSQL 客户端）与 Data Studio Agent 中文文档中心。
 head:
   - - link
     - rel: canonical

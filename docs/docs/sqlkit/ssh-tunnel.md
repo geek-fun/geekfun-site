@@ -48,7 +48,7 @@ Click **Test Connection** inside the SSH profile dialog to check bastion reachab
 
 ### Enter the database address as the final hop sees it
 
-In the database connection's **Basic** tab, enter the database **Host** and **Port** as reachable from the last bastion in your chain. If PostgreSQL runs on an internal RDS endpoint (`prod-db.internal:5432`) or on the bastion itself (`127.0.0.1:5432`), enter that internal address rather than the bastion's public IP.
+In the database connection's **Basic** tab, enter the database **Host** and **Port** as reachable from the last bastion in your chain. If PostgreSQL runs on an internal RDS endpoint (`prod-db.internal:5432`) or on the bastion itself (`127.0.0.1:5432`), enter that internal address; the bastion's public IP belongs in the SSH profile.
 
 ### Attach one or more SSH profiles
 
@@ -58,7 +58,7 @@ Switch to **Advanced → SSH Tunnel** and pick a saved profile from the dropdown
 
 If your operating system has an HTTP proxy configured, SqlKit detects it automatically (honoring `NO_PROXY` and OS proxy bypass lists) and shows a **System Proxy** banner in the SSH Tunnel panel. Click **Add** to pin it as hop `0` ahead of your first SSH bastion.
 
-The proxy URL is resolved dynamically from the OS at connect time rather than saved in the connection record. Only `http://` HTTP CONNECT proxies are supported for SSH chaining, and System Proxy requires at least one SSH hop in the chain.
+SqlKit reads the proxy URL from the OS at connect time and does not store it in the connection record. Only `http://` HTTP CONNECT proxies are supported for SSH chaining, and System Proxy requires at least one SSH hop in the chain.
 
 ### Reorder hops and inspect the route
 
@@ -86,7 +86,7 @@ If you have an older connection with an inline (connection-only) SSH configurati
 
 ## Plan behavior (Community downgrade)
 
-If you configured SSH tunnels under Ultimate and later use SqlKit while signed out or on Community, SqlKit keeps your saved SSH profiles and chains intact without deleting them. Connection attempts skip the SSH tunnel and display a warning that a direct connection is being attempted.
+If you configured SSH tunnels under Ultimate and later use SqlKit while signed out or on Community, SqlKit keeps your saved SSH profiles and chains intact without deleting them. Connection attempts skip the SSH tunnel and warn you that SqlKit is connecting directly.
 
 ## Diagnose SSH tunnel failures
 

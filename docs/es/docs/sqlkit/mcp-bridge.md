@@ -41,4 +41,4 @@ Comprueba el registro con `codex mcp list` en Codex, `/mcp` en Claude Code o los
 
 ## Resolver problemas del puente {#troubleshoot}
 
-Si el cliente no inicia el servidor, comprueba que encuentra `npx` y puede descargar el paquete. Si el servidor no encuentra SqlKit, abre la aplicación en el mismo equipo y verifica el puente. Si falta una conexión, revisa sus permisos de IA.
+Cuando el cliente no logra iniciar el servidor, comprueba que encuentra `npx` y puede descargar el paquete. Si el servidor no detecta SqlKit, abre la aplicación en el mismo equipo y verifica que el puente esté activo. Para una conexión que no aparece en la lista, revisa sus permisos de IA.

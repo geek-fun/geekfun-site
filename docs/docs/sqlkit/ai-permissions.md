@@ -15,10 +15,10 @@ SqlKit enforces five separate checks on every AI or MCP request:
 <DocsFlowDiagram variant="ai-safety" />
 
 1. **Database account privileges**: SqlKit executes every query with the database login saved in your connection. A read-only database user cannot write regardless of client settings.
-2. **Fail-closed policy chain**: every AI and MCP tool call is checked in strict order (`per-connection explicit Allow/Deny -> system AI default -> deny`). If a policy file is missing or corrupted, SqlKit denies access.
+2. **Fail-closed policy chain**: SqlKit checks every AI and MCP tool call in strict order (`per-connection explicit Allow/Deny -> system AI default -> deny`). If a policy file is missing or corrupted, SqlKit denies access.
 3. **AST-verified write isolation (`sqlparser` + CQL classifier)**: `sqlkit__execute_query` parses incoming SQL into an AST before execution so writes, including data-modifying CTEs (`WITH updated AS (UPDATE ... RETURNING *) SELECT * FROM updated`), cannot run through the read-only query tool. For Cassandra and ScyllaDB, a CQL keyword classifier enforces the same boundary.
 4. **Risk-separated tools**: reads (`execute_query`), non-destructive writes (`execute_write`), deletes (`execute_delete`), DDL (`execute_ddl`), and DBA operations (`kill_session`, `grant_privilege`, `revoke_privilege`) are separate tools bound to separate permissions.
-5. **Interactive approval cards and credential isolation**: destructive calls prompt for human approval in interactive sessions, and database passwords, SSH keys, and TLS private keys are never sent to LLMs or exposed via `list_connections`.
+5. **Interactive approval cards and credential isolation**: destructive calls prompt for human approval in interactive sessions, and SqlKit never sends database passwords, SSH keys, or TLS private keys to LLMs or exposes them via `list_connections`.
 
 ## Set default and per-connection permissions {#connection-permissions}
 
@@ -76,7 +76,7 @@ Changing a session from **Ask** to **Auto** only skips prompts for permitted Ele
 
 ## Privacy & data boundaries
 
-Database passwords, SSH keys, and TLS private keys are never passed to LLMs or MCP clients. Schema metadata and query results returned by permitted tools go to your configured LLM (in Data Studio and the Queries sidebar) or back to the calling MCP client (which controls what it sends to its model). To keep sensitive databases offline, set them to **No Access**, or configure Ollama or LM Studio in [Agentic Data Studio](/docs/sqlkit/agentic-datastudio) for local inference.
+SqlKit never passes database passwords, SSH keys, or TLS private keys to LLMs or MCP clients. Schema metadata and query results returned by permitted tools go to your configured LLM (in Data Studio and the Queries sidebar) or back to the calling MCP client (which controls what it sends to its model). To keep sensitive databases offline, set them to **No Access**, or configure Ollama or LM Studio in [Agentic Data Studio](/docs/sqlkit/agentic-datastudio) for local inference.
 
 ## Next steps
 

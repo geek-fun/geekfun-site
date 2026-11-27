@@ -1,7 +1,7 @@
 ---
 layout: product
-title: DocKit — GUI desktop Agentic NoSQL para MongoDB, Elasticsearch, OpenSearch e DynamoDB
-description: O DocKit é uma GUI desktop NoSQL agentic open source para MongoDB, Elasticsearch, OpenSearch, DynamoDB e EasySearch. Seu agente de IA de dados escreve consultas, inspeciona esquemas e gerencia dados por linguagem natural — com prioridade à privacidade e execução local. A edição Community é gratuita e open source; o agente de IA faz parte da assinatura paga Ultimate.
+title: DocKit | GUI desktop Agentic NoSQL para MongoDB, Elasticsearch, OpenSearch e DynamoDB
+description: O DocKit é uma GUI desktop NoSQL agentic open source para MongoDB, Elasticsearch, OpenSearch, DynamoDB e EasySearch. Seu agente de IA de dados escreve consultas, inspeciona esquemas e gerencia dados em linguagem natural, com execução local e foco em privacidade. A edição Community é gratuita e open source; o agente de IA faz parte da assinatura paga Ultimate.
 ogImage: https://www.geekfun.club/og/dockit-en.png
 head:
   - - meta
@@ -34,7 +34,7 @@ head:
         "@type": "SoftwareApplication",
         "name": "DocKit",
         "alternateName": ["cliente GUI MongoDB", "cliente GUI Elasticsearch", "cliente GUI OpenSearch", "cliente GUI DynamoDB", "cliente GUI EasySearch", "cliente GUI NoSQL", "GUI desktop NoSQL", "Agentic Data Studio"],
-        "description": "Cliente GUI desktop open source para MongoDB, Elasticsearch, OpenSearch, DynamoDB e EasySearch. Gere consultas de banco de dados a partir de linguagem natural com um assistente de IA integrado. Agentic Data Studio para interação com bancos de dados em linguagem natural. Rápido, local-first, Apache 2.0.",
+        "description": "Cliente GUI desktop open source (Apache 2.0) para MongoDB, Elasticsearch, OpenSearch, DynamoDB e EasySearch, com execução local, assistente de IA integrado e Agentic Data Studio para criar e executar consultas em linguagem natural.",
         "applicationCategory": "DatabaseApplication",
         "operatingSystem": "Windows, macOS, Linux",
         "offers": {
@@ -97,7 +97,7 @@ hero:
       theme: alt
 
 databases:
-  title: "Suporte nativo a NoSQL moderno"
+  title: "Suporte nativo a bancos de dados NoSQL"
   items:
     - { name: MongoDB, logo: /db-mongodb.svg, link: /products/dockit/mongodb-gui-client }
     - { name: DynamoDB, logo: /db-dynamodb.svg, link: /products/dockit/dynamodb-gui-client }
@@ -107,7 +107,7 @@ databases:
 
 showcase:
   - title: "Agentic Data Studio"
-    body: "Converse com seus bancos de dados em linguagem natural. O agente de IA de dados do DocKit escreve consultas, inspeciona esquemas, cria índices, atualiza documentos e retorna resultados — com permissões por fonte e um portão de segurança para ações destrutivas. Pergunte 'encontre pedidos acima de $500 da última semana' e receba consultas otimizadas na hora. Suporta OpenAI, Anthropic e DeepSeek, além de Ollama e LM Studio para uso totalmente offline."
+    body: "Trabalhe com seus bancos de dados em linguagem natural. O agente de IA de dados do DocKit escreve consultas, inspeciona esquemas, cria índices, atualiza documentos e retorna resultados, com permissões por fonte e confirmação explícita antes de ações destrutivas. Por exemplo, peça 'encontre pedidos acima de $500 da última semana' para gerar a consulta. Funciona com OpenAI, Anthropic e DeepSeek, além de Ollama e LM Studio para uso offline."
     image: /dockit-gui-client-demo.gif
     align: left
   - title: "Gerenciamento de dados em múltiplos bancos de dados"
@@ -115,24 +115,24 @@ showcase:
     image: /dockit-multi-database-manage-demo.gif
     align: right
   - title: "Importação e exportação"
-    body: "Importe e exporte seus dados por uma interface interativa. Escolha a origem e o destino, mapeie os campos visualmente, selecione quais campos incluir e deixe o DocKit cuidar do resto — tudo executado como tarefas em segundo plano com progresso em tempo real. Suporta JSON, CSV e JSONL."
+    body: "Importe e exporte seus dados por uma interface interativa. Escolha a origem e o destino, mapeie os campos visualmente e selecione quais incluir. As operações rodam em segundo plano com progresso em tempo real e suportam JSON, CSV e JSONL."
     image: /dockit-import-export-demo.gif
     align: left
   - title: "Privacidade local-first"
-    body: "Cansado de ferramentas no navegador que perdem seu trabalho quando a aba é atualizada? O DocKit roda como um aplicativo desktop — credenciais, consultas e configurações de LLM ficam na sua máquina, sem dependência de nuvem. O histórico de consultas persiste entre sessões. Totalmente offline com Ollama e LM Studio."
+    body: "O DocKit roda como aplicativo desktop, então atualizar uma aba do navegador não apaga seu trabalho. Credenciais, consultas e configurações de LLM ficam na sua máquina sem depender da nuvem, e o histórico de consultas permanece salvo entre sessões. Com Ollama e LM Studio funciona completamente offline."
     image: /dockit-query-history.png
     align: right
 
 features:
-  - { title: "Agentic Data Studio", body: "Converse com seus bancos de dados em linguagem natural. O agente de IA de dados escreve consultas, inspeciona esquemas, cria índices e atualiza documentos — com permissões por fonte e um portão de segurança para ações destrutivas.", icon: "sparkles" }
-  - { title: "Editor de nível desktop", body: "O Monaco Editor traz a potência do VS Code para suas consultas — realce de sintaxe, autocompletar, formatação e os atalhos de teclado que você já conhece.", icon: "edit" }
-  - { title: "Privacidade local-first", body: "Credenciais, consultas e configurações de LLM salvas localmente. Histórico de consultas rastreado automaticamente. Totalmente offline com Ollama e LM Studio.", icon: "history" }
-  - { title: "Suporte a múltiplos bancos de dados", body: "Gerencie MongoDB, DynamoDB, Elasticsearch, OpenSearch e EasySearch em uma única interface unificada. Alterne entre bancos de dados instantaneamente.", icon: "database" }
-  - { title: "Importação e exportação", body: "Movimente grandes conjuntos de dados com suporte a JSON, CSV e JSONL. Operações em lote lidam com milhões de registros com confiabilidade.", icon: "import" }
-  - { title: "Gerenciamento de clusters", body: "Monitore a saúde dos nós, gerencie shards, acompanhe índices e controle aliases — tudo com as ferramentas visuais de cluster integradas.", icon: "cluster" }
+  - { title: "Agentic Data Studio", body: "Trabalhe com seus bancos de dados em linguagem natural. O agente de IA de dados escreve consultas, inspeciona esquemas, cria índices e atualiza documentos, com permissões por fonte e confirmação antes de ações destrutivas.", icon: "sparkles" }
+  - { title: "Editor baseado no Monaco", body: "Usa o Monaco Editor, o mesmo editor do VS Code, com realce de sintaxe, autocompletar, formatação e atalhos de teclado conhecidos.", icon: "edit" }
+  - { title: "Privacidade local-first", body: "Credenciais, consultas e configurações de LLM ficam salvas localmente, e o histórico de consultas é registrado automaticamente. Com Ollama e LM Studio funciona offline.", icon: "history" }
+  - { title: "Suporte a múltiplos bancos de dados", body: "Gerencie MongoDB, DynamoDB, Elasticsearch, OpenSearch e EasySearch em uma só interface e alterne entre bancos sem trocar de ferramenta.", icon: "database" }
+  - { title: "Importação e exportação", body: "Importe e exporte grandes conjuntos de dados em JSON, CSV e JSONL com operações em lote preparadas para milhões de registros.", icon: "import" }
+  - { title: "Gerenciamento de clusters", body: "Monitore a saúde dos nós, gerencie shards, acompanhe índices e controle aliases com as ferramentas visuais de cluster integradas.", icon: "cluster" }
   - { title: "Tarefas em segundo plano", body: "Importação, exportação e operações longas rodam como tarefas em segundo plano com progresso em tempo real e acompanhamento de status. Continue usando o DocKit enquanto as tarefas executam.", icon: "layers" }
   - { title: "Navegador de arquivos", body: "Navegue, crie e organize arquivos de consulta locais (.search, .partiql, .mongo) diretamente no aplicativo. Abra os arquivos como abas do editor com ordenação por nome, data ou tamanho.", icon: "search" }
-  - { title: "Histórico de consultas", body: "Cada consulta registrada automaticamente. 500 entradas por conexão com estrelas/marcadores. Copie, recarregue ou reexecute consultas passadas.", icon: "history" }
+  - { title: "Histórico de consultas", body: "Cada consulta é registrada automaticamente, com até 500 entradas por conexão e suporte a favoritos. Você pode copiar, recarregar ou reexecutar consultas anteriores.", icon: "history" }
 
 platforms:
   title: "Disponível em todas as plataformas"
@@ -142,18 +142,18 @@ platforms:
     - { name: Linux, logo: /platform/platform-linux.svg }
 
 cta:
-  title: "Gerenciamento de bancos de dados, com IA nativa"
-  body: "Pare de brigar com sintaxes de consulta complexas. Deixe o assistente de IA do DocKit e o Agentic Data Studio cuidarem do trabalho repetitivo enquanto você foca nos dados."
+  title: "Gerenciamento de bancos de dados com IA integrada"
+  body: "Escreva e depure consultas complexas com o assistente de IA do DocKit e o Agentic Data Studio para gastar menos tempo com sintaxe repetitiva."
   actions:
     - { text: "Iniciar teste grátis", link: "https://console.geekfun.club/subscribe?intent=trial", theme: "brand", external: true }
     - { text: "Baixar", link: "/pt-BR/download#dockit", theme: "alt" }
-    - { text: "Experimente o SqlKit →", link: "/pt-BR/products/sqlkit/", theme: "alt" }
+    - { text: "Experimente o SqlKit", link: "/pt-BR/products/sqlkit/", theme: "alt" }
     - { text: "Documentação", link: "/pt-BR/docs/dockit/", theme: "alt" }
 ---
 
 ## Por que o DocKit para equipes com múltiplos bancos de dados
 
-A maioria das equipes não usa apenas um banco de dados NoSQL. Uma equipe que roda Elasticsearch para busca e DynamoDB para cargas chave-valor normalmente precisa de duas ferramentas separadas — Kibana/Elasticvue para uma, Dynobase/NoSQL Workbench para a outra. O DocKit cobre as três em um único aplicativo desktop.
+A maioria das equipes não usa apenas um banco de dados NoSQL. Uma equipe que roda Elasticsearch para busca e DynamoDB para cargas chave-valor normalmente precisa de duas ferramentas separadas: Kibana ou Elasticvue para uma, e Dynobase ou NoSQL Workbench para a outra. O DocKit cobre esses fluxos em um único aplicativo desktop.
 
 | | DocKit | Kibana | Elasticvue | Dynobase | NoSQL Workbench |
 |---|---|---|---|---|---|
@@ -166,49 +166,49 @@ A maioria das equipes não usa apenas um banco de dados NoSQL. Uma equipe que ro
 | **Agentic Data Studio** | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Desktop nativo** | ✅ | ❌ | Parcial | ✅ | ✅ |
 | **Código aberto** | ✅ Apache 2.0 | Misto | ✅ MIT | ❌ | ❌ |
-| **Preço** | Community: grátis · Ultimate USD 9,90/mês | Grátis | Grátis | $12–30/mês | Grátis |
+| **Preço** | Community: grátis · Ultimate USD 9,90/mês | Grátis | Grátis | $12-30/mês | Grátis |
 
 ## Cliente GUI Elasticsearch
 
-O DocKit é um **cliente GUI Elasticsearch** completo, feito para engenheiros que passam tempo de verdade no editor de consultas. Ele substitui a aba Dev Tools do Kibana por um editor baseado em Monaco com suporte a sintaxe JSON5, comentários em linha, autocompletar de campos a partir do mapping em tempo real e geração de consultas assistida por IA. O autocompletar ES|QL vem integrado para a linguagem de consultas de próxima geração do Elasticsearch.
+O DocKit é um cliente GUI Elasticsearch feito para engenheiros que trabalham diariamente no editor de consultas. Ele substitui a aba Dev Tools do Kibana por um editor baseado em Monaco com suporte a sintaxe JSON5, comentários em linha, autocompletar de campos a partir do mapping em tempo real e geração de consultas assistida por IA. Também traz autocompletar integrado para ES|QL.
 
-Conecte-se a qualquer cluster Elasticsearch — local, auto-hospedado ou na nuvem — com Basic Auth ou API Key. Navegue por índices, gerencie mappings e aliases, monitore a saúde do cluster e dos shards com métricas detalhadas por shard (documentos, armazenamento, fielddata, cache de consultas, taxas de indexação, estatísticas de merge, segmentos) e importe/exporte dados em JSON, CSV ou JSONL (formato bulk). Um catálogo de sintaxe com mais de 120 endpoints de API do Elasticsearch e do OpenSearch está disponível para consulta. As consultas são persistidas como arquivos locais, então nada se perde quando você fecha o aplicativo.
+Conecte-se a qualquer cluster Elasticsearch (local, auto-hospedado ou na nuvem) com Basic Auth ou API Key. Navegue por índices, gerencie mappings e aliases, monitore a saúde do cluster e dos shards com métricas detalhadas por shard (documentos, armazenamento, fielddata, cache de consultas, taxas de indexação, estatísticas de merge, segmentos) e importe/exporte dados em JSON, CSV ou JSONL (formato bulk). Um catálogo de sintaxe com mais de 120 endpoints de API do Elasticsearch e do OpenSearch está disponível para consulta. As consultas são persistidas como arquivos locais, então nada se perde quando você fecha o aplicativo.
 
-→ [Detalhes completos do cliente GUI Elasticsearch](/products/dockit/elasticsearch-gui-client)
+[Detalhes completos do cliente GUI Elasticsearch](/products/dockit/elasticsearch-gui-client)
 
 ## Cliente GUI OpenSearch
 
-O DocKit é um **cliente GUI OpenSearch** open source e uma alternativa desktop ao OpenSearch Dashboards para o trabalho diário de consultas. Ele inicia em menos de 2 segundos, usa cerca de 150 MB de RAM e armazena tudo localmente — sem necessidade de uma instância do Dashboards.
+O DocKit é um cliente GUI OpenSearch open source e uma alternativa desktop ao OpenSearch Dashboards para o trabalho diário de consultas. Ele inicia em menos de 2 segundos, usa cerca de 150 MB de RAM e armazena os dados localmente, sem exigir uma instância do Dashboards.
 
 Os mesmos editor Monaco, assistente de IA, gerenciamento de clusters e recursos de importação/exportação funcionam de forma idêntica no OpenSearch 1.x, 2.x e 3.x, incluindo clusters do AWS OpenSearch Service.
 
-→ [Detalhes completos do cliente GUI OpenSearch](/products/dockit/opensearch-gui-client)
+[Detalhes completos do cliente GUI OpenSearch](/products/dockit/opensearch-gui-client)
 
 ## Cliente GUI DynamoDB
 
-O DocKit é um **cliente GUI DynamoDB** open source que substitui o Console da AWS no trabalho diário com tabelas. Ele inclui um editor PartiQL com autocompletar ciente do esquema, um construtor visual de consultas com 12 operadores de filtro, CRUD inline de itens, paginação com tamanhos de página configuráveis e gerenciamento completo do ciclo de vida das tabelas — gerenciamento de GSIs e consulta de LSIs, TTL, streams, PITR, criptografia, métricas do CloudWatch e limpeza de tabelas. Geração de consultas com IA usando seus nomes reais de atributos como contexto, além de importação/exportação em JSON e CSV.
+O DocKit é um cliente GUI DynamoDB open source que substitui o Console da AWS no trabalho diário com tabelas. Ele inclui um editor PartiQL com autocompletar baseado no esquema, um construtor visual de consultas com 12 operadores de filtro, CRUD inline de itens, paginação com tamanhos configuráveis e gerenciamento do ciclo de vida das tabelas (GSIs, consulta de LSIs, TTL, streams, PITR, criptografia, métricas do CloudWatch e limpeza de tabelas). Também gera consultas com IA usando os nomes reais dos seus atributos como contexto e importa ou exporta dados em JSON e CSV.
 
 Também há suporte a DynamoDB Local para desenvolvimento local, perfis da AWS, SSO, chaves de acesso e autenticação por papel IAM em qualquer região.
 
-→ [Detalhes completos do cliente GUI DynamoDB](/products/dockit/dynamodb-gui-client)
+[Detalhes completos do cliente GUI DynamoDB](/products/dockit/dynamodb-gui-client)
 
 ## Cliente GUI MongoDB
 
-O DocKit é um **cliente GUI MongoDB** open source com um editor de consultas completo que oferece autocompletar e formatação de resultados. Navegue por documentos com paginação e operações CRUD inline. A visualização Manage fornece navegação da infraestrutura no nível das coleções — índices, estatísticas de armazenamento e metadados de relance.
+O DocKit é um cliente GUI MongoDB open source com editor de consultas, autocompletar e formatação de resultados. Você pode navegar por documentos com paginação e operações CRUD inline, e usar a visualização Manage para conferir índices, estatísticas de armazenamento e metadados de cada coleção.
 
-Conecte-se com autenticação, TLS e configurações de replica set. Há suporte a gravação em lote (bulk write) para operações em lote eficientes. O histórico de consultas tem favoritos por estrela/marcador e é persistido por conexão. Importe e exporte coleções em JSON, CSV e JSONL.
+Conecte-se com autenticação, TLS e configurações de replica set. O DocKit suporta gravação em lote (bulk write), mantém histórico de consultas com favoritos por conexão e importa ou exporta coleções em JSON, CSV e JSONL.
 
-→ [Documentação do cliente GUI MongoDB](/pt-BR/docs/dockit/connect-to-server)
+[Documentação do cliente GUI MongoDB](/pt-BR/docs/dockit/connect-to-server)
 
 ## Suporte ao EasySearch
 
-O DocKit suporta nativamente o **EasySearch** como um tipo de conexão dedicado ao lado do Elasticsearch e do OpenSearch. O EasySearch é separado do OpenSearch, com configuração e iconografia independentes, o que facilita o gerenciamento de todos os seus mecanismos de busca a partir de uma única interface.
+O DocKit suporta nativamente o EasySearch como um tipo de conexão dedicado ao lado do Elasticsearch e do OpenSearch, com configuração e ícone independentes para gerenciar vários mecanismos de busca na mesma interface.
 
 ## Agentic Data Studio
 
-O **Agentic Data Studio** do DocKit permite interagir com seus bancos de dados por linguagem natural. Descreva o que você precisa — o agente escreve consultas, inspeciona esquemas, atualiza documentos, exclui registros, cria índices e retorna resultados. Cada operação passa por ferramentas validadas com segurança integrada: permissões granulares por fonte, um portão de segurança que exige confirmação explícita antes de ações destrutivas e uma arquitetura segura para credenciais que nunca expõe segredos de conexão ao LLM. Suporta OpenAI, Anthropic e DeepSeek, além de Ollama e LM Studio para uso totalmente offline.
+O Agentic Data Studio do DocKit permite trabalhar com seus bancos de dados em linguagem natural. Descreva o que você precisa e o agente escreve consultas, inspeciona esquemas, atualiza documentos, exclui registros, cria índices e retorna resultados. Cada operação passa por ferramentas validadas com permissões por fonte, confirmação explícita antes de ações destrutivas e proteção de credenciais para não expor segredos de conexão ao LLM. Funciona com OpenAI, Anthropic e DeepSeek, além de Ollama e LM Studio para uso offline.
 
-→ [Guia do Agentic Data Studio (em inglês)](/docs/dockit/agentic-datastudio)
+[Guia do Agentic Data Studio (em inglês)](/docs/dockit/agentic-datastudio)
 
 ## Perguntas frequentes
 
@@ -219,16 +219,16 @@ Sim. Todas as conexões, consultas e históricos são armazenados localmente. O 
 Sim. O DocKit suporta totalmente o MongoDB, com gerenciamento de conexões, editor de consultas com autocompletar, navegador de documentos com CRUD inline, visualização Manage para índices e metadados de coleções, gravação em lote, histórico de consultas com estrelas/marcadores e importação/exportação. O EasySearch também é suportado como um tipo de conexão dedicado.
 
 **Existe uma versão web?**
-Não. O DocKit é um aplicativo desktop para macOS, Windows e Linux. Isso é intencional — armazenamento local-first, sem dependência de nuvem, sem login.
+Não. O DocKit é um aplicativo desktop para macOS, Windows e Linux, projetado para salvar os dados localmente sem depender da nuvem nem exigir login.
 
 **E a compatibilidade entre Elasticsearch e OpenSearch?**
 O DocKit detecta automaticamente a qual mecanismo você está conectado e ajusta as chamadas de API de acordo. O mesmo formulário de conexão funciona para ambos.
 
 **O DocKit é open source?**
-Sim — licença Apache 2.0. O código-fonte completo está em [github.com/geek-fun/dockit](https://github.com/geek-fun/dockit).
+Sim, sob licença Apache 2.0. O código-fonte completo está em [github.com/geek-fun/dockit](https://github.com/geek-fun/dockit).
 
 **Existe um plano pago?**
-Sim. A edição Community continua gratuita e open source, enquanto a assinatura paga Ultimate (USD 9,90/mês ou USD 99,00/ano, com 7 dias de teste grátis) desbloqueia recursos avançados como o agente de IA, MCP e gerenciamento de clusters.
+Sim. A edição Community continua gratuita e open source, enquanto a assinatura paga Ultimate (USD 9,90/mês ou USD 99,00/ano, com 7 dias de teste grátis) inclui recursos adicionais como o agente de IA, MCP e gerenciamento de clusters.
 
 **Vocês também suportam bancos de dados SQL?**
-O DocKit foi criado especificamente para bancos de dados NoSQL. Se você precisa de suporte a PostgreSQL, MySQL, SQL Server ou SQLite, confira o [**SqlKit**](/products/sqlkit/) — nosso cliente SQL desktop open source complementar, da mesma equipe.
+O DocKit foi criado especificamente para bancos de dados NoSQL. Se você precisa de suporte a PostgreSQL, MySQL, SQL Server ou SQLite, confira o [SqlKit](/products/sqlkit/), nosso cliente SQL desktop open source da mesma equipe.

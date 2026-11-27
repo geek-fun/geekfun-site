@@ -1,6 +1,6 @@
 ---
 title: 连接数据库、SSL/TLS 加密与自动恢复 | SqlKit
-description: 在 SqlKit 中配置 TCP、本地文件、HTTP 与 JDBC 数据库连接，了解 5 档 SSL/TLS 模式、自定义证书、超时配置、Connection Guardian 自动恢复与连接排错。
+description: 在 SqlKit 中配置 TCP、本地文件、HTTP 与 JDBC 数据库连接，支持 5 档 SSL/TLS 模式、自定义证书、超时配置、Connection Guardian 自动恢复与常见连接排错。
 outline: [2, 3]
 ---
 
@@ -82,9 +82,9 @@ Oracle、DuckDB、Snowflake、BigQuery、Databricks、DB2、SAP HANA、Firebird�
 
 点击 JDBC 连接的**测试连接**时，界面会依次完成三步准备：
 
-1. **JRE 25 运行时**：检测本机 JDK 25+，如未安装则从 Adoptium 下载托管的 Eclipse Temurin JRE 25 至 `~/.sqlkit/jre`。
-2. **JDBC 桥接包**：从 GitHub Releases 下载 `jdbc-bridge-<version>.jar` 至 `~/.sqlkit/jdbc-bridge/`。
-3. **数据库驱动**：从 Maven Central 或预打包发行源拉取对应引擎驱动。
+1. JRE 25 运行时：检测本机 JDK 25+，如未安装则从 Adoptium 下载托管的 Eclipse Temurin JRE 25 至 `~/.sqlkit/jre`。
+2. JDBC 桥接包：从 GitHub Releases 下载 `jdbc-bridge-<version>.jar` 至 `~/.sqlkit/jdbc-bridge/`。
+3. 数据库驱动：从 Maven Central 或预打包发行源拉取对应引擎驱动。
 
 随时打开**设置 → JRE 与驱动（JRE & Drivers）**可查看所有组件的版本与大小、检查更新、预先下载或删除不需要的驱动。
 
@@ -96,7 +96,7 @@ Oracle、DuckDB、Snowflake、BigQuery、Databricks、DB2、SAP HANA、Firebird�
 
 ## Connection Guardian 自动恢复
 
-经过 NAT 网关、云负载均衡或电脑休眠的空闲连接容易被服务端静默断开。SqlKit 在原生、HTTP 与 JDBC 适配器上运行后台 **Connection Guardian**，监测连接状态并在发现断开时执行一次性会话重建。恢复过程不会重放写语句；若写入中途断连，SqlKit 会直接报错，由你确认数据库状态后再决定是否重试。
+经过 NAT 网关、云负载均衡或电脑休眠的空闲连接容易被服务端静默断开。SqlKit 在原生、HTTP 与 JDBC 适配器上运行后台 **Connection Guardian**，监测连接状态并在发现断开时自动重建一次会话。恢复过程不会重放写语句；若写入中途断连，SqlKit 会直接报错，由你确认数据库状态后再决定是否重试。
 
 ## 排查连接失败 {#troubleshoot-a-failed-connection}
 

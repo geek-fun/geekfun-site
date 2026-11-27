@@ -1,11 +1,11 @@
 ---
 title: SqlKit の機能 | SQL, AI, MCP
-description: SqlKit の接続、SQL 編集、ER 図、データ転送、AI アシスタント、MCP 連携の使い方と利用条件を紹介します。
+description: SqlKit での接続、SQL 編集、ER 図、データ転送、AI アシスタント、MCP 連携の使い方と利用条件を確認できます。
 ---
 
 # SqlKit の機能
 
-SqlKit でデータベースに接続し、テーブルを調べ、SQL を実行して結果を保存できます。各機能の入口と、ドライバーやプランによる違いを紹介します。
+SqlKit ではデータベースへの接続、テーブルの閲覧、SQL の実行、結果の保存ができます。各操作は対応する作業画面から行い、一部の機能はドライバーや Ultimate プランに依存します。
 
 <div class="docs-section-links">
 

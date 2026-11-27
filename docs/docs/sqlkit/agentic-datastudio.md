@@ -45,7 +45,7 @@ Click **Save Provider**, then click **Test** to check connectivity and **Sync Mo
 
 ## Attach a connection and run a first conversation {#first-conversation}
 
-Data Studio supports 41+ SQL engines, covering PostgreSQL and the PG-wire family, MySQL and the MySQL-wire family, SQL Server, SQLite, DuckDB, Oracle, and Dameng DM8.
+Data Studio supports 41+ SQL engines: PostgreSQL and the PG-wire family, MySQL and the MySQL-wire family, SQL Server, SQLite, DuckDB, Oracle, and Dameng DM8.
 
 <DocsSteps>
 

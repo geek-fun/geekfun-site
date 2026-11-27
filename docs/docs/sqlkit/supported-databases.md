@@ -16,7 +16,7 @@ Connecting to an engine does not mean every metadata table or SQL dialect behave
 
 ## 1. Native Rust adapters (Core)
 
-Compiled directly into the SqlKit binary with no Java or external runtime required.
+SqlKit compiles these adapters into the app binary, so they require no Java or external runtime.
 
 | Database | Driver crate | Default port | SSL/TLS | Notes |
 | --- | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ These profiles reuse SqlKit's native Rust MySQL adapter with engine-specific def
 
 ## 4. HTTP SQL engines (4 engines)
 
-Connect over native Rust HTTP/HTTPS without Java or JDBC:
+These engines connect over native Rust HTTP/HTTPS without Java or JDBC:
 
 | Database | Default port | Notes |
 | --- | --- | --- |
