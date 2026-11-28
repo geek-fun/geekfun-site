@@ -15,6 +15,15 @@ type DatabaseData = {
 const props = defineProps<{ databases: DatabaseData }>()
 const { lang } = useData()
 
+const databaseLabels: Record<string, string> = {
+  en: 'Databases',
+  zh: '支持的数据库',
+  'pt-BR': 'Bancos de dados',
+  ja: '対応データベース',
+  ko: '지원 데이터베이스',
+  es: 'Bases de datos',
+}
+
 const dbTones: Record<string, string> = {
   MySQL: '#4479a1',
   PostgreSQL: '#4169e1',
@@ -85,7 +94,7 @@ function getDbTone(name: string): string {
   <section class="database-section">
     <div class="container">
       <div class="database-header">
-        <span class="database-label">{{ lang === 'zh' ? '支持的数据库' : 'Databases' }}</span>
+        <span class="database-label">{{ databaseLabels[lang] ?? databaseLabels.en }}</span>
         <h2 v-if="databases.title" class="database-title">{{ databases.title }}</h2>
       </div>
 

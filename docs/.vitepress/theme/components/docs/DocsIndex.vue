@@ -12,8 +12,11 @@ const copy = computed(() => getLocalizedDocs(lang.value))
 const products = computed(() => getDocsProducts(lang.value))
 
 const guidesLabel = (count: number) => {
-  if (isZh.value) return `${count} 篇指南`
-  if (copy.value) return `${count}`
+  if (lang.value === 'zh') return `${count} 篇指南`
+  if (lang.value === 'pt-BR') return `${count} guias`
+  if (lang.value === 'ja') return `${count} 件のガイド`
+  if (lang.value === 'ko') return `가이드 ${count}개`
+  if (lang.value === 'es') return `${count} guías`
   return `${count} guides`
 }
 

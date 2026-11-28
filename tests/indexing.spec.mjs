@@ -162,6 +162,8 @@ test.describe('language navigation', () => {
     await header.getByRole('button', { name: 'Produtos' }).hover()
     await expect(header.getByRole('menuitem', { name: /^DocKit/ })).toHaveAttribute('href', '/pt-BR/products/dockit/')
     await expect(header.getByRole('menuitem', { name: /^SqlKit/ })).toHaveAttribute('href', '/pt-BR/products/sqlkit/')
+    await expect(page.locator('#products-mega-menu-panel')).toContainText('Clientes de banco de dados')
+    await expect(page.locator('#products-mega-menu-panel')).not.toContainText('Database Clients')
   })
 
   test('Korean navigation and product actions stay in Korean', async ({ page }) => {
@@ -173,6 +175,14 @@ test.describe('language navigation', () => {
     await expect(page.getByRole('heading', { level: 1 })).toContainText('오픈 소스 스튜디오')
 
     const header = page.locator('.VPNavBarMenu')
+    await header.getByRole('button', { name: '제품' }).hover()
+    const productsPanel = page.locator('#products-mega-menu-panel')
+    await expect(productsPanel).toContainText('데이터베이스 클라이언트')
+    await expect(productsPanel).toContainText('인프라')
+    await expect(productsPanel).toContainText('개발자 도구')
+    await expect(productsPanel).toContainText('MCP 서버')
+    await expect(productsPanel).not.toContainText('Database Clients')
+    await page.keyboard.press('Escape')
     await header.getByRole('link', { name: '가격' }).click()
     await expect(page).toHaveURL('/ko/pricing')
     await expect(page.getByRole('heading', { name: '요금제 선택' })).toBeVisible()
