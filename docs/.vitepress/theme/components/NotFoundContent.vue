@@ -174,7 +174,7 @@ const copyByLocale: Record<NotFoundLocale, NotFoundCopy> = {
     helpTitle: '도움이 필요하신가요?',
     helpBeforeGithub: '',
     helpBetween: ' 또는 ',
-    helpAfterEmail: '로 문의해 주세요.',
+    helpAfterEmail: '으로 문의해 주세요.',
     prefix: '/ko',
   },
   es: {
@@ -229,7 +229,7 @@ onMounted(() => {
       document.title = copyByLocale[detected].pageTitle
     }
   } catch {
-    /* ignore — keep the English default */
+    /* ignore, keep the English default */
   }
 })
 </script>
